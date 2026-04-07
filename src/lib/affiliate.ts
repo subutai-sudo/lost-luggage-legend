@@ -8,7 +8,7 @@
  * - Commission Junction
  */
 
-export type AffiliateNetwork = 'shareasale' | 'awin' | 'amazon' | 'cj' | 'expedia' | 'custom';
+export type AffiliateNetwork = 'shareasale' | 'awin' | 'amazon' | 'cj' | 'expedia' | 'stay22' | 'custom';
 
 interface AffiliateConfig {
   network: AffiliateNetwork;
@@ -43,6 +43,10 @@ const AFFILIATE_CONFIG: Record<string, AffiliateConfig> = {
   expedia: {
     network: 'expedia',
     affiliateId: process.env.NEXT_PUBLIC_EXPEDIA_AFFILIATE_ID || 'Y1ZJJ9d',
+  },
+  stay22: {
+    network: 'stay22',
+    affiliateId: process.env.NEXT_PUBLIC_STAY22_AID || '1193160bctld',
   },
 };
 
@@ -92,6 +96,17 @@ export function generateAffiliateLink(
         affiliateUrl = `${base}${originalUrl.startsWith('/') ? originalUrl : '/' + originalUrl}`;
       } else {
         affiliateUrl = base;
+      }
+      break;
+
+    case 'stay22':
+      // Stay22 Allez: wraps any OTA URL with smart geolocation routing
+      // Supports: Booking.com, Vrbo, Expedia, Hotels.com, Tripadvisor, KAYAK
+      const stay22Aid = config.affiliateId;
+      if (originalUrl && originalUrl !== '#') {
+        affiliateUrl = `https://stay22.com/affiliates?aid=${stay22Aid}&url=${encodeURIComponent(originalUrl)}`;
+      } else {
+        affiliateUrl = `https://stay22.com/affiliates?aid=${stay22Aid}`;
       }
       break;
       

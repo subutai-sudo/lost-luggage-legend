@@ -9,8 +9,7 @@ export interface DestinationGuide {
   themeColor: string
   excerpt: string
   heroImage: string
-  expediaPath: string
-  expediaCampaign: string
+  stay22Url: string
   rating: number
   tags: string[]
   stats: { label: string; value: string }[]
@@ -29,8 +28,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
       'Overwater bungalows, bioluminescent plankton beaches, and some of the clearest water on earth. The Maldives is the gold standard for remote luxury.',
     heroImage:
       'https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=1200&q=85&auto=format&fit=crop',
-    expediaPath: '/Maldives.d99.Hotel-Information',
-    expediaCampaign: 'expedia-hotels',
+    stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Maldives&adults=2',
     rating: 4.9,
     tags: ['Beach', 'Resort', 'Romantic', 'Sailing'],
     stats: [
@@ -51,8 +49,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
       'Whitewashed cliffside villages, caldera sunsets that melt into the Aegean, and wine cellars carved into volcanic rock. Greece at its most theatrical.',
     heroImage:
       'https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=1200&q=85&auto=format&fit=crop',
-    expediaPath: '/Santorini.d500.Hotel-Information',
-    expediaCampaign: 'expedia-hotels',
+    stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Santorini&adults=2',
     rating: 4.8,
     tags: ['Romantic', 'Coastal', 'Sunset', 'Relaxing'],
     stats: [
@@ -73,8 +70,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
       'Bungee jumping, jet boating, and glacier hikes on the shores of a crystal lake ringed by the Southern Alps. Adventure sport capital of the southern hemisphere.',
     heroImage:
       'https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?w=1200&q=85&auto=format&fit=crop',
-    expediaPath: '/Queenstown.d609.Hotel-Information',
-    expediaCampaign: 'expedia-hotels',
+    stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Queenstown+New+Zealand&adults=2',
     rating: 4.7,
     tags: ['Adventure', 'Nature', 'Mountains', 'Solo Trip'],
     stats: [
@@ -95,8 +91,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
       'Shibuya scrambles, tsukiji fish markets at 5am, hidden ramen counters in lantern-lit alleys. Tokyo is a megacity that still somehow feels intimate.',
     heroImage:
       'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=1200&q=85&auto=format&fit=crop',
-    expediaPath: '/Tokyo.d188.Hotel-Information',
-    expediaCampaign: 'expedia-hotels',
+    stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Tokyo+Japan&adults=2',
     rating: 4.8,
     tags: ['City', 'Searching', 'Solo Trip', 'Zen'],
     stats: [
@@ -117,8 +112,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
       'Pastel villages stacked like dice on limestone cliffs above the Tyrrhenian Sea. Lemon groves, coastal drives with 300-hairpin bends, and pasta that costs €4 and changes your life.',
     heroImage:
       'https://images.unsplash.com/photo-1534113414509-0eec2bfb493f?w=1200&q=85&auto=format&fit=crop',
-    expediaPath: '/Amalfi-Coast.d200004.Hotel-Information',
-    expediaCampaign: 'expedia-hotels',
+    stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Amalfi+Coast+Italy&adults=2',
     rating: 4.8,
     tags: ['Coastal', 'Romantic', 'Relaxing', 'Sailing'],
     stats: [
@@ -139,8 +133,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
       'Kinkaku-ji at dawn before the tour buses arrive. A machiya townhouse dinner in Pontochō. Bamboo groves at Arashiyama. Kyoto is Japan distilled to its quietest essence.',
     heroImage:
       'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=1200&q=85&auto=format&fit=crop',
-    expediaPath: '/Kyoto.d460.Hotel-Information',
-    expediaCampaign: 'expedia-hotels',
+    stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Kyoto+Japan&adults=2',
     rating: 4.9,
     tags: ['Zen', 'Nature', 'Peaceful', 'Solo Trip'],
     stats: [
@@ -161,8 +154,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
       'The Great Migration crosses here from July to October — two million wildebeest and zebra pouring across crocodile-infested rivers. The most concentrated wildlife spectacle on the planet.',
     heroImage:
       'https://images.unsplash.com/photo-1516426122078-c23e76319801?w=1200&q=85&auto=format&fit=crop',
-    expediaPath: '/Maasai-Mara.d60234.Hotel-Information',
-    expediaCampaign: 'expedia-hotels',
+    stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Maasai+Mara+Kenya&adults=2',
     rating: 4.9,
     tags: ['Safari', 'Nature', 'Adventure', 'Searching'],
     stats: [
@@ -183,8 +175,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
       'Torres del Paine granite spires, Perito Moreno crashing into Lago Argentino, glaciers you can hear groaning from a kilometre away. Patagonia is nature at full theatrical scale.',
     heroImage:
       'https://images.unsplash.com/photo-1531761535209-180857e963b9?w=1200&q=85&auto=format&fit=crop',
-    expediaPath: '/Patagonia.d901.Hotel-Information',
-    expediaCampaign: 'expedia-hotels',
+    stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Patagonia&adults=2',
     rating: 4.7,
     tags: ['Nature', 'Mountains', 'Adventure', 'Peaceful'],
     stats: [
@@ -205,8 +196,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
       'Northern lights over black sand beaches, glaciers you can walk inside, geothermally heated lagoons at -5°C. Iceland is the most otherworldly destination in the northern hemisphere.',
     heroImage:
       'https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=1200&q=85&auto=format&fit=crop',
-    expediaPath: '/Iceland.d200100.Hotel-Information',
-    expediaCampaign: 'expedia-hotels',
+    stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Iceland&adults=2',
     rating: 4.8,
     tags: ['Winter', 'Nature', 'Falls', 'Relaxing'],
     stats: [
@@ -227,8 +217,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
       'Rice terrace walks in Ubud, surf breaks for every level, cliff-edge temple ceremonies at sunset. Bali is the original paradise for a reason — and it keeps getting better.',
     heroImage:
       'https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=1200&q=85&auto=format&fit=crop',
-    expediaPath: '/Bali.d150.Hotel-Information',
-    expediaCampaign: 'expedia-hotels',
+    stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Bali+Indonesia&adults=2',
     rating: 4.7,
     tags: ['Relaxing', 'Beach', 'Surfing', 'Tropical'],
     stats: [
@@ -244,9 +233,9 @@ export const FEATURED_GUIDES = DESTINATION_GUIDES.filter(g => g.featured)
 export const ALL_GUIDES = DESTINATION_GUIDES
 
 export function getGuideAffiliateUrl(guide: DestinationGuide): string {
-  // Expedia Creator Program: direct search URL with affiliate ID
-  // Replace this with your real destination-specific links from the Expedia Creator dashboard
-  // Format: https://www.expedia.com/affiliates/destination-slug.YOUR_ID
-  const destSlug = guide.expediaPath.replace('/', '').replace('.Hotel-Information', '')
-  return `https://www.expedia.com/affiliates/hotels.Y1ZJJ9d?dest=${encodeURIComponent(guide.title)}`
+  // Stay22 Allez: wraps any OTA URL with smart geolocation routing
+  // AID: 1193160bctld
+  const stay22Aid = '1193160bctld'
+  const encoded = encodeURIComponent(guide.stay22Url)
+  return `https://stay22.com/affiliates?aid=${stay22Aid}&url=${encoded}`
 }
