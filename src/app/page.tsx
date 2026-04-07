@@ -1,5 +1,6 @@
 import { NewsletterSignup } from '@/components/NewsletterSignup'
 import { DestinationGuidesSection } from '@/components/DestinationGuidesSection'
+import { GoldilockZone } from '@/components/GoldilockZone'
 import { DESTINATION_GUIDES } from '@/data/destinationGuides'
 
 export default function Home() {
@@ -107,6 +108,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Goldilock Zone Map */}
+      <GoldilockZone />
 
       {/* Destination Guides */}
       <DestinationGuidesSection />
