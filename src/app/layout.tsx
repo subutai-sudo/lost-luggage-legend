@@ -15,6 +15,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,700;1,8..60,300&display=swap" rel="stylesheet" />
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(s,t,a,y22){s.Stay22=s.Stay22||{};s.Stay22.params={lmaID:'69d481c8e570ac3a76202d74'};var twenty=t.createElement(a);var two=t.getElementsByTagName(a)[0];twenty.async=1;twenty.src='https://scripts.stay22.com/letmeallez.js';two.parentNode.insertBefore(twenty,two)})(window,document,'script')`,
