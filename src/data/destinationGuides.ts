@@ -227,6 +227,132 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     ],
     featured: false,
   },
+  {
+    id: 'singapore',
+    slug: 'singapore',
+    title: 'Singapore',
+    subtitle: 'Southeast Asia',
+    theme: 'City',
+    themeColor: '#e63946',
+    excerpt:
+      'The world\'s best airport is a destination in itself, with a butterfly garden, infinity pool, and rooftop bar. Singapore is the ideal 48-hour stopover — clean, safe, and effortlessly international.',
+    heroImage:
+      'https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=1200&q=85&auto=format&fit=crop',
+    stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Singapore&adults=2',
+    rating: 4.9,
+    tags: ['City', 'Layover', 'Business', 'Solo Trip'],
+    stats: [
+      { label: 'Avg. Temp', value: '27°C / 81°F' },
+      { label: 'Flight Time', value: '14–18 hrs' },
+      { label: 'Best Months', value: 'Feb–Apr' },
+    ],
+    featured: true,
+  },
+  {
+    id: 'lisbon',
+    slug: 'lisbon',
+    title: 'Lisbon',
+    subtitle: 'Estremadura, Portugal',
+    theme: 'Digital Nomad',
+    themeColor: '#0077b6',
+    excerpt:
+      'Tram 28 rattling through Alfama, pastéis de nata fresh from the oven, co-working spaces in converted palaces. Lisbon is Europe\'s most affordable Western capital and a digital nomad favourite for good reason.',
+    heroImage:
+      'https://images.unsplash.com/photo-1555881400-74d7acaacd8b?w=1200&q=85&auto=format&fit=crop',
+    stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Lisbon+Portugal&adults=2',
+    rating: 4.8,
+    tags: ['Digital Nomad', 'City', 'Solo Trip', 'Budget'],
+    stats: [
+      { label: 'Avg. Temp', value: '20°C / 68°F' },
+      { label: 'Flight Time', value: '6–8 hrs' },
+      { label: 'Best Months', value: 'Mar–Oct' },
+    ],
+    featured: true,
+  },
+  {
+    id: 'dubai',
+    slug: 'dubai',
+    title: 'Dubai',
+    subtitle: 'United Arab Emirates',
+    theme: 'Luxury',
+    themeColor: '#f4a261',
+    excerpt:
+      'The world\'s tallest building, indoor ski slopes in the desert, and a shopping mall that houses an aquarium. Dubai is the ultimate luxury layover — opulent, bizarre, and relentlessly photogenic.',
+    heroImage:
+      'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1200&q=85&auto=format&fit=crop',
+    stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Dubai&adults=2',
+    rating: 4.7,
+    tags: ['Luxury', 'Layover', 'Shopping', 'Architecture'],
+    stats: [
+      { label: 'Avg. Temp', value: '28°C / 82°F' },
+      { label: 'Flight Time', value: '6–8 hrs' },
+      { label: 'Best Months', value: 'Nov–Mar' },
+    ],
+    featured: false,
+  },
+  {
+    id: 'barcelona',
+    slug: 'barcelona',
+    title: 'Barcelona',
+    subtitle: 'Catalonia, Spain',
+    theme: 'Business',
+    themeColor: '#c1121f',
+    excerpt:
+      'Gaudi\'s undulating facades, tapas crawl through El Born, beach days wrapped around business meetings. Barcelona packs Mediterranean lifestyle and serious business infrastructure into one electrifying package.',
+    heroImage:
+      'https://images.unsplash.com/photo-1583422409516-2895a77efded?w=1200&q=85&auto=format&fit=crop',
+    stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Barcelona+Spain&adults=2',
+    rating: 4.8,
+    tags: ['Business', 'Coastal', 'City', 'Solo Trip'],
+    stats: [
+      { label: 'Avg. Temp', value: '22°C / 72°F' },
+      { label: 'Flight Time', value: '2–3 hrs' },
+      { label: 'Best Months', value: 'Mar–Jun, Sep–Nov' },
+    ],
+    featured: false,
+  },
+  {
+    id: 'bangkok',
+    slug: 'bangkok',
+    title: 'Bangkok',
+    subtitle: 'Central Thailand',
+    theme: 'Stopover',
+    themeColor: '#606c38',
+    excerpt:
+      'Grand Palace gold catching the tropical sun, 24-hour street food markets, khao soi warming you up after air-conditioned shopping malls. Bangkok is the original Southeast Asian stopover and still the best.',
+    heroImage:
+      'https://images.unsplash.com/photo-1508009603885-50cf7c579365?w=1200&q=85&auto=format&fit=crop',
+    stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Bangkok+Thailand&adults=2',
+    rating: 4.8,
+    tags: ['Stopover', 'Street Food', 'Temples', 'Budget'],
+    stats: [
+      { label: 'Avg. Temp', value: '29°C / 84°F' },
+      { label: 'Flight Time', value: '16–20 hrs' },
+      { label: 'Best Months', value: 'Nov–Feb' },
+    ],
+    featured: true,
+  },
+  {
+    id: 'amsterdam',
+    slug: 'amsterdam',
+    title: 'Amsterdam',
+    subtitle: 'North Holland, Netherlands',
+    theme: 'Canal',
+    themeColor: '#0077b6',
+    excerpt:
+      'Jordaan neighbourhood morning walks, Simonehoek pancakes, bikes threading past canal houses. Amsterdam is compact enough to feel manageable but dense enough with culture to fill a week.',
+    heroImage:
+      'https://images.unsplash.com/photo-1534351590666-13e3e96b5017?w=1200&q=85&auto=format&fit=crop',
+    stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Amsterdam+Netherlands&adults=2',
+    rating: 4.7,
+    tags: ['Canal', 'City', 'Solo Trip', 'Cycling'],
+    stats: [
+      { label: 'Avg. Temp', value: '12°C / 54°F' },
+      { label: 'Flight Time', value: '7–9 hrs' },
+      { label: 'Best Months', value: 'Apr–Oct' },
+    ],
+    featured: false,
+  },
 ]
 
 export const FEATURED_GUIDES = DESTINATION_GUIDES.filter(g => g.featured)
