@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 import { DESTINATION_GUIDES, getGuideAffiliateUrl, type DestinationGuide } from '@/data/destinationGuides'
 import { NewsletterSignup } from '@/components/NewsletterSignup'
 import { AffiliateDisclosure } from '@/components/AffiliateDisclosure'
+import { PriceComparison } from '@/components/PriceComparison'
 
 interface Props {
   params: Promise<{ slug: string }>
@@ -190,28 +191,9 @@ export default async function GuidePage({ params }: Props) {
             ))}
           </div>
 
-          {/* Affiliate CTA */}
-          <div id="book" className="my-16 p-8 bg-[#1e2d3d] rounded-sm text-center">
-            <div className="issue-label text-[#c9a96e] mb-3">Book Your Trip</div>
-            <h3 className="font-display text-3xl font-bold text-white mb-3">
-              Ready to visit {guide.title}?
-            </h3>
-            <p className="text-[#e8e0d4]/60 mb-6" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
-              We partner with Expedia to bring you verified deals and honest recommendations.{' '}
-              <span className="text-[#c9a96e]">We earn a commission at no extra cost to you.</span>
-            </p>
-            <a
-              href={affiliateUrl}
-              target="_blank"
-              rel="noopener noreferrer sponsored"
-              className="inline-block bg-[#c9a96e] text-[#1a1814] font-semibold px-8 py-4 text-lg hover:bg-[#d4b87a] transition-colors"
-              style={{ fontFamily: "'Source Sans 3', sans-serif" }}
-            >
-              Search Hotels in {guide.title} on Expedia →
-            </a>
-            <div className="mt-4">
-              <AffiliateDisclosure />
-            </div>
+          {/* Price Comparison — all 8 suppliers */}
+          <div id="book">
+            <PriceComparison guide={guide} destination={`${guide.title}, ${guide.subtitle}`} />
           </div>
 
           {/* Related destinations */}

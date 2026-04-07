@@ -83,15 +83,13 @@ export function DestinationGuideCard({ guide, variant = 'default' }: Props) {
               </svg>
             </Link>
             <a
-              href={affiliateUrl}
-              target="_blank"
-              rel="noopener noreferrer sponsored"
+              href={guideUrl}
               className="flex items-center gap-1.5 text-[#c9a96e] text-xs font-semibold hover:gap-2.5 transition-all"
               style={{ fontFamily: "'Source Sans 3', sans-serif" }}
             >
-              Book on Expedia
+              Compare Prices
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
+                <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
             </a>
           </div>
@@ -225,17 +223,15 @@ export function DestinationGuideCard({ guide, variant = 'default' }: Props) {
             </svg>
           </Link>
           <a
-            href={affiliateUrl}
-            target="_blank"
-            rel="noopener noreferrer sponsored"
-            className="flex items-center gap-1.5 text-[#c9a96e] text-sm font-semibold hover:gap-2.5 transition-all"
-            style={{ fontFamily: "'Source Sans 3', sans-serif" }}
-          >
-            Book on Expedia
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
-            </svg>
-          </a>
+              href={guideUrl}
+              className="flex items-center gap-1.5 text-[#c9a96e] text-sm font-semibold hover:gap-2.5 transition-all"
+              style={{ fontFamily: "'Source Sans 3', sans-serif" }}
+            >
+              Compare Prices
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
         </div>
       </div>
     </div>
