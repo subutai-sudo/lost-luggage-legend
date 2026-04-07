@@ -5,6 +5,7 @@ import { DESTINATION_GUIDES, getGuideAffiliateUrl, type DestinationGuide } from 
 import { NewsletterSignup } from '@/components/NewsletterSignup'
 import { AffiliateDisclosure } from '@/components/AffiliateDisclosure'
 import { PriceComparison } from '@/components/PriceComparison'
+import { FlightSearch } from '@/components/FlightSearch'
 
 interface Props {
   params: Promise<{ slug: string }>
@@ -131,16 +132,21 @@ export default async function GuidePage({ params }: Props) {
       <div className="bg-[#1e2d3d] border-b border-[#1e2d3d]">
         <div className="max-w-4xl mx-auto px-6 lg:px-12">
           <div className="flex flex-wrap gap-8 py-5">
-            {guide.stats.map((stat) => (
-              <div key={stat.label} className="flex flex-col">
-                <span className="text-white font-semibold text-lg" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
-                  {stat.value}
-                </span>
-                <span className="text-[#e8e0d4]/50 text-xs uppercase tracking-wider">
-                  {stat.label}
-                </span>
-              </div>
-            ))}
+            {/* Non-flight stats */}
+            {guide.stats
+              .filter((s) => !s.label.toLowerCase().includes('flight'))
+              .map((stat) => (
+                <div key={stat.label} className="flex flex-col">
+                  <span className="text-white font-semibold text-lg" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
+                    {stat.value}
+                  </span>
+                  <span className="text-[#e8e0d4]/50 text-xs uppercase tracking-wider">
+                    {stat.label}
+                  </span>
+                </div>
+              ))}
+            {/* Interactive flight search */}
+            <FlightSearch guide={guide} />
           </div>
         </div>
       </div>
@@ -464,7 +470,7 @@ function getArticleContent(guide: DestinationGuide): { sections: Array<{ title: 
       },
       {
         title: 'What to Expect',
-        content: `${guide.title} offers a uniquely ${guide.tags[0].toLowerCase()} experience that combines authentic local culture with modern travel infrastructure. The ${guide.stats[1]?.label || 'flight time'} from most European hubs makes it manageable for both short breaks and longer stays.`,
+        content: `${guide.title} offers a uniquely ${guide.tags[0].toLowerCase()} experience that combines authentic local culture with modern travel infrastructure. Use the flight search above to check times from your departure city.`,
       },
     ],
   }
