@@ -42,31 +42,71 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* Hero strip */}
-      <div className="bg-[#f9f6f0] border-b border-[#d9d0c4]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-10">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
-            <div>
-              <div className="flex items-center gap-3 mb-3">
-                <span className="issue-label text-[#c9a96e]">{DESTINATION_GUIDES.length} Destinations</span>
-                <span className="w-6 h-px bg-[#d9d0c4]" />
-                <span className="issue-label text-[#6b6560]">Premium Travel Guides</span>
-              </div>
-              <h1 className="font-display text-3xl md:text-4xl xl:text-5xl font-bold text-[#1a1814] leading-tight">
-                Your next trip starts<br className="hidden md:block" /> with the right intel.
-              </h1>
-              <p className="text-[#6b6560] mt-3 max-w-lg text-base leading-relaxed" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
-                In-depth destination guides written for the discerning traveler — with real flight times,
-                live price comparisons across 7 suppliers, and honest editorial with no hidden agendas.
-              </p>
+      {/* Hero */}
+      <section className="relative overflow-hidden" style={{ minHeight: '520px' }}>
+        {/* Background image — overhead travel accessories */}
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage: `url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1800&q=85&auto=format&fit=crop')`,
+          }}
+        />
+        {/* Gradient overlay */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background: 'linear-gradient(to right, rgba(15,28,38,0.92) 0%, rgba(15,28,38,0.75) 55%, rgba(15,28,38,0.3) 100%)',
+          }}
+        />
+        {/* Content */}
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-12 flex items-center" style={{ minHeight: '520px' }}>
+          <div className="max-w-2xl py-16">
+            {/* Kicker */}
+            <div className="flex items-center gap-3 mb-5">
+              <span className="issue-label text-[#c9a96e]">{DESTINATION_GUIDES.length} Destinations</span>
+              <span className="w-8 h-px bg-[#c9a96e]/40" />
+              <span className="issue-label text-white/40">Premium Travel Guides</span>
             </div>
-            <p className="text-[#6b6560] max-w-xs text-sm leading-relaxed md:text-right" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
-              Every guide linked to Booking.com, Expedia, Hotels.com, Agoda, Vrbo, KAYAK, and Tripadvisor.
-              We earn a commission — you pay nothing extra.
+
+            {/* Headline */}
+            <h1 className="font-display text-4xl md:text-5xl xl:text-6xl font-bold text-white leading-tight mb-5">
+              Your next trip starts<br />with the right intel.
+            </h1>
+
+            {/* Subtext */}
+            <p className="text-white/60 text-base md:text-lg leading-relaxed mb-8 max-w-lg" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
+              In-depth destination guides written for the discerning traveler — with flight time estimates
+              from your city, live price comparisons across 7 suppliers, and editorial you can trust.
+            </p>
+
+            {/* CTA row */}
+            <div className="flex flex-wrap items-center gap-4">
+              <a
+                href="#guides"
+                className="inline-flex items-center gap-2 bg-[#c9a96e] text-[#1a1814] font-semibold px-6 py-3 text-base hover:bg-[#d4b87a] transition-colors"
+                style={{ fontFamily: "'Source Sans 3', sans-serif" }}
+              >
+                Browse Guides
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </a>
+              <a
+                href="#newsletter"
+                className="inline-flex items-center gap-2 text-white/70 font-semibold px-4 py-3 text-base hover:text-white transition-colors border border-white/20 hover:border-white/40"
+                style={{ fontFamily: "'Source Sans 3', sans-serif" }}
+              >
+                Free Weekly Briefing
+              </a>
+            </div>
+
+            {/* Supplier trust line */}
+            <p className="text-white/30 text-xs mt-6" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
+              Guides linked to Booking.com · Expedia · Hotels.com · Agoda · Vrbo · KAYAK · Tripadvisor
             </p>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* Destination Guides */}
       <DestinationGuidesSection />
