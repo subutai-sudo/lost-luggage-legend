@@ -21,13 +21,19 @@ export default function Home() {
 
             {/* Nav Links */}
             <div className="hidden md:flex items-center gap-10">
-              {['Guides', 'Gear', 'Stories', 'About', 'Subscribe'].map((item) => (
+              {[
+                { label: 'Guides', href: '#guides' },
+                { label: 'Gear', href: '#carry-on-edit' },
+                { label: 'Stories', href: '#from-the-editor' },
+                { label: 'About', href: '#about' },
+                { label: 'Subscribe', href: '#newsletter' },
+              ].map((item) => (
                 <a
-                  key={item}
-                  href="#"
+                  key={item.label}
+                  href={item.href}
                   className="nav-editorial text-[#6b6560] hover:text-[#1a1814] transition-colors"
                 >
-                  {item}
+                  {item.label}
                 </a>
               ))}
             </div>
@@ -66,7 +72,7 @@ export default function Home() {
       <DestinationGuidesSection />
 
       {/* Featured Article */}
-      <section id="guides" className="py-20 lg:py-28 bg-[#f9f6f0]">
+      <section id="from-the-editor" className="py-20 lg:py-28 bg-[#f9f6f0]">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           {/* Section header */}
           <div className="flex items-end justify-between mb-14">
@@ -87,7 +93,7 @@ export default function Home() {
       </section>
 
       {/* Product Recommendations */}
-      <section className="py-20 lg:py-28 bg-[#f0ebe2]">
+      <section id="carry-on-edit" className="py-20 lg:py-28 bg-[#f0ebe2]">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="text-center mb-16">
             <span className="issue-label text-[#c9a96e] mb-4 block">Curated Selection</span>
@@ -223,7 +229,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-[#0f1c26] border-t border-[#1e2d3d] pt-16 pb-10">
+      <footer id="about" className="bg-[#0f1c26] border-t border-[#1e2d3d] pt-16 pb-10">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="grid md:grid-cols-4 gap-12 mb-14">
             {/* Brand */}

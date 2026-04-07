@@ -24,7 +24,7 @@ export function DestinationGuidesSection() {
   )
 
   return (
-    <section className="bg-[#1e2d3d] py-20 lg:py-24">
+    <section id="guides" className="bg-[#1e2d3d] py-20 lg:py-24">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
 
         {/* Section header */}
