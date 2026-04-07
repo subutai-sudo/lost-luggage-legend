@@ -8,7 +8,7 @@
  * - Commission Junction
  */
 
-export type AffiliateNetwork = 'shareasale' | 'awin' | 'amazon' | 'cj' | 'custom';
+export type AffiliateNetwork = 'shareasale' | 'awin' | 'amazon' | 'cj' | 'expedia' | 'custom';
 
 interface AffiliateConfig {
   network: AffiliateNetwork;
@@ -39,6 +39,10 @@ const AFFILIATE_CONFIG: Record<string, AffiliateConfig> = {
   amazon: {
     network: 'amazon',
     affiliateId: process.env.NEXT_PUBLIC_AMAZON_ASSOCIATE_TAG || '',
+  },
+  expedia: {
+    network: 'expedia',
+    affiliateId: process.env.NEXT_PUBLIC_EXPEDIA_AFFILIATE_ID || 'Y1ZJJ9d',
   },
 };
 
@@ -76,6 +80,19 @@ export function generateAffiliateLink(
     case 'cj':
       // Commission Junction format
       affiliateUrl = `https://www.anrdoezrs.net/links/${config.affiliateId}/type/dlg/${originalUrl}`;
+      break;
+
+    case 'expedia':
+      // Expedia Creator Program format: Base URL + affiliate slug
+      // Supports: home, flights, hotels, cars, packages, activities
+      const expediaAffiliateId = config.affiliateId;
+      const base = `https://www.expedia.com/affiliates/${options?.campaign || 'expedia-home'}.${expediaAffiliateId}`;
+      if (originalUrl && originalUrl !== '#') {
+        // Append destination/product path
+        affiliateUrl = `${base}${originalUrl.startsWith('/') ? originalUrl : '/' + originalUrl}`;
+      } else {
+        affiliateUrl = base;
+      }
       break;
       
     default:
@@ -133,7 +150,7 @@ export function trackAffiliateClick(
 /**
  * Pre-configured affiliate merchants for travel niche
  */
-export const TRAVEL_MERCHANTS: Record<string, { name: string; networks: AffiliateNetwork[]; defaultMerchantId?: string }> = {
+export const TRAVEL_MERCHANTS: Record<string, { name: string; networks: AffiliateNetwork[]; defaultMerchantId?: string; campaign?: string }> = {
   'away': { name: 'Away Travel', networks: ['shareasale'], defaultMerchantId: '12345' },
   'monos': { name: 'Monos Luggage', networks: ['awin'], defaultMerchantId: '67890' },
   'samsonite': { name: 'Samsonite', networks: ['cj', 'shareasale'], defaultMerchantId: '11111' },
@@ -142,6 +159,12 @@ export const TRAVEL_MERCHANTS: Record<string, { name: string; networks: Affiliat
   'booking': { name: 'Booking.com', networks: ['awin', 'cj'], defaultMerchantId: '33333' },
   'world-nomad': { name: 'World Nomads Insurance', networks: ['awin'], defaultMerchantId: '44444' },
   'allianz': { name: 'Allianz Travel Insurance', networks: ['cj'], defaultMerchantId: '55555' },
+  'expedia': { name: 'Expedia', networks: ['expedia'], campaign: 'expedia-home' },
+  'expedia-flights': { name: 'Expedia Flights', networks: ['expedia'], campaign: 'flights' },
+  'expedia-hotels': { name: 'Expedia Hotels', networks: ['expedia'], campaign: 'hotels' },
+  'expedia-cars': { name: 'Expedia Car Rentals', networks: ['expedia'], campaign: 'cars' },
+  'expedia-packages': { name: 'Expedia Packages', networks: ['expedia'], campaign: 'packages' },
+  'expedia-activities': { name: 'Expedia Activities', networks: ['expedia'], campaign: 'activities' },
 };
 
 /**
@@ -154,11 +177,11 @@ export function getMerchantLink(
 ): AffiliateLink | null {
   const merchant = TRAVEL_MERCHANTS[merchantKey];
   if (!merchant) return null;
-  
+
   const url = productUrl || '#';
   return generateAffiliateLink(url, merchant.networks[0], {
     merchantId: merchant.defaultMerchantId,
-    campaign,
+    campaign: campaign || merchant.campaign,
   });
 }
 
