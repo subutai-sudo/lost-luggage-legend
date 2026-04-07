@@ -353,6 +353,90 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     ],
     featured: false,
   },
+  {
+    id: 'mexico-city',
+    slug: 'mexico-city',
+    title: 'Mexico City',
+    subtitle: 'CDMX, Mexico',
+    theme: 'Culture',
+    themeColor: '#e63946',
+    excerpt:
+      'Fried fish tacos in Coyoacán, Frida Kahlo\'s blue courtyard, rooftop mezcal bars above the Zócalo. Mexico City is one of the great undiscovered urban capitals — dense with culture, absurdly affordable, and perpetually alive.',
+    heroImage:
+      'https://images.unsplash.com/photo-1585464231875-d9ef1f5ad396?w=1200&q=85&auto=format&fit=crop',
+    stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Mexico+City&adults=2',
+    rating: 4.8,
+    tags: ['Culture', 'City', 'Food', 'Budget'],
+    stats: [
+      { label: 'Avg. Temp', value: '18°C / 64°F' },
+      { label: 'Flight Time', value: '4–6 hrs' },
+      { label: 'Best Months', value: 'Mar–May, Sep–Nov' },
+    ],
+    featured: false,
+  },
+  {
+    id: 'marrakech',
+    slug: 'marrakech',
+    title: 'Marrakech',
+    subtitle: 'Kechmich, Morocco',
+    theme: 'Culture',
+    themeColor: '#bc6c25',
+    excerpt:
+      'Djemaa el-Fna at dusk, smoke from grilled lamb souks drifting over the medina, riads with hand-laid zellige tilework. Marrakech is sensory overload in the best possible way — chaotic, beautiful, and surprisingly affordable.',
+    heroImage:
+      'https://images.unsplash.com/photo-1597212618440-806262de4f6b?w=1200&q=85&auto=format&fit=crop',
+    stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Marrakech+Morocco&adults=2',
+    rating: 4.7,
+    tags: ['Culture', 'Budget', 'Solo Trip', 'Searching'],
+    stats: [
+      { label: 'Avg. Temp', value: '25°C / 77°F' },
+      { label: 'Flight Time', value: '3–4 hrs' },
+      { label: 'Best Months', value: 'Mar–May, Sep–Nov' },
+    ],
+    featured: false,
+  },
+  {
+    id: 'helsinki',
+    slug: 'helsinki',
+    title: 'Helsinki',
+    subtitle: 'Uusimaa, Finland',
+    theme: 'Nordic',
+    themeColor: '#1d3557',
+    excerpt:
+      'Sauna culture you can actually join for €20, design district vintage shops, archipelagos accessible by ferry. Helsinki is the rare Nordic capital that stays affordable and never feels touristy, even in summer.',
+    heroImage:
+      'https://images.unsplash.com/photo-1558788353-f76d92427f16?w=1200&q=85&auto=format&fit=crop',
+    stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Helsinki+Finland&adults=2',
+    rating: 4.6,
+    tags: ['Nordic', 'Nature', 'Solo Trip', 'Peaceful'],
+    stats: [
+      { label: 'Avg. Temp', value: '8°C / 46°F' },
+      { label: 'Flight Time', value: '7–9 hrs' },
+      { label: 'Best Months', value: 'Jun–Aug' },
+    ],
+    featured: false,
+  },
+  {
+    id: 'cape-town',
+    slug: 'cape-town',
+    title: 'Cape Town',
+    subtitle: 'Western Cape, South Africa',
+    theme: 'Adventure',
+    themeColor: '#2d6a4f',
+    excerpt:
+      'Table Mountain clouds rolling over the city bowl, penguins waddling at Boulders Beach, wine regions an hour away. Cape Town is the most geographically dramatic city in Africa — part California coast, part European elegance, entirely itself.',
+    heroImage:
+      'https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=1200&q=85&auto=format&fit=crop',
+    stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Cape+Town+South+Africa&adults=2',
+    rating: 4.8,
+    tags: ['Adventure', 'Nature', 'Wine', 'Solo Trip'],
+    stats: [
+      { label: 'Avg. Temp', value: '20°C / 68°F' },
+      { label: 'Flight Time', value: '14–18 hrs' },
+      { label: 'Best Months', value: 'Nov–Mar' },
+    ],
+    featured: false,
+  },
 ]
 
 export const FEATURED_GUIDES = DESTINATION_GUIDES.filter(g => g.featured)
