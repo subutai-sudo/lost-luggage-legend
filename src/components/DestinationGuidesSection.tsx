@@ -35,7 +35,7 @@ export function DestinationGuidesSection() {
               Plan Your Next Trip
             </h2>
             <p className="text-[#e8e0d4]/60 mt-3 max-w-md font-light" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
-              Curated destinations across every travel style — linked directly to Expedia with our affiliate partnership.
+              Curated destinations across every travel style — with live price comparisons across 7 suppliers so you can always find the best deal.
             </p>
           </div>
           {/* Affiliate note */}

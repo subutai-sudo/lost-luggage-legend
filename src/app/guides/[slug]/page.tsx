@@ -61,10 +61,7 @@ export default async function GuidePage({ params }: Props) {
             <div className="hidden md:flex items-center gap-10">
               {[
                 { label: 'Guides', href: '/' },
-                { label: 'Gear', href: '/#carry-on-edit' },
-                { label: 'Stories', href: '/#from-the-editor' },
-                { label: 'About', href: '/#about' },
-                { label: 'Subscribe', href: '/#newsletter' },
+                { label: 'Newsletter', href: '/#newsletter' },
               ].map((item) => (
                 <Link
                   key={item.label}
