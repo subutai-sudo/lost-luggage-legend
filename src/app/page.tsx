@@ -1,7 +1,21 @@
 import { NewsletterSignup } from '@/components/NewsletterSignup'
 import { DestinationGuidesSection } from '@/components/DestinationGuidesSection'
 import { GoldilockZone } from '@/components/GoldilockZone'
+import { getSeasonalStatus, getNextGoldilockMonth, monthName } from '@/lib/seasonalHelpers'
 import { DESTINATION_GUIDES } from '@/data/destinationGuides'
+
+// Use a stable default to avoid SSR/hydration mismatch — matches GoldilockZone's default
+const CURRENT_MONTH = 4 // April 2026
+
+// Sort guides by editorial priority: in-season first, then coming-into-season, then rest
+const inSeason = DESTINATION_GUIDES.filter(g => getSeasonalStatus(g.id, CURRENT_MONTH) === 'in_season')
+const upcomingSeason = DESTINATION_GUIDES
+  .filter(g => getSeasonalStatus(g.id, CURRENT_MONTH) === 'coming_soon')
+  .sort((a, b) => (getNextGoldilockMonth(a.id, CURRENT_MONTH) ?? 12) - (getNextGoldilockMonth(b.id, CURRENT_MONTH) ?? 12))
+const offSeason = DESTINATION_GUIDES.filter(
+  g => getSeasonalStatus(g.id, CURRENT_MONTH) === 'out_of_season'
+)
+const seasonalGuides = [...inSeason, ...upcomingSeason]
 
 export default function Home() {
   return (
@@ -154,20 +168,34 @@ export default function Home() {
               </p>
             </div>
 
-            {/* Popular Guides */}
+            {/* Seasonal Guides — in-season first, then coming-into-season */}
             <div>
-              <h4 className="issue-label text-[#c9a96e] mb-4">Popular Guides</h4>
+              <h4 className="issue-label text-[#c9a96e] mb-4">Right Now</h4>
               <ul className="space-y-2" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
-                {DESTINATION_GUIDES.slice(0, 6).map((guide) => (
-                  <li key={guide.id}>
-                    <a
-                      href={`/guides/${guide.slug}`}
-                      className="text-sm text-[#e8e0d4]/50 hover:text-[#c9a96e] transition-colors"
-                    >
-                      {guide.title}
-                    </a>
-                  </li>
-                ))}
+                {seasonalGuides.map((guide) => {
+                  const status = getSeasonalStatus(guide.id, CURRENT_MONTH)
+                  const isInSeason = status === 'in_season'
+                  const nextMonth = getNextGoldilockMonth(guide.id, CURRENT_MONTH)
+                  return (
+                    <li key={guide.id}>
+                      <a
+                        href={`/guides/${guide.slug}`}
+                        className={`text-sm transition-colors flex items-center gap-2 ${
+                          isInSeason ? 'text-white/80 hover:text-[#c9a96e]' : 'text-white/45 hover:text-[#60a5fa]'
+                        }`}
+                      >
+                        <span className={`text-xs font-semibold px-1.5 py-0.5 rounded-sm flex-shrink-0 ${
+                          isInSeason
+                            ? 'bg-[#c9a96e]/15 text-[#c9a96e]'
+                            : 'bg-[#60a5fa]/10 text-[#60a5fa]'
+                        }`} style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
+                          {isInSeason ? 'Now' : (nextMonth ? monthName(nextMonth) : 'Soon')}
+                        </span>
+                        {guide.title}
+                      </a>
+                    </li>
+                  )
+                })}
               </ul>
             </div>
 

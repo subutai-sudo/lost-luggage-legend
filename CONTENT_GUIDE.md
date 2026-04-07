@@ -130,3 +130,28 @@ The following article types are **never produced** under this brand:
 - Hotel chain roundups unless part of a specific destination guide
 
 If a task requests any of these, respond: "Lost Luggage Legend publishes destination travel guides only. Rejecting gear/[topic] content request."
+
+---
+
+## Seasonal Priority Rules
+
+**Master signal:** `src/lib/seasonalHelpers.ts` → `getSeasonalStatus(guideId, month)`
+
+Every content task is evaluated against the current calendar month:
+
+| Status | Meaning | Action |
+|---|---|---|
+| `in_season` | Destination is in its Goldilock Zone this month | Surface prominently. Write/update only if quality issues exist. |
+| `coming_soon` | Enters Goldilock Zone in next 1-2 months | **Write NOW. Publish before season opens.** |
+| `out_of_season` | More than 2 months away | Queue. Write during low season for next cycle. |
+
+**The only tasks in scope right now (April 2026):** Santorini, Amalfi Coast, Lisbon, Amsterdam — all entering their Goldilock Zone in May. See `destinations/NEXT.md` for full queue.
+
+**Do not write content for:** gear, luggage, carry-on bags, airline reviews, credit cards, packing lists — or any destination that is `out_of_season` and not in the top 4 priority queue.
+
+**How to check status:**
+```ts
+import { getSeasonalStatus, getNextGoldilockMonth } from '@/lib/seasonalHelpers'
+getSeasonalStatus('santorini', 4)  // 'coming_soon' — write this one now
+getSeasonalStatus('iceland', 4)     // 'out_of_season' — queue for May
+```

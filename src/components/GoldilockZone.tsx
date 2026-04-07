@@ -9,34 +9,15 @@ import {
   ZoomableGroup,
 } from 'react-simple-maps'
 import { DESTINATION_GUIDES, type DestinationGuide } from '@/data/destinationGuides'
+import {
+  BEST_MONTHS,
+  getSeasonalStatus,
+  getNextGoldilockMonth,
+  monthName,
+} from '@/lib/seasonalHelpers'
 
 const GEO_URL = 'https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json'
 
-// Best months for each destination (1=Jan … 12=Dec), parsed from destinationGuides.ts
-const BEST_MONTHS: Record<string, number[]> = {
-  maldives: [11, 12, 1, 2, 3, 4],      // Nov–Apr dry season
-  santorini: [5, 6, 9, 10],             // May–Jun, Sep–Oct
-  queenstown: [12, 1, 2, 3],            // Dec–Mar NZ summer
-  tokyo: [3, 4, 5, 10, 11],             // Mar–May, Oct–Nov
-  'amalfi-coast': [5, 6, 9, 10],        // May–Jun, Sep–Oct
-  kyoto: [3, 4, 5, 10, 11],             // Mar–May, Oct–Nov
-  'maasai-mara': [7, 8, 9],             // Jul–Sep great migration
-  patagonia: [12, 1, 2, 3],             // Nov–Mar Patagonia summer
-  iceland: [6, 7, 8, 9],                // Jun–Sep
-  bali: [4, 5, 6, 7, 8, 9, 10],        // Apr–Oct dry season
-  singapore: [2, 3, 4],                  // Feb–Apr least rain
-  lisbon: [5, 6, 9, 10],                 // May–Jun, Sep–Oct
-  dubai: [11, 12, 1, 2, 3],             // Nov–Mar
-  barcelona: [4, 5, 6, 9, 10],          // Apr–Jun, Sep–Oct
-  bangkok: [11, 12, 1, 2, 3],           // Nov–Mar
-  amsterdam: [5, 6, 7, 8, 9],           // May–Sep
-  'mexico-city': [11, 12, 1, 2, 3, 4],  // Nov–Apr
-  marrakech: [3, 4, 5, 10, 11],          // Mar–May, Oct–Nov
-  helsinki: [6, 7, 8],                  // Jun–Aug
-  'cape-town': [11, 12, 1, 2, 3],        // Nov–Mar
-}
-
-// Coordinates for each destination — [longitude, latitude] (GeoJSON standard)
 const GUIDE_COORDS: Record<string, [number, number]> = {
   maldives: [73.2207, 3.2028],         // Malé
   santorini: [25.4456, 36.4072],        // Santorini island
@@ -99,6 +80,21 @@ export function GoldilockZone() {
 
   const inZone = useMemo(
     () => guides.filter((g) => isInGoldilockZone(g.id, month)),
+    [guides, month]
+  )
+
+  // Coming into season within next 2 months — editorial priority window
+  const upcomingZone = useMemo(
+    () =>
+      guides.filter(
+        (g) =>
+          !isInGoldilockZone(g.id, month) &&
+          getSeasonalStatus(g.id, month) === 'coming_soon'
+      ).sort((a, b) => {
+        const nextA = getNextGoldilockMonth(a.id, month) ?? 12
+        const nextB = getNextGoldilockMonth(b.id, month) ?? 12
+        return nextA - nextB
+      }),
     [guides, month]
   )
   const outZone = useMemo(
@@ -196,13 +192,14 @@ export function GoldilockZone() {
                 const coords = GUIDE_COORDS[guide.id]
                 if (!coords) return null
                 const active = isInGoldilockZone(guide.id, month)
+                const status = getSeasonalStatus(guide.id, month)
                 return (
                   <Marker
                     key={guide.id}
                     coordinates={coords as [number, number]}
                   >
-                    {/* Pulse ring for active markers */}
-                    {active && (
+                    {/* Pulse ring for in-season and coming-soon markers */}
+                    {status === 'in_season' && (
                       <circle
                         r={10}
                         fill="none"
@@ -213,14 +210,29 @@ export function GoldilockZone() {
                         style={{ animationDuration: '2s' }}
                       />
                     )}
+                    {status === 'coming_soon' && (
+                      <circle
+                        r={10}
+                        fill="none"
+                        stroke="#60a5fa"
+                        strokeWidth={1}
+                        opacity={0.35}
+                        className="animate-ping"
+                        style={{ animationDuration: '3s' }}
+                      />
+                    )}
                     {/* Marker dot */}
                     <circle
-                      r={active ? 5 : 3}
-                      fill={active ? '#c9a96e' : '#4a5568'}
-                      stroke={active ? '#f9f6f0' : '#2d3748'}
-                      strokeWidth={active ? 1.5 : 1}
+                      r={active ? 5 : status === 'coming_soon' ? 4 : 3}
+                      fill={active ? '#c9a96e' : status === 'coming_soon' ? '#60a5fa' : '#4a5568'}
+                      stroke={active ? '#f9f6f0' : status === 'coming_soon' ? '#bfdbfe' : '#2d3748'}
+                      strokeWidth={active ? 1.5 : status === 'coming_soon' ? 1.5 : 1}
                       style={{
-                        filter: active ? 'drop-shadow(0 0 4px rgba(201,169,110,0.8))' : 'none',
+                        filter: active
+                          ? 'drop-shadow(0 0 4px rgba(201,169,110,0.8))'
+                          : status === 'coming_soon'
+                          ? 'drop-shadow(0 0 4px rgba(96,165,250,0.8))'
+                          : 'none',
                         cursor: 'pointer',
                       }}
                     />
@@ -244,14 +256,18 @@ export function GoldilockZone() {
 
           {/* Map legend */}
           <div className="absolute bottom-4 left-4 bg-[#0f1c26]/80 backdrop-blur-sm border border-[#1e2d3d] rounded-sm px-4 py-2.5">
-            <div className="flex items-center gap-3 text-xs" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
+            <div className="flex items-center gap-4 text-xs" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
               <div className="flex items-center gap-1.5">
-                <div className="w-2.5 h-2.5 rounded-full bg-[#c9a96e]" />
-                <span className="text-white/60">In Goldilock Zone</span>
+                <div className="w-2.5 h-2.5 rounded-full bg-[#c9a96e] shadow-[0_0_6px_rgba(201,169,110,0.6)]" />
+                <span className="text-white/70">In Season Now</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <div className="w-2.5 h-2.5 rounded-full bg-[#60a5fa] shadow-[0_0_6px_rgba(96,165,250,0.6)]" />
+                <span className="text-white/70">Coming Into Season</span>
               </div>
               <div className="flex items-center gap-1.5">
                 <div className="w-2.5 h-2.5 rounded-full bg-[#4a5568]" />
-                <span className="text-white/40">Outside window</span>
+                <span className="text-white/40">Off Season</span>
               </div>
             </div>
           </div>
@@ -261,15 +277,18 @@ export function GoldilockZone() {
         <div className="grid md:grid-cols-2 gap-6 mt-8">
           {/* In Zone */}
           <div className="bg-[#1e2d3d]/40 border border-[#c9a96e]/20 rounded-sm p-5">
-            <div className="flex items-center gap-2 mb-4">
+            <div className="flex items-center gap-2 mb-3">
               <div className="w-2.5 h-2.5 rounded-full bg-[#c9a96e] shadow-[0_0_6px_rgba(201,169,110,0.5)]" />
-              <h3 className="font-display text-lg font-bold text-white">
-                In the Goldilock Zone
+              <h3 className="font-display text-base font-bold text-white">
+                In Season Now
               </h3>
-              <span className="ml-auto text-[#c9a96e] text-sm font-semibold" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
-                {inZone.length} destinations
+              <span className="ml-auto text-[#c9a96e] text-xs font-semibold px-2 py-0.5 rounded-sm bg-[#c9a96e]/10" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
+                {inZone.length} guides live
               </span>
             </div>
+            <p className="text-white/30 text-xs mb-4 -mt-1" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
+              Best weather, peak season, optimal travel conditions
+            </p>
             <div className="space-y-2.5">
               {inZone.map((guide) => (
                 <a
