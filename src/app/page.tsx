@@ -39,81 +39,128 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section className="relative bg-[#0f1c26] overflow-hidden">
-        {/* Background Image — luggage/airport aesthetic */}
-        <div
-          className="absolute inset-0 opacity-30"
-          style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1600&q=80&auto=format&fit=crop')`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}
-        />
-        {/* Dark overlay gradient */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0f1c26] via-[#0f1c26]/80 to-transparent" />
-        {/* Gold accent line */}
-        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#c9a96e] via-[#e8c87a] to-[#c9a96e]" />
+      {/* Hero Section — Light Editorial Magazine Style */}
+      <section className="relative bg-[#f9f6f0] overflow-hidden">
+        {/* Top border — bold gold line */}
+        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#c9a96e] via-[#e8c87a] to-[#c9a96e]" />
 
-        <div className="relative max-w-7xl mx-auto px-6 lg:px-12 py-28 lg:py-40">
-          <div className="max-w-2xl stagger-children">
-            {/* Issue label */}
-            <div className="flex items-center gap-3 mb-6">
-              <span className="issue-label text-[#c9a96e]">Vol. I — 2026</span>
-              <span className="w-8 h-px bg-[#c9a96e]" />
-              <span className="issue-label text-[#c9a96e]/60">Travel Intelligence</span>
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 pt-20 pb-24">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+
+            {/* Left: Text Content */}
+            <div className="stagger-children">
+              {/* Issue label */}
+              <div className="flex items-center gap-3 mb-8">
+                <span className="w-10 h-px bg-[#c9a96e]" />
+                <span className="issue-label text-[#c9a96e]">Vol. I — 2026</span>
+                <span className="w-6 h-px bg-[#d9d0c4]" />
+                <span className="issue-label text-[#6b6560]">Travel Intelligence</span>
+              </div>
+
+              {/* Headline */}
+              <h1
+                className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-[#1a1814] leading-[1.0] mb-8"
+              >
+                Never Lose
+                <br />
+                <em className="text-[#7c2d2d]">Your Way</em>
+                <br />
+                Again
+              </h1>
+
+              {/* Rule with ornament */}
+              <div className="flex items-center gap-4 mb-8">
+                <div className="w-12 h-0.5 bg-[#c9a96e]" />
+                <span className="text-[#c9a96e] text-lg">✦</span>
+                <div className="w-12 h-0.5 bg-[#c9a96e]" />
+              </div>
+
+              {/* Subheadline */}
+              <p className="text-lg md:text-xl text-[#6b6560] leading-relaxed mb-10 max-w-md font-light">
+                The discerning business traveler&apos;s guide to luggage recovery,
+                carry-on strategy, and gear that actually works.
+              </p>
+
+              {/* CTAs */}
+              <div className="flex flex-wrap gap-5">
+                <a href="#guides" className="btn-primary">
+                  Explore Guides
+                </a>
+                <a href="#newsletter" className="btn-outline">
+                  Subscribe Free
+                </a>
+              </div>
             </div>
 
-            {/* Headline */}
-            <h1
-              className="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-white leading-[0.95] mb-8"
-              style={{ fontStyle: 'italic' }}
-            >
-              Never Lose
-              <br />
-              <span className="text-[#c9a96e]">Your Way</span>
-              <br />
-              Again
-            </h1>
+            {/* Right: Hero Image — magazine cover feel */}
+            <div className="relative">
+              {/* Main image — airport/luggage scene */}
+              <div className="relative aspect-[4/5] overflow-hidden shadow-2xl">
+                <img
+                  src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=900&q=85&auto=format&fit=crop"
+                  alt="Business traveler with luggage"
+                  className="w-full h-full object-cover"
+                />
+                {/* Gradient overlay on image bottom */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
 
-            {/* Rule */}
-            <div className="w-16 h-0.5 bg-[#c9a96e] mb-8" />
+                {/* Floating issue badge */}
+                <div className="absolute top-6 left-6">
+                  <div
+                    className="bg-white/95 backdrop-blur-sm px-5 py-3 shadow-lg"
+                    style={{ borderLeft: '3px solid #c9a96e' }}
+                  >
+                    <div className="issue-label text-[#c9a96e] mb-0.5">Cover Story</div>
+                    <div className="text-xs text-[#6b6560]" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
+                      Luggage Recovery
+                    </div>
+                  </div>
+                </div>
 
-            {/* Subheadline */}
-            <p className="text-lg md:text-xl text-[#e8e0d4] leading-relaxed mb-10 max-w-lg font-light">
-              The discerning business traveler&apos;s guide to luggage recovery,
-              carry-on strategy, and gear that actually works.
-            </p>
+                {/* Bottom image caption */}
+                <div className="absolute bottom-0 left-0 right-0 p-6">
+                  <p
+                    className="text-white/80 text-xs uppercase tracking-widest"
+                    style={{ fontFamily: "'Source Sans 3', sans-serif" }}
+                  >
+                    Photography via Unsplash
+                  </p>
+                </div>
+              </div>
 
-            {/* CTAs */}
-            <div className="flex flex-wrap gap-5">
-              <a href="#guides" className="btn-primary">
-                Explore Guides
-              </a>
-              <a href="#newsletter" className="btn-outline" style={{ borderColor: 'rgba(255,255,255,0.4)', color: 'white' }}>
-                Subscribe Free
-              </a>
+              {/* Decorative element — offset card */}
+              <div
+                className="absolute -bottom-8 -left-8 w-48 h-32 p-5 shadow-xl z-10"
+                style={{ background: '#1e2d3d' }}
+              >
+                <div className="issue-label text-[#c9a96e] mb-2">Featured</div>
+                <p
+                  className="text-white text-sm font-semibold leading-snug"
+                  style={{ fontFamily: "'Source Sans 3', sans-serif" }}
+                >
+                  12 Carry-On Guides Published
+                </p>
+                <div className="mt-2 flex items-center gap-1">
+                  {[1,2,3,4,5].map(s => (
+                    <span key={s} className="text-[#c9a96e] text-sm">★</span>
+                  ))}
+                  <span className="text-white/50 text-xs ml-1">4.9</span>
+                </div>
+              </div>
+
+              {/* Decorative gold corner */}
+              <div className="absolute -top-3 -right-3 w-16 h-16 border-t-2 border-r-2 border-[#c9a96e]" />
             </div>
           </div>
         </div>
 
-        {/* Bottom decorative bar */}
-        <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#c9a96e]/50 to-transparent" />
-      </section>
-
-      {/* Editorial Intro Strip */}
-      <section className="bg-[#1e2d3d] py-5">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="flex flex-wrap items-center justify-between gap-4">
-            {[
-              { num: '47', label: 'Luggage Guides Published' },
-              { num: '12', label: 'Carry-On Reviews' },
-              { num: '100%', label: 'Independent Testing' },
-              { num: '0', label: 'Sponsored Content' },
-            ].map((stat) => (
-              <div key={stat.label} className="text-center px-6">
-                <div className="text-2xl md:text-3xl font-display font-bold text-[#c9a96e]">{stat.num}</div>
-                <div className="text-[0.65rem] tracking-widest uppercase text-[#e8e0d4]/60 mt-1">{stat.label}</div>
+        {/* Bottom section divider */}
+        <div className="bg-[#1e2d3d] py-3">
+          <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+            {['47 Guides', '12 Carry-On Reviews', 'Independent Testing', 'No Sponsored Content'].map((item, i) => (
+              <div key={item} className="flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#c9a96e]" />
+                <span className="text-white/70 text-xs uppercase tracking-widest" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>{item}</span>
               </div>
             ))}
           </div>
