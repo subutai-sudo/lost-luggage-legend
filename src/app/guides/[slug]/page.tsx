@@ -24,6 +24,27 @@ export async function generateMetadata({ params }: Props) {
   return {
     title: `${guide.title} Travel Guide -- ${guide.subtitle} | Lost Luggage Legend`,
     description: guide.excerpt,
+    keywords: [`${guide.title} travel guide`, guide.subtitle, ...guide.tags, 'best time to visit', 'travel guide'],
+    openGraph: {
+      type: 'article',
+      url: `https://lostluggagelegend.com/guides/${guide.slug}`,
+      title: `${guide.title} Travel Guide -- ${guide.subtitle}`,
+      description: guide.excerpt,
+      images: [
+        {
+          url: guide.heroImage,
+          width: 1200,
+          height: 630,
+          alt: `${guide.title} — ${guide.subtitle}`,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${guide.title} Travel Guide | Lost Luggage Legend`,
+      description: guide.excerpt,
+      images: [guide.heroImage],
+    },
   }
 }
 

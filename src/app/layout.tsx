@@ -2,9 +2,40 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Lost Luggage Legend | Premium Travel Guides & Gear Reviews',
-  description: 'Expert guides and honest reviews for business travelers who refuse to compromise on quality. From luggage recovery to carry-on recommendations.',
-  keywords: 'travel, lost luggage, business travel, luggage reviews, travel gear, carry-on bags',
+  title: {
+    default: 'Lost Luggage Legend | Premium Destination Travel Guides',
+    template: '%s | Lost Luggage Legend',
+  },
+  description:
+    'In-depth travel destination guides for the discerning traveler. Live price comparisons, flight time estimates, and honest editorial — no sponsored content.',
+  keywords: 'travel guides, destination guides, travel tips, best time to visit, travel comparison',
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://lostluggagelegend.com',
+    siteName: 'Lost Luggage Legend',
+    title: 'Lost Luggage Legend | Premium Destination Travel Guides',
+    description:
+      'In-depth travel destination guides for the discerning traveler. Live price comparisons, flight time estimates, and honest editorial.',
+    images: [
+      {
+        url: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1200&q=85',
+        width: 1200,
+        height: 630,
+        alt: 'Lost Luggage Legend — Premium Travel Guides',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Lost Luggage Legend | Premium Destination Travel Guides',
+    description:
+      'In-depth travel destination guides for the discerning traveler. Live price comparisons, flight time estimates.',
+    images: ['https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1200&q=85'],
+  },
+  alternates: {
+    canonical: 'https://lostluggagelegend.com',
+  },
 }
 
 export default function RootLayout({

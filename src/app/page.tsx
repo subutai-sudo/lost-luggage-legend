@@ -198,10 +198,14 @@ export default function Home() {
               </ul>
               <h4 className="issue-label text-[#c9a96e] mb-3 mt-6">Legal</h4>
               <ul className="space-y-2" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
-                {['Privacy Policy', 'Terms of Service', 'Affiliate Disclosure'].map((item) => (
-                  <li key={item}>
-                    <a href="#" className="text-sm text-[#e8e0d4]/40 hover:text-[#c9a96e] transition-colors">
-                      {item}
+                {[
+                  { label: 'Privacy Policy', path: '/privacy-policy' },
+                  { label: 'Terms of Service', path: '/terms-of-service' },
+                  { label: 'Affiliate Disclosure', path: '/affiliate-disclosure' },
+                ].map((item) => (
+                  <li key={item.path}>
+                    <a href={item.path} className="text-sm text-[#e8e0d4]/40 hover:text-[#c9a96e] transition-colors">
+                      {item.label}
                     </a>
                   </li>
                 ))}

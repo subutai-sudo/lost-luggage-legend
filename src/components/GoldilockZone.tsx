@@ -90,9 +90,8 @@ function getGoldilockMonths(guideId: string): string {
 }
 
 export function GoldilockZone() {
-  const [selectedDate, setSelectedDate] = useState<string>(
-    new Date().toISOString().slice(0, 7) // YYYY-MM
-  )
+  // Use a stable default to avoid SSR/hydration mismatch
+  const [selectedDate, setSelectedDate] = useState<string>('2026-04')
 
   const month = new Date(selectedDate + '-01').getMonth() + 1 // 1-12
 
