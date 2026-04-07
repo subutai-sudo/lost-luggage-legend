@@ -233,9 +233,7 @@ export const FEATURED_GUIDES = DESTINATION_GUIDES.filter(g => g.featured)
 export const ALL_GUIDES = DESTINATION_GUIDES
 
 export function getGuideAffiliateUrl(guide: DestinationGuide): string {
-  // Stay22 Allez: wraps any OTA URL with smart geolocation routing
-  // AID: 1193160bctld
-  const stay22Aid = '1193160bctld'
-  const encoded = encodeURIComponent(guide.stay22Url)
-  return `https://stay22.com/affiliates?aid=${stay22Aid}&url=${encoded}`
+  // LetMeAllez (LMA) script auto-converts all compatible links on the site
+  // at runtime. No manual wrapping needed — just return the direct URL.
+  return guide.stay22Url
 }
