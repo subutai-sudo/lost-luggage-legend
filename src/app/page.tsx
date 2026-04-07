@@ -1,6 +1,7 @@
 import { FeaturedArticle } from '@/components/FeaturedArticle'
 import { ProductList } from '@/components/ProductList'
 import { NewsletterSignup } from '@/components/NewsletterSignup'
+import { DestinationGuidesSection } from '@/components/DestinationGuidesSection'
 
 export default function Home() {
   return (
@@ -166,6 +167,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Destination Guides */}
+      <DestinationGuidesSection />
 
       {/* Featured Article */}
       <section id="guides" className="py-20 lg:py-28 bg-[#f9f6f0]">
