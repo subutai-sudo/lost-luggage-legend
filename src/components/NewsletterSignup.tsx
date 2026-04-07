@@ -17,10 +17,29 @@ export function NewsletterSignup() {
     }
 
     setStatus('loading')
-    await new Promise(resolve => setTimeout(resolve, 1000))
-    setStatus('success')
-    setMessage('Welcome aboard! Check your inbox to confirm your subscription.')
-    setEmail('')
+
+    try {
+      const res = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      })
+
+      const data = await res.json()
+
+      if (!res.ok) {
+        setStatus('error')
+        setMessage(data.error || 'Something went wrong. Please try again.')
+        return
+      }
+
+      setStatus('success')
+      setMessage(data.message || 'Welcome aboard! Check your inbox to confirm your subscription.')
+      setEmail('')
+    } catch {
+      setStatus('error')
+      setMessage('Connection failed. Please try again.')
+    }
   }
 
   if (status === 'success') {
