@@ -244,6 +244,9 @@ export const FEATURED_GUIDES = DESTINATION_GUIDES.filter(g => g.featured)
 export const ALL_GUIDES = DESTINATION_GUIDES
 
 export function getGuideAffiliateUrl(guide: DestinationGuide): string {
-  const link = getMerchantLink(guide.expediaCampaign, guide.expediaPath)
-  return link?.affiliateUrl ?? '#'
+  // Expedia Creator Program: direct search URL with affiliate ID
+  // Replace this with your real destination-specific links from the Expedia Creator dashboard
+  // Format: https://www.expedia.com/affiliates/destination-slug.YOUR_ID
+  const destSlug = guide.expediaPath.replace('/', '').replace('.Hotel-Information', '')
+  return `https://www.expedia.com/affiliates/hotels.Y1ZJJ9d?dest=${encodeURIComponent(guide.title)}`
 }
