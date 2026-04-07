@@ -36,28 +36,28 @@ const BEST_MONTHS: Record<string, number[]> = {
   'cape-town': [11, 12, 1, 2, 3],        // Nov–Mar
 }
 
-// Coordinates for each destination
+// Coordinates for each destination — [longitude, latitude] (GeoJSON standard)
 const GUIDE_COORDS: Record<string, [number, number]> = {
-  maldives: [3.2028, 73.2207],
-  santorini: [36.4072, 25.4456],
-  queenstown: [-45.0312, 168.6626],
-  tokyo: [35.6762, 139.6503],
-  'amalfi-coast': [40.6333, 14.6029],
-  kyoto: [35.0116, 135.7681],
-  'maasai-mara': [-1.4087, 35.0167],
-  patagonia: [-41.8101, -68.9063],
-  iceland: [64.1466, -21.9426],
-  bali: [-8.4095, 115.1889],
-  singapore: [1.3521, 103.8198],
-  lisbon: [38.7223, -9.1393],
-  dubai: [25.2048, 55.2708],
-  barcelona: [41.3874, 2.1686],
-  bangkok: [13.7563, 100.5018],
-  amsterdam: [52.3676, 4.9041],
-  'mexico-city': [19.4326, -99.1332],
-  marrakech: [31.6295, -7.9811],
-  helsinki: [60.1699, 24.9384],
-  'cape-town': [-33.9249, 18.4241],
+  maldives: [73.2207, 3.2028],         // Malé
+  santorini: [25.4456, 36.4072],        // Santorini island
+  queenstown: [168.6626, -45.0312],   // Queenstown, NZ
+  tokyo: [139.6503, 35.6762],           // Tokyo
+  'amalfi-coast': [14.6029, 40.6333],  // Naples area (nearest major)
+  kyoto: [135.7681, 35.0116],           // Kyoto
+  'maasai-mara': [35.0167, -1.4087],   // Maasai Mara, Kenya
+  patagonia: [-68.9063, -41.8101],     // Bariloche, Argentina
+  iceland: [-21.9426, 64.1466],       // Reykjavik
+  bali: [115.1889, -8.4095],           // Denpasan/Bali
+  singapore: [103.8198, 1.3521],       // Singapore
+  lisbon: [-9.1393, 38.7223],           // Lisbon
+  dubai: [55.2708, 25.2048],            // Dubai
+  barcelona: [2.1686, 41.3874],         // Barcelona
+  bangkok: [100.5018, 13.7563],         // Bangkok
+  amsterdam: [4.9041, 52.3676],        // Amsterdam
+  'mexico-city': [-99.1332, 19.4326],  // Mexico City
+  marrakech: [-7.9811, 31.6295],       // Marrakech
+  helsinki: [24.9384, 60.1699],        // Helsinki
+  'cape-town': [18.4241, -33.9249],    // Cape Town
 }
 
 const MONTH_NAMES = [
@@ -168,7 +168,8 @@ export function GoldilockZone() {
         {/* Map */}
         <div className="relative bg-[#1e2d3d]/50 rounded-sm overflow-hidden" style={{ height: '480px' }}>
           <ComposableMap
-            projectionConfig={{ scale: 147, center: [10, 10] }}
+            projection="geoNaturalEarth1"
+            projectionConfig={{ scale: 160, center: [0, 10] }}
             style={{ width: '100%', height: '100%' }}
           >
             <ZoomableGroup zoom={1} minZoom={0.8} maxZoom={4}>
