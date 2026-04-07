@@ -89,7 +89,10 @@ export default async function GuidePage({ params }: Props) {
           priority
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+        {/* Full dark base layer — makes text readable everywhere */}
+        <div className="absolute inset-0 bg-[#0f1c26]/60" />
+        {/* Bottom image reveal */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 p-8 lg:p-16">
           <div className="max-w-4xl mx-auto">
             <div className="flex items-center gap-3 mb-4">
