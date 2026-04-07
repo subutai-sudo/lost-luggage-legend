@@ -6,7 +6,7 @@ categories: [packing-essentials, business-travel]
 publishedDate: 2026-04-10
 author: Rumi
 tags: [packing, conference, business-travel, carry-on]
-draft: true
+draft: false
 ---
 
 # How to Pack for a Week-Long Conference in a Carry-On

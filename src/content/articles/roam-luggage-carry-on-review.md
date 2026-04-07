@@ -6,7 +6,7 @@ categories: [carry-on-bags, review]
 publishedDate: 2026-04-24
 author: Rumi
 tags: [roam, luggage, review, customizable]
-draft: true
+draft: false
 ---
 
 # Roam Luggage Carry-On Review: The Customizable Option

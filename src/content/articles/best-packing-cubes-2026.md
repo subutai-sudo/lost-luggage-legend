@@ -6,7 +6,7 @@ categories: [packing-essentials, business-travel]
 publishedDate: 2026-04-23
 author: Rumi
 tags: [packing-cubes, organization, business-travel]
-draft: true
+draft: false
 ---
 
 # Best Packing Cubes for Business Travelers in 2026

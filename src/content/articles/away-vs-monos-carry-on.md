@@ -6,7 +6,7 @@ categories: [carry-on-bags, business-travel]
 publishedDate: 2026-04-14
 author: Rumi
 tags: [away, monos, carry-on, comparison, business-travel]
-draft: true
+draft: false
 ---
 
 # Away vs. Monos: Which Carry-On Is Better for Business Travel?

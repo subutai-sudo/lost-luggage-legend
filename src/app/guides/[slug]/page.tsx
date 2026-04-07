@@ -114,6 +114,14 @@ export default async function GuidePage({ params }: Props) {
         <div className="absolute inset-0 bg-[#0f1c26]/60" />
         {/* Bottom image reveal */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+        {/* Extra scrim strip behind title for maximum readability on any photo */}
+        <div
+          className="absolute bottom-0 left-0 right-0"
+          style={{
+            height: '55%',
+            background: 'linear-gradient(to top, rgba(15,28,38,0.85) 0%, rgba(0,0,0,0.3) 100%)',
+          }}
+        />
         <div className="absolute bottom-0 left-0 right-0 p-8 lg:p-16">
           <div className="max-w-4xl mx-auto">
             <div className="flex items-center gap-3 mb-4">
@@ -129,7 +137,7 @@ export default async function GuidePage({ params }: Props) {
             </div>
             <h1
               className="font-display text-5xl md:text-7xl font-bold text-white leading-none mb-4"
-              style={{ textShadow: '0 2px 20px rgba(0,0,0,0.5)' }}
+              style={{ textShadow: '0 2px 12px rgba(0,0,0,0.8), 0 0 40px rgba(0,0,0,0.4)' }}
             >
               {guide.title}
             </h1>
@@ -459,7 +467,7 @@ function getArticleContent(guide: DestinationGuide): { sections: Array<{ title: 
       sections: [
         {
           title: 'Cape Town Has No Business Being This Beautiful',
-          content: `Table Mountain clouds roll over the city bowl like a tablecloth being set. penguins waddle at Boulders Beach. The Cape Winelands are an hour away. Cape Town is split between the Atlantic seaboard (cold water, dramatic, full of surfers) and the Indian Ocean side (warmer, gentler, quieter). The city centre has had a rough decade but the restaurant scene in Gardens, Tamboerskloof, and De Waterkant is genuinely world-class. The Bo-Kaap neighbourhood -- brightly painted houses climbing up the hillside -- is one of the most photographed streets in the world, and it still feels genuinely alive.`,
+          content: `Table Mountain clouds roll over the city bowl like a tablecloth being set. Penguins waddle at Boulders Beach. The Cape Winelands are an hour away. Cape Town is split between the Atlantic seaboard (cold water, dramatic, full of surfers) and the Indian Ocean side (warmer, gentler, quieter). The city centre has had a rough decade but the restaurant scene in Gardens, Tamboerskloof, and De Waterkant is genuinely world-class. The Bo-Kaap neighbourhood -- brightly painted houses climbing up the hillside -- is one of the most photographed streets in the world, and it still feels genuinely alive.`,
           items: [
             'Table Mountain: Hike up (2-3 hours) or take the cable car (book at 7am for same-day afternoon slots)',
             'Bo-Kaap: Go on a walking food tour with a local -- it\'s the best way to understand the neighbourhood',
@@ -473,6 +481,226 @@ function getArticleContent(guide: DestinationGuide): { sections: Array<{ title: 
         {
           title: 'What It Costs',
           content: `Cape Town offers exceptional value. Guesthouse rooms ZAR 1,200-2,500/night (~$65-135 USD). Street food meals ZAR 40-100. Cable car to Table Mountain ZAR 370 return. Winery tastings ZAR 100-300. Whale watching tours ZAR 1,200-1,800.`,
+        },
+      ],
+    },
+    'maldives': {
+      sections: [
+        {
+          title: 'The Maldives Is a Once-in-a-Lifetime Destination',
+          content: `The Maldives sits 600 miles southwest of India, 26 atolls scattered across the Indian Ocean like a handful of emeralds dropped in blue ink. Getting there is a long journey -- most visitors fly via Dubai, Doha, or Singapore -- but once you land on Malé and transfer to your seaplane or speedboat, the world you left behind ceases to exist. Every resort occupies its own island. The overwater bungalows that make up the poster images of the Maldives are not a gimmick -- waking to the sound of waves beneath your floor, private infinity pool dropping into warm turquoise water, is a genuinely different way to exist for a week.`,
+          items: [
+            'Best resort area: North Malé Atoll for proximity to Malé; Baa Atoll for diving (UNESCO biosphere); Alifu Dhaalu for the Conrad\'s iconic floating villas',
+            'Seaplane transfers are spectacular but noisy -- bring earplugs for the 30-45 minute flight',
+            'Bring snorkel gear: house reef snorkeling is included with every resort and the coral is still extraordinary',
+            'Book at least 6 months ahead for Christmas/New Year season -- the Maldives fills up 12 months in advance for peak dates',
+          ],
+        },
+        {
+          title: 'Best Time to Visit',
+          content: `November to April is the dry season and the best window to visit. The monsoon winds that define the rest of the year bring rougher seas and brief but heavy rain showers -- though even in wet season (May-October), most days still have 6-8 hours of sun. Water temperature is warm year-round (27-29°C). The shoulder months of April and November offer the best combination of weather and lower pricing.`,
+        },
+        {
+          title: 'What It Costs',
+          content: `The Maldives is unambiguously expensive. A starting-level overwater bungalow at a 4-star resort runs $400-700/night. Five-star all-inclusive properties start at $800/night and go to $3,000+ for the iconic floating villas. Seaplane transfers are $300-600 per person each way. Diving trips run $80-180 per dive. All-inclusive packages bring the effective daily cost down significantly when you factor in meals and activities.`,
+        },
+      ],
+    },
+    'santorini': {
+      sections: [
+        {
+          title: 'Santorini Is Greece at Its Most Theatrical',
+          content: `Santorini is a volcanic caldera -- the rim of an ancient volcano that erupted 3,600 years ago, possibly the event that inspired the Atlantis myth. The cliffs drop 300 metres straight into the Aegean. On top of those cliffs, whitewashed buildings with blue domes catch the Aegean light in a way that looks photoshopped in real life. The island is small enough that you can drive its full circumference in an hour. The challenge is not seeing everything -- it\'s deciding between Oia's famous sunsets (crowded, predictable, genuinely beautiful) and the island's quieter pleasures: Assyrtiko wine from volcanic vineyards, the black sand beaches of Perissa, the fishing village of Ammoudi below Oia where you eat grilled octopus at a table three feet from the water.`,
+          items: [
+            'Oia sunset: Arrive at the castle ruins by 4pm to claim a spot. The last 10 minutes are genuinely extraordinary -- the light turns the caldera gold then pink then purple',
+            'Rent an ATV or small car: The main road is fine, but the best views are down side roads the tour buses don\'t use',
+            'Wineries: Venetsanos and Santo Wines both have caldera views and excellent Assyrtiko -- book a tasting rather than just a glass',
+            'Skip the hot spring boat tour unless you have a tolerance for mud that smells of sulfur -- the swimming off the boat is better',
+          ],
+        },
+        {
+          title: 'Best Time to Visit',
+          content: `May-June and September-October are ideal: 24-30°C, skies clear, the island is lively but not impassable. July-August is peak season -- the island receives 30,000 visitors a day in August, and the narrow caldera path becomes genuinely uncomfortable. Easter is magical if you can get a booking; the island is lit with candles and the Orthodox procession is spectacular. Winter (November-March) many restaurants and hotels close, but those that remain are peaceful and prices drop 50-70%.`,
+        },
+        {
+          title: 'What It Costs',
+          content: `Santorini is not a budget destination. Caldera-view hotels start at €200/night and run to €1,000+ for the iconic cave suites. A meal at a decent restaurant is €30-50 per person. Oia's famous sunset bars charge €12-18 for a glass of local wine. The ferry from Athens (Piraeus) runs €35-55 in economy. Budget at least €150-250/day excluding accommodation to travel well.`,
+        },
+      ],
+    },
+    'queenstown': {
+      sections: [
+        {
+          title: 'Queenstown Is the Adventure Capital -- and a Lot More',
+          content: `Queenstown sits on the shore of Lake Wakatipu, a long glacial lake shaped like a thunderbolt, ringed by the Remarkables mountain range. The town of 15,000 people receives two million visitors a year, which tells you everything about what it offers. The adrenaline activities -- bungee jumping (Kawarau Bridge was the original), jet boating, skydiving, canyon swinging -- are genuinely world-class. But the other Queenstown is equally compelling: the wine region of Central Otago (pinot noir that rivals Burgundy), the Fiordland hiking trails, the autumn colours in Arrowtown, the historic Steamer Beach. Come for the adrenaline. Stay for everything else.`,
+          items: [
+            'Bungee at the Kawarau Bridge: It\'s the original -- 43 metres, optional water touch, terrifying and triumphant in equal measure',
+            'Milford Sound day trip: 5 hours each way but genuinely one of the most beautiful places on earth -- go overnight if you can',
+            'Arrowtown: 20 minutes from Queenstown, the autumn colours in April are spectacular and the historic Chinese settlement is unexpectedly moving',
+            'Winter (June-August): Coronet Peak and The Remarkables for skiing -- Queenstown transforms into a ski town with excellent off-mountain culture',
+          ],
+        },
+        {
+          title: 'Best Time to Visit',
+          content: `December to February is summer -- 20-28°C, long days (sunset at 9pm), the best hiking weather. This is peak season and prices are at their highest. March-April brings autumn colours and smaller crowds. June-August is winter -- freezing temperatures, ski season, après-ski culture, and significantly lower accommodation prices outside the ski fields. May and October are the quietest months with reasonable prices and no crowds.`,
+        },
+        {
+          title: 'What It Costs',
+          content: `Queenstown is expensive by New Zealand standards. Adventure activities: bungee NZD 195-295, jet boating NZD 130-190, skydiving NZD 299-459. Meals at decent restaurants NZD 40-80 per person. Accommodation near the lake NZD 200-450/night. Car rental NZD 70-130/day. The DOC (Department of Conservation) hiking huts and tracks are excellent and free -- this is one of the world\'s great hiking destinations and the best trails cost nothing to walk.`,
+        },
+      ],
+    },
+    'tokyo': {
+      sections: [
+        {
+          title: 'Tokyo Is Three Cities in One',
+          content: `Tokyo is not one city -- it\'s layered. Old Tokyo survives in the temples of Asakusa, where incense smoke curls around visitors at Sensō-ji and the approach street (Nakamise-dōri) has been selling tourist trinkets and traditional sweets for 400 years. Modern Tokyo is in the Shibuya crossing (1,500 people cross at once during busy phases, on a system that somehow works), the neon of Shinjuku, the luxury of Ginza. And then there\'s the Tokyo that regular people live in -- the yokocho (alley bars) of Golden Gai with 6-stool establishments each with their own personality, the bathhouse-temples of Yanaka that escaped wartime bombing, the covered shopping streets of Takeshita-dōri in Harajuku. Spend five days minimum.`,
+          items: [
+            'Shibuya Scramble Crossing: Go at 11pm on a Saturday for maximum chaos -- stand on the Starbucks terrace above for the full view',
+            'Tsukiji Outer Market: Go before 9am for the freshest sushi breakfast of your life -- Toyosu Market is for professionals, the outer market is for everyone',
+            'Yanaka: The best-preserved old Tokyo neighbourhood -- walk from Yanaka Ginza shopping street to Yanaka Cemetery at golden hour',
+            'Train system: Get a Suica card at any station -- it works on metro, JR, and convenience stores. Download Google Maps and it will route you perfectly',
+          ],
+        },
+        {
+          title: 'Best Time to Visit',
+          content: `March to May is ideal: cherry blossom season (sakura) turns the city pink, temperatures are 15-22°C, and the festivals are in full swing. November is equally compelling for autumn foliage -- the ginkgo trees of Meiji Jingu turn gold. June starts the rainy season (tsuyu) -- it rains most days, but prices drop and the city is less crowded. August is brutally hot and humid (35°C+) and packed with domestic tourists. Late January-February is cold (5-10°C), quiet, and cheap.`,
+        },
+        {
+          title: 'What It Costs',
+          content: `Tokyo is more affordable than its reputation suggests. A bowl of ramen Tokyo JPY 800-1,500. A Michelin-starred omakase dinner JPY 15,000-40,000. Metro day pass JPY 600-1,500. Hotel rooms near Shinjuku JPY 12,000-30,000/night. The Japan Rail Pass (JR Pass) is essential if you\'re travelling beyond Tokyo -- the Shinkansen (bullet train) to Kyoto costs JPY 13,320 one-way without it. Convenience store food (7-Eleven, Lawson, FamilyMart) is exceptional quality and costs JPY 200-600 per item.`,
+        },
+      ],
+    },
+    'amalfi-coast': {
+      sections: [
+        {
+          title: 'The Amalfi Coast Is as Beautiful as the Crowds Are Thick',
+          content: `The SS163 Amalfitana -- the coastal road that winds 50 kilometres from Sorrento to Salerno -- is one of the great drives of the world, carved into cliffs above the Tyrrhenian Sea, every turn revealing another pastel village stacked impossibly up the rock face. Amalfi town itself has a maritime history that predates Venice -- the Republic of Amalfi was a Mediterranean superpower in the 10th-12th centuries, and the cathedral of Sant'Andrea at its centre still has that authority. The rest of the coast is smaller: Positano is vertically challenged (everything is up or down, never flat), Ravello sits 350 metres above the sea with gardens that make you understand why Wagner came here to compose. The trick to the Amalfi Coast is to stay mid-week, avoid August entirely, and treat the bus (the only public transport on the coast) as a scenic amusement ride rather than reliable transport.`,
+          items: [
+            'Positano from below: The iconic view is from the water -- take the 8:15am Hydrofoils from Amalfi town before the tour boats arrive',
+            'Path of the Gods: The hiking trail (Sentiero degli Dei) between Bomerano and Nocelle is one of Europe\'s great day walks -- 7km, 4 hours, spectacular',
+            'Eat in Praiano, not Positano: The same views, half the prices, and the restaurants are genuinely local',
+            'Parking: Do not drive and park in Positano in summer -- the road is one lane in places and queues are measured in hours',
+          ],
+        },
+        {
+          title: 'Best Time to Visit',
+          content: `May and October are the sweet spot: 20-26°C, sea warm enough to swim, coastal villages are open but not packed. June is beautiful but school holidays in Italy start mid-month. July-August is peak and genuinely overwhelming -- Positano in August is not relaxing. April is quiet and cool, good for hiking but sea temperature still low. Easter is spectacular but accommodation books out months ahead. Winter (November-March) many restaurants close, the coastal road is quiet and atmospheric but some ferry routes are reduced.`,
+        },
+        {
+          title: 'What It Costs',
+          content: `The Amalfi Coast is expensive in summer. A hotel room with a sea view in Positano or Amalfi town €200-500/night in peak season. A decent restaurant meal €40-70 per person. Sita bus tickets are cheap (€1.50-3) but get very crowded. The Amalfi coast ferry service (April-October) is more pleasant than the bus and often faster -- a day pass is €15-25. Private boat hire for a day is €400-900 depending on size and whether you have a captain.`,
+        },
+      ],
+    },
+    'kyoto': {
+      sections: [
+        {
+          title: 'Kyoto Is Japan\'s Cultural Memory',
+          content: `Kyoto was deliberately spared from bombing in World War II -- General LeMay\'s B-29s flew over it on their way to incinerate other cities because the US wanted an intact Japan to negotiate with. The result is a city with 1,600 Buddhist temples and 400 Shinto shrines, more than any other city on earth. Fushimi Inari with its 10,000 vermillion torii gates winding up a mountain is the image everyone knows. But Kyoto\'s real gift is the quiet: the moss garden at Saihō-ji (Kokedera), the bamboo grove at Arashiyama at 6am before the tour groups arrive, the stone gardens of Ryōan-ji at dusk when the last visitors have left. Come in autumn (November) for the maple leaves turning the hills crimson. Come in spring for sakura. Kyoto in rain is a different city -- greyer, quieter, more contemplative.`,
+          items: [
+            'Fushimi Inari: Go before 7am -- the lower gates are always busy, the upper mountain trails (2-3 hours to the top) are nearly empty even at 8am in peak season',
+            'Bamboo grove Arashiyama: Same advice -- arrive at opening (9am) or at dusk. The grove is genuinely otherworldly in the hour before sunset',
+            'Nishiki Market: 400 metres of vendor stalls. Eat as you walk -- tofu skin, pickled vegetables, mochi. Go hungry.',
+            'Tea ceremony: Book a proper experience in Gion (not a tourist package) -- the tea master at Wa.orra is exceptional',
+          ],
+        },
+        {
+          title: 'Best Time to Visit',
+          content: `Mid-to-late November for koyo (autumn foliage) is the most spectacular -- the maple leaves turn red and gold, temple gardens hire lighting, the city fills with visitors from across Asia. March-April for sakura (cherry blossom) is equally beloved and equally busy. Late October and early December are quieter windows with good weather. June is rainy season (tsuyu) -- Kyoto\'s gardens are at their greenest and most lush, crowds drop, prices fall. Summer (July-August) is hot (35°C+) and humid. Winter is cold (2-8°C) but clear and beautiful, with few tourists.`,
+        },
+        {
+          title: 'What It Costs',
+          content: `Kyoto is moderately priced. Temple entry fees are typically ¥500-1,000 (¥2,000 for premium experiences like the moss garden). A kaiseki (traditional multi-course dinner) at a good restaurant ¥8,000-20,000 per person. Hotels in the centre (Gion, Kawaramachi) ¥12,000-35,000/night. JR Shinkansen from Tokyo (2h15m) costs ¥13,870 one-way in reserved seating. Cycling rental ¥1,500-3,000/day is the best way to explore the eastern hills.`,
+        },
+      ],
+    },
+    'maasai-mara': {
+      sections: [
+        {
+          title: 'The Maasai Mara Is Where the World\'s Greatest Wildlife Spectacle Happens',
+          content: `The Maasai Mara National Reserve is 1,510 square kilometres of savannah, riverine forest, and acacia woodland in southwestern Kenya. Every year, between July and October, the Great Migration passes through -- 1.5 million wildebeest cross from the Serengeti in Tanzania, drawn by rain-fed grass, trailed by lions, leopards, cheetahs, and the largest Nile crocodiles in Africa waiting at every river crossing. The Mara River crossing at this time is visceral: 500-pound crocodiles, 300-pound wildebeest, the water boiling white. The rest of the year, the Mara is quieter -- but the resident lion prides, elephant herds, and leopard sightings are extraordinary at any time. The best camps are in the private conservancies bordering the main reserve (Mara North, Olare Motorogi, Naboisho) -- they offer night drives, bush walks, and lower vehicle density.`,
+          items: [
+            'Great Migration timing varies year to year based on rains -- the Mara River crossings typically peak in August-September but have been as early as July',
+            'Stay in a conservancy, not just the reserve: Lower fees, fewer vehicles, better wildlife encounters, and you can do walking safaris and night drives',
+            'Balloon safari at dawn: Kenya Shillings 45,000-55,000 (~$350-430 USD) -- the aerial view of the migration is extraordinary and the champagne breakfast landing in the bush is a travel memory for life',
+            'Pack layers: Morning game drives leave at 6am and return at 10am -- it\'s cold, then hot. A fleece and sunhat are both essential',
+          ],
+        },
+        {
+          title: 'Best Time to Visit',
+          content: `The Great Migration (July-October) is the peak season and when the Mara is most dramatic. River crossings happen unpredictably -- spend at least 3 nights so you can position yourself. The "green season" (November-May) is quieter, cheaper, and excellent for general wildlife viewing. January-February is calving season -- predator action is high as lions and cheetahs hunt newborn wildebeest. Long rains (April-May) make some roads impassable and some camps close. The shoulder months of June and November offer the best combination of price and wildlife.`,
+        },
+        {
+          title: 'What It Costs',
+          content: `The Maasai Mara is not a budget destination. Park fees are USD $100-200 per person per day (depending on whether you\'re in the reserve or a conservancy). A good tented camp in the conservancies runs $400-800/night all-inclusive. Flying to the Mara (40 minutes from Nairobi) costs $200-350 each way on a small aircraft. Balloon safaris are $350-430 per person. The total cost for a 5-night quality Mara safari (flights, park fees, camp, tips) is realistically $3,000-6,000 per person.`,
+        },
+      ],
+    },
+    'patagonia': {
+      sections: [
+        {
+          title: 'Patagonia Is at the End of the World and Worth Every Hour of the Journey',
+          content: `Patagonia covers the southern third of Chile and Argentina -- a landscape that looks like geology left unfinished. Granite towers rise from glacial lakes. Ice fields feed glaciers that calve icebergs into milky turquoise water. The wind is a constant presence, sometimes gentle, sometimes enough to knock you sideways. Torres del Paine National Park (Chilean side) is the most visited -- the three towers (Las Torres) at sunrise, reflected in Laguna Torres, are one of the iconic images of adventure travel. The Argentine side -- Los Glaciares National Park -- has Fitz Roy (3,405m, the mountain that changes shape every ten minutes as clouds move) and the Perito Moreno glacier, one of the few glaciers in the world still advancing. Patagonia rewards slow travel: five days minimum, ideally ten.`,
+          items: [
+            'Torres del Paine W Trek: 5 days, the classic route -- start from the west (Mirador Las Torres) and work your way to the French Valley for the less-visited spectacular views',
+            'Perito Moreno Glacier: Walk onto the ice with crampons -- you\'ll feel small and the blue colour (light refraction in dense ice) is unreal',
+            'Gaucho experience: Book a day with a working estancia -- horse riding, lamb on a spit, wool shearing demonstrations. Several near El Calafate and El Chaltén are genuine working farms',
+            'El Chaltén: Argentina\'s trekking capital, free to enter the national park, Fitz Roy trail (22km round trip) is demanding but the summit views are incomparable',
+          ],
+        },
+        {
+          title: 'Best Time to Visit',
+          content: `November to March is the Patagonian summer -- long days (sunset at 10pm in December), temperatures 10-20°C, all trails and refugios open. January-February is peak summer with the most stable weather windows, but also the most crowded and expensive. December and March offer fewer crowds with slightly less reliable weather. The shoulder seasons (October and April) have snow on the trails, some facilities closed, but the autumn colours and solitude can be extraordinary. Winter (May-September) most of Patagonia shuts down.`,
+        },
+        {
+          title: 'What It Costs',
+          content: `Patagonia is expensive and remote. Flights to Punta Arenas or El Calafate from Buenos Aires run ARS 80,000-200,000 each way (book months ahead for the cheapest fares). Bus fares between towns are cheap (~$15-30) but the distances are enormous. Refugio (mountain hut) beds on the W Trek are $40-80/night in summer -- book 3-6 months ahead. Hotels in Puerto Natales and El Calafate are $80-200/night. Full-board at a good estancia is $150-300/night including activities. Budget $150-250/day excluding accommodation for food, transport, and activities.`,
+        },
+      ],
+    },
+    'iceland': {
+      sections: [
+        {
+          title: 'Iceland Is Where You Go to Feel the Earth\'s Pulse',
+          content: `Iceland sits on the Mid-Atlantic Ridge -- the boundary between the North American and Eurasian tectonic plates. You can stand in the gap between two continents at Þingvellir National Park, watching the canyon walls slowly drift apart at a rate you can measure with your own feet. The geology is not historical; it\'s happening now. Geysers erupt on schedule. Waterfalls thunder. Lava fields from eruptions in the 2010s are still bare rock. The Blue Lagoon (despite being touristy) is genuinely extraordinary -- the silicate water at 38°C against 5°C air temperature in a black volcanic landscape. Outside the Golden Circle (the tourist circuit of Þingvellir, Geysir, and Gullfoss), Iceland opens up: the Westfjords in the northwest are barely visited, the snout of Vatnajökull glacier is accessible for ice hiking, the East Fjords fishing villages have some of the best lobster in the country.`,
+          items: [
+            'Ring Road (Route 1): The 1,332km circuit around the island -- allow 10-14 days minimum. The road is fully paved now but weather windows in the highlands (F-roads) are June-September only',
+            'Northern lights: September to March, check the Icelandic Met Office aurora forecast daily -- the KP index needs to be 3+ for visible lights from Reykjavik',
+            'Midnight sun: May-August -- the sun barely sets. Sleep with an eye mask. The quality of 11pm light is unlike anything.',
+            'Swimming pools: Entry to Reykjavik\'s Sundlaugsvegurtunin is 920 ISK -- the hot pots (37-44°C) are central to Icelandic social life and completely different from the Blue Lagoon experience',
+          ],
+        },
+        {
+          title: 'Best Time to Visit',
+          content: `June-August for midnight sun, accessible highlands, and the most reliable driving conditions. August is the warmest (10-15°C) but also the wettest and most crowded. September-March for northern lights, winter landscapes, and lower prices (outside Christmas). February is the darkest month (5 hours of daylight) but aurora probability is highest and ice cave tours (into Vatnajökull glacier) are at their best. May and October offer a balance: longer days, fewer crowds, northern lights beginning/ending, highland roads closed.`,
+        },
+        {
+          title: 'What It Costs',
+          content: `Iceland is one of Europe\'s most expensive countries. A meal at a mid-range restaurant ISK 3,000-6,000. Accommodation in Reykjavik ISK 20,000-45,000/night for a decent hotel. Car rental ISK 10,000-20,000/day for a compact. Ring Road self-drive (10 days) including accommodation, food, and fuel ISK 250,000-400,000 per person. The Reykjavik City Card gives free bus travel and entry to pools and museums for ISK 2,200-5,500. Gas station hot dogs (pylsur) at Reykjavik\'s iconic Bæjarins Beztu are ISK 450 -- the best value meal in the country.`,
+        },
+      ],
+    },
+    'bali': {
+      sections: [
+        {
+          title: 'Bali Is Southeast Asia\'s Most Comfortable Introduction',
+          content: `Bali works differently than most travel destinations -- you don\'t come here primarily to see things (though there are temples, rice terraces, and volcanoes that reward exploration). You come here to exist differently. The concept of "Balinese time" -- a relaxed approach to schedules that still somehow gets things done -- is a genuine cultural practice, not just a travel cliché. Ubud is the cultural centre: the Monkey Forest, the art markets, the rice terrace walks at Tegallalang, the yoga and wellness retreats that have made this the digital nomad capital of Asia. The south (Seminyak, Canggu) has the beach culture, surf breaks, and the restaurant scene that has made Bali a serious food destination. The east (Candidasa, Amed) is quieter -- black sand beaches, snorkelling, and the start of the climb up Mount Agung.`,
+          items: [
+            'Ubud rice terraces: Skip Tegallalang (crowded) and go to Jatiluwih -- the UNESCO-listed subak irrigation system, less visited, equally beautiful',
+            'Surfing: Canggu for beginners (board rental $10-20/day, lessons $30-50), Uluwatu for advanced (consistent reef break, incredible sunset sessions)',
+            'Temple etiquette: Sarongs are required at every temple -- rent one at the entrance for a few thousand rupiah. Cover shoulders and knees',
+            'Motorbike rental: $5-8/day -- get an international driving licence or your insurance won\'t cover you. The Bali traffic is chaos but manageable with patience',
+          ],
+        },
+        {
+          title: 'Best Time to Visit',
+          content: `April to October is the dry season and the best window: 27-31°C, low humidity, blue skies. August is peak season and the busiest -- book accommodation months ahead for Ubud and the south. July has the best combination of weather and events. Wet season (November-March) brings daily tropical downpours (usually afternoon/evening) but the island is lush, green, and significantly cheaper -- Uluwatu\'s surf is at its best in December-February. Nyepi (Balinese New Year, typically March) is a day of complete silence -- the airport closes, everything stops.`,
+        },
+        {
+          title: 'What It Costs',
+          content: `Bali is exceptional value. A villa with a private pool in Seminyak or Canggu IDR 800,000-2,500,000/night (~$50-160 USD). A bowl of nasi goreng at a local warung IDR 20,000-40,000 (~$1.25-2.50 USD). A massage in Ubud IDR 80,000-200,000 (~$5-13 USD). A full-day private car and driver IDR 700,000-1,000,000 (~$45-65 USD). A week in Bali at a mid-range villa, eating mostly at warungs, doing two activities a day: realistically $60-120/day total.`,
         },
       ],
     },
@@ -498,3 +726,4 @@ function getArticleContent(guide: DestinationGuide): { sections: Array<{ title: 
 
   return content[guide.id] || defaultContent
 }
+

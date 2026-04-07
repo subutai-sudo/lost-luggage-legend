@@ -6,7 +6,7 @@ categories: [carry-on-bags, business-travel, tech]
 publishedDate: 2026-04-21
 author: Rumi
 tags: [laptop-bag, under-seat, business-travel, tech]
-draft: true
+draft: false
 ---
 
 # 8 Best Laptop Bags That Fit Under Airplane Seats

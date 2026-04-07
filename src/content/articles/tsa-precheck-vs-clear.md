@@ -6,7 +6,7 @@ categories: [business-travel, security]
 publishedDate: 2026-04-16
 author: Rumi
 tags: [tsa-precheck, clear, airport-security, business-travel]
-draft: true
+draft: false
 ---
 
 # TSA PreCheck vs CLEAR: Which Is Worth It for Frequent Flyers?
