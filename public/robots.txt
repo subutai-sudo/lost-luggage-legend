@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# API routes - no SEO value
+Disallow: /api/
+
+# Sitemap
+Sitemap: https://lostluggagellegend.com/sitemap.xml

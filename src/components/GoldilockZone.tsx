@@ -21,26 +21,107 @@ import {
 const GEO_URL = 'https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json'
 
 const GUIDE_COORDS: Record<string, [number, number]> = {
-  maldives: [73.2207, 3.2028],         // Malé
-  santorini: [25.4456, 36.4072],        // Santorini island
-  queenstown: [168.6626, -45.0312],   // Queenstown, NZ
-  tokyo: [139.6503, 35.6762],           // Tokyo
-  'amalfi-coast': [14.6029, 40.6333],  // Naples area (nearest major)
-  kyoto: [135.7681, 35.0116],           // Kyoto
-  'maasai-mara': [35.0167, -1.4087],   // Maasai Mara, Kenya
-  patagonia: [-68.9063, -41.8101],     // Bariloche, Argentina
-  iceland: [-21.9426, 64.1466],       // Reykjavik
-  bali: [115.1889, -8.4095],           // Denpasan/Bali
-  singapore: [103.8198, 1.3521],       // Singapore
-  lisbon: [-9.1393, 38.7223],           // Lisbon
-  dubai: [55.2708, 25.2048],            // Dubai
-  barcelona: [2.1686, 41.3874],         // Barcelona
-  bangkok: [100.5018, 13.7563],         // Bangkok
-  amsterdam: [4.9041, 52.3676],        // Amsterdam
-  'mexico-city': [-99.1332, 19.4326],  // Mexico City
-  marrakech: [-7.9811, 31.6295],       // Marrakech
-  helsinki: [24.9384, 60.1699],        // Helsinki
-  'cape-town': [18.4241, -33.9249],    // Cape Town
+maldives: [73.2207, 3.2028],
+  santorini: [25.4456, 36.4072],
+  queenstown: [168.6626, -45.0312],
+  tokyo: [139.6503, 35.6762],
+  'amalfi-coast': [14.6029, 40.6333],
+  kyoto: [135.7681, 35.0116],
+  'maasai-mara': [35.0167, -1.4087],
+  patagonia: [-68.9063, -41.8101],
+  iceland: [-21.9426, 64.1466],
+  bali: [115.1889, -8.4095],
+  singapore: [103.8198, 1.3521],
+  lisbon: [-9.1393, 38.7223],
+  dubai: [55.2708, 25.2048],
+  barcelona: [2.1686, 41.3874],
+  bangkok: [100.5018, 13.7563],
+  amsterdam: [4.9041, 52.3676],
+  'mexico-city': [-99.1332, 19.4326],
+  marrakech: [-7.9811, 31.6295],
+  helsinki: [24.9384, 60.1699],
+  'cape-town': [18.4241, -33.9249],
+  london: [-0.1278, 51.5074],
+  paris: [2.3522, 48.8566],
+  vienna: [16.3738, 48.2082],
+  berlin: [13.405, 52.52],
+  prague: [14.4378, 50.0755],
+  warsaw: [21.0122, 52.2297],
+  krakow: [19.945, 50.0647],
+  budapest: [19.0402, 47.4979],
+  bucharest: [26.1025, 44.4268],
+  rome: [12.4964, 41.9028],
+  florence: [11.2558, 43.7696],
+  milan: [9.19, 45.4642],
+  venice: [12.3155, 45.4408],
+  nice: [7.262, 43.7102],
+  lyon: [4.8357, 45.764],
+  bordeaux: [-0.5792, 44.8378],
+  zurich: [8.5417, 47.3769],
+  geneva: [6.1432, 46.2044],
+  stockholm: [18.0686, 59.3293],
+  copenhagen: [12.5683, 55.6761],
+  reykjavik: [-21.9426, 64.1466],
+  edinburgh: [-3.1883, 55.9533],
+  manchester: [-2.2426, 53.4808],
+  dublin: [-6.2603, 53.3498],
+  madrid: [-3.7038, 40.4168],
+  seville: [-5.9845, 37.3891],
+  munich: [11.582, 48.1351],
+  brussels: [4.3517, 50.8503],
+  athens: [23.7275, 37.9838],
+  'st-petersburg': [30.3609, 59.9311],
+  istanbul: [28.9784, 41.0082],
+  antalya: [30.7133, 36.8969],
+  cairo: [31.2357, 30.0444],
+  'hong-kong': [114.1694, 22.3193],
+  shanghai: [121.4737, 31.2304],
+  beijing: [116.4074, 39.9042],
+  shenzhen: [114.0579, 22.5431],
+  guangzhou: [113.2644, 23.1291],
+  taipei: [121.5654, 25.033],
+  seoul: [126.978, 37.5665],
+  osaka: [135.5023, 34.6937],
+  'kuala-lumpur': [101.6869, 3.139],
+  phuket: [98.3923, 7.8804],
+  pattaya: [100.877, 12.9276],
+  'ho-chi-minh': [106.6297, 10.8231],
+  mumbai: [72.8777, 19.076],
+  delhi: [77.1025, 28.7041],
+  bangalore: [77.5946, 12.9716],
+  macau: [113.5439, 22.1987],
+  sydney: [151.2093, -33.8688],
+  melbourne: [144.9631, -37.8136],
+  'new-york': [-74.006, 40.7128],
+  'los-angeles': [-118.2437, 34.0522],
+  'san-francisco': [-122.4194, 37.7749],
+  chicago: [-87.6298, 41.8781],
+  boston: [-71.0589, 42.3601],
+  seattle: [-122.3321, 47.6062],
+  miami: [-80.1918, 25.7617],
+  'las-vegas': [-115.1398, 36.1699],
+  orlando: [-81.3792, 28.5383],
+  cancun: [-86.8515, 21.1619],
+  toronto: [-79.3832, 43.6532],
+  vancouver: [-123.1207, 49.2827],
+  'washington-dc': [-77.0369, 38.9072],
+  philadelphia: [-75.1652, 39.9526],
+  nashville: [-86.7816, 36.1627],
+  'new-orleans': [-90.0715, 29.9511],
+  austin: [-97.7431, 30.2672],
+  portland: [-122.6784, 45.5152],
+  'san-diego': [-117.1611, 32.7157],
+  tampa: [-82.4572, 27.9506],
+  phoenix: [-112.074, 33.4484],
+  denver: [-104.9903, 39.7392],
+  bogota: [-74.0721, 4.711],
+  'buenos-aires': [-58.3816, -34.6037],
+  lima: [-77.0428, -12.0464],
+  'sao-paulo': [-46.6333, -23.5505],
+  casablanca: [-7.5898, 33.5731],
+  nairobi: [36.8219, -1.2921],
+  johannesburg: [28.0473, -26.2041],
+
 }
 
 const MONTH_NAMES = [
@@ -203,7 +284,7 @@ export function GoldilockZone() {
         <div className="relative bg-[#1e2d3d]/50 rounded-sm overflow-hidden" style={{ height: '480px' }}>
           <ComposableMap
             projection="geoNaturalEarth1"
-            projectionConfig={{ scale: 160, center: [0, 10] }}
+            projectionConfig={{ scale: 160, center: [10, 0] }}
             style={{ width: '100%', height: '100%' }}
           >
             <ZoomableGroup zoom={1} minZoom={0.8} maxZoom={4}>
@@ -213,12 +294,12 @@ export function GoldilockZone() {
                     <Geography
                       key={geo.rsmKey}
                       geography={geo}
-                      fill="#1e3a52"
-                      stroke="#0f1c26"
+                      fill="#d4e5f7"
+                      stroke="#b8c8d8"
                       strokeWidth={0.5}
                       style={{
                         default: { outline: 'none' },
-                        hover: { outline: 'none', fill: '#234b66' },
+                        hover: { outline: 'none', fill: '#bfd4ec' },
                         pressed: { outline: 'none' },
                       }}
                     />

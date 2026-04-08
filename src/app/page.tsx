@@ -58,67 +58,106 @@ export default function Home() {
       </nav>
 
       {/* Hero */}
-      <section className="relative overflow-hidden" style={{ minHeight: '520px' }}>
-        {/* Background image — overhead travel accessories */}
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1800&q=85&auto=format&fit=crop')`,
-          }}
-        />
-        {/* Gradient overlay */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background: 'linear-gradient(to right, rgba(15,28,38,0.92) 0%, rgba(15,28,38,0.75) 55%, rgba(15,28,38,0.3) 100%)',
-          }}
-        />
-        {/* Content */}
-        <div className="relative max-w-7xl mx-auto px-6 lg:px-12 flex items-center" style={{ minHeight: '520px' }}>
-          <div className="max-w-2xl py-16">
-            {/* Kicker */}
-            <div className="flex items-center gap-3 mb-5">
-              <span className="issue-label text-[#c9a96e]">{DESTINATION_GUIDES.length} Destinations</span>
-              <span className="w-8 h-px bg-[#c9a96e]/40" />
-              <span className="issue-label text-white/40">Premium Travel Guides</span>
+      <section className="bg-[#f9f6f0] border-b border-[#d9d0c4]">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-14 lg:py-20">
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-10">
+            {/* Left: editorial content */}
+            <div className="flex-1 max-w-2xl">
+              {/* Kicker */}
+              <div className="flex items-center gap-3 mb-5">
+                <span className="issue-label text-[#c9a96e]">{DESTINATION_GUIDES.length} Destinations</span>
+                <span className="w-8 h-px bg-[#c9a96e]/40" />
+                <span className="issue-label text-[#6b6560]">Premium Travel Guides</span>
+              </div>
+
+              {/* Headline */}
+              <h1 className="font-display text-4xl md:text-5xl xl:text-6xl font-bold text-[#1a1814] leading-tight mb-5">
+                Your next trip starts<br />with the right intel.
+              </h1>
+
+              {/* Subtext */}
+              <p className="text-[#6b6560] text-base md:text-lg leading-relaxed mb-8 max-w-lg" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
+                In-depth destination guides written for the discerning traveler — with flight time estimates
+                from your city, live price comparisons across 7 suppliers, and editorial you can trust.
+              </p>
+
+              {/* CTA row */}
+              <div className="flex flex-wrap items-center gap-4 mb-8">
+                <a
+                  href="#guides"
+                  className="inline-flex items-center gap-2 bg-[#c9a96e] text-[#1a1814] font-semibold px-6 py-3 text-base hover:bg-[#d4b87a] transition-colors"
+                  style={{ fontFamily: "'Source Sans 3', sans-serif" }}
+                >
+                  Browse Guides
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </a>
+                <a
+                  href="#newsletter"
+                  className="inline-flex items-center gap-2 text-[#6b6560] font-semibold px-4 py-3 text-base hover:text-[#1a1814] transition-colors border border-[#d9d0c4] hover:border-[#1a1814]"
+                  style={{ fontFamily: "'Source Sans 3', sans-serif" }}
+                >
+                  Free Weekly Briefing
+                </a>
+              </div>
+
+              {/* Trust signals */}
+              <div className="flex items-center gap-6 pt-6 border-t border-[#d9d0c4]">
+                {[
+                  { icon: '✈', label: '100 destinations' },
+                  { icon: '🔍', label: '7 price suppliers' },
+                  { icon: '⭐', label: '4.9 avg. rating' },
+                ].map(item => (
+                  <div key={item.label} className="flex items-center gap-2">
+                    <span className="text-lg">{item.icon}</span>
+                    <span className="text-sm font-medium text-[#6b6560]">{item.label}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Supplier logos — text-proportional widths */}
+              <div className="mt-5">
+                <p className="text-xs font-semibold uppercase tracking-widest mb-3 text-[#9a8f86]">
+                  Book via our trusted partners
+                </p>
+                <div className="flex items-center gap-5 flex-wrap">
+                  <a href="https://www.booking.com" target="_blank" rel="noopener noreferrer" className="grayscale hover:grayscale-0 transition-all duration-300 opacity-40 hover:opacity-100" aria-label="Book on Booking.com" title="Booking.com">
+                    <img src="https://community.stay22.com/hs-fs/hubfs/2560px-Booking.com_logo.svg-1.png?width=131&height=22&name=2560px-Booking.com_logo.svg-1.png" alt="Booking.com" className="h-6 w-32 object-contain" />
+                  </a>
+                  <a href="https://www.expedia.com" target="_blank" rel="noopener noreferrer" className="grayscale hover:grayscale-0 transition-all duration-300 opacity-40 hover:opacity-100" aria-label="Book on Expedia" title="Expedia">
+                    <img src="https://community.stay22.com/hs-fs/hubfs/Expedia_Logo_2023.svg.png?width=134&height=27&name=Expedia_Logo_2023.svg.png" alt="Expedia" className="h-6 w-24 object-contain" />
+                  </a>
+                  <a href="https://www.hotels.com" target="_blank" rel="noopener noreferrer" className="grayscale hover:grayscale-0 transition-all duration-300 opacity-40 hover:opacity-100" aria-label="Book on Hotels.com" title="Hotels.com">
+                    <img src="https://community.stay22.com/hs-fs/hubfs/Hotels.com-Logo-1.png?width=137&height=77&name=Hotels.com-Logo-1.png" alt="Hotels.com" className="h-6 w-28 object-contain" />
+                  </a>
+                  <a href="https://www.agoda.com" target="_blank" rel="noopener noreferrer" className="grayscale hover:grayscale-0 transition-all duration-300 opacity-40 hover:opacity-100" aria-label="Book on Agoda" title="Agoda">
+                    <img src="https://community.stay22.com/hs-fs/hubfs/Agoda%20%20Vio%20(400%20x%20200%20px)%20(1).png?width=170&height=85&name=Agoda%20%20Vio%20(400%20x%20200%20px)%20(1).png" alt="Agoda" className="h-6 w-16 object-contain" />
+                  </a>
+                  <a href="https://www.vrbo.com" target="_blank" rel="noopener noreferrer" className="grayscale hover:grayscale-0 transition-all duration-300 opacity-40 hover:opacity-100" aria-label="Book on Vrbo" title="Vrbo">
+                    <img src="https://community.stay22.com/hs-fs/hubfs/Vrbo.svg.png?width=169&height=54&name=Vrbo.svg.png" alt="Vrbo" className="h-6 w-16 object-contain" />
+                  </a>
+                  <a href="https://www.kayak.com" target="_blank" rel="noopener noreferrer" className="grayscale hover:grayscale-0 transition-all duration-300 opacity-40 hover:opacity-100" aria-label="Search on KAYAK" title="KAYAK">
+                    <img src="https://community.stay22.com/hs-fs/hubfs/kayak-logo.png?width=158&height=83&name=kayak-logo.png" alt="KAYAK" className="h-6 w-20 object-contain" />
+                  </a>
+                  <a href="https://www.getyourguide.com" target="_blank" rel="noopener noreferrer" className="grayscale hover:grayscale-0 transition-all duration-300 opacity-40 hover:opacity-100" aria-label="Book tours on GetYourGuide" title="GetYourGuide">
+                    <img src="https://community.stay22.com/hs-fs/hubfs/0001202_getyourguide-logo-1-3600609454.png?width=168&height=56&name=0001202_getyourguide-logo-1-3600609454.png" alt="GetYourGuide" className="h-6 w-32 object-contain" />
+                  </a>
+                </div>
+              </div>
             </div>
 
-            {/* Headline */}
-            <h1 className="font-display text-4xl md:text-5xl xl:text-6xl font-bold text-white leading-tight mb-5">
-              Your next trip starts<br />with the right intel.
-            </h1>
-
-            {/* Subtext */}
-            <p className="text-white/60 text-base md:text-lg leading-relaxed mb-8 max-w-lg" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
-              In-depth destination guides written for the discerning traveler — with flight time estimates
-              from your city, live price comparisons across 7 suppliers, and editorial you can trust.
-            </p>
-
-            {/* CTA row */}
-            <div className="flex flex-wrap items-center gap-4">
-              <a
-                href="#guides"
-                className="inline-flex items-center gap-2 bg-[#c9a96e] text-[#1a1814] font-semibold px-6 py-3 text-base hover:bg-[#d4b87a] transition-colors"
-                style={{ fontFamily: "'Source Sans 3', sans-serif" }}
-              >
-                Browse Guides
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-              </a>
-              <a
-                href="#newsletter"
-                className="inline-flex items-center gap-2 text-white/70 font-semibold px-4 py-3 text-base hover:text-white transition-colors border border-white/20 hover:border-white/40"
-                style={{ fontFamily: "'Source Sans 3', sans-serif" }}
-              >
-                Free Weekly Briefing
-              </a>
+            {/* Right: Hero image */}
+            <div className="relative flex-shrink-0 w-full lg:w-auto" style={{ maxWidth: '360px' }}>
+              <div className="relative overflow-hidden shadow-xl" style={{ aspectRatio: '4/5' }}>
+                <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&q=85&auto=format&fit=crop" alt="Travel essentials" className="w-full h-full object-cover" />
+                <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(15,28,38,0.3) 0%, transparent 50%)' }} />
+                <div className="absolute bottom-4 left-4 backdrop-blur-sm rounded-2xl px-4 py-3 shadow-lg" style={{ backgroundColor: 'rgba(255,255,255,0.92)' }}>
+                  <div className="text-xs font-semibold mb-0.5 text-[#6b6560]">Trending now</div>
+                  <div className="text-sm font-bold text-[#1a1814]">Maldives Guide updated</div>
+                </div>
+              </div>
             </div>
-
-            {/* Supplier trust line */}
-            <p className="text-white/30 text-xs mt-6" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
-              Guides linked to Booking.com · Expedia · Hotels.com · Agoda · Vrbo · KAYAK · Tripadvisor
-            </p>
           </div>
         </div>
       </section>
