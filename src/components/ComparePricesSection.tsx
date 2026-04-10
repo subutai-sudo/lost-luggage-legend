@@ -1,7 +1,6 @@
 'use client'
 
 import React, { useState, useMemo, useCallback, useEffect, useRef } from 'react'
-import { generateAffiliateLink } from '@/lib/affiliate'
 import { useCurrency, CurrencyCode } from '@/components/CurrencyProvider'
 
 interface Airport {
@@ -145,14 +144,14 @@ const AIRPORTS: Airport[] = [
   { code: 'BOG', city: 'Bogota', country: 'Colombia', fullName: 'El Dorado' },
 ]
 
-// Real booking site link generators — no fake prices
+// Flight search suppliers — direct URLs work reliably for these
 const FLIGHT_SUPPLIERS = [
   {
     id: 'kayak',
     name: 'Kayak',
     logoUrl: '/logos/kayak.png',
     color: '#4A148C',
-    categories: ['Flights', 'Hotels'],
+    categories: ['Flights'],
     buildUrl: (origin: string, dest: string, depart: string, returnDate?: string, currency: CurrencyCode = 'USD') => {
       // Kayak doesn't support currency via URL param — uses cookies/session
       if (returnDate) {
@@ -166,7 +165,7 @@ const FLIGHT_SUPPLIERS = [
     name: 'Expedia',
     logoUrl: '/logos/expedia.png',
     color: '#003E7E',
-    categories: ['Flights', 'Hotels', 'Packages'],
+    categories: ['Flights', 'Hotels'],
     buildUrl: (origin: string, dest: string, depart: string, returnDate?: string, currency: CurrencyCode = 'USD') => {
       const currParam = currency !== 'USD' ? `&currency=${currency}` : ''
       if (returnDate) {
@@ -191,27 +190,26 @@ const FLIGHT_SUPPLIERS = [
   },
 ]
 
-// Hotel search links — powered by Stay22 Allez for reliable multi-OTA routing
-// Stay22 auto-selects the best OTA (Booking.com, Expedia, Hotels.com, Vrbo, KAYAK, etc.)
-// and handles geolocation, currency, and language routing automatically.
-// Direct OTA URLs (Booking.com, Kayak, etc.) strip query params via redirects,
-// so Stay22 is the only reliable way to deep-link hotel searches.
+// Hotel search suppliers — real OTAs users want to compare
+// Per Stay22 skill: Booking.com, Hotels.com, Agoda strip URL params via redirects.
+// Only Expedia Hotel-Search reliably accepts URL params.
+// Route unreliable OTAs through Stay22 allez/{ota} for geo-routing + tracking.
 const STAY22_AID = process.env.NEXT_PUBLIC_STAY22_AID || '1193160bctld'
 
 const HOTEL_SUPPLIERS = [
   {
-    id: 'stay22',
-    name: 'Compare All Sites',
-    logoUrl: '/logos/stay22.svg',
-    color: '#0891b2',
-    categories: ['Hotels', 'Vacation Rentals'],
+    id: 'booking',
+    name: 'Booking.com',
+    logoUrl: '/logos/booking.png',
+    color: '#003580',
+    categories: ['Hotels'],
     buildUrl: (dest: string, checkin: string, checkout?: string, currency: CurrencyCode = 'USD') => {
-      // Stay22 Allez SRP: searches across Booking.com, Expedia, Hotels.com, Vrbo, KAYAK, etc.
-      // Stay22 handles currency via geolocation but accepts currency param as a hint
-      let url = `https://www.stay22.com/allez/roam?aid=${STAY22_AID}&campaign=lll-hotels&address=${encodeURIComponent(dest)}&checkin=${checkin}`
-      if (checkout) url += `&checkout=${checkout}`
-      if (currency !== 'USD') url += `&currency=${currency}`
-      return url
+      // Booking.com strips query params via redirects — route through Stay22 allez/booking
+      const deepLink = `https://www.booking.com/searchresults.html?ss=${encodeURIComponent(dest)}&checkin=${checkin}`
+      if (checkout) {
+        return `https://www.stay22.com/allez/booking?aid=${STAY22_AID}&campaign=lll-hotels&link=${encodeURIComponent(deepLink + `&checkout=${checkout}&group_adults=2`)}`
+      }
+      return `https://www.stay22.com/allez/booking?aid=${STAY22_AID}&campaign=lll-hotels&link=${encodeURIComponent(deepLink + `&group_adults=2`)}`
     },
   },
   {
@@ -221,7 +219,7 @@ const HOTEL_SUPPLIERS = [
     color: '#003E7E',
     categories: ['Hotels', 'Packages'],
     buildUrl: (dest: string, checkin: string, checkout?: string, currency: CurrencyCode = 'USD') => {
-      // Expedia Hotel-Search is the only OTA that reliably accepts URL params
+      // Expedia Hotel-Search reliably accepts URL params — direct link works
       const currParam = currency !== 'USD' ? `&currency=${currency}` : ''
       let url = `https://www.expedia.com/Hotel-Search?destination=${encodeURIComponent(dest)}&adults=2&d1=${checkin}`
       if (checkout) url += `&d2=${checkout}`
@@ -230,20 +228,57 @@ const HOTEL_SUPPLIERS = [
     },
   },
   {
-    id: 'kayak-stays',
-    name: 'Kayak Stays',
-    logoUrl: '/logos/kayak.png',
-    color: '#4A148C',
-    categories: ['Hotels', 'Flights'],
+    id: 'hotelscom',
+    name: 'Hotels.com',
+    logoUrl: '/logos/hotelscom.png',
+    color: '#D32F2F',
+    categories: ['Hotels'],
     buildUrl: (dest: string, checkin: string, checkout?: string, currency: CurrencyCode = 'USD') => {
-      // Kayak stays URL format — use /stays/ path with SEO-style slug
-      // Kayak doesn't support currency via URL param — uses cookies/session
-      const slug = dest.replace(/[^a-zA-Z0-9]+/g, '-').replace(/-+$/, '')
-      let url = `https://www.kayak.com/stays/${encodeURIComponent(slug)}-hotels`
-      // Kayak doesn't reliably accept date params via URL, but include them for when it works
-      if (checkout) url += `?checkin=${checkin}&checkout=${checkout}`
-      else url += `?checkin=${checkin}`
-      return url
+      // Hotels.com strips query params — route through Stay22 allez/hotels
+      const deepLink = `https://www.hotels.com/search.do?destination=${encodeURIComponent(dest)}&f-lid=${checkin}`
+      if (checkout) {
+        return `https://www.stay22.com/allez/hotels?aid=${STAY22_AID}&campaign=lll-hotels&link=${encodeURIComponent(deepLink + `&f-lid2=${checkout}`)}`
+      }
+      return `https://www.stay22.com/allez/hotels?aid=${STAY22_AID}&campaign=lll-hotels&link=${encodeURIComponent(deepLink)}`
+    },
+  },
+  {
+    id: 'vrbo',
+    name: 'Vrbo',
+    logoUrl: '/logos/vrbo.png',
+    color: '#1A4E6E',
+    categories: ['Vacation Rentals'],
+    buildUrl: (dest: string, checkin: string, checkout?: string, currency: CurrencyCode = 'USD') => {
+      // Vrbo partial — destination preserved but dates unreliable — route through Stay22 allez/vrbo
+      const deepLink = `https://www.vrbo.com/search?q=${encodeURIComponent(dest)}&startDate=${checkin}`
+      if (checkout) {
+        return `https://www.stay22.com/allez/vrbo?aid=${STAY22_AID}&campaign=lll-hotels&link=${encodeURIComponent(deepLink + `&endDate=${checkout}`)}`
+      }
+      return `https://www.stay22.com/allez/vrbo?aid=${STAY22_AID}&campaign=lll-hotels&link=${encodeURIComponent(deepLink)}`
+    },
+  },
+  {
+    id: 'tripadvisor',
+    name: 'Tripadvisor',
+    logoUrl: '/logos/tripadvisor.png',
+    color: '#34E0A1',
+    categories: ['Reviews'],
+    buildUrl: (dest: string, checkin: string, checkout?: string, currency: CurrencyCode = 'USD') => {
+      // Tripadvisor — no date/currency support — route through Stay22 allez/tripadvisor
+      const deepLink = `https://www.tripadvisor.com/Search?q=${encodeURIComponent(dest)}`
+      return `https://www.stay22.com/allez/tripadvisor?aid=${STAY22_AID}&campaign=lll-hotels&link=${encodeURIComponent(deepLink)}`
+    },
+  },
+  {
+    id: 'getyourguide',
+    name: 'GetYourGuide',
+    logoUrl: '/logos/getyourguide.png',
+    color: '#FF5A5F',
+    categories: ['Activities', 'Tours'],
+    buildUrl: (dest: string, checkin: string, checkout?: string, currency: CurrencyCode = 'USD') => {
+      // GetYourGuide — search works, no date/currency — route through Stay22 allez/getyourguide
+      const deepLink = `https://www.getyourguide.com/s/${encodeURIComponent(dest)}/l4/`
+      return `https://www.stay22.com/allez/getyourguide?aid=${STAY22_AID}&campaign=lll-hotels&link=${encodeURIComponent(deepLink)}`
     },
   },
 ]
@@ -281,6 +316,7 @@ export function ComparePricesSection() {
   const [destInput, setDestInput] = useState('')
   const [departDate, setDepartDate] = useState('')
   const [returnDate, setReturnDate] = useState('')
+  const [hotelDest, setHotelDest] = useState('')
   
   // Selected airports (only for flights)
   const [selectedOriginAirports, setSelectedOriginAirports] = useState<string[]>([])
@@ -289,6 +325,7 @@ export function ComparePricesSection() {
   // Autocomplete visibility
   const [showOriginSuggestions, setShowOriginSuggestions] = useState(false)
   const [showDestSuggestions, setShowDestSuggestions] = useState(false)
+  const [showHotelSuggestions, setShowHotelSuggestions] = useState(false)
   
   // Search state — whether we've submitted and should show results
   const [hasSearched, setHasSearched] = useState(false)
@@ -296,6 +333,7 @@ export function ComparePricesSection() {
   // Refs
   const originRef = useRef<HTMLDivElement>(null)
   const destRef = useRef<HTMLDivElement>(null)
+  const hotelRef = useRef<HTMLDivElement>(null)
   
   // Click outside handler
   useEffect(() => {
@@ -305,6 +343,9 @@ export function ComparePricesSection() {
       }
       if (destRef.current && !destRef.current.contains(e.target as Node)) {
         setShowDestSuggestions(false)
+      }
+      if (hotelRef.current && !hotelRef.current.contains(e.target as Node)) {
+        setShowHotelSuggestions(false)
       }
     }
     document.addEventListener('mousedown', handleClickOutside)
@@ -325,6 +366,13 @@ export function ComparePricesSection() {
     }
     return []
   }, [destInput, showDestSuggestions])
+
+  const hotelSuggestions = useMemo(() => {
+    if (showHotelSuggestions && hotelDest.length >= 2) {
+      return searchAirports(hotelDest)
+    }
+    return []
+  }, [hotelDest, showHotelSuggestions])
   
   // Group suggestions by city
   const groupedOriginSuggestions = useMemo(() => {
@@ -344,8 +392,17 @@ export function ComparePricesSection() {
     })
     return Object.entries(groups)
   }, [destSuggestions])
+
+  const groupedHotelSuggestions = useMemo(() => {
+    const groups: Record<string, Airport[]> = {}
+    hotelSuggestions.forEach(airport => {
+      if (!groups[airport.city]) groups[airport.city] = []
+      groups[airport.city].push(airport)
+    })
+    return Object.entries(groups)
+  }, [hotelSuggestions])
   
-  // Handle origin selection
+  // Handle origin selection (flights)
   const handleOriginSelect = (airport: Airport) => {
     const cityAirports = getAirportsByCity(airport.city)
     const codes = cityAirports.map(a => a.code)
@@ -358,7 +415,7 @@ export function ComparePricesSection() {
     setShowOriginSuggestions(false)
   }
   
-  // Handle destination selection
+  // Handle destination selection (flights)
   const handleDestSelect = (airport: Airport) => {
     const cityAirports = getAirportsByCity(airport.city)
     const codes = cityAirports.map(a => a.code)
@@ -369,6 +426,12 @@ export function ComparePricesSection() {
       setDestInput(`${airport.city} (${codes[0]})`)
     }
     setShowDestSuggestions(false)
+  }
+  
+  // Handle hotel destination selection
+  const handleHotelDestSelect = (airport: Airport) => {
+    setHotelDest(airport.city)
+    setShowHotelSuggestions(false)
   }
   
   // Handle input changes
@@ -389,14 +452,22 @@ export function ComparePricesSection() {
       setShowDestSuggestions(true)
     }
   }
+
+  const handleHotelDestChange = (value: string) => {
+    setHotelDest(value)
+    if (value) {
+      setShowHotelSuggestions(true)
+    }
+  }
   
   // Form validation
   const isFormValid = useMemo(() => {
     if (searchType === 'flights') {
       return selectedOriginAirports.length > 0 && selectedDestAirports.length > 0 && departDate
     }
-    return originInput.trim() && destInput.trim() && departDate
-  }, [searchType, selectedOriginAirports, selectedDestAirports, originInput, destInput, departDate])
+    // Hotels: just need destination + check-in
+    return hotelDest.trim().length > 0 && departDate
+  }, [searchType, selectedOriginAirports, selectedDestAirports, hotelDest, departDate])
   
   // Build real supplier links based on form state (currency-aware)
   const supplierLinks = useMemo(() => {
@@ -415,20 +486,19 @@ export function ComparePricesSection() {
       }))
     }
     
-    if (searchType === 'hotels' && destInput.trim()) {
-      const destCity = destInput.replace(/\s*\([A-Z,\s]+\)$/, '').trim()
+    if (searchType === 'hotels' && hotelDest.trim()) {
       return HOTEL_SUPPLIERS.map(supplier => ({
         id: supplier.id,
         name: supplier.name,
         logoUrl: supplier.logoUrl,
         color: supplier.color,
         categories: supplier.categories,
-        url: supplier.buildUrl(destCity, departDate, returnDate || undefined, currency),
+        url: supplier.buildUrl(hotelDest.trim(), departDate, returnDate || undefined, currency),
       }))
     }
     
     return []
-  }, [hasSearched, searchType, selectedOriginAirports, selectedDestAirports, destInput, departDate, returnDate, currency])
+  }, [hasSearched, searchType, selectedOriginAirports, selectedDestAirports, hotelDest, departDate, returnDate, currency])
   
   // Search handler — just show the redirect links (no fake API call)
   const handleSearch = () => {
@@ -441,6 +511,7 @@ export function ComparePricesSection() {
     setSearchType(type)
     setOriginInput('')
     setDestInput('')
+    setHotelDest('')
     setSelectedOriginAirports([])
     setSelectedDestAirports([])
     setDepartDate('')
@@ -476,7 +547,7 @@ export function ComparePricesSection() {
           <p className="text-lg max-w-2xl mx-auto" style={{ color: 'var(--color-ink-light)' }}>
             {searchType === 'flights' 
               ? 'Search live prices across Kayak, Expedia, and Google Flights. Click through to book at the best rate.'
-              : 'Compare hotel rates across major booking sites via Stay22, Expedia, and Kayak. Click through to see real prices.'}
+              : 'Compare hotel rates across Booking.com, Expedia, Hotels.com, Vrbo, and more. Click through to see real prices.'}
           </p>
         </div>
         
@@ -514,45 +585,34 @@ export function ComparePricesSection() {
             </div>
             
             {/* Form Fields */}
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-              {/* Origin */}
-              <div className="relative" ref={originRef}>
-                <label className="block text-xs font-semibold uppercase tracking-wider mb-1.5" style={{ color: 'var(--color-muted)' }}>
-                  {searchType === 'flights' ? 'From (City or Airport)' : 'Destination'}
-                </label>
-                <div className="relative">
-                  <input
-                    type="text"
-                    value={originInput}
-                    onChange={(e) => handleOriginChange(e.target.value)}
-                    onFocus={() => setShowOriginSuggestions(true)}
-                    placeholder={searchType === 'flights' ? 'e.g., New York or JFK' : 'City name'}
-                    className="w-full px-4 py-3 pl-10 rounded-lg border-2 font-medium transition-all focus:outline-none focus:border-[#0891b2]"
-                    style={{ 
-                      borderColor: 'var(--color-border)', 
-                      backgroundColor: 'var(--color-bg)',
-                      color: 'var(--color-ink)'
-                    }}
-                  />
-                  <svg className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4" style={{ color: 'var(--color-muted)' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                  </svg>
-                </div>
-                
-                {/* Autocomplete Dropdown */}
-                {showOriginSuggestions && groupedOriginSuggestions.length > 0 && (
-                  <div 
-                    className="absolute z-50 w-full mt-1 bg-white rounded-lg shadow-xl border max-h-60 overflow-auto"
-                    style={{ borderColor: 'var(--color-border)' }}
-                  >
-                    {searchType === 'flights' ? (
-                      groupedOriginSuggestions.map(([city, airports]) => (
-                        <button
-                          key={city}
-                          onClick={() => handleOriginSelect(airports[0])}
+            {searchType === 'flights' ? (
+              /* Flights: 4-column grid — From, To, Depart, Return */
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                {/* Origin */}
+                <div className="relative" ref={originRef}>
+                  <label className="block text-xs font-semibold uppercase tracking-wider mb-1.5" style={{ color: 'var(--color-muted)' }}>
+                    From (City or Airport)
+                  </label>
+                  <div className="relative">
+                    <input
+                      type="text"
+                      value={originInput}
+                      onChange={(e) => handleOriginChange(e.target.value)}
+                      onFocus={() => setShowOriginSuggestions(true)}
+                      placeholder="e.g., New York or JFK"
+                      className="w-full px-4 py-3 pl-10 rounded-lg border-2 font-medium transition-all focus:outline-none focus:border-[#0891b2]"
+                      style={{ borderColor: 'var(--color-border)', backgroundColor: 'var(--color-bg)', color: 'var(--color-ink)' }}
+                    />
+                    <svg className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4" style={{ color: 'var(--color-muted)' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    </svg>
+                  </div>
+                  {showOriginSuggestions && groupedOriginSuggestions.length > 0 && (
+                    <div className="absolute z-50 w-full mt-1 bg-white rounded-lg shadow-xl border max-h-60 overflow-auto" style={{ borderColor: 'var(--color-border)' }}>
+                      {groupedOriginSuggestions.map(([city, airports]) => (
+                        <button key={city} onClick={() => handleOriginSelect(airports[0])}
                           className="w-full px-4 py-3 text-left hover:bg-gray-50 border-b last:border-b-0 transition-colors"
-                          style={{ borderColor: 'var(--color-border)' }}
-                        >
+                          style={{ borderColor: 'var(--color-border)' }}>
                           <div className="flex items-center justify-between">
                             <div>
                               <span className="font-semibold" style={{ color: 'var(--color-ink)' }}>{city}</span>
@@ -560,81 +620,42 @@ export function ComparePricesSection() {
                             </div>
                             <div className="flex gap-1">
                               {airports.map(a => (
-                                <span 
-                                  key={a.code} 
-                                  className="px-2 py-0.5 text-xs font-bold rounded"
-                                  style={{ backgroundColor: 'var(--color-bg-subtle)', color: '#0891b2' }}
-                                >
-                                  {a.code}
-                                </span>
+                                <span key={a.code} className="px-2 py-0.5 text-xs font-bold rounded" style={{ backgroundColor: 'var(--color-bg-subtle)', color: '#0891b2' }}>{a.code}</span>
                               ))}
                             </div>
                           </div>
-                          {airports.length > 1 && (
-                            <p className="text-xs mt-1" style={{ color: 'var(--color-muted)' }}>
-                              All {airports.length} airports included
-                            </p>
-                          )}
+                          {airports.length > 1 && <p className="text-xs mt-1" style={{ color: 'var(--color-muted)' }}>All {airports.length} airports included</p>}
                         </button>
-                      ))
-                    ) : (
-                      groupedOriginSuggestions.map(([city, airports]) => (
-                        <button
-                          key={city}
-                          onClick={() => {
-                            setOriginInput(city)
-                            setShowOriginSuggestions(false)
-                          }}
-                          className="w-full px-4 py-2 text-left hover:bg-gray-50 border-b last:border-b-0"
-                          style={{ borderColor: 'var(--color-border)' }}
-                        >
-                          <span className="font-medium" style={{ color: 'var(--color-ink)' }}>{city}</span>
-                          <span className="text-sm ml-2" style={{ color: 'var(--color-muted)' }}>{airports[0].country}</span>
-                        </button>
-                      ))
-                    )}
-                  </div>
-                )}
-              </div>
-              
-              {/* Destination */}
-              <div className="relative" ref={destRef}>
-                <label className="block text-xs font-semibold uppercase tracking-wider mb-1.5" style={{ color: 'var(--color-muted)' }}>
-                  {searchType === 'flights' ? 'To (City or Airport)' : 'Hotel Area'}
-                </label>
-                <div className="relative">
-                  <input
-                    type="text"
-                    value={destInput}
-                    onChange={(e) => handleDestChange(e.target.value)}
-                    onFocus={() => setShowDestSuggestions(true)}
-                    placeholder={searchType === 'flights' ? 'e.g., London or LHR' : 'Neighborhood'}
-                    className="w-full px-4 py-3 pl-10 rounded-lg border-2 font-medium transition-all focus:outline-none focus:border-[#0891b2]"
-                    style={{ 
-                      borderColor: 'var(--color-border)', 
-                      backgroundColor: 'var(--color-bg)',
-                      color: 'var(--color-ink)'
-                    }}
-                  />
-                  <svg className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4" style={{ color: 'var(--color-muted)' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
+                      ))}
+                    </div>
+                  )}
                 </div>
                 
-                {/* Autocomplete Dropdown */}
-                {showDestSuggestions && groupedDestSuggestions.length > 0 && (
-                  <div 
-                    className="absolute z-50 w-full mt-1 bg-white rounded-lg shadow-xl border max-h-60 overflow-auto"
-                    style={{ borderColor: 'var(--color-border)' }}
-                  >
-                    {searchType === 'flights' ? (
-                      groupedDestSuggestions.map(([city, airports]) => (
-                        <button
-                          key={city}
-                          onClick={() => handleDestSelect(airports[0])}
+                {/* Destination */}
+                <div className="relative" ref={destRef}>
+                  <label className="block text-xs font-semibold uppercase tracking-wider mb-1.5" style={{ color: 'var(--color-muted)' }}>
+                    To (City or Airport)
+                  </label>
+                  <div className="relative">
+                    <input
+                      type="text"
+                      value={destInput}
+                      onChange={(e) => handleDestChange(e.target.value)}
+                      onFocus={() => setShowDestSuggestions(true)}
+                      placeholder="e.g., London or LHR"
+                      className="w-full px-4 py-3 pl-10 rounded-lg border-2 font-medium transition-all focus:outline-none focus:border-[#0891b2]"
+                      style={{ borderColor: 'var(--color-border)', backgroundColor: 'var(--color-bg)', color: 'var(--color-ink)' }}
+                    />
+                    <svg className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4" style={{ color: 'var(--color-muted)' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  {showDestSuggestions && groupedDestSuggestions.length > 0 && (
+                    <div className="absolute z-50 w-full mt-1 bg-white rounded-lg shadow-xl border max-h-60 overflow-auto" style={{ borderColor: 'var(--color-border)' }}>
+                      {groupedDestSuggestions.map(([city, airports]) => (
+                        <button key={city} onClick={() => handleDestSelect(airports[0])}
                           className="w-full px-4 py-3 text-left hover:bg-gray-50 border-b last:border-b-0 transition-colors"
-                          style={{ borderColor: 'var(--color-border)' }}
-                        >
+                          style={{ borderColor: 'var(--color-border)' }}>
                           <div className="flex items-center justify-between">
                             <div>
                               <span className="font-semibold" style={{ color: 'var(--color-ink)' }}>{city}</span>
@@ -642,81 +663,114 @@ export function ComparePricesSection() {
                             </div>
                             <div className="flex gap-1">
                               {airports.map(a => (
-                                <span 
-                                  key={a.code} 
-                                  className="px-2 py-0.5 text-xs font-bold rounded"
-                                  style={{ backgroundColor: 'var(--color-bg-subtle)', color: '#0891b2' }}
-                                >
-                                  {a.code}
-                                </span>
+                                <span key={a.code} className="px-2 py-0.5 text-xs font-bold rounded" style={{ backgroundColor: 'var(--color-bg-subtle)', color: '#0891b2' }}>{a.code}</span>
                               ))}
                             </div>
                           </div>
-                          {airports.length > 1 && (
-                            <p className="text-xs mt-1" style={{ color: 'var(--color-muted)' }}>
-                              All {airports.length} airports included
-                            </p>
-                          )}
+                          {airports.length > 1 && <p className="text-xs mt-1" style={{ color: 'var(--color-muted)' }}>All {airports.length} airports included</p>}
                         </button>
-                      ))
-                    ) : (
-                      groupedDestSuggestions.map(([city, airports]) => (
-                        <button
-                          key={city}
-                          onClick={() => {
-                            setDestInput(city)
-                            setShowDestSuggestions(false)
-                          }}
-                          className="w-full px-4 py-2 text-left hover:bg-gray-50 border-b last:border-b-0"
-                          style={{ borderColor: 'var(--color-border)' }}
-                        >
+                      ))}
+                    </div>
+                  )}
+                </div>
+                
+                {/* Depart Date */}
+                <div>
+                  <label className="block text-xs font-semibold uppercase tracking-wider mb-1.5" style={{ color: 'var(--color-muted)' }}>
+                    Depart
+                  </label>
+                  <input
+                    type="date"
+                    value={departDate}
+                    onChange={(e) => setDepartDate(e.target.value)}
+                    min={new Date().toISOString().split('T')[0]}
+                    className="w-full px-4 py-3 rounded-lg border-2 font-medium transition-all focus:outline-none focus:border-[#0891b2] cursor-pointer"
+                    style={{ borderColor: 'var(--color-border)', backgroundColor: 'var(--color-bg)', color: 'var(--color-ink)' }}
+                  />
+                </div>
+                
+                {/* Return */}
+                <div>
+                  <label className="block text-xs font-semibold uppercase tracking-wider mb-1.5" style={{ color: 'var(--color-muted)' }}>
+                    Return (Optional)
+                  </label>
+                  <input
+                    type="date"
+                    value={returnDate}
+                    onChange={(e) => setReturnDate(e.target.value)}
+                    min={departDate || new Date().toISOString().split('T')[0]}
+                    className="w-full px-4 py-3 rounded-lg border-2 font-medium transition-all focus:outline-none focus:border-[#0891b2] cursor-pointer"
+                    style={{ borderColor: 'var(--color-border)', backgroundColor: 'var(--color-bg)', color: 'var(--color-ink)' }}
+                  />
+                </div>
+              </div>
+            ) : (
+              /* Hotels: 3-column grid — Destination, Check-in, Check-out */
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {/* Destination (wider) */}
+                <div className="relative" ref={hotelRef}>
+                  <label className="block text-xs font-semibold uppercase tracking-wider mb-1.5" style={{ color: 'var(--color-muted)' }}>
+                    Destination
+                  </label>
+                  <div className="relative">
+                    <input
+                      type="text"
+                      value={hotelDest}
+                      onChange={(e) => handleHotelDestChange(e.target.value)}
+                      onFocus={() => setShowHotelSuggestions(true)}
+                      placeholder="e.g., Lisbon, Paris, Tokyo..."
+                      className="w-full px-4 py-3 pl-10 rounded-lg border-2 font-medium transition-all focus:outline-none focus:border-[#0891b2]"
+                      style={{ borderColor: 'var(--color-border)', backgroundColor: 'var(--color-bg)', color: 'var(--color-ink)' }}
+                    />
+                    <svg className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4" style={{ color: 'var(--color-muted)' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    </svg>
+                  </div>
+                  {showHotelSuggestions && groupedHotelSuggestions.length > 0 && (
+                    <div className="absolute z-50 w-full mt-1 bg-white rounded-lg shadow-xl border max-h-60 overflow-auto" style={{ borderColor: 'var(--color-border)' }}>
+                      {groupedHotelSuggestions.map(([city, airports]) => (
+                        <button key={city} onClick={() => handleHotelDestSelect(airports[0])}
+                          className="w-full px-4 py-2.5 text-left hover:bg-gray-50 border-b last:border-b-0"
+                          style={{ borderColor: 'var(--color-border)' }}>
                           <span className="font-medium" style={{ color: 'var(--color-ink)' }}>{city}</span>
                           <span className="text-sm ml-2" style={{ color: 'var(--color-muted)' }}>{airports[0].country}</span>
                         </button>
-                      ))
-                    )}
-                  </div>
-                )}
+                      ))}
+                    </div>
+                  )}
+                </div>
+                
+                {/* Check-in */}
+                <div>
+                  <label className="block text-xs font-semibold uppercase tracking-wider mb-1.5" style={{ color: 'var(--color-muted)' }}>
+                    Check-in
+                  </label>
+                  <input
+                    type="date"
+                    value={departDate}
+                    onChange={(e) => setDepartDate(e.target.value)}
+                    min={new Date().toISOString().split('T')[0]}
+                    className="w-full px-4 py-3 rounded-lg border-2 font-medium transition-all focus:outline-none focus:border-[#0891b2] cursor-pointer"
+                    style={{ borderColor: 'var(--color-border)', backgroundColor: 'var(--color-bg)', color: 'var(--color-ink)' }}
+                  />
+                </div>
+                
+                {/* Check-out */}
+                <div>
+                  <label className="block text-xs font-semibold uppercase tracking-wider mb-1.5" style={{ color: 'var(--color-muted)' }}>
+                    Check-out
+                  </label>
+                  <input
+                    type="date"
+                    value={returnDate}
+                    onChange={(e) => setReturnDate(e.target.value)}
+                    min={departDate || new Date().toISOString().split('T')[0]}
+                    className="w-full px-4 py-3 rounded-lg border-2 font-medium transition-all focus:outline-none focus:border-[#0891b2] cursor-pointer"
+                    style={{ borderColor: 'var(--color-border)', backgroundColor: 'var(--color-bg)', color: 'var(--color-ink)' }}
+                  />
+                </div>
               </div>
-              
-              {/* Depart Date */}
-              <div>
-                <label className="block text-xs font-semibold uppercase tracking-wider mb-1.5" style={{ color: 'var(--color-muted)' }}>
-                  {searchType === 'flights' ? 'Depart' : 'Check-in'}
-                </label>
-                <input
-                  type="date"
-                  value={departDate}
-                  onChange={(e) => setDepartDate(e.target.value)}
-                  min={new Date().toISOString().split('T')[0]}
-                  className="w-full px-4 py-3 rounded-lg border-2 font-medium transition-all focus:outline-none focus:border-[#0891b2] cursor-pointer"
-                  style={{ 
-                    borderColor: 'var(--color-border)', 
-                    backgroundColor: 'var(--color-bg)',
-                    color: 'var(--color-ink)'
-                  }}
-                />
-              </div>
-              
-              {/* Return/Check-out */}
-              <div>
-                <label className="block text-xs font-semibold uppercase tracking-wider mb-1.5" style={{ color: 'var(--color-muted)' }}>
-                  {searchType === 'flights' ? 'Return (Optional)' : 'Check-out'}
-                </label>
-                <input
-                  type="date"
-                  value={returnDate}
-                  onChange={(e) => setReturnDate(e.target.value)}
-                  min={departDate || new Date().toISOString().split('T')[0]}
-                  className="w-full px-4 py-3 rounded-lg border-2 font-medium transition-all focus:outline-none focus:border-[#0891b2] cursor-pointer"
-                  style={{ 
-                    borderColor: 'var(--color-border)', 
-                    backgroundColor: 'var(--color-bg)',
-                    color: 'var(--color-ink)'
-                  }}
-                />
-              </div>
-            </div>
+            )}
             
             {/* Search Button */}
             <div className="mt-6 flex flex-col items-center gap-3">
@@ -751,7 +805,7 @@ export function ComparePricesSection() {
               <div>
                 <p className="text-sm font-medium" style={{ color: 'var(--color-ink)' }}>
                   {searchType === 'flights' ? 'Flights' : 'Hotels'}:{' '}
-                  <span className="font-bold">{searchType === 'flights' ? getDisplayCity(originInput) : getDisplayCity(destInput)}</span>
+                  <span className="font-bold">{searchType === 'flights' ? getDisplayCity(originInput) : hotelDest}</span>
                   {searchType === 'flights' && (
                     <>
                       {' → '}
@@ -880,7 +934,7 @@ export function ComparePricesSection() {
                 Ready to compare {searchType === 'flights' ? 'flights' : 'hotels'}?
               </p>
               <p className="text-sm max-w-md mx-auto" style={{ color: 'var(--color-muted)' }}>
-                Enter your {searchType === 'flights' ? 'origin, destination' : 'destination'} and dates above. We&apos;ll send you directly to {searchType === 'flights' ? '3' : '3'} booking sites with your search pre-filled so you can compare real prices.
+                Enter your {searchType === 'flights' ? 'origin, destination' : 'destination'} and dates above. We&apos;ll send you directly to {searchType === 'flights' ? '3' : '6'} booking sites with your search pre-filled so you can compare real prices.
               </p>
             </div>
             
