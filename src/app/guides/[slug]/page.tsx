@@ -69,25 +69,25 @@ export default async function GuidePage({ params }: Props) {
   return (
     <>
       {/* Navigation */}
-      <nav className="sticky top-0 z-50 bg-[#f9f6f0]/95 backdrop-blur-sm border-b border-[#d9d0c4]">
+      <nav className="sticky top-0 z-50 bg-nav-bg/95 backdrop-blur-sm border-b border-border">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="flex items-center justify-between h-16">
             <Link href="/" className="flex items-center gap-3">
               <span className="text-2xl">🧳</span>
               <div>
-                <span className="font-display text-lg font-bold tracking-tight text-[#1a1814] leading-none block">Lost Luggage</span>
-                <span className="issue-label text-[#c9a96e] leading-none">Legend</span>
+                <span className="font-display text-lg font-bold tracking-tight text-ink leading-none block">Lost Luggage</span>
+                <span className="issue-label text-gold leading-none">Legend</span>
               </div>
             </Link>
             <div className="hidden md:flex items-center gap-10">
               {[
-                { label: 'Guides', href: '/' },
+                { label: 'Guides', href: '/guides' },
                 { label: 'Newsletter', href: '/#newsletter' },
               ].map((item) => (
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="nav-editorial text-[#6b6560] hover:text-[#1a1814] transition-colors"
+                  className="nav-editorial text-muted hover:text-ink transition-colors"
                 >
                   {item.label}
                 </Link>
@@ -110,18 +110,13 @@ export default async function GuidePage({ params }: Props) {
           priority
           sizes="100vw"
         />
-        {/* Full dark base layer — makes text readable everywhere */}
-        <div className="absolute inset-0 bg-[#0f1c26]/60" />
-        {/* Bottom image reveal */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-        {/* Extra scrim strip behind title for maximum readability on any photo */}
-        <div
-          className="absolute bottom-0 left-0 right-0"
-          style={{
-            height: '55%',
-            background: 'linear-gradient(to top, rgba(15,28,38,0.85) 0%, rgba(0,0,0,0.3) 100%)',
-          }}
-        />
+        {/* Uniform dark base — ensures text is readable on ANY photo */}
+        <div className="absolute inset-0 bg-black/50" />
+        {/* Bottom-heavy gradient — darkest where text lives */}
+        <div className="absolute inset-0" style={{
+          background: 'linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0.35) 70%, rgba(0,0,0,0.2) 100%)',
+        }} />
+        {/* All text content at the bottom */}
         <div className="absolute bottom-0 left-0 right-0 p-8 lg:p-16">
           <div className="max-w-4xl mx-auto">
             <div className="flex items-center gap-3 mb-4">
@@ -131,13 +126,13 @@ export default async function GuidePage({ params }: Props) {
               >
                 {guide.theme}
               </span>
-              <span className="text-white/60 text-sm" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
+              <span className="text-white/70 text-sm" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
                 {guide.subtitle}
               </span>
             </div>
             <h1
-              className="font-display text-5xl md:text-7xl font-bold text-white leading-none mb-4"
-              style={{ textShadow: '0 2px 12px rgba(0,0,0,0.8), 0 0 40px rgba(0,0,0,0.4)' }}
+              className="font-display text-5xl md:text-7xl font-bold leading-none mb-4"
+              style={{ color: '#ffffff', textShadow: '0 2px 8px rgba(0,0,0,0.9), 0 4px 24px rgba(0,0,0,0.6)' }}
             >
               {guide.title}
             </h1>
@@ -149,7 +144,7 @@ export default async function GuidePage({ params }: Props) {
                   </svg>
                 ))}
               </div>
-              <span className="text-white/60 text-sm" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
+              <span className="text-white/70 text-sm" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
                 {guide.rating} / 5 traveler rating
               </span>
             </div>
@@ -158,7 +153,7 @@ export default async function GuidePage({ params }: Props) {
       </header>
 
       {/* Quick stats bar */}
-      <div className="bg-[#1e2d3d] border-b border-[#1e2d3d]">
+      <div className="bg-navy-deep border-b border-navy-deep">
         <div className="max-w-4xl mx-auto px-6 lg:px-12">
           <div className="flex flex-wrap gap-8 py-5">
             {/* Non-flight stats */}
@@ -169,7 +164,7 @@ export default async function GuidePage({ params }: Props) {
                   <span className="text-white font-semibold text-lg" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
                     {stat.value}
                   </span>
-                  <span className="text-[#e8e0d4]/50 text-xs uppercase tracking-wider">
+                  <span className="text-sand/50 text-xs uppercase tracking-wider">
                     {stat.label}
                   </span>
                 </div>
@@ -181,11 +176,11 @@ export default async function GuidePage({ params }: Props) {
       </div>
 
       {/* Main content */}
-      <main className="bg-[#f9f6f0]">
+      <main className="bg-bg">
         <div className="max-w-4xl mx-auto px-6 lg:px-12 py-16">
 
           {/* Lead excerpt */}
-          <p className="text-[#1a1814] text-xl md:text-2xl leading-relaxed font-light mb-10 border-l-4 border-[#c9a96e] pl-6"
+          <p className="text-ink text-xl md:text-2xl leading-relaxed font-light mb-10 border-l-4 border-gold pl-6"
             style={{ fontFamily: "'Source Serif 4', Georgia, serif" }}>
             {guide.excerpt}
           </p>
@@ -195,7 +190,7 @@ export default async function GuidePage({ params }: Props) {
             {guide.tags.map((tag) => (
               <span
                 key={tag}
-                className="text-[#6b6560] text-xs uppercase tracking-wider border border-[#d9d0c4] px-3 py-1"
+                className="text-muted text-xs uppercase tracking-wider border border-border px-3 py-1"
               >
                 {tag}
               </span>
@@ -206,17 +201,17 @@ export default async function GuidePage({ params }: Props) {
           <div className="prose-editorial">
             {articleContent.sections.map((section, i) => (
               <section key={i} className="mb-12">
-                <h2 className="font-display text-3xl font-bold text-[#1a1814] mb-4 leading-tight">
+                <h2 className="font-display text-3xl font-bold text-ink mb-4 leading-tight">
                   {section.title}
                 </h2>
-                <p className="text-[#3d3a36] text-lg leading-relaxed mb-4" style={{ fontFamily: "'Source Serif 4', Georgia, serif" }}>
+                <p className="text-ink-light text-lg leading-relaxed mb-4" style={{ fontFamily: "'Source Serif 4', Georgia, serif" }}>
                   {section.content}
                 </p>
                 {section.items && (
                   <ul className="list-none space-y-2 mt-4">
                     {section.items.map((item, j) => (
-                      <li key={j} className="flex gap-3 text-[#3d3a36]" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
-                        <span className="text-[#c9a96e] mt-1 flex-shrink-0">✦</span>
+                      <li key={j} className="flex gap-3 text-ink-light" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
+                        <span className="text-gold mt-1 flex-shrink-0">✦</span>
                         <span>{item}</span>
                       </li>
                     ))}
@@ -234,7 +229,7 @@ export default async function GuidePage({ params }: Props) {
           {/* Related destinations */}
           {related.length > 0 && (
             <div className="mt-16">
-              <h3 className="font-display text-2xl font-bold text-[#1a1814] mb-6">You might also like</h3>
+              <h3 className="font-display text-2xl font-bold text-ink mb-6">You might also like</h3>
               <div className="grid md:grid-cols-3 gap-6">
                 {related.map((r) => (
                   <a
@@ -252,9 +247,9 @@ export default async function GuidePage({ params }: Props) {
                       />
                       <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors" />
                     </div>
-                    <div className="bg-white p-4">
-                      <div className="issue-label text-[#c9a96e] mb-1">{r.subtitle}</div>
-                      <h4 className="font-display text-lg font-bold text-[#1a1814]">{r.title}</h4>
+                    <div className="bg-card-bg p-4">
+                      <div className="issue-label text-gold mb-1">{r.subtitle}</div>
+                      <h4 className="font-display text-lg font-bold text-ink">{r.title}</h4>
                     </div>
                   </a>
                 ))}
@@ -704,22 +699,327 @@ function getArticleContent(guide: DestinationGuide): { sections: Array<{ title: 
         },
       ],
     },
+
+    'stockholm': {
+      sections: [
+        {
+          title: 'Why Stockholm Is Scandinavia\'s Most Liveable Capital',
+          content: `Stockholm spreads across 14 islands connected by 57 bridges, and the water is clean enough to swim in from the city centre. Gamla Stan (Old Town) is a medieval maze of cobblestone streets, but the real Stockholm lives in Södermalm -- vintage shops, record stores, and cafés that take their coffee extremely seriously. The Vasa Museum houses a 17th-century warship that sank on its maiden voyage in 1628 and was salvaged 333 years later almost perfectly preserved. The metro stations (the Tunnelbana) are themselves art galleries, with 90 of 100 stations featuring sculptures, mosaics, and installations.`,
+          items: [
+            'Tunnelbana art: Take the blue line from Kungsträdgården to Rådhuset -- the station is carved from raw bedrock with exposed rock walls',
+            'Fika culture: Kaffekoppen in Gamla Stan or Café String in Södermalm -- always with a kanelbulle (cinnamon bun)',
+            'Archipelago day trip: Waxholm boat from Slussen (1 hour) -- bring a swimsuit, the water is clean enough to jump in',
+          ],
+        },
+        {
+          title: 'Best Time to Visit',
+          content: `June to August is peak Stockholm: 20-25°C, nearly 19 hours of daylight, and the entire city moves to waterfront terraces. Midsummer (late June) is the biggest celebration. September brings golden light and fewer crowds. Winter (November-February) is dark (6 hours of daylight in December) and cold (-3 to 2°C) but the Christmas markets in Gamla Stan are atmospheric. April-May is transitional with the first outdoor café tables appearing.`,
+        },
+        {
+          title: 'What It Costs',
+          content: `Stockholm is expensive. A mid-range restaurant meal SEK 200-350 (~$19-33 USD). Tunnelbana single ticket SEK 39 (~$3.70). A beer SEK 75-95 (~$7-9). Mid-range hotel SEK 1,500-2,800/night (~$140-265). The Stockholm Card covers public transport and museums. Budget tip: dagens rätt (daily special) at most restaurants is SEK 120-150 including drink, salad, and coffee.`,
+        },
+      ],
+    },
+    'zurich': {
+      sections: [
+        {
+          title: 'Why Zurich Is Switzerland\'s Best Surprise',
+          content: `Zurich has a reputation for being sterile -- completely wrong. The Altstadt (Old Town) along the Limmat river is one of Europe\'s most photogenic medieval quarters. The lake is swimmable from a dozen public bathhouses, and on summer evenings the entire city gathers along the waterfront. The Kunsthaus has one of Europe\'s finest art collections, and Cabaret Voltaire -- birthplace of the Dada art movement in 1916 -- still hosts experimental performances. Zurich is expensive, but it\'s also genuinely beautiful and surprisingly fun.`,
+          items: [
+            'Flussbad Oberer Letten: Free public swimming in the Limmat river -- locals swim during lunch breaks. Open May-September',
+            'Bürkliplatz flea market: Saturday mornings along the lakefront -- arrive before 10am for the best finds',
+            'Uetliberg: S10 train (20 min from HB) to Zurich\'s local mountain -- panoramic views of city, lake, and Alps',
+          ],
+        },
+        {
+          title: 'Best Time to Visit',
+          content: `June to September is ideal: 20-27°C, long evenings by the lake, open-air cinema. December brings Christmas markets and mulled wine (0-5°C). January-February are grey and cold but hotel prices drop 20-30%. May and October are shoulder months with fewer tourists and crisp days.`,
+        },
+        {
+          title: 'What It Costs',
+          content: `Zurich is one of Europe\'s most expensive cities. A main course CHF 25-45 (~$28-50 USD). A beer CHF 7-9. Mid-range hotel CHF 200-350/night. The Zürich Card (CHF 27/24hrs) gives unlimited transport and free museum entry. Migros and Coop supermarkets sell excellent takeaway lunches for CHF 8-12. Lake swimming is free. Budget CHF 150-250/day comfortable, or CHF 80-120/day self-catering.`,
+        },
+      ],
+    },
+    'geneva': {
+      sections: [
+        {
+          title: 'Why Geneva Is More Than a Diplomat\'s City',
+          content: `Geneva sits at the tip of Lake Geneva with Mont Blanc visible on clear days. It hosts the UN, Red Cross, and CERN, giving it a polyglot character unlike anywhere else. The Vieille Ville (Old Town) climbs steeply above the cathedral, and the Carouge neighbourhood -- built by the King of Sardinia in the 18th century -- has Mediterranean artisan workshops and evening aperitif culture. The Lavaux vineyards, a UNESCO site clinging to the lake\'s northern shore, are an hour away by train.`,
+          items: [
+            'CERN: Free guided tours -- book 2+ weeks ahead at visits.cern. The Globe exhibition is free and walk-in',
+            'Bains des Pâquis: Public bathhouse on a jetty -- swimming in summer, fondue in winter. Entry CHF 2',
+            'Lavaux vineyards: Train to Lutry or Epesses (30-40 min), walk the terraced vineyards, stop for a glass of local Chasselas',
+          ],
+        },
+        {
+          title: 'Best Time to Visit',
+          content: `June to September: 22-28°C, lake swimming, Fête de la Musique in June. September is ideal -- warm days, vineyard harvest, Jeûne Genevois holiday. Winter (0-5°C) has Christmas illuminations along Rue du Mont-Blanc. March-May brings spring but rain is common.`,
+        },
+        {
+          title: 'What It Costs',
+          content: `A restaurant main CHF 30-50 (~$33-55 USD). Mid-range hotel CHF 180-300/night. Most hotels offer a free public transport card -- ask at check-in. Lake swimming at Bains des Pâquis is CHF 2. A carafe of local wine in Lavaux is CHF 15-25. Daily budget: CHF 150-250 ($165-275 USD) comfortable.`,
+        },
+      ],
+    },
+    'reykjavik': {
+      sections: [
+        {
+          title: 'Why Reykjavik Is the World\'s Smallest Big City',
+          content: `Reykjavik has 140,000 people but operates like a city ten times its size. The music scene is disproportionately excellent, and the nightlife doesn\'t start until midnight. Hallgrímskirkja church dominates the skyline. But Reykjavik\'s real appeal is as a base camp: within an hour\'s drive you can stand between tectonic plates, watch a geyser erupt every 8 minutes, walk behind a waterfall, or soak in a hot spring. The city is walkable in half a day, but it\'s the gateway to an island that never stops surprising.`,
+          items: [
+            'Bæjarins Beztu Pylsur: The harbour hot dog stand -- get it "eina með öllu" (with everything). ISK 450. Genuinely good',
+            'Harpa concert hall: The glass facade shifts colour with the Arctic light. Free to enter, concerts most evenings',
+            'Laugavegur street: The main drag -- bookshops, wool stores, vinyl shops, and bars. Hlemmur Mathöll food hall at the top for lunch',
+          ],
+        },
+        {
+          title: 'Best Time to Visit',
+          content: `June-August for midnight sun, accessible highlands, and puffin colonies. September-March for northern lights -- check vedur.is for aurora forecasts. February is darkest but has highest aurora probability. May and October are shoulder months with moderate prices.`,
+        },
+        {
+          title: 'What It Costs',
+          content: `Reykjavik is expensive. A main course ISK 3,500-6,000 (~$25-43 USD). A beer ISK 1,200-1,600. Mid-range hotel ISK 25,000-45,000/night ($180-320). Swimming pools (sundlaug) are ISK 920 and include hot tubs. Supermarket meals from Bónus or Krónan are cheapest. Daily budget: ISK 20,000-35,000 ($145-250).`,
+        },
+      ],
+    },
+    'chicago': {
+      sections: [
+        {
+          title: 'Why Chicago Is America\'s Most Underestimated City',
+          content: `Chicago rebuilt itself from the Great Fire of 1871 into a city of architectural ambition. The skyline along Lake Michigan is one of the great urban views in North America, and the 28-mile lakefront park is a gift no other American city can match. The Art Institute holds Seurat\'s A Sunday on La Grande Jatte and Hopper\'s Nighthawks. The food scene is world-class: Italian beef sandwiches, Polish sausages, and the Randolph Street restaurant corridor in the West Loop. Chicago is friendlier, cleaner, and more liveable than any comparable American city.`,
+          items: [
+            'Architecture boat tour: The Chicago Architecture Center\'s 90-minute river cruise ($47) is the best way to understand the city -- book the 10am slot',
+            'Millennium Park: Free. The Bean is worth the photo. Pritzker Pavilion hosts free concerts all summer',
+            'Italian beef: Al\'s #1 or Portillo\'s -- order it dipped with hot giardiniera. This is the real Chicago sandwich',
+          ],
+        },
+        {
+          title: 'Best Time to Visit',
+          content: `June to September: 22-30°C, lake beaches open, outdoor festivals every weekend. September is ideal -- warm days, cool nights, fewer crowds. October has fall colour. Winter (Dec-Mar) is harsh (-10 to -1°C) but hotel prices drop 30-40% and Christkindlmarket is atmospheric.`,
+        },
+        {
+          title: 'What It Costs',
+          content: `Chicago is moderate by US big-city standards. Deep-dish pizza for two $25-35. CTA ride $2.50. Craft cocktail $14-18. Mid-range hotel $150-280/night. CityPASS ($109) covers major attractions. Lincoln Park Zoo is free year-round. Daily budget: $120-200 comfortable.`,
+        },
+      ],
+    },
+
+    'boston': {
+      sections: [
+        {
+          title: 'Why Boston Is America\'s Walking City',
+          content: `Boston is the oldest major city in the United States and it feels like it -- in a good way. The Freedom Trail (2.5 miles, 16 historic sites) connects the American Revolution to your feet. Harvard and MIT sit across the river in Cambridge, and their campuses are free to wander. The North End is Boston\'s Little Italy: Hanover Street has a cannoli shop every 50 metres (Mike\'s Pastry vs Modern Pastry is the local debate -- try both). Fenway Park, the oldest baseball stadium in America (1912), still has hand-operated scoreboard and 37-foot Green Monster wall. Boston is compact enough to walk end-to-end, the seafood is excellent, and the accent is free entertainment.`,
+          items: [
+            'Freedom Trail: Start at Boston Common, end at Bunker Hill. Free self-guided, or $14 for a guided tour with a costumed historian',
+            'North End cannoli: Mike\'s Pastry (bigger, more flavours) or Modern Pastry (locals prefer it, crispier shell). Get the classic ricotta',
+            'Fenway Park: Standing room tickets are $20-30 on game day. The bleacher seats in Section 36 are the best cheap seats in baseball',
+          ],
+        },
+        {
+          title: 'Best Time to Visit',
+          content: `June to October is prime Boston: 22-28°C, harbour walks, and outdoor dining. September-October is peak -- fall foliage in the surrounding areas, Harvard and MIT back in session giving the city intellectual energy, and the weather is crisp and clear. Summer (July-August) is warm and humid but the Charles River Esplanade is perfect for evening walks. Winter (December-March) is cold (-6 to 4°C) and snowy, but hotel prices drop significantly and the holiday season is atmospheric. April-May is unpredictable -- could be 18°C or a nor\'easter.`,
+        },
+        {
+          title: 'What It Costs',
+          content: `Boston is expensive by US standards. Seafood dinner USD $30-50. MBTA single ride $2.40. Craft beer at a bar $8-12. Mid-range hotel in Back Bay or downtown $200-350/night. The Go City Boston Pass ($74-149) covers Duck Tours, aquarium, and museum entries. Free: Freedom Trail (self-guided), Boston Common, Harvard Yard, MIT campus. Daily budget: $130-220 comfortable.`,
+        },
+      ],
+    },
+    'seattle': {
+      sections: [
+        {
+          title: 'Why Seattle Is the Pacific Northwest\'s Gateway Drug',
+          content: `Seattle has a way of making people fall in love with the Pacific Northwest. Pike Place Market -- the original, not the tourist imitation -- has been operating since 1907, and the fish-throwing, flower stalls, and tiny bookshops are still the real thing. The Space Needle is the postcard shot, but the Museum of Pop Culture (MoPOP) designed by Frank Gehry is the better visit. Seattle\'s coffee culture is not a cliché -- this is where Starbucks started (the original store at Pike Place is still there, skip it and go to Elm Coffee Roasters instead). The city sits between Puget Sound and Lake Washington, with Mount Rainier floating on the horizon like a painting that forgot to come down.`,
+          items: [
+            'Pike Place Market: Arrive by 8am before the tour buses. Daily Dozen Doughnut Shop for mini donuts, Piroshky Piroshky for Russian pastries. The market opens at 7am for a reason',
+            'Ferry to Bainbridge Island: 35-minute crossing from Pier 52, $9.20 walk-on. Walk Winslow village, eat at Hitchcock Deli, return at sunset for the skyline view',
+            'Coffee: Skip the original Starbucks (tourist trap). Go to Elm Coffee Roasters (Pioneer Square), Victrola (Capitol Hill), or Zeitgeist (downtown) for what Seattle actually drinks',
+          ],
+        },
+        {
+          title: 'Best Time to Visit',
+          content: `July to September is Seattle\'s golden window: 22-28°C, almost zero rain, and 16 hours of daylight. August is the driest and warmest month. The rest of the year has a reputation for grey drizzle that is... mostly accurate. October-November is the wettest. Winter (December-February) is 3-8°C with frequent rain but rarely snow. May-June is transitional -- the city explodes with cherry blossoms and the first outdoor café tables appear. Spring can surprise with sudden clear days and Mount Rainier in full glory.`,
+        },
+        {
+          title: 'What It Costs',
+          content: `Seattle is moderate-to-expensive. A meal at Pike Place Market stall $12-20. Restaurant dinner $25-45. Link Light Rail from airport to downtown $3.25. Mid-range hotel $160-280/night. MoPOP entry $30. Ferry to Bainbridge $9.20 walk-on. The Seattle CityPASS ($79) covers Space Needle, MoPOP, and aquarium. Daily budget: $110-200 comfortable.`,
+        },
+      ],
+    },
+    'toronto': {
+      sections: [
+        {
+          title: 'Why Toronto Is Canada\'s Most Honest City',
+          content: `Toronto doesn\'t try to be Paris or New York -- it just quietly gets on with being one of the most liveable, diverse cities on Earth. Over 200 ethnic groups call it home, and the food reflects it: dim sum in Richmond Hill, jerk chicken in Kensington Market, Ethiopian injera on the Danforth, and peameal bacon sandwiches at St. Lawrence Market. The CN Tower held the record as the world\'s tallest free-standing structure for 32 years, and the glass floor at 342 metres is genuinely vertigo-inducing. The Distillery District -- a pedestrian-only zone of Victorian industrial buildings -- has galleries, craft breweries, and weekend artisan markets.`,
+          items: [
+            'St. Lawrence Market: Saturday morning is the best time -- peameal bacon sandwich at Carousel Bakery is mandatory. Open Tue-Sat',
+            'Kensington Market: Toronto\'s most eclectic neighbourhood -- vintage shops, mural-covered walls, and food from every continent. Walk it on foot',
+            'CN Tower EdgeWalk: Walk hands-free on a 1.5m-wide ledge 356 metres up. $195 CAD. Terrifying and unforgettable',
+          ],
+        },
+        {
+          title: 'Best Time to Visit',
+          content: `June to September is prime: 22-30°C, outdoor patios along King Street West, and the Canadian National Exhibition (August). September has TIFF (Toronto International Film Festival) -- the city buzzes with energy. October brings fall colour to the Don Valley and High Park. Winter (December-March) is cold (-8 to 0°C) with regular snow, but hotel prices drop and the PATH underground network keeps you warm.`,
+        },
+        {
+          title: 'What It Costs',
+          content: `Toronto is moderate. A restaurant main CAD $20-35 (~$15-26 USD). TTC single ride CAD $3.35. Craft beer CAD $8-12. Mid-range hotel CAD $180-300/night. CN Tower admission CAD $43. St. Lawrence Market is free. The Toronto CityPASS ($89 CAD) covers major attractions. Daily budget: CAD $120-200 ($90-150 USD) comfortable.`,
+        },
+      ],
+    },
+    'vancouver': {
+      sections: [
+        {
+          title: 'Why Vancouver Is Where Mountains Meet the Sea',
+          content: `Vancouver has the most dramatic natural setting of any major city in North America. Snow-capped mountains rise directly behind the downtown skyline, the Pacific Ocean wraps around three sides, and old-growth forest grows inside the city limits in Stanley Park -- a 1,000-acre temperate rainforest bigger than New York\'s Central Park. The Seawall, a 28-kilometre path around the park and along the waterfront, is the city\'s living room: joggers, cyclists, and couples watching float planes take off from Coal Harbour. Granville Island Public Market is the food hub -- smoked salmon, artisan bread, and the best chowder you\'ll find outside a fishing village. Vancouver is a city built for people who want to ski in the morning and kayak in the afternoon.`,
+          items: [
+            'Stanley Park Seawall: Rent a bike from Spokes ($10-15/hr) at the park entrance and ride the full 9km loop. Sunset from Siwash Rock is the money shot',
+            'Granville Island: Go for lunch, not shopping -- the Public Market has a dozen counters worth eating at. Lee\'s Donuts and the chowder at the Stock Market are the standouts',
+            'Grouse Mountain: Take the Skyride gondola (15 min from downtown) or hike the Grouse Grind (2.9km, 853m elevation gain, 1-1.5 hours). The Grind is free; the gondola down is $20',
+          ],
+        },
+        {
+          title: 'Best Time to Visit',
+          content: `June to September is prime Vancouver: 20-25°C, long days, and almost no rain. July and August are the driest and warmest -- outdoor festivals, night markets, and the beaches (Kitsilano, English Bay) are packed. September is ideal: warm, quieter, and the fall colours start in Stanley Park. October to March is the rainy season -- Vancouver gets 160+ rainy days per year, but the mild temperatures (3-8°C) mean it rarely snows at sea level. Ski season at Whistler runs November to May. April-May is transitional with cherry blossoms and the first warm days.`,
+        },
+        {
+          title: 'What It Costs',
+          content: `Vancouver is expensive by Canadian standards. A restaurant main CAD $22-40 (~$16-30 USD). SkyTrain single fare CAD $3.15-5.05. Craft beer CAD $8-10. Mid-range hotel CAD $200-350/night (~$150-260 USD). Grouse Mountain gondola CAD $65. Stanley Park is free. Granville Island is free to browse. The Vancouver CityPass ($89 CAD) covers Capilano Suspension Bridge, FlyOver Canada, and more. Daily budget: CAD $130-220 ($100-165 USD) comfortable.`,
+        },
+      ],
+    },
+    'portland': {
+      sections: [
+        {
+          title: 'Why Portland Is America\'s Weirdest (Best) City',
+          content: `Portland, Oregon, embraced its weirdness long before it was fashionable. The city\'s unofficial motto is "Keep Portland Weird," and it delivers: a world-class donut shop (Voodoo Doughnut) that performs wedding ceremonies, the world\'s largest bookstore (Powell\'s City of Books, occupying an entire city block), and a vegan strip club that somehow makes perfect sense. But Portland\'s real appeal is its liveability: the food cart scene is the best in America (over 500 carts, many clustered in "pods"), craft beer is a religion (Deschutes, Hair of the Dog, Breakside), and Forest Park -- 5,200 acres of temperate rainforest -- starts within city limits. The Willamette River divides the city, and the bridges connecting east and west are themselves landmarks.`,
+          items: [
+            'Powell\'s Books: The City of Books location on Burnside -- allow 2+ hours. The rare book room on the top floor has signed first editions. Free, open daily',
+            'Food carts: The Hawthorne Asylum pod (12 carts) and Cartopia (late-night, SE Hawthorne) are the best. Lardo, Nong\'s Khao Man Gai, and Matt\'s BBQ are the standouts',
+            'Forest Park: The Wildwood Trail (30 miles total) starts at the Pittock Mansion parking lot. Do the first 3 miles to the Witch\'s Castle (an abandoned stone house in the forest). Free',
+          ],
+        },
+        {
+          title: 'Best Time to Visit',
+          content: `June to September is Portland\'s golden window: 22-30°C, almost zero rain, and the city moves outdoors. July and August are peak -- the Portland Rose Festival (June), Waterfront Blues Festival (July), and beer gardens everywhere. September is ideal: warm, fewer crowds, and hop harvest season for beer lovers. October has spectacular fall colour and the Oregon Brewers Festival. Winter (November-March) is grey, drizzly, and 3-8°C -- but hotel prices drop 30-40% and the city\'s coffee and bookstore culture is at its coziest. April-May is unpredictable.`,
+        },
+        {
+          title: 'What It Costs',
+          content: `Portland is moderate and tax-free (Oregon has no sales tax). Food cart meal $8-14. Restaurant dinner $18-35. MAX Light Rail from airport $2.50. Craft pint $6-8. Mid-range hotel $140-250/night. Powell\'s is free. Forest Park is free. The Portland CityPASS ($59) covers zoo, gardens, and more. Daily budget: $90-160 comfortable.`,
+        },
+      ],
+    },
+    'denver': {
+      sections: [
+        {
+          title: 'Why Denver Is the Mile-High City That Actually Delivers',
+          content: `Denver sits exactly one mile (1,609 metres) above sea level, and the altitude is real -- you\'ll feel it climbing stairs on your first day. But the thin air also means 300 days of sunshine a year and some of the clearest skies in America. The city has reinvented itself from a cowtown into a food and craft beer capital: the RiNo (River North Art District) is a former industrial zone now packed with breweries, street art, and the Denver Central Market food hall. Union Station, the beautifully restored 1914 train terminal, is now the city\'s living room with restaurants, bars, and a boutique hotel. And the Rocky Mountains are visible from downtown, 30 minutes to world-class hiking and 90 minutes to ski resorts.`,
+          items: [
+            'Red Rocks Amphitheatre: Even without a concert, the park is free to visit and the Trading Post Trail (1.4 miles) loops through the formations. Sunrise here is extraordinary',
+            'Denver Central Market: RiNo\'s food hall -- grab a seat at the communal tables. The tamale counter and the rotisserie chicken are the best bets. Open daily',
+            'Craft beer crawl: Start at Ratio Beerworks (RiNo), walk to Great Divide, then Our Mutual Friend. Three breweries, 15-minute walk total, $7-9 per pint',
+          ],
+        },
+        {
+          title: 'Best Time to Visit',
+          content: `June to September is prime Denver: 25-32°C, dry heat, and endless blue skies. July is warmest. September is ideal -- warm days, cool nights, and the aspen trees turn gold in the mountains. October has fall colour drives along I-70 toward Vail. Winter (November-March) is cold (-8 to 6°C) with occasional snow in the city, but ski season in the mountains (November-April) draws visitors. April-May is unpredictable -- could be 20°C or a spring snowstorm. The altitude means the sun is intense year-round -- sunscreen is mandatory.`,
+        },
+        {
+          title: 'What It Costs',
+          content: `Denver is moderate. A restaurant main $16-30. RTD light rail from airport $10.50. Craft pint $7-9. Mid-range hotel $150-260/night. Red Rocks park entry is free (concert tickets $40-150). Denver Art Museum $15. The Denver CityPASS ($49) covers museums and attractions. Daily budget: $100-170 comfortable.`,
+        },
+      ],
+    },
+    'nairobi': {
+      sections: [
+        {
+          title: 'Why Nairobi Is Africa\'s Most Dynamic Capital',
+          content: `Nairobi is the only capital city in the world with a national park within its borders. Nairobi National Park -- just 7km from the city centre -- has lions, rhinos, giraffes, and zebras roaming against a backdrop of the city skyline. It\'s surreal and it\'s real. The city itself is East Africa\'s tech and business hub: the iHub incubator launched dozens of startups, and the restaurant and nightlife scene rivals any African capital. The Karen Blixen Museum (the farmhouse from Out of Africa) sits in the leafy suburb that bears her name. The Giraffe Centre in Langata lets you hand-feed Rothschild giraffes from a raised platform. Nairobi is chaotic, energetic, and increasingly sophisticated -- a city where street food and fine dining exist 50 metres apart.`,
+          items: [
+            'Nairobi National Park: Half-day game drive, $43 USD for non-residents. You can see lions with skyscrapers in the background. Arrive at 6am gate opening for best wildlife',
+            'Carnivore Restaurant: The original "beast of a feast" -- ostrich, crocodile, and game meats grilled on Maasai swords. Set menu $35-45 USD. The Simba Saloon bar next door is less touristy',
+            'Maasai Market: Rotates locations by day of week (Tuesday: High Court, Thursday: Nakumatt Junction, Saturday: High Court). Arrive early, bargain hard -- start at 40% of asking price',
+          ],
+        },
+        {
+          title: 'Best Time to Visit',
+          content: `June to October is the dry season and the best time: 15-25°C, clear skies, and the Great Migration begins in the Maasai Mara (July-October). January-February is also dry and warm (20-28°C). The long rains (March-May) bring heavy afternoon downpours and muddy roads. November-December has short rains -- lighter but unpredictable. The altitude (1,795m) means nights are cool year-round (10-15°C). July-August is peak safari season and hotel prices are highest.`,
+        },
+        {
+          title: 'What It Costs',
+          content: `Nairobi is affordable. A local meal (nyama chapati or ugali) KES 300-600 (~$2-4 USD). Restaurant dinner KES 2,000-4,000 ($14-28). Uber/bolt ride across the city KES 300-800 ($2-6). Mid-range hotel KES 8,000-15,000/night ($55-105). Nairobi National Park entry $43 USD. Giraffe Centre KES 1,500 ($11). Daily budget: $50-100 comfortable including accommodation, food, and activities.`,
+        },
+      ],
+    },
+    'san-francisco': {
+      sections: [
+        {
+          title: 'Why San Francisco Is Still America\'s Most Interesting City',
+          content: `San Francisco operates on a different frequency than the rest of America. The hills are real -- some streets hit 31-degree grades, and the cable cars (the only mobile National Historic Landmark) still climb them daily. The Golden Gate Bridge is the most photographed structure in the world for good reason: walk or bike across on a clear morning when the fog burns off and the Pacific opens up below. The Mission District has the best burritos in the country (La Taqueria vs Taqueria Cancún is the local debate), the Ferry Building Saturday farmers market is a cathedral of California produce, and Dolores Park on a sunny afternoon is where the city gathers. Tech money has changed the city, but the fog, the views, the food, and the walkability remain unbeatable.`,
+          items: [
+            'Golden Gate Bridge: Walk or bike from the Marina side (parking at Crissy Field). Best in morning before 10am when fog clears. Bikes from Blazing Saddles $35-45/day',
+            'Mission burrito: La Taqueria (2889 Mission) -- the carne asada super burrito. Cash only, line moves fast. Or Taqueria Cancún for the al pastor',
+            'Ferry Building: Saturday farmers market (8am-2pm) is the best. Inside: Hog Island Oysters, Blue Bottle Coffee, and Acme Bread. The Embarcadero walk along the waterfront is free and gorgeous',
+          ],
+        },
+        {
+          title: 'Best Time to Visit',
+          content: `September to November is San Francisco\'s secret best season: 18-24°C, minimal fog, and clear skies. Locals call it "Indian Summer." Summer (June-August) is famously foggy and cold (13-18°C) -- Mark Twain allegedly said the coldest winter he ever spent was a summer in San Francisco. March-May is spring with wildflowers and fewer tourists. Winter (December-February) is rainy but mild (8-14°C). The microclimates are extreme -- it can be 22°C in the Mission and 13°C at Ocean Beach simultaneously.`,
+        },
+        {
+          title: 'What It Costs',
+          content: `San Francisco is one of America\'s most expensive cities. A restaurant main $20-40. Muni/BART single ride $2.50. Craft cocktail $15-20. Mid-range hotel $200-350/night. The San Francisco CityPASS ($76) covers Exploratorium, California Academy of Sciences, and more. Free: Golden Gate Bridge walk, Crissy Field, Dolores Park, cable car watching at the turnaround. Daily budget: $130-230 comfortable.`,
+        },
+      ],
+    },
+    'st-petersburg': {
+      sections: [
+        {
+          title: 'Why St. Petersburg Is Russia\'s Window to Europe',
+          content: `St. Petersburg was built by Peter the Great in 1703 as Russia\'s "window to Europe" and it still feels more European than Russian -- grand boulevards, pastel baroque palaces, and canals that earned it the nickname "Venice of the North." The Hermitage Museum (housed in the Winter Palace) is one of the world\'s great art collections: 3 million items across 1,057 rooms, including Rembrandts, da Vincis, and an entire floor of Impressionists. The White Nights (mid-May to mid-July) when the sun barely sets create an otherworldly atmosphere -- the city stays light until midnight and the drawbridges rise at 1:25am, a spectacle that draws crowds to the Neva river embankments. Nevsky Prospekt, the main avenue, is a 4.5km open-air museum of architecture from every era.`,
+          items: [
+            'Hermitage: Buy tickets online to skip the queue (entry ₽500/~$5.50). Allow a full day minimum -- the Impressionist collection on the top floor of the General Staff Building is less crowded and world-class',
+            'White Nights drawbridges: Watch from Palace Embankment or Peter and Peter Fortress. The Palace Bridge opens at 1:25am -- arrive by 12:30am for a spot. Free, unforgettable',
+            'Kunstkamera: Russia\'s first museum (1714), founded by Peter the Great. The collection of anatomical oddities is... unique. Entry ₽300. The building itself, on Vasilievsky Island, is iconic',
+          ],
+        },
+        {
+          title: 'Best Time to Visit',
+          content: `June to August is peak St. Petersburg: 18-23°C, White Nights, and the city at its most alive. July is warmest. September is quieter with golden light and lower prices. May has long days but can be cold (8-15°C). Winter (November-March) is harsh: -8 to -2°C, short days (5-6 hours of daylight in December), and grey skies -- but the Hermitage is emptier, hotel prices drop 40-50%, and the frozen canals are atmospheric. April is slushy and not recommended.`,
+        },
+        {
+          title: 'What It Costs',
+          content: `St. Petersburg is affordable compared to Western Europe. A restaurant meal ₽800-1,500 (~$9-17 USD). Metro single ride ₽65 (~$0.70). A beer ₽250-400 (~$3-4.50). Mid-range hotel ₽4,000-8,000/night (~$45-90). Hermitage entry ₽500 (~$5.50). Canal boat tour ₽800-1,200. Daily budget: ₽5,000-10,000 ($55-110 USD) comfortable.`,
+        },
+      ],
+    },
+
   }
+
+  const bestMonths = guide.stats.find(s => s.label.includes('Best'))?.value || 'the warmer months'
+  const flightTime = guide.stats.find(s => s.label.includes('Flight') || s.label.includes('flight'))?.value
+  const avgTemp = guide.stats.find(s => s.label.includes('Temp') || s.label.includes('temp'))?.value
 
   const defaultContent = {
     sections: [
       {
-        title: `Why ${guide.title} Should Be on Your Travel List`,
-        content: guide.excerpt,
+        title: `Planning Your ${guide.title} Trip`,
+        content: `${guide.title}, ${guide.subtitle}, is a ${guide.theme.toLowerCase()} destination best visited during ${bestMonths}.${avgTemp ? ` Expect average temperatures around ${avgTemp}.` : ''} ${flightTime ? `Flight time from most European hubs is approximately ${flightTime}.` : ''} This guide provides the essential framework for planning — use the flight search and hotel comparison tools above to check current prices and availability.`,
         items: [
-          `${guide.tags.join(', ')} -- this destination suits travellers interested in ${guide.tags.join(' and ')}`,
-          `Best visited during ${guide.stats.find(s => s.label.includes('Best'))?.value || 'the warmer months'}`,
-          `${guide.subtitle} is accessible via major international airports with direct routes from most European hubs`,
+          `Best time to go: ${bestMonths}${avgTemp ? ` — average temperature ${avgTemp}` : ''}`,
+          `${flightTime ? `Flight time: ${flightTime} from major European hubs` : 'Check flight prices using the search tool above'}`,
+          `Travel style: ${guide.tags.join(', ')}`,
         ],
       },
       {
-        title: 'What to Expect',
-        content: `${guide.title} offers a uniquely ${guide.tags[0].toLowerCase()} experience that combines authentic local culture with modern travel infrastructure. Use the flight search above to check times from your departure city.`,
+        title: 'Best Time to Visit',
+        content: `The ideal window for ${guide.title} is ${bestMonths}. Travelling during these months typically means the best combination of weather, availability, and reasonable pricing. Shoulder months on either side of peak season can offer significant savings with only marginal weather trade-offs. Always check current conditions before booking — seasonal patterns vary year to year.`,
+      },
+      {
+        title: 'Getting There & Getting Around',
+        content: `${guide.title} is served by major international routes${flightTime ? ` with flight times of approximately ${flightTime} from European hubs` : ''}. Once there, public transport, ride-sharing, and local tour operators cover most visitor needs. Use the flight search at the top of this page to compare real prices across Kayak, Expedia, and Google Flights.`,
       },
     ],
   }

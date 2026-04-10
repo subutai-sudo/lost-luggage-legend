@@ -100,13 +100,14 @@ export function generateAffiliateLink(
       break;
 
     case 'stay22':
-      // Stay22 Allez: wraps any OTA URL with smart geolocation routing
+      // Stay22 Allez: destination search with smart geolocation routing
       // Supports: Booking.com, Vrbo, Expedia, Hotels.com, Tripadvisor, KAYAK
+      // For SRP (search results page) use getStay22SearchLink() instead
       const stay22Aid = config.affiliateId;
       if (originalUrl && originalUrl !== '#') {
-        affiliateUrl = `https://stay22.com/affiliates?aid=${stay22Aid}&url=${encodeURIComponent(originalUrl)}`;
+        affiliateUrl = `https://www.stay22.com/allez/roam?aid=${stay22Aid}&address=${encodeURIComponent(originalUrl)}`;
       } else {
-        affiliateUrl = `https://stay22.com/affiliates?aid=${stay22Aid}`;
+        affiliateUrl = `https://www.stay22.com/allez/roam?aid=${stay22Aid}`;
       }
       break;
       
@@ -205,4 +206,29 @@ export function getMerchantLink(
  */
 export function cloakAffiliateLink(destinationUrl: string): string {
   return `/go/${Buffer.from(destinationUrl).toString('base64url')}`;
+}
+
+/**
+ * Generate a Stay22 Allez search link for a destination
+ * This is the correct SRP (Search Results Page) format from Stay22 docs:
+ * https://www.stay22.com/allez/roam?aid={aid}&address={location}&checkin=YYYY-MM-DD&checkout=YYYY-MM-DD
+ * 
+ * Stay22 handles:
+ * - Smart geolocation routing (auto-selects .com, .co.uk, etc.)
+ * - Currency and language
+ * - AI-powered OTA selection (Booking.com, Expedia, Hotels.com, Vrbo, KAYAK, etc.)
+ * - No adblocker issues
+ */
+export function getStay22SearchLink(params: {
+  destination: string
+  checkin?: string
+  checkout?: string
+  campaign?: string
+}): string {
+  const aid = AFFILIATE_CONFIG.stay22.affiliateId
+  let url = `https://www.stay22.com/allez/roam?aid=${aid}&address=${encodeURIComponent(params.destination)}`
+  if (params.checkin) url += `&checkin=${params.checkin}`
+  if (params.checkout) url += `&checkout=${params.checkout}`
+  if (params.campaign) url += `&campaign=${encodeURIComponent(params.campaign)}`
+  return url
 }

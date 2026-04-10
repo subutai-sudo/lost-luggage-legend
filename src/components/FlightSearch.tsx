@@ -273,8 +273,37 @@ function estimateFlightHours(airportLat: number, airportLon: number, destId: str
   return `${longConnect}+ hrs`
 }
 
+// Map/guide ID to nearest major airport IATA code for KAYAK search
+const DEST_AIRPORTS: Record<string, string> = {
+  maldives: 'MLE',
+  santorini: 'JTR',
+  queenstown: 'ZQN',
+  tokyo: 'NRT',
+  'amalfi-coast': 'NAP',
+  kyoto: 'KIX',
+  'maasai-mara': 'KE',
+  patagonia: 'PUQ',
+  iceland: 'KEF',
+  bali: 'DPS',
+  singapore: 'SIN',
+  lisbon: 'LIS',
+  dubai: 'DXB',
+  barcelona: 'BCN',
+  bangkok: 'BKK',
+  amsterdam: 'AMS',
+  'mexico-city': 'MEX',
+  marrakech: 'RAK',
+  helsinki: 'HEL',
+  'cape-town': 'CPT',
+  // 80-entry destinations
+  london: 'LHR',
+  paris: 'CDG',
+  vienna: 'VIE',
+}
+
 function makeFlightUrl(depIata: string, destId: string): string {
-  return `https://www.kayak.com/flights/${depIata}-${destId.toUpperCase()}/?sort=price_a`
+  const destIata = DEST_AIRPORTS[destId.toLowerCase()] || destId.slice(0, 3).toUpperCase()
+  return `https://www.kayak.com/flights/${depIata}-${destIata}/?sort=price_a`
 }
 
 interface Props {

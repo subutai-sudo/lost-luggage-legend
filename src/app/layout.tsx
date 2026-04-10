@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import { ThemeProvider } from '@/components/ThemeProvider'
+import { CurrencyProvider } from '@/components/CurrencyProvider'
 
 export const metadata: Metadata = {
   title: {
@@ -61,7 +63,11 @@ export default function RootLayout({
         <link rel="canonical" href="https://lostluggagelegend.com" />
       </head>
       <body className="min-h-screen">
-        {children}
+        <CurrencyProvider>
+          <ThemeProvider>
+            {children}
+          </ThemeProvider>
+        </CurrencyProvider>
       </body>
     </html>
   )

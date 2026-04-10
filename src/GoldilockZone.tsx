@@ -206,7 +206,7 @@ export function GoldilockZone() {
             projectionConfig={{ scale: 160, center: [0, 10] }}
             style={{ width: '100%', height: '100%' }}
           >
-            <ZoomableGroup zoom={1} minZoom={0.8} maxZoom={4}>
+            <ZoomableGroup zoom={1} minZoom={0.8} maxZoom={12}>
               <Geographies geography={GEO_URL}>
                 {({ geographies }) =>
                   geographies.map((geo) => (

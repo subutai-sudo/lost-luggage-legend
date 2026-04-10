@@ -447,7 +447,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Urban',
     themeColor: '#1a365d',
     excerpt:
-      "London is one of the world's great cities -- May-Sep is the ideal window.",
+      "Tower Bridge and the British Museum anchor a city layered with centuries. West End stages and South Bank galleries keep the cultural pulse alive after dark. -- May-Sep is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=London&adults=2',
@@ -468,7 +468,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Romantic',
     themeColor: '#1e3a5f',
     excerpt:
-      "Paris is one of the world's great cities -- May-Sep is the ideal window.",
+      "Cafes along the Seine, the Louvre's vast halls, and the iron lattice of the Eiffel Tower define the rhythm. Pastry shops and hidden courtyards reward wanderers. -- May-Sep is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Paris&adults=2',
@@ -489,7 +489,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Cultural',
     themeColor: '#8b0000',
     excerpt:
-      "Vienna is one of the world's great cities -- May-Sep is the ideal window.",
+      "Coffee houses, opera houses, and the gilded Ringstrasse shape a city built for ceremony. Schnitzel and Sachertorte anchor a dining culture at its own pace. -- May-Sep is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1516550893923-42d28e5677af?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Vienna&adults=2',
@@ -510,7 +510,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Cultural',
     themeColor: '#1a1a1a',
     excerpt:
-      "Berlin is one of the world's great cities -- May-Sep is the ideal window.",
+      "The Wall's remnants, Museum Island, and a relentless techno underground make this a city of reinvention. Neighborhoods like Kreuzberg mix grit with galleries. -- May-Sep is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1560969184-10fe8719e047?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Berlin&adults=2',
@@ -531,7 +531,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Cultural',
     themeColor: '#1a1a2e',
     excerpt:
-      "Prague is one of the world's great cities -- May-Sep is the ideal window.",
+      "Gothic spires, the Charles Bridge at dawn, and a brewery tradition running back centuries. The Old Town Square astronomical clock still draws the crowds. -- May-Sep is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1541849546-216549ae216d?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Prague&adults=2',
@@ -552,7 +552,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Cultural',
     themeColor: '#dc143c',
     excerpt:
-      "Warsaw is one of the world's great cities -- May-Sep is the ideal window.",
+      "A rebuilt Old Town stands beside the Palace of Culture, testament to resilience. Pierogi joints and vodka bars line streets reborn after wartime destruction. -- May-Sep is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1549987313-4ba991a11128?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Warsaw&adults=2',
@@ -573,7 +573,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Cultural',
     themeColor: '#1a1a1a',
     excerpt:
-      "Krakow is one of the world's great cities -- May-Sep is the ideal window.",
+      "Wawel Castle watches over the Rynek, while Kazimierz's Jewish quarter hums with cafes and galleries. Salt mines and somber history lie just beyond the edge. -- May-Sep is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Krakow&adults=2',
@@ -594,7 +594,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Cultural',
     themeColor: '#1a1a1a',
     excerpt:
-      "Budapest is one of the world's great cities -- Apr-Sep is the ideal window.",
+      "Thermal baths, ruin bars in Jewish Quarter courtyards, and the Danube splitting Buda from Pest. The Parliament building glows at night along the riverbank. -- Apr-Sep is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1551867633-194f125bddfa?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Budapest&adults=2',
@@ -615,7 +615,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Cultural',
     themeColor: '#1a1a1a',
     excerpt:
-      "Bucharest is one of the world's great cities -- Apr-Oct is the ideal window.",
+      "The massive Palace of Parliament looms over Lipscani's revived bar streets. Orthodox churches sit between Brutalist blocks, and mămăligă anchors the table. -- Apr-Oct is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1549006475-5e2b1b94c0bb?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Bucharest&adults=2',
@@ -636,7 +636,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Cultural',
     themeColor: '#8b4513',
     excerpt:
-      "Rome is one of the world's great cities -- Apr-Jun, Sep-Oct is the ideal window.",
+      "The Colosseum, the Pantheon's dome, and Vatican corridors span millennia. Pasta joints and espresso bars fill the gaps between ruins. -- Apr-Jun, Sep-Oct is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Rome&adults=2',
@@ -657,7 +657,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Cultural',
     themeColor: '#8b4513',
     excerpt:
-      "Florence is one of the world's great cities -- Apr-Oct is the ideal window.",
+      "The Uffizi and the Duomo's terracotta dome anchor a Renaissance open-air museum. Bistecca fiorentina and Chianti from nearby hills complete the picture. -- Apr-Oct is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1543429257-3eb0b65d9c58?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Florence&adults=2',
@@ -678,7 +678,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Cultural',
     themeColor: '#1a1a1a',
     excerpt:
-      "Milan is one of the world's great cities -- Apr-Oct is the ideal window.",
+      "The Duomo's spires, La Scala's stage, and the Quadrilatero della Moda fashion district define the skyline. Risotto alla milanese fuels the pace. -- Apr-Oct is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Milan&adults=2',
@@ -699,7 +699,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Romantic',
     themeColor: '#0047ab',
     excerpt:
-      "Venice is one of the world's great cities -- Apr-Oct is the ideal window.",
+      "Gondolas glide past Byzantine facades, and St. Mark's Basilica gleams at high tide. Murano glass and cicchetti bars along quiet canals keep the magic intact. -- Apr-Oct is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Venice&adults=2',
@@ -720,7 +720,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Beach',
     themeColor: '#1a365d',
     excerpt:
-      "Nice is one of the world's great cities -- Apr-Oct is the ideal window.",
+      "The Promenade des Anglais skirts the Mediterranean alongside pastel facades. Matisse's legacy, socca from the old town, and pebble beaches set the Riviera tempo. -- Apr-Oct is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1491166617655-0723a0999cfc?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Nice&adults=2',
@@ -741,7 +741,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Cultural',
     themeColor: '#8b0000',
     excerpt:
-      "Lyon is one of the world's great cities -- May-Sep is the ideal window.",
+      "Bouchon restaurants serve quenelles and coq au vin between traboules-hidden passageways. Fourviere's basilica overlooks two rivers and a gastronomic capital. -- May-Sep is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1559056961-1f4f1a6d6f71?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Lyon&adults=2',
@@ -762,7 +762,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Cultural',
     themeColor: '#1a1a2e',
     excerpt:
-      "Bordeaux is one of the world's great cities -- May-Sep is the ideal window.",
+      "Vineyards stretch from the city gates, and Place de la Bourse reflects in the Miroir d'Eau. Wine bars and cannele shops line restored 18th-century quays. -- May-Sep is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1560393464-5c69a73c5770?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Bordeaux&adults=2',
@@ -783,7 +783,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Cultural',
     themeColor: '#1a1a1a',
     excerpt:
-      "Zurich is one of the world's great cities -- Jun-Sep is the ideal window.",
+      "Lake Zurich glitters below the Old Town's guildhalls and Bahnhofstrasse boutiques. Fondue dives and swim spots on the Limmat round out the day. -- Jun-Sep is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1597591910578-f5a7d3c54aae?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Zurich&adults=2',
@@ -804,7 +804,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Cultural',
     themeColor: '#1a365d',
     excerpt:
-      "Geneva is one of the world's great cities -- Jun-Sep is the ideal window.",
+      "The Jet d'Eau arcs over Lake Geneva beside UN corridors and watchmaking ateliers. Chocolate shops and vineyard trails through Lavaux fill the margins. -- Jun-Sep is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1533052533969-1f1bdc8f5ef5?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Geneva&adults=2',
@@ -825,7 +825,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Cultural',
     themeColor: '#1a1a2e',
     excerpt:
-      "Stockholm is one of the world's great cities -- Jun-Aug is the ideal window.",
+      "Fourteen islands connected by bridges, Gamla Stan's cobblestones, and a design sensibility in every detail. The archipelago opens up when the light returns. -- Jun-Aug is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1509356843151-3e8d90493a07?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Stockholm&adults=2',
@@ -846,7 +846,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Cultural',
     themeColor: '#002868',
     excerpt:
-      "Copenhagen is one of the world's great cities -- May-Sep is the ideal window.",
+      "Nyhavn's colored facades, a cycling culture that owns the streets, and New Nordic menus from harbor to market hall. Tivoli still draws the evening crowds. -- May-Sep is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1513622470522-26c3c8a854bc?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Copenhagen&adults=2',
@@ -867,7 +867,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Adventure',
     themeColor: '#0038a8',
     excerpt:
-      "Reykjavik is one of the world's great cities -- Jun-Sep is the ideal window.",
+      "Hallgrimskirkja watches over brightly clad houses, geothermal pools, and a frontier spirit. Glaciers, geysers, and Northern Lights lie within day-trip range. -- Jun-Sep is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1504893524553-b855bce32c67?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Reykjavik&adults=2',
@@ -888,7 +888,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Cultural',
     themeColor: '#1a1a2e',
     excerpt:
-      "Edinburgh is one of the world's great cities -- May-Sep is the ideal window.",
+      "A castle-topped volcanic crag, the Royal Mile's closes, and the Fringe Festival each August. Arthur's Seat gives panorama; pubs give single malt. -- May-Sep is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1548839140-29a749e1cf4d?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Edinburgh&adults=2',
@@ -909,7 +909,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Cultural',
     themeColor: '#1a1a1a',
     excerpt:
-      "Manchester is one of the world's great cities -- May-Sep is the ideal window.",
+      "Old Trafford, the Northern Quarter's vinyl bars, and a musical legacy from Joy Division to Oasis. The Ship Canal district now brims with galleries and craft beer. -- May-Sep is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1565013415989-7b80a5d4a144?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Manchester&adults=2',
@@ -930,7 +930,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Cultural',
     themeColor: '#1a472a',
     excerpt:
-      "Dublin is one of the world's great cities -- May-Sep is the ideal window.",
+      "Trinity College's Long Room, Temple Bar's session pubs, and a literary tradition from Joyce to Beckett. The Liffey divides north from south; Guinness unites them. -- May-Sep is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1549918864-48ac978761a4?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Dublin&adults=2',
@@ -951,7 +951,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Cultural',
     themeColor: '#c1121f',
     excerpt:
-      "Madrid is one of the world's great cities -- Apr-Jun, Sep-Oct is the ideal window.",
+      "The Prado, tapas crawls through La Latina, and Retiro park siestas define the daily rhythm. Gran Via hums until dawn in a city that rarely sleeps early. -- Apr-Jun, Sep-Oct is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1543353071-873f17a7a088?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Madrid&adults=2',
@@ -972,7 +972,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Cultural',
     themeColor: '#c1121f',
     excerpt:
-      "Seville is one of the world's great cities -- Mar-May, Oct-Nov is the ideal window.",
+      "The Alcazar's tilework, flamenco in Triana, and Plaza de Espana's crescent along the Guadalquivir. Orange trees shade streets built for slow evenings. -- Mar-May, Oct-Nov is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1555881400-74d7acaacd8b?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Seville&adults=2',
@@ -993,7 +993,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Cultural',
     themeColor: '#1a1a1a',
     excerpt:
-      "Munich is one of the world's great cities -- May-Sep is the ideal window.",
+      "Oktoberfest beer halls, the Marienplatz glockenspiel, and English Garden river surfers. Hofbrauhaus camaraderie and Bavarian pretzels anchor tradition. -- May-Sep is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1595867818082-083862f3d630?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Munich&adults=2',
@@ -1014,7 +1014,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Cultural',
     themeColor: '#1a1a1a',
     excerpt:
-      "Brussels is one of the world's great cities -- May-Sep is the ideal window.",
+      "Grand Place glistens between waffle vendors and comic-book murals. Manneken Pis keeps watch, while mussels and frites fill the brasseries nearby. -- May-Sep is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1559113513-d5e09c78b9dd?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Brussels&adults=2',
@@ -1035,7 +1035,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Cultural',
     themeColor: '#0047ab',
     excerpt:
-      "Athens is one of the world's great cities -- Apr-Oct is the ideal window.",
+      "The Acropolis crowns a city where Plaka tavernas and ancient columns share the same sunlight. Souvlaki stands and ouzo bars keep the modern pulse going. -- Apr-Oct is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1555993539-1732b0258235?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Athens&adults=2',
@@ -1056,7 +1056,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Cultural',
     themeColor: '#1a1a2e',
     excerpt:
-      "St. Petersburg is one of the world's great cities -- Jun-Aug is the ideal window.",
+      "The Hermitage's gilded halls, white nights along the Neva, and Nevsky Prospect's imperial facades. Ballet at the Mariinsky keeps the grand tradition alive. -- Jun-Aug is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1560969184-10fe8719e047?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=St.+Petersburg&adults=2',
@@ -1077,7 +1077,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Cultural',
     themeColor: '#c1121f',
     excerpt:
-      "Istanbul is one of the world's great cities -- Apr-Jun, Sep-Oct is the ideal window.",
+      "Hagia Sophia, the Grand Bazaar's labyrinth, and ferries crossing the Bosphorus between two continents. Kebab stalls and cay gardens keep the city moving. -- Apr-Jun, Sep-Oct is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Istanbul&adults=2',
@@ -1098,7 +1098,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Beach',
     themeColor: '#0077b6',
     excerpt:
-      "Antalya is one of the world's great cities -- Apr-Jun, Sep-Oct is the ideal window.",
+      "Turquoise Mediterranean waters, Roman gates at Hadrian's Gate, and an Old Harbor rebuilt for yachts. Beach clubs and Lycian ruins share the same coastline. -- Apr-Jun, Sep-Oct is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1593352216840-1aee13f45818?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Antalya&adults=2',
@@ -1119,7 +1119,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Cultural',
     themeColor: '#8b4513',
     excerpt:
-      "Cairo is one of the world's great cities -- Oct-Mar is the ideal window.",
+      "The Pyramids and Sphinx at Giza, Khan el-Khalili's bazaar chaos, and feluccas drifting the Nile. Koshari and ful medames fuel a city of 20 million. -- Oct-Mar is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1572252009286-268acec5ca0a?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Cairo&adults=2',
@@ -1140,7 +1140,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Urban',
     themeColor: '#c1121f',
     excerpt:
-      "Hong Kong is one of the world's great cities -- Oct-Mar is the ideal window.",
+      "Dim sum parlors, the Star Ferry crossing Victoria Harbour, and neon reflected in glass towers. Peak tram views and temple incense balance the vertical pace. -- Oct-Mar is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1536599018102-9f803c140fc1?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Hong+Kong&adults=2',
@@ -1161,7 +1161,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Urban',
     themeColor: '#c1121f',
     excerpt:
-      "Shanghai is one of the world's great cities -- Mar-May, Oct-Nov is the ideal window.",
+      "The Bund's colonial facades face Pudong's neon skyline across the Huangpu. Xiaolongbao steamer baskets and Yu Garden pavilions anchor the old quarter. -- Mar-May, Oct-Nov is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1537531383496-f4749b8032cf?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Shanghai&adults=2',
@@ -1182,7 +1182,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Cultural',
     themeColor: '#c1121f',
     excerpt:
-      "Beijing is one of the world's great cities -- Apr-Jun, Sep-Oct is the ideal window.",
+      "The Forbidden City, Great Wall excursions, and hutong alleyways where roast duck aromas drift. Tiananmen Square and Temple of Heaven frame imperial scale. -- Apr-Jun, Sep-Oct is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1508804185872-d7badad00f7d?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Beijing&adults=2',
@@ -1203,7 +1203,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Urban',
     themeColor: '#1a365d',
     excerpt:
-      "Shenzhen is one of the world's great cities -- Oct-Mar is the ideal window.",
+      "A tech metropolis built in four decades, with Huaqiangbei's component markets and maker spaces. Mangrove wetlands and dumpling shops soften the skyline. -- Oct-Mar is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1508807526345-15e9b5f4eaff?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Shenzhen&adults=2',
@@ -1224,7 +1224,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Urban',
     themeColor: '#1a365d',
     excerpt:
-      "Guangzhou is one of the world's great cities -- Oct-Mar is the ideal window.",
+      "Canton Tower's light show, Shamian Island's colonial quiet, and the dim sum tradition that started it all. Trade-fair energy and flower markets fill the gaps. -- Oct-Mar is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1547637589-f54c34f5d7a4?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Guangzhou&adults=2',
@@ -1245,7 +1245,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Urban',
     themeColor: '#1a365d',
     excerpt:
-      "Taipei is one of the world's great cities -- Mar-May, Oct-Nov is the ideal window.",
+      "Night markets sizzle with stinky tofu and bubble tea, Taipei 101 pierces the clouds, and Daoist temples sit between skyscrapers. The MRT makes it all easy. -- Mar-May, Oct-Nov is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1470004914212-05527e49370b?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Taipei&adults=2',
@@ -1266,7 +1266,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Urban',
     themeColor: '#1a365d',
     excerpt:
-      "Seoul is one of the world's great cities -- Apr-Jun, Sep-Oct is the ideal window.",
+      "Gyeongbokgung Palace, Gangnam's K-pop pulse, and bibimbap from street stalls to Michelin tables. Bukchon hanok village preserves the Joseon-era skyline. -- Apr-Jun, Sep-Oct is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1538485399081-7191377e8241?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Seoul&adults=2',
@@ -1287,7 +1287,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Cultural',
     themeColor: '#bc002d',
     excerpt:
-      "Osaka is one of the world's great cities -- Mar-May, Oct-Nov is the ideal window.",
+      "Dotonbori's neon crab signs, takoyaki balls from sidewalk carts, and a castle keep rising above the sprawl. This is Japan's kitchen, loud and unapologetic. -- Mar-May, Oct-Nov is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1590559899731-a382839e5549?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Osaka&adults=2',
@@ -1308,7 +1308,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Urban',
     themeColor: '#1a365d',
     excerpt:
-      "Kuala Lumpur is one of the world's great cities -- Feb-Apr is the ideal window.",
+      "Petronas Towers gleam above hawker stalls serving nasi lemak and char kway teow. Batu Caves and Little India add depth to the shopping-district gloss. -- Feb-Apr is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Kuala+Lumpur&adults=2',
@@ -1329,7 +1329,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Beach',
     themeColor: '#0077b6',
     excerpt:
-      "Phuket is one of the world's great beach destinations -- Nov-Apr is the ideal window.",
+      "Andaman swells, Patong Beach resorts, and longtail boats to Phi Phi islands. Night markets and Thai curry stalls fill the hours between dips. -- Nov-Apr is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1589394815804-964ed0be2eb5?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Phuket&adults=2',
@@ -1350,7 +1350,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Beach',
     themeColor: '#0077b6',
     excerpt:
-      "Pattaya is one of the world's great beach destinations -- Nov-Apr is the ideal window.",
+      "Beach Road buzz, coral island day trips, and Walking Street's neon after dark. Thai seafood stalls and waterfront temples anchor the daytime pace. -- Nov-Apr is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1504214208698-ea1916a2195a?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Pattaya&adults=2',
@@ -1371,7 +1371,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Urban',
     themeColor: '#c1121f',
     excerpt:
-      "Ho Chi Minh City is one of the world's great cities -- Dec-Apr is the ideal window.",
+      "Motorbikes flood the streets past French colonial facades and Ben Thanh Market's covered halls. Pho and banh mi stalls keep the city fueled from dawn. -- Dec-Apr is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1583417319070-4a69db38a482?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Ho+Chi+Minh&adults=2',
@@ -1392,7 +1392,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Urban',
     themeColor: '#ff9933',
     excerpt:
-      "Mumbai is one of the world's great cities -- Oct-Mar is the ideal window.",
+      "The Gateway of India opens onto Marine Drive, where Bollywood dreams and vada pav stalls share the seafront. Dabbawalas still deliver lunch across the local trains. -- Oct-Mar is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1566552881560-0be862a7c445?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Mumbai&adults=2',
@@ -1413,7 +1413,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Cultural',
     themeColor: '#ff9933',
     excerpt:
-      "Delhi is one of the world's great cities -- Oct-Mar is the ideal window.",
+      "Red Fort ramparts, Chandni Chowk's spice alleys, and Mughal tombs scattered through leafy suburbs. Parantha Wali Gali and chai stalls sustain the march of history. -- Oct-Mar is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1587474260584-136574528ed5?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Delhi&adults=2',
@@ -1434,7 +1434,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Urban',
     themeColor: '#ff9933',
     excerpt:
-      "Bangalore is one of the world's great cities -- Oct-Apr is the ideal window.",
+      "Cubbon Park banyans, craft-brew pubs, and dosa counters in a city that runs on code and coffee. The tech corridor hums; Vidhana Soudha stands solid. -- Oct-Apr is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1600100397608-ddf116d69305?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Bangalore&adults=2',
@@ -1455,7 +1455,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Urban',
     themeColor: '#0077b6',
     excerpt:
-      "Macau is one of the world's great cities -- Oct-Mar is the ideal window.",
+      "Casino towers alongside the Ruins of St. Paul, Portuguese egg tarts next to dim sum. The Cotai Strip glitters, but the Old Town's cobblestones hold the past. -- Oct-Mar is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1508009603885-50cf7c579365?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Macau&adults=2',
@@ -1476,7 +1476,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Urban',
     themeColor: '#0077b6',
     excerpt:
-      "Sydney is one of the world's great cities -- Dec-Mar is the ideal window.",
+      "The Opera House sails and Harbour Bridge span a waterfront of ferries and surf beaches. Bondi to Coogee coastal walks and Barangaroo bars round out the day. -- Dec-Mar is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Sydney&adults=2',
@@ -1497,7 +1497,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Urban',
     themeColor: '#0077b6',
     excerpt:
-      "Melbourne is one of the world's great cities -- Dec-Mar is the ideal window.",
+      "Laneways layered with street art, flat whites from third-wave roasters, and AFL fans at the MCG. Queen Victoria Market and St. Kilda beach frame the edges. -- Dec-Mar is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1514395462725-fb4566210144?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Melbourne&adults=2',
@@ -1518,7 +1518,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Urban',
     themeColor: '#1a365d',
     excerpt:
-      "New York is one of the world's great cities -- Apr-Jun, Sep-Oct is the ideal window.",
+      "Central Park, Broadway marquees, and Museum Mile anchor a vertical city that never stops reinventing itself. Pizza slices and subway jazz keep the tempo. -- Apr-Jun, Sep-Oct is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=New+York&adults=2',
@@ -1539,7 +1539,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Urban',
     themeColor: '#0077b6',
     excerpt:
-      "Los Angeles is one of the world's great cities -- Mar-Oct is the ideal window.",
+      "Hollywood sign, Santa Monica pier, and taco trucks parked on every other block. Studio lots and canyon drives frame a city built on reinvention. -- Mar-Oct is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1534190760961-74e8c1c5c3da?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Los+Angeles&adults=2',
@@ -1560,7 +1560,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Urban',
     themeColor: '#0077b6',
     excerpt:
-      "San Francisco is one of the world's great cities -- Jul-Oct is the ideal window.",
+      "The Golden Gate, cable cars climbing fog-draped hills, and sourdough at Fisherman's Wharf. Silicon Valley's edge meets mission burritos and Victorian painted ladies. -- Jul-Oct is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=San+Francisco&adults=2',
@@ -1581,7 +1581,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Urban',
     themeColor: '#1a365d',
     excerpt:
-      "Chicago is one of the world's great cities -- Jun-Sep is the ideal window.",
+      "Jazz clubs, deep-dish slices, and a skyline born from the ashes of 1871. The Loop's elevated trains and Millennium Park's Bean frame a lakefront city. -- Jun-Sep is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1494522855154-9297ac14b55f?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Chicago&adults=2',
@@ -1602,7 +1602,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Cultural',
     themeColor: '#c1121f',
     excerpt:
-      "Boston is one of the world's great cities -- Jun-Sep is the ideal window.",
+      "The Freedom Trail, Harvard Yard, and clam chowder at Quincy Market. Brownstones in Beacon Hill and a Fenway Park that still breaks hearts every October. -- Jun-Sep is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1569692158756-7cf8b4a4d49c?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Boston&adults=2',
@@ -1623,7 +1623,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Urban',
     themeColor: '#0077b6',
     excerpt:
-      "Seattle is one of the world's great cities -- Jun-Sep is the ideal window.",
+      "Space Needle views, Pike Place fish tosses, and espresso from the roasteries that started it all. Ferries cross Puget Sound to evergreen islands on the horizon. -- Jun-Sep is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1502175353174-a7a70e73b362?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Seattle&adults=2',
@@ -1644,7 +1644,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Beach',
     themeColor: '#0077b6',
     excerpt:
-      "Miami is one of the world's great beach cities -- Dec-Apr is the ideal window.",
+      "Art Deco facades on Ocean Drive, Wynwood murals, and Cuban sandwiches in Little Havana. The Atlantic meets neon on a waterfront that never slows down. -- Dec-Apr is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1506966953602-c20cc11f75e3?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Miami&adults=2',
@@ -1665,7 +1665,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Urban',
     themeColor: '#8b0000',
     excerpt:
-      "Las Vegas is one of the world's great cities -- Mar-May, Oct-Nov is the ideal window.",
+      "Neon strips, Cirque du Soleil stages, and blackjack tables that never close. Buffet lines and Fremont Street's old-school glow balance the spectacle. -- Mar-May, Oct-Nov is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1581351721010-8cf859cb14a4?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Las+Vegas&adults=2',
@@ -1686,7 +1686,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Adventure',
     themeColor: '#0077b6',
     excerpt:
-      "Orlando is one of the world's great cities -- Mar-May, Oct-Nov is the ideal window.",
+      "Theme park kingdoms, Epcot's globe, and water parks under palm trees. Convention halls and resort pools fill the gaps between roller coaster marathons. -- Mar-May, Oct-Nov is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Orlando&adults=2',
@@ -1707,7 +1707,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Beach',
     themeColor: '#0077b6',
     excerpt:
-      "Cancun is one of the world's great beach destinations -- Dec-Apr is the ideal window.",
+      "Caribbean turquoise, all-inclusive resorts, and Chichen Itza day trips inland. Hotel Zone nightlife and cenote swims round out the Yucatan coast. -- Dec-Apr is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1559599746-c76dc1a99b89?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Cancun&adults=2',
@@ -1728,7 +1728,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Urban',
     themeColor: '#c1121f',
     excerpt:
-      "Toronto is one of the world's great cities -- Jun-Aug is the ideal window.",
+      "CN Tower views, Kensington Market grit, and a Chinatown that rivals any on the continent. Lakefront islands and Roti shops reflect a city built from immigration. -- Jun-Aug is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1517935706615-2717063c2225?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Toronto&adults=2',
@@ -1749,7 +1749,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Urban',
     themeColor: '#0077b6',
     excerpt:
-      "Vancouver is one of the world's great cities -- Jun-Sep is the ideal window.",
+      "Mountains meet ocean at Stanley Park, and Granville Island's market hums with foraged mushrooms. Ski runs and kayak routes share the same postcard backdrop. -- Jun-Sep is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1559511260-66a632d3e05a?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Vancouver&adults=2',
@@ -1770,7 +1770,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Cultural',
     themeColor: '#1a365d',
     excerpt:
-      "Washington D.C. is one of the world's great cities -- Apr-Oct is the ideal window.",
+      "Smithsonian corridors, cherry blossoms along the Tidal Basin, and marble monuments after dark. Capitol Hill and Georgetown bars share the same Potomac breeze. -- Apr-Oct is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1562777717-dc6984f65a63?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Washington+DC&adults=2',
@@ -1791,7 +1791,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Cultural',
     themeColor: '#c1121f',
     excerpt:
-      "Philadelphia is one of the world's great cities -- May-Sep is the ideal window.",
+      "Liberty Bell, Reading Terminal hoagies, and murals covering row-house walls. The Art Museum steps and Schuylkill trails frame a city of firsts. -- May-Sep is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1569082874680-89e4dd779767?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Philadelphia&adults=2',
@@ -1812,7 +1812,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Cultural',
     themeColor: '#1a365d',
     excerpt:
-      "Nashville is one of the world's great cities -- Apr-Jun, Sep-Oct is the ideal window.",
+      "Broadway's honky-tonks, the Ryman Auditorium stage, and hot chicken from shuttered gas stations. Songwriter nights and Grand Ole Opry broadcasts keep the tempo. -- Apr-Jun, Sep-Oct is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Nashville&adults=2',
@@ -1833,7 +1833,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Cultural',
     themeColor: '#1a365d',
     excerpt:
-      "New Orleans is one of the world's great cities -- Feb-May, Oct-Nov is the ideal window.",
+      "French Quarter balconies, brass bands on Bourbon Street, and gumbo simmering in cast iron. Mardi Gras beads and above-ground tombs keep the spirits lively. -- Feb-May, Oct-Nov is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1544078751-58fee2d8a03b?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=New+Orleans&adults=2',
@@ -1854,7 +1854,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Cultural',
     themeColor: '#1a365d',
     excerpt:
-      "Austin is one of the world's great cities -- Mar-May, Oct-Nov is the ideal window.",
+      "Sixth Street stages, BBQ smoke rising from trailers, and Congress Avenue bats at dusk. SXSW and taco stands fuel a city that keeps it weird. -- Mar-May, Oct-Nov is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1531218150217-54595bc2b934?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Austin&adults=2',
@@ -1875,7 +1875,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Urban',
     themeColor: '#0077b6',
     excerpt:
-      "Portland is one of the world's great cities -- Jun-Sep is the ideal window.",
+      "Food cart pods, Powell's book aisles, and bridges spanning the Willamette. Craft breweries and forest trails on the urban edge keep the pace unhurried. -- Jun-Sep is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1534430486035-f4f8b7c87d24?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Portland&adults=2',
@@ -1896,7 +1896,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Beach',
     themeColor: '#0077b6',
     excerpt:
-      "San Diego is one of the world's great beach cities -- Mar-Oct is the ideal window.",
+      "Sunset cliffs, Balboa Park museums, and fish tacos from shack to harbor. Navy bases and La Jolla coves frame a city that rarely sees a cloud. -- Mar-Oct is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1538097304804-2a1b932466a9?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=San+Diego&adults=2',
@@ -1917,7 +1917,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Beach',
     themeColor: '#0077b6',
     excerpt:
-      "Tampa is one of the world's great cities -- Nov-Apr is the ideal window.",
+      "Cigar rollers in Ybor City, manatee watches on the Hillsborough, and Cuban sandwiches at historic stands. Cruise terminals and Busch Gardens round out the Gulf coast. -- Nov-Apr is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1569321600-1c7a53b7adb3?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Tampa&adults=2',
@@ -1938,7 +1938,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Urban',
     themeColor: '#c1121f',
     excerpt:
-      "Phoenix is one of the world's great cities -- Mar-May, Oct-Nov is the ideal window.",
+      "Saguaro silhouettes, Scottsdale golf greens, and pueblo-style resorts under relentless sun. Desert Botanical Garden and Camelback trails keep the heat tolerable. -- Mar-May, Oct-Nov is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Phoenix&adults=2',
@@ -1959,7 +1959,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Adventure',
     themeColor: '#0077b6',
     excerpt:
-      "Denver is one of the world's great cities -- Jun-Aug is the ideal window.",
+      "Rocky Mountain foothills, Red Rocks amphitheater, and craft breweries on every block. Larimer Square restaurants and ski-access trails define the Mile High pace. -- Jun-Aug is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-154lis1047-9d5c8591f5f7?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Denver&adults=2',
@@ -1980,7 +1980,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Cultural',
     themeColor: '#1a365d',
     excerpt:
-      "Bogota is one of the world's great cities -- Dec-Apr is the ideal window.",
+      "Cerro de Monserrate views, Gold Museum pre-Columbian halls, and emerald traders in the old center. Ajiaco soup and street art in La Candelaria warm the altitude. -- Dec-Apr is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1585156193262-1a00af8a0ecb?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Bogota&adults=2',
@@ -2001,7 +2001,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Cultural',
     themeColor: '#0077b6',
     excerpt:
-      "Buenos Aires is one of the world's great cities -- Dec-Mar is the ideal window.",
+      "Tango in San Telmo, steak houses on La Reconquista, and Recoleta cemetery marble. Palermo galleries and La Boca's colored tin keep the passion running. -- Dec-Mar is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1589909202802-8f4aadce1849?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Buenos+Aires&adults=2',
@@ -2022,7 +2022,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Cultural',
     themeColor: '#1a365d',
     excerpt:
-      "Lima is one of the world's great cities -- Dec-Apr is the ideal window.",
+      "Ceviche counters, colonial balconies over the Plaza de Armas, and pre-Columbian ruins at Pachacamac. The Pacific cliffs of Miraflores frame a gastronomic capital. -- Dec-Apr is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1531968455001-5c5272a41129?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Lima&adults=2',
@@ -2043,7 +2043,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Urban',
     themeColor: '#0077b6',
     excerpt:
-      "Sao Paulo is one of the world's great cities -- Apr-Oct is the ideal window.",
+      "Concrete canyons, Japanese quarter sushi, and Paulista Avenue gallery crawls. Sunday markets at MASP and samba clubs in Vila Madalena fuel the night. -- Apr-Oct is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1576485375217-d6a95e34d043?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Sao+Paulo&adults=2',
@@ -2064,7 +2064,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Cultural',
     themeColor: '#0077b6',
     excerpt:
-      "Casablanca is one of the world's great cities -- Apr-Oct is the ideal window.",
+      "Hassan II Mosque rising over the Atlantic, Art Deco facades fading gracefully, and pastilla from corner bakeries. Seaweed baths and souk haggling fill the margins. -- Apr-Oct is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1539020140153-e479b8c22e70?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Casablanca&adults=2',
@@ -2085,7 +2085,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Adventure',
     themeColor: '#1a365d',
     excerpt:
-      "Nairobi is one of the world's great cities -- Jun-Sep is the ideal window.",
+      "Giraffe Centre necks, national park giraffes against skyline silhouettes, and matatu rides through Westlands. Nyama choma joints fuel a city that launches safari expeditions. -- Jun-Sep is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1611348524140-53c9a25263d6?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Nairobi&adults=2',
@@ -2106,7 +2106,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Urban',
     themeColor: '#1a365d',
     excerpt:
-      "Johannesburg is one of the world's great cities -- May-Oct is the ideal window.",
+      "Apartheid Museum reckoning, Soweto streets, and Joburg's evolving Maboneng district. Gold reef legacy and shebeen bars shape a city still rewriting itself. -- May-Oct is the ideal window.",
     heroImage:
       'https://images.unsplash.com/photo-1586350977771-b3b0abd50c82?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Johannesburg&adults=2',
