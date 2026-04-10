@@ -293,21 +293,54 @@ function getArticleContent(guide: DestinationGuide): { sections: Array<{ title: 
     'lisbon': {
       sections: [
         {
-          title: 'Why Lisbon Is Europe\'s Best-Kept Secret',
-          content: `Lisbon sits at the western edge of Europe, its tram 28 rattling through neighbourhoods that feel frozen in time. Pastéis de nata warm from the oven at every corner bakery. Fado music drifts from basement bars in Alfama. And just an hour away, the beaches of Costa da Caparica are empty on weekday mornings. Portugal's capital has long been Europe's best-value capital city, and the rise of remote work has only deepened its appeal -- co-working spaces in converted palaces, reliable fibre internet, and a café culture that treats every morning like a long weekend.`,
+          title: 'Why Lisbon Feels Different',
+          content: `Lisbon sits where the Tagus River meets the Atlantic. The light is softer here than in most European capitals, and the city spills dramatically down seven hills toward the water. Yellow trams creak around tight corners, laundry hangs from balconies, and the smell of pastel de nata and grilled sardines drifts through the streets.
+
+This is not a polished theme-park version of Europe. It is layered, slightly chaotic in the best way, and remarkably affordable for its quality of life. You can spend a morning wandering the tiled streets of Alfama, take a 10-minute ferry across the river for seafood lunch with a view of the city, then end the day watching the sunset from one of the many miradouros while listening to fado drifting from a small bar.`,
+
           items: [
-            'Tram 28: Board at Martim Moniz, not Praca da Figueira -- it\'s less crowded',
-            'Time Out Market (Mercado da Ribeira): 35 food vendors, one roof, roughly €15-25 per person',
-            'Free walking tour: Tip your guide €10-15 at the end -- it\'s worth every centavo',
+            'Miradouro da Senhora do Monte or da Graça for sunset — far quieter than the overcrowded São Pedro de Alcântara',
+            'Mouraria for authentic small restaurants and fado houses away from the main tourist circuit',
+            'Take the cheap ferry from Terreiro do Paço to Cacilhas for fresh grilled fish with a perfect view back across the water',
+            'Day trip to Sintra during the week — the fairy-tale palaces and forests are magical when not overwhelmed by weekend crowds',
+            'Walk the LX Factory district — converted warehouses with bookstores, street art, restaurants and independent shops',
           ],
         },
         {
           title: 'Best Time to Visit',
-          content: `May and October offer the sweet spot: warm enough for rooftop drinks (15-25°C), not yet peak tourist season, and accommodation rates are 20-30% lower than July-August. February is cheap and quiet but rainy. Summer brings crowds and Airbnb prices that make no sense.`,
+          content: `The ideal windows are **May–June** and **September–October**.
+
+These months give you warm, pleasant weather (18–26°C), long days, and fewer crowds than peak summer. The city feels alive but not overwhelmed. September often has the best balance — the sea water is at its warmest and hotel rates are noticeably lower than July and August.
+
+July and August are hot, busy, and more expensive. Winter (November–March) is mild and significantly cheaper but can be rainy. February and March are the quietest months and excellent value if you don’t mind occasional rain showers.`,
         },
         {
           title: 'What It Costs',
-          content: `Lisbon remains one of Western Europe's most affordable capitals. A solid meal costs €10-18. Tram 28 fare is €4 for a single journey. Coworking day passes are €15-25. Mid-range hotels run €100-180/night in the city centre. Weekend apartments average €80-130/night through Airbnb.`,
+          content: `Lisbon remains one of the best-value capital cities in Western Europe.
+
+**Realistic daily budget (per person, excluding accommodation):**
+- Budget traveller: €65–90
+- Comfortable traveller: €95–140
+
+**Sample prices:**
+- Pastel de nata and coffee: €2.50–4
+- Full meal with wine at a local restaurant: €15–25
+- Nice dinner with wine at a good restaurant: €35–55
+- Glass of wine or beer at a viewpoint bar: €6–9
+- Tram 28 single ticket: €3–4 (buy a reloadable Viva Viagem card for better value)
+- Mid-range hotel or apartment in a good location: €95–190 per night
+
+Flights from major European cities are frequently under €150 return. Transatlantic flights from the East Coast of the US typically range $650–950 depending on season.
+
+The city rewards those who eat and drink where the locals do rather than the main tourist squares.`,
+        },
+        {
+          title: 'Practical Tips',
+          content: `• Wear comfortable shoes — the hills are steep and constant.
+• Buy a Viva Viagem card at any metro station — it works on trams, metro, trains and ferries and saves money.
+• Many of the best restaurants don’t take reservations — show up early (around 7pm) or be prepared to wait.
+• The best pastel de nata are still at Pastéis de Belém (the original), but many neighbourhood bakeries make them just as well and cost half as much.
+• Avoid eating on the main tourist squares (Rossio, Praça do Comércio) — the food is overpriced and average. Walk one or two blocks away.`,
         },
       ],
     },
