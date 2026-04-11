@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import {
   ComposableMap,
   Geographies,
@@ -10,11 +10,8 @@ import {
 } from 'react-simple-maps'
 import { DESTINATION_GUIDES } from '@/data/destinationGuides'
 import {
-  BEST_MONTHS,
   isInGoldilockZoneForRange,
   isComingIntoSeason,
-  getFirstInSeasonMonth,
-  addMonths,
 } from '@/lib/seasonalHelpers'
 
 const GEO_URL = 'https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json'
@@ -122,307 +119,235 @@ const GUIDE_COORDS: Record<string, [number, number]> = {
   johannesburg: [28.0473, -26.2041],
 }
 
-const MONTH_NAMES = [
-  'January', 'February', 'March', 'April', 'May', 'June',
-  'July', 'August', 'September', 'October', 'November', 'December',
-]
-
-function getGoldilockMonths(guideId: string): string {
-  const months = BEST_MONTHS[guideId] ?? []
-  if (months.length === 0) return 'Year-round'
-  const sorted = [...months].sort((a, b) => a - b)
-  if (sorted.length === 12) return 'Year-round'
-  const groups: string[] = []
-  let start = sorted[0]
-  let prev = sorted[0]
-  for (let i = 1; i <= sorted.length; i++) {
-    if (i === sorted.length || sorted[i] !== prev + 1) {
-      groups.push(start === prev ? MONTH_NAMES[start - 1].slice(0, 3) : `${MONTH_NAMES[start - 1].slice(0, 3)}–${MONTH_NAMES[prev - 1].slice(0, 3)}`)
-      if (i < sorted.length) { start = sorted[i]; prev = sorted[i] }
-    } else {
-      prev = sorted[i]
-    }
-  }
-  return groups.join(', ')
-}
-
 export function GoldilockZone() {
-  const [fromDate, setFromDate] = useState<string>('2026-04-01')
-  const [toDate, setToDate]     = useState<string>('2026-05-01')
+  const [fromDate, setFromDate] = useState('')
+  const [toDate, setToDate] = useState('')
+  const [activeTab, setActiveTab] = useState<'in-season' | 'coming' | 'all'>('in-season')
+  const [tooltip, setTooltip] = useState<{ name: string; x: number; y: number } | null>(null)
 
-  const guides = useMemo(() => DESTINATION_GUIDES, [])
+  // Smart defaults (today + 2 months)
+  useEffect(() => {
+    const today = new Date()
+    const from = today.toISOString().split('T')[0]
+    const future = new Date(today)
+    future.setMonth(future.getMonth() + 2)
+    const to = future.toISOString().split('T')[0]
+    setFromDate(from)
+    setToDate(to)
+  }, [])
 
-  const inZone = useMemo(
-    () => guides.filter((g) => isInGoldilockZoneForRange(g.id, fromDate, toDate)),
-    [guides, fromDate, toDate]
-  )
+  const filteredGuides = useMemo(() => {
+    let result = DESTINATION_GUIDES
 
-  const upcomingZone = useMemo(
-    () =>
-      guides.filter(
-        (g) =>
-          !isInGoldilockZoneForRange(g.id, fromDate, toDate) &&
-          isComingIntoSeason(g.id, toDate, 2)
-      ).sort((a, b) => {
-        const fa = getFirstInSeasonMonth(a.id, toDate, addMonths(toDate, 12))
-        const fb = getFirstInSeasonMonth(b.id, toDate, addMonths(toDate, 12))
-        return (fa?.month ?? 12) - (fb?.month ?? 12)
-      }),
-    [guides, fromDate, toDate]
-  )
+    if (activeTab === 'in-season') {
+      result = result.filter(g => isInGoldilockZoneForRange(g.id, fromDate, toDate))
+    } else if (activeTab === 'coming') {
+      result = result.filter(g =>
+        !isInGoldilockZoneForRange(g.id, fromDate, toDate) &&
+        isComingIntoSeason(g.id, toDate, 2)
+      )
+    }
+    return result.sort((a, b) => a.title.localeCompare(b.title))
+  }, [fromDate, toDate, activeTab])
 
-  const outZone = useMemo(
-    () =>
-      guides.filter(
-        (g) =>
-          !isInGoldilockZoneForRange(g.id, fromDate, toDate) &&
-          !isComingIntoSeason(g.id, toDate, 2)
-      ),
-    [guides, fromDate, toDate]
-  )
+  const getMarkerColor = (id: string) => {
+    if (isInGoldilockZoneForRange(id, fromDate, toDate)) return '#d97706'
+    if (isComingIntoSeason(id, toDate, 2)) return '#2563eb'
+    return '#6b7280'
+  }
+
+  const surpriseMe = () => {
+    if (filteredGuides.length === 0) return
+    const random = filteredGuides[Math.floor(Math.random() * filteredGuides.length)]
+    window.location.href = `/guides/${random.slug}`
+  }
 
   return (
-    <section id="goldilock" className="py-20 lg:py-28 goldilock-section" style={{ backgroundColor: 'var(--color-bg)' }}>
+    <section id="goldilock" className="py-20 lg:py-28 bg-[#f9f6f0]">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
-
-        {/* Header */}
-        <div className="text-center mb-10">
-          <span className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider mb-4"
-            style={{ backgroundColor: 'rgba(8, 145, 178, 0.1)', color: 'var(--color-accent)', border: '1px solid rgba(8, 145, 178, 0.2)' }}>
-            Interactive Map
-          </span>
-          <h2 className="font-display text-4xl md:text-5xl font-bold mb-4" style={{ color: 'var(--color-ink)' }}>
+        <div className="text-center mb-12">
+          <h2 className="font-display text-5xl font-bold text-[#2c2520] mb-3">
             The Goldilock Zone
           </h2>
-          <p className="text-lg max-w-2xl mx-auto" style={{ color: 'var(--color-muted)' }}>
-            Not too hot, not too cold — the best time to visit. Enter your travel dates to see
-            which destinations are in their ideal window.
+          <p className="text-[#6b5e52] max-w-2xl mx-auto">
+            Not too hot. Not too crowded. Not too expensive.<br />
+            These destinations are in their ideal travel window.
           </p>
         </div>
 
-        {/* Date selector */}
-        <div className="flex flex-col sm:flex-row justify-center gap-3 mb-10">
-          <div className="flex flex-col gap-1.5">
-            <label className="text-xs font-semibold uppercase tracking-wider" style={{ color: 'var(--color-muted)' }}>
-              Traveling from
-            </label>
-            <input
-              type="date"
-              value={fromDate}
-              min="2026-01-01"
-              max="2028-12-31"
-              onChange={(e) => {
-                const newFrom = e.target.value
-                setFromDate(newFrom)
-                if (newFrom >= toDate) setToDate(addMonths(newFrom, 1))
-              }}
-              className="px-4 py-2.5 rounded-lg text-sm border-2 focus:outline-none focus:border-[#0891b2] cursor-pointer transition-all goldilock-input"
-              style={{ backgroundColor: 'var(--color-card-bg)', borderColor: 'var(--color-border)', color: 'var(--color-ink)' }}
-            />
+        {/* Controls */}
+        <div className="flex flex-col items-center gap-6 mb-10">
+          <div className="flex gap-3 flex-wrap justify-center">
+            {[
+              { label: 'Next 30 days', days: 30 },
+              { label: 'Next 3 months', days: 90 },
+            ].map((preset) => (
+              <button
+                key={preset.label}
+                onClick={() => {
+                  const from = new Date()
+                  const to = new Date(from)
+                  to.setDate(to.getDate() + preset.days)
+                  setFromDate(from.toISOString().split('T')[0])
+                  setToDate(to.toISOString().split('T')[0])
+                }}
+                className="px-5 py-2 text-sm rounded-full border border-amber-300 hover:bg-white transition-colors"
+              >
+                {preset.label}
+              </button>
+            ))}
+            <button
+              onClick={surpriseMe}
+              className="px-6 py-2 bg-[#2c2520] hover:bg-amber-800 text-white rounded-full text-sm font-medium transition-colors"
+            >
+              Surprise Me ✨
+            </button>
           </div>
-          <div className="flex flex-col gap-1.5">
-            <label className="text-xs font-semibold uppercase tracking-wider" style={{ color: 'var(--color-muted)' }}>
-              To
-            </label>
-            <input
-              type="date"
-              value={toDate}
-              min={fromDate}
-              max="2028-12-31"
-              onChange={(e) => setToDate(e.target.value)}
-              className="px-4 py-2.5 rounded-lg text-sm border-2 focus:outline-none focus:border-[#0891b2] cursor-pointer transition-all goldilock-input"
-              style={{ backgroundColor: 'var(--color-card-bg)', borderColor: 'var(--color-border)', color: 'var(--color-ink)' }}
-            />
-          </div>
-        </div>
 
-        {/* Stats */}
-        <div className="flex flex-wrap justify-center gap-4 mb-8">
-          <div className="flex items-center gap-2 px-4 py-2 rounded-full" style={{ backgroundColor: 'rgba(8, 145, 178, 0.1)' }}>
-            <div className="w-3 h-3 rounded-full bg-[#0891b2]" />
-            <span className="text-sm" style={{ color: 'var(--color-ink)' }}>
-              <span className="font-bold">{inZone.length}</span> in Goldilock Zone
-            </span>
-          </div>
-          {upcomingZone.length > 0 && (
-            <div className="flex items-center gap-2 px-4 py-2 rounded-full" style={{ backgroundColor: 'rgba(96, 165, 250, 0.1)' }}>
-              <div className="w-3 h-3 rounded-full bg-[#60a5fa]" />
-              <span className="text-sm" style={{ color: 'var(--color-ink)' }}>
-                <span className="font-bold">{upcomingZone.length}</span> coming into season
-              </span>
+          <div className="flex gap-6">
+            <div>
+              <div className="text-xs text-amber-700 font-medium mb-1">FROM</div>
+              <input
+                type="date"
+                value={fromDate}
+                onChange={(e) => setFromDate(e.target.value)}
+                className="px-4 py-3 border border-amber-200 rounded-2xl focus:border-amber-500 text-sm"
+              />
             </div>
-          )}
-          <div className="flex items-center gap-2 px-4 py-2 rounded-full" style={{ backgroundColor: 'rgba(107, 114, 128, 0.1)' }}>
-            <div className="w-3 h-3 rounded-full bg-[#9ca3af]" />
-            <span className="text-sm" style={{ color: 'var(--color-muted)' }}>
-              <span className="font-bold">{outZone.length}</span> off season
-            </span>
+            <div>
+              <div className="text-xs text-amber-700 font-medium mb-1">TO</div>
+              <input
+                type="date"
+                value={toDate}
+                onChange={(e) => setToDate(e.target.value)}
+                className="px-4 py-3 border border-amber-200 rounded-2xl focus:border-amber-500 text-sm"
+              />
+            </div>
           </div>
         </div>
 
-        {/* Map - THEME AWARE */}
-        <div className="relative rounded-2xl overflow-hidden shadow-xl border-2 goldilock-map-container" style={{ height: '500px', borderColor: 'var(--color-border)' }}>
+        {/* Tabs */}
+        <div className="flex justify-center gap-2 mb-8">
+          {[
+            { key: 'in-season' as const, label: 'In Season Now', color: 'amber' },
+            { key: 'coming' as const, label: 'Coming Soon', color: 'blue' },
+            { key: 'all' as const, label: 'All', color: 'gray' },
+          ].map((tab) => (
+            <button
+              key={tab.key}
+              onClick={() => setActiveTab(tab.key)}
+              className={`px-6 py-2.5 rounded-2xl text-sm font-medium transition-all ${
+                activeTab === tab.key
+                  ? 'bg-[#2c2520] text-white shadow'
+                  : 'bg-white border border-amber-200 hover:bg-amber-50'
+              }`}
+            >
+              {tab.label} ({filteredGuides.length})
+            </button>
+          ))}
+        </div>
+
+        <div className="relative bg-white rounded-3xl shadow border border-amber-100 overflow-hidden" style={{ height: '560px' }}>
           <ComposableMap
             projection="geoNaturalEarth1"
-            projectionConfig={{ scale: 160, center: [10, 0] }}
-            style={{ width: '100%', height: '100%' }}
+            projectionConfig={{ scale: 170, center: [15, 5] }}
+            width={900}
+            height={560}
           >
-            <ZoomableGroup zoom={1} minZoom={0.8} maxZoom={12}>
+            <ZoomableGroup 
+              zoom={1.1} 
+              minZoom={0.7} 
+              maxZoom={8}
+            >
               <Geographies geography={GEO_URL}>
                 {({ geographies }) =>
                   geographies.map((geo) => (
                     <Geography
                       key={geo.rsmKey}
                       geography={geo}
-                      stroke="var(--color-border)"
-                      strokeWidth={0.5}
-                      style={{
-                        default: { outline: 'none', fill: 'var(--color-card-bg)' },
-                        hover: { outline: 'none', fill: 'var(--color-bg-subtle)' },
-                        pressed: { outline: 'none' },
-                      }}
+                      fill="#f5f0e8"
+                      stroke="#e8d9c8"
+                      strokeWidth={0.6}
                     />
                   ))
                 }
               </Geographies>
 
-              {guides.map((guide) => {
+              {DESTINATION_GUIDES.map((guide) => {
                 const coords = GUIDE_COORDS[guide.id]
                 if (!coords) return null
-                const active = isInGoldilockZoneForRange(guide.id, fromDate, toDate)
-                const comingSoon = !active && isComingIntoSeason(guide.id, toDate, 2)
+
+                const isActive = isInGoldilockZoneForRange(guide.id, fromDate, toDate)
+                const isComing = isComingIntoSeason(guide.id, toDate, 2)
+                const color = isActive ? '#d97706' : isComing ? '#2563eb' : '#6b7280'
+
                 return (
-                  <Marker key={guide.id} coordinates={coords as [number, number]}>
-                    {active && (
-                      <circle r={10} fill="none" stroke="#c9a96e" strokeWidth={1.5} opacity={0.5}
-                        className="animate-ping" style={{ animationDuration: '2s' }} />
-                    )}
-                    {comingSoon && (
-                      <circle r={10} fill="none" stroke="#0891b2" strokeWidth={1.5} opacity={0.4}
-                        className="animate-ping" style={{ animationDuration: '3s' }} />
-                    )}
+                  <Marker 
+                    key={guide.id} 
+                    coordinates={coords}
+                  >
+                    {/* Larger invisible click/hover area */}
                     <circle
-                      r={active ? 6 : comingSoon ? 5 : 4}
-                      fill={active ? '#c9a96e' : comingSoon ? '#0891b2' : '#9ca3af'}
-                      stroke="var(--color-card-bg)"
-                      strokeWidth={2}
+                      r={14}
+                      fill="transparent"
+                      onMouseEnter={() => setTooltip({ name: guide.title, x: coords[0], y: coords[1] })}
+                      onMouseLeave={() => setTooltip(null)}
+                      onClick={() => window.location.href = `/guides/${guide.slug}`}
+                      style={{ cursor: 'pointer' }}
+                    />
+                    {/* Visible dot with pulse for active ones */}
+                    <circle
+                      r={isActive ? 7 : 5.5}
+                      fill={color}
+                      stroke="#ffffff"
+                      strokeWidth={2.5}
                       style={{
-                        filter: active ? 'drop-shadow(0 0 6px rgba(201,169,110,0.8))' : comingSoon ? 'drop-shadow(0 0 6px rgba(8,145,178,0.6))' : 'none',
-                        cursor: 'pointer',
+                        filter: isActive ? 'drop-shadow(0 0 8px rgba(217, 119, 6, 0.6))' : 'none',
                       }}
                     />
-                    <circle r={16} fill="transparent" className="cursor-pointer"
-                      onClick={() => {
-                        const el = document.getElementById(`guide-${guide.id}`)
-                        el?.scrollIntoView({ behavior: 'smooth', block: 'center' })
-                      }}
-                    />
+                    {isActive && (
+                      <circle
+                        r={11}
+                        fill="none"
+                        stroke="#d97706"
+                        strokeWidth={1.5}
+                        opacity={0.3}
+                        className="animate-ping"
+                      />
+                    )}
                   </Marker>
                 )
               })}
             </ZoomableGroup>
           </ComposableMap>
 
-          {/* Map legend */}
-          <div className="absolute bottom-4 left-4 px-4 py-2 rounded-lg shadow-lg border goldilock-legend" style={{ backgroundColor: 'var(--color-card-bg)', borderColor: 'var(--color-border)' }}>
-            <div className="flex items-center gap-4 text-xs">
-              <div className="flex items-center gap-1.5">
-                <div className="w-3 h-3 rounded-full bg-[#c9a96e]" />
-                <span style={{ color: 'var(--color-ink)' }}>In Season</span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <div className="w-3 h-3 rounded-full bg-[#0891b2]" />
-                <span style={{ color: 'var(--color-ink)' }}>Coming Soon</span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <div className="w-3 h-3 rounded-full bg-[#9ca3af]" />
-                <span style={{ color: 'var(--color-muted)' }}>Off Season</span>
-              </div>
+          {/* Tooltip */}
+          {tooltip && (
+            <div
+              className="absolute pointer-events-none bg-white shadow-lg px-4 py-2 rounded-2xl text-sm font-medium border border-amber-200 z-50"
+              style={{
+                left: '50%',
+                top: '60px',
+                transform: 'translateX(-50%)',
+              }}
+            >
+              {tooltip.name}
             </div>
-          </div>
-        </div>
+          )}
 
-        {/* Destination lists */}
-        <div className="grid lg:grid-cols-2 gap-6 mt-8">
-          {/* In Zone */}
-          <div className="rounded-xl border-2 p-5 goldilock-list-card" style={{ backgroundColor: 'var(--color-card-bg)', borderColor: 'rgba(8, 145, 178, 0.2)' }}>
-            <div className="flex items-center justify-between mb-4">
-              <div className="flex items-center gap-2">
-                <div className="w-3 h-3 rounded-full bg-[#0891b2]" />
-                <h3 className="font-display text-lg font-bold" style={{ color: 'var(--color-ink)' }}>In Season Now</h3>
-              </div>
-              <span className="text-xs font-semibold px-3 py-1 rounded-full" style={{ backgroundColor: 'rgba(8, 145, 178, 0.1)', color: '#0891b2' }}>
-                {inZone.length} guides
-              </span>
+          {/* Legend */}
+          <div className="absolute bottom-6 left-6 bg-white/95 backdrop-blur-sm px-5 py-3 rounded-2xl shadow border border-amber-100 text-xs flex gap-5">
+            <div className="flex items-center gap-2">
+              <div className="w-3 h-3 rounded-full bg-[#d97706]"></div>
+              <span>In Season</span>
             </div>
-            <div className="space-y-2 max-h-[400px] overflow-y-auto pr-2">
-              {inZone.map((guide) => (
-                <a
-                  key={guide.id}
-                  href={`/guides/${guide.slug}`}
-                  className="flex items-center gap-3 p-3 rounded-lg transition-all hover:shadow-md border goldilock-list-item"
-                  style={{ backgroundColor: 'var(--color-bg)', borderColor: 'var(--color-border)' }}
-                >
-                  <div className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold text-white flex-shrink-0" style={{ backgroundColor: guide.themeColor }}>
-                    {guide.title.slice(0, 2)}
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <div className="font-semibold truncate" style={{ color: 'var(--color-ink)' }}>{guide.title}</div>
-                    <div className="text-xs" style={{ color: 'var(--color-muted)' }}>{guide.subtitle}</div>
-                  </div>
-                  <div className="text-right">
-                    <div className="text-xs font-medium text-[#0891b2]">{getGoldilockMonths(guide.id)}</div>
-                  </div>
-                </a>
-              ))}
-              {inZone.length === 0 && (
-                <p className="text-center py-8" style={{ color: 'var(--color-muted)' }}>
-                  No destinations are in their ideal window for these dates.
-                </p>
-              )}
+            <div className="flex items-center gap-2">
+              <div className="w-3 h-3 rounded-full bg-[#2563eb]"></div>
+              <span>Coming Soon</span>
             </div>
-          </div>
-
-          {/* Coming Into Season */}
-          <div className="rounded-xl border-2 p-5 goldilock-list-card" style={{ backgroundColor: 'var(--color-card-bg)', borderColor: 'rgba(96, 165, 250, 0.2)' }}>
-            <div className="flex items-center justify-between mb-4">
-              <div className="flex items-center gap-2">
-                <div className="w-3 h-3 rounded-full bg-[#60a5fa]" />
-                <h3 className="font-display text-lg font-bold" style={{ color: 'var(--color-ink)' }}>Coming Into Season</h3>
-              </div>
-              <span className="text-xs font-semibold px-3 py-1 rounded-full" style={{ backgroundColor: 'rgba(96, 165, 250, 0.1)', color: '#60a5fa' }}>
-                {upcomingZone.length} guides
-              </span>
-            </div>
-            <div className="space-y-2 max-h-[400px] overflow-y-auto pr-2">
-              {upcomingZone.length > 0 ? upcomingZone.map((guide) => {
-                const firstInSeason = getFirstInSeasonMonth(guide.id, toDate, addMonths(toDate, 12))
-                return (
-                  <a
-                    key={guide.id}
-                    href={`/guides/${guide.slug}`}
-                    className="flex items-center gap-3 p-3 rounded-lg transition-all hover:shadow-md border goldilock-list-item"
-                    style={{ backgroundColor: 'var(--color-bg)', borderColor: 'var(--color-border)' }}
-                  >
-                    <div className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold text-white flex-shrink-0" style={{ backgroundColor: guide.themeColor }}>
-                      {guide.title.slice(0, 2)}
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="font-semibold truncate" style={{ color: 'var(--color-ink)' }}>{guide.title}</div>
-                      <div className="text-xs" style={{ color: 'var(--color-muted)' }}>{guide.subtitle}</div>
-                    </div>
-                    <div className="text-right">
-                      <div className="text-xs font-medium text-[#60a5fa]">
-                        {firstInSeason ? `${MONTH_NAMES[firstInSeason.month - 1].slice(0, 3)} ${firstInSeason.year}` : 'Soon'}
-                      </div>
-                    </div>
-                  </a>
-                )
-              }) : (
-                <p className="text-center py-8" style={{ color: 'var(--color-muted)' }}>
-                  No destinations are coming into season soon.
-                </p>
-              )}
+            <div className="flex items-center gap-2">
+              <div className="w-3 h-3 rounded-full bg-[#6b7280]"></div>
+              <span>Off Season</span>
             </div>
           </div>
         </div>
