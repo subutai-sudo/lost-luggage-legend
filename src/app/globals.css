@@ -557,3 +557,56 @@ html.dark .goldilock-legend {
 html.dark .goldilock-list-item:hover {
   background-color: #3d3628;
 }
+
+/* ===== Scroll Reveal (aggressive) ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(60px) scale(0.96);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.reveal-parent > * {
+  opacity: 0;
+  transform: translateY(40px) scale(0.97);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-parent.active > * {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.reveal-parent.active > *:nth-child(1) { transition-delay: 0s; }
+.reveal-parent.active > *:nth-child(2) { transition-delay: 0.08s; }
+.reveal-parent.active > *:nth-child(3) { transition-delay: 0.16s; }
+.reveal-parent.active > *:nth-child(4) { transition-delay: 0.24s; }
+.reveal-parent.active > *:nth-child(5) { transition-delay: 0.32s; }
+.reveal-parent.active > *:nth-child(6) { transition-delay: 0.40s; }
+.reveal-parent.active > *:nth-child(7) { transition-delay: 0.48s; }
+
+/* ===== Animated wave divider ===== */
+.wave-animate {
+  animation: wave-bob 6s ease-in-out infinite;
+}
+
+@keyframes wave-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* ===== Hero blob parallax (set by JS) ===== */
+.hero-blob {
+  will-change: transform;
+  transition: transform 0.1s linear;
+}
+
+.parallax-slow {
+  will-change: transform;
+}
