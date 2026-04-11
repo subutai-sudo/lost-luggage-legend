@@ -1,9 +1,74 @@
+'use client'
+
+import { useEffect } from 'react'
 import { Navbar } from '@/components/Navbar'
 import { NewsletterSignup } from '@/components/NewsletterSignup'
 import { GoldilockZone } from '@/components/GoldilockZone'
 import { ComparePricesSection } from '@/components/ComparePricesSection'
 
+/* Wave divider SVG — flips vertically for bottom-to-top transitions */
+function WaveDivider({ flip = false, from = '#f9f6f0', to = '#ffffff' }: { flip?: boolean; from?: string; to?: string }) {
+  return (
+    <div className={`relative w-full overflow-hidden leading-[0] ${flip ? 'rotate-180' : ''}`} style={{ marginTop: '-1px' }}>
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none" className="w-full h-[60px] md:h-[80px]">
+        <path
+          d="M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,80 L0,80 Z"
+          fill={to}
+        />
+      </svg>
+    </div>
+  )
+}
+
+/* Gold ornamental divider */
+function GoldOrnament({ label }: { label?: string }) {
+  return (
+    <div className="flex items-center justify-center gap-4 py-8">
+      <span className="h-px w-16 bg-gradient-to-r from-transparent to-[#c9a96e]/50" />
+      {label ? (
+        <span className="text-[0.65rem] uppercase tracking-[0.25em] font-semibold" style={{ color: '#c9a96e' }}>{label}</span>
+      ) : (
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="#c9a96e">
+          <path d="M6 0 L12 6 L6 12 L0 6 Z" />
+        </svg>
+      )}
+      <span className="h-px w-16 bg-gradient-to-l from-transparent to-[#c9a96e]/50" />
+    </div>
+  )
+}
+
 export default function Home() {
+  /* Scroll-reveal: observe all .reveal and .reveal-parent elements */
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active')
+          }
+        })
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+    )
+
+    document.querySelectorAll('.reveal, .reveal-parent').forEach((el) => observer.observe(el))
+    return () => observer.disconnect()
+  }, [])
+
+  /* Parallax: translate hero blobs on scroll */
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY
+      const blobs = document.querySelectorAll('.hero-blob')
+      blobs.forEach((blob, i) => {
+        const speed = 0.15 + i * 0.05
+        ;(blob as HTMLElement).style.transform = `translateY(${scrollY * speed}px)`
+      })
+    }
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   return (
     <>
       {/* Navigation with theme toggle */}
@@ -138,14 +203,27 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Gold ornament divider */}
+      <div style={{ backgroundColor: 'var(--color-bg)' }}>
+        <GoldOrnament label="Compare Prices" />
+      </div>
+
       {/* Suppliers Section */}
-      <ComparePricesSection />
+      <div className="reveal">
+        <ComparePricesSection />
+      </div>
+
+      <WaveDivider to="#f9f6f0" />
 
       {/* Goldilock Zone - Contains all destination guides */}
-      <GoldilockZone />
+      <div className="reveal">
+        <GoldilockZone />
+      </div>
+
+      <WaveDivider flip to="#f5f0e8" />
 
       {/* Newsletter */}
-      <section id="newsletter" className="py-20 lg:py-28 relative overflow-hidden" style={{ backgroundColor: 'var(--color-bg-warm)' }}>
+      <section id="newsletter" className="py-20 lg:py-28 relative overflow-hidden reveal" style={{ backgroundColor: 'var(--color-bg-warm)' }}>
         {/* Background accent */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-0 left-1/4 w-64 h-64 rounded-full opacity-30 blur-3xl" style={{ background: 'radial-gradient(circle, #0891b2 0%, transparent 70%)' }} />
@@ -169,6 +247,9 @@ export default function Home() {
           <NewsletterSignup />
         </div>
       </section>
+
+      <WaveDivider to="var(--color-footer-bg)" />
+      <GoldOrnament />
 
       {/* Footer */}
       <footer style={{ backgroundColor: 'var(--color-footer-bg)', borderTop: '1px solid var(--color-border)' }} className="pt-16 pb-8">
