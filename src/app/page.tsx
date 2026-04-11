@@ -58,28 +58,6 @@ export default function Home() {
                   Get Weekly Tips
                 </a>
               </div>
-
-              {/* Testimonial */}
-              <div className="flex items-center gap-4 pt-6 border-t" style={{ borderColor: 'var(--color-border)' }}>
-                <div className="flex -space-x-3">
-                  {[
-                    'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=50&h=50&fit=crop',
-                    'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=50&h=50&fit=crop',
-                    'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=50&h=50&fit=crop',
-                    'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=50&h=50&fit=crop',
-                  ].map((src, i) => (
-                    <img key={i} src={src} alt="" className="w-10 h-10 rounded-full border-2 object-cover" style={{ borderColor: 'var(--color-bg)' }} />
-                  ))}
-                </div>
-                <div>
-                  <div className="flex items-center gap-1">
-                    {[1,2,3,4,5].map(i => <svg key={i} width="16" height="16" viewBox="0 0 24 24" fill="#c9a96e"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>)}
-                  </div>
-                  <p className="text-sm" style={{ color: 'var(--color-muted)' }}>
-                    <span className="font-semibold" style={{ color: 'var(--color-ink)' }}>4.9/5</span> from 2,400+ travelers
-                  </p>
-                </div>
-              </div>
             </div>
 
             {/* Right: Hero Image Grid - NOW SECOND */}
@@ -163,7 +141,7 @@ export default function Home() {
               Never Miss a Great Deal
             </h2>
             <p className="text-lg leading-relaxed" style={{ color: 'var(--color-muted)' }}>
-              Join 2,400+ travelers getting curated destination guides, hidden gems, and exclusive price alerts — delivered every Tuesday.
+              Join travelers getting curated destination guides, hidden gems, and exclusive price alerts — delivered every Tuesday.
             </p>
           </div>
           <NewsletterSignup />
@@ -189,20 +167,6 @@ export default function Home() {
                 Independent travel journalism. No sponsorships, no free trips, no conflicts.
                 We only earn affiliate commissions when you find a guide genuinely useful.
               </p>
-              <div className="flex items-center gap-4">
-                <div className="flex -space-x-2">
-                  {[
-                    'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=40&h=40&fit=crop',
-                    'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=40&h=40&fit=crop',
-                    'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=40&h=40&fit=crop',
-                  ].map((src, i) => (
-                    <img key={i} src={src} alt="" className="w-8 h-8 rounded-full border-2 object-cover" style={{ borderColor: 'var(--color-bg)' }} />
-                  ))}
-                </div>
-                <div className="text-xs" style={{ color: 'var(--color-muted)' }}>
-                  <span className="font-semibold" style={{ color: 'var(--color-ink)' }}>2,400+</span> travelers subscribed
-                </div>
-              </div>
             </div>
 
             {/* Links */}
