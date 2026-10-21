@@ -554,7 +554,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     excerpt:
       "A rebuilt Old Town stands beside the Palace of Culture, testament to resilience. Pierogi joints and vodka bars line streets reborn after wartime destruction. -- May-Sep is the ideal window.",
     heroImage:
-      'https://images.unsplash.com/photo-1549987313-4ba991a11128?w=1200&q=85&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1607078486875-a697a8a38e87?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Warsaw&adults=2',
     rating: 4.5,
     tags: ['Cultural', 'History', 'Food', 'Architecture'],
@@ -617,7 +617,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     excerpt:
       "The massive Palace of Parliament looms over Lipscani's revived bar streets. Orthodox churches sit between Brutalist blocks, and mămăligă anchors the table. -- Apr-Oct is the ideal window.",
     heroImage:
-      'https://images.unsplash.com/photo-1549006475-5e2b1b94c0bb?w=1200&q=85&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1730120257566-9f4b7f37f20d?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Bucharest&adults=2',
     rating: 4.3,
     tags: ['Cultural', 'Architecture', 'History', 'Food'],
@@ -743,7 +743,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     excerpt:
       "Bouchon restaurants serve quenelles and coq au vin between traboules-hidden passageways. Fourviere's basilica overlooks two rivers and a gastronomic capital. -- May-Sep is the ideal window.",
     heroImage:
-      'https://images.unsplash.com/photo-1559056961-1f4f1a6d6f71?w=1200&q=85&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1682249301492-c117bddca579?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Lyon&adults=2',
     rating: 4.7,
     tags: ['Cultural', 'Food', 'Architecture', 'History'],
@@ -785,7 +785,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     excerpt:
       "Lake Zurich glitters below the Old Town's guildhalls and Bahnhofstrasse boutiques. Fondue dives and swim spots on the Limmat round out the day. -- Jun-Sep is the ideal window.",
     heroImage:
-      'https://images.unsplash.com/photo-1597591910578-f5a7d3c54aae?w=1200&q=85&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1620563092215-0fbc6b55cfc5?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Zurich&adults=2',
     rating: 4.7,
     tags: ['Cultural', 'Lakes', 'Finance', 'Nightlife'],
@@ -806,7 +806,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     excerpt:
       "The Jet d'Eau arcs over Lake Geneva beside UN corridors and watchmaking ateliers. Chocolate shops and vineyard trails through Lavaux fill the margins. -- Jun-Sep is the ideal window.",
     heroImage:
-      'https://images.unsplash.com/photo-1533052533969-1f1bdc8f5ef5?w=1200&q=85&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1584200463394-bba4b2117e4d?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Geneva&adults=2',
     rating: 4.6,
     tags: ['Cultural', 'Lakes', 'Diplomacy', 'Chocolate'],
@@ -827,7 +827,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     excerpt:
       "Fourteen islands connected by bridges, Gamla Stan's cobblestones, and a design sensibility in every detail. The archipelago opens up when the light returns. -- Jun-Aug is the ideal window.",
     heroImage:
-      'https://images.unsplash.com/photo-1509356843151-3e8d90493a07?w=1200&q=85&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1588653818221-2651ec1a6423?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Stockholm&adults=2',
     rating: 4.7,
     tags: ['Cultural', 'Islands', 'Design', 'Food'],
@@ -911,7 +911,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     excerpt:
       "Old Trafford, the Northern Quarter's vinyl bars, and a musical legacy from Joy Division to Oasis. The Ship Canal district now brims with galleries and craft beer. -- May-Sep is the ideal window.",
     heroImage:
-      'https://images.unsplash.com/photo-1565013415989-7b80a5d4a144?w=1200&q=85&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1619284518317-85b1ab8c7723?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Manchester&adults=2',
     rating: 4.5,
     tags: ['Cultural', 'Football', 'Music', 'Bars'],
@@ -1436,7 +1436,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     excerpt:
       "Cubbon Park banyans, craft-brew pubs, and dosa counters in a city that runs on code and coffee. The tech corridor hums; Vidhana Soudha stands solid. -- Oct-Apr is the ideal window.",
     heroImage:
-      'https://images.unsplash.com/photo-1600100397608-ddf116d69305?w=1200&q=85&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1697130383976-38f28c444292?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Bangalore&adults=2',
     rating: 4.4,
     tags: ['Urban', 'Tech', 'Food', 'Nightlife'],
@@ -1604,7 +1604,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     excerpt:
       "The Freedom Trail, Harvard Yard, and clam chowder at Quincy Market. Brownstones in Beacon Hill and a Fenway Park that still breaks hearts every October. -- Jun-Sep is the ideal window.",
     heroImage:
-      'https://images.unsplash.com/photo-1569692158756-7cf8b4a4d49c?w=1200&q=85&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1611839234426-21de3ee58176?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Boston&adults=2',
     rating: 4.7,
     tags: ['Cultural', 'History', 'Education', 'Food'],
@@ -1709,7 +1709,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     excerpt:
       "Caribbean turquoise, all-inclusive resorts, and Chichen Itza day trips inland. Hotel Zone nightlife and cenote swims round out the Yucatan coast. -- Dec-Apr is the ideal window.",
     heroImage:
-      'https://images.unsplash.com/photo-1559599746-c76dc1a99b89?w=1200&q=85&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1630252421399-ddde79af47b3?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Cancun&adults=2',
     rating: 4.5,
     tags: ['Beach', 'Resort', 'Mayan Ruins', 'Nightlife'],
@@ -1751,7 +1751,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     excerpt:
       "Mountains meet ocean at Stanley Park, and Granville Island's market hums with foraged mushrooms. Ski runs and kayak routes share the same postcard backdrop. -- Jun-Sep is the ideal window.",
     heroImage:
-      'https://images.unsplash.com/photo-1559511260-66a632d3e05a?w=1200&q=85&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1559511260-66a654ae982a?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Vancouver&adults=2',
     rating: 4.7,
     tags: ['Urban', 'Nature', 'Food', 'Outdoor'],
@@ -1793,7 +1793,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     excerpt:
       "Liberty Bell, Reading Terminal hoagies, and murals covering row-house walls. The Art Museum steps and Schuylkill trails frame a city of firsts. -- May-Sep is the ideal window.",
     heroImage:
-      'https://images.unsplash.com/photo-1569082874680-89e4dd779767?w=1200&q=85&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1569761316261-9a8696fa2ca3?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Philadelphia&adults=2',
     rating: 4.6,
     tags: ['Cultural', 'History', 'Food', 'Arts'],
@@ -1877,7 +1877,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     excerpt:
       "Food cart pods, Powell's book aisles, and bridges spanning the Willamette. Craft breweries and forest trails on the urban edge keep the pace unhurried. -- Jun-Sep is the ideal window.",
     heroImage:
-      'https://images.unsplash.com/photo-1534430486035-f4f8b7c87d24?w=1200&q=85&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1641243745040-5cbf212d28ee?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Portland&adults=2',
     rating: 4.6,
     tags: ['Urban', 'Food', 'Nature', 'Craft Beer'],
@@ -1919,7 +1919,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     excerpt:
       "Cigar rollers in Ybor City, manatee watches on the Hillsborough, and Cuban sandwiches at historic stands. Cruise terminals and Busch Gardens round out the Gulf coast. -- Nov-Apr is the ideal window.",
     heroImage:
-      'https://images.unsplash.com/photo-1569321600-1c7a53b7adb3?w=1200&q=85&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1673574672395-5f8bd3c2ed5a?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Tampa&adults=2',
     rating: 4.5,
     tags: ['Beach', 'Theme Parks', 'Food', 'History'],
@@ -1961,7 +1961,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     excerpt:
       "Rocky Mountain foothills, Red Rocks amphitheater, and craft breweries on every block. Larimer Square restaurants and ski-access trails define the Mile High pace. -- Jun-Aug is the ideal window.",
     heroImage:
-      'https://images.unsplash.com/photo-154lis1047-9d5c8591f5f7?w=1200&q=85&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1602800458591-eddda28a498b?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Denver&adults=2',
     rating: 4.7,
     tags: ['Adventure', 'Mountains', 'Beer', 'Outdoor'],
@@ -1982,7 +1982,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     excerpt:
       "Cerro de Monserrate views, Gold Museum pre-Columbian halls, and emerald traders in the old center. Ajiaco soup and street art in La Candelaria warm the altitude. -- Dec-Apr is the ideal window.",
     heroImage:
-      'https://images.unsplash.com/photo-1585156193262-1a00af8a0ecb?w=1200&q=85&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1568632234165-47bb34c35708?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Bogota&adults=2',
     rating: 4.5,
     tags: ['Cultural', 'History', 'Food', 'Arts'],
