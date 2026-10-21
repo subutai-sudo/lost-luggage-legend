@@ -2,8 +2,10 @@ import type { Metadata } from 'next'
 import './globals.css'
 import { ThemeProvider } from '@/components/ThemeProvider'
 import { CurrencyProvider } from '@/components/CurrencyProvider'
+import { SITE_ORIGIN, siteUrl } from '@/lib/site'
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_ORIGIN),
   title: {
     default: 'Lost Luggage Legend | Premium Destination Travel Guides',
     template: '%s | Lost Luggage Legend',
@@ -14,7 +16,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://lostluggagelegend.com',
+    url: siteUrl('/'),
     siteName: 'Lost Luggage Legend',
     title: 'Lost Luggage Legend | Premium Destination Travel Guides',
     description:
@@ -34,9 +36,6 @@ export const metadata: Metadata = {
     description:
       'In-depth travel destination guides for the discerning traveler. Live price comparisons, flight time estimates.',
     images: ['https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1200&q=85'],
-  },
-  alternates: {
-    canonical: 'https://lostluggagelegend.com',
   },
 }
 
@@ -60,7 +59,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
         <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧳</text></svg>" />
-        <link rel="canonical" href="https://lostluggagelegend.com" />
+
         {/* Privacy-friendly analytics by Plausible */}
         <script async src="https://plausible.io/js/pa-YYMCNJwDyUJ3OO_u82EmC.js" />
         <script

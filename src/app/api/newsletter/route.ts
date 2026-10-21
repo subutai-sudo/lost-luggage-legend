@@ -1,22 +1,25 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
 const AUDIENCE_ID = process.env.RESEND_AUDIENCE_ID
 
 export async function POST(req: NextRequest) {
   try {
     const { email } = await req.json()
 
-    if (!email || !email.includes('@')) {
+    if (typeof email !== 'string' || !email.includes('@')) {
       return NextResponse.json({ error: 'Valid email required' }, { status: 400 })
     }
 
     if (!process.env.RESEND_API_KEY) {
-      // Fallback: store in console / logs if no key
-      console.log(`[Newsletter] New subscriber: ${email}`)
-      return NextResponse.json({ success: true, message: 'Subscribed successfully' })
+      return NextResponse.json(
+        { error: 'Newsletter is temporarily unavailable. Please try again later.' },
+        { status: 503 },
+      )
     }
+
+    // Initialize only when handling a configured request, never during the build.
+    const resend = new Resend(process.env.RESEND_API_KEY)
 
     if (AUDIENCE_ID) {
       // Add to Resend audience

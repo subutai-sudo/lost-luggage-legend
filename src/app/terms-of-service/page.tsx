@@ -1,9 +1,10 @@
-import type { Metadata } from 'next'
+import { pageMetadata } from '@/lib/site'
 
-export const metadata: Metadata = {
-  title: 'Terms of Service | Lost Luggage Legend',
+export const metadata = pageMetadata({
+  title: 'Terms of Service',
   description: 'The terms and conditions governing your use of Lost Luggage Legend.',
-}
+  path: '/terms-of-service',
+})
 
 export default function TermsOfService() {
   return (
