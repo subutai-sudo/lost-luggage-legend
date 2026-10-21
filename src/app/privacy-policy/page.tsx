@@ -1,10 +1,11 @@
-import type { Metadata } from 'next'
+import { pageMetadata } from '@/lib/site'
 
-export const metadata: Metadata = {
-  title: 'Privacy Policy | Lost Luggage Legend',
+export const metadata = pageMetadata({
+  title: 'Privacy Policy',
   description:
     'How Lost Luggage Legend collects, uses, and protects your personal information.',
-}
+  path: '/privacy-policy',
+})
 
 export default function PrivacyPolicy() {
   return (

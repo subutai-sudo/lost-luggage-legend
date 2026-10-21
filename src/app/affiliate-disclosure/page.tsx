@@ -1,10 +1,11 @@
-import type { Metadata } from 'next'
+import { pageMetadata } from '@/lib/site'
 
-export const metadata: Metadata = {
-  title: 'Affiliate Disclosure | Lost Luggage Legend',
+export const metadata = pageMetadata({
+  title: 'Affiliate Disclosure',
   description:
     'How Lost Luggage Legend earns money from affiliate links, and why this doesn\'t cost you more.',
-}
+  path: '/affiliate-disclosure',
+})
 
 export default function AffiliateDisclosure() {
   return (

@@ -3,11 +3,13 @@ import Link from 'next/link'
 import { DESTINATION_GUIDES } from '@/data/destinationGuides'
 import { Navbar } from '@/components/Navbar'
 import { NewsletterSignup } from '@/components/NewsletterSignup'
+import { pageMetadata } from '@/lib/site'
 
-export const metadata = {
-  title: 'All Destination Guides | Lost Luggage Legend',
+export const metadata = pageMetadata({
+  title: 'All Destination Guides',
   description: 'Browse 100+ expert destination guides with honest price comparisons. Find your next trip — from Bangkok to Barcelona, Maldives to Marrakech.',
-}
+  path: '/guides',
+})
 
 export default function GuidesPage() {
   const sorted = [...DESTINATION_GUIDES].sort((a, b) =>

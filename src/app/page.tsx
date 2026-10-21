@@ -2,6 +2,12 @@ import { Navbar } from '@/components/Navbar'
 import { NewsletterSignup } from '@/components/NewsletterSignup'
 import { GoldilockZone } from '@/components/GoldilockZone'
 import { ComparePricesSection } from '@/components/ComparePricesSection'
+import type { Metadata } from 'next'
+import { siteUrl } from '@/lib/site'
+
+export const metadata: Metadata = {
+  alternates: { canonical: siteUrl('/') },
+}
 
 export default function Home() {
   return (
@@ -175,7 +181,7 @@ export default function Home() {
               <ul className="space-y-2.5">
                 {[
                   { label: 'Newsletter', href: '#newsletter' },
-                  { label: 'All Guides', href: '#guides' },
+                  { label: 'All Guides', href: '/guides' },
                   { label: 'Book on Expedia', href: 'https://www.expedia.com/affiliates/expedia-home.Y1ZJJ9d', external: true },
                   { label: 'Privacy Policy', href: '/privacy-policy' },
                   { label: 'Terms of Service', href: '/terms-of-service' },

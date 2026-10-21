@@ -6,6 +6,7 @@ import { NewsletterSignup } from '@/components/NewsletterSignup'
 import { AffiliateDisclosure } from '@/components/AffiliateDisclosure'
 import { PriceComparison } from '@/components/PriceComparison'
 import { FlightSearch } from '@/components/FlightSearch'
+import { siteUrl } from '@/lib/site'
 
 interface Props {
   params: Promise<{ slug: string }>
@@ -22,12 +23,13 @@ export async function generateMetadata({ params }: Props) {
   const guide = DESTINATION_GUIDES.find((g) => g.slug === slug)
   if (!guide) return {}
   return {
-    title: `${guide.title} Travel Guide -- ${guide.subtitle} | Lost Luggage Legend`,
+    title: `${guide.title} Travel Guide -- ${guide.subtitle}`,
     description: guide.excerpt,
+    alternates: { canonical: siteUrl(`/guides/${guide.slug}`) },
     keywords: [`${guide.title} travel guide`, guide.subtitle, ...guide.tags, 'best time to visit', 'travel guide'],
     openGraph: {
       type: 'article',
-      url: `https://lostluggagelegend.com/guides/${guide.slug}`,
+      url: siteUrl(`/guides/${guide.slug}`),
       title: `${guide.title} Travel Guide -- ${guide.subtitle}`,
       description: guide.excerpt,
       images: [
