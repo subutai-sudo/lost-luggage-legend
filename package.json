@@ -11,7 +11,8 @@
     "typecheck": "tsc --noEmit",
     "test:dates": "node --test tests/bookingDates.test.mjs",
     "test:browser": "playwright test",
-    "test:runtime": "node --test tests/next-launcher.test.mjs"
+    "test:runtime": "node --test tests/next-launcher.test.mjs",
+    "test:affiliate": "playwright test --config playwright.affiliate.config.mjs"
   },
   "dependencies": {
     "@tailwindcss/postcss": "^4.2.2",

@@ -48,10 +48,35 @@ supplier URLs without opening them or making bookings.
 
 Browser regressions block `scripts.stay22.com` and `plausible.io` using a shared
 fixture, preventing affiliate popunders and analytics traffic during automated
-clicks. In an unisolated clean-checkout run, the existing Stay22 script navigated
-the header stress test to Booking.com. Production script behavior is unchanged;
-reviewing that monetization behavior is separate from this UI regression suite.
+clicks. An earlier unisolated clean-checkout run observed Nova navigate the
+header stress test to Booking.com. The approved site initializer now explicitly
+disables Nova's `ahref`/`whitespace` triggers and `undertab`/`underpop`/`overpop`
+media, leaves `force:false`, and preserves `disableLinkSwap:false` plus the
+existing LMA ID and deliberate affiliate links. No Stay22 Hub setting is changed.
 Real remote images and geography data remain enabled (not mocked).
+
+## Opt-in real-vendor verification
+
+Run only against a local server, with explicit permission to load Stay22:
+
+```sh
+RUN_STAY22_LIVE=1 BROWSER_BASE_URL=http://127.0.0.1:3032 npm run test:affiliate
+```
+
+This separate Chromium/WebKit suite loads the actual vendor script (not the
+marketing-blocked fixture), waits for its normalizer to execute, and checks the
+retained Nova/LinkSwap settings. A temporary browser-only Booking.com link must
+be converted by the real LinkSwap observer to a Stay22 affiliate URL with an
+affiliate ID. It is never clicked, and no supplier navigation is allowed.
+Navigation from a guide through the home/index/newsletter remains in the
+original tab; popup and offsite-navigation attempts fail the assertions.
+
+The suite blocks non-read requests and offsite navigation and never forces
+Nova eligibility. It establishes current-script configuration acceptance,
+link conversion and these local interactions, not an eligible-before/disabled-
+after experiment, future vendor compatibility, physical-device behavior or
+commission attribution. Re-run it when the unpinned vendor script changes.
+
 
 Tests do not submit the newsletter form. The SEO suite verifies all 100 guides
 against the independent source inventory, the 105 sitemap entries, static-page
@@ -65,8 +90,9 @@ Failure screenshots/traces are written to git-ignored `test-results/`.
 
 Next.js and eslint-config-next are now 16.4.2, react-simple-maps 5.0.5 uses
 patched D3 dependencies, and Resend/PostCSS/image-processing dependencies were
-updated. A clean `npm ci`, production build, typecheck, 30 Chromium/WebKit browser
-tests, 17 date tests, 2 launcher tests and the 11 SEO checks all pass.
+updated. Verification uses a clean `npm ci`, production build, typecheck,
+34 Chromium/WebKit UI regressions, 2 opt-in real-vendor checks, 17 date tests,
+2 launcher tests and the 11 SEO checks. The PR records the latest run results.
 
 `npm audit --omit=dev` reports zero vulnerabilities. The full audit still reports
 five high development-only findings in one chain:
