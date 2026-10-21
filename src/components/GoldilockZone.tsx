@@ -136,24 +136,33 @@ export function GoldilockZone() {
     setToDate(to)
   }, [])
 
+  const inSeasonGuides = useMemo(
+    () => DESTINATION_GUIDES.filter(g => isInGoldilockZoneForRange(g.id, fromDate, toDate)),
+    [fromDate, toDate]
+  )
+
+  const comingGuides = useMemo(
+    () => DESTINATION_GUIDES.filter(g =>
+      !isInGoldilockZoneForRange(g.id, fromDate, toDate) &&
+      isComingIntoSeason(g.id, toDate, 2)
+    ),
+    [fromDate, toDate]
+  )
+
+  // The active tab's destinations — and only those — are shown on the map.
   const filteredGuides = useMemo(() => {
-    let result = DESTINATION_GUIDES
+    const base =
+      activeTab === 'in-season' ? inSeasonGuides :
+      activeTab === 'coming'    ? comingGuides :
+      DESTINATION_GUIDES
+    return [...base].sort((a, b) => a.title.localeCompare(b.title))
+  }, [activeTab, inSeasonGuides, comingGuides])
 
-    if (activeTab === 'in-season') {
-      result = result.filter(g => isInGoldilockZoneForRange(g.id, fromDate, toDate))
-    } else if (activeTab === 'coming') {
-      result = result.filter(g =>
-        !isInGoldilockZoneForRange(g.id, fromDate, toDate) &&
-        isComingIntoSeason(g.id, toDate, 2)
-      )
-    }
-    return result.sort((a, b) => a.title.localeCompare(b.title))
-  }, [fromDate, toDate, activeTab])
-
-  const getMarkerColor = (id: string) => {
-    if (isInGoldilockZoneForRange(id, fromDate, toDate)) return '#d97706'
-    if (isComingIntoSeason(id, toDate, 2)) return '#2563eb'
-    return '#6b7280'
+  // Each tab shows its OWN count, never the active tab's count.
+  const tabCounts: Record<'in-season' | 'coming' | 'all', number> = {
+    'in-season': inSeasonGuides.length,
+    'coming': comingGuides.length,
+    'all': DESTINATION_GUIDES.length,
   }
 
   const surpriseMe = () => {
@@ -242,7 +251,7 @@ export function GoldilockZone() {
                   : 'bg-white border border-amber-200 hover:bg-amber-50'
               }`}
             >
-              {tab.label} ({filteredGuides.length})
+              {tab.label} ({tabCounts[tab.key]})
             </button>
           ))}
         </div>
@@ -273,7 +282,7 @@ export function GoldilockZone() {
                 }
               </Geographies>
 
-              {DESTINATION_GUIDES.map((guide) => {
+              {filteredGuides.map((guide) => {
                 const coords = GUIDE_COORDS[guide.id]
                 if (!coords) return null
 
@@ -290,17 +299,30 @@ export function GoldilockZone() {
                     <circle
                       r={14}
                       fill="transparent"
+                      role="button"
+                      tabIndex={0}
+                      aria-label={`Open the ${guide.title} travel guide`}
                       onMouseEnter={() => setTooltip({ name: guide.title, x: coords[0], y: coords[1] })}
                       onMouseLeave={() => setTooltip(null)}
+                      onFocus={() => setTooltip({ name: guide.title, x: coords[0], y: coords[1] })}
+                      onBlur={() => setTooltip(null)}
                       onClick={() => window.location.href = `/guides/${guide.slug}`}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                          e.preventDefault()
+                          window.location.href = `/guides/${guide.slug}`
+                        }
+                      }}
                       style={{ cursor: 'pointer' }}
                     />
-                    {/* Visible dot with pulse for active ones */}
+                    {/* Visible dot + pulse are pointer-events:none so the full
+                        14px hit area above stays clickable across its centre. */}
                     <circle
                       r={isActive ? 7 : 5.5}
                       fill={color}
                       stroke="#ffffff"
                       strokeWidth={2.5}
+                      pointerEvents="none"
                       style={{
                         filter: isActive ? 'drop-shadow(0 0 8px rgba(217, 119, 6, 0.6))' : 'none',
                       }}
@@ -312,6 +334,7 @@ export function GoldilockZone() {
                         stroke="#d97706"
                         strokeWidth={1.5}
                         opacity={0.3}
+                        pointerEvents="none"
                         className="animate-ping"
                       />
                     )}
