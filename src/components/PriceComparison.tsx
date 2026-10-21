@@ -42,14 +42,12 @@ const SUPPLIERS = [
     featured: false,
   },
   {
-    id: 'kayak',
-    name: 'KAYAK',
-    description: 'Compare flights across airlines',
-    url: (dest: string, currency: CurrencyCode = 'USD') => {
-      // KAYAK flights uses path-based URLs which are reliable
-      // Hotel search strips params, so we only link flights
-      return `https://www.kayak.com/flights/to-${encodeURIComponent(dest)}/2026-06-01/2026-06-08?sort=bestflight_a`
-    },
+    id: 'flight-search',
+    name: 'Compare Flights',
+    description: 'Choose your airports and dates, then compare live prices',
+    // Guides have no selected dates or origin. Use the real search form rather
+    // than inventing travel dates in a supplier link.
+    url: (_dest: string, _currency: CurrencyCode = 'USD') => '/#compare-prices',
     categories: ['Flights'],
     color: '#FF690F',
     featured: false,
@@ -162,12 +160,13 @@ export function PriceComparison({ guide, destination }: Props) {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
         {others.map((supplier) => {
           const url = supplier.url(destination, currency)
+          const SupplierLink = url.startsWith('/') ? Link : 'a'
           return (
-            <a
+            <SupplierLink
               key={supplier.id}
               href={url}
-              target="_blank"
-              rel="noopener noreferrer sponsored"
+              target={url.startsWith('/') ? undefined : '_blank'}
+              rel={url.startsWith('/') ? undefined : 'noopener noreferrer sponsored'}
               className="group flex flex-col items-start p-4 border border-sand hover:border-[#c9a96e] hover:shadow-md transition-all duration-200 rounded-sm"
             >
               {/* Supplier logo */}
@@ -220,7 +219,7 @@ export function PriceComparison({ guide, destination }: Props) {
                   <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
                 </svg>
               </div>
-            </a>
+            </SupplierLink>
           )
         })}
       </div>

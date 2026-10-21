@@ -1,7 +1,8 @@
 'use client'
 
-import React, { useState, useMemo, useCallback, useEffect, useRef } from 'react'
+import React, { useState, useMemo, useEffect, useRef } from 'react'
 import { useCurrency, CurrencyCode } from '@/components/CurrencyProvider'
+import { bookingDateError, localDateString, nextCalendarDay } from '@/lib/bookingDates'
 
 interface Airport {
   code: string
@@ -317,6 +318,15 @@ export function ComparePricesSection() {
   const [departDate, setDepartDate] = useState('')
   const [returnDate, setReturnDate] = useState('')
   const [hotelDest, setHotelDest] = useState('')
+  // Set after hydration to avoid server/client timezone mismatches. Refresh for
+  // visitors who leave the page open overnight.
+  const [today, setToday] = useState('')
+  useEffect(() => {
+    const refreshToday = () => setToday(localDateString())
+    refreshToday()
+    const timer = window.setInterval(refreshToday, 60_000)
+    return () => window.clearInterval(timer)
+  }, [])
   
   // Selected airports (only for flights)
   const [selectedOriginAirports, setSelectedOriginAirports] = useState<string[]>([])
@@ -460,18 +470,21 @@ export function ComparePricesSection() {
     }
   }
   
-  // Form validation
-  const isFormValid = useMemo(() => {
-    if (searchType === 'flights') {
-      return selectedOriginAirports.length > 0 && selectedDestAirports.length > 0 && departDate
-    }
-    // Hotels: just need destination + check-in
-    return hotelDest.trim().length > 0 && departDate
-  }, [searchType, selectedOriginAirports, selectedDestAirports, hotelDest, departDate])
+  // Native min attributes constrain the picker, but don't revalidate a return
+  // already chosen when departure changes. Guard submission AND generated links.
+  const dateError = bookingDateError(searchType, departDate, returnDate, today)
+  const endDateMin = departDate && !bookingDateError(searchType, departDate, '', today)
+    ? (searchType === 'hotels' ? nextCalendarDay(departDate) : departDate)
+    : today
+  const isFormValid = Boolean(today && departDate && !dateError && (
+    searchType === 'flights'
+      ? selectedOriginAirports.length > 0 && selectedDestAirports.length > 0
+      : hotelDest.trim().length > 0
+  ))
   
   // Build real supplier links based on form state (currency-aware)
   const supplierLinks = useMemo(() => {
-    if (!hasSearched) return []
+    if (!hasSearched || !isFormValid) return []
     
     if (searchType === 'flights' && selectedOriginAirports.length > 0 && selectedDestAirports.length > 0) {
       const originCode = selectedOriginAirports[0]
@@ -498,7 +511,7 @@ export function ComparePricesSection() {
     }
     
     return []
-  }, [hasSearched, searchType, selectedOriginAirports, selectedDestAirports, hotelDest, departDate, returnDate, currency])
+  }, [hasSearched, isFormValid, searchType, selectedOriginAirports, selectedDestAirports, hotelDest, departDate, returnDate, currency])
   
   // Search handler — just show the redirect links (no fake API call)
   const handleSearch = () => {
@@ -530,7 +543,7 @@ export function ComparePricesSection() {
   const getDisplayCity = (input: string) => input.replace(/\s*\([A-Z,\s]+\)$/, '').trim()
   
   return (
-    <section className="py-20 lg:py-28" style={{ backgroundColor: 'var(--color-bg)' }}>
+    <section id="compare-prices" className="py-20 lg:py-28 scroll-mt-20" style={{ backgroundColor: 'var(--color-bg)' }}>
       <div className="max-w-6xl mx-auto px-6 lg:px-12">
         {/* Header */}
         <div className="text-center mb-12">
@@ -590,12 +603,13 @@ export function ComparePricesSection() {
               <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                 {/* Origin */}
                 <div className="relative" ref={originRef}>
-                  <label className="block text-xs font-semibold uppercase tracking-wider mb-1.5" style={{ color: 'var(--color-muted)' }}>
+                  <label htmlFor="flight-origin" className="block text-xs font-semibold uppercase tracking-wider mb-1.5" style={{ color: 'var(--color-muted)' }}>
                     From (City or Airport)
                   </label>
                   <div className="relative">
                     <input
                       type="text"
+                      id="flight-origin"
                       value={originInput}
                       onChange={(e) => handleOriginChange(e.target.value)}
                       onFocus={() => setShowOriginSuggestions(true)}
@@ -633,12 +647,13 @@ export function ComparePricesSection() {
                 
                 {/* Destination */}
                 <div className="relative" ref={destRef}>
-                  <label className="block text-xs font-semibold uppercase tracking-wider mb-1.5" style={{ color: 'var(--color-muted)' }}>
+                  <label htmlFor="flight-destination" className="block text-xs font-semibold uppercase tracking-wider mb-1.5" style={{ color: 'var(--color-muted)' }}>
                     To (City or Airport)
                   </label>
                   <div className="relative">
                     <input
                       type="text"
+                      id="flight-destination"
                       value={destInput}
                       onChange={(e) => handleDestChange(e.target.value)}
                       onFocus={() => setShowDestSuggestions(true)}
@@ -676,14 +691,17 @@ export function ComparePricesSection() {
                 
                 {/* Depart Date */}
                 <div>
-                  <label className="block text-xs font-semibold uppercase tracking-wider mb-1.5" style={{ color: 'var(--color-muted)' }}>
+                  <label htmlFor="flight-depart" className="block text-xs font-semibold uppercase tracking-wider mb-1.5" style={{ color: 'var(--color-muted)' }}>
                     Depart
                   </label>
                   <input
                     type="date"
                     value={departDate}
                     onChange={(e) => setDepartDate(e.target.value)}
-                    min={new Date().toISOString().split('T')[0]}
+                    id="flight-depart"
+                    min={today}
+                    aria-invalid={Boolean(dateError)}
+                    aria-describedby={dateError ? 'booking-date-error' : undefined}
                     className="w-full px-4 py-3 rounded-lg border-2 font-medium transition-all focus:outline-none focus:border-[#0891b2] cursor-pointer"
                     style={{ borderColor: 'var(--color-border)', backgroundColor: 'var(--color-bg)', color: 'var(--color-ink)' }}
                   />
@@ -691,14 +709,17 @@ export function ComparePricesSection() {
                 
                 {/* Return */}
                 <div>
-                  <label className="block text-xs font-semibold uppercase tracking-wider mb-1.5" style={{ color: 'var(--color-muted)' }}>
+                  <label htmlFor="flight-return" className="block text-xs font-semibold uppercase tracking-wider mb-1.5" style={{ color: 'var(--color-muted)' }}>
                     Return (Optional)
                   </label>
                   <input
                     type="date"
                     value={returnDate}
                     onChange={(e) => setReturnDate(e.target.value)}
-                    min={departDate || new Date().toISOString().split('T')[0]}
+                    id="flight-return"
+                    min={endDateMin}
+                    aria-invalid={Boolean(dateError)}
+                    aria-describedby={dateError ? 'booking-date-error' : undefined}
                     className="w-full px-4 py-3 rounded-lg border-2 font-medium transition-all focus:outline-none focus:border-[#0891b2] cursor-pointer"
                     style={{ borderColor: 'var(--color-border)', backgroundColor: 'var(--color-bg)', color: 'var(--color-ink)' }}
                   />
@@ -709,12 +730,13 @@ export function ComparePricesSection() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {/* Destination (wider) */}
                 <div className="relative" ref={hotelRef}>
-                  <label className="block text-xs font-semibold uppercase tracking-wider mb-1.5" style={{ color: 'var(--color-muted)' }}>
+                  <label htmlFor="hotel-destination" className="block text-xs font-semibold uppercase tracking-wider mb-1.5" style={{ color: 'var(--color-muted)' }}>
                     Destination
                   </label>
                   <div className="relative">
                     <input
                       type="text"
+                      id="hotel-destination"
                       value={hotelDest}
                       onChange={(e) => handleHotelDestChange(e.target.value)}
                       onFocus={() => setShowHotelSuggestions(true)}
@@ -742,14 +764,17 @@ export function ComparePricesSection() {
                 
                 {/* Check-in */}
                 <div>
-                  <label className="block text-xs font-semibold uppercase tracking-wider mb-1.5" style={{ color: 'var(--color-muted)' }}>
+                  <label htmlFor="hotel-checkin" className="block text-xs font-semibold uppercase tracking-wider mb-1.5" style={{ color: 'var(--color-muted)' }}>
                     Check-in
                   </label>
                   <input
                     type="date"
                     value={departDate}
                     onChange={(e) => setDepartDate(e.target.value)}
-                    min={new Date().toISOString().split('T')[0]}
+                    id="hotel-checkin"
+                    min={today}
+                    aria-invalid={Boolean(dateError)}
+                    aria-describedby={dateError ? 'booking-date-error' : undefined}
                     className="w-full px-4 py-3 rounded-lg border-2 font-medium transition-all focus:outline-none focus:border-[#0891b2] cursor-pointer"
                     style={{ borderColor: 'var(--color-border)', backgroundColor: 'var(--color-bg)', color: 'var(--color-ink)' }}
                   />
@@ -757,14 +782,17 @@ export function ComparePricesSection() {
                 
                 {/* Check-out */}
                 <div>
-                  <label className="block text-xs font-semibold uppercase tracking-wider mb-1.5" style={{ color: 'var(--color-muted)' }}>
-                    Check-out
+                  <label htmlFor="hotel-checkout" className="block text-xs font-semibold uppercase tracking-wider mb-1.5" style={{ color: 'var(--color-muted)' }}>
+                    Check-out (Optional)
                   </label>
                   <input
                     type="date"
                     value={returnDate}
                     onChange={(e) => setReturnDate(e.target.value)}
-                    min={departDate || new Date().toISOString().split('T')[0]}
+                    id="hotel-checkout"
+                    min={endDateMin}
+                    aria-invalid={Boolean(dateError)}
+                    aria-describedby={dateError ? 'booking-date-error' : undefined}
                     className="w-full px-4 py-3 rounded-lg border-2 font-medium transition-all focus:outline-none focus:border-[#0891b2] cursor-pointer"
                     style={{ borderColor: 'var(--color-border)', backgroundColor: 'var(--color-bg)', color: 'var(--color-ink)' }}
                   />
@@ -772,6 +800,12 @@ export function ComparePricesSection() {
               </div>
             )}
             
+            {dateError && (
+              <p id="booking-date-error" role="alert" className="mt-4 text-sm font-medium text-red-700 dark:text-red-400">
+                {dateError}
+              </p>
+            )}
+
             {/* Search Button */}
             <div className="mt-6 flex flex-col items-center gap-3">
               <button
