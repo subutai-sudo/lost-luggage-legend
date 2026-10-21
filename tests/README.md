@@ -46,6 +46,13 @@ light/dark themes, 44 px controls, keyboard/focus/Escape dismissal, currency
 selection and navigation from nested pages. Booking tests inspect generated
 supplier URLs without opening them or making bookings.
 
+Browser regressions block `scripts.stay22.com` and `plausible.io` using a shared
+fixture, preventing affiliate popunders and analytics traffic during automated
+clicks. In an unisolated clean-checkout run, the existing Stay22 script navigated
+the header stress test to Booking.com. Production script behavior is unchanged;
+reviewing that monetization behavior is separate from this UI regression suite.
+Real remote images and geography data remain enabled (not mocked).
+
 Tests do not submit the newsletter form. The SEO suite verifies all 100 guides
 against the independent source inventory, the 105 sitemap entries, static-page
 metadata, robots, footer links and unknown-guide 404 behavior.

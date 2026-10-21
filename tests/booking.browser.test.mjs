@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test'
+import { test, expect } from './browser-fixture.mjs'
 
 const today = '2030-01-10'
 

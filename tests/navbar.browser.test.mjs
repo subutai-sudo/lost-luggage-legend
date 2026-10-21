@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test'
+import { test, expect } from './browser-fixture.mjs'
 
 const primaryNav = page => page.getByRole('navigation', { name: 'Primary navigation', exact: true })
 const navigationToggle = page => primaryNav(page).getByRole('button', { name: 'Toggle navigation' })
