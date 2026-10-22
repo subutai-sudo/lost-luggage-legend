@@ -1052,6 +1052,19 @@ to{
 .hero h1,.hero h2{color:#fff}
 .newsletter :global(.btn-primary){background:transparent;color:var(--ink);border:1px solid #829277;box-shadow:none}
 .methodDialog{max-height:85dvh;overflow:auto}
+
+/* The main scene owns its frame; calendar controls never cover the photograph. */
+.root .hero{min-height:clamp(600px,76svh,850px);padding-bottom:115px}
+.root .hero::before{background:linear-gradient(90deg,rgba(4,15,15,.76),rgba(5,17,17,.18) 63%,rgba(4,15,15,.04)),linear-gradient(0deg,rgba(5,17,17,.54),transparent 54%,rgba(5,17,17,.25))}
+.hero .frame-caption{position:absolute;right:4.4%;bottom:30px;margin:0;max-width:300px}
+.calendarBand{position:relative;isolation:isolate;background:#0c211a;color:#fff;padding:0 4.4%;border-top:1px solid #a0b19a33}
+.root .calendar{margin:0;padding:27px 0 22px;border-top:0}
+.calendarBand h2{color:#fff}
+.monthJump{display:inline-flex;align-items:center;gap:26px;min-height:48px;margin-top:24px;border-bottom:1px solid #e0f29b;color:#f3f6e9;font:500 13px/1.4 var(--sans)}
+.monthJump span{color:var(--acid);font-size:21px}
+@media(max-width:700px){.root .hero{min-height:clamp(580px,80svh,760px);padding-bottom:130px}.hero .frame-caption{left:6%;right:6%;bottom:28px;max-width:none;margin:0}.calendarBand{padding:0 6%}.root .calendar{padding:24px 0 18px}.monthJump{margin-top:18px;font-size:12px}}
+@media(max-width:380px){.calendarBand{padding:0 5%}.hero .frame-caption{left:5%;right:5%}}
+
 :global(.dark) .root{--ink:#e6edde;--paper:#14251d}
 :global(.dark) .root .guide-tag,:global(.dark) .root .guide p.description,:global(.dark) .root .results-meta,:global(.dark) .root .source-note p{color:#b9c8ad}
 :global(.dark) .root .read-guide{color:#e6edde}

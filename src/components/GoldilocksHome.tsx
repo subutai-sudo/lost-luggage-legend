@@ -52,7 +52,7 @@ export function GoldilocksHome({ guides, initialMonth, year }: Props) {
     <div className={styles.root} data-goldilocks-home data-ready={ready}>
       <a className={styles.skip} href="#month-picker">Skip to month picker</a>
       <main id="main-content">
-        <section id="goldilock" className={styles.hero} aria-label="Goldilocks Zone seasonal destination finder">
+        <section id="goldilock" data-hero-scene className={styles.hero} aria-label="Goldilocks Zone seasonal destination finder">
           <Image key={featured.id} className={styles['hero-image']} data-hero-image
             src={discoveryImage(featured.image, 1600)} alt={`${featured.title} — destination photograph`}
             fill sizes="100vw" fetchPriority="high" loading="eager" />
@@ -61,6 +61,7 @@ export function GoldilocksHome({ guides, initialMonth, year }: Props) {
             <p className={styles.eyebrow}>Goldilocks Zone</p>
             <h1>Somewhere,<br /><em>just right.</em></h1>
             <p className={styles['intro-copy']}>The world changes with the calendar.<br />Pick your month. Find six places<br />worth a closer look.</p>
+            <a className={styles.monthJump} href="#month-picker">Choose your month <span aria-hidden="true">↓</span></a>
           </div>
           <div className={styles['frame-caption']}>
             <span className={styles.label}>In the frame · {MONTH_NAMES[month - 1]}</span>
@@ -70,6 +71,8 @@ export function GoldilocksHome({ guides, initialMonth, year }: Props) {
               <span aria-hidden="true">Explore the guide ↗</span>
             </Link>
           </div>
+        </section>
+        <div className={styles.calendarBand} data-calendar-band>
           <section className={styles.calendar} aria-labelledby="month-picker">
             <div className={styles['calendar-label']}>
               <h2 id="month-picker" tabIndex={-1}>When could you go?</h2>
@@ -96,7 +99,7 @@ export function GoldilocksHome({ guides, initialMonth, year }: Props) {
             </div>
             <noscript><p className={styles['calendar-foot']}>Month selection needs JavaScript. <a href="/guides">Browse all destination guides instead ↗</a></p></noscript>
           </section>
-        </section>
+        </div>
 
         <section className={styles.below} id="seasonal-results" aria-labelledby="results-title">
           <div className={styles['results-heading']}>
