@@ -6,13 +6,30 @@ async function expectImageLoaded(image) {
     timeout: 20_000,
     message: 'Image must load real bytes, not merely have an img tag',
   }).toBe(true)
+  await image.evaluate(img => img.decode())
 }
 
-test('homepage hero images load successfully', async ({ page }) => {
+test('cinematic homepage month photos and hero decode through the real image optimizer', async ({ page }) => {
   await page.goto('/')
-  const images = page.locator('img')
-  await expect(images).toHaveCount(3)
-  for (const image of await images.all()) await expectImageLoaded(image)
+  const months = page.locator('button[data-month]')
+  await expect(months).toHaveCount(12)
+  expect(new Set(await months.evaluateAll(buttons => buttons.map(button => button.dataset.month))).size).toBe(12)
+  for (const month of await months.all()) {
+    const photo = month.locator('img')
+    await expect(photo).toHaveCount(1)
+    await expectImageLoaded(photo)
+    expect(await photo.evaluate(img => img.currentSrc)).toContain('/_next/image?')
+  }
+  const hero = page.locator('img[data-hero-image]')
+  await expect(hero).toHaveCount(1)
+  await expectImageLoaded(hero)
+  expect(await hero.evaluate(img => img.currentSrc)).toContain('/_next/image?')
+  await expect(page.locator('[data-results] article[data-id]')).toHaveCount(6)
+  await expect(page.locator('[data-selected-month]')).toHaveText(/^(January|February|March|April|May|June|July|August|September|October|November|December)$/)
+  const matchingGuides = Number(await page.locator('[data-count]').textContent())
+  expect(matchingGuides).toBeGreaterThanOrEqual(6)
+  expect(matchingGuides).toBeLessThanOrEqual(100)
+  await expect(page.locator('[data-feature-title]')).not.toBeEmpty()
 })
 
 test('guide thumbnails and guide hero load through the real image optimizer', async ({ page }) => {
@@ -32,7 +49,7 @@ test('guide thumbnails and guide hero load through the real image optimizer', as
 test('upgraded map renders geography, all 100 destinations and keyboard navigation', async ({ page }) => {
   const pageErrors = []
   page.on('pageerror', error => pageErrors.push(error.message))
-  await page.goto('/')
+  await page.goto('/explore')
   const map = page.locator('#goldilock')
   await map.scrollIntoViewIfNeeded()
   await expect.poll(() => map.locator('path.rsm-geography').count()).toBeGreaterThan(100)

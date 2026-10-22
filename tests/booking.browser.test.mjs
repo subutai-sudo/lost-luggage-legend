@@ -4,7 +4,7 @@ const today = '2030-01-10'
 
 test.beforeEach(async ({ page }) => {
   await page.clock.setFixedTime(new Date('2030-01-10T20:00:00Z'))
-  await page.goto('/')
+  await page.goto('/plan')
   await expect(page.locator('#flight-depart')).toHaveAttribute('min', today)
 })
 
@@ -110,10 +110,10 @@ test('local calendar day remains selectable when UTC is already tomorrow', async
 test('guide flight CTA uses the real date-entry form, not invented expired dates', async ({ page }) => {
   await page.goto('/guides/lisbon')
   const cta = page.getByRole('link', { name: /Compare Flights/ })
-  await expect(cta).toHaveAttribute('href', '/#compare-prices')
+  await expect(cta).toHaveAttribute('href', '/plan#compare-prices')
   await expect(cta).not.toHaveAttribute('target', '_blank')
   await expect(page.locator('a[href*="2026-06-01"]')).toHaveCount(0)
   await cta.click()
-  await expect(page).toHaveURL(/\/#compare-prices$/)
+  await expect(page).toHaveURL(/\/plan#compare-prices$/)
   await expect(page.locator('#compare-prices')).toBeInViewport()
 })

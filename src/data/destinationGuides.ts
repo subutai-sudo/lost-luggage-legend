@@ -111,7 +111,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     excerpt:
       'Pastel villages stacked like dice on limestone cliffs above the Tyrrhenian Sea. Lemon groves, coastal drives with 300-hairpin bends, and pasta that costs €4 and changes your life.',
     heroImage:
-      'https://images.unsplash.com/photo-1534113414509-0eec2bfb493f?w=1200&q=85&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1612698093158-e07ac200d44e?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Amalfi+Coast+Italy&adults=2',
     rating: 4.8,
     tags: ['Coastal', 'Romantic', 'Relaxing', 'Sailing'],
@@ -258,7 +258,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     excerpt:
       'Tram 28 rattling through Alfama, pastéis de nata fresh from the oven, co-working spaces in converted palaces. Lisbon is Europe\'s most affordable Western capital and a digital nomad favourite for good reason.',
     heroImage:
-      'https://images.unsplash.com/photo-1555881400-74d7acaacd8b?w=1200&q=85&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1754151630904-da4334bddfbf?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Lisbon+Portugal&adults=2',
     rating: 4.8,
     tags: ['Digital Nomad', 'City', 'Solo Trip', 'Budget'],

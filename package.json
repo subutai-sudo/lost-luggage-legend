@@ -10,6 +10,7 @@
     "test:seo": "node --test tests/seo.integration.test.mjs",
     "typecheck": "tsc --noEmit",
     "test:dates": "node --test tests/bookingDates.test.mjs",
+    "test:goldilocks": "node --test tests/goldilocks-core.test.mjs",
     "test:browser": "playwright test",
     "test:runtime": "node --test tests/next-launcher.test.mjs",
     "test:affiliate": "playwright test --config playwright.affiliate.config.mjs"

@@ -9,6 +9,8 @@ export const SOCIAL_IMAGE = 'https://images.unsplash.com/photo-1436491865332-7a6
 export const INDEXABLE_STATIC_PATHS = [
   '/',
   '/guides',
+  '/plan',
+  '/explore',
   '/privacy-policy',
   '/terms-of-service',
   '/affiliate-disclosure',

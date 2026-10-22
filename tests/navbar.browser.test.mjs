@@ -21,10 +21,13 @@ async function expectHeaderFits(page) {
   }
 }
 
-test('header controls fit narrow phones, tablet breakpoints and desktop in both themes', async ({ page }) => {
-  await page.goto('/guides')
-  for (const themePass of [0, 1]) {
-    if (themePass === 1) await primaryNav(page).getByRole('button', { name: /Switch to .* mode/ }).click()
+// Keep every width and interaction, but give each theme its own test deadline.
+// The old combined 22-width sweep exceeded 45s on the local WebKit runner.
+for (const theme of ['light', 'dark']) {
+  test(`header controls fit narrow phones, tablet breakpoints and desktop in ${theme} theme`, async ({ page }) => {
+    await page.addInitScript(value => localStorage.setItem('lll-theme', value), theme)
+    await page.goto('/guides')
+    await expect.poll(() => page.evaluate(() => document.documentElement.classList.contains('dark'))).toBe(theme === 'dark')
     for (const width of [320, 360, 375, 390, 414, 640, 767, 768, 820, 1024, 1280]) {
       await page.setViewportSize({ width, height: 800 })
       const mobile = width < 768
@@ -41,18 +44,18 @@ test('header controls fit narrow phones, tablet breakpoints and desktop in both 
         await expect(primaryNav(page).getByRole('link', { name: 'Newsletter', exact: true })).toHaveAttribute('href', '/#newsletter')
       }
     }
-  }
-  await page.setViewportSize({ width: 320, height: 568 })
-  await primaryNav(page).getByRole('button', { name: /Switch to .* mode/ }).click()
-  await navigationToggle(page).click()
-  await expectHeaderFits(page)
-  await page.keyboard.press('Escape')
-  await currencyToggle(page).click()
-  await expect(page.locator('#header-currencies')).toBeVisible()
-  await expectHeaderFits(page)
-  const currencyBounds = await page.locator('#header-currencies').boundingBox()
-  expect(currencyBounds.y + currencyBounds.height).toBeLessThanOrEqual(568)
-})
+    await page.setViewportSize({ width: 320, height: 568 })
+    await primaryNav(page).getByRole('button', { name: /Switch to .* mode/ }).click()
+    await navigationToggle(page).click()
+    await expectHeaderFits(page)
+    await page.keyboard.press('Escape')
+    await currencyToggle(page).click()
+    await expect(page.locator('#header-currencies')).toBeVisible()
+    await expectHeaderFits(page)
+    const currencyBounds = await page.locator('#header-currencies').boundingBox()
+    expect(currencyBounds.y + currencyBounds.height).toBeLessThanOrEqual(568)
+  })
+}
 
 test('mobile disclosure supports keyboard, Escape, outside pointer, focus exit and resize', async ({ page, browserName }) => {
   // WebKit follows Safari's default: Option-Tab includes links and buttons.

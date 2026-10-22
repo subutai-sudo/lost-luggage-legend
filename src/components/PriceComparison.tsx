@@ -47,7 +47,7 @@ const SUPPLIERS = [
     description: 'Choose your airports and dates, then compare live prices',
     // Guides have no selected dates or origin. Use the real search form rather
     // than inventing travel dates in a supplier link.
-    url: (_dest: string, _currency: CurrencyCode = 'USD') => '/#compare-prices',
+    url: (_dest: string, _currency: CurrencyCode = 'USD') => '/plan#compare-prices',
     categories: ['Flights'],
     color: '#FF690F',
     featured: false,
