@@ -557,3 +557,14 @@ html.dark .goldilock-legend {
 html.dark .goldilock-list-item:hover {
   background-color: #3d3628;
 }
+
+/* Respect the visitor's motion preference across shared navigation and routes. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

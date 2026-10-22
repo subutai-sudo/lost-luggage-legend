@@ -8,7 +8,7 @@ import { useState, useRef, useEffect } from 'react'
 
 const focusRing = 'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0891b2]'
 
-export function Navbar() {
+export function Navbar({ appearance = 'default' }: { appearance?: 'default' | 'cinematic' } = {}) {
   const { theme, toggleTheme } = useTheme()
   const { currency, setCurrency, currencyInfo } = useCurrency()
   const pathname = usePathname()
@@ -96,8 +96,8 @@ export function Navbar() {
           </div>
 
           <div className="flex shrink-0 items-center gap-1 sm:gap-3">
-            {/* Currency uses a disclosure with native buttons, not an ARIA menu. */}
-            <div
+            {/* Currency is useful while planning, not during seasonal discovery. */}
+            {appearance !== 'cinematic' && <div
               className="relative"
               ref={currencyMenuRef}
               onBlur={event => {
@@ -143,7 +143,7 @@ export function Navbar() {
                   ))}
                 </div>
               )}
-            </div>
+            </div>}
 
             <button
               type="button"
@@ -171,7 +171,7 @@ export function Navbar() {
             </button>
 
             {/* The wrapper hides the CTA: .btn-primary's display overrides utility classes. */}
-            <div className="hidden lg:block">
+            <div className={appearance === 'cinematic' ? 'hidden' : 'hidden lg:block'}>
               <Link href="/#newsletter" className={`btn-primary min-h-11 ${focusRing}`}>
                 <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none">
                   <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>

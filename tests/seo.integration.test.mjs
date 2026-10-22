@@ -5,7 +5,7 @@ import ts from 'typescript'
 
 const origin = 'https://lostluggagelegend.com'
 const base = new URL(process.env.SEO_BASE_URL || 'http://127.0.0.1:3031')
-const staticPaths = ['/', '/guides', '/privacy-policy', '/terms-of-service', '/affiliate-disclosure']
+const staticPaths = ['/', '/guides', '/plan', '/explore', '/privacy-policy', '/terms-of-service', '/affiliate-disclosure']
 
 async function get(path) {
   const response = await fetch(new URL(path, base), {
@@ -97,7 +97,7 @@ await test('sitemap contains each real guide and static route once, on the corre
   console.log(`Verified ${urls.length} sitemap entries including ${guidePaths.length} guide URLs`)
 })
 
-await test('home, guide index and legal routes have unique route-specific metadata', async (t) => {
+await test('home, guide index, planning, exploration and legal routes have unique route-specific metadata', async (t) => {
   for (const path of staticPaths) {
     await t.test(path, async () => {
       const { response, html } = await get(path)

@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 
-export function NewsletterSignup() {
+export function NewsletterSignup({ compact = false }: { compact?: boolean } = {}) {
   const [email, setEmail] = useState('')
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
   const [message, setMessage] = useState('')
@@ -40,6 +40,25 @@ export function NewsletterSignup() {
       setStatus('error')
       setMessage('Connection failed. Please try again.')
     }
+  }
+
+  if (compact) {
+    return (
+      <form onSubmit={handleSubmit} data-newsletter aria-label="Seasonal inspiration newsletter" className="max-w-lg">
+        {status === 'success' ? <p role="status">{message}</p> : <>
+          <label htmlFor="newsletter-email" className="sr-only">Email address</label>
+          <div className="flex flex-col sm:flex-row gap-3">
+            <input id="newsletter-email" type="email" value={email} onChange={event => setEmail(event.target.value)}
+              placeholder="Email address" autoComplete="email" className="input-editorial" required
+              aria-describedby={status === 'error' ? 'newsletter-error' : undefined} />
+            <button type="submit" disabled={status === 'loading'} className="btn-primary whitespace-nowrap disabled:opacity-50">
+              {status === 'loading' ? 'Joining…' : 'Subscribe Free'}
+            </button>
+          </div>
+          {status === 'error' && <p role="alert" id="newsletter-error" className="mt-3 text-sm">{message}</p>}
+        </>}
+      </form>
+    )
   }
 
   if (status === 'success') {
