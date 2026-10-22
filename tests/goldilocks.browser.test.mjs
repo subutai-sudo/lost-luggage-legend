@@ -110,7 +110,9 @@ async function expectMonth(page, month) {
     cards: [...document.querySelectorAll('[data-results] article[data-id]')].map(card => ({
       id: card.dataset.id,
       text: card.textContent,
-      links: [...card.querySelectorAll('a')].map(link => link.getAttribute('href')),
+      // Published source citations are checked against their exact catalog in
+      // seasonal-reasons.browser.test.mjs; every other card anchor stays a guide link.
+      links: [...card.querySelectorAll('a:not([data-seasonal-source])')].map(link => link.getAttribute('href')),
     })),
     hero: document.querySelector('img[data-hero-image]')?.getAttribute('src'),
     featureLink: document.querySelector('[data-feature-title]')?.closest('a')?.getAttribute('href'),
@@ -125,7 +127,7 @@ async function expectMonth(page, month) {
     expect(eligibleIDs.has(card.id), `${name}: ${card.id} must be independently in season`).toBe(true)
     const guide = guideById.get(card.id)
     expect(card.text).toContain(guide.title)
-    expect(card.links.length, `${card.id}: guide links`).toBeGreaterThan(0)
+    expect(card.links.length, `${card.id}: image, title and read-guide links`).toBe(3)
     for (const href of card.links) expectGuideURL(href, guide, page.url())
   }
   expectGuideURL(state.featureLink, featured, page.url())
