@@ -1,12 +1,13 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { DESTINATION_GUIDES, getGuideAffiliateUrl, type DestinationGuide } from '@/data/destinationGuides'
+import { DESTINATION_GUIDES, type DestinationGuide } from '@/data/destinationGuides'
 import { NewsletterSignup } from '@/components/NewsletterSignup'
-import { AffiliateDisclosure } from '@/components/AffiliateDisclosure'
 import { PriceComparison } from '@/components/PriceComparison'
 import { FlightSearch } from '@/components/FlightSearch'
-import { BrandLogo } from '@/components/BrandLogo'
+import { GuideShell } from '@/components/guides/GuideShell'
+import { getGoldilockMonthsLabel } from '@/lib/seasonalHelpers'
+import styles from './GuideArticle.module.css'
 import { siteUrl } from '@/lib/site'
 
 interface Props {
@@ -56,8 +57,6 @@ export default async function GuidePage({ params }: Props) {
   const guide = DESTINATION_GUIDES.find((g) => g.slug === slug)
   if (!guide) notFound()
 
-  const affiliateUrl = getGuideAffiliateUrl(guide)
-
   // Find related guides (same theme or shared tags)
   const related = DESTINATION_GUIDES.filter(
     (g) =>
@@ -70,200 +69,187 @@ export default async function GuidePage({ params }: Props) {
   const articleContent = getArticleContent(guide)
 
   return (
-    <>
-      {/* Navigation */}
-      <nav aria-label="Primary navigation" className="sticky top-0 z-50 bg-nav-bg/95 backdrop-blur-sm border-b border-border">
-        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-12">
-          <div className="flex items-center justify-between gap-3 h-16">
-            <BrandLogo />
-            <div className="hidden md:flex items-center gap-10">
-              {[
-                { label: 'Guides', href: '/guides' },
-                { label: 'Newsletter', href: '/#newsletter' },
-              ].map((item) => (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  className="nav-editorial text-muted hover:text-ink transition-colors"
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </div>
-            <div className="hidden sm:block">
-              <a href="#book" className="btn-primary">
-                Book This Trip
-              </a>
-            </div>
-          </div>
-        </div>
-      </nav>
-
-      {/* Hero */}
-      <header className="relative" style={{ aspectRatio: '21/9' }}>
+    <GuideShell>
+      <header className={styles.hero} data-guide-hero>
         <Image
           src={guide.heroImage}
           alt={`${guide.title} -- ${guide.subtitle}`}
           fill
-          className="object-cover"
+          className={styles.heroImage}
+          data-guide-hero-image
           priority
           sizes="100vw"
         />
-        {/* Uniform dark base — ensures text is readable on ANY photo */}
-        <div className="absolute inset-0 bg-black/50" />
-        {/* Bottom-heavy gradient — darkest where text lives */}
-        <div className="absolute inset-0" style={{
-          background: 'linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0.35) 70%, rgba(0,0,0,0.2) 100%)',
-        }} />
-        {/* All text content at the bottom */}
-        <div className="absolute bottom-0 left-0 right-0 p-8 lg:p-16">
-          <div className="max-w-4xl mx-auto">
-            <div className="flex items-center gap-3 mb-4">
-              <span
-                className="text-white text-xs uppercase tracking-widest px-3 py-1"
-                style={{ backgroundColor: guide.themeColor + 'cc', fontFamily: "'Source Sans 3', sans-serif" }}
-              >
-                {guide.theme}
-              </span>
-              <span className="text-white/70 text-sm" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
-                {guide.subtitle}
-              </span>
-            </div>
-            <h1
-              className="font-display text-5xl md:text-7xl font-bold leading-none mb-4"
-              style={{ color: '#ffffff', textShadow: '0 2px 8px rgba(0,0,0,0.9), 0 4px 24px rgba(0,0,0,0.6)' }}
-            >
-              {guide.title}
-            </h1>
-            <div className="flex items-center gap-4">
-              <div className="flex gap-1">
-                {[1, 2, 3, 4, 5].map((s) => (
-                  <svg key={s} width="14" height="14" viewBox="0 0 24 24" fill={s <= Math.round(guide.rating) ? '#c9a96e' : '#555'}>
-                    <polygon points="12,2 15,9 22,9 17,14 19,22 12,17 5,22 7,14 2,9 9,9" />
-                  </svg>
-                ))}
-              </div>
-              <span className="text-white/70 text-sm" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
-                {guide.rating} / 5 traveler rating
-              </span>
-            </div>
+        <div className={styles.heroShade} aria-hidden="true" />
+        <div className={styles.heroInner}>
+          <div className={styles.breadcrumb} aria-label="Breadcrumb">
+            <Link href="/guides">All destination guides</Link>
+            <span aria-hidden="true">/</span>
+            <span>{guide.title}</span>
+          </div>
+          <div className={styles.heroStory}>
+            <p className={styles.eyebrow}>
+              <span>Destination field notes</span>
+              <span className={styles.heroTheme}>{guide.theme}</span>
+            </p>
+            <h1 className={styles.heroTitle}>{guide.title}</h1>
+            <p className={styles.heroRegion}>{guide.subtitle}</p>
+          </div>
+          <div className={styles.heroFoot}>
+            <span>A Goldilocks Zone travel guide</span>
+            <Link href="#guide-main">Explore the guide <span aria-hidden="true">↓</span></Link>
           </div>
         </div>
       </header>
 
-      {/* Quick stats bar */}
-      <div className="bg-navy-deep border-b border-navy-deep">
-        <div className="max-w-4xl mx-auto px-6 lg:px-12">
-          <div className="flex flex-wrap gap-8 py-5">
-            {/* Non-flight stats */}
-            {guide.stats
-              .filter((s) => !s.label.toLowerCase().includes('flight'))
-              .map((stat) => (
-                <div key={stat.label} className="flex flex-col">
-                  <span className="text-white font-semibold text-lg" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
-                    {stat.value}
-                  </span>
-                  <span className="text-sand/50 text-xs uppercase tracking-wider">
-                    {stat.label}
-                  </span>
-                </div>
-              ))}
-            {/* Interactive flight search */}
-            <FlightSearch guide={guide} />
-          </div>
-        </div>
-      </div>
-
-      {/* Main content */}
-      <main className="bg-bg">
-        <div className="max-w-4xl mx-auto px-6 lg:px-12 py-16">
-
-          {/* Lead excerpt */}
-          <p className="text-ink text-xl md:text-2xl leading-relaxed font-light mb-10 border-l-4 border-gold pl-6"
-            style={{ fontFamily: "'Source Serif 4', Georgia, serif" }}>
-            {guide.excerpt}
-          </p>
-
-          {/* Tags */}
-          <div className="flex flex-wrap gap-2 mb-12">
-            {guide.tags.map((tag) => (
-              <span
-                key={tag}
-                className="text-muted text-xs uppercase tracking-wider border border-border px-3 py-1"
-              >
-                {tag}
-              </span>
-            ))}
+      <main id="guide-main" className={styles.main} data-guide-article>
+        <div className={styles.container}>
+          <div className={styles.introduction}>
+            <p className={styles.eyebrow}>The destination, in perspective</p>
+            <p className={styles.lead}>{guide.excerpt}</p>
+            <ul className={styles.tags} aria-label="Travel styles">
+              {guide.tags.map((tag) => <li key={tag}>{tag}</li>)}
+            </ul>
           </div>
 
-          {/* Article sections */}
-          <div className="prose-editorial">
-            {articleContent.sections.map((section, i) => (
-              <section key={i} className="mb-12">
-                <h2 className="font-display text-3xl font-bold text-ink mb-4 leading-tight">
-                  {section.title}
-                </h2>
-                <p className="text-ink-light text-lg leading-relaxed mb-4" style={{ fontFamily: "'Source Serif 4', Georgia, serif" }}>
-                  {section.content}
+          <div className={styles.editorialGrid}>
+            <aside className={styles.sidebar} aria-label="Guide at a glance">
+              <div className={styles.sidebarInner}>
+                <p className={styles.eyebrow}>Before you go</p>
+                <dl className={styles.facts}>
+                  <div>
+                    <dt>Editorial month window</dt>
+                    <dd>{getGoldilockMonthsLabel(guide.id)}</dd>
+                  </div>
+                  {guide.stats
+                    .filter((stat) => !/flight|best/i.test(stat.label))
+                    .map((stat) => (
+                      <div key={stat.label}>
+                        <dt>{stat.label}</dt>
+                        <dd>{stat.value}</dd>
+                      </div>
+                    ))}
+                </dl>
+                <p className={styles.editorialNote}>
+                  Editorial planning notes, not live conditions or quotes. Month windows can
+                  include peak season; check current weather, opening times and prices before booking.
                 </p>
-                {section.items && (
-                  <ul className="list-none space-y-2 mt-4">
-                    {section.items.map((item, j) => (
-                      <li key={j} className="flex gap-3 text-ink-light" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
-                        <span className="text-gold mt-1 flex-shrink-0">✦</span>
-                        <span>{item}</span>
+                <div className={styles.contents} aria-label="In this guide">
+                  <p className={styles.eyebrow}>In this guide</p>
+                  <ol>
+                    {articleContent.sections.map((section, i) => (
+                      <li key={section.title}>
+                        <Link href={`#guide-section-${i + 1}`}>
+                          <span aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+                          {section.title}
+                        </Link>
                       </li>
                     ))}
-                  </ul>
-                )}
-              </section>
-            ))}
+                  </ol>
+                  <Link href="#book" className={styles.bookingLink}>Explore booking options <span aria-hidden="true">↗</span></Link>
+                </div>
+              </div>
+            </aside>
+
+            <article className={styles.article} aria-label={`${guide.title} travel guide`}>
+              {articleContent.sections.map((section, i) => (
+                <section key={i} id={`guide-section-${i + 1}`} className={styles.section}>
+                  <span className={styles.sectionNumber} aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+                  <h2>{section.title}</h2>
+                  <div className={styles.prose}>{renderProse(section.content)}</div>
+                  {section.items && (
+                    <ul className={styles.highlights}>
+                      {section.items.map((item, j) => <li key={j}>{renderInline(item)}</li>)}
+                    </ul>
+                  )}
+                </section>
+              ))}
+            </article>
           </div>
 
-          {/* Price Comparison — all 8 suppliers */}
-          <div id="book">
-            <PriceComparison guide={guide} destination={`${guide.title}, ${guide.subtitle}`} />
+          <section className={styles.flightSection} aria-labelledby="guide-flight-heading">
+            <div>
+              <p className={styles.eyebrow}>The practical details</p>
+              <h2 id="guide-flight-heading">Getting there</h2>
+              <p>Explore departure options for {guide.title}. Flight-time estimates are approximate, not live schedules.</p>
+            </div>
+            <div className={styles.flightSearch}>
+              <FlightSearch guide={guide} />
+            </div>
+          </section>
+
+          <div id="book" className={styles.booking} data-guide-booking>
+            <PriceComparison guide={guide} destination={`${guide.title}, ${guide.subtitle}`} appearance="cinematic" />
           </div>
 
-          {/* Related destinations */}
           {related.length > 0 && (
-            <div className="mt-16">
-              <h3 className="font-display text-2xl font-bold text-ink mb-6">You might also like</h3>
-              <div className="grid md:grid-cols-3 gap-6">
+            <section className={styles.related} data-guide-related aria-labelledby="related-heading">
+              <div className={styles.relatedHeading}>
+                <div>
+                  <p className={styles.eyebrow}>Keep exploring</p>
+                  <h2 id="related-heading">You might also like</h2>
+                </div>
+                <Link href="/guides">All destination guides <span aria-hidden="true">↗</span></Link>
+              </div>
+              <div className={styles.relatedGrid}>
                 {related.map((r) => (
-                  <a
-                    key={r.slug}
-                    href={`/guides/${r.slug}`}
-                    className="group block overflow-hidden rounded-sm shadow-sm hover:shadow-lg transition-shadow"
-                  >
-                    <div className="relative" style={{ aspectRatio: '3/2' }}>
+                  <Link key={r.slug} href={`/guides/${r.slug}`} className={styles.relatedCard}>
+                    <div className={styles.relatedImage}>
                       <Image
                         src={r.heroImage}
                         alt={r.title}
                         fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-700"
-                        sizes="33vw"
+                        sizes="(max-width: 639px) 100vw, (max-width: 959px) 50vw, 33vw"
                       />
-                      <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors" />
                     </div>
-                    <div className="bg-card-bg p-4">
-                      <div className="issue-label text-gold mb-1">{r.subtitle}</div>
-                      <h4 className="font-display text-lg font-bold text-ink">{r.title}</h4>
+                    <div className={styles.relatedCaption}>
+                      <p>{r.subtitle}</p>
+                      <h3>{r.title} <span aria-hidden="true">↗</span></h3>
                     </div>
-                  </a>
+                  </Link>
                 ))}
               </div>
-            </div>
+            </section>
           )}
         </div>
-
-        {/* Newsletter */}
-        <div id="newsletter">
-          <NewsletterSignup />
-        </div>
+        <section id="newsletter" className={styles.newsletter} aria-labelledby="guide-newsletter-heading">
+          <div className={styles.newsletterInner}>
+            <div>
+              <p className={styles.eyebrow}>A little more inspiration</p>
+              <h2 id="guide-newsletter-heading">Where to next?</h2>
+              <p>Destination ideas for your next trip.</p>
+            </div>
+            <NewsletterSignup compact />
+          </div>
+        </section>
       </main>
-    </>
+    </GuideShell>
   )
+}
+
+// Render the existing editorial strings as React nodes, never interpreted HTML.
+function renderInline(text: string) {
+  return text.split(/(\*\*[^*]+\*\*)/g).map((part, i) =>
+    part.startsWith('**') && part.endsWith('**')
+      ? <strong key={i}>{part.slice(2, -2)}</strong>
+      : part
+  )
+}
+
+function renderProse(content: string) {
+  return content.split(/\n\s*\n/).map((block, i) => {
+    const lines = block.split('\n')
+    const listStart = lines.findIndex((line) => /^[-•]\s/.test(line))
+    if (listStart === -1) return <p key={i}>{renderInline(block)}</p>
+    return (
+      <div key={i}>
+        {listStart > 0 && <p>{renderInline(lines.slice(0, listStart).join('\n'))}</p>}
+        <ul>
+          {lines.slice(listStart).map((line, j) => <li key={j}>{renderInline(line.replace(/^[-•]\s/, ''))}</li>)}
+        </ul>
+      </div>
+    )
+  })
 }
 
 function getArticleContent(guide: DestinationGuide): { sections: Array<{ title: string; content: string; items?: string[] }> } {

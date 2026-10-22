@@ -1,0 +1,72 @@
+.hero { position: relative; isolation: isolate; overflow: hidden; min-height: clamp(580px, 78svh, 780px); color: #f3f1e9; background: var(--guide-forest); }
+.heroImage { object-fit: cover; object-position: 50% 48%; z-index: -2; filter: saturate(.78) contrast(1.08); }
+.hero::before { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, #041612cf, #04161230 75%), linear-gradient(0deg, #041612a8, transparent 52%, #04161238); }
+.heroContent { max-width: 1440px; margin-inline: auto; padding: 145px var(--guide-gutter) 130px; }
+.eyebrow, .smallLabel { display: flex; align-items: center; gap: 12px; margin: 0 0 24px; color: var(--guide-acid); font: 600 10px/1.5 var(--guide-sans); text-transform: uppercase; letter-spacing: .15em; }
+.eyebrow::before, .smallLabel::before { content: ''; width: 24px; height: 1px; background: currentColor; }
+.hero h1 { max-width: 980px; margin: 0; color: #f3f1e9; font: 400 clamp(44px, 8vw, 116px)/.98 var(--guide-serif); letter-spacing: -.055em; }
+.hero h1 em { color: var(--guide-acid); font-weight: 400; }
+.heroCopy { margin: 26px 0 0; font: 400 15px/1.7 var(--guide-sans); }
+.heroLink { display: inline-flex; align-items: center; gap: 30px; min-height: 48px; margin-top: 20px; color: #f3f1e9; border-bottom: 1px solid #e0f29b; font-size: 12px; }
+.heroLink span { color: var(--guide-acid); font-size: 22px; }
+.caption { position: absolute; bottom: 32px; right: var(--guide-gutter); max-width: 300px; padding-left: 18px; border-left: 1px solid #e6edde99; }
+.caption > span { display: block; color: #d2dec4; font-size: 9px; letter-spacing: .15em; text-transform: uppercase; }
+.caption a { display: block; padding-top: 8px; color: #f3f1e9; }
+.caption strong { display: block; font: 400 28px/1.2 var(--guide-serif); letter-spacing: -.025em; }
+.caption a span { display: block; margin-top: 6px; font-size: 11px; }
+.main { max-width: 1440px; margin-inline: auto; padding: 56px var(--guide-gutter) 56px; scroll-margin-top: 84px; }
+.indexIntro { display: flex; justify-content: space-between; align-items: flex-end; gap: 36px; }
+.smallLabel { margin-bottom: 14px; color: var(--guide-muted); font-size: 9px; }
+.indexIntro h2, .newsletter h2 { margin: 0; font: 400 clamp(34px, 4.5vw, 59px)/1.07 var(--guide-serif); letter-spacing: -.04em; color: var(--guide-ink); }
+.indexIntro h2 em, .newsletter h2 em { font-weight: 400; }
+.indexCopy { max-width: 370px; margin: 0 0 4px; color: var(--guide-muted); font-size: 13px; line-height: 1.8; }
+.indexCopy a { color: var(--guide-ink); text-decoration: underline; text-underline-offset: 4px; }
+.alphabet { display: flex; flex-wrap: wrap; gap: 4px; margin: 30px 0 42px; padding: 18px 0; border-block: 1px solid var(--guide-line); }
+.alphabet a, .alphabet > span { display: inline-flex; justify-content: center; align-items: center; min-width: 44px; min-height: 44px; font-size: 12px; }
+.alphabet a { color: var(--guide-ink); }
+.alphabet a:hover { background: var(--guide-ink); color: var(--guide-paper); }
+.alphabet > span { color: var(--guide-muted); opacity: .4; }
+.letterSection { margin-top: 38px; scroll-margin-top: 92px; }
+.letterHeading { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; border-bottom: 1px solid var(--guide-line); padding-bottom: 12px; margin-bottom: 6px; }
+.letterHeading h2 { margin: 0; color: var(--guide-ink); font: 400 39px/1 var(--guide-serif); }
+.letterHeading > span { color: var(--guide-muted); font-size: 9px; letter-spacing: .12em; text-transform: uppercase; }
+.grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px 28px; }
+.card { display: grid; grid-template-columns: 110px minmax(0, 1fr); align-items: center; gap: 16px; min-height: 148px; padding: 17px 0; color: var(--guide-ink); border-bottom: 1px solid var(--guide-line); text-decoration: none; }
+.cardImage { position: relative; display: block; width: 110px; aspect-ratio: 5/6; overflow: hidden; background: #b9c8ad33; }
+.cardImage img { object-fit: cover; filter: saturate(.84); transition: transform .45s ease; }
+.card:hover img { transform: scale(1.04); }
+.cardText { display: block; min-width: 0; }
+.region { display: block; margin-bottom: 7px; color: var(--guide-muted); font-size: 9px; line-height: 1.6; text-transform: uppercase; letter-spacing: .07em; overflow-wrap: anywhere; }
+.card h3 { margin: 0; color: var(--guide-ink); font: 400 26px/1.1 var(--guide-serif); letter-spacing: -.035em; overflow-wrap: anywhere; }
+.window { display: block; margin-top: 9px; font-size: 10px; line-height: 1.6; }
+.window > span { color: var(--guide-muted); font-size: 9px; }
+.cardEnd { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 12px; color: var(--guide-muted); font-size: 9px; text-transform: uppercase; letter-spacing: .1em; }
+.cardEnd > span { color: var(--guide-ink); font-size: 18px; }
+.editorialNote { max-width: 630px; margin: 40px 0; color: var(--guide-muted); font-size: 11px; line-height: 1.8; }
+.newsletter { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 48px; padding-top: 36px; margin-top: 38px; border-top: 1px solid var(--guide-line); scroll-margin-top: 84px; }
+.newsletter h2 { font-size: 36px; }
+.newsletter p:not(.smallLabel) { max-width: 390px; margin: 16px 0 0; color: var(--guide-muted); font-size: 13px; line-height: 1.8; }
+@media (max-width: 1100px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 700px) {
+  .heroContent { padding-top: 140px; padding-bottom: 145px; }
+  .hero h1 { font-size: clamp(44px, 11.7vw, 78px); }
+  .heroCopy { font-size: 14px; }
+  .caption { left: var(--guide-gutter); right: auto; max-width: calc(100% - 36px); }
+  .caption strong { font-size: 25px; }
+  .main { padding-top: 36px; }
+  .indexIntro { align-items: flex-start; flex-direction: column; gap: 20px; }
+  .indexIntro h2 { font-size: 39px; }
+  .indexCopy { font-size: 12px; }
+  .grid { grid-template-columns: minmax(0, 1fr); }
+  .card { grid-template-columns: 104px minmax(0, 1fr); }
+  .cardImage { width: 104px; }
+  .card h3 { font-size: 27px; }
+  .alphabet { margin-bottom: 30px; }
+  .newsletter { grid-template-columns: 1fr; gap: 24px; }
+  .newsletter h2 { font-size: 31px; }
+}
+@media (max-width: 380px) {
+  .card { grid-template-columns: 86px minmax(0, 1fr); gap: 14px; }
+  .cardImage { width: 86px; }
+  .card h3 { font-size: 25px; }
+}

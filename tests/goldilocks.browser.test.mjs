@@ -387,7 +387,8 @@ test.describe('server-rendered fallback', () => {
     await expect(fallback).toHaveAttribute('href', '/guides')
     await fallback.click()
     await expect(page).toHaveURL(/\/guides\/?$/)
-    await expect(page.getByRole('heading', { level: 1 })).toHaveText('Destination Guides')
+    await expect(page.getByRole('heading', { level: 1 })).toHaveText('Destination guides.')
+    await expect(page.locator('[data-guide-card]')).toHaveCount(guides.length)
   })
 })
 
