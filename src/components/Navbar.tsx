@@ -9,7 +9,7 @@ import { useState, useRef, useEffect } from 'react'
 
 const focusRing = 'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0891b2]'
 
-export function Navbar({ appearance = 'default' }: { appearance?: 'default' | 'cinematic' } = {}) {
+export function Navbar({ appearance = 'default', brandAppearance }: { appearance?: 'default' | 'cinematic'; brandAppearance?: 'default' | 'cinematic' } = {}) {
   const { theme, toggleTheme } = useTheme()
   const { currency, setCurrency, currencyInfo } = useCurrency()
   const pathname = usePathname()
@@ -75,7 +75,7 @@ export function Navbar({ appearance = 'default' }: { appearance?: 'default' | 'c
     >
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-12">
         <div className="flex items-center justify-between gap-2 h-16">
-          <BrandLogo appearance={appearance} />
+          <BrandLogo appearance={brandAppearance ?? appearance} />
 
           {/* Desktop navigation */}
           <div className="hidden md:flex items-center gap-8">
