@@ -1,6 +1,7 @@
 'use client'
 
 import { useTheme } from '@/components/ThemeProvider'
+import { BrandLogo } from '@/components/BrandLogo'
 import { useCurrency, CURRENCIES, CurrencyCode } from '@/components/CurrencyProvider'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
@@ -74,16 +75,7 @@ export function Navbar({ appearance = 'default' }: { appearance?: 'default' | 'c
     >
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-12">
         <div className="flex items-center justify-between gap-2 h-16">
-          {/* Logo */}
-          <Link href="/" className={`flex shrink-0 items-center gap-2 sm:gap-3 min-h-11 group rounded-lg ${focusRing}`}>
-            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-[#0891b2] to-[#0e7490] flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-105 transition-all">
-              <span aria-hidden="true" className="text-white text-xl">🧳</span>
-            </div>
-            <div>
-              <span className="font-display text-base sm:text-lg font-bold leading-none block tracking-tight" style={{ color: 'var(--color-ink)' }}>Lost Luggage</span>
-              <span className="eyebrow leading-none text-xs" style={{ color: 'var(--color-gold)' }}>Legend</span>
-            </div>
-          </Link>
+          <BrandLogo appearance={appearance} />
 
           {/* Desktop navigation */}
           <div className="hidden md:flex items-center gap-8">
