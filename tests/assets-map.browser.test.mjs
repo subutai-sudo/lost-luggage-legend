@@ -34,14 +34,16 @@ test('cinematic homepage month photos and hero decode through the real image opt
 
 test('guide thumbnails and guide hero load through the real image optimizer', async ({ page }) => {
   await page.goto('/guides')
-  const thumbnails = page.locator('img')
-  await expect.poll(() => thumbnails.count()).toBeGreaterThan(0)
+  const thumbnails = page.locator('main a[href^="/guides/"] img')
+  await expect(thumbnails).toHaveCount(100)
   for (const image of (await thumbnails.all()).slice(0, 5)) {
     await expectImageLoaded(image)
     expect(await image.evaluate(img => img.currentSrc)).toContain('/_next/image?')
   }
   await page.goto('/guides/lisbon')
-  const hero = page.locator('img').first()
+  const hero = page.locator('header img')
+  await expect(hero).toHaveCount(1)
+  await expect(hero).toHaveAttribute('alt', /^Lisbon -- /)
   await expectImageLoaded(hero)
   expect(await hero.evaluate(img => img.currentSrc)).toContain('/_next/image?')
 })

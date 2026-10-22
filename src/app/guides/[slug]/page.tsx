@@ -6,6 +6,7 @@ import { NewsletterSignup } from '@/components/NewsletterSignup'
 import { AffiliateDisclosure } from '@/components/AffiliateDisclosure'
 import { PriceComparison } from '@/components/PriceComparison'
 import { FlightSearch } from '@/components/FlightSearch'
+import { BrandLogo } from '@/components/BrandLogo'
 import { siteUrl } from '@/lib/site'
 
 interface Props {
@@ -71,16 +72,10 @@ export default async function GuidePage({ params }: Props) {
   return (
     <>
       {/* Navigation */}
-      <nav className="sticky top-0 z-50 bg-nav-bg/95 backdrop-blur-sm border-b border-border">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="flex items-center justify-between h-16">
-            <Link href="/" className="flex items-center gap-3">
-              <span className="text-2xl">🧳</span>
-              <div>
-                <span className="font-display text-lg font-bold tracking-tight text-ink leading-none block">Lost Luggage</span>
-                <span className="issue-label text-gold leading-none">Legend</span>
-              </div>
-            </Link>
+      <nav aria-label="Primary navigation" className="sticky top-0 z-50 bg-nav-bg/95 backdrop-blur-sm border-b border-border">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-12">
+          <div className="flex items-center justify-between gap-3 h-16">
+            <BrandLogo />
             <div className="hidden md:flex items-center gap-10">
               {[
                 { label: 'Guides', href: '/guides' },
@@ -95,9 +90,11 @@ export default async function GuidePage({ params }: Props) {
                 </Link>
               ))}
             </div>
-            <a href="#book" className="btn-primary hidden sm:inline-block">
-              Book This Trip
-            </a>
+            <div className="hidden sm:block">
+              <a href="#book" className="btn-primary">
+                Book This Trip
+              </a>
+            </div>
           </div>
         </div>
       </nav>
