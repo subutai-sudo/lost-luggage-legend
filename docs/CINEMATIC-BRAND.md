@@ -2,7 +2,7 @@
 
 ## Identity
 
-Original sun-and-horizon seal with twelve timing ticks. Forest #0c211a, ivory #f3f1e9 and lime #e0f29b match the approved cinematic homepage. The primary wordmark remains Lost Luggage Legend; Goldilocks Zone is a small product descriptor, not a site/route rename.
+Original sun-and-horizon seal with twelve timing ticks. The decorative lower curve was removed at the Commander's request because it read as a smile. Forest #0c211a, ivory #f3f1e9 and lime #e0f29b match the approved cinematic homepage. The primary wordmark remains Lost Luggage Legend; Goldilocks Zone is a small product descriptor, not a site/route rename.
 
 `public/brand/goldilocks-mark.svg` is the single vector source for the header and browser icon. It is self-authored with no external imagery, embedded scripts, external fonts, paid design service or new dependency. `scripts/render-brand-icons.cjs` regenerates the real 32px favicon and 180px Apple PNG from this SVG using existing Playwright.
 
@@ -29,4 +29,4 @@ This is focused logo/navigation/layout verification, not a claim of the full sit
 
 ## Delivery state
 
-Local working design preview only. Production is unchanged. Review the new logo in the actual homepage context before publishing a brand change. Proof images/HTML and test traces live in scratch, not in the deployed site.
+The Commander approved the identity after removing the decorative curve and explicitly authorized publishing it. This document records the preview-stage checks; the release must additionally record its exact tested/merge commits, production deployment and live read-back verification. Proof images/HTML and test traces live in scratch, not in the deployed site.

@@ -49,6 +49,15 @@ test('browser icons use the same original vector, with real decoded PNG fallback
   expect(vector.ok()).toBe(true)
   const svg = await vector.text()
   expect(svg).toContain('viewBox="0 0 48 48"')
+  const geometry = await page.evaluate(markup => {
+    const doc = new DOMParser().parseFromString(markup, 'image/svg+xml')
+    return {
+      interiorLines: [...doc.documentElement.children].filter(node => node.localName === 'path').map(node => node.getAttribute('d')),
+      calendarTicks: doc.querySelectorAll('g path').length,
+    }
+  }, svg)
+  expect(geometry.interiorLines).toEqual(['M11.5 28.5H36.5'])
+  expect(geometry.calendarTicks).toBe(12)
   expect(svg).not.toMatch(/<script|foreignObject|\bonload=|(?:href|src)\s*=\s*['"]https?:\/\//i)
   for (const [src, size] of [['/brand/favicon-32.png', 32], ['/brand/apple-touch-icon.png', 180]]) {
     const response = await request.get(src)
