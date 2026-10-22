@@ -5,6 +5,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Navbar } from '@/components/Navbar'
 import { NewsletterSignup } from '@/components/NewsletterSignup'
+import { SeasonalReason } from '@/components/SeasonalReason'
+import seasonalReasons from '@/data/seasonalReasons.json'
 import { discoveryImage, getMonthPreviews, getMonthSelection, MONTH_NAMES, readTravelMonth, type GoldilocksDestination } from '@/lib/goldilocksDiscovery'
 import styles from './GoldilocksHome.module.css'
 
@@ -117,7 +119,8 @@ export function GoldilocksHome({ guides, initialMonth, year }: Props) {
                 </Link>
                 <p className={styles['guide-tag']}>{guide.subtitle}</p>
                 <h3><Link href={`/guides/${guide.slug}`}>{guide.title}</Link></h3>
-                <p className={styles.description}>{guide.excerpt}</p>
+                <SeasonalReason catalog={seasonalReasons} destinationId={guide.id} title={guide.title}
+                  month={month} fallbackExcerpt={guide.excerpt} />
                 <Link className={styles['read-guide']} href={`/guides/${guide.slug}`} aria-label={`Read the ${guide.title} guide`}>Read the guide <span aria-hidden="true">↗</span></Link>
               </article>
             ))}
@@ -130,7 +133,7 @@ export function GoldilocksHome({ guides, initialMonth, year }: Props) {
             <Link href="/explore">Explore the optional map ↗</Link>
           </div>
           <div className={styles['source-note']}>
-            <p><strong>Inspiration, not a forecast.</strong> Our editorial month windows are a starting point, not independent measurements of weather, crowds or prices. Some include peak season. Check the destination guide and current conditions before planning.</p>
+            <p><strong>Inspiration, not a forecast.</strong> Our editorial month windows are a starting point, not independent measurements of weather, crowds or prices. Some include peak season. Cards link to the published seasonal guidance behind each reason and trade-off. Check the destination guide and current conditions before planning.</p>
             <span className={styles['small-wordmark']}>A little timing. A lot of possibility.</span>
           </div>
           <section className={styles.newsletter} id="newsletter" aria-labelledby="newsletter-title">
@@ -157,6 +160,7 @@ export function GoldilocksHome({ guides, initialMonth, year }: Props) {
           <h2 id="method-title">A calendar for curiosity.<br />Not a crystal ball.</h2>
           <p>Goldilocks Zone starts with one question: when would you like to travel? We filter our destination guides by their editorial recommended months and present six places to explore.</p>
           <p>The featured destination and display order are editorial choices, not numerical rankings. The count includes every matching guide; the shortlist is intentionally smaller.</p>
+          <p>Each card explains typical seasonal appeal and a trade-off for the selected month, with links to tourism guidance, climate references or destination specialists. A source check date records when guidance was reviewed—not when its climate observations were measured. Seasonal patterns, holidays and wildlife timing can vary from year to year.</p>
           <p className={styles.disclaimer}>These windows do not independently validate weather, crowd levels or prices. Some may include peak season. No live forecasts, comparative scores, savings guarantees or crowd feeds are used here.</p>
           <p>Photographs illustrate destinations, not conditions for a particular month. Confirm local holidays, entry requirements, conditions and costs before making plans.</p>
         </div>

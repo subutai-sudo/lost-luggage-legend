@@ -1,0 +1,962 @@
+{
+  "sources": [
+    {
+      "id": "a-maldives-mms-climate",
+      "url": "https://www.meteorology.gov.mv/climate",
+      "title": "Climate Of Maldives",
+      "publisher": "Maldives Meteorological Service",
+      "checkedAt": "2026-10-21",
+      "evidence": "January–March is the northeast dry monsoon; April and December are transitions. The southwest wet monsoon normally lasts mid-May–November. Warm and humid year-round; March–mid-May is warmest. Showers can have sunny intervals; southern atolls are wetter. These are climatic patterns, not trip forecasts."
+    },
+    {
+      "id": "a-cape-town-tourism-seasons",
+      "url": "https://www.capetown.travel/the-best-time-of-year-to-visit-cape-town/",
+      "title": "The Best Time of Year to Visit Cape Town",
+      "publisher": "Cape Town Tourism",
+      "checkedAt": "2026-10-21",
+      "evidence": "January–February usually brings hot, mostly dry weather, long daylight and possible wind; January is peak season and February remains busy. March begins shoulder season but major event weekends attract crowds. November–December brings long, warm days and the start of peak season, with increasing wind. Event schedules and listed commercial prices are not used."
+    },
+    {
+      "id": "a-mexico-city-official-seasons",
+      "url": "https://mexicocity.cdmx.gob.mx/e/best-seasons-to-visit-mexico-city/?lang=en",
+      "title": "Best Seasons to Visit Mexico City",
+      "publisher": "Mexico City tourism portal, Government of Mexico City",
+      "checkedAt": "2026-10-21",
+      "evidence": "Summer is rainier; March–May and September–November avoid the extremes of cold and rain, with warm afternoons and cooler evenings. December–February nights and early mornings sometimes approach freezing. Direct sunlight can be intense year-round. The page contains dated event details; only general seasonal guidance is used."
+    },
+    {
+      "id": "a-sydney-tourism-australia-weather",
+      "url": "https://www.australia.com/en/facts-and-planning/weather-in-australia/sydney-weather.html",
+      "title": "Weather in Sydney",
+      "publisher": "Tourism Australia",
+      "checkedAt": "2026-10-21",
+      "evidence": "December–February is warm summer, with higher humidity and warmer beach water. December has the longest daylight. Its summer climate table lists rain in all three months, increasing from December to February; the guidance also recommends sun protection. This supports seasonal beach appeal, not dry-weather or uncrowded-season guarantees."
+    },
+    {
+      "id": "a-bangkok-wmo-climate",
+      "url": "https://worldweather.wmo.int/en/city.html?cityId=233",
+      "title": "Bangkok — historical 1961–1990 climate normals",
+      "publisher": "World Meteorological Organization / Thai Meteorological Department",
+      "checkedAt": "2026-10-21",
+      "evidence": "The retrieved 1961–1990 climate table shows December and January with much less rain than May–October; February is also comparatively dry. Mean daily highs are about 31–33°C across December–February, and February nights are warmer than January. This old baseline supports broad seasonality only; no current temperatures or forecasts are asserted."
+    },
+    {
+      "id": "a-buenos-aires-official-climate",
+      "url": "https://turismo.buenosaires.gob.ar/es/article/clima",
+      "title": "Clima",
+      "publisher": "Buenos Aires City Tourism Board",
+      "checkedAt": "2026-10-21",
+      "evidence": "Summer runs from late December into March. Summer heat is humid, increases strongly around midday and early afternoon, and eases only slightly at night, allowing light clothing. Spring extends into December and is among the rainier seasons. This supports warm-evening appeal but contradicts treating January–February as reliably mild sightseeing weather."
+    },
+    {
+      "id": "a-kyoto-official-seasonal",
+      "url": "https://kyoto.travel/en/seasonal-info/",
+      "title": "Seasonal Information",
+      "publisher": "Kyoto City Tourism Association",
+      "checkedAt": "2026-10-21",
+      "evidence": "Spring and autumn are described as comfortable and popular. Warming begins during March; successive spring flowers include April cherry blossoms. Autumn stays warm through October, then cools in November as maple colors deepen. Seasonal calendars describe variable blooming/leaf periods, not guaranteed dates. June–July is the main rainy season."
+    },
+    {
+      "id": "a-kyoto-official-clothing",
+      "url": "https://kyoto.travel/en/weather/",
+      "title": "Weather & Clothing",
+      "publisher": "Kyoto City Tourism Association",
+      "checkedAt": "2026-10-21",
+      "evidence": "March visitors are advised to bring a thick coat and sweater; April–May calls for a portable jacket or long sleeves. Autumn days can be warm but mornings and nights are chilly, with sudden temperature drops; layers are recommended. Supports cold-edge caveats without claiming rain-free spring or autumn."
+    },
+    {
+      "id": "a-jnto-may-golden-week",
+      "url": "https://www.japan.travel/en/guide/may/",
+      "title": "Japan in May",
+      "publisher": "Japan National Tourism Organization",
+      "checkedAt": "2026-10-21",
+      "evidence": "May is generally neither too hot nor too cold. Golden Week spans late April and early May, one of Japan's busiest travel periods, with packed trains and hotels; the second half of May is calmer, before June's rainy season. Nationwide holiday guidance applies to Kyoto and Tokyo; it is not a city-specific crowd forecast."
+    },
+    {
+      "id": "a-marrakech-wmo-climate",
+      "url": "https://worldweather.wmo.int/en/city.html?cityId=180",
+      "title": "Marrakech — 1991–2020 climate normals",
+      "publisher": "World Meteorological Organization / Direction de la Météorologie Nationale, Morocco",
+      "checkedAt": "2026-10-21",
+      "evidence": "Retrieved 1991–2020 averages: March/April daily highs about 24/26°C, cool nights and measurable rain; May about 29°C, drier but warmer. October about 29°C by day versus July/August near 38°C. November about 23°C by day and 11°C at night, with more rain than October. Monthly means are not forecasts or limits on extremes."
+    },
+    {
+      "id": "a-tokyo-official-weather",
+      "url": "https://www.gotokyo.org/en/plan/weather/index.html",
+      "title": "Weather, Geography",
+      "publisher": "Tokyo Convention & Visitors Bureau, GO TOKYO",
+      "checkedAt": "2026-10-21",
+      "evidence": "Early spring remains chilly; May brings new greenery and comfortably warm days, with cooler mornings/evenings. Autumn temperature and humidity gradually fall; typhoons can disrupt travel and outdoor events. Leaf color begins in western mountain areas before spreading elsewhere. November calls for layers. Island climate sections are not generalized to central Tokyo."
+    },
+    {
+      "id": "a-tokyo-official-april",
+      "url": "https://www.gotokyo.org/en/story/guide/april/index.html",
+      "title": "Best Things to Do and See in Tokyo in April",
+      "publisher": "Tokyo Convention & Visitors Bureau, GO TOKYO",
+      "checkedAt": "2026-10-21",
+      "evidence": "April offers spring flowers and warm, mild walking weather; cherry-blossom events are hugely popular and hanami draws crowds. Rain and windy days occur. The numerical weather guidance explicitly uses 2025 data, not long-term normals, so those numbers are not used in notes; no exact bloom dates are promised."
+    },
+    {
+      "id": "a-tokyo-official-november",
+      "url": "https://www.gotokyo.org/en/story/guide/november/index.html",
+      "title": "Best Things to Do and See in Tokyo in November",
+      "publisher": "Tokyo Convention & Visitors Bureau, GO TOKYO",
+      "checkedAt": "2026-10-21",
+      "evidence": "November is highlighted for autumn foliage and ginkgo avenues. Sunny days can feel warm, while windy days and evenings are chilly; mountain areas are colder than central Tokyo. The page's numerical weather guidance uses 2025 observations, not long-term normals, so no numerical rainfall or temperature claim is carried into notes."
+    },
+    {
+      "id": "b-bali-climate",
+      "url": "https://www.indonesia.travel/gb/en/general-information/weather-climate-seasons",
+      "title": "Weather, Climate & Seasons",
+      "publisher": "Indonesia Travel — Ministry of Tourism, Indonesia",
+      "checkedAt": "2026-10-21",
+      "evidence": "Includes Bali in the generally April–October dry season; describes regional variation, high humidity and less predictable season boundaries. This is broad climate guidance, not a forecast or a promise of rain-free days."
+    },
+    {
+      "id": "b-bali-months",
+      "url": "https://www.airasia.com/blog/indonesia/bali/bali-weather/",
+      "title": "Bali Weather by Month: When to Actually Go",
+      "publisher": "AirAsia MOVE",
+      "checkedAt": "2026-10-21",
+      "evidence": "April is a transition with decreasing rain but lingering showers and humidity; June is generally drier. July–August are dry but busy with higher demand; September generally stays dry with rain gradually increasing. Conditions vary by location and year."
+    },
+    {
+      "id": "b-amalfi-hiking",
+      "url": "https://www.italia.it/en/italy/things-to-do/best-hiking-trails-in-italy",
+      "title": "The best hiking trails in Italy",
+      "publisher": "Italia.it — Italian Ministry of Tourism",
+      "checkedAt": "2026-10-21",
+      "evidence": "The Path of the Gods section recommends spring or autumn because it is less hot. It also warns that the route is unsuitable for people with vertigo; seasonal appeal does not establish universal hiking suitability."
+    },
+    {
+      "id": "b-amalfi-seasons",
+      "url": "https://www.responsibletravel.com/holidays/amalfi-coast/travel-guide/best-time-to-visit-the-amalfi-coast",
+      "title": "Best time to visit the Amalfi Coast",
+      "publisher": "Responsible Travel",
+      "checkedAt": "2026-10-21",
+      "evidence": "May suits walking but bus queues occur; June has settled summer weather and is already busy. September has warm sea but popular places and cruise arrivals remain busy. October can bring thunderstorms and seasonal closures; bad weather can suspend ferries. Commercial travel guidance, not service guarantees."
+    },
+    {
+      "id": "b-amalfi-weather",
+      "url": "https://www.positano.com/en/e/weather-in-positano-rain-temperatures-and-sea-forecast",
+      "title": "Weather in Positano: rain, temperatures, and sea forecast",
+      "publisher": "Positano.com — local commercial destination guide",
+      "checkedAt": "2026-10-21",
+      "evidence": "May is milder than June in its monthly table; rain occurs in all assigned months. Summer daytime heat regularly exceeds 30°C. The sea is generally more comfortable from June; September remains warm. Local topography can cause sudden thunderstorms. Table methodology is not stated; no exact figures are used in notes."
+    },
+    {
+      "id": "b-lisbon-tourism",
+      "url": "https://www.visitlisboa.com/en/traveller-information",
+      "title": "Traveller information",
+      "publisher": "Turismo de Lisboa",
+      "checkedAt": "2026-10-21",
+      "evidence": "Lisbon has hot summers moderated by proximity to the sea; spring and autumn usually have sunny days and mild temperatures. This is seasonal guidance; its temperature table groups three months together, so it is not used as exact monthly data."
+    },
+    {
+      "id": "b-lisbon-normals",
+      "url": "https://www.ipma.pt/bin/file.data/climate-normal/cn_91-20_LISBOA_GEOFISICO.pdf",
+      "title": "Normal Climatológica – Lisboa / Instituto Geofísico 1991-2020",
+      "publisher": "Instituto Português do Mar e da Atmosfera (IPMA)",
+      "checkedAt": "2026-10-21",
+      "evidence": "For May/June/September/October, mean daily maxima are 23.1/26.1/26.6/22.8°C and monthly precipitation 57.8/14.1/38.6/110.6mm. June and September both average days above 30°C; nights are cooler. Station normals combine observed and modeled data; they are not trip forecasts."
+    },
+    {
+      "id": "b-santorini-spring",
+      "url": "https://www.visitgreece.gr/en/inspirations/greek-travel-blossoms",
+      "title": "Greek Travel Blossoms",
+      "publisher": "Greek National Tourism Organisation — Visit Greece",
+      "checkedAt": "2026-10-21",
+      "evidence": "March–May is spring; the article gives Santorini a May average daily high around 24°C and recommends warmer clothes for cold days and late nights. It describes spring as less crowded than summer, not crowd-free."
+    },
+    {
+      "id": "b-santorini-route",
+      "url": "https://www.visitgreece.gr/en/routes/santorini-sunset-overlooking-the-caldera",
+      "title": "Santorini: Sunset overlooking the caldera",
+      "publisher": "Greek National Tourism Organisation — Visit Greece",
+      "checkedAt": "2026-10-21",
+      "evidence": "The caldera route is recommended from spring to autumn. In summer, hikes should start very early or be avoided when heat or humidity makes conditions unsuitable. This supports seasonal walking appeal, not guaranteed safe conditions."
+    },
+    {
+      "id": "b-santorini-seasons",
+      "url": "https://www.lonelyplanet.com/articles/best-time-to-visit-santorini",
+      "title": "The best time to visit Santorini: a seasonal guide",
+      "publisher": "Lonely Planet",
+      "checkedAt": "2026-10-21",
+      "evidence": "May–June and September–October are shoulder seasons with generally warm weather and fewer crowds than July–August. June has open-air attractions; September has sea warmed through summer. Early May and late October can have cool breezes; some businesses close in late October."
+    },
+    {
+      "id": "b-iceland-summer",
+      "url": "https://www.visiticeland.com/article/iceland-in-the-summer/",
+      "title": "Visiting Iceland in the Summer",
+      "publisher": "Visit Iceland",
+      "checkedAt": "2026-10-21",
+      "evidence": "June–August has long daylight and seasonal hiking access; July is traditionally warmest. Summer is busiest and still cool, windy and changeable; late-August rain can increase. Highland F-road openings depend on conditions and may be late June or early July. No all-roads-open claim is adopted."
+    },
+    {
+      "id": "b-iceland-south",
+      "url": "https://www.visiticeland.com/the-regions/the-south/",
+      "title": "South Iceland",
+      "publisher": "Visit Iceland",
+      "checkedAt": "2026-10-21",
+      "evidence": "June brings near-continuous daylight; Highland access is seasonal and opening dates depend on conditions. September–October brings shorter, cooler days and possible northern lights with clear skies. Seasonal roads and some operators scale back toward winter. Source scope is South Iceland, not every mountain road nationwide."
+    },
+    {
+      "id": "b-amsterdam-summer",
+      "url": "https://www.iamsterdam.com/en/explore/summer-in-amsterdam",
+      "title": "Summer in Amsterdam",
+      "publisher": "amsterdam&partners — I amsterdam",
+      "checkedAt": "2026-10-21",
+      "evidence": "Official summer page highlights parks, urban beaches, terraces, outdoor cinema, art and festivals. Its outdoor recommendations are framed around sunny days; it does not guarantee weather or any particular event schedule."
+    },
+    {
+      "id": "b-netherlands-weather",
+      "url": "https://www.holland.com/global/tourism/getting-around/information/weather",
+      "title": "The weather in the Netherlands",
+      "publisher": "Netherlands Board of Tourism & Conventions — Holland.com",
+      "checkedAt": "2026-10-21",
+      "evidence": "Dutch summers are generally temperate, with daytime averages in the low to mid-20s°C, but rainy spells and heatwaves can occur. Rain falls in every season. September is cooler than summer. This is national guidance; provinces differ and no exact Amsterdam forecast is implied."
+    },
+    {
+      "id": "b-amsterdam-autumn",
+      "url": "https://www.iamsterdam.com/en/explore/autumn-in-amsterdam",
+      "title": "Autumn in Amsterdam",
+      "publisher": "amsterdam&partners — I amsterdam",
+      "checkedAt": "2026-10-21",
+      "evidence": "Autumn brings shorter evenings and the cultural season in full swing. The page discusses autumn generally; it does not establish a date for leaf colour, so September notes make no foliage promise."
+    },
+    {
+      "id": "b-berlin-weather",
+      "url": "https://www.visitberlin.de/en/time-zone-time-visit-and-weather-berlin",
+      "title": "Time zone, time to visit, and weather in Berlin",
+      "publisher": "visitBerlin — Berlin Tourismus & Kongress GmbH",
+      "checkedAt": "2026-10-21",
+      "evidence": "May–September offers long days and warm evenings; June–August are the warmest months, with outdoor cycling, lakes and street life. Summer can reach 30°C; rainfall occurs throughout the year, and evenings can cool. Promotional claims of perfect weather are not treated as guarantees."
+    },
+    {
+      "id": "b-bordeaux-summer",
+      "url": "https://www.bordeaux-tourism.co.uk/hollidays/summer/cool-spots",
+      "title": "It's a hot day - check out the cool spots in Bordeaux",
+      "publisher": "Bordeaux Métropole Tourist Office & Convention Bureau",
+      "checkedAt": "2026-10-21",
+      "evidence": "Describes summer rooftops, terraces and guinguettes, especially along the Garonne. Warns that summer heat can be difficult and recommends shade, parks, water and indoor cultural refuges. This is general summer guidance, not a July forecast."
+    },
+    {
+      "id": "b-mara-migration",
+      "url": "https://magicalkenya.com/experience/the-great-migration/",
+      "title": "The Great Migration",
+      "publisher": "Kenya Tourism Board — Magical Kenya",
+      "checkedAt": "2026-10-21",
+      "evidence": "Places the Mara River phase broadly in July–October and explains that the year-round migration follows water and fresh grazing. This is a seasonal window, not an arrival date, crossing timetable or sighting guarantee."
+    },
+    {
+      "id": "b-mara-uncertainty",
+      "url": "https://www.discoverafrica.com/herdtracker/",
+      "title": "HerdTracker - Wildebeest Migration Updates",
+      "publisher": "Discover Africa Safaris",
+      "checkedAt": "2026-10-21",
+      "evidence": "Retrieved evergreen FAQs say timing varies each year with rainfall and environmental factors and that the migration has unpredictable elements. Notes use this limitation only; live sightings and predictor outputs are not used as seasonal facts."
+    },
+    {
+      "id": "b-athens-summer",
+      "url": "https://www.thisisathens.org/seasonal-guide/summer/summer-in-athens",
+      "title": "Great Things to See & Do in Athens in Summer",
+      "publisher": "This is Athens — The Official Athens Guide",
+      "checkedAt": "2026-10-21",
+      "evidence": "July–August brings rooftop and courtyard nightlife, coastal outings and outdoor culture. The guide recommends early beach time, air-conditioned galleries or museums and a siesta to avoid the heat. July and August have separate seasonal activity sections; event dates are not adopted as guarantees."
+    },
+    {
+      "id": "b-athens-heat",
+      "url": "https://www.thisisathens.org/what-to-pack-for-athens-trip",
+      "title": "What to Pack for Your Trip to Athens",
+      "publisher": "This is Athens — The Official Athens Guide",
+      "checkedAt": "2026-10-21",
+      "evidence": "Says summer draws crowds and temperatures can reach 40°C; recommends nearby beaches, sun protection and practical shoes. Crowds thin in early September. This supports flagging July–August as hot, busy choices rather than verified mild-weather sweet spots."
+    }
+  ],
+  "notes": [
+    {
+      "destinationId": "bangkok",
+      "month": 1,
+      "why": "January is in Bangkok's comparatively dry stretch, making outdoor temple and neighborhood exploring easier to plan.",
+      "tradeoff": "Drier does not mean cool: daytime heat remains substantial, so leave room for shade breaks.",
+      "sourceIds": [
+        "a-bangkok-wmo-climate"
+      ]
+    },
+    {
+      "destinationId": "buenos-aires",
+      "month": 1,
+      "why": "Summer warmth lasts into the evening, suiting visitors who prefer exploring after the strongest daytime heat.",
+      "tradeoff": "January is hot and humid, with limited relief at night; it is not a reliably mild sightseeing month.",
+      "sourceIds": [
+        "a-buenos-aires-official-climate"
+      ]
+    },
+    {
+      "destinationId": "cape-town",
+      "month": 1,
+      "why": "Long, warm summer days and mostly dry weather leave plenty of daylight for beaches and outdoor exploring.",
+      "tradeoff": "January is peak season: attractions can be busy, and heat or strong wind can complicate outdoor plans.",
+      "sourceIds": [
+        "a-cape-town-tourism-seasons"
+      ]
+    },
+    {
+      "destinationId": "maldives",
+      "month": 1,
+      "why": "The northeast monsoon usually brings the drier, sunnier part of the year for an island escape.",
+      "tradeoff": "Humidity and passing showers remain possible; southern atolls are generally wetter.",
+      "sourceIds": [
+        "a-maldives-mms-climate"
+      ]
+    },
+    {
+      "destinationId": "mexico-city",
+      "month": 1,
+      "why": "Winter is less rainy than summer, leaving more room for exploring the city's parks and streets.",
+      "tradeoff": "Highland nights and early mornings can approach freezing; daytime sunlight can still be intense.",
+      "sourceIds": [
+        "a-mexico-city-official-seasons"
+      ]
+    },
+    {
+      "destinationId": "sydney",
+      "month": 1,
+      "why": "Summer warmth and warmer sea temperatures make Sydney's beaches a natural seasonal draw.",
+      "tradeoff": "Humidity rises in summer, rain still occurs, and sun protection matters.",
+      "sourceIds": [
+        "a-sydney-tourism-australia-weather"
+      ]
+    },
+    {
+      "destinationId": "bangkok",
+      "month": 2,
+      "why": "February is still much less rainy than the monsoon months, favoring outdoor sightseeing.",
+      "tradeoff": "It is warmer than January, especially at night; this is not a cool-weather city break.",
+      "sourceIds": [
+        "a-bangkok-wmo-climate"
+      ]
+    },
+    {
+      "destinationId": "buenos-aires",
+      "month": 2,
+      "why": "Warm summer evenings offer a seasonal alternative to a cold-weather city break.",
+      "tradeoff": "Humid heat builds around midday and eases only slightly at night; plan breaks rather than all-day walks.",
+      "sourceIds": [
+        "a-buenos-aires-official-climate"
+      ]
+    },
+    {
+      "destinationId": "cape-town",
+      "month": 2,
+      "why": "Summer's long, mostly dry days continue, with the January holiday rush beginning to ease.",
+      "tradeoff": "It is still busy, and summer heat and wind can make outdoor plans less comfortable.",
+      "sourceIds": [
+        "a-cape-town-tourism-seasons"
+      ]
+    },
+    {
+      "destinationId": "maldives",
+      "month": 2,
+      "why": "February sits in the northeast dry monsoon, with more sunshine than the wetter southwest season.",
+      "tradeoff": "Dry season is not rain-free, and tropical humidity persists.",
+      "sourceIds": [
+        "a-maldives-mms-climate"
+      ]
+    },
+    {
+      "destinationId": "mexico-city",
+      "month": 2,
+      "why": "The less-rainy winter season favors outdoor sightseeing before summer's heavier showers.",
+      "tradeoff": "February is still winter: bring layers for cold mornings and nights, plus protection from strong sun.",
+      "sourceIds": [
+        "a-mexico-city-official-seasons"
+      ]
+    },
+    {
+      "destinationId": "sydney",
+      "month": 2,
+      "why": "Warm summer days and sea temperatures keep beach outings firmly in season.",
+      "tradeoff": "Summer is humid, and February is wetter than December or January in the tourism board's climate table.",
+      "sourceIds": [
+        "a-sydney-tourism-australia-weather"
+      ]
+    },
+    {
+      "destinationId": "cape-town",
+      "month": 3,
+      "why": "March starts the shoulder season, pairing lingering warmth with fewer summer-holiday visitors.",
+      "tradeoff": "Major event weekends can still fill accommodation and bring busy attractions; check your dates.",
+      "sourceIds": [
+        "a-cape-town-tourism-seasons"
+      ]
+    },
+    {
+      "destinationId": "kyoto",
+      "month": 3,
+      "why": "Spring starts to unfold, with successive seasonal flowers and gradually warming days for exploring temple grounds.",
+      "tradeoff": "March can still require a thick coat; do not treat the whole month as warm or assume cherry blossoms on your dates.",
+      "sourceIds": [
+        "a-kyoto-official-seasonal",
+        "a-kyoto-official-clothing"
+      ]
+    },
+    {
+      "destinationId": "maldives",
+      "month": 3,
+      "why": "March is still in the northeast dry monsoon, giving beach plans a sunnier seasonal backdrop.",
+      "tradeoff": "It also begins the year's warmest stretch; humidity and showers do not disappear.",
+      "sourceIds": [
+        "a-maldives-mms-climate"
+      ]
+    },
+    {
+      "destinationId": "marrakech",
+      "month": 3,
+      "why": "Spring days are much milder than midsummer, making medina walks a less heat-heavy prospect.",
+      "tradeoff": "Nights are cool and March has appreciable rainfall; spring does not mean reliably dry weather.",
+      "sourceIds": [
+        "a-marrakech-wmo-climate"
+      ]
+    },
+    {
+      "destinationId": "mexico-city",
+      "month": 3,
+      "why": "Spring brings pleasant, warm afternoons before the heavier summer rains.",
+      "tradeoff": "Evenings are cooler than afternoons, and direct sunlight can be intense even when the air feels mild.",
+      "sourceIds": [
+        "a-mexico-city-official-seasons"
+      ]
+    },
+    {
+      "destinationId": "tokyo",
+      "month": 3,
+      "why": "Spring begins to replace winter, opening up the season for park and neighborhood walks.",
+      "tradeoff": "Early spring remains chilly, especially mornings and evenings; bring layers rather than assuming warm days.",
+      "sourceIds": [
+        "a-tokyo-official-weather"
+      ]
+    },
+    {
+      "destinationId": "bali",
+      "month": 4,
+      "why": "April usually begins the shift toward drier weather, opening up more chances for beach days and outdoor sightseeing.",
+      "tradeoff": "This is a transition month: lingering showers and humidity can still interrupt outdoor plans.",
+      "sourceIds": [
+        "b-bali-climate",
+        "b-bali-months"
+      ]
+    },
+    {
+      "destinationId": "kyoto",
+      "month": 4,
+      "why": "Mild spring weather and seasonal flowers make temple gardens especially appealing.",
+      "tradeoff": "This is a popular blossom season, not a quiet-month promise; mornings and evenings still need layers.",
+      "sourceIds": [
+        "a-kyoto-official-seasonal",
+        "a-kyoto-official-clothing"
+      ]
+    },
+    {
+      "destinationId": "maldives",
+      "month": 4,
+      "why": "Warm tropical days still suit an island break as April bridges the two monsoons.",
+      "tradeoff": "April is a monsoon transition, not established dry season, and falls within the warmest stretch.",
+      "sourceIds": [
+        "a-maldives-mms-climate"
+      ]
+    },
+    {
+      "destinationId": "marrakech",
+      "month": 4,
+      "why": "Warm spring afternoons offer a gentler alternative to Marrakech's fierce midsummer heat.",
+      "tradeoff": "Rain remains possible and nights are noticeably cooler, so pack layers as well as sun protection.",
+      "sourceIds": [
+        "a-marrakech-wmo-climate"
+      ]
+    },
+    {
+      "destinationId": "mexico-city",
+      "month": 4,
+      "why": "Warm spring afternoons make outdoor exploring appealing before the summer rainy season.",
+      "tradeoff": "Cooler evenings call for layers, while strong daytime sun calls for shade and sunscreen.",
+      "sourceIds": [
+        "a-mexico-city-official-seasons"
+      ]
+    },
+    {
+      "destinationId": "tokyo",
+      "month": 4,
+      "why": "Mild spring days and seasonal flowers give Tokyo's parks and gardens extra appeal.",
+      "tradeoff": "Popular blossom events draw crowds, and rain or windy days can interrupt outdoor plans.",
+      "sourceIds": [
+        "a-tokyo-official-april"
+      ]
+    },
+    {
+      "destinationId": "amalfi-coast",
+      "month": 5,
+      "why": "Milder spring weather makes coastal walks and village exploring appealing before the hottest summer months.",
+      "tradeoff": "May is not crowd-free: bus queues can form, and showers or cool evenings still call for layers.",
+      "sourceIds": [
+        "b-amalfi-hiking",
+        "b-amalfi-seasons",
+        "b-amalfi-weather"
+      ]
+    },
+    {
+      "destinationId": "kyoto",
+      "month": 5,
+      "why": "Mild spring conditions favor walking and temple visits before the main June–July rainy season.",
+      "tradeoff": "Early May overlaps Golden Week, when trains and hotels fill; the whole month is not a quiet shoulder season.",
+      "sourceIds": [
+        "a-kyoto-official-seasonal",
+        "a-jnto-may-golden-week"
+      ]
+    },
+    {
+      "destinationId": "lisbon",
+      "month": 5,
+      "why": "Mild spring days make May appealing for exploring Lisbon on foot before the hotter summer months.",
+      "tradeoff": "Spring showers remain possible and evenings are cooler; bring a light layer and a wet-weather option.",
+      "sourceIds": [
+        "b-lisbon-tourism",
+        "b-lisbon-normals"
+      ]
+    },
+    {
+      "destinationId": "marrakech",
+      "month": 5,
+      "why": "May is usually drier than early spring while still less hot than July and August.",
+      "tradeoff": "Daytime warmth is already substantial; schedule shade breaks rather than expecting all-day mildness.",
+      "sourceIds": [
+        "a-marrakech-wmo-climate"
+      ]
+    },
+    {
+      "destinationId": "santorini",
+      "month": 5,
+      "why": "Milder late-spring weather favors caldera walks and village exploring before the peak summer rush.",
+      "tradeoff": "Early May can bring cool breezes, and evenings still call for a warmer layer; summery conditions are not guaranteed.",
+      "sourceIds": [
+        "b-santorini-spring",
+        "b-santorini-route",
+        "b-santorini-seasons"
+      ]
+    },
+    {
+      "destinationId": "tokyo",
+      "month": 5,
+      "why": "New greenery and comfortably warm days favor exploring before the main summer heat and rainy season.",
+      "tradeoff": "Early May overlaps busy Golden Week holidays; cooler mornings and evenings still call for a layer.",
+      "sourceIds": [
+        "a-tokyo-official-weather",
+        "a-jnto-may-golden-week"
+      ]
+    },
+    {
+      "destinationId": "amalfi-coast",
+      "month": 6,
+      "why": "Early-summer weather and a warming sea make June a good time to combine coastal villages with swimming.",
+      "tradeoff": "June is already busy, and exposed walks can be hot; this is not a crowd-free shoulder-season pick.",
+      "sourceIds": [
+        "b-amalfi-seasons",
+        "b-amalfi-weather"
+      ]
+    },
+    {
+      "destinationId": "amsterdam",
+      "month": 6,
+      "why": "Summer’s milder warmth brings park picnics, sunny terraces and outdoor culture into the city’s rhythm.",
+      "tradeoff": "Rainy spells can interrupt outdoor plans, and summer heatwaves are possible; keep a museum alternative ready.",
+      "sourceIds": [
+        "b-amsterdam-summer",
+        "b-netherlands-weather"
+      ]
+    },
+    {
+      "destinationId": "bali",
+      "month": 6,
+      "why": "June sits in the usual dry season, favoring beach days and outdoor exploring before the busiest July–August travel stretch.",
+      "tradeoff": "Drier is not rain-free; conditions vary around the island, and highland areas can be wetter than the coast.",
+      "sourceIds": [
+        "b-bali-climate",
+        "b-bali-months"
+      ]
+    },
+    {
+      "destinationId": "iceland",
+      "month": 6,
+      "why": "June’s exceptionally long daylight gives South Coast drives and outdoor sightseeing plenty of breathing room.",
+      "tradeoff": "Highland roads may not open until late June or early July; cool, windy weather still calls for layers.",
+      "sourceIds": [
+        "b-iceland-summer",
+        "b-iceland-south"
+      ]
+    },
+    {
+      "destinationId": "lisbon",
+      "month": 6,
+      "why": "June is usually warmer and much drier than spring, giving outdoor sightseeing more room in the itinerary.",
+      "tradeoff": "Hot days still occur despite the Atlantic influence; plan breaks rather than assuming every walk will feel mild.",
+      "sourceIds": [
+        "b-lisbon-tourism",
+        "b-lisbon-normals"
+      ]
+    },
+    {
+      "destinationId": "santorini",
+      "month": 6,
+      "why": "Warm early-summer days and open-air island life arrive before July–August’s peak.",
+      "tradeoff": "Summer heat can make caldera hikes uncomfortable; start early and skip exposed walks when conditions are unsafe.",
+      "sourceIds": [
+        "b-santorini-route",
+        "b-santorini-seasons"
+      ]
+    },
+    {
+      "destinationId": "amsterdam",
+      "month": 7,
+      "why": "Summer weather puts Amsterdam’s parks, urban beaches and outdoor cinema on the itinerary.",
+      "tradeoff": "Dutch summer is changeable: rainy stretches and heatwaves can both occur, so do not count on terrace weather every day.",
+      "sourceIds": [
+        "b-amsterdam-summer",
+        "b-netherlands-weather"
+      ]
+    },
+    {
+      "destinationId": "athens",
+      "month": 7,
+      "why": "Summer nights bring rooftop dining and outdoor culture, with nearby beaches offering a change of pace from the city.",
+      "tradeoff": "July heat can be intense and summer draws crowds; favor early sightseeing, shade and indoor breaks rather than midday walks.",
+      "sourceIds": [
+        "b-athens-summer",
+        "b-athens-heat"
+      ]
+    },
+    {
+      "destinationId": "bali",
+      "month": 7,
+      "why": "July is typically one of Bali’s drier months, making beach time and outdoor sightseeing an appealing focus.",
+      "tradeoff": "July is also a busy travel month, with higher demand for accommodation and popular attractions.",
+      "sourceIds": [
+        "b-bali-climate",
+        "b-bali-months"
+      ]
+    },
+    {
+      "destinationId": "berlin",
+      "month": 7,
+      "why": "Warm summer days and long evenings suit cycling, lakeside outings and Berlin’s outdoor street life.",
+      "tradeoff": "Summer can be hot and rain remains possible; plan shade and indoor options instead of expecting mild days throughout.",
+      "sourceIds": [
+        "b-berlin-weather"
+      ]
+    },
+    {
+      "destinationId": "bordeaux",
+      "month": 7,
+      "why": "Summer brings riverside terraces, rooftops and lively guinguettes along the Garonne.",
+      "tradeoff": "Summer heat can make long sightseeing walks uncomfortable; plan shade, indoor stops and cooler-hour outings.",
+      "sourceIds": [
+        "b-bordeaux-summer"
+      ]
+    },
+    {
+      "destinationId": "iceland",
+      "month": 7,
+      "why": "July is traditionally Iceland’s warmest month, with long daylight and the main summer window for hiking and Highland trips.",
+      "tradeoff": "This is peak travel season; popular sights can be busy, and wind or rain can still change outdoor plans.",
+      "sourceIds": [
+        "b-iceland-summer"
+      ]
+    },
+    {
+      "destinationId": "amsterdam",
+      "month": 8,
+      "why": "August keeps summer terraces, park picnics and open-air cultural activities in play on fair-weather days.",
+      "tradeoff": "Warm weather is not assured: rain can persist and heatwaves can occur, so pack for changing conditions.",
+      "sourceIds": [
+        "b-amsterdam-summer",
+        "b-netherlands-weather"
+      ]
+    },
+    {
+      "destinationId": "athens",
+      "month": 8,
+      "why": "August suits evening promenades, seaside outings and Athens’ outdoor nightlife more than all-day monument walks.",
+      "tradeoff": "Heat can be severe and visitor hotspots still draw summer crowds; this is a peak-summer choice, not a mild-weather sweet spot.",
+      "sourceIds": [
+        "b-athens-summer",
+        "b-athens-heat"
+      ]
+    },
+    {
+      "destinationId": "bali",
+      "month": 8,
+      "why": "August’s usual dry-season weather creates good opportunities for beach days and outdoor adventures.",
+      "tradeoff": "This is part of Bali’s busiest dry-season travel period; expect high demand, and do not assume rain-free days.",
+      "sourceIds": [
+        "b-bali-climate",
+        "b-bali-months"
+      ]
+    },
+    {
+      "destinationId": "berlin",
+      "month": 8,
+      "why": "Late-summer warmth keeps Berlin’s lakes, cycling routes and outdoor cafés appealing.",
+      "tradeoff": "Rain falls year-round and summer days can be hot; carry a light layer for evenings and keep plans flexible.",
+      "sourceIds": [
+        "b-berlin-weather"
+      ]
+    },
+    {
+      "destinationId": "iceland",
+      "month": 8,
+      "why": "Long late-summer days still leave time for hiking, coastal drives and seasonal routes into the interior.",
+      "tradeoff": "Summer demand remains high, rainfall can increase late in the month, and mountain travel still depends on conditions.",
+      "sourceIds": [
+        "b-iceland-summer",
+        "b-iceland-south"
+      ]
+    },
+    {
+      "destinationId": "maasai-mara",
+      "month": 8,
+      "why": "August falls in the usual Mara migration window, when moving herds can add drama to wildlife viewing.",
+      "tradeoff": "Rain and grazing shift herd movements each year; migration sightings and river crossings cannot be guaranteed.",
+      "sourceIds": [
+        "b-mara-migration",
+        "b-mara-uncertainty"
+      ]
+    },
+    {
+      "destinationId": "amalfi-coast",
+      "month": 9,
+      "why": "The sea retains summer warmth while autumn approaches, pairing swimming with walks through the coastal landscape.",
+      "tradeoff": "Popular towns and cruise arrivals remain busy; showers are more likely than in midsummer.",
+      "sourceIds": [
+        "b-amalfi-seasons",
+        "b-amalfi-weather"
+      ]
+    },
+    {
+      "destinationId": "amsterdam",
+      "month": 9,
+      "why": "Early autumn brings cooler conditions for city exploring as Amsterdam’s cultural season gets going.",
+      "tradeoff": "Evenings draw in and rain remains possible; this is a city-and-culture pick, not a promise of summer weather or autumn leaves.",
+      "sourceIds": [
+        "b-amsterdam-autumn",
+        "b-netherlands-weather"
+      ]
+    },
+    {
+      "destinationId": "bali",
+      "month": 9,
+      "why": "The dry-season pattern usually carries into September, beyond the busiest July–August travel stretch.",
+      "tradeoff": "Rainfall can start increasing toward the wetter season; keep outdoor plans flexible rather than banking on uninterrupted sun.",
+      "sourceIds": [
+        "b-bali-climate",
+        "b-bali-months"
+      ]
+    },
+    {
+      "destinationId": "iceland",
+      "month": 9,
+      "why": "Darker nights return, adding a chance of northern lights to South Coast sightseeing.",
+      "tradeoff": "Auroras need clear skies; days shorten, and Highland access and seasonal services may shrink as autumn advances.",
+      "sourceIds": [
+        "b-iceland-south"
+      ]
+    },
+    {
+      "destinationId": "lisbon",
+      "month": 9,
+      "why": "September usually keeps warm days for outdoor exploring as Lisbon heads toward autumn.",
+      "tradeoff": "Heat can still linger, while rain begins returning after the dry summer; keep both shade and indoor stops in mind.",
+      "sourceIds": [
+        "b-lisbon-tourism",
+        "b-lisbon-normals"
+      ]
+    },
+    {
+      "destinationId": "santorini",
+      "month": 9,
+      "why": "September pairs a sea warmed through summer with a shoulder-season setting after the July–August peak.",
+      "tradeoff": "This is still a tourist-season month, not an empty island; avoid the hottest hours for exposed caldera walks.",
+      "sourceIds": [
+        "b-santorini-route",
+        "b-santorini-seasons"
+      ]
+    },
+    {
+      "destinationId": "amalfi-coast",
+      "month": 10,
+      "why": "Autumn’s gentler heat favors coastal walking beyond the busiest summer months.",
+      "tradeoff": "Thunderstorms can disrupt boat days, and some seasonal businesses begin closing; check transport before coast-hopping.",
+      "sourceIds": [
+        "b-amalfi-hiking",
+        "b-amalfi-seasons",
+        "b-amalfi-weather"
+      ]
+    },
+    {
+      "destinationId": "kyoto",
+      "month": 10,
+      "why": "Autumn days usually remain comfortably warm, making walking and cycling appealing after summer's humidity.",
+      "tradeoff": "Mornings and nights can turn chilly; October is not a guarantee of peak autumn leaf color.",
+      "sourceIds": [
+        "a-kyoto-official-seasonal",
+        "a-kyoto-official-clothing"
+      ]
+    },
+    {
+      "destinationId": "lisbon",
+      "month": 10,
+      "why": "Milder autumn temperatures make October a comfortable alternative to high-summer heat for city walks.",
+      "tradeoff": "October is noticeably wetter than September in the climate normals; allow for rainy-day sightseeing rather than beach-weather expectations.",
+      "sourceIds": [
+        "b-lisbon-tourism",
+        "b-lisbon-normals"
+      ]
+    },
+    {
+      "destinationId": "marrakech",
+      "month": 10,
+      "why": "Autumn takes the edge off midsummer's extreme heat while keeping days warm for exploring.",
+      "tradeoff": "Afternoons can still be hot, evenings cool down, and rain is possible.",
+      "sourceIds": [
+        "a-marrakech-wmo-climate"
+      ]
+    },
+    {
+      "destinationId": "santorini",
+      "month": 10,
+      "why": "Autumn offers a chance to explore the caldera and villages beyond the island’s busiest summer months.",
+      "tradeoff": "Cool breezes become more likely late in October, when some businesses also close; check what is operating for your dates.",
+      "sourceIds": [
+        "b-santorini-route",
+        "b-santorini-seasons"
+      ]
+    },
+    {
+      "destinationId": "tokyo",
+      "month": 10,
+      "why": "Falling temperatures and humidity make autumn more comfortable for walking than the height of summer.",
+      "tradeoff": "Autumn storms and typhoons can still disrupt plans; leaf color arrives at different times across the city.",
+      "sourceIds": [
+        "a-tokyo-official-weather"
+      ]
+    },
+    {
+      "destinationId": "cape-town",
+      "month": 11,
+      "why": "Longer, warmer days usher in the outdoor season, with generally less rain than winter.",
+      "tradeoff": "Peak season is beginning rather than absent, and summer winds are picking up.",
+      "sourceIds": [
+        "a-cape-town-tourism-seasons"
+      ]
+    },
+    {
+      "destinationId": "kyoto",
+      "month": 11,
+      "why": "Cooling autumn weather brings deepening maple colors to the city's temple gardens.",
+      "tradeoff": "Leaf viewing makes autumn popular, while mornings and nights are chilly; color varies with timing and location.",
+      "sourceIds": [
+        "a-kyoto-official-seasonal",
+        "a-kyoto-official-clothing"
+      ]
+    },
+    {
+      "destinationId": "maldives",
+      "month": 11,
+      "why": "Year-round warmth and sunny gaps between showers can suit a flexible island escape.",
+      "tradeoff": "November normally remains in the southwest wet monsoon; this is not a dependable dry-season pick.",
+      "sourceIds": [
+        "a-maldives-mms-climate"
+      ]
+    },
+    {
+      "destinationId": "marrakech",
+      "month": 11,
+      "why": "November's milder daytime temperatures favor exploring without midsummer's intense heat.",
+      "tradeoff": "Nights are cool and rainfall increases from October; do not expect summer-like evenings or guaranteed sunshine.",
+      "sourceIds": [
+        "a-marrakech-wmo-climate"
+      ]
+    },
+    {
+      "destinationId": "mexico-city",
+      "month": 11,
+      "why": "Autumn usually offers pleasant, warm afternoons away from summer's heavier rain.",
+      "tradeoff": "Evenings cool down, and strong sunlight still warrants a hat and sunscreen.",
+      "sourceIds": [
+        "a-mexico-city-official-seasons"
+      ]
+    },
+    {
+      "destinationId": "tokyo",
+      "month": 11,
+      "why": "Autumn foliage and ginkgo avenues add seasonal color to Tokyo's parks and streets.",
+      "tradeoff": "Windy days and evenings can be chilly, with colder conditions in the western mountains.",
+      "sourceIds": [
+        "a-tokyo-official-november",
+        "a-tokyo-official-weather"
+      ]
+    },
+    {
+      "destinationId": "bangkok",
+      "month": 12,
+      "why": "December combines one of the city's drier periods with relatively cooler seasonal temperatures.",
+      "tradeoff": "Relatively cooler is still hot by day, and low average rainfall is not a promise of dry days.",
+      "sourceIds": [
+        "a-bangkok-wmo-climate"
+      ]
+    },
+    {
+      "destinationId": "buenos-aires",
+      "month": 12,
+      "why": "Late spring gives way to summer, with warmer days for visitors seeking a Southern Hemisphere escape.",
+      "tradeoff": "December still overlaps the rainier spring period, then moves toward humid summer heat.",
+      "sourceIds": [
+        "a-buenos-aires-official-climate"
+      ]
+    },
+    {
+      "destinationId": "cape-town",
+      "month": 12,
+      "why": "Long, balmy days bring beach time and the city's lively outdoor summer atmosphere.",
+      "tradeoff": "This is peak-season territory, not a quiet escape; attractions draw crowds and winds can be strong.",
+      "sourceIds": [
+        "a-cape-town-tourism-seasons"
+      ]
+    },
+    {
+      "destinationId": "maldives",
+      "month": 12,
+      "why": "Tropical warmth offers a winter escape while December transitions toward the northeast monsoon.",
+      "tradeoff": "December is a transition month; the meteorological dry season is January–March, and showers remain possible.",
+      "sourceIds": [
+        "a-maldives-mms-climate"
+      ]
+    },
+    {
+      "destinationId": "mexico-city",
+      "month": 12,
+      "why": "The less-rainy winter period makes a useful backdrop for daytime city exploring.",
+      "tradeoff": "Nights and early mornings can be close to freezing; winter sunshine is not necessarily gentle.",
+      "sourceIds": [
+        "a-mexico-city-official-seasons"
+      ]
+    },
+    {
+      "destinationId": "sydney",
+      "month": 12,
+      "why": "December brings Sydney's longest daylight hours as summer warmth opens up beach days.",
+      "tradeoff": "Warm weather comes with summer humidity, possible rain and the need for sun protection.",
+      "sourceIds": [
+        "a-sydney-tourism-australia-weather"
+      ]
+    }
+  ]
+}
