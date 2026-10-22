@@ -1024,10 +1024,10 @@ The city rewards those who eat and drink where the locals do rather than the mai
     sections: [
       {
         title: `Planning Your ${guide.title} Trip`,
-        content: `${guide.title}, ${guide.subtitle}, is a ${guide.theme.toLowerCase()} destination best visited during ${bestMonths}.${avgTemp ? ` Expect average temperatures around ${avgTemp}.` : ''} ${flightTime ? `Flight time from most European hubs is approximately ${flightTime}.` : ''} This guide provides the essential framework for planning — use the flight search and hotel comparison tools above to check current prices and availability.`,
+        content: `${guide.title}, ${guide.subtitle}, is a ${guide.theme.toLowerCase()} destination best visited during ${bestMonths}.${avgTemp ? ` Expect average temperatures around ${avgTemp}.` : ''} ${flightTime ? `Flight time from most European hubs is approximately ${flightTime}.` : ''} This guide provides the essential framework for planning — use the flight-time tools and booking links below to explore departure options and check current prices on supplier sites.`,
         items: [
           `Best time to go: ${bestMonths}${avgTemp ? ` — average temperature ${avgTemp}` : ''}`,
-          `${flightTime ? `Flight time: ${flightTime} from major European hubs` : 'Check flight prices using the search tool above'}`,
+          `${flightTime ? `Flight time: ${flightTime} from major European hubs` : 'Explore departure options using the flight tools below'}`,
           `Travel style: ${guide.tags.join(', ')}`,
         ],
       },
@@ -1037,7 +1037,7 @@ The city rewards those who eat and drink where the locals do rather than the mai
       },
       {
         title: 'Getting There & Getting Around',
-        content: `${guide.title} is served by major international routes${flightTime ? ` with flight times of approximately ${flightTime} from European hubs` : ''}. Once there, public transport, ride-sharing, and local tour operators cover most visitor needs. Use the flight search at the top of this page to compare real prices across Kayak, Expedia, and Google Flights.`,
+        content: `${guide.title} is served by major international routes${flightTime ? ` with flight times of approximately ${flightTime} from European hubs` : ''}. Once there, public transport, ride-sharing, and local tour operators cover most visitor needs. Use the flight-time tools and booking links below to explore departure options and compare current prices on supplier sites.`,
       },
     ],
   }

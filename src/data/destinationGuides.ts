@@ -1100,7 +1100,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     excerpt:
       "Turquoise Mediterranean waters, Roman gates at Hadrian's Gate, and an Old Harbor rebuilt for yachts. Beach clubs and Lycian ruins share the same coastline. -- Apr-Jun, Sep-Oct is the ideal window.",
     heroImage:
-      'https://images.unsplash.com/photo-1593352216840-1aee13f45818?w=1200&q=85&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1648325129746-abcc1b872380?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Antalya&adults=2',
     rating: 4.5,
     tags: ['Beach', 'History', 'Resort', 'Coastal'],
