@@ -2,7 +2,7 @@
 
 ## Identity
 
-Original sun-and-horizon seal with twelve timing ticks. The decorative lower curve was removed at the Commander's request because it read as a smile. Forest #0c211a, ivory #f3f1e9 and lime #e0f29b match the approved cinematic homepage. The primary wordmark remains Lost Luggage Legend; Goldilocks Zone is a small product descriptor, not a site/route rename.
+Original sunrise seal: the sun is a semicircle emerging directly from the straight horizon, with seven rays radiating from the sun rather than clock-like ticks at the rim. The decorative lower curve remains removed because it read as a smile. Forest #0c211a, ivory #f3f1e9 and lime #e0f29b match the approved cinematic homepage. The primary wordmark remains Lost Luggage Legend; Goldilocks Zone is a small product descriptor, not a site/route rename.
 
 `public/brand/goldilocks-mark.svg` is the single vector source for the header and browser icon. It is self-authored with no external imagery, embedded scripts, external fonts, paid design service or new dependency. `scripts/render-brand-icons.cjs` regenerates the real 32px favicon and 180px Apple PNG from this SVG using existing Playwright.
 
@@ -10,7 +10,11 @@ Original sun-and-horizon seal with twelve timing ticks. The decorative lower cur
 
 The narrow-screen guide booking CTA is now correctly hidden via a neutral responsive wrapper; an unlayered .btn-primary display rule had previously overridden its hidden utility. Its #book destination is unchanged and the on-page booking section remains present.
 
-## Verification against the production build at http://127.0.0.1:3035
+## Sunrise refinement — local preview
+
+The later request replaces the floating disc and twelve rim ticks with a half sun on the horizon and seven outward rays. Header SVG, PNG favicon and Apple icon were all regenerated together. Build/typecheck and 18 focused Chromium/WebKit brand + asset/map regressions passed with normal deadlines. New geometry assertions require the half-disc on the horizon and rays collinear with the sun centre, above the horizon and pointing outward; the targeted test first failed against the old live mark as expected. The actual rendered wordmark was inspected. This refinement is saved locally and is not yet deployed; the approval/release notes below refer to the previous identity version.
+
+## Previous identity verification against the production build at http://127.0.0.1:3035
 
 - Build and typecheck passed.
 - Focused browser suite: 32/32 passed across Chromium and iPhone-emulated WebKit, normal existing deadlines. Includes 12 new brand cases plus existing navigation and photo/calendar geometry checks.

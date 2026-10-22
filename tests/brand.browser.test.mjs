@@ -52,12 +52,28 @@ test('browser icons use the same original vector, with real decoded PNG fallback
   const geometry = await page.evaluate(markup => {
     const doc = new DOMParser().parseFromString(markup, 'image/svg+xml')
     return {
-      interiorLines: [...doc.documentElement.children].filter(node => node.localName === 'path').map(node => node.getAttribute('d')),
-      calendarTicks: doc.querySelectorAll('g path').length,
+      sun: doc.querySelector('[data-sun]')?.getAttribute('d'),
+      horizon: doc.querySelector('[data-horizon]')?.getAttribute('d'),
+      rays: [...doc.querySelectorAll('[data-sun-rays] path')].map(node => node.getAttribute('d').match(/-?\d+(?:\.\d+)?/g).map(Number)),
+      groups: doc.querySelectorAll('g').length,
+      circles: doc.querySelectorAll('circle').length,
     }
   }, svg)
-  expect(geometry.interiorLines).toEqual(['M11.5 28.5H36.5'])
-  expect(geometry.calendarTicks).toBe(12)
+  expect(geometry.sun).toBe('M15.5 28.5A8.5 8.5 0 0 1 32.5 28.5Z')
+  expect(geometry.horizon).toBe('M10 28.5H38')
+  expect(geometry.rays).toHaveLength(7)
+  expect(geometry.groups).toBe(1)
+  expect(geometry.circles, 'only background and rim, not a floating sun').toBe(2)
+  for (const [x1, y1, x2, y2] of geometry.rays) {
+    const startDistance = Math.hypot(x1 - 24, y1 - 28.5)
+    const endDistance = Math.hypot(x2 - 24, y2 - 28.5)
+    expect(startDistance).toBeGreaterThan(8.5)
+    expect(endDistance).toBeGreaterThan(startDistance)
+    expect(endDistance).toBeLessThan(18)
+    expect(y1).toBeLessThan(28.5)
+    expect(y2).toBeLessThan(y1)
+    expect(Math.abs((x1 - 24) * (y2 - 28.5) - (y1 - 28.5) * (x2 - 24)), 'rays radiate from the sun centre').toBeLessThan(.03)
+  }
   expect(svg).not.toMatch(/<script|foreignObject|\bonload=|(?:href|src)\s*=\s*['"]https?:\/\//i)
   for (const [src, size] of [['/brand/favicon-32.png', 32], ['/brand/apple-touch-icon.png', 180]]) {
     const response = await request.get(src)
