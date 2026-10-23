@@ -69,7 +69,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     excerpt:
       'Bungee jumping, jet boating, and glacier hikes on the shores of a crystal lake ringed by the Southern Alps. Adventure sport capital of the southern hemisphere.',
     heroImage:
-      'https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?w=1200&q=85&auto=format&fit=crop',
+      "https://images.unsplash.com/photo-1600466403153-50193d187dde?w=1200&q=85&auto=format&fit=crop",
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Queenstown+New+Zealand&adults=2',
     rating: 4.7,
     tags: ['Adventure', 'Nature', 'Mountains', 'Solo Trip'],
@@ -153,7 +153,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     excerpt:
       'The Great Migration crosses here from July to October — two million wildebeest and zebra pouring across crocodile-infested rivers. The most concentrated wildlife spectacle on the planet.',
     heroImage:
-      'https://images.unsplash.com/photo-1516426122078-c23e76319801?w=1200&q=85&auto=format&fit=crop',
+      "https://images.unsplash.com/photo-1521766794531-959971b1f444?w=1200&q=85&auto=format&fit=crop",
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Maasai+Mara+Kenya&adults=2',
     rating: 4.9,
     tags: ['Safari', 'Nature', 'Adventure', 'Searching'],
@@ -174,7 +174,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     excerpt:
       'Torres del Paine granite spires, Perito Moreno crashing into Lago Argentino, glaciers you can hear groaning from a kilometre away. Patagonia is nature at full theatrical scale.',
     heroImage:
-      'https://images.unsplash.com/photo-1531761535209-180857e963b9?w=1200&q=85&auto=format&fit=crop',
+      "https://images.unsplash.com/photo-1715356758153-6d58ae44e8fe?w=1200&q=85&auto=format&fit=crop",
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Patagonia&adults=2',
     rating: 4.7,
     tags: ['Nature', 'Mountains', 'Adventure', 'Peaceful'],
@@ -195,7 +195,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     excerpt:
       'Northern lights over black sand beaches, glaciers you can walk inside, geothermally heated lagoons at -5°C. Iceland is the most otherworldly destination in the northern hemisphere.',
     heroImage:
-      'https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=1200&q=85&auto=format&fit=crop',
+      "https://images.unsplash.com/photo-1532586733327-54ac07aa1154?w=1200&q=85&auto=format&fit=crop",
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Iceland&adults=2',
     rating: 4.8,
     tags: ['Winter', 'Nature', 'Falls', 'Relaxing'],
@@ -405,7 +405,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     excerpt:
       'Sauna culture you can actually join for €20, design district vintage shops, archipelagos accessible by ferry. Helsinki is the rare Nordic capital that stays affordable and never feels touristy, even in summer.',
     heroImage:
-      'https://images.unsplash.com/photo-1558788353-f76d92427f16?w=1200&q=85&auto=format&fit=crop',
+      "https://images.unsplash.com/photo-1538332576228-eb5b4c4de6f5?w=1200&q=85&auto=format&fit=crop",
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Helsinki+Finland&adults=2',
     rating: 4.6,
     tags: ['Nordic', 'Nature', 'Solo Trip', 'Peaceful'],
@@ -575,7 +575,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     excerpt:
       "Wawel Castle watches over the Rynek, while Kazimierz's Jewish quarter hums with cafes and galleries. Salt mines and somber history lie just beyond the edge. -- May-Sep is the ideal window.",
     heroImage:
-      'https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?w=1200&q=85&auto=format&fit=crop',
+      "https://images.unsplash.com/photo-1636903364559-0dfc358abd94?w=1200&q=85&auto=format&fit=crop",
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Krakow&adults=2',
     rating: 4.7,
     tags: ['Cultural', 'History', 'Architecture', 'Nightlife'],
@@ -680,7 +680,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     excerpt:
       "The Duomo's spires, La Scala's stage, and the Quadrilatero della Moda fashion district define the skyline. Risotto alla milanese fuels the pace. -- Apr-Oct is the ideal window.",
     heroImage:
-      'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=85&auto=format&fit=crop',
+      "https://images.unsplash.com/photo-1667020938802-2a2394842adf?w=1200&q=85&auto=format&fit=crop",
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Milan&adults=2',
     rating: 4.6,
     tags: ['Fashion', 'Architecture', 'Food', 'Arts'],
@@ -764,7 +764,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     excerpt:
       "Vineyards stretch from the city gates, and Place de la Bourse reflects in the Miroir d'Eau. Wine bars and cannele shops line restored 18th-century quays. -- May-Sep is the ideal window.",
     heroImage:
-      'https://images.unsplash.com/photo-1560393464-5c69a73c5770?w=1200&q=85&auto=format&fit=crop',
+      "https://images.unsplash.com/photo-1493564738392-d148cfbd6eda?w=1200&q=85&auto=format&fit=crop",
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Bordeaux&adults=2',
     rating: 4.7,
     tags: ['Cultural', 'Wine', 'Architecture', 'Food'],
@@ -869,7 +869,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     excerpt:
       "Hallgrimskirkja watches over brightly clad houses, geothermal pools, and a frontier spirit. Glaciers, geysers, and Northern Lights lie within day-trip range. -- Jun-Sep is the ideal window.",
     heroImage:
-      'https://images.unsplash.com/photo-1504893524553-b855bce32c67?w=1200&q=85&auto=format&fit=crop',
+      "https://images.unsplash.com/photo-1615130767419-e9ff3afa5a15?w=1200&q=85&auto=format&fit=crop",
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Reykjavik&adults=2',
     rating: 4.7,
     tags: ['Adventure', 'Northern Lights', 'Geothermal', 'Wildlife'],
@@ -890,7 +890,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     excerpt:
       "A castle-topped volcanic crag, the Royal Mile's closes, and the Fringe Festival each August. Arthur's Seat gives panorama; pubs give single malt. -- May-Sep is the ideal window.",
     heroImage:
-      'https://images.unsplash.com/photo-1548839140-29a749e1cf4d?w=1200&q=85&auto=format&fit=crop',
+      "https://images.unsplash.com/photo-1535448033526-c0e85c9e6968?w=1200&q=85&auto=format&fit=crop",
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Edinburgh&adults=2',
     rating: 4.7,
     tags: ['Cultural', 'History', 'Literature', 'Festivals'],
@@ -932,7 +932,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     excerpt:
       "Trinity College's Long Room, Temple Bar's session pubs, and a literary tradition from Joyce to Beckett. The Liffey divides north from south; Guinness unites them. -- May-Sep is the ideal window.",
     heroImage:
-      'https://images.unsplash.com/photo-1549918864-48ac978761a4?w=1200&q=85&auto=format&fit=crop',
+      "https://images.unsplash.com/photo-1651127403819-6c15d8b5f589?w=1200&q=85&auto=format&fit=crop",
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Dublin&adults=2',
     rating: 4.6,
     tags: ['Cultural', 'Pubs', 'Literature', 'Music'],
@@ -953,7 +953,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     excerpt:
       "The Prado, tapas crawls through La Latina, and Retiro park siestas define the daily rhythm. Gran Via hums until dawn in a city that rarely sleeps early. -- Apr-Jun, Sep-Oct is the ideal window.",
     heroImage:
-      'https://images.unsplash.com/photo-1543353071-873f17a7a088?w=1200&q=85&auto=format&fit=crop',
+      "https://images.unsplash.com/photo-1655814695913-b78ba009ceb3?w=1200&q=85&auto=format&fit=crop",
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Madrid&adults=2',
     rating: 4.7,
     tags: ['Cultural', 'Art', 'Food', 'Nightlife'],
@@ -974,7 +974,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     excerpt:
       "The Alcazar's tilework, flamenco in Triana, and Plaza de Espana's crescent along the Guadalquivir. Orange trees shade streets built for slow evenings. -- Mar-May, Oct-Nov is the ideal window.",
     heroImage:
-      'https://images.unsplash.com/photo-1555881400-74d7acaacd8b?w=1200&q=85&auto=format&fit=crop',
+      "https://images.unsplash.com/photo-1661442196029-ecc4a8e0a0b8?w=1200&q=85&auto=format&fit=crop",
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Seville&adults=2',
     rating: 4.7,
     tags: ['Cultural', 'Architecture', 'Food', 'Flamenco'],
@@ -1016,7 +1016,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     excerpt:
       "Grand Place glistens between waffle vendors and comic-book murals. Manneken Pis keeps watch, while mussels and frites fill the brasseries nearby. -- May-Sep is the ideal window.",
     heroImage:
-      'https://images.unsplash.com/photo-1559113513-d5e09c78b9dd?w=1200&q=85&auto=format&fit=crop',
+      "https://images.unsplash.com/photo-1548092304-e0205cb0031b?w=1200&q=85&auto=format&fit=crop",
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Brussels&adults=2',
     rating: 4.5,
     tags: ['Cultural', 'Food', 'Architecture', 'Comics'],
@@ -1058,7 +1058,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     excerpt:
       "The Hermitage's gilded halls, white nights along the Neva, and Nevsky Prospect's imperial facades. Ballet at the Mariinsky keeps the grand tradition alive. -- Jun-Aug is the ideal window.",
     heroImage:
-      'https://images.unsplash.com/photo-1560969184-10fe8719e047?w=1200&q=85&auto=format&fit=crop',
+      "https://images.unsplash.com/photo-1610197361600-33a3a5073cad?w=1200&q=85&auto=format&fit=crop",
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=St.+Petersburg&adults=2',
     rating: 4.7,
     tags: ['Cultural', 'Art', 'Architecture', 'History'],
@@ -1163,7 +1163,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     excerpt:
       "The Bund's colonial facades face Pudong's neon skyline across the Huangpu. Xiaolongbao steamer baskets and Yu Garden pavilions anchor the old quarter. -- Mar-May, Oct-Nov is the ideal window.",
     heroImage:
-      'https://images.unsplash.com/photo-1537531383496-f4749b8032cf?w=1200&q=85&auto=format&fit=crop',
+      "https://images.unsplash.com/photo-1773946630119-cd7c85c7cd53?w=1200&q=85&auto=format&fit=crop",
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Shanghai&adults=2',
     rating: 4.6,
     tags: ['Urban', 'Architecture', 'Food', 'Culture'],
@@ -1205,7 +1205,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     excerpt:
       "A tech metropolis built in four decades, with Huaqiangbei's component markets and maker spaces. Mangrove wetlands and dumpling shops soften the skyline. -- Oct-Mar is the ideal window.",
     heroImage:
-      'https://images.unsplash.com/photo-1508807526345-15e9b5f4eaff?w=1200&q=85&auto=format&fit=crop',
+      "https://images.unsplash.com/photo-1522614288668-a697127e9b21?w=1200&q=85&auto=format&fit=crop",
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Shenzhen&adults=2',
     rating: 4.4,
     tags: ['Urban', 'Technology', 'Shopping', 'Food'],
@@ -1226,7 +1226,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     excerpt:
       "Canton Tower's light show, Shamian Island's colonial quiet, and the dim sum tradition that started it all. Trade-fair energy and flower markets fill the gaps. -- Oct-Mar is the ideal window.",
     heroImage:
-      'https://images.unsplash.com/photo-1547637589-f54c34f5d7a4?w=1200&q=85&auto=format&fit=crop',
+      "https://images.unsplash.com/photo-1638030339634-9cf65fb96d40?w=1200&q=85&auto=format&fit=crop",
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Guangzhou&adults=2',
     rating: 4.4,
     tags: ['Urban', 'Food', 'Culture', 'Business'],
@@ -1268,7 +1268,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     excerpt:
       "Gyeongbokgung Palace, Gangnam's K-pop pulse, and bibimbap from street stalls to Michelin tables. Bukchon hanok village preserves the Joseon-era skyline. -- Apr-Jun, Sep-Oct is the ideal window.",
     heroImage:
-      'https://images.unsplash.com/photo-1538485399081-7191377e8241?w=1200&q=85&auto=format&fit=crop',
+      "https://images.unsplash.com/photo-1546874177-9e664107314e?w=1200&q=85&auto=format&fit=crop",
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Seoul&adults=2',
     rating: 4.7,
     tags: ['Urban', 'Food', 'K-Pop', 'Culture'],
@@ -1331,7 +1331,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     excerpt:
       "Andaman swells, Patong Beach resorts, and longtail boats to Phi Phi islands. Night markets and Thai curry stalls fill the hours between dips. -- Nov-Apr is the ideal window.",
     heroImage:
-      'https://images.unsplash.com/photo-1589394815804-964ed0be2eb5?w=1200&q=85&auto=format&fit=crop',
+      "https://images.unsplash.com/photo-1684083338842-ee04a0ff8335?w=1200&q=85&auto=format&fit=crop",
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Phuket&adults=2',
     rating: 4.6,
     tags: ['Beach', 'Resort', 'Island', 'Nightlife'],
@@ -1352,7 +1352,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     excerpt:
       "Beach Road buzz, coral island day trips, and Walking Street's neon after dark. Thai seafood stalls and waterfront temples anchor the daytime pace. -- Nov-Apr is the ideal window.",
     heroImage:
-      'https://images.unsplash.com/photo-1504214208698-ea1916a2195a?w=1200&q=85&auto=format&fit=crop',
+      "https://images.unsplash.com/photo-1644902617098-45abe72a7445?w=1200&q=85&auto=format&fit=crop",
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Pattaya&adults=2',
     rating: 4.3,
     tags: ['Beach', 'Nightlife', 'Resort', 'Water Sports'],
@@ -1457,7 +1457,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     excerpt:
       "Casino towers alongside the Ruins of St. Paul, Portuguese egg tarts next to dim sum. The Cotai Strip glitters, but the Old Town's cobblestones hold the past. -- Oct-Mar is the ideal window.",
     heroImage:
-      'https://images.unsplash.com/photo-1508009603885-50cf7c579365?w=1200&q=85&auto=format&fit=crop',
+      "https://images.unsplash.com/photo-1708580175277-6c171e822f94?w=1200&q=85&auto=format&fit=crop",
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Macau&adults=2',
     rating: 4.5,
     tags: ['Urban', 'Gaming', 'Food', 'Culture'],
@@ -1646,7 +1646,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     excerpt:
       "Art Deco facades on Ocean Drive, Wynwood murals, and Cuban sandwiches in Little Havana. The Atlantic meets neon on a waterfront that never slows down. -- Dec-Apr is the ideal window.",
     heroImage:
-      'https://images.unsplash.com/photo-1506966953602-c20cc11f75e3?w=1200&q=85&auto=format&fit=crop',
+      "https://images.unsplash.com/photo-1572996045200-9ed403fb5396?w=1200&q=85&auto=format&fit=crop",
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Miami&adults=2',
     rating: 4.6,
     tags: ['Beach', 'Nightlife', 'Art', 'Food'],
@@ -1688,7 +1688,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     excerpt:
       "Theme park kingdoms, Epcot's globe, and water parks under palm trees. Convention halls and resort pools fill the gaps between roller coaster marathons. -- Mar-May, Oct-Nov is the ideal window.",
     heroImage:
-      'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=85&auto=format&fit=crop',
+      "https://images.unsplash.com/photo-1601051297657-39a9b2ce2cdc?w=1200&q=85&auto=format&fit=crop",
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Orlando&adults=2',
     rating: 4.6,
     tags: ['Adventure', 'Theme Parks', 'Family', 'Food'],
@@ -1772,7 +1772,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     excerpt:
       "Smithsonian corridors, cherry blossoms along the Tidal Basin, and marble monuments after dark. Capitol Hill and Georgetown bars share the same Potomac breeze. -- Apr-Oct is the ideal window.",
     heroImage:
-      'https://images.unsplash.com/photo-1562777717-dc6984f65a63?w=1200&q=85&auto=format&fit=crop',
+      "https://images.unsplash.com/photo-1557160854-e1e89fdd3286?w=1200&q=85&auto=format&fit=crop",
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Washington+DC&adults=2',
     rating: 4.7,
     tags: ['Cultural', 'History', 'Museums', 'Politics'],
@@ -1814,7 +1814,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     excerpt:
       "Broadway's honky-tonks, the Ryman Auditorium stage, and hot chicken from shuttered gas stations. Songwriter nights and Grand Ole Opry broadcasts keep the tempo. -- Apr-Jun, Sep-Oct is the ideal window.",
     heroImage:
-      'https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=1200&q=85&auto=format&fit=crop',
+      "https://images.unsplash.com/photo-1588897159261-328f3f53715f?w=1200&q=85&auto=format&fit=crop",
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Nashville&adults=2',
     rating: 4.7,
     tags: ['Cultural', 'Music', 'Food', 'Nightlife'],
@@ -1835,7 +1835,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     excerpt:
       "French Quarter balconies, brass bands on Bourbon Street, and gumbo simmering in cast iron. Mardi Gras beads and above-ground tombs keep the spirits lively. -- Feb-May, Oct-Nov is the ideal window.",
     heroImage:
-      'https://images.unsplash.com/photo-1544078751-58fee2d8a03b?w=1200&q=85&auto=format&fit=crop',
+      "https://images.unsplash.com/photo-1583477716463-9c485c89f6e1?w=1200&q=85&auto=format&fit=crop",
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=New+Orleans&adults=2',
     rating: 4.7,
     tags: ['Cultural', 'Music', 'Food', 'History'],
@@ -1898,7 +1898,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     excerpt:
       "Sunset cliffs, Balboa Park museums, and fish tacos from shack to harbor. Navy bases and La Jolla coves frame a city that rarely sees a cloud. -- Mar-Oct is the ideal window.",
     heroImage:
-      'https://images.unsplash.com/photo-1538097304804-2a1b932466a9?w=1200&q=85&auto=format&fit=crop',
+      "https://images.unsplash.com/photo-1617142584114-730e9bda61b2?w=1200&q=85&auto=format&fit=crop",
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=San+Diego&adults=2',
     rating: 4.7,
     tags: ['Beach', 'Military', 'Food', 'Family'],
@@ -1919,7 +1919,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     excerpt:
       "Cigar rollers in Ybor City, manatee watches on the Hillsborough, and Cuban sandwiches at historic stands. Cruise terminals and Busch Gardens round out the Gulf coast. -- Nov-Apr is the ideal window.",
     heroImage:
-      'https://images.unsplash.com/photo-1673574672395-5f8bd3c2ed5a?w=1200&q=85&auto=format&fit=crop',
+      "https://images.unsplash.com/photo-1561063139-e183e66909c4?w=1200&q=85&auto=format&fit=crop",
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Tampa&adults=2',
     rating: 4.5,
     tags: ['Beach', 'Theme Parks', 'Food', 'History'],
@@ -1940,7 +1940,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     excerpt:
       "Saguaro silhouettes, Scottsdale golf greens, and pueblo-style resorts under relentless sun. Desert Botanical Garden and Camelback trails keep the heat tolerable. -- Mar-May, Oct-Nov is the ideal window.",
     heroImage:
-      'https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=1200&q=85&auto=format&fit=crop',
+      "https://images.unsplash.com/photo-1706403222567-06fe8d8dc93e?w=1200&q=85&auto=format&fit=crop",
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Phoenix&adults=2',
     rating: 4.5,
     tags: ['Urban', 'Desert', 'Golf', 'Nature'],
@@ -2045,7 +2045,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     excerpt:
       "Concrete canyons, Japanese quarter sushi, and Paulista Avenue gallery crawls. Sunday markets at MASP and samba clubs in Vila Madalena fuel the night. -- Apr-Oct is the ideal window.",
     heroImage:
-      'https://images.unsplash.com/photo-1576485375217-d6a95e34d043?w=1200&q=85&auto=format&fit=crop',
+      "https://images.unsplash.com/photo-1561592390-42c07289e9cb?w=1200&q=85&auto=format&fit=crop",
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Sao+Paulo&adults=2',
     rating: 4.6,
     tags: ['Urban', 'Food', 'Arts', 'Nightlife'],
@@ -2066,7 +2066,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     excerpt:
       "Hassan II Mosque rising over the Atlantic, Art Deco facades fading gracefully, and pastilla from corner bakeries. Seaweed baths and souk haggling fill the margins. -- Apr-Oct is the ideal window.",
     heroImage:
-      'https://images.unsplash.com/photo-1539020140153-e479b8c22e70?w=1200&q=85&auto=format&fit=crop',
+      "https://images.unsplash.com/photo-1706203644187-a719449587bb?w=1200&q=85&auto=format&fit=crop",
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Casablanca&adults=2',
     rating: 4.5,
     tags: ['Cultural', 'Architecture', 'Food', 'History'],
@@ -2108,7 +2108,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     excerpt:
       "Apartheid Museum reckoning, Soweto streets, and Joburg's evolving Maboneng district. Gold reef legacy and shebeen bars shape a city still rewriting itself. -- May-Oct is the ideal window.",
     heroImage:
-      'https://images.unsplash.com/photo-1586350977771-b3b0abd50c82?w=1200&q=85&auto=format&fit=crop',
+      "https://images.unsplash.com/photo-1636706519609-988babca3dd5?w=1200&q=85&auto=format&fit=crop",
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Johannesburg&adults=2',
     rating: 4.6,
     tags: ['Urban', 'History', 'Culture', 'Safari'],
