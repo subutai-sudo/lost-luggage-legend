@@ -199,7 +199,7 @@ export default async function GuidePage({ params }: Props) {
                         src={r.heroImage}
                         alt={r.title}
                         fill
-                        sizes="(max-width: 639px) 100vw, (max-width: 959px) 50vw, 33vw"
+                        sizes="(max-width: 639px) calc(103.5vw - 41.4px), (max-width: 959px) calc(51.75vw - 45.54px), (min-width: 1344px) 411.24px, calc(34.5vw - 52.44px)"
                       />
                     </div>
                     <div className={styles.relatedCaption}>
