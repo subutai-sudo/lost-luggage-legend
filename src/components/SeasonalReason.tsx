@@ -1,9 +1,9 @@
-import { getSeasonalReason, type SeasonalCatalog } from '@/lib/seasonalReasons'
+import { getSeasonalReason, type SeasonalDisplayCatalog } from '@/lib/seasonalReasons'
 import { MONTH_NAMES } from '@/lib/goldilocksDiscovery'
 import styles from './SeasonalReason.module.css'
 
 interface Props {
-  catalog: SeasonalCatalog
+  catalog: SeasonalDisplayCatalog
   destinationId: string
   title: string
   month: number

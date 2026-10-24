@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import { GoldilocksHome } from '@/components/GoldilocksHome'
 import { DESTINATION_GUIDES } from '@/data/destinationGuides'
+import seasonalReasons from '@/data/seasonalReasons.json'
+import { getSeasonalDisplayCatalog, type SeasonalCatalog } from '@/lib/seasonalReasons'
 import { BEST_MONTHS } from '@/lib/seasonalHelpers'
 import { siteUrl } from '@/lib/site'
 
@@ -28,5 +30,7 @@ export default function Home() {
   }))
   // Useful server-rendered content; the client synchronizes to the visitor's
   // local month (or an explicit ?month=) without a hydration mismatch.
-  return <GoldilocksHome guides={guides} initialMonth={now.getUTCMonth() + 1} year={now.getUTCFullYear()} />
+  // Only the renderable projection crosses the client boundary.
+  const seasonalCatalog = getSeasonalDisplayCatalog(seasonalReasons as SeasonalCatalog)
+  return <GoldilocksHome guides={guides} initialMonth={now.getUTCMonth() + 1} year={now.getUTCFullYear()} seasonalCatalog={seasonalCatalog} />
 }
