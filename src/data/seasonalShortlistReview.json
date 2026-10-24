@@ -1,0 +1,1037 @@
+{
+  "schemaVersion": 1,
+  "baselineCommit": "289fed62aff6a5b3d503f2c5d630dcd34b0c1f7b",
+  "checkedAt": "2026-10-24",
+  "records": [
+    {
+      "month": 1,
+      "originalDestinationId": "maldives",
+      "decision": "revise",
+      "finalDestinationId": "maldives",
+      "rationale": "Preserve the January lead: the meteorological service explicitly puts January in the dry northeast monsoon and supports more sunshine, lingering humidity/showers and wetter southern atolls. The existing weather copy is sound, not an obviously poor pick. Add the missing demand distinction: the 2018–2022 ministry report identifies November–March as historical peak occupancy; good beach weather does not demonstrate low crowds or value. No current price or resort-level crowd claim is substantiated.",
+      "confidence": "high",
+      "why": "The northeast monsoon usually brings the drier, sunnier part of the year for an island escape.",
+      "tradeoff": "Historically a peak-demand month, not a quiet-season guarantee; humidity and showers remain, especially toward the wetter southern atolls.",
+      "sourceIds": [
+        "q1-maldives-climate",
+        "q1-maldives-demand"
+      ]
+    },
+    {
+      "month": 1,
+      "originalDestinationId": "cape-town",
+      "decision": "retain",
+      "finalDestinationId": "cape-town",
+      "rationale": "Retain exact baseline copy. Cape Town Tourism explicitly supports January’s long, warm, mostly dry days, possible heat/wind, peak season and busy attractions. The visible peak-season tradeoff already prevents presenting it as low-crowd/value shoulder season. Outdoor/beach suitability is genuine despite the demand tradeoff; no exact temperatures, savings or event dates need adding.",
+      "confidence": "high",
+      "why": "Long, warm summer days and mostly dry weather leave plenty of daylight for beaches and outdoor exploring.",
+      "tradeoff": "January is peak season: attractions can be busy, and heat or strong wind can complicate outdoor plans.",
+      "sourceIds": [
+        "q1-cape-town-seasons"
+      ]
+    },
+    {
+      "month": 1,
+      "originalDestinationId": "mexico-city",
+      "decision": "retain",
+      "finalDestinationId": "mexico-city",
+      "rationale": "Retain exact baseline copy. The government tourism page establishes rainier summers and explicitly groups January in December–February winter, with occasional near-freezing mornings/nights and intense sunlight. It prefers spring/fall for avoiding both cold and rain, so January is a defensible drier-weather city choice with a real cold-start limitation, not a claim of perfect mildness. Neither existing card sentence claims low crowds or savings; the source does not substantiate those.",
+      "confidence": "high",
+      "why": "Winter is less rainy than summer, leaving more room for exploring the city's parks and streets.",
+      "tradeoff": "Highland nights and early mornings can approach freezing; daytime sunlight can still be intense.",
+      "sourceIds": [
+        "q1-mexico-city-seasons"
+      ]
+    },
+    {
+      "month": 1,
+      "originalDestinationId": "sydney",
+      "decision": "revise",
+      "finalDestinationId": "sydney",
+      "rationale": "Keep the January beach pick: Tourism Australia directly supports warm December–February summer and warmer sea temperatures, plus humidity, rain and sun protection. The destination guide explicitly calls November–February high season. Existing weather claims are supported, but add that missing high-season caveat rather than rejecting a legitimate summer beach month. No low-crowd or low-price conclusion follows from good beach weather.",
+      "confidence": "high",
+      "why": "Summer warmth and warmer sea temperatures make Sydney's beaches a natural seasonal draw.",
+      "tradeoff": "January is high season, not a quiet beach escape; summer humidity, rain and strong sun still shape outdoor plans.",
+      "sourceIds": [
+        "q1-sydney-weather",
+        "q1-sydney-high-season"
+      ]
+    },
+    {
+      "month": 1,
+      "originalDestinationId": "bangkok",
+      "decision": "revise",
+      "finalDestinationId": "bangkok",
+      "rationale": "Retain Bangkok's comparatively dry sightseeing window with substantial heat caveats. Historical 1961–1990 city normals support broad seasonality, not present conditions. No current rate or value claim is made: dated national guidance does not establish Bangkok prices for the reader's dates.",
+      "confidence": "medium",
+      "why": "January is in Bangkok's comparatively dry stretch, making outdoor temple and neighborhood exploring easier to plan.",
+      "tradeoff": "Drier does not mean cool: substantial daytime heat calls for shade breaks, and these historical normals do not predict your dates.",
+      "sourceIds": [
+        "q1-bangkok-normals"
+      ]
+    },
+    {
+      "month": 1,
+      "originalDestinationId": "buenos-aires",
+      "decision": "replace",
+      "finalDestinationId": "queenstown",
+      "rationale": "Replace only this slot with Queenstown. Buenos Aires’ own page places January in humid summer: even mornings are hot, midday heat rises sharply, and nights offer only slight relief. The existing caveat is truthful but the warm-evening rationale does not establish a strong Goldilocks sightseeing choice. Queenstown’s official December–February window explicitly includes January and supports long-day lake/trail activities, while honestly flagging peak season and possible hot afternoons. Existing guide confirmed; BEST_MONTHS queenstown=[12,1,2,3] includes 1. This is an activity-season improvement, not a cheaper/empty destination claim.",
+      "confidence": "high",
+      "why": "January’s long summer days suit Queenstown’s lake activities, cycling routes and walking trails.",
+      "tradeoff": "Summer is peak season, not a quiet-value escape; hot afternoons, strong sun and cooler evenings call for planning and layers.",
+      "sourceIds": [
+        "q1-queenstown-seasons",
+        "q1-queenstown-summer"
+      ],
+      "auditSourceIds": [
+        "q1-buenos-aires-climate",
+        "q1-queenstown-seasons",
+        "q1-queenstown-summer"
+      ]
+    },
+    {
+      "month": 2,
+      "originalDestinationId": "cape-town",
+      "decision": "retain",
+      "finalDestinationId": "cape-town",
+      "rationale": "Preserve the February lead and exact baseline copy. The primary January/February section directly supports mostly dry summer, long days, heat/wind and a modest easing after January: “By February, things have calmed down a little, but it’s still quite busy.” Therefore the existing relative holiday-rush claim is supported, not invented. Do not turn this into crowd-free conditions or quantified cheaper rates.",
+      "confidence": "high",
+      "why": "Summer's long, mostly dry days continue, with the January holiday rush beginning to ease.",
+      "tradeoff": "It is still busy, and summer heat and wind can make outdoor plans less comfortable.",
+      "sourceIds": [
+        "q1-cape-town-seasons"
+      ]
+    },
+    {
+      "month": 2,
+      "originalDestinationId": "maldives",
+      "decision": "revise",
+      "finalDestinationId": "maldives",
+      "rationale": "Keep the strong dry-season island pick. February is explicitly inside the MMS January–March dry monsoon; higher northeast-season sunshine, year-round humidity and showery rainfall validate existing weather copy. Add historical peak demand from the ministry’s 2018–2022 occupancy discussion, rather than implying the favourable weather validates quietness or value. No current prices, savings or island-level visitor density are established.",
+      "confidence": "high",
+      "why": "February sits in the northeast dry monsoon, with more sunshine than the wetter southwest season.",
+      "tradeoff": "Dry season is not rain-free and humidity persists; February is historically a peak-demand month, not a quiet-value window.",
+      "sourceIds": [
+        "q1-maldives-climate",
+        "q1-maldives-demand"
+      ]
+    },
+    {
+      "month": 2,
+      "originalDestinationId": "mexico-city",
+      "decision": "retain",
+      "finalDestinationId": "mexico-city",
+      "rationale": "Retain exact baseline copy. The official page supports the contrast with rainier summers and explicitly names February as winter, with cold early mornings/nights and strong sunlight. The rationale is fewer rain interruptions, not reliably warm nights. No unsupported crowd, hotel-price or savings claim appears in the existing copy, and none is inferred from weather evidence.",
+      "confidence": "high",
+      "why": "The less-rainy winter season favors outdoor sightseeing before summer's heavier showers.",
+      "tradeoff": "February is still winter: bring layers for cold mornings and nights, plus protection from strong sun.",
+      "sourceIds": [
+        "q1-mexico-city-seasons"
+      ]
+    },
+    {
+      "month": 2,
+      "originalDestinationId": "sydney",
+      "decision": "revise",
+      "finalDestinationId": "sydney",
+      "rationale": "Keep the warm-water summer beach rationale. Tourism Australia’s table really does show greater rainfall volume in February than December or January; it lists the same rain-day count, so do not claim more rainy days. The original humidity/rain statement is supported, but the Sydney guide calls February high season too. Add that demand limitation without treating peak beach season as disqualifying or claiming a current rate premium.",
+      "confidence": "high",
+      "why": "Warm summer days and sea temperatures keep beach outings firmly in season.",
+      "tradeoff": "February remains high season; humidity persists and the climate table shows more rain than December or January.",
+      "sourceIds": [
+        "q1-sydney-weather",
+        "q1-sydney-high-season"
+      ]
+    },
+    {
+      "month": 2,
+      "originalDestinationId": "bangkok",
+      "decision": "revise",
+      "finalDestinationId": "bangkok",
+      "rationale": "Retain Bangkok's comparatively dry sightseeing window with substantial heat caveats. Historical 1961–1990 city normals support broad seasonality, not present conditions. No current rate or value claim is made: dated national guidance does not establish Bangkok prices for the reader's dates.",
+      "confidence": "medium",
+      "why": "February is still much less rainy than the monsoon months, favoring outdoor sightseeing.",
+      "tradeoff": "Heat builds toward the hot season, with warmer nights than January; this is not a cool-weather city break.",
+      "sourceIds": [
+        "q1-bangkok-normals",
+        "q1-thailand-february"
+      ]
+    },
+    {
+      "month": 2,
+      "originalDestinationId": "buenos-aires",
+      "decision": "replace",
+      "finalDestinationId": "patagonia",
+      "rationale": "Replace only this slot with Patagonia. February is explicitly in Buenos Aires’ humid summer, with significant midday heat and only slight night relief. An honest heat caveat cannot make warm evenings alone a strong general sightseeing sweet spot. Argentine and Chilean official tourism pages both include February in their outdoor/mountain/glacier windows; the southern-Chile source supports longer daylight and warns about wind/rain. Existing Argentina & Chile guide confirmed; BEST_MONTHS patagonia=[12,1,2,3] includes 2. Keep peak-season and weather caveats; do not promise empty trails, savings or universal access.",
+      "confidence": "high",
+      "why": "February falls in Patagonia’s main outdoor season, with longer days for mountain walks and glacier visits.",
+      "tradeoff": "This is peak travel season, not a quiet bargain window; wind, rain and cool conditions still call for waterproof, warm layers.",
+      "sourceIds": [
+        "q1-patagonia-argentina",
+        "q1-patagonia-chile",
+        "q1-patagonia-conditions"
+      ],
+      "auditSourceIds": [
+        "q1-buenos-aires-climate",
+        "q1-patagonia-argentina",
+        "q1-patagonia-chile",
+        "q1-patagonia-conditions"
+      ]
+    },
+    {
+      "month": 3,
+      "originalDestinationId": "kyoto",
+      "decision": "revise",
+      "finalDestinationId": "kyoto",
+      "rationale": "Preserve the March lead. Kyoto’s official spring section says warming begins from mid-March and successive flowers begin with plum; its clothing page specifically requires a thick coat in March. The existing cautious bloom/temperature wording is supported. Add the important crowd limitation: JNTO explicitly says Kyoto can get busy in March. Do not sell the whole month as warm, quietly priced or guaranteed cherry blossom time; timing varies by year and later flowers are not all March blooms.",
+      "confidence": "high",
+      "why": "Spring starts to unfold, with successive seasonal flowers and gradually warming days for exploring temple grounds.",
+      "tradeoff": "March can still need a thick coat, and spring draws visitors; do not assume warm days, quiet temples or cherry blossoms on your dates.",
+      "sourceIds": [
+        "q1-kyoto-seasons",
+        "q1-kyoto-clothing",
+        "q1-japan-march"
+      ]
+    },
+    {
+      "month": 3,
+      "originalDestinationId": "marrakech",
+      "decision": "retain",
+      "finalDestinationId": "marrakech",
+      "rationale": "Retain exact baseline copy. The actual WMO/Moroccan national-service 1991–2020 table shows March substantially milder by day than July/August, cool nights and meaningful rainfall. This supports medina-walking appeal without claiming reliable dryness. The existing card makes no crowd, price or savings claim; climate normals cannot establish any of those.",
+      "confidence": "high",
+      "why": "Spring days are much milder than midsummer, making medina walks a less heat-heavy prospect.",
+      "tradeoff": "Nights are cool and March has appreciable rainfall; spring does not mean reliably dry weather.",
+      "sourceIds": [
+        "q1-marrakech-normals"
+      ]
+    },
+    {
+      "month": 3,
+      "originalDestinationId": "tokyo",
+      "decision": "revise",
+      "finalDestinationId": "tokyo",
+      "rationale": "Keep March’s early-spring city rationale, but change provenance and caveat. GO TOKYO repeatedly returned 502 via extraction and browser, so no search-snippet-only claims are accepted. Actually retrieved JNTO March guidance supports warming compared with February, sudden temperature drops and variable late-month flowering. The official Ueno page directly documents late-March/early-April blossom crowds at a major Tokyo hotspot. Add that crowd/bloom limitation to the existing cold-season warning; do not label the whole city/month quiet or guarantee flowers.",
+      "confidence": "high",
+      "why": "Spring begins to replace winter, opening up the season for park and neighborhood walks.",
+      "tradeoff": "March temperatures can drop suddenly; late-month blossom hotspots draw crowds, and flowering is not guaranteed on your dates.",
+      "sourceIds": [
+        "q1-japan-march",
+        "q1-tokyo-ueno"
+      ]
+    },
+    {
+      "month": 3,
+      "originalDestinationId": "maldives",
+      "decision": "revise",
+      "finalDestinationId": "maldives",
+      "rationale": "Keep March’s dry-season beach suitability. MMS explicitly includes March in the northeast dry monsoon and starts the warmest annual period in March; year-round humidity and possible showers validate the original caveat. Add that historical ministry occupancy seasonality also puts March in peak demand. This is a weather-led island choice, not evidence of low crowds or bargains; the 2018–2022 historical demand series is not a forecast.",
+      "confidence": "high",
+      "why": "March is still in the northeast dry monsoon, giving beach plans a sunnier seasonal backdrop.",
+      "tradeoff": "March begins the warmest stretch, with humidity and possible showers; it is also historically peak demand, not a quiet-value month.",
+      "sourceIds": [
+        "q1-maldives-climate",
+        "q1-maldives-demand"
+      ]
+    },
+    {
+      "month": 3,
+      "originalDestinationId": "cape-town",
+      "decision": "retain",
+      "finalDestinationId": "cape-town",
+      "rationale": "Retain exact baseline copy. Cape Town Tourism explicitly identifies March as the start of shoulder season after summer holiday crowds leave, with lingering warm conditions. It warns that big-event weekends can be busy and fill accommodation, so both the relative crowd benefit and existing event caveat are supported. Event dates and current availability must still be checked; no fixed savings or blanket quiet-month promise is validated.",
+      "confidence": "high",
+      "why": "March starts the shoulder season, pairing lingering warmth with fewer summer-holiday visitors.",
+      "tradeoff": "Major event weekends can still fill accommodation and bring busy attractions; check your dates.",
+      "sourceIds": [
+        "q1-cape-town-seasons"
+      ]
+    },
+    {
+      "month": 3,
+      "originalDestinationId": "mexico-city",
+      "decision": "retain",
+      "finalDestinationId": "mexico-city",
+      "rationale": "Retain exact baseline copy. The official page explicitly places March in its pleasant March–May spring window, with warm afternoons and cooler evenings, before the heavier summer rainy period. It also warns of strong sunlight year-round. This is stronger mild-sightseeing evidence than for winter’s cold starts. No baseline crowd/value claim requires repair, and no lower prices or visitor-count claims are inferred.",
+      "confidence": "high",
+      "why": "Spring brings pleasant, warm afternoons before the heavier summer rains.",
+      "tradeoff": "Evenings are cooler than afternoons, and direct sunlight can be intense even when the air feels mild.",
+      "sourceIds": [
+        "q1-mexico-city-seasons"
+      ]
+    },
+    {
+      "month": 4,
+      "originalDestinationId": "marrakech",
+      "decision": "retain",
+      "finalDestinationId": "marrakech",
+      "rationale": "Preserve April lead. April’s 1991–2020 average high is far below July/August, while nights and rain justify the existing caveat. No crowd or value promise is needed.",
+      "confidence": "high",
+      "why": "Warm spring afternoons offer a gentler alternative to Marrakech's fierce midsummer heat.",
+      "tradeoff": "Rain remains possible and nights are noticeably cooler, so pack layers as well as sun protection.",
+      "sourceIds": [
+        "q2-marrakech-wmo"
+      ]
+    },
+    {
+      "month": 4,
+      "originalDestinationId": "kyoto",
+      "decision": "revise",
+      "finalDestinationId": "kyoto",
+      "rationale": "Retain this popular but genuinely good flower-and-walking month. Add variable bloom timing and the late-April Golden Week edge; seasonal appeal does not require a quiet-season claim.",
+      "confidence": "high",
+      "why": "Mild spring weather and seasonal flowers make temple gardens especially appealing.",
+      "tradeoff": "Blossom timing varies and spring is popular; late April also meets Golden Week. Bring layers for cool mornings and evenings.",
+      "sourceIds": [
+        "q2-kyoto-seasons",
+        "q2-kyoto-clothing",
+        "q2-jnto-may"
+      ]
+    },
+    {
+      "month": 4,
+      "originalDestinationId": "tokyo",
+      "decision": "revise",
+      "finalDestinationId": "tokyo",
+      "rationale": "Keep April on independently retrieved JMA city normals: milder than summer but with meaningful rain and cool nights. GO TOKYO returned 502, so replace its unvalidated blossom-event wording with verified climate and holiday context.",
+      "confidence": "high",
+      "why": "April’s spring temperatures favor park and neighborhood walks before Tokyo’s hotter, more humid summer.",
+      "tradeoff": "Rain and cool evenings still need planning; late April begins busy Golden Week, so book key transport and stays ahead.",
+      "sourceIds": [
+        "q2-tokyo-jma",
+        "q2-jnto-may"
+      ]
+    },
+    {
+      "month": 4,
+      "originalDestinationId": "maldives",
+      "decision": "replace",
+      "finalDestinationId": "barcelona",
+      "rationale": "Recommend Barcelona for the six-slot shortlist, not a global Maldives ban. MMS explicitly puts April in the warmest, monsoon-transition period: warmth alone is a weak seasonal discriminator. Barcelona has verified mild April conditions and a precise-month cultural draw, Sant Jordi on 23 April. It adds a clearer sightseeing-season rationale without pretending to beat every traveller’s preferred beach holiday. Barcelona already has a guide and April BEST_MONTHS eligibility.",
+      "confidence": "medium",
+      "why": "Mild April weather suits city walks before summer heat, and Sant Jordi fills Barcelona with books and roses on 23 April.",
+      "tradeoff": "Cool evenings and spring rain remain possible; Sant Jordi is a lively street celebration, not a quiet-city promise.",
+      "sourceIds": [
+        "q2-barcelona-aemet",
+        "q2-barcelona-sant-jordi"
+      ],
+      "auditSourceIds": [
+        "q2-maldives-mms",
+        "q2-barcelona-aemet",
+        "q2-barcelona-sant-jordi"
+      ]
+    },
+    {
+      "month": 4,
+      "originalDestinationId": "bali",
+      "decision": "revise",
+      "finalDestinationId": "bali",
+      "rationale": "Retain with a boundary caveat rather than replace reflexively. Unlike Maldives April, official Indonesian guidance places April at the beginning of Bali’s usual dry-season window, a real seasonal direction of improvement. Keep confidence moderate because boundaries are variable and no Bali-specific monthly rainfall series was retrieved. Remove dependence on airline commentary.",
+      "confidence": "medium",
+      "why": "April begins Bali’s usual April–October drier-season window, making outdoor sightseeing and beach time a plausible seasonal focus.",
+      "tradeoff": "Season boundaries are less predictable and humidity stays high; allow for showers rather than treating April as settled dry-season weather.",
+      "sourceIds": [
+        "q2-bali-official-climate"
+      ]
+    },
+    {
+      "month": 4,
+      "originalDestinationId": "mexico-city",
+      "decision": "retain",
+      "finalDestinationId": "mexico-city",
+      "rationale": "Official city guidance explicitly includes April within pleasant March–May spring, before summer’s heavier rain. Existing warm-afternoon, cooler-evening and strong-sun wording is supported. No guaranteed jacaranda timing is added.",
+      "confidence": "high",
+      "why": "Warm spring afternoons make outdoor exploring appealing before the summer rainy season.",
+      "tradeoff": "Cooler evenings call for layers, while strong daytime sun calls for shade and sunscreen.",
+      "sourceIds": [
+        "q2-mexico-city-seasons"
+      ]
+    },
+    {
+      "month": 5,
+      "originalDestinationId": "amalfi-coast",
+      "decision": "revise",
+      "finalDestinationId": "amalfi-coast",
+      "rationale": "Preserve May lead. Italia.it explicitly recommends spring for the Path of the Gods because it is less hot. Replace May bus-queue and detailed weather claims that were only commercial in the baseline with the primary source’s real hiking-suitability limitation. No quieter-than-summer guarantee is required.",
+      "confidence": "high",
+      "why": "May’s spring conditions suit coastal walking; the official Path of the Gods guidance favors spring over hotter summer weather.",
+      "tradeoff": "A good season does not make every walk suitable: the Path of the Gods is not recommended for people with vertigo. Choose routes to suit your ability.",
+      "sourceIds": [
+        "q2-amalfi-hiking"
+      ]
+    },
+    {
+      "month": 5,
+      "originalDestinationId": "lisbon",
+      "decision": "retain",
+      "finalDestinationId": "lisbon",
+      "rationale": "Tourism guidance and exact May IPMA normals corroborate mild city-walking appeal with appreciable spring rain and cooler nights. It is a weather-based pick, not an independently established saving or low-crowd window.",
+      "confidence": "high",
+      "why": "Mild spring days make May appealing for exploring Lisbon on foot before the hotter summer months.",
+      "tradeoff": "Spring showers remain possible and evenings are cooler; bring a light layer and a wet-weather option.",
+      "sourceIds": [
+        "q2-lisbon-tourism",
+        "q2-lisbon-ipma"
+      ]
+    },
+    {
+      "month": 5,
+      "originalDestinationId": "kyoto",
+      "decision": "retain",
+      "finalDestinationId": "kyoto",
+      "rationale": "May remains a strong spring sightseeing choice before early-June to mid-July rains. Existing Golden Week warning is important and accurate; do not replace it with a month-wide calmness claim or imply the rain season starts on a fixed day.",
+      "confidence": "high",
+      "why": "Mild spring conditions favor walking and temple visits before the main June–July rainy season.",
+      "tradeoff": "Early May overlaps Golden Week, when trains and hotels fill; the whole month is not a quiet shoulder season.",
+      "sourceIds": [
+        "q2-kyoto-seasons",
+        "q2-jnto-may",
+        "q2-kyoto-clothing"
+      ]
+    },
+    {
+      "month": 5,
+      "originalDestinationId": "marrakech",
+      "decision": "retain",
+      "finalDestinationId": "marrakech",
+      "rationale": "May’s monthly normals are markedly drier than March/April and less hot than July/August, but the average high is already about 29°C. Existing heat trade-off handles the real compromise without exaggerating all-day comfort.",
+      "confidence": "high",
+      "why": "May is usually drier than early spring while still less hot than July and August.",
+      "tradeoff": "Daytime warmth is already substantial; schedule shade breaks rather than expecting all-day mildness.",
+      "sourceIds": [
+        "q2-marrakech-wmo"
+      ]
+    },
+    {
+      "month": 5,
+      "originalDestinationId": "santorini",
+      "decision": "revise",
+      "finalDestinationId": "santorini",
+      "rationale": "Retain late-spring caldera and village appeal. Primary tourism guidance names May and advises layers, but does not isolate cool breezes to early May. Replace that narrow claim with cold-day/evening uncertainty and the moveable Easter holiday caveat; Easter affects May only in some years.",
+      "confidence": "high",
+      "why": "Milder late-spring weather favors caldera walks and village exploring before the peak summer rush.",
+      "tradeoff": "Cold days and late nights can still need a warm layer; check Orthodox Easter dates, when spring holiday crowds can increase.",
+      "sourceIds": [
+        "q2-santorini-spring",
+        "q2-santorini-caldera"
+      ]
+    },
+    {
+      "month": 5,
+      "originalDestinationId": "tokyo",
+      "decision": "revise",
+      "finalDestinationId": "tokyo",
+      "rationale": "Keep May: retrieved JMA normals directly support warm spring days before summer heat/humidity, and JNTO validates the Golden Week warning. Remove the unverified greenery wording because GO TOKYO could not be retrieved. Later May is calmer nationally, not necessarily quiet in Tokyo.",
+      "confidence": "high",
+      "why": "Warm May days favor neighborhood walks before Tokyo’s main summer heat, higher humidity and June rainy season.",
+      "tradeoff": "Early May overlaps busy Golden Week; rain is still possible and cooler mornings and evenings call for a layer.",
+      "sourceIds": [
+        "q2-tokyo-jma",
+        "q2-jnto-may"
+      ]
+    },
+    {
+      "month": 6,
+      "originalDestinationId": "santorini",
+      "decision": "revise",
+      "finalDestinationId": "santorini",
+      "rationale": "Preserve June lead. National/Aegean climate context and the actual Santorini caldera route support warm-season island exploring with a substantial heat caveat. Remove the commercial-source July–August peak comparison rather than claiming a measured quiet window. June can stay as a summer pick without pretending to be crowd-free.",
+      "confidence": "medium",
+      "why": "June falls in Greece’s warm, drier season, pairing caldera views with early-summer island exploring.",
+      "tradeoff": "Summer heat can make exposed walks unsafe: start very early or skip them when conditions are unsuitable. Early summer is not a quiet-island guarantee.",
+      "sourceIds": [
+        "q2-greece-hnms-climate",
+        "q2-santorini-caldera"
+      ]
+    },
+    {
+      "month": 6,
+      "originalDestinationId": "lisbon",
+      "decision": "retain",
+      "finalDestinationId": "lisbon",
+      "rationale": "June’s 1991–2020 normals are warmer and much drier than May, but include several days reaching at least 30°C on average. Existing heat caveat is warranted; Atlantic influence does not make all-day sightseeing reliably mild.",
+      "confidence": "high",
+      "why": "June is usually warmer and much drier than spring, giving outdoor sightseeing more room in the itinerary.",
+      "tradeoff": "Hot days still occur despite the Atlantic influence; plan breaks rather than assuming every walk will feel mild.",
+      "sourceIds": [
+        "q2-lisbon-ipma",
+        "q2-lisbon-tourism"
+      ]
+    },
+    {
+      "month": 6,
+      "originalDestinationId": "amalfi-coast",
+      "decision": "revise",
+      "finalDestinationId": "amalfi-coast",
+      "rationale": "Retain, but give June an exact-month primary-source cultural anchor: Amalfi’s recurring St Andrew feast on 27 June. Free official sources retrieved here do not establish the baseline’s June sea-swimming claim, so replace it instead of recycling commercial weather. Official summer-crowd and cooler-season hiking guidance retain honest trade-offs. Festival-specific appeal applies around the date, not the whole month.",
+      "confidence": "high",
+      "why": "June pairs coastal exploring with Amalfi’s annual St Andrew celebrations on 27 June, adding a local cultural reason to visit.",
+      "tradeoff": "Summer brings crowds, and coastal trails can be hot; the Path of the Gods is recommended in cooler spring or autumn. Check the festival programme for your dates.",
+      "sourceIds": [
+        "q2-amalfi-st-andrew",
+        "q2-amalfi-off-season",
+        "q2-amalfi-hiking"
+      ]
+    },
+    {
+      "month": 6,
+      "originalDestinationId": "bali",
+      "decision": "revise",
+      "finalDestinationId": "bali",
+      "rationale": "Retain a well-supported dry-season interior month. The Ministry explicitly includes June in April–October; no official July–August demand series or Bali highland rainfall comparison was retrieved. Remove those extra claims and retain variability/humidity instead.",
+      "confidence": "high",
+      "why": "June lies within Bali’s usual April–October dry season, making beach time and outdoor exploring a sensible seasonal focus.",
+      "tradeoff": "Dry season does not guarantee dry days: regional conditions and season timing vary, and tropical humidity remains high.",
+      "sourceIds": [
+        "q2-bali-official-climate"
+      ]
+    },
+    {
+      "month": 6,
+      "originalDestinationId": "iceland",
+      "decision": "retain",
+      "finalDestinationId": "iceland",
+      "rationale": "June’s extremely long daylight is a strong, actual seasonal benefit, not generic reassurance. Both official pages qualify Highland access by conditions and give differing typical opening ranges; existing late-June/early-July caveat is conservative. Do not describe all roads as open or summer as quiet.",
+      "confidence": "high",
+      "why": "June’s exceptionally long daylight gives South Coast drives and outdoor sightseeing plenty of breathing room.",
+      "tradeoff": "Highland roads may not open until late June or early July; cool, windy weather still calls for layers.",
+      "sourceIds": [
+        "q2-iceland-summer",
+        "q2-iceland-south"
+      ]
+    },
+    {
+      "month": 6,
+      "originalDestinationId": "amsterdam",
+      "decision": "revise",
+      "finalDestinationId": "amsterdam",
+      "rationale": "Retain with a destination-and-month-specific reason: the official page explicitly places the annual Open Garden Days in June. Keep weather uncertainty; check event dates instead of implying gardens are accessible all month or future event dates are fixed. No crowd or savings claim is added.",
+      "confidence": "high",
+      "why": "June’s annual Open Garden Days offer a seasonal chance to explore normally hidden canal-house gardens.",
+      "tradeoff": "Rainy spells and heatwaves remain possible. Check the event’s few operating days; many gardens have stairs and are not wheelchair accessible.",
+      "sourceIds": [
+        "q2-amsterdam-gardens",
+        "q2-netherlands-weather"
+      ]
+    },
+    {
+      "month": 7,
+      "originalDestinationId": "bali",
+      "decision": "retain",
+      "finalDestinationId": "bali",
+      "rationale": "Keep the July lead. Official dry-season timing plus month-specific supplementary guidance supports outdoor appeal; the existing trade-off already admits high demand. Peak popularity does not invalidate a weather-led choice.",
+      "confidence": "high",
+      "why": "July is typically one of Bali’s drier months, making beach time and outdoor sightseeing an appealing focus.",
+      "tradeoff": "July is also a busy travel month, with higher demand for accommodation and popular attractions.",
+      "sourceIds": [
+        "q3-bali-official",
+        "q3-bali-months"
+      ]
+    },
+    {
+      "month": 7,
+      "originalDestinationId": "iceland",
+      "decision": "retain",
+      "finalDestinationId": "iceland",
+      "rationale": "Long July daylight and the main outdoor-access season are substantive benefits. Existing peak-season and weather caveats are appropriate; seasonal Highland trips must not imply every route is open or suitable for ordinary cars.",
+      "confidence": "high",
+      "why": "July is traditionally Iceland’s warmest month, with long daylight and the main summer window for hiking and Highland trips.",
+      "tradeoff": "This is peak travel season; popular sights can be busy, and wind or rain can still change outdoor plans.",
+      "sourceIds": [
+        "q3-iceland-summer"
+      ]
+    },
+    {
+      "month": 7,
+      "originalDestinationId": "amsterdam",
+      "decision": "retain",
+      "finalDestinationId": "amsterdam",
+      "rationale": "A defensible temperate summer city/outdoor option with parks and terraces, rather than a claim of ideal daily weather. The existing rain/heatwave caveat accurately prevents a mild-or-dry guarantee.",
+      "confidence": "high",
+      "why": "Summer weather puts Amsterdam’s parks, urban beaches and outdoor cinema on the itinerary.",
+      "tradeoff": "Dutch summer is changeable: rainy stretches and heatwaves can both occur, so do not count on terrace weather every day.",
+      "sourceIds": [
+        "q3-amsterdam-summer",
+        "q3-netherlands-weather"
+      ]
+    },
+    {
+      "month": 7,
+      "originalDestinationId": "athens",
+      "decision": "replace",
+      "finalDestinationId": "helsinki",
+      "rationale": "Replace with Helsinki. The selection code confirms Athens is alphabetic fallback, not a bespoke seasonal priority. Official Athens advice centers avoiding substantial daytime heat; Helsinki has specific July daylight, island and coastal-outdoor appeal. This is an editorial fit judgment, not proof of cheaper travel or fewer visitors.",
+      "confidence": "high",
+      "why": "Long July daylight makes Helsinki’s coastal paths, parks and summer island ferries especially appealing for outdoor exploring.",
+      "tradeoff": "Evenings by the sea can be cool; pack layers and rain protection, and check restaurant openings during July holidays.",
+      "sourceIds": [
+        "q3-helsinki-seasonal",
+        "q3-helsinki-months"
+      ],
+      "auditSourceIds": [
+        "q3-athens-heat",
+        "q3-athens-summer",
+        "q3-helsinki-seasonal",
+        "q3-helsinki-months"
+      ]
+    },
+    {
+      "month": 7,
+      "originalDestinationId": "berlin",
+      "decision": "retain",
+      "finalDestinationId": "berlin",
+      "rationale": "Lakes, cycling and long warm evenings give July a genuine outdoor rationale. The existing heat/rain caveat remains material. Retain a popular summer destination rather than requiring every selection to be shoulder season.",
+      "confidence": "high",
+      "why": "Warm summer days and long evenings suit cycling, lakeside outings and Berlin’s outdoor street life.",
+      "tradeoff": "Summer can be hot and rain remains possible; plan shade and indoor options instead of expecting mild days throughout.",
+      "sourceIds": [
+        "q3-berlin-weather"
+      ]
+    },
+    {
+      "month": 7,
+      "originalDestinationId": "bordeaux",
+      "decision": "replace",
+      "finalDestinationId": "edinburgh",
+      "rationale": "Replace with Edinburgh in July. Bordeaux has real summer riverside appeal but the cited evidence is mainly heat mitigation, without a distinctive July advantage. It is also alphabetic fallback. Edinburgh has month-specific temperate station normals, long summer daylight and city/hill walks; rain and summer demand remain explicit. Do not transfer this July decision to Edinburgh August or invent savings.",
+      "confidence": "medium",
+      "why": "July pairs long summer daylight with typically temperate conditions for exploring Edinburgh’s historic streets, parks and viewpoints.",
+      "tradeoff": "Rain and cool evenings are normal possibilities, and summer is busy; pack waterproof layers and book key sights ahead.",
+      "sourceIds": [
+        "q3-edinburgh-met",
+        "q3-edinburgh-tourism",
+        "q3-edinburgh-festivals"
+      ],
+      "auditSourceIds": [
+        "q3-bordeaux-heat",
+        "q3-edinburgh-met",
+        "q3-edinburgh-tourism",
+        "q3-edinburgh-festivals"
+      ]
+    },
+    {
+      "month": 8,
+      "originalDestinationId": "maasai-mara",
+      "decision": "retain",
+      "finalDestinationId": "maasai-mara",
+      "rationale": "Keep the August lead. Official July–October Mara timing includes August, but the migration follows grazing/water, not a calendar appointment. The baseline already avoids guaranteeing sightings/crossings; a historical reserve-manager account demonstrates rain can interrupt crossings even during August.",
+      "confidence": "high",
+      "why": "August falls in the usual Mara migration window, when moving herds can add drama to wildlife viewing.",
+      "tradeoff": "Rain and grazing shift herd movements each year; migration sightings and river crossings cannot be guaranteed.",
+      "sourceIds": [
+        "q3-mara-migration",
+        "q3-mara-observation"
+      ]
+    },
+    {
+      "month": 8,
+      "originalDestinationId": "bali",
+      "decision": "retain",
+      "finalDestinationId": "bali",
+      "rationale": "August remains a well-supported dry-season outdoor choice. Its existing wording admits busy demand and possible rain, so no popularity-based replacement is justified.",
+      "confidence": "high",
+      "why": "August’s usual dry-season weather creates good opportunities for beach days and outdoor adventures.",
+      "tradeoff": "This is part of Bali’s busiest dry-season travel period; expect high demand, and do not assume rain-free days.",
+      "sourceIds": [
+        "q3-bali-official",
+        "q3-bali-months"
+      ]
+    },
+    {
+      "month": 8,
+      "originalDestinationId": "iceland",
+      "decision": "retain",
+      "finalDestinationId": "iceland",
+      "rationale": "August still offers substantial daylight and seasonal outdoor access. The existing high-demand, late-month rain and mountain-condition caveats correctly distinguish it from a guarantee of summer access everywhere.",
+      "confidence": "high",
+      "why": "Long late-summer days still leave time for hiking, coastal drives and seasonal routes into the interior.",
+      "tradeoff": "Summer demand remains high, rainfall can increase late in the month, and mountain travel still depends on conditions.",
+      "sourceIds": [
+        "q3-iceland-summer",
+        "q3-iceland-south"
+      ]
+    },
+    {
+      "month": 8,
+      "originalDestinationId": "amsterdam",
+      "decision": "retain",
+      "finalDestinationId": "amsterdam",
+      "rationale": "Outdoor summer culture is a plausible August benefit, with the existing fair-weather qualifier and rain/heatwave trade-off. No unsupported uncrowded or value claim needs defending.",
+      "confidence": "high",
+      "why": "August keeps summer terraces, park picnics and open-air cultural activities in play on fair-weather days.",
+      "tradeoff": "Warm weather is not assured: rain can persist and heatwaves can occur, so pack for changing conditions.",
+      "sourceIds": [
+        "q3-amsterdam-summer",
+        "q3-netherlands-weather"
+      ]
+    },
+    {
+      "month": 8,
+      "originalDestinationId": "athens",
+      "decision": "replace",
+      "finalDestinationId": "helsinki",
+      "rationale": "Replace with Helsinki in August. Athens evening/coastal appeal is real, but official advice stresses daytime heat avoidance; alphabetic fallback is not evidence of outdoor balance. Helsinki is explicitly a June–August island/coastal season destination. August rain and cool evenings must be visible; do not describe it as July-like dryness or literal midnight sun.",
+      "confidence": "high",
+      "why": "August is still Helsinki’s summer island season, pairing coastal cycling and ferry outings with beaches and seaside saunas.",
+      "tradeoff": "August can be rainy, and waterfront evenings cool quickly; bring waterproof layers and keep an indoor alternative.",
+      "sourceIds": [
+        "q3-helsinki-seasonal",
+        "q3-helsinki-months"
+      ],
+      "auditSourceIds": [
+        "q3-athens-heat",
+        "q3-athens-summer",
+        "q3-helsinki-seasonal",
+        "q3-helsinki-months"
+      ]
+    },
+    {
+      "month": 8,
+      "originalDestinationId": "berlin",
+      "decision": "retain",
+      "finalDestinationId": "berlin",
+      "rationale": "August remains within Berlin’s supported cycling/lakes/outdoor season. Rain and hot days are already disclosed; avoiding all peak-season destinations would discard a reasonable, honest summer selection.",
+      "confidence": "high",
+      "why": "Late-summer warmth keeps Berlin’s lakes, cycling routes and outdoor cafés appealing.",
+      "tradeoff": "Rain falls year-round and summer days can be hot; carry a light layer for evenings and keep plans flexible.",
+      "sourceIds": [
+        "q3-berlin-weather"
+      ]
+    },
+    {
+      "month": 9,
+      "originalDestinationId": "iceland",
+      "decision": "revise",
+      "finalDestinationId": "iceland",
+      "rationale": "Keep the September lead, but make the benefit daylight-plus-darkness rather than auroras alone. Daylight declines materially through the month; auroras need darkness, a break in cloud and activity. Early-month Highland possibility is not month-long F-road access; weather, road and service checks remain essential.",
+      "confidence": "high",
+      "why": "September keeps useful daylight for South Coast sightseeing while darker nights bring a conditional chance of northern lights.",
+      "tradeoff": "Days shorten; auroras need dark, partly clear skies and activity. Highland roads can close and services scale back; check weather and access.",
+      "sourceIds": [
+        "q3-iceland-september",
+        "q3-iceland-south",
+        "q3-iceland-aurora-met"
+      ]
+    },
+    {
+      "month": 9,
+      "originalDestinationId": "lisbon",
+      "decision": "retain",
+      "finalDestinationId": "lisbon",
+      "rationale": "September station normals support warm outdoor days while rain increases versus July/August and hot days still occur. The existing caveat reflects both; no blanket mild-weather, quiet-season or savings claim is made.",
+      "confidence": "high",
+      "why": "September usually keeps warm days for outdoor exploring as Lisbon heads toward autumn.",
+      "tradeoff": "Heat can still linger, while rain begins returning after the dry summer; keep both shade and indoor stops in mind.",
+      "sourceIds": [
+        "q3-lisbon-normals"
+      ]
+    },
+    {
+      "month": 9,
+      "originalDestinationId": "santorini",
+      "decision": "retain",
+      "finalDestinationId": "santorini",
+      "rationale": "September is a credible warm-sea/post-high-summer option, not an empty-island promise. Official spring–autumn route guidance and heat-aware hiking advice support the outdoor case; September-specific shoulder terminology is supplementary older travel guidance, not measured current crowd data.",
+      "confidence": "medium",
+      "why": "September pairs a sea warmed through summer with a shoulder-season setting after the July–August peak.",
+      "tradeoff": "This is still a tourist-season month, not an empty island; avoid the hottest hours for exposed caldera walks.",
+      "sourceIds": [
+        "q3-santorini-route",
+        "q3-greece-autumn-sea",
+        "q3-santorini-months"
+      ]
+    },
+    {
+      "month": 9,
+      "originalDestinationId": "amalfi-coast",
+      "decision": "retain",
+      "finalDestinationId": "amalfi-coast",
+      "rationale": "September offers a supported warm-sea/walking combination; the national tourism source favors autumn over hotter hiking periods. Popular towns can remain busy and rain returns. Retain, but do not portray the Path of the Gods as universally suitable or equate September with guaranteed ferry/swim weather.",
+      "confidence": "medium",
+      "why": "The sea retains summer warmth while autumn approaches, pairing swimming with walks through the coastal landscape.",
+      "tradeoff": "Popular towns and cruise arrivals remain busy; showers are more likely than in midsummer.",
+      "sourceIds": [
+        "q3-amalfi-hiking",
+        "q3-amalfi-months",
+        "q3-positano-weather"
+      ]
+    },
+    {
+      "month": 9,
+      "originalDestinationId": "bali",
+      "decision": "retain",
+      "finalDestinationId": "bali",
+      "rationale": "The official dry-season window includes September and supplementary month guidance acknowledges increasing rain beyond the July–August demand peak. Existing copy is conditional and makes no price promise; retain.",
+      "confidence": "high",
+      "why": "The dry-season pattern usually carries into September, beyond the busiest July–August travel stretch.",
+      "tradeoff": "Rainfall can start increasing toward the wetter season; keep outdoor plans flexible rather than banking on uninterrupted sun.",
+      "sourceIds": [
+        "q3-bali-official",
+        "q3-bali-months"
+      ]
+    },
+    {
+      "month": 9,
+      "originalDestinationId": "amsterdam",
+      "decision": "retain",
+      "finalDestinationId": "amsterdam",
+      "rationale": "Cooler early-autumn exploring and cultural activities are defensible with rain/shorter-evening caveats. The autumn source is broad-season material; retain the explicit avoidance of a guaranteed September foliage display.",
+      "confidence": "high",
+      "why": "Early autumn brings cooler conditions for city exploring as Amsterdam’s cultural season gets going.",
+      "tradeoff": "Evenings draw in and rain remains possible; this is a city-and-culture pick, not a promise of summer weather or autumn leaves.",
+      "sourceIds": [
+        "q3-netherlands-weather",
+        "q3-amsterdam-autumn"
+      ]
+    },
+    {
+      "month": 10,
+      "originalDestinationId": "lisbon",
+      "decision": "retain",
+      "finalDestinationId": "lisbon",
+      "rationale": "Preserve October lead. Exact-month IPMA normals support gentler walking temperatures than midsummer but a marked rain increase from September. Existing copy already discloses that compromise; no crowd or value advantage has been established.",
+      "confidence": "high",
+      "why": "Milder autumn temperatures make October a comfortable alternative to high-summer heat for city walks.",
+      "tradeoff": "October is noticeably wetter than September in the climate normals; allow for rainy-day sightseeing rather than beach-weather expectations.",
+      "sourceIds": [
+        "b-lisbon-tourism",
+        "b-lisbon-normals"
+      ]
+    },
+    {
+      "month": 10,
+      "originalDestinationId": "kyoto",
+      "decision": "retain",
+      "finalDestinationId": "kyoto",
+      "rationale": "Exact October guidance supports warm autumn days and walking/cycling after summer humidity. Existing caveat correctly avoids October peak-leaf guarantees and mentions chilly day edges. Autumn is popular, not validated as quiet.",
+      "confidence": "high",
+      "why": "Autumn days usually remain comfortably warm, making walking and cycling appealing after summer's humidity.",
+      "tradeoff": "Mornings and nights can turn chilly; October is not a guarantee of peak autumn leaf color.",
+      "sourceIds": [
+        "a-kyoto-official-seasonal",
+        "a-kyoto-official-clothing"
+      ]
+    },
+    {
+      "month": 10,
+      "originalDestinationId": "marrakech",
+      "decision": "retain",
+      "finalDestinationId": "marrakech",
+      "rationale": "October WMO normals are markedly less hot than July/August while still warm. Nights cool and rain is possible. Existing reason and trade-off are proportionate; no cheap or quiet claim is needed.",
+      "confidence": "high",
+      "why": "Autumn takes the edge off midsummer's extreme heat while keeping days warm for exploring.",
+      "tradeoff": "Afternoons can still be hot, evenings cool down, and rain is possible.",
+      "sourceIds": [
+        "q4-marrakech-wmo-json"
+      ]
+    },
+    {
+      "month": 10,
+      "originalDestinationId": "santorini",
+      "decision": "revise",
+      "finalDestinationId": "santorini",
+      "rationale": "Keep as a conditional end-season walking/village choice rather than replace: GNTO endorses spring–autumn caldera exploration and the directly read secondary month guide still includes October. Make late-October cool weather and closures more prominent; older secondary evidence cannot prove current opening dates. Do not imply an empty island or full summer services.",
+      "confidence": "medium",
+      "why": "October can still suit caldera walks and village exploring after the height of summer, especially before late-month seasonal wind-down.",
+      "tradeoff": "Cool breezes and some business closures can arrive late in October. Check accommodation, boat trips and transport for your dates; full summer services are not assured.",
+      "sourceIds": [
+        "b-santorini-route",
+        "b-santorini-seasons"
+      ]
+    },
+    {
+      "month": 10,
+      "originalDestinationId": "tokyo",
+      "decision": "revise",
+      "finalDestinationId": "tokyo",
+      "rationale": "Keep the October selection: extracted JNTO city and month guidance supports cooler, less humid autumn walking. GO TOKYO pages repeatedly returned 502, so do not pretend to have revalidated their city-specific typhoon wording. Substitute independently extracted JNTO evidence and an evening-layer/variable-color caveat.",
+      "confidence": "high",
+      "why": "Cooling temperatures and falling humidity make autumn a more comfortable time for city walks than Tokyo’s humid summer.",
+      "tradeoff": "Evenings need extra layers, and autumn color varies by timing and location; October is not a promise of peak foliage or quiet attractions.",
+      "sourceIds": [
+        "q4-jnto-autumn",
+        "q4-jnto-october",
+        "q4-jnto-tokyo"
+      ]
+    },
+    {
+      "month": 10,
+      "originalDestinationId": "amalfi-coast",
+      "decision": "revise",
+      "finalDestinationId": "amalfi-coast",
+      "rationale": "Retain for lower-heat autumn walks, supported by Italia.it. October thunderstorms and some seasonal closures are credible supplementary caveats. Current direct operator evidence is more specific than generic guides: Travelmar advertises year-round ferries and has an October timetable. Do not convert end-season caveats into a blanket ferry-shutdown claim.",
+      "confidence": "medium",
+      "why": "Autumn’s lower heat makes coastal walks and village exploring more appealing than in midsummer.",
+      "tradeoff": "Thunderstorms can disrupt boats and some seasonal businesses close. Check routes and opening dates; Travelmar advertises year-round ferries, not guaranteed sailings.",
+      "sourceIds": [
+        "b-amalfi-hiking",
+        "b-amalfi-seasons",
+        "q4-travelmar-october"
+      ]
+    },
+    {
+      "month": 11,
+      "originalDestinationId": "mexico-city",
+      "decision": "retain",
+      "finalDestinationId": "mexico-city",
+      "rationale": "Preserve November lead. Official city page explicitly includes September–November among pleasant seasons avoiding summer rain and extreme winter cold. The note already covers cool evenings and strong sun without using obsolete event dates.",
+      "confidence": "high",
+      "why": "Autumn usually offers pleasant, warm afternoons away from summer's heavier rain.",
+      "tradeoff": "Evenings cool down, and strong sunlight still warrants a hat and sunscreen.",
+      "sourceIds": [
+        "a-mexico-city-official-seasons"
+      ]
+    },
+    {
+      "month": 11,
+      "originalDestinationId": "kyoto",
+      "decision": "retain",
+      "finalDestinationId": "kyoto",
+      "rationale": "Official seasonal text specifically links November cooling to deepening maple colors. Existing copy appropriately describes autumn as popular and allows variable viewing timing; it does not claim a quiet or guaranteed-color month.",
+      "confidence": "high",
+      "why": "Cooling autumn weather brings deepening maple colors to the city's temple gardens.",
+      "tradeoff": "Leaf viewing makes autumn popular, while mornings and nights are chilly; color varies with timing and location.",
+      "sourceIds": [
+        "a-kyoto-official-seasonal",
+        "a-kyoto-official-clothing"
+      ]
+    },
+    {
+      "month": 11,
+      "originalDestinationId": "marrakech",
+      "decision": "retain",
+      "finalDestinationId": "marrakech",
+      "rationale": "November normals support milder sightseeing days than midsummer, with notably cooler nights and more precipitation than October. The existing explicit rain/night caveat makes this a defensible thermal-seasonal choice.",
+      "confidence": "high",
+      "why": "November's milder daytime temperatures favor exploring without midsummer's intense heat.",
+      "tradeoff": "Nights are cool and rainfall increases from October; do not expect summer-like evenings or guaranteed sunshine.",
+      "sourceIds": [
+        "q4-marrakech-wmo-json"
+      ]
+    },
+    {
+      "month": 11,
+      "originalDestinationId": "tokyo",
+      "decision": "revise",
+      "finalDestinationId": "tokyo",
+      "rationale": "Retain November for seasonal garden foliage based on independently extracted JNTO autumn and Tokyo pages. GO TOKYO was not retrievable, so remove unsupported reliance on its ginkgo/windy-day/mountain details; describe broad autumn-garden appeal without promising a peak date.",
+      "confidence": "high",
+      "why": "November brings autumn-garden appeal, with Tokyo’s maples adding seasonal color as the weather cools.",
+      "tradeoff": "Cooler evenings call for layers; leaf color varies with the year and location, so check garden conditions rather than assuming peak foliage on your dates.",
+      "sourceIds": [
+        "q4-jnto-autumn",
+        "q4-jnto-tokyo"
+      ]
+    },
+    {
+      "month": 11,
+      "originalDestinationId": "maldives",
+      "decision": "replace",
+      "finalDestinationId": "seville",
+      "rationale": "Replace with existing eligible Seville. Maldives Meteorological Service explicitly places November in the normal southwest wet monsoon; year-round warmth and sunny gaps do not establish a November-specific Goldilocks advantage. Seville is present in destinationGuides and BEST_MONTHS includes November. Direct AEMET November normals establish substantially lower heat than Seville summer, while the replacement candidly discloses rain and cool nights. This is an evidence-based editorial substitution, not a computed global top-six ranking.",
+      "confidence": "high",
+      "why": "November’s milder days make Seville’s streets and monuments easier to explore than during its intense summer heat.",
+      "tradeoff": "Rain is part of November, and nights are cool. Pack layers and a wet-weather option; this is a mild-weather choice, not a dry-season guarantee.",
+      "sourceIds": [
+        "q4-seville-aemet"
+      ],
+      "auditSourceIds": [
+        "a-maldives-mms-climate",
+        "q4-seville-aemet"
+      ]
+    },
+    {
+      "month": 11,
+      "originalDestinationId": "cape-town",
+      "decision": "retain",
+      "finalDestinationId": "cape-town",
+      "rationale": "Official tourism page directly covers November–December long, warm, largely dry days as peak season begins and summer wind rises. The existing trade-off already prevents mislabelling it a quiet shoulder-season bargain.",
+      "confidence": "high",
+      "why": "Longer, warmer days usher in the outdoor season, with generally less rain than winter.",
+      "tradeoff": "Peak season is beginning rather than absent, and summer winds are picking up.",
+      "sourceIds": [
+        "a-cape-town-tourism-seasons"
+      ]
+    },
+    {
+      "month": 12,
+      "originalDestinationId": "sydney",
+      "decision": "revise",
+      "finalDestinationId": "sydney",
+      "rationale": "Preserve the December lead: official weather page supports longest daylight and summer beach appeal. Add a sourced high-season caveat: Tourism Australia explicitly labels November–February high season, and Destination NSW warns of Bondi summer crowds. Peak season can be valid when visible, but December is not a crowd/value sweet spot.",
+      "confidence": "high",
+      "why": "December brings Sydney's longest daylight hours as summer warmth opens up beach days.",
+      "tradeoff": "December is high season and popular beaches can be crowded. Summer humidity, rain and strong sun remain part of the trade-off.",
+      "sourceIds": [
+        "a-sydney-tourism-australia-weather",
+        "q4-sydney-high-season",
+        "q4-sydney-bondi-crowds"
+      ]
+    },
+    {
+      "month": 12,
+      "originalDestinationId": "maldives",
+      "decision": "retain",
+      "finalDestinationId": "maldives",
+      "rationale": "Unlike wet-monsoon November, MMS identifies December as a transition toward the northeast monsoon. Existing wording already says transition, not established dry season. Retain conditionally for warm island travel, with no dependable-dry or shoulder-value promise.",
+      "confidence": "medium",
+      "why": "Tropical warmth offers a winter escape while December transitions toward the northeast monsoon.",
+      "tradeoff": "December is a transition month; the meteorological dry season is January–March, and showers remain possible.",
+      "sourceIds": [
+        "a-maldives-mms-climate"
+      ]
+    },
+    {
+      "month": 12,
+      "originalDestinationId": "cape-town",
+      "decision": "retain",
+      "finalDestinationId": "cape-town",
+      "rationale": "Official November–December guidance supports warm, long outdoor days, rising wind and peak crowds. Existing trade-off is appropriately prominent; high-season weather appeal can justify inclusion without inventing value or quietness.",
+      "confidence": "high",
+      "why": "Long, balmy days bring beach time and the city's lively outdoor summer atmosphere.",
+      "tradeoff": "This is peak-season territory, not a quiet escape; attractions draw crowds and winds can be strong.",
+      "sourceIds": [
+        "a-cape-town-tourism-seasons"
+      ]
+    },
+    {
+      "month": 12,
+      "originalDestinationId": "mexico-city",
+      "decision": "retain",
+      "finalDestinationId": "mexico-city",
+      "rationale": "The official city guide distinguishes winter from summer heavy rain and explicitly warns that December–February nights/early mornings can approach freezing. Existing copy covers the thermal edge and strong sun; retain as daytime city travel, not a reliably warm evening escape.",
+      "confidence": "high",
+      "why": "The less-rainy winter period makes a useful backdrop for daytime city exploring.",
+      "tradeoff": "Nights and early mornings can be close to freezing; winter sunshine is not necessarily gentle.",
+      "sourceIds": [
+        "a-mexico-city-official-seasons"
+      ]
+    },
+    {
+      "month": 12,
+      "originalDestinationId": "bangkok",
+      "decision": "retain",
+      "finalDestinationId": "bangkok",
+      "rationale": "Historical WMO/Thai Meteorological Department normals confirm a much drier, comparatively cooler December while daytime highs remain hot. Existing note correctly says relative cooling rather than cool climate. Use the old baseline for seasonality only, not a current forecast.",
+      "confidence": "high",
+      "why": "December combines one of the city's drier periods with relatively cooler seasonal temperatures.",
+      "tradeoff": "Relatively cooler is still hot by day, and low average rainfall is not a promise of dry days.",
+      "sourceIds": [
+        "q4-bangkok-wmo-json"
+      ]
+    },
+    {
+      "month": 12,
+      "originalDestinationId": "buenos-aires",
+      "decision": "revise",
+      "finalDestinationId": "buenos-aires",
+      "rationale": "Retain conditionally rather than force replacement: official city guidance identifies December as spring until late month and then summer, supporting warm-season exploration. Strengthen the caveat because spring rainfall explicitly extends through December and summer brings humid midday heat. Do not describe all December as mild spring or a dry sweet spot.",
+      "confidence": "medium",
+      "why": "Late spring gives way to summer, with warmer days for visitors seeking a Southern Hemisphere escape.",
+      "tradeoff": "Spring rain extends into December; late-month summer brings humid heat, especially at midday. This is not a reliably mild, dry sweet spot.",
+      "sourceIds": [
+        "a-buenos-aires-official-climate"
+      ]
+    }
+  ]
+}

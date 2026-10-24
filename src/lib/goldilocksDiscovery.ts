@@ -12,35 +12,58 @@ export interface GoldilocksDestination {
   months: number[]
 }
 
-const editorialOrder = ['lisbon', 'kyoto', 'marrakech', 'santorini', 'tokyo', 'amalfi-coast', 'maldives', 'bali', 'iceland', 'cape-town', 'mexico-city', 'sydney', 'bangkok', 'buenos-aires']
-// These source photos need a separate visual audit. Guides remain available in
-// the complete index and matching count; don't promote known mismatches here.
-const pendingPhotoReview = new Set(['patagonia', 'queenstown', 'helsinki', 'edinburgh', 'new-orleans', 'seville'])
+// Month-specific editorial selections, not numerical rankings. Every slot is
+// reviewed in seasonalShortlistReview.json; broad guide windows remain separate.
+export const MONTHLY_SHORTLISTS: readonly (readonly string[])[] = [
+  ['maldives', 'cape-town', 'mexico-city', 'sydney', 'bangkok', 'queenstown'],
+  ['cape-town', 'maldives', 'mexico-city', 'sydney', 'bangkok', 'patagonia'],
+  ['kyoto', 'marrakech', 'tokyo', 'maldives', 'cape-town', 'mexico-city'],
+  ['marrakech', 'kyoto', 'tokyo', 'barcelona', 'bali', 'mexico-city'],
+  ['amalfi-coast', 'lisbon', 'kyoto', 'marrakech', 'santorini', 'tokyo'],
+  ['santorini', 'lisbon', 'amalfi-coast', 'bali', 'iceland', 'amsterdam'],
+  ['bali', 'iceland', 'amsterdam', 'helsinki', 'berlin', 'edinburgh'],
+  ['maasai-mara', 'bali', 'iceland', 'amsterdam', 'helsinki', 'berlin'],
+  ['iceland', 'lisbon', 'santorini', 'amalfi-coast', 'bali', 'amsterdam'],
+  ['lisbon', 'kyoto', 'marrakech', 'santorini', 'tokyo', 'amalfi-coast'],
+  ['mexico-city', 'kyoto', 'marrakech', 'tokyo', 'seville', 'cape-town'],
+  ['sydney', 'maldives', 'cape-town', 'mexico-city', 'bangkok', 'buenos-aires'],
+]
 
 export function isTravelMonth(month: number): boolean {
   return Number.isInteger(month) && month >= 1 && month <= 12
 }
 
+function guideIndex(guides: GoldilocksDestination[]) {
+  const index = new Map<string, GoldilocksDestination>()
+  for (const guide of guides) {
+    if (index.has(guide.id)) throw new Error(`Duplicate destination identity: ${guide.id}`)
+    index.set(guide.id, guide)
+  }
+  return index
+}
+
 export function getMonthSelection(guides: GoldilocksDestination[], month: number) {
   if (!isTravelMonth(month)) throw new RangeError('Travel month must be an integer from 1 to 12')
-  const matches = guides.filter(guide => guide.months.includes(month))
-  const featured = matches.find(guide => guide.id === MONTHLY_LEADS[month - 1])
-  if (!featured) throw new Error(`Missing editorial feature for ${MONTH_NAMES[month - 1]}`)
-  const order: readonly string[] = [featured.id, ...editorialOrder]
-  const rank = (guide: GoldilocksDestination) => {
-    const index = order.indexOf(guide.id)
-    return index < 0 ? order.length : index
+  const byId = guideIndex(guides)
+  const ids = MONTHLY_SHORTLISTS[month - 1]
+  if (!ids || ids.length !== 6 || new Set(ids).size !== 6 || ids[0] !== MONTHLY_LEADS[month - 1]) {
+    throw new Error(`Invalid editorial shortlist for ${MONTH_NAMES[month - 1]}`)
   }
-  const shortlist = matches.filter(guide => !pendingPhotoReview.has(guide.id))
-    .sort((a, b) => rank(a) - rank(b) || a.title.localeCompare(b.title)).slice(0, 6)
-  if (shortlist.length !== 6) throw new Error(`Need six eligible editorial selections for month ${month}`)
-  return { featured, shortlist, total: matches.length }
+  const shortlist = ids.map(id => {
+    const guide = byId.get(id)
+    if (!guide || !guide.months.includes(month)) throw new Error(`Missing eligible editorial selection: ${id}/${month}`)
+    return guide
+  })
+  const featured = shortlist[0]
+  const total = guides.filter(guide => guide.months.includes(month)).length
+  return { featured, shortlist, total }
 }
 
 export function getMonthPreviews(guides: GoldilocksDestination[]) {
+  const byId = guideIndex(guides)
   return MONTHLY_LEADS.map((id, index) => {
-    const guide = guides.find(guide => guide.id === id && guide.months.includes(index + 1))
-    if (!guide) throw new Error(`Missing eligible month preview ${index + 1}`)
+    const guide = byId.get(id)
+    if (!guide || !guide.months.includes(index + 1)) throw new Error(`Missing eligible month preview ${index + 1}`)
     return guide
   })
 }
