@@ -1,9 +1,13 @@
-export interface SeasonalSource {
+export interface SeasonalDisplaySource {
   id: string
   url: string
   title: string
   publisher: string
   checkedAt: string
+}
+
+/** Authoring/review source record. Evidence text is never sent to the browser. */
+export interface SeasonalSource extends SeasonalDisplaySource {
   evidence: string
 }
 
@@ -15,8 +19,10 @@ export interface SeasonalNote {
   sourceIds: string[]
 }
 
+/** Everything the interface renders: notes plus only the fields it displays. */
+export interface SeasonalDisplayCatalog { sources: SeasonalDisplaySource[]; notes: SeasonalNote[] }
 export interface SeasonalCatalog { sources: SeasonalSource[]; notes: SeasonalNote[] }
-export interface ResolvedSeasonalNote extends SeasonalNote { sources: SeasonalSource[] }
+export interface ResolvedSeasonalNote extends SeasonalNote { sources: SeasonalDisplaySource[] }
 
 function validMonth(month: number) {
   if (!Number.isInteger(month) || month < 1 || month > 12) throw new RangeError('Travel month must be an integer from 1 to 12')
@@ -58,8 +64,29 @@ export function validateSeasonalCatalog(catalog: SeasonalCatalog): void {
   }
 }
 
+/**
+ * Server-side projection of the authoring catalog into exactly what the
+ * interface renders. Authoring `evidence` paragraphs and sources no note cites
+ * never reach the browser. Returns defensive copies; the input is untouched.
+ */
+export function getSeasonalDisplayCatalog(catalog: SeasonalCatalog): SeasonalDisplayCatalog {
+  if (!catalog || !Array.isArray(catalog.sources) || !Array.isArray(catalog.notes)) throw new Error('Invalid seasonal catalog')
+  const referenced = new Set<string>()
+  for (const note of catalog.notes) {
+    if (!Array.isArray(note.sourceIds)) throw new Error('Invalid seasonal source references')
+    for (const id of note.sourceIds) referenced.add(id)
+  }
+  const sources = catalog.sources
+    .filter(source => referenced.has(source.id))
+    .map(({ id, url, title, publisher, checkedAt }) => ({ id, url, title, publisher, checkedAt }))
+  const notes = catalog.notes.map(({ destinationId, month, why, tradeoff, sourceIds }) => ({
+    destinationId, month, why, tradeoff, sourceIds: [...sourceIds],
+  }))
+  return { sources, notes }
+}
+
 /** Exact lookup: never substitute another month or manufacture a reason. */
-export function getSeasonalReason(catalog: SeasonalCatalog, destinationId: string, month: number): ResolvedSeasonalNote | null {
+export function getSeasonalReason(catalog: SeasonalDisplayCatalog, destinationId: string, month: number): ResolvedSeasonalNote | null {
   validMonth(month)
   const note = catalog.notes.find(note => note.destinationId === destinationId && note.month === month)
   if (!note) return null

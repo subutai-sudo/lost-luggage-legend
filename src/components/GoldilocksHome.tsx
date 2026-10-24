@@ -6,13 +6,13 @@ import Link from 'next/link'
 import { Navbar } from '@/components/Navbar'
 import { NewsletterSignup } from '@/components/NewsletterSignup'
 import { SeasonalReason } from '@/components/SeasonalReason'
-import seasonalReasons from '@/data/seasonalReasons.json'
+import type { SeasonalDisplayCatalog } from '@/lib/seasonalReasons'
 import { discoveryImage, getMonthPreviews, getMonthSelection, MONTH_NAMES, readTravelMonth, type GoldilocksDestination } from '@/lib/goldilocksDiscovery'
 import styles from './GoldilocksHome.module.css'
 
-interface Props { guides: GoldilocksDestination[]; initialMonth: number; year: number }
+interface Props { guides: GoldilocksDestination[]; initialMonth: number; year: number; seasonalCatalog: SeasonalDisplayCatalog }
 
-export function GoldilocksHome({ guides, initialMonth, year }: Props) {
+export function GoldilocksHome({ guides, initialMonth, year, seasonalCatalog }: Props) {
   const [month, setMonth] = useState(initialMonth)
   const [ready, setReady] = useState(false)
   const dialog = useRef<HTMLDialogElement>(null)
@@ -86,8 +86,8 @@ export function GoldilocksHome({ guides, initialMonth, year }: Props) {
                   aria-label={MONTH_NAMES[index]} aria-description={`Preview destination: ${guide.title}`}
                   aria-pressed={month === index + 1} aria-controls="seasonal-results"
                   title={`${MONTH_NAMES[index]} · ${guide.title}`} onClick={() => chooseMonth(index + 1)}>
-                  <Image src={discoveryImage(guide.image, 480)} alt="" fill
-                    sizes="(max-width: 700px) 33vw, 17vw" loading="eager" />
+                  <Image src={discoveryImage(guide.image, 480)} alt="" fill loading="lazy"
+                    sizes="(max-width: 380px) calc(30vw - 4px), (max-width: 700px) calc(29.333vw - 5.333px), calc(15.2vw - 7.5px)" />
                   <span className={styles.number} aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
                   <span className={styles['month-name']} aria-hidden="true">{MONTH_NAMES[index]}</span>
                   <span className={styles['month-place']} aria-hidden="true">{guide.title}</span>
@@ -119,7 +119,7 @@ export function GoldilocksHome({ guides, initialMonth, year }: Props) {
                 </Link>
                 <p className={styles['guide-tag']}>{guide.subtitle}</p>
                 <h3><Link href={`/guides/${guide.slug}`}>{guide.title}</Link></h3>
-                <SeasonalReason catalog={seasonalReasons} destinationId={guide.id} title={guide.title}
+                <SeasonalReason catalog={seasonalCatalog} destinationId={guide.id} title={guide.title}
                   month={month} fallbackExcerpt={guide.excerpt} />
                 <Link className={styles['read-guide']} href={`/guides/${guide.slug}`} aria-label={`Read the ${guide.title} guide`}>Read the guide <span aria-hidden="true">↗</span></Link>
               </article>
