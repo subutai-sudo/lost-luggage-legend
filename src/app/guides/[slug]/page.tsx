@@ -146,7 +146,7 @@ export default async function GuidePage({ params }: Props) {
                       </li>
                     ))}
                   </ol>
-                  <Link href="#book" className={styles.bookingLink}>Explore booking options <span aria-hidden="true">↗</span></Link>
+                  <a href="#book" className={styles.bookingLink}>Explore booking options <span aria-hidden="true">↗</span></a>
                 </div>
               </div>
             </aside>
@@ -178,7 +178,7 @@ export default async function GuidePage({ params }: Props) {
             </div>
           </section>
 
-          <div id="book" className={styles.booking} data-guide-booking>
+          <div id="book" tabIndex={-1} className={styles.booking} data-guide-booking>
             <PriceComparison guide={guide} destination={`${guide.title}, ${guide.subtitle}`} appearance="cinematic" />
           </div>
 

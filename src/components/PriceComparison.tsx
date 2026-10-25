@@ -178,8 +178,8 @@ export function PriceComparison({ guide, destination, appearance = 'default' }: 
                 style={cinematic ? undefined : { backgroundColor: supplier.color + '15' }}
               >
                 <span
-                  className={cinematic ? styles.supplierName : "font-display text-lg font-bold tracking-tight"}
-                  style={{ color: supplier.color }}
+                  className={`${cinematic ? styles.supplierName : "font-display text-lg font-bold tracking-tight"}${supplier.id === 'flight-search' ? ` ${styles.internalActionName}` : ''}`}
+                  style={supplier.id === 'flight-search' ? undefined : { color: supplier.color }}
                 >
                   {supplier.name}
                 </span>

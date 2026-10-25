@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "kind": "accessibility-approved-change",
+  "accessibilityBaseline": "956713b3190c51e5edff5ab6a60147ce0e744eaa",
+  "legacyPerformanceBaseline": "70a91debd34c83c9b35e856c845ce7c4e641da69",
+  "legacyFixtureSha256": "65a2692a2b7235011c15f3001da95bed9577c9731167fc77ca1e437567a9fbb3",
+  "hashPolicy": "beforeHash equals the immutable legacy fixture entry; afterHash is exact current file bytes. Only the article beforeHash normalizes the previously approved related-image sizes correction. No runtime git dependency.",
+  "changes": {
+    "src/app/guides/[slug]/GuideArticle.module.css": {
+      "beforeHash": "02ea3571b7d1c74c4eda0bec7d0f30223515305720335f530b7def185595c1bd",
+      "afterHash": "270d13fc15224b48ea43be6e3c443ac29187d7849243ea37f39c47e7575a9dd5",
+      "reason": "Booking fragment focus indicator and sticky-nav clearance; retain flight-tool label styling after semantic label repair."
+    },
+    "src/app/guides/[slug]/page.tsx": {
+      "beforeHash": "9bdb200f9ca6b987ee799006da876ea39ef5b0ec9c13349dee19dbf115b464aa",
+      "afterHash": "8dd4137fe603933e92eead92044b4bb196c537967a2984d13cde6935be71c58e",
+      "reason": "Use native booking fragment navigation and a programmatically focusable booking destination; related image sizes remain the separately approved performance correction.",
+      "beforeAccessibilityHash": "e1be6c9db177dd16084048baa9aabd01bd183a53687b294180e27ce5710aabf7",
+      "beforeHashNormalization": "Only the single related Image sizes field is restored to the legacy oldSizes value; afterHash hashes the exact current source with correctedSizes."
+    },
+    "src/app/plan/page.tsx": {
+      "beforeHash": "02e39bed25da3d1cc10c530166e49a8c71988e4ad2526f7f17fa1e80cceb96bb",
+      "afterHash": "c09393d60b8c2f3f96f26b1548a009c05c7ad23e261f1b49543841b2a0b9100e",
+      "reason": "Scope readable light/dark introduction accent text without changing shared palette or navigation targets."
+    },
+    "src/components/ComparePricesSection.tsx": {
+      "beforeHash": "6f587403ceacfd6fc0582c9ccab0d527d72ab65a731dab0b7914df088ff5ca05",
+      "afterHash": "e97f36407f84289bb989f3070f9ad15a6b331fcccf83a204e6e83c9270947a4b",
+      "reason": "Keyboard/pointer suggestion dismissal and focus restoration; pressed search-mode semantics; polite comparison-link status; scoped focus/contrast styling. Supplier, date and URL logic unchanged."
+    },
+    "src/components/FlightSearch.tsx": {
+      "beforeHash": "3658f47a0f83eccdf8b47b76d45e120b0f11fb5b07c469480c74164e15f07f9c",
+      "afterHash": "80faa0133b3f0ba27dfea5a990d20a5e1787a32ddc3c5693089713e9241352e5",
+      "reason": "Associated input label, named clear/change controls, native click suggestion selection, Escape/outside dismissal and committed replacement focus. Airport data, flight math and URL logic unchanged."
+    },
+    "src/components/GoldilocksHome.module.css": {
+      "beforeHash": "3e02dee84e6875fd23351db7fc6dcfd696577bfc7b624bd91d3f6cc422d41f18",
+      "afterHash": "a227db1b5d9b6ca834094a25596313e54919ce2766ea1961012b171d1f549d92",
+      "reason": "Context-appropriate visible focus indicators with hero backing and dark-mode results eyebrow contrast."
+    },
+    "src/components/PriceComparison.module.css": {
+      "beforeHash": "d2a4db16792d2bdcd45f89ee2c134d2ffcc61585f664de43989536cd8ef080ae",
+      "afterHash": "a4c13e991ca5dd4d2a9d4b28b819742a45b039528ca8a5c45db34fe1c0e3e770",
+      "reason": "Readable internal Compare Flights action name, distinct from supplier brand colors."
+    },
+    "src/components/PriceComparison.tsx": {
+      "beforeHash": "67a1dfc15178aabfe4d616c0298c41c3970d4f6fec45fef5f5fbeb097ba11cd3",
+      "afterHash": "426fd2309b7f1b0f5a04b40ec46f2e0875ac7c777901c3a94d357febc8cff838",
+      "reason": "Apply internal-action text color only to Compare Flights; preserve supplier definitions, URL generation and outbound attributes."
+    },
+    "src/components/SeasonalReason.tsx": {
+      "beforeHash": "7273dc6dec3a919673af2a357abfb610104808cb3bb6bb41745fc62377243bed",
+      "afterHash": "1730f188a0b3ae8efe29e7b17e679879fee3009d3851f071980eca22d49a729e",
+      "reason": "Include visible Sources & checks wording in the disclosure accessible name."
+    }
+  },
+  "addedFiles": {
+    "src/app/plan/PlanIntro.module.css": {
+      "beforeHash": null,
+      "afterHash": "ee147b899b4b324da51c35459cc1d6ec6052e0c7e6d5e2150d11af6298d70272",
+      "reason": "New scoped light/dark introduction text contrast rules, inline-flex links with a 24px minimum target height, and a 2px inset on the intro navigation. The inset exists because the gap to the sticky navigation logo measured 23.6px at 320px, below the 24px minimum spacing that axe-core applies for WCAG 2.2 AA 2.5.8; evidence: probe-plan-target-size.txt and after-fonts/matrix-summary.json (target-size cleared on the settled re-sweep)."
+    },
+    "src/components/ComparePricesSection.module.css": {
+      "beforeHash": null,
+      "afterHash": "fe5eb1698c942e524e02750abf43b8417a898de48c930ae32aabf207cbd039f4",
+      "reason": "New scoped light/dark focus, suggestions and search-mode contrast rules, native-date focus visibility and scroll clearance."
+    }
+  },
+  "unchangedBusinessDeclarations": {
+    "src/components/FlightSearch.tsx": {
+      "AIRPORTS": "4d5ba33942e89d2923b86896c35e7bc589d567b0d7658113945918ff2c1072cf",
+      "DEST_COORDS": "ccdaa852cc0b31acfe6d39936eb824c433e66d5aad26997154239ff743b00ba6",
+      "haversineKm": "2ae80fb5a444b85d5ee3e593d8f167daff79b12480975af30d4db9d60483c60c",
+      "estimateFlightHours": "72e86d1a088742488578008c960ff6fefe89c456a819c34b16d19ea44953ecda",
+      "DEST_AIRPORTS": "f467c70baf4ee1abfa43e9fb21baa6c82cab85bf44f4f1a62c71d4fdfc214163",
+      "makeFlightUrl": "ce64a7274080909906d7b261ca2a84139b3d7b1d47c435ef19d88b67f2db8275"
+    },
+    "src/components/ComparePricesSection.tsx": {
+      "AIRPORTS": "d4a2eba193970476565751574e7eafef77f604b1404e27d8ee767b04637011c2",
+      "STAY22_AID": "d597e3e574032999ac551e619ddf84e9db57fa9aa61b731f9877077f32baa650",
+      "FLIGHT_SUPPLIERS": "fad85e2dd770af9def320c3bf51f2c7c065bfccd2d84f73d5b5a93495781db57",
+      "HOTEL_SUPPLIERS": "7044dda415b3bd2e283572349d3b873dba66e57028fba1884dbd402a6b66955b",
+      "getAirportsByCity": "02900d19c9c8e27ba1a39d0b6677b8200d3e38f907e7d9016c0c1eea612a6b9e",
+      "searchAirports": "79b79f3aac29ad1f2aedac0cdacb129628b65c4b6aba5f37dcad27c77a798848",
+      "dateError": "be75981f4ec1de1987b5d12730cfb9956dc888a5e2f3014e93ea4813532075eb",
+      "endDateMin": "9169e1ff95b9d958d7607046402514e66f26a04b67a3e3fa81be89e61c611da4",
+      "isFormValid": "08a5c7afeb6622d6717dcc13bc22aa286b210655223c0d093d9b1d1cc7677405",
+      "supplierLinks": "b880491f61671fa71c67217e5b435615262ac267c97859905a523f7237bd0bca",
+      "handleSearch": "5ce07d6672ae450d611cff22e0d35d159bc2bddce8ba309864f83619e06d9c2e",
+      "formatDate": "47586bd6f83b577913cfd8c5e662687c2b96215d05c65a12bf8fec360f252173",
+      "getDisplayCity": "c4352d3be2198ac5ff7b4315788dc6175a3e87777abc4fc5d78947cd78a0e448"
+    },
+    "src/components/PriceComparison.tsx": {
+      "STAY22_AID": "d597e3e574032999ac551e619ddf84e9db57fa9aa61b731f9877077f32baa650",
+      "SUPPLIERS": "2b3f3dbec6f4417cecf9d6396e6322034a8b75ed3395c3454b75c6699458677b"
+    }
+  }
+}

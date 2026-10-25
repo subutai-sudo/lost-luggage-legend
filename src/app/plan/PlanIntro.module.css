@@ -1,0 +1,23 @@
+/* Ordinary introduction text, not a change to the shared accent palette. */
+.introAccent {
+  color: #0e7490;
+}
+
+.introAccent a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+}
+
+/* The sticky navigation's logo sits ~23.6px above these links at 320px — a hair
+   under the 24px minimum spacing axe-core applies for WCAG 2.2 AA 2.5.8 — so a
+   partially scrolled link could be reported as an undersized target. This 2px
+   inset restores the minimum; it does shift the introduction below it by 2px,
+   which is not visible at a glance but is a real reflow. */
+nav.introAccent {
+  padding-top: 2px;
+}
+
+:global(html.dark) .introAccent {
+  color: #67e8f9;
+}

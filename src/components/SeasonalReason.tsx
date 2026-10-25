@@ -25,7 +25,7 @@ export function SeasonalReason({ catalog, destinationId, title, month, fallbackE
       <p className={styles.reason} data-seasonal-why>{note.why}</p>
       <p className={styles.tradeoff}><strong>Keep in mind</strong> <span data-seasonal-tradeoff>{note.tradeoff}</span></p>
       <details key={`${destinationId}:${month}`} className={styles.sources}>
-        <summary aria-label={`Seasonal sources for ${title} in ${MONTH_NAMES[month - 1]}`}>
+        <summary aria-label={`Sources & checks for ${title} in ${MONTH_NAMES[month - 1]}`}>
           Sources &amp; checks <span className={styles.indicator} aria-hidden="true">+</span>
         </summary>
         <div className={styles.sourceContent}>
