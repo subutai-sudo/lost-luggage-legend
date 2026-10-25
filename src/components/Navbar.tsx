@@ -82,6 +82,9 @@ export function Navbar({ appearance = 'default', brandAppearance }: { appearance
             <Link href="/guides" className={`nav-modern inline-flex items-center min-h-11 ${focusRing}`} style={{ color: 'var(--color-ink-light)', minWidth: 44 }}>
               Guides
             </Link>
+            <Link href="/golf" className={`nav-modern inline-flex items-center min-h-11 ${focusRing}`} style={{ color: 'var(--color-ink-light)', minWidth: 44 }}>
+              Golf
+            </Link>
             <Link href="/#newsletter" className={`nav-modern inline-flex items-center min-h-11 ${focusRing}`} style={{ color: 'var(--color-ink-light)', minWidth: 44 }}>
               Newsletter
             </Link>
@@ -202,6 +205,7 @@ export function Navbar({ appearance = 'default', brandAppearance }: { appearance
                   style={{ backgroundColor: 'var(--color-card-bg, #fff)', borderColor: 'var(--color-border, #e8e0d4)' }}
                 >
                   <Link href="/guides" className={`flex min-h-11 items-center rounded-lg px-4 hover:bg-[#0891b208] ${focusRing}`} style={{ color: 'var(--color-ink)' }}>Guides</Link>
+                  <Link href="/golf" className={`flex min-h-11 items-center rounded-lg px-4 hover:bg-[#0891b208] ${focusRing}`} style={{ color: 'var(--color-ink)' }}>Golf</Link>
                   <Link href="/#newsletter" className={`flex min-h-11 items-center rounded-lg px-4 hover:bg-[#0891b208] ${focusRing}`} style={{ color: 'var(--color-ink)' }}>Newsletter</Link>
                 </div>
               )}

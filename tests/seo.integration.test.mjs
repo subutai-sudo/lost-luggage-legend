@@ -5,7 +5,7 @@ import ts from 'typescript'
 
 const origin = 'https://lostluggagelegend.com'
 const base = new URL(process.env.SEO_BASE_URL || 'http://127.0.0.1:3031')
-const staticPaths = ['/', '/guides', '/plan', '/explore', '/privacy-policy', '/terms-of-service', '/affiliate-disclosure']
+const staticPaths = ['/', '/guides', '/golf', '/plan', '/explore', '/privacy-policy', '/terms-of-service', '/affiliate-disclosure']
 
 async function get(path) {
   const response = await fetch(new URL(path, base), {

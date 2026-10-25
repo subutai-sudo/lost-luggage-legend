@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "kind": "golf-approved-change",
+  "golfBaseline": "663f60951f978de497e641a9c44512d716fddc67",
+  "legacyPerformanceBaseline": "70a91debd34c83c9b35e856c845ce7c4e641da69",
+  "legacyFixtureSha256": "65a2692a2b7235011c15f3001da95bed9577c9731167fc77ca1e437567a9fbb3",
+  "hashPolicy": "beforeHash equals the immutable legacy fixture entry; afterHash is the exact current file byte hash. New golf files are listed in addedFiles with a null beforeHash so each is explicitly guarded rather than silently unpinned. No runtime git dependency.",
+  "changes": {
+    "src/components/Navbar.tsx": {
+      "beforeHash": "76c930921ff9e0898f80d339c8cbd7cdd741dce532cb2143a2877fdde87ae83e",
+      "afterHash": "f49c426bc65fa148685ea96ba6fcacf10f077683311ad0e27de28199a416a27f",
+      "reason": "Golf section navigation entry (desktop and mobile menus). No other navigation behaviour, labelling, focus handling or styling changed."
+    },
+    "src/lib/site.ts": {
+      "beforeHash": "fe92e084b298bbc89a009674b1aa29caef3400107dbdee1c1957a5cd371dd75c",
+      "afterHash": "022eb01c2b82ec6b65e16d9340fd1c69d7a156947a91c1e844b184fb112a2c0e",
+      "reason": "Added the '/golf' indexable static path so the new section has a canonical URL and appears in the sitemap."
+    },
+    "tests/seo.integration.test.mjs": {
+      "beforeHash": "49da32468b4da46c61d783a735e23bfb5e8e69e50a5072f721f3b905375713e1",
+      "afterHash": "4496f1678a159c6f9bd3e0182d78dfb1ac761b1fdda0bc998929cda965582146",
+      "reason": "Added '/golf' to the suite's explicit static-path inventory so the sitemap expectation covers the new route instead of silently ignoring it."
+    },
+    "tests/navbar.browser.test.mjs": {
+      "beforeHash": "8a85c88edb5aba4afa7fa67164a5003043a87265419dedb64d5c5b2b1da6b872",
+      "afterHash": "dc2f219d0d8ea3fb0ec4989535cf9be7cb677908069cac2c70e4de8ec49ea2cd",
+      "reason": "Preserve all disclosure keyboard checks while including new Golf link in explicit tab order and focus-exit sequence."
+    }
+  },
+  "addedFiles": {
+    "src/app/golf/page.tsx": {
+      "beforeHash": null,
+      "afterHash": "c5016fa6927a1cff62d5e9e0ff27844914891186ba537c5c72775e112062f866",
+      "reason": "New golf vertical, explicit month-first seasonal selection with sourced evidence; approved inventory frozen for review."
+    },
+    "src/components/GolfReason.module.css": {
+      "beforeHash": null,
+      "afterHash": "eca29666c2ed38374834b97d184b6f8687ab7ef50b231fb20e9de41662c031d3",
+      "reason": "New golf vertical, explicit month-first seasonal selection with sourced evidence; approved inventory frozen for review."
+    },
+    "src/components/GolfReason.tsx": {
+      "beforeHash": null,
+      "afterHash": "febb36b46b0b1ef11ed3c84941a454323257a9866a894e1f7724fe57e80b1b3a",
+      "reason": "New golf vertical, explicit month-first seasonal selection with sourced evidence; approved inventory frozen for review."
+    },
+    "src/components/GolfZone.module.css": {
+      "beforeHash": null,
+      "afterHash": "2bcf1f6462afe957d90134cfb4f72bf38f362c0369d8120fa5fdec1a13743e11",
+      "reason": "New golf vertical, explicit month-first seasonal selection with sourced evidence; approved inventory frozen for review."
+    },
+    "src/components/GolfZone.tsx": {
+      "beforeHash": null,
+      "afterHash": "623e1e18270476c7c9bf64610610038c564de0b940d7973dcbc27b97dc127f0f",
+      "reason": "New golf vertical, explicit month-first seasonal selection with sourced evidence; approved inventory frozen for review."
+    },
+    "src/data/golfCourseNotes.json": {
+      "beforeHash": null,
+      "afterHash": "5d34d6375d83378a07eb5e42f4b3c46d5aa189045ec72d5b97164372bcae62ea",
+      "reason": "New golf vertical, explicit month-first seasonal selection with sourced evidence; approved inventory frozen for review."
+    },
+    "src/data/golfCourseReview.json": {
+      "beforeHash": null,
+      "afterHash": "fbda66d1add7da5db48017a5fc76bcb78eca86a6388f0515891bf71dd6101afc",
+      "reason": "New golf vertical, explicit month-first seasonal selection with sourced evidence; approved inventory frozen for review."
+    },
+    "src/data/golfCourses.ts": {
+      "beforeHash": null,
+      "afterHash": "a8e3b46072ad51e7abb7505a680bb14aaaa696ac60a03306cfac215bf9fea9de",
+      "reason": "New golf vertical, explicit month-first seasonal selection with sourced evidence; approved inventory frozen for review."
+    },
+    "src/data/golfSources.json": {
+      "beforeHash": null,
+      "afterHash": "9df6f9a7a25cffa3af32ee59defb097a79f612a88b4f39bd9d0a82ac8647c9ca",
+      "reason": "New golf vertical, explicit month-first seasonal selection with sourced evidence; approved inventory frozen for review."
+    },
+    "src/lib/golfDiscovery.ts": {
+      "beforeHash": null,
+      "afterHash": "c52307b6f7aaa48f60c4a68911f44056621fb46179d2acc0981b6f827cbb7364",
+      "reason": "New golf vertical, explicit month-first seasonal selection with sourced evidence; approved inventory frozen for review."
+    }
+  }
+}
