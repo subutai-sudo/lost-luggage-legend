@@ -20,7 +20,7 @@
     },
     "src/components/GolfCourseMedia.module.css": {
       "beforeHash": null,
-      "afterHash": "49611f2595c40229a786b7810d9ebc82e77f8b7229e045ac8c5986ba5929ff94",
+      "afterHash": "5571a9cc1f23951244eb4a9df2a0918e4c39aa29ff5c24411ebb2fd66d49738e",
       "reason": "Course-media section, validation module, ledger, tests and locally hosted course assets (maps and licence-approved photographs)."
     },
     "src/lib/golfMedia.ts": {
@@ -35,7 +35,7 @@
     },
     "tests/golf-media.test.mjs": {
       "beforeHash": null,
-      "afterHash": "af6e98ee5ad32f658f6a8bc13d80d4d587ee96641648276338ce0dd2d4039858",
+      "afterHash": "69961b62b2b6ed14e30a624fb99e8ad59f80581e7782314b65050dce1426e061",
       "reason": "Course-media section, validation module, ledger, tests and locally hosted course assets (maps and licence-approved photographs)."
     },
     "tests/golf-media.browser.test.mjs": {

@@ -122,3 +122,22 @@ test('every shipped routing diagram is a legible, opaque, correctly marked layou
   }
   assert.equal(shipped, 3, 'the verified-diagram inventory changed; update this guard deliberately')
 })
+
+test('small print in the course-media section stays legible and its targets stay tappable', async () => {
+  const css = await readFile(new URL('../src/components/GolfCourseMedia.module.css', import.meta.url), 'utf8')
+  const declarations = selector => {
+    const block = css.match(new RegExp(`${selector.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\s*\\{([^}]*)\\}`, 'm'))
+    return block ? block[1] : ''
+  }
+  const px = (selector, prop) => Number((declarations(selector).match(new RegExp(`${prop}:\\s*([\\d.]+)px`)) ?? [])[1])
+  // Independent review measured the credit and map caption at ~8px tall on a 390px
+  // capture: too small for provenance text a reader is expected to be able to check.
+  for (const selector of ['.credit', '.note', '.map figcaption']) {
+    const size = px(selector, 'font-size')
+    assert.ok(size >= 13, `${selector}: font-size ${size}px is below the 13px legibility floor`)
+  }
+  for (const selector of ['.credit a', '.map figcaption a']) {
+    const height = px(selector, 'min-height')
+    assert.ok(height >= 24, `${selector}: touch target ${height}px is under 24px`)
+  }
+})

@@ -12,7 +12,7 @@
 .map, .photos figure { min-width: 0; margin: 0; }
 .map > a { display: block; background: #edf0e6; border: 1px solid var(--line); }
 .map img { display: block; width: 100%; height: auto; }
-.map figcaption { margin-top: 14px; font-size: 11px; line-height: 1.9; color: var(--muted); }
+.map figcaption { margin-top: 14px; font-size: 13px; line-height: 1.9; color: var(--muted); }
 .map figcaption p { margin: 0 0 10px; }
 .map figcaption a { display: inline-block; min-height: 24px; text-underline-offset: 4px; }
 .galleryHeading { display: flex; justify-content: space-between; align-items: end; gap: 22px; margin-block: 42px 26px; }
@@ -25,8 +25,8 @@
 .photos img { display: block; width: 100%; height: auto; }
 .photos figcaption { padding-top: 17px; }
 .caption { margin: 0 0 9px; font-family: var(--serif); font-size: 21px; line-height: 1.5; }
-.note { margin: 12px 0; color: var(--muted); font-size: 12px; line-height: 1.9; }
-.credit { margin: 12px 0 0; color: var(--muted); font-size: 11px; line-height: 1.9; overflow-wrap: anywhere; }
+.note { margin: 12px 0; color: var(--muted); font-size: 13px; line-height: 1.9; }
+.credit { margin: 12px 0 0; color: var(--muted); font-size: 13px; line-height: 1.9; overflow-wrap: anywhere; }
 .credit a { display: inline-block; min-height: 24px; text-underline-offset: 4px; }
 .unavailable { padding: 22px 26px; border-left: 3px solid var(--line); background: var(--inset); font-size: 13px; line-height: 1.9; }
 .unavailable p { margin: 0; }
