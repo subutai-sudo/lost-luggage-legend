@@ -1,4 +1,5 @@
 export interface GolfMediaResource {
+  samePageAsLayout?: boolean
   url: string
   label: string
   publisher: string
@@ -55,8 +56,15 @@ const licenseLinks: Record<GolfCoursePhoto['license'], string> = {
   'CC BY-SA 3.0': 'https://creativecommons.org/licenses/by-sa/3.0/',
   'CC BY-SA 4.0': 'https://creativecommons.org/licenses/by-sa/4.0/',
 }
+// Language that belongs to the verification process, not to a reader. Enforced here
+// rather than only in the authoring pipeline, so no record can reach a page with it.
+const INTERNAL_COPY = /\b(?:our|the)?\s*(?:review|verification|research|audit)\b|\breviewed\b|\bverified\b|\bretrieved\b|\bscreenshot\b|\bevidence\b|\bchecked out\b|HTTP\s*\d{3}|\bdo not infer\b|\bplaceholder\b/i
 function required(value: unknown, field: string): asserts value is string {
   if (typeof value !== 'string' || !value.trim() || /[<>\u0000-\u0008]/.test(value)) throw new Error(`Invalid golf media ${field}`)
+}
+function readerCopy(value: unknown, field: string): asserts value is string {
+  required(value, field)
+  if (INTERNAL_COPY.test(value)) throw new Error(`Golf media ${field} contains internal verification language`)
 }
 function https(value: unknown, field: string): asserts value is string {
   required(value, field)
@@ -67,6 +75,10 @@ function https(value: unknown, field: string): asserts value is string {
 function date(value: unknown) {
   if (typeof value !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(value) || new Date(value).toISOString().slice(0, 10) !== value) throw new Error('Invalid golf media check date')
 }
+function notFuture(value: string, field: string) {
+  const tomorrow = new Date(Date.now() + 86_400_000).toISOString().slice(0, 10)
+  if (value >= tomorrow) throw new Error(`Golf media ${field} is dated in the future`)
+}
 function dimensions(record: { src: string; width: number; height: number }, id: string, allowVector = false) {
   // All media is locally hosted after provenance review. No arbitrary remote image proxy.
   const extensions = allowVector ? '(?:svg|webp|png|jpg)' : '(?:webp|png|jpg)'
@@ -75,8 +87,9 @@ function dimensions(record: { src: string; width: number; height: number }, id: 
 }
 function resource(value: GolfMediaResource) {
   https(value.url, 'resource')
-  for (const field of ['label', 'publisher', 'scope'] as const) required(value[field], field)
+  for (const field of ['label', 'publisher', 'scope'] as const) readerCopy(value[field], field)
   date(value.checkedAt)
+  notFuture(value.checkedAt, 'check date')
 }
 
 export function validateGolfMedia(records: GolfCourseMedia[], courseIds: string[]): void {
@@ -93,7 +106,7 @@ export function validateGolfMedia(records: GolfCourseMedia[], courseIds: string[
     if (!Array.isArray(entry.photos)) throw new Error('Golf photos require an explicit list, including when unavailable')
     for (const photo of entry.photos) {
       dimensions(photo, entry.courseId)
-      for (const field of ['alt', 'caption', 'scope', 'author'] as const) required(photo[field], field)
+      for (const field of ['alt', 'caption', 'scope', 'author'] as const) readerCopy(photo[field], field)
       https(photo.sourcePage, 'photo source'); https(photo.originalUrl, 'photo original'); https(photo.licenseUrl, 'photo licence')
       if (licenseLinks[photo.license] !== photo.licenseUrl) throw new Error('Unapproved or inconsistent golf photo licence')
       if (assets.has(photo.src) || originals.has(photo.originalUrl)) throw new Error('Repeated image asset across course guides')
@@ -103,9 +116,10 @@ export function validateGolfMedia(records: GolfCourseMedia[], courseIds: string[
     if (entry.map !== null) {
       const map = entry.map
       dimensions(map, entry.courseId, true)
-      required(map.alt, 'map alt'); required(map.scope, 'map scope'); https(map.sourcePage, 'map source'); date(map.checkedAt)
+      readerCopy(map.alt, 'map alt'); readerCopy(map.scope, 'map scope'); https(map.sourcePage, 'map source'); date(map.checkedAt); notFuture(map.checkedAt, 'map check date')
+      if (!/^https:\/\/(?:www\.)?openstreetmap\.org\//.test(map.sourcePage)) throw new Error('Routing diagram must cite its OpenStreetMap source page')
       if (map.license !== 'ODbL 1.0' || map.licenseUrl !== 'https://opendatacommons.org/licenses/odbl/1-0/') throw new Error('Missing routing-map data licence')
-      if (!Array.isArray(map.holes) || !map.holes.length || new Set(map.holes).size !== map.holes.length || map.holes.some(h => !Number.isInteger(h) || h < 1 || h > 36)) throw new Error('Missing or ambiguous mapped hole references')
+      if (!Array.isArray(map.holes) || !map.holes.length || new Set(map.holes).size !== map.holes.length || map.holes.some(h => !Number.isInteger(h) || h < 1 || h > 18)) throw new Error('Missing or ambiguous mapped hole references')
       if (assets.has(map.src)) throw new Error('Repeated routing-map asset')
       assets.add(map.src)
     }
@@ -113,11 +127,17 @@ export function validateGolfMedia(records: GolfCourseMedia[], courseIds: string[
 }
 
 // Explicit display-field projection: internal verification notes never become props.
+let validatedLedger: GolfCourseMedia[] | null = null
 export function getGolfCourseMedia(id: string, records: GolfCourseMedia[], courseIds: string[]): GolfCourseMedia | undefined {
-  validateGolfMedia(records, courseIds)
+  // The shipped ledger is immutable at runtime, so validation runs once rather than
+  // re-walking all 37 records for every metadata and page render.
+  if (validatedLedger !== records) {
+    validateGolfMedia(records, courseIds)
+    validatedLedger = records
+  }
   const record = records.find(item => item.courseId === id)
   if (!record) return undefined
-  const displayResource = (item: GolfMediaResource) => ({ url: item.url, label: item.label, publisher: item.publisher, checkedAt: item.checkedAt, scope: item.scope })
+  const displayResource = (item: GolfMediaResource) => ({ url: item.url, label: item.label, publisher: item.publisher, checkedAt: item.checkedAt, scope: item.scope, samePageAsLayout: item.samePageAsLayout === true })
   return {
     courseId: record.courseId,
     gallery: record.gallery && displayResource(record.gallery),

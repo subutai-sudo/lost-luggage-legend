@@ -30,15 +30,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const title = `${course.name} Course Guide — When to Play & Visitor Access`
   const description = `Plan a round at ${course.name} in ${course.city}, ${course.country}: course character, playing notes, visitor access and sourced month-by-month advice.`
   const metadata = pageMetadata({ title, description, path: `/golf/${course.id}` })
-  // Reuse only the destination's approved photo, with its scope explicit even in social previews.
+  // The approved course photograph becomes the social image when one exists, so the
+  // declared dimensions describe that file rather than a fixed 1.91:1 box.
+  const socialPhoto = getGolfMediaForCourse(course.id)?.photos[0]
+  const heroImage = socialPhoto
+    ? { src: socialPhoto.src, width: socialPhoto.width, height: socialPhoto.height, alt: socialPhoto.alt }
+    : { src: destination.heroImage, alt: `${destination.title} destination photograph — not ${course.name}` }
   return {
     ...metadata,
     openGraph: {
       ...metadata.openGraph,
       type: 'article',
-      images: [{ url: getGolfMediaForCourse(course.id)?.photos[0]?.src ?? destination.heroImage, width: 1200, height: 630, alt: getGolfMediaForCourse(course.id)?.photos[0]?.alt ?? `${destination.title} destination photograph — not ${course.name}` }],
+      // Declared dimensions must describe the image actually used; a portrait course
+      // photograph is not a 1200x630 box.
+      images: [{ url: heroImage.src, ...('width' in heroImage ? { width: heroImage.width, height: heroImage.height } : { width: 1200, height: 630 }), alt: heroImage.alt } as { url: string; width: number; height: number; alt: string }],
     },
-    twitter: { ...metadata.twitter, images: [getGolfMediaForCourse(course.id)?.photos[0]?.src ?? destination.heroImage] },
+    twitter: { ...metadata.twitter, images: [heroImage.src] },
   }
 }
 

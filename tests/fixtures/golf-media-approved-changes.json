@@ -8,14 +8,14 @@
   "changes": {
     "src/app/golf/[slug]/page.tsx": {
       "beforeHash": "18c6c10997eece310871432051f5256a6f849ff976762c424af413458bbb5d3d",
-      "afterHash": "f3c68e29c5509736f7b1da370521a2c7651359cff27a97b35aec17ccb1c35f2e",
+      "afterHash": "c907d09636de8106f3082789cc0ebf64ab0721d414fbe4b2bb9b7b87d26915d1",
       "reason": "Hero now credits an approved course photograph and the guide gains the course layout & photographs section."
     }
   },
   "addedFiles": {
     "src/components/GolfCourseMedia.tsx": {
       "beforeHash": null,
-      "afterHash": "755502ef934fd52bb27f2e992f7fc80b131bdda16d5528f69df45863d9466b89",
+      "afterHash": "235f5860508c61bbc68f6f54246957666c7147a2f7e10f165fb968e8fe10181d",
       "reason": "Course-media section, validation module, ledger, tests and locally hosted course assets (maps and licence-approved photographs)."
     },
     "src/components/GolfCourseMedia.module.css": {
@@ -25,22 +25,22 @@
     },
     "src/lib/golfMedia.ts": {
       "beforeHash": null,
-      "afterHash": "64afd87b0e7c1e44d42ef38b59d4f11155ca2f38ec431269629bd5e0f2b5f98f",
+      "afterHash": "76aed2bbb2ed030d2a0f7a457c5878b83038258d9ed0c470149135ba69411c00",
       "reason": "Course-media section, validation module, ledger, tests and locally hosted course assets (maps and licence-approved photographs)."
     },
     "src/data/golfCourseMedia.json": {
       "beforeHash": null,
-      "afterHash": "cd0766a1063e169abff0ae8fbafeed0da5de431decd743cfc8262f8560854719",
+      "afterHash": "179e5ef66c182c599ec620001a1df4f9c68717cac5ecce483491fbe0e38c873a",
       "reason": "Course-media section, validation module, ledger, tests and locally hosted course assets (maps and licence-approved photographs)."
     },
     "tests/golf-media.test.mjs": {
       "beforeHash": null,
-      "afterHash": "eafa201f88a68afaa9df9ff9836565dbb9fcaef9a580394489f7be98f8100f98",
+      "afterHash": "10d5bdf4beaf2c4e5a4d91832e45dc39f1d15e678be0525562934b2179b0dfd7",
       "reason": "Course-media section, validation module, ledger, tests and locally hosted course assets (maps and licence-approved photographs)."
     },
     "tests/golf-media.browser.test.mjs": {
       "beforeHash": null,
-      "afterHash": "a0b8c3e1ca4798ef359b0bf93117a7ce88a9d4048774ccb3bf627d1e0ebb9c4c",
+      "afterHash": "e34fa433e229a163e80ca0125d6035850c6d068d0a8f25d952f9fc11d41c4078",
       "reason": "Course-media section, validation module, ledger, tests and locally hosted course assets (maps and licence-approved photographs)."
     },
     "public/golf-media/bethpage-black-01.webp": {
@@ -185,7 +185,7 @@
     },
     "docs/golf-course-media.md": {
       "beforeHash": null,
-      "afterHash": "ed8a69d39e2a3d5b1dcf3b459d6a01ada37c78d663ee54d8742a5f9f73f05523",
+      "afterHash": "19b1024b523e004c50a60e075a44641150d3f96e3551beb5c40edf1aae8a20d6",
       "reason": "Acceptance and reproduction record for the course-media feature, including the refusal rules and the guards."
     },
     "public/golf-media/chambers-bay-03.webp": {
@@ -279,5 +279,5 @@
       "reason": "Licence-approved course photograph hosted locally, or a routing diagram drawn from mapped hole geometry."
     }
   },
-  "revisionNote": "Re-verified after round-2 visual approval (44 photographs across 21 courses), genuine WebP re-encode from the originals, the diagram legibility repair, and the added format/geometry/legibility guards."
+  "revisionNote": "Re-verified after the independent implementation review: internal verification language removed from reader copy and enforced in the validator, honest gallery attribution, single-photograph sizing, social-image dimensions taken from the file, genuine WebP re-encode, and the diagram legibility repair."
 }

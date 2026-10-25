@@ -19,7 +19,7 @@ export function GolfCourseMedia({ media, courseName }: { media: GolfCourseMedia;
             <p>{media.layout.scope}</p>
             <a className={styles.action} href={media.layout.url} rel="noreferrer" data-golf-layout-resource>{layoutLabel} <span aria-hidden="true">↗</span></a>
             <p className={styles.credit}>{media.layout.publisher} · Checked <time dateTime={media.layout.checkedAt}>{media.layout.checkedAt}</time></p>
-          </> : <p data-golf-layout-unavailable>No exact-course routing map or hole tour has been verified yet. We do not substitute a nearby course or draw a speculative layout.</p>}
+          </> : <p data-golf-layout-unavailable>No exact-course routing map or hole tour is available for this course yet. We do not substitute a nearby course or draw a speculative layout.</p>}
           {media.map && <p className={styles.note}>The diagram uses community-mapped hole geometry rather than a club-issued card, so layouts and numbering may change.</p>}
         </div>
         {media.map && <figure className={styles.map} data-golf-routing-map>
@@ -38,12 +38,19 @@ export function GolfCourseMedia({ media, courseName }: { media: GolfCourseMedia;
       </div>
       <div className={styles.galleryHeading}>
         <div><p className={styles.eyebrow}>02 / A look at the course</p><h3>Course photographs</h3></div>
-        {media.gallery && <a className={styles.action} href={media.gallery.url} rel="noreferrer" data-golf-gallery-resource>View {media.gallery.publisher} photographs <span aria-hidden="true">↗</span></a>}
+        {/* When the gallery is the same page as the layout resource, say so instead
+            of presenting one page as two separate club resources. */}
+        {media.gallery && (media.gallery.samePageAsLayout
+          ? <p className={styles.note} data-golf-gallery-same-page>The layout resource above is also where {media.gallery.publisher} publishes its course photographs.</p>
+          : <a className={styles.action} href={media.gallery.url} rel="noreferrer" data-golf-gallery-resource>View photographs published by {media.gallery.publisher} <span aria-hidden="true">↗</span></a>)}
       </div>
+      {media.gallery && <p className={styles.note} data-golf-gallery-scope>{media.gallery.scope}</p>}
       {!!media.photos.length && <div className={styles.photos} data-golf-photo-gallery>
         {media.photos.map(photo => <figure key={photo.src} data-golf-photo>
           <a href={photo.src} aria-label={`Open full-size photograph: ${photo.caption}`} className={styles.photoLink}>
-            <Image src={photo.src} width={photo.width} height={photo.height} alt={photo.alt} sizes="(max-width: 800px) 92vw, (min-width: 1440px) 634px, 44vw" />
+            {/* A lone photograph spans the whole grid, so it declares the full
+                viewport width instead of a half-width column. */}
+            <Image src={photo.src} width={photo.width} height={photo.height} alt={photo.alt} sizes={media.photos.length === 1 ? '92vw' : '(max-width: 800px) 92vw, (min-width: 1440px) 634px, 44vw'} />
           </a>
           <figcaption>
             <p className={styles.caption}>{photo.caption}</p>
@@ -53,8 +60,8 @@ export function GolfCourseMedia({ media, courseName }: { media: GolfCourseMedia;
         </figure>)}
       </div>}
       {!media.photos.length && <div className={styles.unavailable} data-golf-photo-unavailable>
-        <p>No course photograph has yet cleared our identity and reuse-rights checks for on-page display. We have not replaced it with a stock fairway or a destination photograph.</p>
-        {media.gallery && <p>{media.gallery.scope} The publisher retains the images on its own website; the link above opens that source rather than copying its photographs here.</p>}
+        <p>No course photograph is available for on-page display yet. We have not replaced it with a stock fairway or a destination photograph.</p>
+        {media.gallery && <p>The publisher retains the images on its own website; the link above opens that source rather than copying its photographs here.</p>}
       </div>}
     </section>
   )

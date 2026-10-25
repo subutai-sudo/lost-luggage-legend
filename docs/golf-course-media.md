@@ -40,9 +40,13 @@ A guide with nothing verified shows the resource it does have and no photograph.
 
 ## Copy rules
 
-Reader-visible text never carries internal reasoning. The ledger build fails
-closed if any layout, gallery, map or photograph field contains retrieval or
-verification language. Captions do not claim a specific hole, angle, or current
+Reader-visible text never carries internal reasoning, and the rule is enforced by
+the shipped validator (`validateGolfMedia`), not only by the authoring pipeline:
+any layout, gallery, map or photograph field containing review, verification,
+research, retrieval or screenshot language is rejected before it can render. An
+independent review found the phrase "Our review confirmed a genuine golf course
+scene" on every photographed page because the check existed only in the pipeline
+while the documentation claimed it was a build-time guard. Captions do not claim a specific hole, angle, or current
 playing conditions, because pixels prove a course scene but not which hole.
 Licence URLs are canonical deed URLs derived from the verified licence *name*;
 an unknown licence name stops the build.
@@ -74,4 +78,10 @@ for Node's TLS trust.
   licences and licence URLs agree, and no image repeats across guides.
 * Reader copy: internal verification language is rejected at build time.
 * Browser: the diagram and each photograph must genuinely decode, not merely
-  exist in the DOM.
+  exist in the DOM; internal verification language must not appear anywhere in the
+  media section.
+* Asset format: every shipped raster asset's magic bytes must match its extension,
+  the asset set is pruned to exactly what the guides reference, and the publishing
+  step refuses to write non-WebP bytes under a `.webp` name.
+* Social metadata: declared image dimensions come from the file actually used, so a
+  portrait course photograph is not announced as a 1200x630 box.

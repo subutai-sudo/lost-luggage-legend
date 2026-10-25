@@ -170,3 +170,41 @@ test('every shipped raster asset really is the format its filename claims', asyn
   }
   assert.equal(checked, 46, 'shipped asset inventory changed; update this guard deliberately')
 })
+
+// The validator must enforce the copy rule itself. Previously the guard lived only
+// in the authoring pipeline, so the documented invariant was unenforced and the
+// phrase "Our review confirmed a genuine golf course scene" reached every
+// photographed page while all eight browser assertions still passed.
+test('internal verification language is rejected by the shipped validator', () => {
+  const base = {
+    courseId: 'course-a', gallery: null, layout: null, map: null,
+    photos: [{ src: '/golf-media/course-a-01.webp', width: 800, height: 600, alt: 'a fairway', caption: 'At Course A: a fairway.', author: 'A. Photographer',
+      scope: 'Photograph by A. Photographer, published on Wikimedia Commons under CC BY 4.0.', sourcePage: 'https://commons.wikimedia.org/wiki/File:A.jpg',
+      originalUrl: 'https://upload.wikimedia.org/a.jpg', license: 'CC BY 4.0', licenseUrl: 'https://creativecommons.org/licenses/by/4.0/', checkedAt: '2026-10-24' }],
+  }
+  const mutate = patch => ({ ...base, photos: [{ ...base.photos[0], ...patch }] })
+  assert.doesNotThrow(() => validateGolfMedia([base], ['course-a']))
+  const forbidden = {
+    'Our review confirmed a genuine golf course scene.': { scope: 'Our review confirmed a genuine golf course scene.' },
+    'reviewed': { caption: 'This was reviewed yesterday.' },
+    'verified': { alt: 'verified golf scene' },
+    'retrieved': { scope: 'Retrieved from the club site.' },
+    'screenshot': { scope: 'Confirmed with a screenshot.' },
+    'evidence': { caption: 'Evidence of the layout.' },
+    'HTTP 200': { scope: 'The page returned HTTP 200.' },
+    'our research': { alt: 'from our research' },
+  }
+  for (const [label, patch] of Object.entries(forbidden)) {
+    assert.throws(() => validateGolfMedia([mutate(patch)], ['course-a']), /internal verification language/, `${label} must be rejected`)
+  }
+})
+
+test('the routing map must cite OpenStreetMap, stay within 18 holes and not be dated in the future', () => {
+  const map = { src: '/golf-media/course-a-routing.svg', width: 1500, height: 1500, alt: 'A planning diagram of the mapped hole routing at Course A', scope: 'Numbered holes as mapped by OpenStreetMap contributors.', sourcePage: 'https://www.openstreetmap.org/way/1', checkedAt: '2026-10-24', holes: [1, 2, 3], license: 'ODbL 1.0', licenseUrl: 'https://opendatacommons.org/licenses/odbl/1-0/' }
+  const withMap = extra => [{ courseId: 'course-a', gallery: null, layout: null, photos: [], map: { ...map, ...extra } }]
+  assert.doesNotThrow(() => validateGolfMedia(withMap({}), ['course-a']))
+  // The rendered credit always names OpenStreetMap, so any other source is a mismatch.
+  assert.throws(() => validateGolfMedia(withMap({ sourcePage: 'https://example.com/x' }), ['course-a']), /OpenStreetMap source page/)
+  assert.throws(() => validateGolfMedia(withMap({ holes: Array.from({ length: 36 }, (_, i) => i + 1) }), ['course-a']), /mapped hole references/)
+  assert.throws(() => validateGolfMedia(withMap({ checkedAt: '2099-12-31' }), ['course-a']), /future/)
+})
