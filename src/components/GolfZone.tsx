@@ -6,6 +6,7 @@ import Link from 'next/link'
 import { Navbar } from '@/components/Navbar'
 import { NewsletterSignup } from '@/components/NewsletterSignup'
 import { GolfReason } from '@/components/GolfReason'
+import { GOLF_OPERATIONAL_NOTICES } from '@/data/golfOperationalNotices'
 import {
   discoveryImage, getGolfMonthPreviews, getGolfMonthSelection, MONTH_NAMES, readGolfMonth,
   type GolfCourse, type GolfDisplayCatalog,
@@ -92,8 +93,8 @@ export function GolfZone({ courses, initialMonth, catalog }: Props) {
             </div>
             <div className={styles.heroFoot}>
               <span>{MONTH_NAMES[month - 1]} · {featured.name}</span>
-              <Link href={`/guides/${featured.destinationSlug}`}>
-                Read the {featured.destinationTitle} guide <span aria-hidden="true">↗</span>
+              <Link href={`/golf/${featured.id}`}>
+                Read the {featured.name} golf guide <span aria-hidden="true">↗</span>
               </Link>
             </div>
           </div>
@@ -159,7 +160,7 @@ export function GolfZone({ courses, initialMonth, catalog }: Props) {
             <div className={styles.cards}>
               {shortlist.map(course => (
                 <article key={course.id} className={styles.card} data-golf-card={course.id}>
-                  <Link href={`/guides/${course.destinationSlug}`} className={styles.cardFigure} aria-label={`Explore the ${course.destinationTitle} guide`}>
+                  <Link href={`/golf/${course.id}`} className={styles.cardFigure} aria-label={`Explore the ${course.name} golf guide`}>
                     <Image
                       className={styles.cardImage}
                       src={discoveryImage(course.image, 640)}
@@ -173,13 +174,19 @@ export function GolfZone({ courses, initialMonth, catalog }: Props) {
                   <div className={styles.cardBody}>
                     <p className={styles.cardCharacter}>{course.character}</p>
                     <h3 className={styles.cardTitle}>
-                      <Link href={`/guides/${course.destinationSlug}`}>{course.name}</Link>
+                      <Link href={`/golf/${course.id}`}>{course.name}</Link>
                     </h3>
                     <p className={styles.cardPlace}>{course.city}, {course.country}</p>
+                    {GOLF_OPERATIONAL_NOTICES[course.id] && (
+                      <p data-golf-operational-notice>
+                        <strong>Before planning a round:</strong> {GOLF_OPERATIONAL_NOTICES[course.id].text}{' '}
+                        <a href={GOLF_OPERATIONAL_NOTICES[course.id].url} rel="noreferrer">{GOLF_OPERATIONAL_NOTICES[course.id].label} ↗</a>
+                      </p>
+                    )}
                     <GolfReason catalog={catalog} courseId={course.id} courseName={course.name} month={month} />
                     <p className={styles.cardLinks}>
-                      <Link href={`/guides/${course.destinationSlug}`}>
-                        Read the {course.destinationTitle} guide <span aria-hidden="true">↗</span>
+                      <Link href={`/golf/${course.id}`}>
+                        Read the {course.name} golf guide <span aria-hidden="true">↗</span>
                       </Link>
                     </p>
                   </div>
@@ -199,7 +206,7 @@ export function GolfZone({ courses, initialMonth, catalog }: Props) {
                 directory before you travel, and treat every reason here as typical seasonal guidance
                 rather than a forecast.
               </p>
-              <p><Link href="/guides">Browse the destination guides <span aria-hidden="true">↗</span></Link></p>
+              <p>Choose a course above for its golf guide. For the rest of your trip, <Link href="/guides">browse destination logistics <span aria-hidden="true">↗</span></Link>.</p>
             </div>
 
             <section className={styles.notice} aria-labelledby="golf-newsletter-heading">

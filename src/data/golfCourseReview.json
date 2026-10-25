@@ -276,8 +276,8 @@
           "researchRank": 3,
           "researchLead": false,
           "chosenAsLead": false,
-          "decision": "retained",
-          "rationale": "Retained current sourced May reason and visible trade-off; no change to this course/month selection or its rendered copy."
+          "decision": "revised",
+          "rationale": "Retained current sourced May reason and visible trade-off; no change to this course/month selection or its rendered copy. Course-guide review: replace outdated operational assumptions with directly checked closure/opening evidence; retain month identity and climate scope, never guarantee access."
         },
         {
           "courseId": "bro-hof-slott-stadium",
@@ -328,8 +328,8 @@
           "researchRank": 2,
           "researchLead": false,
           "chosenAsLead": false,
-          "decision": "retained",
-          "rationale": "Retained current sourced June reason and visible trade-off; no change to this course/month selection or its rendered copy."
+          "decision": "revised",
+          "rationale": "Retained current sourced June reason and visible trade-off; no change to this course/month selection or its rendered copy. Course-guide review: replace outdated operational assumptions with directly checked closure/opening evidence; retain month identity and climate scope, never guarantee access."
         },
         {
           "courseId": "bro-hof-slott-stadium",
@@ -347,7 +347,7 @@
           "researchLead": false,
           "chosenAsLead": false,
           "decision": "revised",
-          "rationale": "G4 retained -> revised: Remove yearless recurring June Eid timing and unsupported green-fee inference from accommodation demand. Keep dry-season golf benefit and Rough Guides mid-June onward accommodation-demand caveat only."
+          "rationale": "G4 retained -> revised: Remove yearless recurring June Eid timing and unsupported green-fee inference from accommodation demand. Keep dry-season golf benefit and Rough Guides mid-June onward accommodation-demand caveat only. Course-guide review: replace outdated operational assumptions with directly checked closure/opening evidence; retain month identity and climate scope, never guarantee access."
         },
         {
           "courseId": "portmarnock-golf-club",
@@ -398,8 +398,8 @@
           "researchRank": 7,
           "researchLead": false,
           "chosenAsLead": false,
-          "decision": "retained",
-          "rationale": "Retained current sourced July reason and visible trade-off; no change to this course/month selection or its rendered copy."
+          "decision": "revised",
+          "rationale": "Retained current sourced July reason and visible trade-off; no change to this course/month selection or its rendered copy. Course-guide review: replace outdated operational assumptions with directly checked closure/opening evidence; retain month identity and climate scope, never guarantee access."
         },
         {
           "courseId": "portmarnock-golf-club",
@@ -705,8 +705,8 @@
           "researchRank": 3,
           "researchLead": false,
           "chosenAsLead": false,
-          "decision": "retained",
-          "rationale": "Retained current sourced December reason and visible trade-off; no change to this course/month selection or its rendered copy."
+          "decision": "revised",
+          "rationale": "Retained current sourced December reason and visible trade-off; no change to this course/month selection or its rendered copy. Course-guide review: replace outdated operational assumptions with directly checked closure/opening evidence; retain month identity and climate scope, never guarantee access."
         },
         {
           "courseId": "sentosa-golf-club-serapong",

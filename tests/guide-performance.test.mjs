@@ -84,10 +84,19 @@ for (const overlay of overlays) {
 
 // The article also carries the earlier related-image sizes correction, which is
 // why its exception lives in the accessibility overlay and is normalized below.
-const expectedHash = path => {
+// The course-guide repair is a separate, exact-byte follow-up, not a
+// regeneration of either the legacy freeze or the original golf approval.
+const courseGuidePaths = ['src/components/GolfZone.tsx', 'src/app/sitemap.ts', 'tests/seo.integration.test.mjs', 'src/data/golfCourseNotes.json', 'src/data/golfCourseReview.json', 'src/data/golfSources.json']
+const courseGuideAdded = ['src/app/golf/[slug]/page.tsx', 'src/components/GolfGuide.module.css', 'src/lib/golfGuides.ts', 'src/data/golfGuideDetails.json', 'src/data/golfOperationalNotices.ts']
+const courseGuideApproval = JSON.parse(await readFile(new URL('./fixtures/golf-guides-approved-changes.json', import.meta.url), 'utf8'))
+const previousHash = path => {
   const claim = owner.get(path)
-  if (!claim) return frozen.hashes[path]
-  return claim.overlay.doc[claim.kind][path].afterHash
+  return claim ? claim.overlay.doc[claim.kind][path].afterHash : frozen.hashes[path]
+}
+const expectedHash = path => {
+  if (courseGuidePaths.includes(path)) return courseGuideApproval.changes[path].afterHash
+  if (courseGuideAdded.includes(path)) return courseGuideApproval.addedFiles[path].afterHash
+  return previousHash(path)
 }
 const accepts = (path, bytes) => sha256(bytes) === expectedHash(path)
 
@@ -124,6 +133,29 @@ test('every acceptance overlay names only its reviewed files and preserves the i
       assert.match(doc.addedFiles[path].afterHash, /^[a-f0-9]{64}$/)
       assert.ok(doc.addedFiles[path].reason?.trim())
     }
+  }
+})
+
+test('course-guide follow-up permits only exact approved deltas, with negative controls', async () => {
+  assert.equal(courseGuideApproval.baseline, 'cf0c66d')
+  assert.deepEqual(Object.keys(courseGuideApproval.changes).sort(), [...courseGuidePaths].sort())
+  assert.deepEqual(Object.keys(courseGuideApproval.addedFiles).sort(), [...courseGuideAdded].sort())
+  for (const path of courseGuidePaths) {
+    const entry = courseGuideApproval.changes[path]
+    assert.equal(entry.beforeHash, previousHash(path), `${path}: preserve prior approved oracle`)
+    assert.notEqual(entry.afterHash, entry.beforeHash)
+    assert.match(entry.afterHash, /^[a-f0-9]{64}$/)
+    assert.ok(entry.reason?.trim())
+  }
+  for (const path of courseGuideAdded) {
+    assert.equal(previousHash(path), undefined)
+    assert.equal(courseGuideApproval.addedFiles[path].beforeHash, null)
+    assert.ok(courseGuideApproval.addedFiles[path].reason?.trim())
+  }
+  for (const path of [...courseGuidePaths, ...courseGuideAdded]) {
+    const bytes = await read(path)
+    assert.ok(accepts(path, bytes), path)
+    assert.equal(accepts(path, Buffer.concat([bytes, Buffer.from('\n/* unapproved */')])), false, path)
   }
 })
 
