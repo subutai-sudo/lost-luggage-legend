@@ -141,3 +141,32 @@ test('small print in the course-media section stays legible and its targets stay
     assert.ok(height >= 24, `${selector}: touch target ${height}px is under 24px`)
   }
 })
+
+test('every shipped raster asset really is the format its filename claims', async () => {
+  // A normaliser that failed silently shipped JPEG bytes under .webp names, which
+  // serves the wrong content type on every guide. Bytes, not filenames, decide.
+  const signatures = { webp: [[0, 'RIFF'], [8, 'WEBP']], png: [[0, '\x89PNG']], jpg: [[0, '\xff\xd8\xff']], jpeg: [[0, '\xff\xd8\xff']] }
+  const courseIds = [...coursesSource.matchAll(/    id: '([^']+)'/g)].map(match => match[1])
+  let checked = 0
+  for (const id of courseIds) {
+    const media = getGolfMediaForCourse(id)
+    for (const photo of media.photos) {
+      const extension = photo.src.split('.').pop().toLowerCase().replace('jpg', 'jpg')
+      const bytes = await readFile(new URL(`../public${photo.src}`, import.meta.url))
+      const expected = signatures[extension === 'jpg' ? 'jpg' : extension]
+      assert.ok(expected, `${photo.src}: unrecognised extension`)
+      for (const [offset, text] of expected) {
+        const want = [...text].map(char => char.charCodeAt(0) & 0xff)
+        const got = [...bytes.slice(offset, offset + want.length)]
+        assert.deepEqual(got, want, `${photo.src}: bytes are not ${extension}`)
+      }
+      checked += 1
+    }
+    if (media.map) {
+      const bytes = await readFile(new URL(`../public${media.map.src}`, import.meta.url), 'utf8')
+      assert.match(bytes.slice(0, 200), /<svg/, `${media.map.src}: not actually an SVG`)
+      checked += 1
+    }
+  }
+  assert.equal(checked, 28, 'shipped asset inventory changed; update this guard deliberately')
+})
