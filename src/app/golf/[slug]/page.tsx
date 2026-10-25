@@ -6,7 +6,9 @@ import { BrandLogo } from '@/components/BrandLogo'
 import { Navbar } from '@/components/Navbar'
 import { MONTH_NAMES } from '@/lib/golfDiscovery'
 import { getGolfGuide, getGolfGuides } from '@/lib/golfGuides'
+import { GolfCourseMedia } from '@/components/GolfCourseMedia'
 import { GOLF_OPERATIONAL_NOTICES } from '@/data/golfOperationalNotices'
+import { getGolfMediaForCourse } from '@/lib/golfMedia'
 import { pageMetadata } from '@/lib/site'
 import styles from '@/components/GolfGuide.module.css'
 
@@ -34,9 +36,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       ...metadata.openGraph,
       type: 'article',
-      images: [{ url: destination.heroImage, width: 1200, height: 630, alt: `${destination.title} destination photograph — not ${course.name}` }],
+      images: [{ url: getGolfMediaForCourse(course.id)?.photos[0]?.src ?? destination.heroImage, width: 1200, height: 630, alt: getGolfMediaForCourse(course.id)?.photos[0]?.alt ?? `${destination.title} destination photograph — not ${course.name}` }],
     },
-    twitter: { ...metadata.twitter, images: [destination.heroImage] },
+    twitter: { ...metadata.twitter, images: [getGolfMediaForCourse(course.id)?.photos[0]?.src ?? destination.heroImage] },
   }
 }
 
@@ -45,6 +47,12 @@ export default async function GolfGuidePage({ params }: Props) {
   const guide = getGolfGuide(slug)
   if (!guide) notFound()
   const { course, destination, supportedMonths, monthlyNotes, sources } = guide
+  const media = getGolfMediaForCourse(course.id)
+  const photo = media?.photos[0]
+  const hero = photo ? { src: photo.src, alt: photo.alt } : { src: destination.heroImage, alt: `${destination.title} — destination photograph, not ${course.name}` }
+  const heroCredit = photo
+    ? `Course photograph: ${photo.caption} Photo ${photo.author}, ${photo.license}, resized for display.`
+    : `Destination photograph: ${destination.title}. This is not a photograph of ${course.name}.`
 
   return (
     <div className={styles.root} data-golf-guide={course.id}>
@@ -56,8 +64,8 @@ export default async function GolfGuidePage({ params }: Props) {
       <main id="main-content">
       <header className={styles.hero} data-golf-guide-hero>
         <Image
-          src={destination.heroImage}
-          alt={`${destination.title} — destination photograph, not ${course.name}`}
+          src={hero.src}
+          alt={hero.alt}
           className={styles.heroImage}
           fill
           priority
@@ -78,7 +86,7 @@ export default async function GolfGuidePage({ params }: Props) {
             <p className={styles.character}>{course.character.replaceAll('-', ' ')} golf</p>
           </div>
           <div className={styles.heroFoot}>
-            <p><strong>Destination photograph:</strong> {destination.title}. This is not a photograph of {course.name}.</p>
+            <p>{heroCredit}</p>
             <Link href="#golf-guide-main">Read the course guide <span aria-hidden="true">↓</span></Link>
           </div>
         </div>
@@ -96,6 +104,8 @@ export default async function GolfGuidePage({ params }: Props) {
             <p className={styles.eyebrow}>The course, in perspective</p>
             <p className={styles.overview} data-golf-guide-overview>{guide.overview}</p>
           </div>
+
+          {media && <GolfCourseMedia media={media} courseName={course.name} />}
 
           <div className={styles.editorialGrid}>
             <aside className={styles.sidebar} aria-label="Course guide at a glance">

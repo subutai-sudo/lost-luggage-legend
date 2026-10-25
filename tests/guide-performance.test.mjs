@@ -93,10 +93,22 @@ const previousHash = path => {
   const claim = owner.get(path)
   return claim ? claim.overlay.doc[claim.kind][path].afterHash : frozen.hashes[path]
 }
-const expectedHash = path => {
+// Course-media follow-up: a separate named overlay that chains onto the
+// course-guide approval rather than replacing or rebaselining it. Its inventory
+// is enumerated in code here as well as in the JSON, so a JSON-only edit cannot
+// grant an exception.
+const mediaPaths = ['src/app/golf/[slug]/page.tsx']
+const mediaApproval = JSON.parse(await readFile(new URL('./fixtures/golf-media-approved-changes.json', import.meta.url), 'utf8'))
+const mediaAdded = Object.keys(mediaApproval.addedFiles)
+const courseGuideHash = path => {
   if (courseGuidePaths.includes(path)) return courseGuideApproval.changes[path].afterHash
   if (courseGuideAdded.includes(path)) return courseGuideApproval.addedFiles[path].afterHash
   return previousHash(path)
+}
+const expectedHash = path => {
+  if (mediaPaths.includes(path)) return mediaApproval.changes[path].afterHash
+  if (mediaAdded.includes(path)) return mediaApproval.addedFiles[path].afterHash
+  return courseGuideHash(path)
 }
 const accepts = (path, bytes) => sha256(bytes) === expectedHash(path)
 
@@ -155,6 +167,34 @@ test('course-guide follow-up permits only exact approved deltas, with negative c
   for (const path of [...courseGuidePaths, ...courseGuideAdded]) {
     const bytes = await read(path)
     assert.ok(accepts(path, bytes), path)
+    assert.equal(accepts(path, Buffer.concat([bytes, Buffer.from('\n/* unapproved */')])), false, path)
+  }
+})
+
+test('course-media follow-up names only its reviewed files, chains onto the prior approval and rejects additions', async () => {
+  assert.equal(mediaApproval.schemaVersion, 1)
+  assert.equal(mediaApproval.kind, 'golf-media-approved-change')
+  assert.equal(mediaApproval.golfMediaBaseline, 'a9fee50102b72d17c025c103adec07b96dcd2afe')
+  assert.equal(mediaApproval.legacyFixtureSha256, legacyFixtureHash)
+  assert.deepEqual(Object.keys(mediaApproval.changes).sort(), [...mediaPaths].sort())
+  for (const path of mediaPaths) {
+    const entry = mediaApproval.changes[path]
+    // The point of the chain: the media overlay starts from the bytes the
+    // course-guide overlay approved, not from the legacy freeze.
+    assert.equal(entry.beforeHash, courseGuideHash(path), `${path}: must chain onto the prior approved bytes`)
+    assert.notEqual(entry.afterHash, entry.beforeHash)
+    assert.match(entry.afterHash, /^[a-f0-9]{64}$/)
+    assert.ok(entry.reason?.trim())
+  }
+  assert.ok(mediaAdded.length, 'the media overlay must enumerate its added files')
+  for (const path of mediaAdded) {
+    assert.ok(!Object.hasOwn(frozen.hashes, path), `${path}: new file, not a rebaselined old one`)
+    assert.equal(mediaApproval.addedFiles[path].beforeHash, null)
+    assert.match(mediaApproval.addedFiles[path].afterHash, /^[a-f0-9]{64}$/)
+    assert.ok(mediaApproval.addedFiles[path].reason?.trim())
+    const bytes = await read(path)
+    assert.ok(accepts(path, bytes), path)
+    // Negative control: appended bytes in an approved file must be refused.
     assert.equal(accepts(path, Buffer.concat([bytes, Buffer.from('\n/* unapproved */')])), false, path)
   }
 })
