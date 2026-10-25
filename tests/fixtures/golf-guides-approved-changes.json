@@ -1,0 +1,62 @@
+{
+  "baseline": "cf0c66d",
+  "changes": {
+    "src/components/GolfZone.tsx": {
+      "beforeHash": "623e1e18270476c7c9bf64610610038c564de0b940d7973dcbc27b97dc127f0f",
+      "afterHash": "8ab02a83e73cf8409010df1cb045dea860c140ed47c351e331bb9747beab1710",
+      "reason": "Course-specific guide routing/SEO and independently sourced corrections to Bali closure, Brautarholt opening, Jack's Point aerification and Royal Melbourne visitor scope. No change to course selections or unrelated destination articles."
+    },
+    "src/app/sitemap.ts": {
+      "beforeHash": "1e689b8f0159d1100046fc7c9115b6892ae17e59f1073154d91e87c768234c42",
+      "afterHash": "e01e3ee48c043974d177886434f71432c0429a81c9080c04a99948651f1e6cfb",
+      "reason": "Course-specific guide routing/SEO and independently sourced corrections to Bali closure, Brautarholt opening, Jack's Point aerification and Royal Melbourne visitor scope. No change to course selections or unrelated destination articles."
+    },
+    "tests/seo.integration.test.mjs": {
+      "beforeHash": "4496f1678a159c6f9bd3e0182d78dfb1ac761b1fdda0bc998929cda965582146",
+      "afterHash": "b744a63fa3d78b54f6365089c8a395a85e963c547cfa54ef1fd54b1d0eba0bb6",
+      "reason": "Course-specific guide routing/SEO and independently sourced corrections to Bali closure, Brautarholt opening, Jack's Point aerification and Royal Melbourne visitor scope. No change to course selections or unrelated destination articles."
+    },
+    "src/data/golfCourseNotes.json": {
+      "beforeHash": "5d34d6375d83378a07eb5e42f4b3c46d5aa189045ec72d5b97164372bcae62ea",
+      "afterHash": "336eae1adbfa3ddceaaf9c1636f02892309748eccbeaedc5844fed7d5dba0ba8",
+      "reason": "Course-specific guide routing/SEO and independently sourced corrections to Bali closure, Brautarholt opening, Jack's Point aerification and Royal Melbourne visitor scope. No change to course selections or unrelated destination articles."
+    },
+    "src/data/golfCourseReview.json": {
+      "beforeHash": "fbda66d1add7da5db48017a5fc76bcb78eca86a6388f0515891bf71dd6101afc",
+      "afterHash": "98fc026dfe401651b123ab3533ec7b33040843369c02d8392a0c8efec5864d21",
+      "reason": "Course-specific guide routing/SEO and independently sourced corrections to Bali closure, Brautarholt opening, Jack's Point aerification and Royal Melbourne visitor scope. No change to course selections or unrelated destination articles."
+    },
+    "src/data/golfSources.json": {
+      "beforeHash": "9df6f9a7a25cffa3af32ee59defb097a79f612a88b4f39bd9d0a82ac8647c9ca",
+      "afterHash": "d2ceb11834f0e098c56045bc9c6f9436c6033743429f9c736053babe35b579e6",
+      "reason": "Course-specific guide routing/SEO and independently sourced corrections to Bali closure, Brautarholt opening, Jack's Point aerification and Royal Melbourne visitor scope. No change to course selections or unrelated destination articles."
+    }
+  },
+  "addedFiles": {
+    "src/app/golf/[slug]/page.tsx": {
+      "beforeHash": null,
+      "afterHash": "18c6c10997eece310871432051f5256a6f849ff976762c424af413458bbb5d3d",
+      "reason": "Course-specific sourced golf articles, server validation, scoped presentation and material redevelopment warning."
+    },
+    "src/components/GolfGuide.module.css": {
+      "beforeHash": null,
+      "afterHash": "171e11fda8cf4a4a6e834207eecdf9b93e096b33389600d894b2160cc2dee1fc",
+      "reason": "Course-specific sourced golf articles, server validation, scoped presentation and material redevelopment warning."
+    },
+    "src/lib/golfGuides.ts": {
+      "beforeHash": null,
+      "afterHash": "7d7e83acff26078225cfe1be18e4b37d4bc152586cd856e7a87806565470d371",
+      "reason": "Course-specific sourced golf articles, server validation, scoped presentation and material redevelopment warning."
+    },
+    "src/data/golfGuideDetails.json": {
+      "beforeHash": null,
+      "afterHash": "0c095aea083de7f624f64053614478158b669f3a5658e2d9600c2b49213388a5",
+      "reason": "Course-specific sourced golf articles, server validation, scoped presentation and material redevelopment warning."
+    },
+    "src/data/golfOperationalNotices.ts": {
+      "beforeHash": null,
+      "afterHash": "e4eab341e22a2190fc14d030bbc7f88476f867c8e91112a6645e2ea201d0745b",
+      "reason": "Course-specific sourced golf articles, server validation, scoped presentation and material redevelopment warning."
+    }
+  }
+}

@@ -21,7 +21,7 @@
     "title": "Golf | Experience World-Class Golfing Today — Jack's Point",
     "publisher": "Jack's Point",
     "checkedAt": "2026-10-25",
-    "evidence": "Course page: \"Play the spectacular 18-hole par 72 course on Lake Wakatipu, Queenstown, beneath The Remarkables.\" The 2026 visitor-rate table prices the window \"05 Jan - 30 Apr\" at NZ$350, and a notice says \"The course will be closed for mid-winter maintenance from 22 June to 14 August 2026\"."
+    "evidence": "Course page: \"Play the spectacular 18-hole par 72 course on Lake Wakatipu, Queenstown, beneath The Remarkables.\" The 2026 visitor-rate table prices the window \"05 Jan - 30 Apr\" at NZ$350, and a notice says \"The course will be closed for mid-winter maintenance from 22 June to 14 August 2026\". Official maintenance notice closes the course 15–19 December 2026 and 14–19 December 2027 for greens aerification; no public green-fee amount is reproduced."
   },
   {
     "id": "gs-6f1c485ef9",
@@ -637,7 +637,7 @@
     "title": "The Royal Melbourne Golf Club",
     "publisher": "The Royal Melbourne Golf Club (official)",
     "checkedAt": "2026-10-25",
-    "evidence": "“Founded in 1891 … featuring two of the world's finest courses”; “a private Members' Club”; visitors who are members of a golf club are welcome to enquire about visitation."
+    "evidence": "Private members' club. International and interstate visitors who are members of a golf club may enquire about Mondays, Tuesdays and Fridays, subject to availability and excluding public holidays. Reciprocal club members have rights under their separate agreement."
   },
   {
     "id": "gs-a3ddfb8097",
@@ -886,5 +886,21 @@
     "publisher": "Met Office",
     "checkedAt": "2026-10-25",
     "evidence": "Retrieved station Edinburgh, Gogarbank, climate period 1991–2020 table. March mean daily max/min 9.32/2.71°C, sunshine 111.02h; April 12.01/4.34°C, sunshine 147.74h, rainfall 45.87 mm and 2.86 air-frost days. Supports milder, sunnier spring days, not an April opening boundary or guaranteed warmth. Regional proxy for East Lothian; sunshine is not day length or course-turf condition."
+  },
+  {
+    "id": "gs-48a73a9041",
+    "url": "https://www.golfasian.com/golf-courses/indonesia-golf-courses/bali/bali-national-golf-resort/",
+    "title": "Bali Beach Country Club — redevelopment and closure notice",
+    "publisher": "Golfasian",
+    "checkedAt": "2026-10-25",
+    "evidence": "Golfasian explicitly reports Bali National closed from 1 May 2025 for redevelopment as Bali Beach Country Club; February 2027 is a scheduled reopening, not confirmation of resumed play. Generic booking text on the same page is contradictory."
+  },
+  {
+    "id": "gs-bf0f282dc7",
+    "url": "https://gbr.is/about-the-course/",
+    "title": "About the course — current 18-hole layout, guide and visitor terms",
+    "publisher": "Brautarholt Golf Club",
+    "checkedAt": "2026-10-25",
+    "evidence": "Official course page confirms 18 holes since July 2025, general opening 1 May to 15 October subject to weather, and tee times after 8pm from 1 June to 16 July only by special email request. Frost and heavy-weather delays apply."
   }
 ]

@@ -269,11 +269,12 @@
   {
     "courseId": "brautarholt-golf-club",
     "month": 5,
-    "why": "Iceland's golf season opens around late May and the midnight sun builds; Brautarholt's clifftop layout above the Atlantic is playable in near-endless daylight.",
-    "tradeoff": "The course only opens for the season around late May or early June, visitor access is limited, and Icelandic weather is changeable and windy.",
+    "why": "May brings lengthening Icelandic daylight for Brautarholt's coastal golf; the club gives a general season from 1 May to 15 October, weather permitting. The current course has 18 holes.",
+    "tradeoff": "Opening is weather-dependent. Wind can alter plans; late-evening tee times require confirmation rather than assuming daylight guarantees access.",
     "sourceIds": [
       "gs-f7c83511e9",
-      "gs-f54e4c7c84"
+      "gs-f54e4c7c84",
+      "gs-bf0f282dc7"
     ]
   },
   {
@@ -320,11 +321,12 @@
   {
     "courseId": "brautarholt-golf-club",
     "month": 6,
-    "why": "In June Iceland's midnight sun means the sun barely sets; Brautarholt's clifftop links can be played into the small hours during the 24-hour-light weeks.",
-    "tradeoff": "The short Icelandic season is only opening in early June, visitor access is limited, and the weather stays windy and changeable.",
+    "why": "June's long Icelandic daylight creates scope for an evening round at Brautarholt. The club offers tee times after 8pm from 1 June to 16 July by special email request.",
+    "tradeoff": "Evening access requires a special request, not just long daylight. Confirm weather, finishing arrangements and the separate last tee time for carts.",
     "sourceIds": [
       "gs-f7c83511e9",
-      "gs-f54e4c7c84"
+      "gs-f54e4c7c84",
+      "gs-bf0f282dc7"
     ]
   },
   {
@@ -341,11 +343,12 @@
   {
     "courseId": "bali-national-golf-club",
     "month": 6,
-    "why": "June sits in Bali's dry season (May-October, best May-September); Bali National, a Nelson & Haworth resort layout at Nusa Dua, is in its prime dry-season window.",
-    "tradeoff": "Bali's accommodation demand builds from mid-June toward the summer peak; resorts and guest houses get busy, so arrange your stay ahead.",
+    "why": "June falls in Bali's dry season, but Bali National is reported closed for redevelopment since May 2025. Treat the former Nusa Dua layout as historical golf research, not a currently playable recommendation.",
+    "tradeoff": "A proposed February 2027 reopening is unconfirmed. Obtain written operator confirmation before planning golf; dry-season climate does not establish access.",
     "sourceIds": [
       "gs-4794fa00da",
-      "gs-ddfd75d25b"
+      "gs-ddfd75d25b",
+      "gs-48a73a9041"
     ]
   },
   {
@@ -393,11 +396,12 @@
   {
     "courseId": "bali-national-golf-club",
     "month": 7,
-    "why": "July falls in Bali's April–October dry season; Bali National (Nusa Dua) winds through three Balinese landscapes and shows dramatic coastline from the elevated 6th tee.",
-    "tradeoff": "It stays hot and humid year-round, and dry-season trade winds can gust; the current layout reopened in 2014.",
+    "why": "July is in Bali's dry season; historical accounts describe coastal views and three landscapes at Bali National. The former layout is reported closed for redevelopment, not confirmed available to play.",
+    "tradeoff": "The proposed February 2027 reopening has not been verified. Check the operating name, updated routing and accepted tee time directly before arranging travel.",
     "sourceIds": [
       "gs-19c3b9f032",
-      "gs-740130035d"
+      "gs-740130035d",
+      "gs-48a73a9041"
     ]
   },
   {
@@ -706,7 +710,7 @@
     "courseId": "jack-s-point",
     "month": 12,
     "why": "December opens Queenstown's long southern-summer evenings beneath The Remarkables.",
-    "tradeoff": "Peak-rate season and busy holidays; alpine weather can still change fast.",
+    "tradeoff": "Closed for greens aerification 15–19 December 2026 and 14–19 December 2027. Confirm reopening and recovery conditions directly; holiday dates do not guarantee uninterrupted play.",
     "sourceIds": [
       "gs-c2602dacf9",
       "gs-f2f17d2ffb"

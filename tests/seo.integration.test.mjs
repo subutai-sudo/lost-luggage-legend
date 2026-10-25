@@ -66,7 +66,20 @@ assert.equal(new Set(expectedGuidePaths).size, expectedGuidePaths.length, 'Guide
 const index = await get('/guides')
 const guidePaths = [...new Set(tags(index.html, 'a').map((tag) => tag.href).filter((href) => /^\/guides\/[^/?#]+$/.test(href || '')))].sort()
 assert.deepEqual(guidePaths, expectedGuidePaths, 'Index must expose every source-inventory guide as a crawlable link')
-const expectedPaths = [...staticPaths, ...expectedGuidePaths].sort()
+const golfText = await readFile(new URL('../src/data/golfCourses.ts', import.meta.url), 'utf8')
+const golfInventory = ts.createSourceFile('golfCourses.ts', golfText, ts.ScriptTarget.Latest, true)
+const golfDeclaration = golfInventory.statements.filter(ts.isVariableStatement)
+  .flatMap(statement => [...statement.declarationList.declarations])
+  .find(item => ts.isIdentifier(item.name) && item.name.text === 'GOLF_COURSES')
+assert.ok(golfDeclaration?.initializer && ts.isArrayLiteralExpression(golfDeclaration.initializer))
+const expectedGolfPaths = golfDeclaration.initializer.elements.map(element => {
+  assert.ok(ts.isObjectLiteralExpression(element))
+  const id = element.properties.find(property => ts.isPropertyAssignment(property) && property.name.text === 'id')
+  assert.ok(id && ts.isStringLiteral(id.initializer))
+  return `/golf/${id.initializer.text}`
+}).sort()
+assert.equal(new Set(expectedGolfPaths).size, expectedGolfPaths.length)
+const expectedPaths = [...staticPaths, ...expectedGuidePaths, ...expectedGolfPaths].sort()
 
 await test('robots advertises the real-host sitemap and preserves API exclusion', async () => {
   const { response, html } = await get('/robots.txt')
@@ -127,6 +140,25 @@ await test('homepage footer links to the real guide index', async () => {
   const footer = html.match(/<footer\b[\s\S]*?<\/footer>/i)?.[0] || ''
   assert.match(footer, /<a\b[^>]*href="\/guides"[^>]*>\s*All Guides\s*<\/a>/i)
   assert.ok(!footer.includes('href="#guides"'))
+})
+
+await test('every golf course has its own canonical course guide', async () => {
+  const failures = []
+  for (const path of expectedGolfPaths) {
+    try {
+      const { response, html } = await get(path)
+      verifyPage(path, response, html)
+      assert.match(html, /Visitor access/i)
+      assert.match(html, /When to play/i)
+    } catch (error) { failures.push({ path, message: error.message }) }
+  }
+  assert.deepEqual(failures, [])
+  console.log(`Verified ${expectedGolfPaths.length} dedicated golf course guides`)
+})
+
+await test('unknown golf course returns a real 404', async () => {
+  const { response } = await get('/golf/this-course-does-not-exist-seo-regression')
+  assert.equal(response.status, 404)
 })
 
 await test('unknown guide keeps a real 404 and does not inherit a homepage canonical', async () => {

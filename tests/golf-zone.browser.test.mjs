@@ -4,7 +4,7 @@ import { test, expect } from './browser-fixture.mjs'
 // are blocked by the shared fixture. Every claim asserted here is one the
 // section makes to a visitor: a month changes the six picks, every pick carries
 // a reason, a trade-off and a reachable source, and each card links to a
-// destination guide that actually exists.
+// course-specific golf guide that actually exists.
 
 const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 const tabKey = browserName => (browserName === 'webkit' ? 'Alt+Tab' : 'Tab')
@@ -82,14 +82,14 @@ test('all twelve months render their approved lead, six unique picks and exact-m
   }
 })
 
-test('each pick links to a destination guide that really exists', async ({ page }) => {
+test('each pick links to a course-specific golf guide that really exists', async ({ page }) => {
   await page.goto('/golf?month=6')
   const cards = await monthCards(page)
   const hrefs = []
   for (let index = 0; index < 6; index++) {
     const link = cards.nth(index).getByRole('link').filter({ hasText: /guide/i }).first()
     const href = await link.getAttribute('href')
-    expect(href).toMatch(/^\/guides\/[a-z0-9-]+$/)
+    expect(href).toMatch(/^\/golf\/[a-z0-9-]+$/)
     hrefs.push(href)
   }
   expect(new Set(hrefs).size).toBe(hrefs.length)

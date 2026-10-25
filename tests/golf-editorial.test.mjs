@@ -104,13 +104,26 @@ test('G3: Muirfield April cites genuine spring warming, not an opening boundary'
   hasSource(n, 'https://www.muirfield.org.uk/visitors-notes-guidance/')
 })
 
-test('G4: Bali June retains dry-season appeal without recurring Eid or course-fee inference', () => {
+test('Bali June keeps climate scope but never promotes the reported closed course as playable', () => {
   const n = note('bali-national-golf-club', 6)
   assert.match(n.why, /dry.season/i)
   assert.doesNotMatch(text(n), /Eid|Idul|Fitri|green fees|course fees|golf fees/i)
-  assert.match(n.tradeoff, /mid.June/i)
-  assert.match(n.tradeoff, /accommodation|resorts|guest houses/i)
-  assert.match(n.tradeoff, /busy|demand|packed/i)
+  assert.match(n.why, /closed.*redevelopment/i)
+  assert.match(n.why, /not a currently playable recommendation/i)
+  assert.match(n.tradeoff, /February 2027.*unconfirmed/i)
+  hasSource(n, 'https://www.golfasian.com/golf-courses/indonesia-golf-courses/bali/bali-national-golf-resort/')
+})
+
+test('course-specific operational evidence overrides outdated general seasonal assumptions', () => {
+  for (const month of [5, 6]) {
+    const n = note('brautarholt-golf-club', month)
+    assert.doesNotMatch(text(n), /only opens.*late May|only opening in early June/i)
+    hasSource(n, 'https://gbr.is/about-the-course/')
+  }
+  const december = note('jack-s-point', 12)
+  assert.match(december.tradeoff, /15–19 December 2026/)
+  assert.match(december.tradeoff, /14–19 December 2027/)
+  assert.doesNotMatch(december.tradeoff, /Peak-rate/i)
 })
 
 test('all eight corrected slots are explicitly revised with G2/G3/G4 rationale', () => {
