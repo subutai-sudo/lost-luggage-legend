@@ -176,7 +176,7 @@ for (const theme of ['light', 'dark']) {
       // rest-state threshold would pass with or without the rule, and asserting
       // the scrolled threshold would be meaningless. What is verifiable here is
       // the declaration that removes the shortfall, plus the settled-state sweep
-      // (>after-fonts/>matrix-summary.json) that first reported it.
+      // (after-fonts/matrix-summary.json) that first reported it.
       const introNav = page.getByRole('navigation', { name: 'Trip planning links' })
       const inset = async () => introNav.evaluate(el => parseFloat(getComputedStyle(el).paddingTop))
       expect(await inset(), 'intro navigation carries the inset that clears the 24px spacing minimum').toBeGreaterThanOrEqual(2)

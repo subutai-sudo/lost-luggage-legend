@@ -1,0 +1,741 @@
+{
+  "schemaVersion": 1,
+  "note": "One explicit reviewed decision per rendered slot. researchRank is the zero-based order in the original quarter research; replacedCourseId preserves rejected selections and previousCourseId records an identity merge. Rationale is authoring-only; source IDs and evidence stay in the note/source catalogs.",
+  "months": [
+    {
+      "month": 1,
+      "monthName": "January",
+      "lead": "emirates-golf-club-majlis-course",
+      "slots": [
+        {
+          "courseId": "emirates-golf-club-majlis-course",
+          "month": 1,
+          "researchRank": 0,
+          "researchLead": true,
+          "chosenAsLead": true,
+          "decision": "retained",
+          "rationale": "Retained current sourced January reason and visible trade-off; no change to this course/month selection or its rendered copy."
+        },
+        {
+          "courseId": "jack-s-point",
+          "month": 1,
+          "researchRank": 1,
+          "researchLead": false,
+          "chosenAsLead": false,
+          "decision": "retained",
+          "rationale": "Retained current sourced January reason and visible trade-off; no change to this course/month selection or its rendered copy."
+        },
+        {
+          "courseId": "al-maaden-golf",
+          "month": 1,
+          "researchRank": 3,
+          "researchLead": false,
+          "chosenAsLead": false,
+          "decision": "retained",
+          "rationale": "Retained current sourced January reason and visible trade-off; no change to this course/month selection or its rendered copy."
+        },
+        {
+          "courseId": "oitavos-dunes",
+          "month": 1,
+          "researchRank": 4,
+          "researchLead": false,
+          "chosenAsLead": false,
+          "decision": "retained",
+          "rationale": "Retained current sourced January reason and visible trade-off; no change to this course/month selection or its rendered copy."
+        },
+        {
+          "courseId": "torrey-pines-golf-course-south-course",
+          "month": 1,
+          "researchRank": 7,
+          "researchLead": false,
+          "chosenAsLead": false,
+          "decision": "retained",
+          "rationale": "Retained current sourced January reason and visible trade-off; no change to this course/month selection or its rendered copy."
+        },
+        {
+          "courseId": "montgomerie-maxx-royal",
+          "month": 1,
+          "researchRank": 11,
+          "researchLead": false,
+          "chosenAsLead": false,
+          "decision": "retained",
+          "rationale": "Retained current sourced January reason and visible trade-off; no change to this course/month selection or its rendered copy."
+        }
+      ]
+    },
+    {
+      "month": 2,
+      "monthName": "February",
+      "lead": "tpc-scottsdale-stadium-course",
+      "slots": [
+        {
+          "courseId": "tpc-scottsdale-stadium-course",
+          "month": 2,
+          "researchRank": 0,
+          "researchLead": true,
+          "chosenAsLead": true,
+          "decision": "retained",
+          "rationale": "Retained current sourced February reason and visible trade-off; no change to this course/month selection or its rendered copy."
+        },
+        {
+          "courseId": "royal-golf-marrakech-old-course",
+          "month": 2,
+          "researchRank": 1,
+          "researchLead": false,
+          "chosenAsLead": false,
+          "previousCourseId": "royal-golf-marrakech",
+          "decision": "revised",
+          "rationale": "O5/O7: Merge generic club identity into the FRMG-evidenced Old layout; replace coastal/year-round sunshine generalisation with sourced February mildness relative to Marrakech summer."
+        },
+        {
+          "courseId": "new-south-wales-golf-club",
+          "month": 2,
+          "researchRank": 5,
+          "researchLead": false,
+          "chosenAsLead": false,
+          "decision": "retained",
+          "rationale": "Retained current sourced February reason and visible trade-off; no change to this course/month selection or its rendered copy."
+        },
+        {
+          "courseId": "millbrook-resort",
+          "month": 2,
+          "researchRank": 9,
+          "researchLead": false,
+          "chosenAsLead": false,
+          "decision": "retained",
+          "rationale": "Retained current sourced February reason and visible trade-off; no change to this course/month selection or its rendered copy."
+        },
+        {
+          "courseId": "thai-country-club",
+          "month": 2,
+          "researchRank": 2,
+          "researchLead": false,
+          "chosenAsLead": false,
+          "decision": "retained",
+          "rationale": "Retained current sourced February reason and visible trade-off; no change to this course/month selection or its rendered copy."
+        },
+        {
+          "courseId": "katameya-heights-golf-tennis-resort",
+          "month": 2,
+          "researchRank": 3,
+          "researchLead": false,
+          "chosenAsLead": false,
+          "decision": "retained",
+          "rationale": "Retained current sourced February reason and visible trade-off; no change to this course/month selection or its rendered copy."
+        }
+      ]
+    },
+    {
+      "month": 3,
+      "monthName": "March",
+      "lead": "royal-cape-golf-club",
+      "slots": [
+        {
+          "courseId": "royal-cape-golf-club",
+          "month": 3,
+          "researchRank": 0,
+          "researchLead": true,
+          "chosenAsLead": true,
+          "decision": "retained",
+          "rationale": "Retained current sourced March reason and visible trade-off; no change to this course/month selection or its rendered copy."
+        },
+        {
+          "courseId": "new-south-wales-golf-club",
+          "month": 3,
+          "researchRank": 1,
+          "researchLead": false,
+          "chosenAsLead": false,
+          "decision": "retained",
+          "rationale": "Retained current sourced March reason and visible trade-off; no change to this course/month selection or its rendered copy."
+        },
+        {
+          "courseId": "oitavos-dunes",
+          "month": 3,
+          "researchRank": 5,
+          "researchLead": false,
+          "chosenAsLead": false,
+          "decision": "retained",
+          "rationale": "Retained current sourced March reason and visible trade-off; no change to this course/month selection or its rendered copy."
+        },
+        {
+          "courseId": "millbrook-resort",
+          "month": 3,
+          "researchRank": 7,
+          "researchLead": false,
+          "chosenAsLead": false,
+          "decision": "retained",
+          "rationale": "Retained current sourced March reason and visible trade-off; no change to this course/month selection or its rendered copy."
+        },
+        {
+          "courseId": "katameya-heights-golf-tennis-resort",
+          "month": 3,
+          "researchRank": 10,
+          "researchLead": false,
+          "chosenAsLead": false,
+          "decision": "retained",
+          "rationale": "Retained current sourced March reason and visible trade-off; no change to this course/month selection or its rendered copy."
+        },
+        {
+          "courseId": "real-club-de-golf-el-prat",
+          "month": 3,
+          "researchRank": 2,
+          "researchLead": false,
+          "chosenAsLead": false,
+          "decision": "retained",
+          "rationale": "Retained current sourced March reason and visible trade-off; no change to this course/month selection or its rendered copy."
+        }
+      ]
+    },
+    {
+      "month": 4,
+      "monthName": "April",
+      "lead": "the-royal-melbourne-golf-club-west",
+      "slots": [
+        {
+          "courseId": "the-royal-melbourne-golf-club-west",
+          "month": 4,
+          "researchRank": 0,
+          "researchLead": true,
+          "chosenAsLead": true,
+          "decision": "retained",
+          "rationale": "Retained current sourced April reason and visible trade-off; no change to this course/month selection or its rendered copy."
+        },
+        {
+          "courseId": "muirfield",
+          "month": 4,
+          "researchRank": 1,
+          "researchLead": false,
+          "chosenAsLead": false,
+          "decision": "revised",
+          "rationale": "G3 (further revised): Replace the unsupported April season-opening boundary with Met Office Gogarbank 1991–2020 spring warming and increased sunshine versus March. Keep the O1 Tuesday/Thursday access and wet/windy caveat; regional climate is not a course-opening schedule."
+        },
+        {
+          "courseId": "marco-simone-golf-country-club",
+          "month": 4,
+          "researchRank": 5,
+          "researchLead": false,
+          "chosenAsLead": false,
+          "decision": "revised",
+          "rationale": "O1: Replace private-club template with retrieved directory access: closed Tuesday, weekends more restricted, advance booking required."
+        },
+        {
+          "courseId": "millbrook-resort",
+          "month": 4,
+          "researchRank": 8,
+          "researchLead": false,
+          "chosenAsLead": false,
+          "decision": "retained",
+          "rationale": "Retained current sourced April reason and visible trade-off; no change to this course/month selection or its rendered copy."
+        },
+        {
+          "courseId": "emirates-golf-club-majlis-course",
+          "month": 4,
+          "researchRank": 9,
+          "researchLead": false,
+          "chosenAsLead": false,
+          "decision": "retained",
+          "rationale": "Retained current sourced April reason and visible trade-off; no change to this course/month selection or its rendered copy."
+        },
+        {
+          "courseId": "sentosa-golf-club-serapong",
+          "month": 4,
+          "researchRank": 11,
+          "researchLead": false,
+          "chosenAsLead": false,
+          "decision": "revised",
+          "rationale": "O1: Keep the private-club warning but make advance booking and handicap conditions explicit from the retrieved visitor directory."
+        }
+      ]
+    },
+    {
+      "month": 5,
+      "monthName": "May",
+      "lead": "portmarnock-golf-club",
+      "slots": [
+        {
+          "courseId": "portmarnock-golf-club",
+          "month": 5,
+          "researchRank": 0,
+          "researchLead": true,
+          "chosenAsLead": true,
+          "decision": "revised",
+          "rationale": "O1: Replace repeated private-access template with published member-only days and visitor advance planning, preserving premium-fee and weather caveats."
+        },
+        {
+          "courseId": "wentworth-club-west",
+          "month": 5,
+          "researchRank": 1,
+          "researchLead": false,
+          "chosenAsLead": false,
+          "decision": "revised",
+          "rationale": "O1 plus factual repair: remove unsupported May BMW PGA closure and open-visitor implication. Official Wentworth limits golf to members/guests; Met Office supports May spring warmth."
+        },
+        {
+          "courseId": "brautarholt-golf-club",
+          "month": 5,
+          "researchRank": 3,
+          "researchLead": false,
+          "chosenAsLead": false,
+          "decision": "retained",
+          "rationale": "Retained current sourced May reason and visible trade-off; no change to this course/month selection or its rendered copy."
+        },
+        {
+          "courseId": "bro-hof-slott-stadium",
+          "month": 5,
+          "researchRank": 5,
+          "researchLead": false,
+          "chosenAsLead": false,
+          "decision": "revised",
+          "rationale": "G3 retained -> revised: Cite actually retrieved WMO/SMHI Stockholm 1991–2020 May warming from April, not an unsupported full-swing season. Directory supports lakeside wind and conditional visitor access; climate is regional, not turf evidence."
+        },
+        {
+          "courseId": "kennemer-golf-country-club",
+          "month": 5,
+          "researchRank": 2,
+          "researchLead": false,
+          "chosenAsLead": false,
+          "decision": "revised",
+          "rationale": "O7/O1: KNMI/WMO shows May warming from April; replace generic spring slogan with that seasonal benefit and give actual caddiemaster/handicap requirements."
+        },
+        {
+          "courseId": "praia-d-el-rey",
+          "month": 5,
+          "researchRank": 4,
+          "researchLead": false,
+          "chosenAsLead": false,
+          "decision": "retained",
+          "rationale": "Retained current sourced May reason and visible trade-off; no change to this course/month selection or its rendered copy."
+        }
+      ]
+    },
+    {
+      "month": 6,
+      "monthName": "June",
+      "lead": "muirfield",
+      "slots": [
+        {
+          "courseId": "muirfield",
+          "month": 6,
+          "researchRank": 0,
+          "researchLead": true,
+          "chosenAsLead": true,
+          "decision": "retained",
+          "rationale": "Retained current sourced June reason and visible trade-off; no change to this course/month selection or its rendered copy."
+        },
+        {
+          "courseId": "brautarholt-golf-club",
+          "month": 6,
+          "researchRank": 2,
+          "researchLead": false,
+          "chosenAsLead": false,
+          "decision": "retained",
+          "rationale": "Retained current sourced June reason and visible trade-off; no change to this course/month selection or its rendered copy."
+        },
+        {
+          "courseId": "bro-hof-slott-stadium",
+          "month": 6,
+          "researchRank": 4,
+          "researchLead": false,
+          "chosenAsLead": false,
+          "decision": "revised",
+          "rationale": "G3 retained -> revised: Replace recurring peak-condition claim with actually retrieved WMO/SMHI Stockholm 1991–2020 June warming from May; retain higher rainfall and directory-backed wind/booking/handicap caveats. The 2007 opening-condition quotation is not recurring June evidence."
+        },
+        {
+          "courseId": "bali-national-golf-club",
+          "month": 6,
+          "researchRank": 9,
+          "researchLead": false,
+          "chosenAsLead": false,
+          "decision": "revised",
+          "rationale": "G4 retained -> revised: Remove yearless recurring June Eid timing and unsupported green-fee inference from accommodation demand. Keep dry-season golf benefit and Rough Guides mid-June onward accommodation-demand caveat only."
+        },
+        {
+          "courseId": "portmarnock-golf-club",
+          "month": 6,
+          "researchRank": 1,
+          "researchLead": false,
+          "chosenAsLead": false,
+          "decision": "revised",
+          "rationale": "O1: Use the official walking-only visitor policy and designated windows for useful factual variation, not a softened access warning."
+        },
+        {
+          "courseId": "walton-heath-golf-club-old",
+          "month": 6,
+          "researchRank": 3,
+          "researchLead": false,
+          "chosenAsLead": false,
+          "decision": "revised",
+          "rationale": "O7/O1: Replace generic British outdoors slogan with Met Office Surrey early-summer warmth and sunshine; official club gives concrete visitor windows without implying open access."
+        }
+      ]
+    },
+    {
+      "month": 7,
+      "monthName": "July",
+      "lead": "keilir-golf-club",
+      "slots": [
+        {
+          "courseId": "keilir-golf-club",
+          "month": 7,
+          "researchRank": 0,
+          "researchLead": true,
+          "chosenAsLead": true,
+          "decision": "revised",
+          "rationale": "Preserve parent removal of drive time, restore native Reykjavík/Snæfellsjökull, and remove the newly added uncited 11C sentence. Daylight remains the sourced July benefit."
+        },
+        {
+          "courseId": "kyt-j-golf-south-east",
+          "month": 7,
+          "researchRank": 1,
+          "researchLead": false,
+          "chosenAsLead": false,
+          "decision": "revised",
+          "rationale": "G3 retained -> revised: Remove Helsinki sea temperature and the invalid inference to inland Lake Kytäjä water or greens. Retain regional July rain/daylight and cool-air caveat; Helsinki is only a regional climate proxy, not course/turf observations."
+        },
+        {
+          "courseId": "bali-national-golf-club",
+          "month": 7,
+          "researchRank": 7,
+          "researchLead": false,
+          "chosenAsLead": false,
+          "decision": "retained",
+          "rationale": "Retained current sourced July reason and visible trade-off; no change to this course/month selection or its rendered copy."
+        },
+        {
+          "courseId": "portmarnock-golf-club",
+          "month": 7,
+          "researchRank": 4,
+          "researchLead": false,
+          "chosenAsLead": false,
+          "replacedCourseId": "millbrook-resort",
+          "decision": "replaced",
+          "rationale": "R2: Replace alpine midwinter Millbrook with the Q3 July Portmarnock candidate (researchRank 4): genuine summer warmth and long daylight, with official visitor restrictions."
+        },
+        {
+          "courseId": "bro-hof-slott-stadium",
+          "month": 7,
+          "researchRank": 2,
+          "researchLead": false,
+          "chosenAsLead": false,
+          "decision": "retained",
+          "rationale": "Retained current sourced July reason and visible trade-off; no change to this course/month selection or its rendered copy."
+        },
+        {
+          "courseId": "muirfield",
+          "month": 7,
+          "researchRank": 3,
+          "researchLead": false,
+          "chosenAsLead": false,
+          "decision": "revised",
+          "rationale": "G2 (further revised): Remove the invented total acreage: the retrieved club history says ADDITIONAL 50 acres acquired, not total course area. Preserve Colt 1925, July warmth/daylight and the O1 fourball/visitor-day correction."
+        }
+      ]
+    },
+    {
+      "month": 8,
+      "monthName": "August",
+      "lead": "capilano-golf-and-country-club",
+      "slots": [
+        {
+          "courseId": "capilano-golf-and-country-club",
+          "month": 8,
+          "researchRank": 0,
+          "researchLead": true,
+          "chosenAsLead": true,
+          "decision": "retained",
+          "rationale": "Retained current sourced August reason and visible trade-off; no change to this course/month selection or its rendered copy."
+        },
+        {
+          "courseId": "chambers-bay",
+          "month": 8,
+          "researchRank": 1,
+          "researchLead": false,
+          "chosenAsLead": false,
+          "decision": "retained",
+          "rationale": "Retained current sourced August reason and visible trade-off; no change to this course/month selection or its rendered copy."
+        },
+        {
+          "courseId": "fontana-golf-club",
+          "month": 8,
+          "researchRank": 7,
+          "researchLead": false,
+          "chosenAsLead": false,
+          "decision": "retained",
+          "rationale": "Retained current sourced August reason and visible trade-off; no change to this course/month selection or its rendered copy."
+        },
+        {
+          "courseId": "new-south-wales-golf-club",
+          "month": 8,
+          "researchRank": 10,
+          "researchLead": false,
+          "chosenAsLead": false,
+          "decision": "retained",
+          "rationale": "Retained current sourced August reason and visible trade-off; no change to this course/month selection or its rendered copy."
+        },
+        {
+          "courseId": "cog-hill-no-4-dubsdread",
+          "month": 8,
+          "researchRank": 2,
+          "researchLead": false,
+          "chosenAsLead": false,
+          "decision": "revised",
+          "rationale": "G3 retained -> revised: Remove the soft-greens and afternoon-storm prediction; retrieved Chicago humidity and rain-day figures support a wet-weather caveat, not Cog Hill turf conditions or storm timing."
+        },
+        {
+          "courseId": "glen-abbey-golf-club",
+          "month": 8,
+          "researchRank": 3,
+          "researchLead": false,
+          "chosenAsLead": false,
+          "decision": "retained",
+          "rationale": "Retained current sourced August reason and visible trade-off; no change to this course/month selection or its rendered copy."
+        }
+      ]
+    },
+    {
+      "month": 9,
+      "monthName": "September",
+      "lead": "bethpage-black",
+      "slots": [
+        {
+          "courseId": "bethpage-black",
+          "month": 9,
+          "researchRank": 0,
+          "researchLead": true,
+          "chosenAsLead": true,
+          "decision": "retained",
+          "rationale": "Retained current sourced September reason and visible trade-off; no change to this course/month selection or its rendered copy."
+        },
+        {
+          "courseId": "crans-sur-sierre-golf-club-ballesteros",
+          "month": 9,
+          "researchRank": 1,
+          "researchLead": false,
+          "chosenAsLead": false,
+          "decision": "revised",
+          "rationale": "O6: Explicit Geneva gateway disclosure, confirmed by tourism-board rail access. Remove Geneva city temperatures misapplied to mountain altitude. Event dates identify the 2026 edition only."
+        },
+        {
+          "courseId": "montgomerie-maxx-royal",
+          "month": 9,
+          "researchRank": 6,
+          "researchLead": false,
+          "chosenAsLead": false,
+          "decision": "retained",
+          "rationale": "Retained current sourced September reason and visible trade-off; no change to this course/month selection or its rendered copy."
+        },
+        {
+          "courseId": "real-club-de-golf-el-prat",
+          "month": 9,
+          "researchRank": 3,
+          "researchLead": false,
+          "chosenAsLead": false,
+          "replacedCourseId": "emirates-golf-club-majlis-course",
+          "decision": "replaced",
+          "rationale": "R1: Replace fiercely hot September Majlis with the Q3 El Prat candidate (researchRank 3). AEMET/WMO verifies September cooling from August, while autumn rain remains visible."
+        },
+        {
+          "courseId": "the-royal-melbourne-golf-club-west",
+          "month": 9,
+          "researchRank": 10,
+          "researchLead": false,
+          "chosenAsLead": false,
+          "decision": "revised",
+          "rationale": "O2: Remove conflicting 16-rain-day figure, and replace unmeasured firmer-turf claim with BOM/WMO spring warming from August."
+        },
+        {
+          "courseId": "marco-simone-golf-country-club",
+          "month": 9,
+          "researchRank": 2,
+          "researchLead": false,
+          "chosenAsLead": false,
+          "decision": "retained",
+          "rationale": "Retained current sourced September reason and visible trade-off; no change to this course/month selection or its rendered copy."
+        }
+      ]
+    },
+    {
+      "month": 10,
+      "monthName": "October",
+      "lead": "oitavos-dunes",
+      "slots": [
+        {
+          "courseId": "oitavos-dunes",
+          "month": 10,
+          "researchRank": 2,
+          "researchLead": false,
+          "chosenAsLead": true,
+          "decision": "revised",
+          "rationale": "Remove unsupported settled-Atlantic/soft-turf guarantees; retain sourced mild October weather and rising rainfall."
+        },
+        {
+          "courseId": "the-royal-melbourne-golf-club-west",
+          "month": 10,
+          "researchRank": 0,
+          "researchLead": true,
+          "chosenAsLead": false,
+          "decision": "revised",
+          "rationale": "Remove measured-condition inference: climate normals establish spring warmth, not firm turf on the day."
+        },
+        {
+          "courseId": "emirates-golf-club-majlis-course",
+          "month": 10,
+          "researchRank": 1,
+          "researchLead": false,
+          "chosenAsLead": false,
+          "decision": "revised",
+          "rationale": "Remove unsupported floodlit-Majlis suggestion; seasonal cooling remains supported, but early daytime rounds are the practical caveat."
+        },
+        {
+          "courseId": "royal-golf-marrakech-old-course",
+          "month": 10,
+          "researchRank": 3,
+          "researchLead": false,
+          "chosenAsLead": false,
+          "decision": "revised",
+          "rationale": "O5: Keep both seasons on the evidenced Old layout; remove unsupported calm-air/slow-green claims and retain WMO-established cooling from September."
+        },
+        {
+          "courseId": "sentosa-golf-club-serapong",
+          "month": 10,
+          "researchRank": 12,
+          "researchLead": false,
+          "chosenAsLead": false,
+          "decision": "revised",
+          "rationale": "O4: Replace misleading inter-monsoon lull with changeover plus a real sourced relative benefit: less rainfall than November/December, not dry golf."
+        },
+        {
+          "courseId": "jack-s-point",
+          "month": 10,
+          "researchRank": 13,
+          "researchLead": false,
+          "chosenAsLead": false,
+          "decision": "retained",
+          "rationale": "Retained current sourced October reason and visible trade-off; no change to this course/month selection or its rendered copy."
+        }
+      ]
+    },
+    {
+      "month": 11,
+      "monthName": "November",
+      "lead": "steenberg-golf-club",
+      "slots": [
+        {
+          "courseId": "steenberg-golf-club",
+          "month": 11,
+          "researchRank": 1,
+          "researchLead": false,
+          "chosenAsLead": true,
+          "decision": "revised",
+          "rationale": "Replace unsupported best-month superlative with WMO-established November warmth and low rainfall versus the Cape winter."
+        },
+        {
+          "courseId": "emirates-golf-club-majlis-course",
+          "month": 11,
+          "researchRank": 0,
+          "researchLead": true,
+          "chosenAsLead": false,
+          "decision": "revised",
+          "rationale": "Remove unverified tournament-condition promise; the sourced November heat relief and low rainfall remain the seasonal benefit."
+        },
+        {
+          "courseId": "sentosa-golf-club-serapong",
+          "month": 11,
+          "researchRank": 4,
+          "researchLead": false,
+          "chosenAsLead": false,
+          "decision": "revised",
+          "rationale": "Remove unsupported breezier-month claim: MSS identifies light inter-monsoon winds; WMO supports only modest cooling versus October, with major rainfall downside retained."
+        },
+        {
+          "courseId": "the-royal-melbourne-golf-club-west",
+          "month": 11,
+          "researchRank": 5,
+          "researchLead": false,
+          "chosenAsLead": false,
+          "decision": "revised",
+          "rationale": "Remove unsupported firm-and-quick turf promise; November seasonal benefit is spring warmth before hotter summer."
+        },
+        {
+          "courseId": "jack-s-point",
+          "month": 11,
+          "researchRank": 7,
+          "researchLead": false,
+          "chosenAsLead": false,
+          "decision": "retained",
+          "rationale": "Retained current sourced November reason and visible trade-off; no change to this course/month selection or its rendered copy."
+        },
+        {
+          "courseId": "kennemer-golf-country-club",
+          "month": 11,
+          "researchRank": 13,
+          "researchLead": false,
+          "chosenAsLead": false,
+          "decision": "revised",
+          "rationale": "Remove frost-free guarantee. Retain winter as a quieter-season alternative, explicitly attributed to regional golf guidance and backed by free-draining dune terrain, not guaranteed course availability."
+        }
+      ]
+    },
+    {
+      "month": 12,
+      "monthName": "December",
+      "lead": "new-south-wales-golf-club",
+      "slots": [
+        {
+          "courseId": "new-south-wales-golf-club",
+          "month": 12,
+          "researchRank": 2,
+          "researchLead": false,
+          "chosenAsLead": true,
+          "decision": "revised",
+          "rationale": "G3 retained -> revised: Replace unsupported firm-clifftop conditions with Sydney Observatory Hill 1981–2010 December warming versus November; the club overview establishes La Perouse/Botany Bay setting, not monthly turf firmness. B1: Narrow the caveat to sourced December rainfall; remove uncited crowds and afternoon storm timing."
+        },
+        {
+          "courseId": "steenberg-golf-club",
+          "month": 12,
+          "researchRank": 0,
+          "researchLead": true,
+          "chosenAsLead": false,
+          "decision": "retained",
+          "rationale": "Retained current sourced December reason and visible trade-off; no change to this course/month selection or its rendered copy."
+        },
+        {
+          "courseId": "jack-s-point",
+          "month": 12,
+          "researchRank": 3,
+          "researchLead": false,
+          "chosenAsLead": false,
+          "decision": "retained",
+          "rationale": "Retained current sourced December reason and visible trade-off; no change to this course/month selection or its rendered copy."
+        },
+        {
+          "courseId": "sentosa-golf-club-serapong",
+          "month": 12,
+          "researchRank": 6,
+          "researchLead": false,
+          "chosenAsLead": false,
+          "decision": "revised",
+          "rationale": "Replace generic festive demand with a real seasonal benefit: December/January are jointly coolest by MSS mean temperature; keep wettest-period caveat and access conditions."
+        },
+        {
+          "courseId": "tpc-summerlin",
+          "month": 12,
+          "researchRank": 7,
+          "researchLead": false,
+          "chosenAsLead": false,
+          "decision": "revised",
+          "rationale": "Remove uncited cheaper-midweek claim and disclose official private membership access. December benefit is dry, cooler daytime golf relative to fierce summer, not a public value tee time."
+        },
+        {
+          "courseId": "kennemer-golf-country-club",
+          "month": 12,
+          "researchRank": 13,
+          "researchLead": false,
+          "chosenAsLead": false,
+          "decision": "revised",
+          "rationale": "O3: Replace winter-versus-inland freeze guarantee with sourced quieter off-season and sandy drainage benefit; explicitly keep frost and conditional access."
+        }
+      ]
+    }
+  ]
+}

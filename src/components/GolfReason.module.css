@@ -1,0 +1,112 @@
+.note {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(130, 146, 119, 0.33);
+}
+
+.label {
+  margin: 0 0 6px;
+  color: #59634f;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.reason {
+  margin: 0 0 10px;
+  color: #1d241f;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.tradeoff {
+  margin: 0 0 12px;
+  color: #59634f;
+  font-size: 12px;
+  line-height: 1.75;
+}
+
+.tradeoff strong {
+  color: #1d241f;
+}
+
+.sources {
+  border-top: 1px solid rgba(130, 146, 119, 0.33);
+}
+
+.sources summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 44px;
+  padding-block: 8px;
+  color: #1d241f;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.sources summary::-webkit-details-marker {
+  display: none;
+}
+
+.sources summary:focus-visible {
+  outline: 3px solid #1d241f;
+  outline-offset: 3px;
+}
+
+.indicator {
+  font-size: 14px;
+  line-height: 1;
+}
+
+.sources[open] .indicator {
+  transform: rotate(45deg);
+}
+
+.sourceContent {
+  padding-block: 4px 12px;
+}
+
+.scope {
+  margin: 0 0 12px;
+  color: #59634f;
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+.sourceContent ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sourceContent li {
+  padding-block: 10px;
+  border-top: 1px solid rgba(130, 146, 119, 0.22);
+}
+
+.sourceContent a {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  min-height: 24px;
+  color: #1d241f;
+  font-size: 12px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.sourceContent a:focus-visible {
+  outline: 3px solid #1d241f;
+  outline-offset: 3px;
+}
+
+.sourceContent p {
+  margin: 4px 0 0;
+  color: #59634f;
+  font-size: 11px;
+  line-height: 1.6;
+}

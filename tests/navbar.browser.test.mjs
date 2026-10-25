@@ -70,6 +70,8 @@ test('mobile disclosure supports keyboard, Escape, outside pointer, focus exit a
   await page.keyboard.press(tabKey)
   await expect(page.locator('#header-mobile-navigation').getByRole('link', { name: 'Guides' })).toBeFocused()
   await page.keyboard.press(tabKey)
+  await expect(page.locator('#header-mobile-navigation').getByRole('link', { name: 'Golf', exact: true })).toBeFocused()
+  await page.keyboard.press(tabKey)
   await expect(page.locator('#header-mobile-navigation').getByRole('link', { name: 'Newsletter' })).toBeFocused()
   await page.keyboard.press('Escape')
   await expect(toggle).toBeFocused()
@@ -79,6 +81,8 @@ test('mobile disclosure supports keyboard, Escape, outside pointer, focus exit a
   await expect(toggle).toHaveAttribute('aria-expanded', 'true')
   await page.keyboard.press(tabKey)
   await page.keyboard.press(tabKey)
+  await page.keyboard.press(tabKey)
+  await expect(page.locator('#header-mobile-navigation').getByRole('link', { name: 'Newsletter' })).toBeFocused()
   await page.keyboard.press(tabKey)
   await expect(toggle).toHaveAttribute('aria-expanded', 'false')
 

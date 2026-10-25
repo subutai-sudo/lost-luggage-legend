@@ -1,0 +1,749 @@
+[
+  {
+    "courseId": "emirates-golf-club-majlis-course",
+    "month": 1,
+    "why": "January is when the Majlis hosts the Hero Dubai Desert Classic (21-24 Jan 2027), billed as played 'under the Dubai winter sun'; the Majlis was the Middle East's first grass course (1988).",
+    "tradeoff": "Desert Classic week pulls 'thousands of fans' to the Majlis, and the Dubai winter is the emirate's busiest golf window.",
+    "sourceIds": [
+      "gs-d40678a3d4",
+      "gs-be42b17162"
+    ]
+  },
+  {
+    "courseId": "jack-s-point",
+    "month": 1,
+    "why": "Southern-hemisphere midsummer: an 18-hole par-72 on Lake Wakatipu beneath The Remarkables, with 5 Jan-30 Apr priced as the season and long warm days.",
+    "tradeoff": "Summer is peak season in Queenstown (20-30C) and visitor green fees peak too; the course shuts for mid-winter maintenance (22 Jun-14 Aug).",
+    "sourceIds": [
+      "gs-c2602dacf9",
+      "gs-6f1c485ef9"
+    ]
+  },
+  {
+    "courseId": "al-maaden-golf",
+    "month": 1,
+    "why": "Marrakech's golf high season runs 5 September-30 June, so January is prime; Kyle Phillips routed 18 holes blending Moroccan oases with 'an astonishing Scottish touch'.",
+    "tradeoff": "High-season green fees apply for visitors, and Marrakech's inland winter is 'less Mediterranean and more continental'.",
+    "sourceIds": [
+      "gs-844c162762",
+      "gs-1044414509"
+    ]
+  },
+  {
+    "courseId": "oitavos-dunes",
+    "month": 1,
+    "why": "Portugal offers 'pleasant temperatures even in winter', and Oitavos Dunes (3rd in Lisbon, top-100 continental Europe) mixes woodland and links-type holes.",
+    "tradeoff": "Lisbon's winter means 'colder and shorter days' - good for prices, tighter for 18 holes - on an Atlantic-exposed site.",
+    "sourceIds": [
+      "gs-10c2cab3e7",
+      "gs-0beee1d116",
+      "gs-fa5b65b2be"
+    ]
+  },
+  {
+    "courseId": "torrey-pines-golf-course-south-course",
+    "month": 1,
+    "why": "The PGA Tour's Farmers Insurance Open is staged at Torrey Pines 'each year, in January or February', making January prime clifftop golf weather in San Diego.",
+    "tradeoff": "The tournament takes over both courses (final rounds on the South), disrupting public play around event week.",
+    "sourceIds": [
+      "gs-dd57bc165e"
+    ]
+  },
+  {
+    "courseId": "montgomerie-maxx-royal",
+    "month": 1,
+    "why": "Antalya enjoys 'three hundred days of sunshine' and a 'mild winter'; the Montgomerie course is built on pure sand among Mediterranean pines in Belek.",
+    "tradeoff": "Mediterranean winter rounds run into early dusk, which is why the club floodlights its back nine.",
+    "sourceIds": [
+      "gs-40457a708c",
+      "gs-d2bc510183"
+    ]
+  },
+  {
+    "courseId": "tpc-scottsdale-stadium-course",
+    "month": 2,
+    "why": "The Stadium Course hosts the WM Phoenix Open, 'the PGA TOUR stop with the largest crowds of any golf event in the world', and Scottsdale's desert season peaks in February.",
+    "tradeoff": "February is the peak and priciest month, and tournament week packs the course and the 16th's 'Coliseum' with record crowds.",
+    "sourceIds": [
+      "gs-ad69a4a2ab",
+      "gs-e4ba9f64c4"
+    ]
+  },
+  {
+    "courseId": "royal-golf-marrakech-old-course",
+    "month": 2,
+    "why": "February brings mild daytime golf before Marrakech's fierce summer heat; Royal Golf Marrakech's Old course is the Golias–Massy parkland layout distinguished by the Moroccan golf federation.",
+    "tradeoff": "Marrakech winter mornings and nights stay cool, and rain is possible; confirm an Old-course tee time rather than assuming the Menara layout.",
+    "sourceIds": [
+      "gs-48d6c1f8f4",
+      "gs-b810043ca7"
+    ]
+  },
+  {
+    "courseId": "new-south-wales-golf-club",
+    "month": 2,
+    "why": "February is late antipodean summer (18.6-25.8C); NSW Golf Club occupies 'one of the most spectacular coastal settings in world golf' on the La Perouse cliffs.",
+    "tradeoff": "Sydney's summer humidity spikes to 65%, so clifftop rounds can turn muggy.",
+    "sourceIds": [
+      "gs-e43c190763",
+      "gs-d1ef865199"
+    ]
+  },
+  {
+    "courseId": "millbrook-resort",
+    "month": 2,
+    "why": "Late-summer Queenstown gives long, warm 20-30C days in a natural alpine amphitheatre, with Millbrook the home of the New Zealand Open.",
+    "tradeoff": "Summer is peak season, so accommodation and flights are busiest and most expensive.",
+    "sourceIds": [
+      "gs-95d8acd28c",
+      "gs-6f1c485ef9"
+    ]
+  },
+  {
+    "courseId": "thai-country-club",
+    "month": 2,
+    "why": "Early February still trades on Thailand's cool season before the heat builds (February is cooler than March and April); Thai CC hosted the 1997 Asian Honda Classic won by Tiger Woods.",
+    "tradeoff": "February is the changeover from cool to hot season, and December-February is Thailand's most expensive accommodation period.",
+    "sourceIds": [
+      "gs-f0631d0e18",
+      "gs-761e601f6c",
+      "gs-155af4befe"
+    ]
+  },
+  {
+    "courseId": "katameya-heights-golf-tennis-resort",
+    "month": 2,
+    "why": "Egypt's 'moderate, cool winter' runs November-February and is called 'the optimal tourist season'; Katameya is a desert-oasis resort course first opened in 1997.",
+    "tradeoff": "Winter is Egypt's busiest season, with pricier flights and hotels and heavily visited sites.",
+    "sourceIds": [
+      "gs-78ce42fcbb",
+      "gs-ea0361fcba"
+    ]
+  },
+  {
+    "courseId": "royal-cape-golf-club",
+    "month": 3,
+    "why": "Cape Town Tourism: 'March is the beginning of the shoulder season, when the summer holiday crowds have left', with 15-27C and an average of just two rainy days.",
+    "tradeoff": "Big event weekends (Two Oceans Marathon, Cape Town Cycle Tour, Easter) fill the city and can push prices up.",
+    "sourceIds": [
+      "gs-b03d85f95b",
+      "gs-88f63f57c6"
+    ]
+  },
+  {
+    "courseId": "new-south-wales-golf-club",
+    "month": 3,
+    "why": "Autumn (March-May) is 'the mildest time of year in Sydney when the humidity drops' (14.6-22.2C), suiting a MacKenzie clifftop layout.",
+    "tradeoff": "Temperatures fall to around 14.6C at the cool end, so early tee times as summer fades can be brisk.",
+    "sourceIds": [
+      "gs-e43c190763",
+      "gs-d1ef865199"
+    ]
+  },
+  {
+    "courseId": "oitavos-dunes",
+    "month": 3,
+    "why": "March still sits in Lisbon's quiet, low-price 'December to March' budget window while the weather warms toward spring.",
+    "tradeoff": "Spring in Lisbon brings 'occasional rainfall', and the exposed Atlantic links can be windy.",
+    "sourceIds": [
+      "gs-10c2cab3e7",
+      "gs-fa5b65b2be",
+      "gs-0beee1d116"
+    ]
+  },
+  {
+    "courseId": "millbrook-resort",
+    "month": 3,
+    "why": "'Autumn sets in from March' in Queenstown, and autumn is one of the 'quieter seasons' when you get 'a better deal on flights and accommodation'.",
+    "tradeoff": "Autumn temperatures swing from 5C to 25C, so layers matter as summer fades.",
+    "sourceIds": [
+      "gs-95d8acd28c",
+      "gs-6f1c485ef9"
+    ]
+  },
+  {
+    "courseId": "katameya-heights-golf-tennis-resort",
+    "month": 3,
+    "why": "Egypt's spring (March-April) is 'short and sweet', 'neither extremely hot nor uncomfortably cold', with fewer crowds and lower prices than winter.",
+    "tradeoff": "Spring carries 'a potential for sandstorms known as the khamsin', and temperatures can be erratic.",
+    "sourceIds": [
+      "gs-78ce42fcbb",
+      "gs-ea0361fcba"
+    ]
+  },
+  {
+    "courseId": "real-club-de-golf-el-prat",
+    "month": 3,
+    "why": "March closes out Barcelona's mild 15C/6C, 173-sunshine-hour January-March window as spring begins in Spain.",
+    "tradeoff": "Winter March weather still needs layers and an umbrella, with cold starts to the day.",
+    "sourceIds": [
+      "gs-4726339be5",
+      "gs-5481d548be"
+    ]
+  },
+  {
+    "courseId": "the-royal-melbourne-golf-club-west",
+    "month": 4,
+    "why": "April opens Melbourne's sandbelt autumn, one of the city's two best-weather windows; Top 100 ranks Royal Melbourne West as Australia's best course and one of Alister MacKenzie's finest designs (planned 1926).",
+    "tradeoff": "Royal Melbourne is a private club: visitor tee times are limited and must be booked well ahead, and autumn is peak sandbelt demand.",
+    "sourceIds": [
+      "gs-a1ddb75af7",
+      "gs-b64df4e0b5",
+      "gs-15eec6e857"
+    ]
+  },
+  {
+    "courseId": "muirfield",
+    "month": 4,
+    "why": "April brings milder days and more sunshine than March in Edinburgh's Gogarbank normals, a spring benefit for Muirfield's East Lothian links; Harry Colt revised the layout in 1925.",
+    "tradeoff": "Visitor play at private Muirfield is on Tuesdays and Thursdays with a recognised handicap limit; April can still turn wet and windy.",
+    "sourceIds": [
+      "gs-42a05be227",
+      "gs-3f605de2d2",
+      "gs-f70cd153aa"
+    ]
+  },
+  {
+    "courseId": "marco-simone-golf-country-club",
+    "month": 4,
+    "why": "Rome's best window is April to early June: warm, long days, and prices below the summer peak. Marco Simone, the 2023 Ryder Cup parkland course a short drive from the city, is at its most playable then.",
+    "tradeoff": "The visitor directory lists Tuesday closure and tighter weekend access; book ahead, check the handicap rule and allow for spring showers.",
+    "sourceIds": [
+      "gs-5a46b57b77",
+      "gs-2c90b996c8"
+    ]
+  },
+  {
+    "courseId": "millbrook-resort",
+    "month": 4,
+    "why": "April is Queenstown's golden autumn - warm, settled days and low golden light over the hills; Millbrook's alpine links course sits beneath the Remarkables near Arrowtown.",
+    "tradeoff": "Autumn colour draws crowds and the Arrowtown festival fills accommodation, and the exposed alpine course turns cold as May approaches.",
+    "sourceIds": [
+      "gs-bc5a42393b",
+      "gs-c1da58ef20"
+    ]
+  },
+  {
+    "courseId": "emirates-golf-club-majlis-course",
+    "month": 4,
+    "why": "Dubai's cooler window runs December to March, so April is the last comfortable month before the heat; the Majlis, the Middle East's first grass course (1988) framed by desert dunes, rewards early tee times.",
+    "tradeoff": "Dubai's heat climbs steeply after the cool season, so April rounds need early starts, and the Majlis is a busy, premium resort course.",
+    "sourceIds": [
+      "gs-10b9a791f8",
+      "gs-12af66bc6a"
+    ]
+  },
+  {
+    "courseId": "sentosa-golf-club-serapong",
+    "month": 4,
+    "why": "Late March to May is Singapore's inter-monsoon period, relatively drier than January; the Serapong, called Singapore's most stunning layout, is a scenic seaside resort round.",
+    "tradeoff": "Private-club visitor rounds need advance booking and must meet handicap rules; Singapore stays hot and humid, with afternoon thunderstorms possible.",
+    "sourceIds": [
+      "gs-1a9067ceaa",
+      "gs-ffc4f896b5",
+      "gs-3e6a13917a",
+      "gs-ab8bca522f"
+    ]
+  },
+  {
+    "courseId": "portmarnock-golf-club",
+    "month": 5,
+    "why": "Ireland's golf season runs April to October and May/June/September give the best balance of weather, daylight and green fees; Portmarnock, on its own two-mile sandy peninsula, is a classic links at its best.",
+    "tradeoff": "This private links keeps Wednesday, Friday, Saturday and Bank Holidays for members; reserve a designated visitor window and allow for Atlantic rain and wind.",
+    "sourceIds": [
+      "gs-0b9bebba40",
+      "gs-a088a0191f",
+      "gs-65cabd9624"
+    ]
+  },
+  {
+    "courseId": "wentworth-club-west",
+    "month": 5,
+    "why": "May's late-spring warmth suits Wentworth West's Surrey heathland before summer; nearby Wisley's climate normals show milder days than April for golfers with eligible member-guest access.",
+    "tradeoff": "Wentworth golf is for members and their guests, not open visitor tee-time booking; arrange an eligible introduction before planning a round.",
+    "sourceIds": [
+      "gs-d93ddb2e26",
+      "gs-d7dde13712"
+    ]
+  },
+  {
+    "courseId": "brautarholt-golf-club",
+    "month": 5,
+    "why": "Iceland's golf season opens around late May and the midnight sun builds; Brautarholt's clifftop layout above the Atlantic is playable in near-endless daylight.",
+    "tradeoff": "The course only opens for the season around late May or early June, visitor access is limited, and Icelandic weather is changeable and windy.",
+    "sourceIds": [
+      "gs-f7c83511e9",
+      "gs-f54e4c7c84"
+    ]
+  },
+  {
+    "courseId": "bro-hof-slott-stadium",
+    "month": 5,
+    "why": "May brings milder days than April in Stockholm's long-term climate, a spring-warming benefit for Bro Hof's lakeside Stadium course beside Lake Mälaren.",
+    "tradeoff": "Spring nights remain cool and the lakeside layout is exposed to wind; the visitor directory requires advance booking and handicap limits, so confirm current access.",
+    "sourceIds": [
+      "gs-40c8cb2087",
+      "gs-753e9648ef",
+      "gs-a57d5689c1"
+    ]
+  },
+  {
+    "courseId": "kennemer-golf-country-club",
+    "month": 5,
+    "why": "May's warming days open a more comfortable window on Kennemer's Zandvoort dune links; Schiphol's long-term normals show a clear step up from April, before midsummer.",
+    "tradeoff": "Private-club visits require caddiemaster approval, club membership and the stated handicap limit; no Sunday greenfee play. North Sea wind and showers remain.",
+    "sourceIds": [
+      "gs-2fa225f69f",
+      "gs-c9947e4032"
+    ]
+  },
+  {
+    "courseId": "praia-d-el-rey",
+    "month": 5,
+    "why": "May is a Lisbon-region shoulder month still warm with fewer crowds than summer; Praia d'El Rey blends seaside links and parkland holes among Atlantic dunes north of the city.",
+    "tradeoff": "Praia d'El Rey is an hour north of Lisbon, the Atlantic wind is near-constant, and shoulder-month weather here is unpredictable.",
+    "sourceIds": [
+      "gs-82161307c0",
+      "gs-449ac32896"
+    ]
+  },
+  {
+    "courseId": "muirfield",
+    "month": 6,
+    "why": "June is peak Scottish golf with daylight stretching late into the evening; Muirfield, the Honourable Company of Edinburgh Golfers' Open venue, shows its fast-running links form in championship season.",
+    "tradeoff": "Muirfield is private with restricted visitor days, and June is qualifying season when the course and local hotels are busiest.",
+    "sourceIds": [
+      "gs-18f4e87af1",
+      "gs-8de9d31a8d"
+    ]
+  },
+  {
+    "courseId": "brautarholt-golf-club",
+    "month": 6,
+    "why": "In June Iceland's midnight sun means the sun barely sets; Brautarholt's clifftop links can be played into the small hours during the 24-hour-light weeks.",
+    "tradeoff": "The short Icelandic season is only opening in early June, visitor access is limited, and the weather stays windy and changeable.",
+    "sourceIds": [
+      "gs-f7c83511e9",
+      "gs-f54e4c7c84"
+    ]
+  },
+  {
+    "courseId": "bro-hof-slott-stadium",
+    "month": 6,
+    "why": "June brings further early-summer warmth in Stockholm's long-term climate, improving daytime comfort over May for Bro Hof's lakeside Stadium course.",
+    "tradeoff": "June is wetter than May in the Stockholm normals; allow for showers and lakeside wind, and confirm the directory's advance-booking and handicap requirements.",
+    "sourceIds": [
+      "gs-40c8cb2087",
+      "gs-753e9648ef",
+      "gs-a57d5689c1"
+    ]
+  },
+  {
+    "courseId": "bali-national-golf-club",
+    "month": 6,
+    "why": "June sits in Bali's dry season (May-October, best May-September); Bali National, a Nelson & Haworth resort layout at Nusa Dua, is in its prime dry-season window.",
+    "tradeoff": "Bali's accommodation demand builds from mid-June toward the summer peak; resorts and guest houses get busy, so arrange your stay ahead.",
+    "sourceIds": [
+      "gs-4794fa00da",
+      "gs-ddfd75d25b"
+    ]
+  },
+  {
+    "courseId": "portmarnock-golf-club",
+    "month": 6,
+    "why": "June gives Ireland close to seventeen hours of daylight and sits in the best-golf window (May, June, September); Portmarnock's sandy-peninsula links is in prime summer condition.",
+    "tradeoff": "Portmarnock is private and walking-only for visitors, with no visitor buggies; June rounds must fit the published visitor windows.",
+    "sourceIds": [
+      "gs-0b9bebba40",
+      "gs-a088a0191f",
+      "gs-65cabd9624"
+    ]
+  },
+  {
+    "courseId": "walton-heath-golf-club-old",
+    "month": 6,
+    "why": "June's early-summer warmth and sunshine suit Walton Heath Old's open Surrey heathland; nearby Wisley's long-term normals put daytime conditions well above spring and winter.",
+    "tradeoff": "This private club publishes weekday morning and weekend midday visitor windows; reserve ahead, check events and keep waterproofs for June showers.",
+    "sourceIds": [
+      "gs-8643c3363b",
+      "gs-de4bbbb0ca",
+      "gs-d7dde13712"
+    ]
+  },
+  {
+    "courseId": "keilir-golf-club",
+    "month": 7,
+    "why": "Reykjavík's long July daylight makes a late links round possible; Keilir's back nine sits on a lava-fringed peninsula near town, with views to Snæfellsjökull.",
+    "tradeoff": "July is still cool, with rain and Atlantic wind; pack layers and waterproofs rather than expecting warm-weather golf.",
+    "sourceIds": [
+      "gs-dc26797d7e",
+      "gs-e820408d81"
+    ]
+  },
+  {
+    "courseId": "kyt-j-golf-south-east",
+    "month": 7,
+    "why": "Kytäjä's South East course (Thomas McBroom, 2003) plays through forest and along Lake Kytäjä; July is Helsinki's warmest month with 17h59m of daylight for a late tee time.",
+    "tradeoff": "Helsinki's regional July figures include rain on about 12 days (63mm) and cool nights; pack layers and waterproofs for inland Kytäjä.",
+    "sourceIds": [
+      "gs-e2915c10c2",
+      "gs-8395ad9a86"
+    ]
+  },
+  {
+    "courseId": "bali-national-golf-club",
+    "month": 7,
+    "why": "July falls in Bali's April–October dry season; Bali National (Nusa Dua) winds through three Balinese landscapes and shows dramatic coastline from the elevated 6th tee.",
+    "tradeoff": "It stays hot and humid year-round, and dry-season trade winds can gust; the current layout reopened in 2014.",
+    "sourceIds": [
+      "gs-19c3b9f032",
+      "gs-740130035d"
+    ]
+  },
+  {
+    "courseId": "portmarnock-golf-club",
+    "month": 7,
+    "why": "July is Dublin's warmest month, with long daylight for Portmarnock's duneland links; the club's published 2027 April–September visitor season includes this midsummer window.",
+    "tradeoff": "Portmarnock is private: visitor days exclude Wednesday, Friday, Saturday and Bank Holidays; July showers remain possible. Book designated windows ahead.",
+    "sourceIds": [
+      "gs-21009e46a7",
+      "gs-65cabd9624",
+      "gs-6c6f2b8084"
+    ]
+  },
+  {
+    "courseId": "bro-hof-slott-stadium",
+    "month": 7,
+    "why": "Bro Hof's Stadium Course (Robert Trent Jones Jnr, 2007) runs as a 'lakeside path' around Lake Mälaren; Stockholm's July days last 17h44m, stretching evening rounds.",
+    "tradeoff": "July is Stockholm's wettest month (rain on about 9 days, 65mm), and the Stadium Course's water and gusts make it a stern test.",
+    "sourceIds": [
+      "gs-424fa1c695",
+      "gs-bc4efd39bb"
+    ]
+  },
+  {
+    "courseId": "muirfield",
+    "month": 7,
+    "why": "Muirfield's links layout was revised by Harry Colt in 1925; July brings Edinburgh's highest temperatures (17.2°C) and long northern evenings.",
+    "tradeoff": "Private Muirfield takes fourball bookings in July; smaller groups join a cancellation list. Visitor days are Tuesday/Thursday, and rain remains common.",
+    "sourceIds": [
+      "gs-42a05be227",
+      "gs-287c105129",
+      "gs-f70cd153aa"
+    ]
+  },
+  {
+    "courseId": "capilano-golf-and-country-club",
+    "month": 8,
+    "why": "Capilano (Stanley Thompson), carved from rainforest against the North Shore Mountains, is a West Coast classic; August keeps Vancouver's settled summer with up to 15h of daylight.",
+    "tradeoff": "A private club with limited guest access; evenings cool quickly, with August lows near 13°C.",
+    "sourceIds": [
+      "gs-1f141c57f5",
+      "gs-fadf5b29ae"
+    ]
+  },
+  {
+    "courseId": "chambers-bay",
+    "month": 8,
+    "why": "Chambers Bay is a true links on Puget Sound and hosted the 2015 U.S. Open, the first in the Pacific Northwest; August is Seattle's warmest, driest month (high 24.6°C).",
+    "tradeoff": "The exposed links takes wind off the Sound, and Seattle's dry window is short — rain returns in autumn.",
+    "sourceIds": [
+      "gs-df63c35e2c",
+      "gs-0e1c31c4f9",
+      "gs-e3e3ea5639"
+    ]
+  },
+  {
+    "courseId": "fontana-golf-club",
+    "month": 8,
+    "why": "Fontana, minutes from Vienna, staged the European Tour in Austria 2006–2009 and will host the 2029 World Amateur Team Championship; August is warm at 26.6°C.",
+    "tradeoff": "Austrian August can be hot and thundery — rain falls on about 8–9 days — and the championship course demands accuracy.",
+    "sourceIds": [
+      "gs-a6d256fbd3",
+      "gs-b3d2b26ec9"
+    ]
+  },
+  {
+    "courseId": "new-south-wales-golf-club",
+    "month": 8,
+    "why": "New South Wales GC (opened 1928; routed by Dr Alister MacKenzie) sits on the cliffs at La Perouse with ocean vistas; August, though winter, stays mild (high 17.8°C).",
+    "tradeoff": "It is Sydney's winter: cool, breezy clifftop golf, and the private club allows only limited visitor access.",
+    "sourceIds": [
+      "gs-e43c190763",
+      "gs-61baf8ce97"
+    ]
+  },
+  {
+    "courseId": "cog-hill-no-4-dubsdread",
+    "month": 8,
+    "why": "Cog Hill's Dubsdread (Wilson & Lee, 1964, nationally ranked since opening) is a classic Chicago championship parkland; August is the city's warmest month (high 25.3°C).",
+    "tradeoff": "Chicago's August is humid (about 76%) with rain on some 17 days; allow flexibility for wet weather rather than expecting a dry round.",
+    "sourceIds": [
+      "gs-8bdba2ca72",
+      "gs-bb1fb220c4"
+    ]
+  },
+  {
+    "courseId": "glen-abbey-golf-club",
+    "month": 8,
+    "why": "Glen Abbey (Jack Nicklaus) has hosted the RBC Canadian Open 30 times, more than any other venue; August is a warm 24.5°C with long Ontario days.",
+    "tradeoff": "It is a busy public championship course; August humidity runs about 74% and weekend tee times fill fast.",
+    "sourceIds": [
+      "gs-89d43f650a",
+      "gs-680bcef497"
+    ]
+  },
+  {
+    "courseId": "bethpage-black",
+    "month": 9,
+    "why": "Bethpage Black, a U.S. Open host (2002), is open for green fees 15 April–15 November; September's cooler weather (highs near 24°C) is prime for this famed public course.",
+    "tradeoff": "The Black is closed Mondays (except holidays) and demand is high, so a tee time needs early booking or the walk-up queue.",
+    "sourceIds": [
+      "gs-6a91641f58",
+      "gs-57b6bde90f",
+      "gs-a2bc574f9b"
+    ]
+  },
+  {
+    "courseId": "crans-sur-sierre-golf-club-ballesteros",
+    "month": 9,
+    "why": "September is European Masters month on Crans-sur-Sierre's Ballesteros course in Crans-Montana; the 2026 edition ran 3–6 September, bringing championship golf to the Swiss Alps.",
+    "tradeoff": "Tournament week restricts play: check the next edition and access dates. Geneva is a gateway, not the course location; plan an onward stay in Crans-Montana.",
+    "sourceIds": [
+      "gs-9b9db8f6fb",
+      "gs-0b36077e91",
+      "gs-f2f48cb9cd"
+    ]
+  },
+  {
+    "courseId": "montgomerie-maxx-royal",
+    "month": 9,
+    "why": "The Montgomerie Maxx Royal (Colin Montgomerie with European Golf Design) is an 18-hole championship course on the Belek coast; September still gives long, warm days.",
+    "tradeoff": "Late-summer heat lingers into September, and the floodlit back nine exists for evening and night rounds.",
+    "sourceIds": [
+      "gs-40457a708c",
+      "gs-fc70390e21"
+    ]
+  },
+  {
+    "courseId": "real-club-de-golf-el-prat",
+    "month": 9,
+    "why": "September eases Barcelona's late-summer heat, a more comfortable window for El Prat's Greg Norman-designed holes outside the city; the benefit is cooling, not a dry-season promise.",
+    "tradeoff": "Autumn rainfall rises from August in the Barcelona normals; allow flexibility for showers and confirm the El Prat layout and visitor tee time.",
+    "sourceIds": [
+      "gs-4726339be5",
+      "gs-d4f2848ec3"
+    ]
+  },
+  {
+    "courseId": "the-royal-melbourne-golf-club-west",
+    "month": 9,
+    "why": "September starts Melbourne's spring warming after winter, before the hotter summer; Royal Melbourne West brings MacKenzie's rolling sandbelt routing to that improving daytime window.",
+    "tradeoff": "Spring remains cool and showery, not reliably dry; Royal Melbourne is private and visitor enquiries are limited to golfers meeting its access rules.",
+    "sourceIds": [
+      "gs-7baec5acda",
+      "gs-dce107df61",
+      "gs-ad368af824"
+    ]
+  },
+  {
+    "courseId": "marco-simone-golf-country-club",
+    "month": 9,
+    "why": "Marco Simone (Jim Fazio; redesigned for the 2023 Ryder Cup) lies in the grounds of an 11th-century castle outside Rome; September eases the Roman heat (average low 15.2°C).",
+    "tradeoff": "Afternoons remain warm and the open parkland offers little shade — book morning tee times.",
+    "sourceIds": [
+      "gs-5a46b57b77",
+      "gs-a3ddfb8097",
+      "gs-6b8e5dcb1b"
+    ]
+  },
+  {
+    "courseId": "oitavos-dunes",
+    "month": 10,
+    "why": "October stays mild as Lisbon's summer heat eases, suiting Oitavos Dunes' woodland-and-links mix near Cascais; the Atlantic setting remains exposed to wind.",
+    "tradeoff": "October rainfall rises sharply from summer in the cited Lisbon normals; pack waterproofs and allow flexibility for Atlantic weather.",
+    "sourceIds": [
+      "gs-10c2cab3e7",
+      "gs-6321bf11b9"
+    ]
+  },
+  {
+    "courseId": "the-royal-melbourne-golf-club-west",
+    "month": 10,
+    "why": "October's spring warmth brings milder daytime golf than Melbourne's winter, before the summer heat; Royal Melbourne West follows MacKenzie's rolling sandbelt routing.",
+    "tradeoff": "Spring is famously fickle: about 59 mm of rain and changeable winds, so keep tee times flexible.",
+    "sourceIds": [
+      "gs-7baec5acda",
+      "gs-ad368af824"
+    ]
+  },
+  {
+    "courseId": "emirates-golf-club-majlis-course",
+    "month": 10,
+    "why": "October reopens Dubai's golf season as the ferocious summer eases, on the Middle East's first grass championship course.",
+    "tradeoff": "Still hot, with October mean daily highs near 35C in the cited normals; choose an early tee time rather than assuming night golf on the Majlis.",
+    "sourceIds": [
+      "gs-be42b17162",
+      "gs-a2c611bf24"
+    ]
+  },
+  {
+    "courseId": "royal-golf-marrakech-old-course",
+    "month": 10,
+    "why": "October cools from Marrakech's September heat while retaining warm days; the federation identifies Royal Golf Marrakech Old as the Golias–Massy layout, distinct from Menara.",
+    "tradeoff": "Rain begins to increase after summer and nights cool down; request the Old layout explicitly when confirming a visitor tee time.",
+    "sourceIds": [
+      "gs-48d6c1f8f4",
+      "gs-b810043ca7"
+    ]
+  },
+  {
+    "courseId": "sentosa-golf-club-serapong",
+    "month": 10,
+    "why": "October's inter-monsoon changeover has less rainfall than November and December in Singapore's Changi normals, offering a relative window for the Serapong's harbour-side golf.",
+    "tradeoff": "Hot, humid and thunderstorm-prone, especially later in the day; Sentosa is private, so arrange visitor access in advance.",
+    "sourceIds": [
+      "gs-2e4ee3b55e",
+      "gs-ab8bca522f",
+      "gs-3e6a13917a",
+      "gs-1a9067ceaa"
+    ]
+  },
+  {
+    "courseId": "jack-s-point",
+    "month": 10,
+    "why": "October's crisp spring air frames alpine golf beneath The Remarkables on Lake Wakatipu, with clear mountain light.",
+    "tradeoff": "Cool (~15C) and changeable with ~66 mm of rain; weather can close in quickly.",
+    "sourceIds": [
+      "gs-c2602dacf9",
+      "gs-f2f17d2ffb"
+    ]
+  },
+  {
+    "courseId": "steenberg-golf-club",
+    "month": 11,
+    "why": "November brings Cape Town's warm, relatively dry late spring before the holiday peak; Steenberg pairs that improving golf weather with its Constantia Valley setting beneath Table Mountain.",
+    "tradeoff": "The city's high season builds toward December, so secure tee times and stays early.",
+    "sourceIds": [
+      "gs-43fbeeddbb",
+      "gs-5e19703579"
+    ]
+  },
+  {
+    "courseId": "emirates-golf-club-majlis-course",
+    "month": 11,
+    "why": "November brings Dubai's warm, very dry golf window after the harsher summer heat; the Majlis pairs that improving weather with its established desert championship layout.",
+    "tradeoff": "Peak season means higher green fees and tighter tee times; book well ahead.",
+    "sourceIds": [
+      "gs-be42b17162",
+      "gs-a2c611bf24"
+    ]
+  },
+  {
+    "courseId": "sentosa-golf-club-serapong",
+    "month": 11,
+    "why": "November brings a modest temperature dip from October at Singapore's Changi station, easing the heat slightly for Serapong rounds; this is a cooler, not drier, month.",
+    "tradeoff": "Rainfall rises sharply toward the year-end wet peak, so thunderstorm delays are likely; confirm private-club visitor access before travelling.",
+    "sourceIds": [
+      "gs-2e4ee3b55e",
+      "gs-ab8bca522f",
+      "gs-3e6a13917a",
+      "gs-1a9067ceaa"
+    ]
+  },
+  {
+    "courseId": "the-royal-melbourne-golf-club-west",
+    "month": 11,
+    "why": "November's warmer spring days suit Royal Melbourne West before the hotter summer; the benefit is milder daytime weather for MacKenzie's sandbelt golf, not guaranteed firm turf.",
+    "tradeoff": "Around 63 mm of rain and gusty fronts; keep tee times flexible.",
+    "sourceIds": [
+      "gs-7baec5acda",
+      "gs-ad368af824"
+    ]
+  },
+  {
+    "courseId": "jack-s-point",
+    "month": 11,
+    "why": "Late spring lifts Queenstown to ~18C with long days beneath The Remarkables.",
+    "tradeoff": "Peak-rate season starts in November and alpine weather stays changeable.",
+    "sourceIds": [
+      "gs-c2602dacf9",
+      "gs-f2f17d2ffb"
+    ]
+  },
+  {
+    "courseId": "kennemer-golf-country-club",
+    "month": 11,
+    "why": "November enters Dutch golf's quieter off-season; regional golf guidance notes that free-draining coastal sand extends play on dune links such as Kennemer beyond the summer peak.",
+    "tradeoff": "Cold, rain and wind shorten the useful day; Kennemer remains private, with caddiemaster approval, handicap rules and no Sunday greenfee play.",
+    "sourceIds": [
+      "gs-2fa225f69f",
+      "gs-c9947e4032",
+      "gs-635d3db3d9"
+    ]
+  },
+  {
+    "courseId": "new-south-wales-golf-club",
+    "month": 12,
+    "why": "December brings summer warmth for La Perouse's clifftop golf above Botany Bay; Sydney's long-term normals are warmer than November.",
+    "tradeoff": "Summer warmth does not mean dry golf: Sydney's December normals still include rain, so keep plans flexible.",
+    "sourceIds": [
+      "gs-e43c190763",
+      "gs-dd62292e7b"
+    ]
+  },
+  {
+    "courseId": "steenberg-golf-club",
+    "month": 12,
+    "why": "December's long, warm days (~25C) and minimal rain (~17 mm) put Cape Town golf at its summer peak.",
+    "tradeoff": "It is peak holiday season; the course, the city and tee sheets are at their busiest.",
+    "sourceIds": [
+      "gs-43fbeeddbb",
+      "gs-5e19703579"
+    ]
+  },
+  {
+    "courseId": "jack-s-point",
+    "month": 12,
+    "why": "December opens Queenstown's long southern-summer evenings beneath The Remarkables.",
+    "tradeoff": "Peak-rate season and busy holidays; alpine weather can still change fast.",
+    "sourceIds": [
+      "gs-c2602dacf9",
+      "gs-f2f17d2ffb"
+    ]
+  },
+  {
+    "courseId": "sentosa-golf-club-serapong",
+    "month": 12,
+    "why": "December shares Singapore's coolest-month mean with January in Changi's long-term climate, giving the Serapong a small heat-relief benefit despite the wet season.",
+    "tradeoff": "December is in the wettest part of the year; storm delays can outweigh the modest cooling. Private-club visitor rounds need advance confirmation.",
+    "sourceIds": [
+      "gs-2e4ee3b55e",
+      "gs-ab8bca522f",
+      "gs-3e6a13917a",
+      "gs-1a9067ceaa"
+    ]
+  },
+  {
+    "courseId": "tpc-summerlin",
+    "month": 12,
+    "why": "December offers dry, cooler daytime golf away from Las Vegas's fierce summer heat; TPC Summerlin's private Bobby Weed layout winds through desert arroyos and canyons.",
+    "tradeoff": "TPC Summerlin is a private membership club: establish eligible access before travel. Winter mornings are cold and frost can delay play.",
+    "sourceIds": [
+      "gs-7c69e3a3cd",
+      "gs-33363086e0"
+    ]
+  },
+  {
+    "courseId": "kennemer-golf-country-club",
+    "month": 12,
+    "why": "December offers a quieter off-season links visit; Kennemer's sandy dune setting helps extend the playing season beyond summer when conditions permit.",
+    "tradeoff": "Very short, cold and wet days; frost or winter greens may affect play. Confirm conditions and private-club visitor permission with the caddiemaster.",
+    "sourceIds": [
+      "gs-2fa225f69f",
+      "gs-c9947e4032",
+      "gs-635d3db3d9",
+      "gs-f33aeacf5a"
+    ]
+  }
+]
