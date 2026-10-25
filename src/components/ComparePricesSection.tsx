@@ -3,6 +3,7 @@
 import React, { useState, useMemo, useEffect, useRef } from 'react'
 import { useCurrency, CurrencyCode } from '@/components/CurrencyProvider'
 import { bookingDateError, localDateString, nextCalendarDay } from '@/lib/bookingDates'
+import styles from './ComparePricesSection.module.css'
 
 interface Airport {
   code: string
@@ -344,10 +345,43 @@ export function ComparePricesSection() {
   const originRef = useRef<HTMLDivElement>(null)
   const destRef = useRef<HTMLDivElement>(null)
   const hotelRef = useRef<HTMLDivElement>(null)
+  const originInputRef = useRef<HTMLInputElement>(null)
+  const destInputRef = useRef<HTMLInputElement>(null)
+  const hotelInputRef = useRef<HTMLInputElement>(null)
+  const suppressSuggestionFocus = useRef(false)
+
+  // Guard the mouse default (including touch's compatibility mousedown), not
+  // pointerdown: canceling a touch pointerdown suppresses WebKit's native click.
+  // Without this guard Safari can blur the input to no relatedTarget and remove
+  // the suggestion before click. Selection itself stays on native onClick.
+  // Selection/Escape deliberately restore the stable input without reopening
+  // suggestions. The suppression lasts only for this synchronous focus event;
+  // a later user focus or edit can open suggestions normally.
+  const restoreInputFocus = (inputRef: React.RefObject<HTMLInputElement | null>) => {
+    suppressSuggestionFocus.current = true
+    inputRef.current?.focus({ preventScroll: true })
+    suppressSuggestionFocus.current = false
+  }
+
+  const suggestionEvents = (
+    inputRef: React.RefObject<HTMLInputElement | null>,
+    setOpen: React.Dispatch<React.SetStateAction<boolean>>,
+  ) => ({
+    onBlur: (event: React.FocusEvent<HTMLDivElement>) => {
+      if (!event.currentTarget.contains(event.relatedTarget as Node | null)) setOpen(false)
+    },
+    onKeyDown: (event: React.KeyboardEvent<HTMLDivElement>) => {
+      if (event.key === 'Escape') {
+        event.preventDefault()
+        setOpen(false)
+        restoreInputFocus(inputRef)
+      }
+    },
+  })
   
   // Click outside handler
   useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
+    const handleClickOutside = (e: PointerEvent) => {
       if (originRef.current && !originRef.current.contains(e.target as Node)) {
         setShowOriginSuggestions(false)
       }
@@ -358,8 +392,8 @@ export function ComparePricesSection() {
         setShowHotelSuggestions(false)
       }
     }
-    document.addEventListener('mousedown', handleClickOutside)
-    return () => document.removeEventListener('mousedown', handleClickOutside)
+    document.addEventListener('pointerdown', handleClickOutside)
+    return () => document.removeEventListener('pointerdown', handleClickOutside)
   }, [])
   
   // Get suggestions
@@ -423,6 +457,7 @@ export function ComparePricesSection() {
       setOriginInput(`${airport.city} (${codes[0]})`)
     }
     setShowOriginSuggestions(false)
+    restoreInputFocus(originInputRef)
   }
   
   // Handle destination selection (flights)
@@ -436,12 +471,14 @@ export function ComparePricesSection() {
       setDestInput(`${airport.city} (${codes[0]})`)
     }
     setShowDestSuggestions(false)
+    restoreInputFocus(destInputRef)
   }
   
   // Handle hotel destination selection
   const handleHotelDestSelect = (airport: Airport) => {
     setHotelDest(airport.city)
     setShowHotelSuggestions(false)
+    restoreInputFocus(hotelInputRef)
   }
   
   // Handle input changes
@@ -530,6 +567,9 @@ export function ComparePricesSection() {
     setDepartDate('')
     setReturnDate('')
     setHasSearched(false)
+    setShowOriginSuggestions(false)
+    setShowDestSuggestions(false)
+    setShowHotelSuggestions(false)
   }
   
   // Format date for display
@@ -541,15 +581,22 @@ export function ComparePricesSection() {
   
   // Extract display city from input (strip airport codes)
   const getDisplayCity = (input: string) => input.replace(/\s*\([A-Z,\s]+\)$/, '').trim()
+
+  // Links remain derived from the current valid form after the first search,
+  // so announce subsequent route/date/currency edits as well as initial results.
+  // This is a comparison-link status, not a supplier price/availability quote.
+  const searchStatus = !hasSearched ? '' : supplierLinks.length === 0
+    ? 'No comparison links available. Check the search details.'
+    : `${supplierLinks.length} ${searchType === 'flights' ? 'flight' : 'hotel'} comparison links ready: ${searchType === 'flights' ? `${getDisplayCity(originInput)} to ${getDisplayCity(destInput)}` : hotelDest.trim()}, ${formatDate(departDate)}${returnDate ? ` to ${formatDate(returnDate)}` : ''}, ${currency}. Prices are on supplier sites.`
   
   return (
-    <section id="compare-prices" className="py-20 lg:py-28 scroll-mt-20" style={{ backgroundColor: 'var(--color-bg)' }}>
+    <section id="compare-prices" className={`${styles.section} py-20 lg:py-28 scroll-mt-20`} style={{ backgroundColor: 'var(--color-bg)' }}>
       <div className="max-w-6xl mx-auto px-6 lg:px-12">
         {/* Header */}
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 mb-4">
             <span className="w-8 h-px bg-[#0891b2]"></span>
-            <span className="text-[#0891b2] text-xs font-semibold uppercase tracking-widest">
+            <span className={`${styles.eyebrow} text-xs font-semibold uppercase tracking-widest`}>
               {searchType === 'flights' ? 'Flight Search' : 'Hotel Search'}
             </span>
             <span className="w-8 h-px bg-[#0891b2]"></span>
@@ -569,13 +616,13 @@ export function ComparePricesSection() {
           <div className="bg-white rounded-2xl shadow-xl border p-6" style={{ borderColor: 'var(--color-border)', backgroundColor: 'var(--color-card-bg)' }}>
             {/* Toggle */}
             <div className="flex justify-center mb-6">
-              <div className="inline-flex p-1 rounded-full" style={{ backgroundColor: 'var(--color-bg-subtle)' }}>
+              <div role="group" aria-label="Search type" className="inline-flex p-1 rounded-full" style={{ backgroundColor: 'var(--color-bg-subtle)' }}>
                 <button
                   onClick={() => handleTypeChange('flights')}
-                  className={`flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-semibold transition-all ${
+                  aria-pressed={searchType === 'flights'}
+                  className={`${styles.modeButton} flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-semibold transition-all ${
                     searchType === 'flights' ? 'bg-white shadow-md' : 'hover:bg-black/5'
                   }`}
-                  style={{ color: searchType === 'flights' ? '#0891b2' : 'var(--color-muted)' }}
                 >
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
@@ -584,10 +631,10 @@ export function ComparePricesSection() {
                 </button>
                 <button
                   onClick={() => handleTypeChange('hotels')}
-                  className={`flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-semibold transition-all ${
+                  aria-pressed={searchType === 'hotels'}
+                  className={`${styles.modeButton} flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-semibold transition-all ${
                     searchType === 'hotels' ? 'bg-white shadow-md' : 'hover:bg-black/5'
                   }`}
-                  style={{ color: searchType === 'hotels' ? '#0891b2' : 'var(--color-muted)' }}
                 >
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
@@ -602,7 +649,7 @@ export function ComparePricesSection() {
               /* Flights: 4-column grid — From, To, Depart, Return */
               <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                 {/* Origin */}
-                <div className="relative" ref={originRef}>
+                <div className="relative" ref={originRef} {...suggestionEvents(originInputRef, setShowOriginSuggestions)}>
                   <label htmlFor="flight-origin" className="block text-xs font-semibold uppercase tracking-wider mb-1.5" style={{ color: 'var(--color-muted)' }}>
                     From (City or Airport)
                   </label>
@@ -610,11 +657,12 @@ export function ComparePricesSection() {
                     <input
                       type="text"
                       id="flight-origin"
+                      ref={originInputRef}
                       value={originInput}
                       onChange={(e) => handleOriginChange(e.target.value)}
-                      onFocus={() => setShowOriginSuggestions(true)}
+                      onFocus={() => { if (!suppressSuggestionFocus.current) setShowOriginSuggestions(true) }}
                       placeholder="e.g., New York or JFK"
-                      className="w-full px-4 py-3 pl-10 rounded-lg border-2 font-medium transition-all focus:outline-none focus:border-[#0891b2]"
+                      className={`${styles.field} w-full px-4 py-3 pl-10 rounded-lg border-2 font-medium transition-all`}
                       style={{ borderColor: 'var(--color-border)', backgroundColor: 'var(--color-bg)', color: 'var(--color-ink)' }}
                     />
                     <svg className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4" style={{ color: 'var(--color-muted)' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -622,11 +670,11 @@ export function ComparePricesSection() {
                     </svg>
                   </div>
                   {showOriginSuggestions && groupedOriginSuggestions.length > 0 && (
-                    <div className="absolute z-50 w-full mt-1 bg-white rounded-lg shadow-xl border max-h-60 overflow-auto" style={{ borderColor: 'var(--color-border)' }}>
+                    <div className={`${styles.suggestions} absolute z-50 w-full mt-1 rounded-lg shadow-xl border max-h-60 overflow-auto`}>
                       {groupedOriginSuggestions.map(([city, airports]) => (
                         <button key={city} onClick={() => handleOriginSelect(airports[0])}
-                          className="w-full px-4 py-3 text-left hover:bg-gray-50 border-b last:border-b-0 transition-colors"
-                          style={{ borderColor: 'var(--color-border)' }}>
+                          onMouseDown={(event) => event.preventDefault()}
+                          className={`${styles.suggestionButton} w-full px-4 py-3 text-left border-b last:border-b-0 transition-colors`}>
                           <div className="flex items-center justify-between">
                             <div>
                               <span className="font-semibold" style={{ color: 'var(--color-ink)' }}>{city}</span>
@@ -634,7 +682,7 @@ export function ComparePricesSection() {
                             </div>
                             <div className="flex gap-1">
                               {airports.map(a => (
-                                <span key={a.code} className="px-2 py-0.5 text-xs font-bold rounded" style={{ backgroundColor: 'var(--color-bg-subtle)', color: '#0891b2' }}>{a.code}</span>
+                                <span key={a.code} className={`${styles.airportBadge} px-2 py-0.5 text-xs font-bold rounded`}>{a.code}</span>
                               ))}
                             </div>
                           </div>
@@ -646,7 +694,7 @@ export function ComparePricesSection() {
                 </div>
                 
                 {/* Destination */}
-                <div className="relative" ref={destRef}>
+                <div className="relative" ref={destRef} {...suggestionEvents(destInputRef, setShowDestSuggestions)}>
                   <label htmlFor="flight-destination" className="block text-xs font-semibold uppercase tracking-wider mb-1.5" style={{ color: 'var(--color-muted)' }}>
                     To (City or Airport)
                   </label>
@@ -654,11 +702,12 @@ export function ComparePricesSection() {
                     <input
                       type="text"
                       id="flight-destination"
+                      ref={destInputRef}
                       value={destInput}
                       onChange={(e) => handleDestChange(e.target.value)}
-                      onFocus={() => setShowDestSuggestions(true)}
+                      onFocus={() => { if (!suppressSuggestionFocus.current) setShowDestSuggestions(true) }}
                       placeholder="e.g., London or LHR"
-                      className="w-full px-4 py-3 pl-10 rounded-lg border-2 font-medium transition-all focus:outline-none focus:border-[#0891b2]"
+                      className={`${styles.field} w-full px-4 py-3 pl-10 rounded-lg border-2 font-medium transition-all`}
                       style={{ borderColor: 'var(--color-border)', backgroundColor: 'var(--color-bg)', color: 'var(--color-ink)' }}
                     />
                     <svg className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4" style={{ color: 'var(--color-muted)' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -666,11 +715,11 @@ export function ComparePricesSection() {
                     </svg>
                   </div>
                   {showDestSuggestions && groupedDestSuggestions.length > 0 && (
-                    <div className="absolute z-50 w-full mt-1 bg-white rounded-lg shadow-xl border max-h-60 overflow-auto" style={{ borderColor: 'var(--color-border)' }}>
+                    <div className={`${styles.suggestions} absolute z-50 w-full mt-1 rounded-lg shadow-xl border max-h-60 overflow-auto`}>
                       {groupedDestSuggestions.map(([city, airports]) => (
                         <button key={city} onClick={() => handleDestSelect(airports[0])}
-                          className="w-full px-4 py-3 text-left hover:bg-gray-50 border-b last:border-b-0 transition-colors"
-                          style={{ borderColor: 'var(--color-border)' }}>
+                          onMouseDown={(event) => event.preventDefault()}
+                          className={`${styles.suggestionButton} w-full px-4 py-3 text-left border-b last:border-b-0 transition-colors`}>
                           <div className="flex items-center justify-between">
                             <div>
                               <span className="font-semibold" style={{ color: 'var(--color-ink)' }}>{city}</span>
@@ -678,7 +727,7 @@ export function ComparePricesSection() {
                             </div>
                             <div className="flex gap-1">
                               {airports.map(a => (
-                                <span key={a.code} className="px-2 py-0.5 text-xs font-bold rounded" style={{ backgroundColor: 'var(--color-bg-subtle)', color: '#0891b2' }}>{a.code}</span>
+                                <span key={a.code} className={`${styles.airportBadge} px-2 py-0.5 text-xs font-bold rounded`}>{a.code}</span>
                               ))}
                             </div>
                           </div>
@@ -702,7 +751,7 @@ export function ComparePricesSection() {
                     min={today}
                     aria-invalid={Boolean(dateError)}
                     aria-describedby={dateError ? 'booking-date-error' : undefined}
-                    className="w-full px-4 py-3 rounded-lg border-2 font-medium transition-all focus:outline-none focus:border-[#0891b2] cursor-pointer"
+                    className={`${styles.field} w-full px-4 py-3 rounded-lg border-2 font-medium transition-all cursor-pointer`}
                     style={{ borderColor: 'var(--color-border)', backgroundColor: 'var(--color-bg)', color: 'var(--color-ink)' }}
                   />
                 </div>
@@ -720,7 +769,7 @@ export function ComparePricesSection() {
                     min={endDateMin}
                     aria-invalid={Boolean(dateError)}
                     aria-describedby={dateError ? 'booking-date-error' : undefined}
-                    className="w-full px-4 py-3 rounded-lg border-2 font-medium transition-all focus:outline-none focus:border-[#0891b2] cursor-pointer"
+                    className={`${styles.field} w-full px-4 py-3 rounded-lg border-2 font-medium transition-all cursor-pointer`}
                     style={{ borderColor: 'var(--color-border)', backgroundColor: 'var(--color-bg)', color: 'var(--color-ink)' }}
                   />
                 </div>
@@ -729,7 +778,7 @@ export function ComparePricesSection() {
               /* Hotels: 3-column grid — Destination, Check-in, Check-out */
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {/* Destination (wider) */}
-                <div className="relative" ref={hotelRef}>
+                <div className="relative" ref={hotelRef} {...suggestionEvents(hotelInputRef, setShowHotelSuggestions)}>
                   <label htmlFor="hotel-destination" className="block text-xs font-semibold uppercase tracking-wider mb-1.5" style={{ color: 'var(--color-muted)' }}>
                     Destination
                   </label>
@@ -737,11 +786,12 @@ export function ComparePricesSection() {
                     <input
                       type="text"
                       id="hotel-destination"
+                      ref={hotelInputRef}
                       value={hotelDest}
                       onChange={(e) => handleHotelDestChange(e.target.value)}
-                      onFocus={() => setShowHotelSuggestions(true)}
+                      onFocus={() => { if (!suppressSuggestionFocus.current) setShowHotelSuggestions(true) }}
                       placeholder="e.g., Lisbon, Paris, Tokyo..."
-                      className="w-full px-4 py-3 pl-10 rounded-lg border-2 font-medium transition-all focus:outline-none focus:border-[#0891b2]"
+                      className={`${styles.field} w-full px-4 py-3 pl-10 rounded-lg border-2 font-medium transition-all`}
                       style={{ borderColor: 'var(--color-border)', backgroundColor: 'var(--color-bg)', color: 'var(--color-ink)' }}
                     />
                     <svg className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4" style={{ color: 'var(--color-muted)' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -749,11 +799,11 @@ export function ComparePricesSection() {
                     </svg>
                   </div>
                   {showHotelSuggestions && groupedHotelSuggestions.length > 0 && (
-                    <div className="absolute z-50 w-full mt-1 bg-white rounded-lg shadow-xl border max-h-60 overflow-auto" style={{ borderColor: 'var(--color-border)' }}>
+                    <div className={`${styles.suggestions} absolute z-50 w-full mt-1 rounded-lg shadow-xl border max-h-60 overflow-auto`}>
                       {groupedHotelSuggestions.map(([city, airports]) => (
                         <button key={city} onClick={() => handleHotelDestSelect(airports[0])}
-                          className="w-full px-4 py-2.5 text-left hover:bg-gray-50 border-b last:border-b-0"
-                          style={{ borderColor: 'var(--color-border)' }}>
+                          onMouseDown={(event) => event.preventDefault()}
+                          className={`${styles.suggestionButton} w-full px-4 py-2.5 text-left border-b last:border-b-0`}>
                           <span className="font-medium" style={{ color: 'var(--color-ink)' }}>{city}</span>
                           <span className="text-sm ml-2" style={{ color: 'var(--color-muted)' }}>{airports[0].country}</span>
                         </button>
@@ -775,7 +825,7 @@ export function ComparePricesSection() {
                     min={today}
                     aria-invalid={Boolean(dateError)}
                     aria-describedby={dateError ? 'booking-date-error' : undefined}
-                    className="w-full px-4 py-3 rounded-lg border-2 font-medium transition-all focus:outline-none focus:border-[#0891b2] cursor-pointer"
+                    className={`${styles.field} w-full px-4 py-3 rounded-lg border-2 font-medium transition-all cursor-pointer`}
                     style={{ borderColor: 'var(--color-border)', backgroundColor: 'var(--color-bg)', color: 'var(--color-ink)' }}
                   />
                 </div>
@@ -793,7 +843,7 @@ export function ComparePricesSection() {
                     min={endDateMin}
                     aria-invalid={Boolean(dateError)}
                     aria-describedby={dateError ? 'booking-date-error' : undefined}
-                    className="w-full px-4 py-3 rounded-lg border-2 font-medium transition-all focus:outline-none focus:border-[#0891b2] cursor-pointer"
+                    className={`${styles.field} w-full px-4 py-3 rounded-lg border-2 font-medium transition-all cursor-pointer`}
                     style={{ borderColor: 'var(--color-border)', backgroundColor: 'var(--color-bg)', color: 'var(--color-ink)' }}
                   />
                 </div>
@@ -814,7 +864,7 @@ export function ComparePricesSection() {
                 className="flex items-center gap-2 px-8 py-3 rounded-full font-semibold text-white transition-all disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-lg hover:scale-105"
                 style={{ 
                   background: isFormValid
-                    ? 'linear-gradient(135deg, #0891b2 0%, #0e7490 100%)' 
+                    ? 'linear-gradient(135deg, #0e7490 0%, #155e75 100%)'
                     : 'var(--color-muted)'
                 }}
               >
@@ -832,6 +882,7 @@ export function ComparePricesSection() {
         </div>
         
         {/* Search Results — Real links to booking sites */}
+        <p role="status" aria-live="polite" aria-atomic="true" className="sr-only">{searchStatus}</p>
         {hasSearched && supplierLinks.length > 0 && (
           <div className="max-w-4xl mx-auto">
             {/* Route Summary */}
@@ -924,10 +975,10 @@ export function ComparePricesSection() {
                     
                     <div className="flex items-center gap-6">
                       {/* CTA */}
-                      <span className="hidden sm:inline-block px-4 py-2 rounded-lg text-sm font-semibold text-white" style={{ background: 'linear-gradient(135deg, #0891b2 0%, #0e7490 100%)' }}>
+                      <span className="hidden sm:inline-block px-4 py-2 rounded-lg text-sm font-semibold text-white" style={{ background: 'linear-gradient(135deg, #0e7490 0%, #155e75 100%)' }}>
                         Check Prices
                       </span>
-                      <span className="sm:hidden px-3 py-1.5 rounded-lg text-xs font-semibold text-white" style={{ background: 'linear-gradient(135deg, #0891b2 0%, #0e7490 100%)' }}>
+                      <span className="sm:hidden px-3 py-1.5 rounded-lg text-xs font-semibold text-white" style={{ background: 'linear-gradient(135deg, #0e7490 0%, #155e75 100%)' }}>
                         Check
                       </span>
                     </div>

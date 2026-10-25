@@ -1,0 +1,74 @@
+.section {
+  --planning-accent-text: #0e7490;
+  --planning-focus: #0e7490;
+}
+
+:global(html.dark) .section {
+  --planning-accent-text: #67e8f9;
+  --planning-focus: #67e8f9;
+}
+
+.eyebrow {
+  color: var(--planning-accent-text);
+}
+
+/* Independent of the inline normal border. Use :focus for native date hosts
+   too: WebKit does not always match :focus-visible on their internal segments. */
+.field:focus {
+  outline: 3px solid var(--planning-focus);
+  outline-offset: 3px;
+}
+
+.field {
+  scroll-margin-block: 6rem;
+  transition-property: background-color, border-color, color;
+}
+
+.modeButton {
+  color: var(--color-ink-light);
+}
+
+.modeButton[aria-pressed='true'] {
+  background-color: var(--color-card-bg);
+  color: var(--planning-accent-text);
+}
+
+.modeButton:focus-visible,
+.section button:focus-visible,
+.section a:focus-visible {
+  outline: 3px solid var(--planning-focus);
+  outline-offset: 3px;
+}
+
+.suggestions {
+  background-color: var(--color-card-bg);
+  border-color: var(--color-border);
+}
+
+.suggestionButton {
+  background-color: var(--color-card-bg);
+  border-color: var(--color-border);
+  color: var(--color-ink);
+  transition-property: background-color;
+}
+
+.suggestionButton:hover,
+.suggestionButton:focus-visible {
+  background-color: var(--color-bg-warm);
+}
+
+/* Inset indicator stays inside the scrollable panel, including first/last row. */
+.section .suggestionButton:focus-visible {
+  outline: 3px solid var(--planning-focus);
+  outline-offset: -4px;
+}
+
+.suggestionButton > div {
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.airportBadge {
+  background-color: var(--color-bg-subtle);
+  color: var(--planning-accent-text);
+}

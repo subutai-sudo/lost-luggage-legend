@@ -35,8 +35,19 @@
   cursor:pointer
 }
 .root button:focus-visible,.root a:focus-visible{
-  outline:3px solid #f1bd54;
+  outline:3px solid var(--ink);
   outline-offset:5px
+}
+/* Dark bands keep a light indicator; the photo scene gets a dark backing
+   as well so its focus ring never depends on a particular image pixel. */
+.root .concept a:focus-visible,
+.root .hero button:focus-visible,.root .hero a:focus-visible,
+.root .calendarBand button:focus-visible,.root .calendarBand a:focus-visible,
+.root .footer a:focus-visible{
+  outline-color:var(--acid)
+}
+.root .hero button:focus-visible,.root .hero a:focus-visible{
+  box-shadow:0 0 0 10px #0c211a
 }
 .root ::selection{
   background:var(--acid);
@@ -1066,7 +1077,7 @@ to{
 @media(max-width:380px){.calendarBand{padding:0 5%}.hero .frame-caption{left:5%;right:5%}}
 
 :global(.dark) .root{--ink:#e6edde;--paper:#14251d}
-:global(.dark) .root .guide-tag,:global(.dark) .root .guide p.description,:global(.dark) .root .results-meta,:global(.dark) .root .source-note p{color:#b9c8ad}
+:global(.dark) .root .guide-tag,:global(.dark) .root .guide p.description,:global(.dark) .root .results-meta,:global(.dark) .root .source-note p,:global(.dark) .root .results-heading .eyebrow{color:#b9c8ad}
 :global(.dark) .root .read-guide{color:#e6edde}
 :global(.dark) .root dialog{color:var(--ink);background:var(--paper)}
 @media(max-width:700px){.navigation{--color-nav-bg:rgba(9,26,21,.38)}.newsletter{grid-template-columns:1fr;gap:24px;padding-top:25px;margin-top:28px}.newsletter h2{font-size:27px}.root .calendar-foot{align-items:center}.root .source-note p{font-size:11px;line-height:1.8}.footer nav{justify-content:center}.root .guide p.description{font-size:13px}.root .guide-tag{font-size:9px}.root .read-guide{font-size:12px}.root .footer{gap:14px}}

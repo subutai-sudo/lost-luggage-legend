@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect, useLayoutEffect, useId } from 'react'
 import { DestinationGuide } from '@/data/destinationGuides'
 
 // Comprehensive airport/city database — ~400 major airports with IATA, name, city, country, coords
@@ -314,9 +314,21 @@ export function FlightSearch({ guide }: Props) {
   const [query, setQuery] = useState('')
   const [selected, setSelected] = useState<typeof AIRPORTS[0] | null>(null)
   const [showDropdown, setShowDropdown] = useState(false)
-  const [focused, setFocused] = useState(false)
   const inputRef = useRef<HTMLInputElement>(null)
-  const dropdownRef = useRef<HTMLDivElement>(null)
+  const changeRef = useRef<HTMLButtonElement>(null)
+  const wrapperRef = useRef<HTMLDivElement>(null)
+  const pendingFocus = useRef<'input' | 'change' | null>(null)
+  const id = useId()
+  const inputId = `${id}-departure`
+  const changeId = `${id}-change`
+
+  // The input and change button replace one another. Focus only after the
+  // replacement is committed, without timers or autofocus on initial load.
+  useLayoutEffect(() => {
+    if (pendingFocus.current === 'input') inputRef.current?.focus()
+    if (pendingFocus.current === 'change') changeRef.current?.focus()
+    pendingFocus.current = null
+  }, [selected])
 
   const results = query.trim().length < 2
     ? []
@@ -338,38 +350,48 @@ export function FlightSearch({ guide }: Props) {
     ? makeFlightUrl(selected.iata, guide.id)
     : null
 
-  // Close dropdown on outside click
+  // Also dismiss on outside pointer interaction with non-focusable content.
   useEffect(() => {
-    function handleClick(e: MouseEvent) {
-      if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(e.target as Node) &&
-        inputRef.current &&
-        !inputRef.current.contains(e.target as Node)
-      ) {
+    function handlePointerDown(e: PointerEvent) {
+      if (wrapperRef.current && !wrapperRef.current.contains(e.target as Node)) {
         setShowDropdown(false)
       }
     }
-    document.addEventListener('mousedown', handleClick)
-    return () => document.removeEventListener('mousedown', handleClick)
+    document.addEventListener('pointerdown', handlePointerDown)
+    return () => document.removeEventListener('pointerdown', handlePointerDown)
   }, [])
 
   return (
-    <div className="flex flex-col min-w-[220px]">
+    <div
+      className="flex flex-col min-w-[220px]"
+      ref={wrapperRef}
+      onBlur={(e) => {
+        if (!e.currentTarget.contains(e.relatedTarget as Node | null)) setShowDropdown(false)
+      }}
+      onKeyDown={(e) => {
+        if (e.key === 'Escape') {
+          e.preventDefault()
+          inputRef.current?.focus()
+          setShowDropdown(false)
+        }
+      }}
+    >
       {/* Label */}
-      <span
+      <label
+        htmlFor={selected ? changeId : inputId}
         className="text-[#e8e0d4]/50 text-xs uppercase tracking-wider mb-1.5"
         style={{ fontFamily: "'Source Sans 3', sans-serif" }}
       >
-        Flight time
-      </span>
+        Departure city or airport
+      </label>
 
       {!selected ? (
         /* Search input */
-        <div className="relative" ref={dropdownRef}>
+        <div className="relative">
           <div className="relative">
             <input
               ref={inputRef}
+              id={inputId}
               type="text"
               value={query}
               onChange={(e) => {
@@ -378,12 +400,6 @@ export function FlightSearch({ guide }: Props) {
                 if (selected) setSelected(null)
               }}
               onFocus={() => setShowDropdown(true)}
-              onKeyDown={(e) => {
-                if (e.key === 'Escape') {
-                  setShowDropdown(false)
-                  inputRef.current?.blur()
-                }
-              }}
               placeholder="Enter city or airport code"
               className="w-full bg-white/10 border border-white/20 text-white text-sm px-3 py-2 pr-8 rounded-sm placeholder:text-white/30 focus:outline-none focus:border-[#c9a96e] transition-colors"
               style={{ fontFamily: "'Source Sans 3', sans-serif" }}
@@ -391,6 +407,9 @@ export function FlightSearch({ guide }: Props) {
             />
             {query.length > 0 && (
               <button
+                type="button"
+                aria-label="Clear departure airport search"
+                onMouseDown={(e) => e.preventDefault()}
                 onClick={() => {
                   setQuery('')
                   setSelected(null)
@@ -409,8 +428,10 @@ export function FlightSearch({ guide }: Props) {
               {results.map((airport) => (
                 <button
                   key={airport.iata}
-                  onMouseDown={(e) => {
-                    e.preventDefault() // prevent input blur before click registers
+                  type="button"
+                  onMouseDown={(e) => e.preventDefault()}
+                  onClick={() => {
+                    pendingFocus.current = 'change'
                     setSelected(airport)
                     setQuery('')
                     setShowDropdown(false)
@@ -481,7 +502,15 @@ export function FlightSearch({ guide }: Props) {
             </a>
           )}
           <button
-            onClick={() => { setSelected(null); setQuery(''); inputRef.current?.focus() }}
+            id={changeId}
+            ref={changeRef}
+            type="button"
+            aria-label="Change departure city"
+            onClick={() => {
+              pendingFocus.current = 'input'
+              setSelected(null)
+              setQuery('')
+            }}
             className="text-white/30 hover:text-white/60 transition-colors"
             title="Change departure city"
           >
