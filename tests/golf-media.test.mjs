@@ -168,5 +168,5 @@ test('every shipped raster asset really is the format its filename claims', asyn
       checked += 1
     }
   }
-  assert.equal(checked, 28, 'shipped asset inventory changed; update this guard deliberately')
+  assert.equal(checked, 46, 'shipped asset inventory changed; update this guard deliberately')
 })

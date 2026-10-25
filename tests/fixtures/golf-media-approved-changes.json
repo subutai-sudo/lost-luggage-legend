@@ -30,12 +30,12 @@
     },
     "src/data/golfCourseMedia.json": {
       "beforeHash": null,
-      "afterHash": "c31014d6350fef6b23c2bfafb1a00be27fa2a044ef73fcc18f4764e4524fc4d3",
+      "afterHash": "cd0766a1063e169abff0ae8fbafeed0da5de431decd743cfc8262f8560854719",
       "reason": "Course-media section, validation module, ledger, tests and locally hosted course assets (maps and licence-approved photographs)."
     },
     "tests/golf-media.test.mjs": {
       "beforeHash": null,
-      "afterHash": "a0038d3e8afdc29154e58d4a95ebd6e88b73e8afa63023b66350acf940b27423",
+      "afterHash": "eafa201f88a68afaa9df9ff9836565dbb9fcaef9a580394489f7be98f8100f98",
       "reason": "Course-media section, validation module, ledger, tests and locally hosted course assets (maps and licence-approved photographs)."
     },
     "tests/golf-media.browser.test.mjs": {
@@ -187,7 +187,97 @@
       "beforeHash": null,
       "afterHash": "ed8a69d39e2a3d5b1dcf3b459d6a01ada37c78d663ee54d8742a5f9f73f05523",
       "reason": "Acceptance and reproduction record for the course-media feature, including the refusal rules and the guards."
+    },
+    "public/golf-media/chambers-bay-03.webp": {
+      "beforeHash": null,
+      "afterHash": "842f1ec19335892d3e77706e414e0a2daa894599e427c2fd3abc16214ce5b642",
+      "reason": "Licence-approved course photograph hosted locally, or a routing diagram drawn from mapped hole geometry."
+    },
+    "public/golf-media/chambers-bay-04.webp": {
+      "beforeHash": null,
+      "afterHash": "708088567caa69b47661ae4b4ac9d9de30fec14f14d76aeaea69a1facb6decd5",
+      "reason": "Licence-approved course photograph hosted locally, or a routing diagram drawn from mapped hole geometry."
+    },
+    "public/golf-media/emirates-golf-club-majlis-course-03.webp": {
+      "beforeHash": null,
+      "afterHash": "856ce9ea9aed0ecbe7a8a9e963c7b4a7392d03bc5c137c011d747c36d06380de",
+      "reason": "Licence-approved course photograph hosted locally, or a routing diagram drawn from mapped hole geometry."
+    },
+    "public/golf-media/emirates-golf-club-majlis-course-04.webp": {
+      "beforeHash": null,
+      "afterHash": "3d4994639a573f6d2677f121c10f98e097fda3aa9d83cd14633f0d42573bd6c3",
+      "reason": "Licence-approved course photograph hosted locally, or a routing diagram drawn from mapped hole geometry."
+    },
+    "public/golf-media/glen-abbey-golf-club-04.webp": {
+      "beforeHash": null,
+      "afterHash": "d085e3a7cf970424e7b75b5694708b15f2e4bb2c52a68c1e369522eaa343d53e",
+      "reason": "Licence-approved course photograph hosted locally, or a routing diagram drawn from mapped hole geometry."
+    },
+    "public/golf-media/kennemer-golf-country-club-03.webp": {
+      "beforeHash": null,
+      "afterHash": "fe5b82b1d530d0746695678f3e96a8e9a992014d74b6dd05288a3b9145bd14e3",
+      "reason": "Licence-approved course photograph hosted locally, or a routing diagram drawn from mapped hole geometry."
+    },
+    "public/golf-media/kennemer-golf-country-club-04.webp": {
+      "beforeHash": null,
+      "afterHash": "477317680579410b61771e70e368e4f843ef1532d02ce6806aaa2c1005eb539a",
+      "reason": "Licence-approved course photograph hosted locally, or a routing diagram drawn from mapped hole geometry."
+    },
+    "public/golf-media/marco-simone-golf-country-club-01.webp": {
+      "beforeHash": null,
+      "afterHash": "08c6ae75eb4c89c410b0ce4ca389b5bba886f56292307b59a5f4ac9fe6095f7b",
+      "reason": "Licence-approved course photograph hosted locally, or a routing diagram drawn from mapped hole geometry."
+    },
+    "public/golf-media/millbrook-resort-03.webp": {
+      "beforeHash": null,
+      "afterHash": "d1d097f752b4736017cb2748265f29594c01ef628bb251e1975f50dfb7d59b07",
+      "reason": "Licence-approved course photograph hosted locally, or a routing diagram drawn from mapped hole geometry."
+    },
+    "public/golf-media/muirfield-03.webp": {
+      "beforeHash": null,
+      "afterHash": "fb89f3fad94fc3c49a1ff8613d684c2ff2396c8f5f1c89cc500ba1a20f020c54",
+      "reason": "Licence-approved course photograph hosted locally, or a routing diagram drawn from mapped hole geometry."
+    },
+    "public/golf-media/muirfield-04.webp": {
+      "beforeHash": null,
+      "afterHash": "46dbc040f470c70f673c8d9e76a656dfa94bc814eededaf45b77666ae34302f1",
+      "reason": "Licence-approved course photograph hosted locally, or a routing diagram drawn from mapped hole geometry."
+    },
+    "public/golf-media/portmarnock-golf-club-02.webp": {
+      "beforeHash": null,
+      "afterHash": "08a66fc91718ddd9176202e5e5084c7c9c63e05e9175c2157218526584cfb10e",
+      "reason": "Licence-approved course photograph hosted locally, or a routing diagram drawn from mapped hole geometry."
+    },
+    "public/golf-media/portmarnock-golf-club-03.webp": {
+      "beforeHash": null,
+      "afterHash": "930438c693f3226b8775ee38150f1641d078d68ce39a9d855a92100202d8b12d",
+      "reason": "Licence-approved course photograph hosted locally, or a routing diagram drawn from mapped hole geometry."
+    },
+    "public/golf-media/praia-d-el-rey-03.webp": {
+      "beforeHash": null,
+      "afterHash": "ee70ec5528cebf96cd980a83394468dfd2e04be4a395ea7d25987c1a75da5a38",
+      "reason": "Licence-approved course photograph hosted locally, or a routing diagram drawn from mapped hole geometry."
+    },
+    "public/golf-media/real-club-de-golf-el-prat-03.webp": {
+      "beforeHash": null,
+      "afterHash": "b9b9280ee13c6919790b2150fd35b8575ce849b7080fbafc72c293a5ddb2c861",
+      "reason": "Licence-approved course photograph hosted locally, or a routing diagram drawn from mapped hole geometry."
+    },
+    "public/golf-media/tpc-summerlin-02.webp": {
+      "beforeHash": null,
+      "afterHash": "fe94898218e1455cc6a626113f9beaa12116b876e648c70d04911585bbcecf1f",
+      "reason": "Licence-approved course photograph hosted locally, or a routing diagram drawn from mapped hole geometry."
+    },
+    "public/golf-media/wentworth-club-west-02.webp": {
+      "beforeHash": null,
+      "afterHash": "0ea5e876f3dd86720e55c7064543ff7e832d9e552f9c7a0eca5e5efea8138aa3",
+      "reason": "Licence-approved course photograph hosted locally, or a routing diagram drawn from mapped hole geometry."
+    },
+    "public/golf-media/wentworth-club-west-04.webp": {
+      "beforeHash": null,
+      "afterHash": "dea97306e4de46be58ff5d31bf19e835ef8147d7d71c3f5d74b68d17387208e8",
+      "reason": "Licence-approved course photograph hosted locally, or a routing diagram drawn from mapped hole geometry."
     }
   },
-  "revisionNote": "Re-verified after re-encoding every photograph as genuine WebP from the original downloads (the first pass shipped JPEG bytes under .webp names), the diagram legibility repair, and the added format/legibility guards."
+  "revisionNote": "Re-verified after round-2 visual approval (44 photographs across 21 courses), genuine WebP re-encode from the originals, the diagram legibility repair, and the added format/geometry/legibility guards."
 }
