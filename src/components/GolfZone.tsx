@@ -172,6 +172,7 @@ export function GolfZone({ courses, initialMonth, catalog }: Props) {
                   <span className={styles.monthNumber} aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
                   <span className={styles.monthName} aria-hidden="true">{MONTH_NAMES[index]}</span>
                   <span className={styles.monthPlace} aria-hidden="true">{course.city}</span>
+                  <span className={styles.monthPhotoKind} data-golf-preview-kind>{course.media.photo ? 'Course photo' : 'Destination view'}</span>
                 </button>
               ))}
             </div>

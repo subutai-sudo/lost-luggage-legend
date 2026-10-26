@@ -115,10 +115,12 @@ const mediaHash = path => {
 // bytes. Test harness files predate no overlay, so pin their exact merge bytes.
 const finderPaths = [
   'src/app/golf/page.tsx', 'src/components/GolfZone.tsx', 'src/components/GolfZone.module.css',
+  'src/components/GolfCourseMedia.tsx',
   'tests/golf-core.test.mjs', 'tests/golf-zone.browser.test.mjs', 'tests/guide-performance.test.mjs',
 ]
 const finderAdded = [
   'src/lib/golfFinderMedia.ts', 'tests/golf-finder-media.test.mjs', 'tests/golf-finder-media.browser.test.mjs',
+  'src/components/GolfVisualsFragment.tsx', 'tests/golf-visuals-fragment.test.mjs', 'tests/golf-visuals-fragment.browser.test.mjs',
 ]
 const finderPriorHarnessHashes = {
   'tests/golf-core.test.mjs': '1c04f7ac53a1611c22f88b46179f66e2e12f3743b6c4b2a6455069640b7abadb',

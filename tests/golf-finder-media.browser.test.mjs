@@ -189,3 +189,38 @@ for (const width of [320, 390, 1440]) test(`direct visuals fragment establishes 
   const geometry = await next.evaluate(el => ({ top: el.getBoundingClientRect().top, nav: document.querySelector('nav')?.getBoundingClientRect().bottom ?? 0 }))
   expect(geometry.top).toBeGreaterThanOrEqual(Math.max(0, geometry.nav))
 })
+
+for (const width of [320, 390, 1440]) for (const theme of ['light', 'dark']) test(`collapsed month previews visibly identify every photo at ${width}px ${theme}`, async ({ page }) => {
+  await page.setViewportSize({ width, height: 900 })
+  await page.addInitScript(value => localStorage.setItem('lll-theme', value), theme)
+  await page.goto('/golf?month=10')
+  await expect(page.locator('[data-golf-zone]')).toHaveAttribute('data-ready', 'true')
+  if (theme === 'dark') await expect(page.locator('html')).toHaveClass(/dark/)
+  else await expect(page.locator('html')).not.toHaveClass(/dark/)
+  const credits = page.locator('[data-golf-preview-credits]')
+  await expect(credits).not.toHaveAttribute('open')
+  for (let month = 1; month <= 12; month++) {
+    const id = leads[month - 1]
+    const button = page.locator(`button[data-golf-month="${month}"]`)
+    const label = button.locator('[data-golf-preview-kind]')
+    await expect(button).toHaveAccessibleName(new Date(2026, month - 1).toLocaleString('en', { month: 'long' }))
+    await expect(label).toHaveText(photos[id] ? 'Course photo' : 'Destination view')
+    await label.scrollIntoViewIfNeeded()
+    await expect(label).toBeVisible()
+    await expect(label).toBeInViewport()
+    const geometry = await label.evaluate(el => {
+      const label = el.getBoundingClientRect(), button = el.closest('button').getBoundingClientRect()
+      const style = getComputedStyle(el)
+      return { inside: label.top >= button.top && label.bottom <= button.bottom && label.left >= button.left && label.right <= button.right, font: parseFloat(style.fontSize), color: style.color, background: style.backgroundColor }
+    })
+    expect(geometry.inside).toBe(true)
+    expect(geometry.font).toBeGreaterThanOrEqual(13)
+    expect(geometry.color).toBe('rgb(243, 241, 233)')
+    expect(geometry.background).toBe('rgb(12, 33, 26)')
+    await checkImage(button.locator('img'), id)
+  }
+  await expect(credits).not.toHaveAttribute('open')
+  expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(1)
+  await page.locator('[data-golf-month="1"]').scrollIntoViewIfNeeded()
+  await page.screenshot({ path: `${test.info().outputDir}/collapsed-month-preview-labels-${width}-${theme}.png`, fullPage: true })
+})

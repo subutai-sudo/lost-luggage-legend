@@ -98,3 +98,36 @@ test('client never imports authoring media or rewrites local photos through dest
   assert.match(client, /Destination photograph/)
   assert.doesNotMatch(client, /Photos show destinations, not courses\./)
 })
+
+test('all twelve real preview buttons show their own photo kind while the credits stay collapsed', async () => {
+  const page = await renderPage()
+  const component = wire(await read('src/components/GolfZone.tsx'), {
+    react: inline('export const useEffect = () => {}; export const useMemo = fn => fn(); export const useState = value => [value, () => {}]'),
+    'react/jsx-runtime': inline('export const jsx = (type, props) => ({type, props}); export const jsxs = jsx;'),
+    'next/image': inline('export default "Image"'), 'next/link': inline('export default "Link"'),
+    '@/components/Navbar': inline('export const Navbar = "Navbar"'),
+    '@/components/NewsletterSignup': inline('export const NewsletterSignup = "NewsletterSignup"'),
+    '@/components/GolfReason': inline('export const GolfReason = "GolfReason"'),
+    '@/data/golfOperationalNotices': inline('export const GOLF_OPERATIONAL_NOTICES = {}'),
+    '@/lib/golfDiscovery': discoveryModule, './GolfZone.module.css': inline('export default {}'),
+  })
+  const tree = (await import(inline(component))).GolfZone(page.props)
+  const nodes = []
+  const walk = node => {
+    if (!node || typeof node !== 'object') return
+    if (Array.isArray(node)) { node.forEach(walk); return }
+    nodes.push(node); walk(node.props?.children)
+  }
+  walk(tree)
+  const buttons = nodes.filter(node => node.type === 'button' && node.props['data-golf-month'])
+  assert.equal(buttons.length, 12)
+  // Independently accepted lead photo kinds, not derived from the rendered flag.
+  const expected = ['Course photo', 'Course photo', 'Destination view', 'Destination view', 'Course photo', 'Course photo', 'Destination view', 'Destination view', 'Course photo', 'Course photo', 'Destination view', 'Destination view']
+  for (const [index, button] of buttons.entries()) {
+    const label = button.props.children.find(node => node.props?.['data-golf-preview-kind'] !== undefined)
+    assert.ok(label, `month ${index + 1}: must have its own visible photo-kind label`)
+    assert.equal(label.props.children, expected[index])
+    assert.notEqual(label.props.hidden, true)
+  }
+  assert.equal(nodes.find(node => node.type === 'details' && node.props['data-golf-preview-credits'] !== undefined).props.open, undefined)
+})
