@@ -95,12 +95,17 @@ test('all twelve months render their approved lead, six unique picks and exact-m
 
 test('each pick links to a course-specific golf guide that really exists', async ({ page }) => {
   await page.goto('/golf?month=6')
+  // Static HTML starts at its build-time month. Assert hydration and the requested
+  // month before inspecting links; otherwise WebKit can read October's valid SSR
+  // links while this test is about June, without any product navigation failure.
+  await expect(page.locator('[data-golf-zone]')).toHaveAttribute('data-ready', 'true')
+  await expect(page.locator('button[data-golf-month="6"]')).toHaveAttribute('aria-pressed', 'true')
   const cards = await monthCards(page)
   const hrefs = []
   for (let index = 0; index < 6; index++) {
     const link = cards.nth(index).getByRole('link').filter({ hasText: /guide/i }).first()
     const href = await link.getAttribute('href')
-    expect(href).toMatch(/^\/golf\/[a-z0-9-]+$/)
+    expect(href).toMatch(/^\/golf\/[a-z0-9-]+\?month=6$/)
     hrefs.push(href)
   }
   expect(new Set(hrefs).size).toBe(hrefs.length)

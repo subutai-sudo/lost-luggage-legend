@@ -41,9 +41,17 @@ test('without JavaScript the native visuals link and focusable server target rem
   await page.route(url => ['scripts.stay22.com', 'plausible.io'].includes(url.hostname), route => route.abort())
   try {
     await page.goto(`${process.env.BROWSER_BASE_URL || 'http://localhost:3001'}/golf?month=10`)
-    const link = page.locator('[data-golf-card="oitavos-dunes"] a[href="/golf/oitavos-dunes#course-visuals"]')
+    // Static finder HTML shows its build-time month before hydration. Exercise
+    // that actual rendered shortlist rather than pretending ?month= is server-read.
+    const month = await page.locator('button[data-golf-month][aria-pressed="true"]').getAttribute('data-golf-month')
+    const link = page.locator('[data-golf-card] a[href$="#course-visuals"]').first()
+    const href = await link.getAttribute('href')
+    const targetUrl = new URL(href, page.url())
+    expect(targetUrl.pathname).toMatch(/^\/golf\/[a-z0-9-]+$/)
+    expect(targetUrl.searchParams.get('month')).toBe(month)
+    expect(targetUrl.hash).toBe('#course-visuals')
     await link.click()
-    await expect(page).toHaveURL(/\/golf\/oitavos-dunes#course-visuals$/)
+    expect(new URL(page.url()).pathname + new URL(page.url()).search + new URL(page.url()).hash).toBe(href)
     await expect(page.locator('#course-visuals')).toHaveAttribute('tabindex', '-1')
     await expect(page.locator('#course-visuals')).toBeInViewport()
   } finally { await context.close() }

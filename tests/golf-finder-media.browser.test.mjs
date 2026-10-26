@@ -102,7 +102,7 @@ test('finder exposes the approved October course photograph', async ({ page }) =
 test('finder cards have a direct, truthfully named course-visuals link', async ({ page }) => {
   await page.goto('/golf?month=7')
   const card = page.locator('[data-golf-card="keilir-golf-club"]')
-  await expect(card.locator('a[href="/golf/keilir-golf-club#course-visuals"]')).toHaveText(/hole tour.*gallery/i)
+  await expect(card.locator('a[href="/golf/keilir-golf-club?month=7#course-visuals"]')).toHaveText(/hole tour.*gallery/i)
 })
 
 for (const width of [320, 390, 1440]) for (const theme of ['light', 'dark']) {
@@ -152,7 +152,7 @@ for (const width of [320, 390, 1440]) for (const theme of ['light', 'dark']) {
         await expect(card.locator('[data-golf-why]')).toHaveText(note.why)
         await expect(card.locator('[data-golf-tradeoff]')).toHaveText(note.tradeoff)
         const record = ledger.find(r => r.courseId === cardId)
-        const resource = card.locator(`a[href="/golf/${cardId}#course-visuals"]`)
+        const resource = card.locator(`a[href="/golf/${cardId}?month=${month}#course-visuals"]`)
         await expect(resource).toHaveCount(1)
         if (record.map) await expect(resource).toContainText('routing diagram')
         if (record.layout) await expect(resource).toContainText({ 'hole-tour': 'published hole tour', 'routing-map': 'published map', scorecard: 'published scorecard' }[record.layout.kind])
@@ -169,7 +169,7 @@ for (const width of [320, 390, 1440]) for (const theme of ['light', 'dark']) {
 for (const width of [320, 390, 1440]) test(`direct visuals fragment establishes visible sequential focus at ${width}px`, async ({ page, browserName }) => {
   await page.setViewportSize({ width, height: 900 })
   await page.goto('/golf?month=10')
-  const link = page.locator('[data-golf-card="oitavos-dunes"] a[href="/golf/oitavos-dunes#course-visuals"]')
+  const link = page.locator('[data-golf-card="oitavos-dunes"] a[href="/golf/oitavos-dunes?month=10#course-visuals"]')
   await link.focus(); await page.keyboard.press('Enter')
   const target = page.locator('#course-visuals')
   await expect(target).toBeInViewport()

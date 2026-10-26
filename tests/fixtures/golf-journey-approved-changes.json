@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "kind": "golf-journey-approved-change",
+  "baseline": "8f4a3508df4e716dcdde5e1ecea2d3da3028d5cf",
+  "changes": {
+    "src/components/GolfZone.tsx": {
+      "beforeHash": "fdeb094626b6f92d8d81cc8268a5d877682b45dc7b9be195765d0e4a709ecb89",
+      "afterHash": "b9c837f94b1e1b7dbf6eab0dd8de48daba5d97c0a7cb92b719d107b1c8251a0f",
+      "reason": "Bounded golf journey improvements: filters, month continuity, early contents, readable linked attribution and corresponding exact-month regression expectations."
+    },
+    "src/components/GolfZone.module.css": {
+      "beforeHash": "82146804e182b48674d289f8fb5f63772eaf0717d6bcfb0913d0b3c09105d7e8",
+      "afterHash": "9139620592b9c4dbbd62b86598cd3e17a74c55fb1f42880a2332a66ac3fe3a6c",
+      "reason": "Bounded golf journey improvements: filters, month continuity, early contents, readable linked attribution and corresponding exact-month regression expectations."
+    },
+    "src/app/golf/[slug]/page.tsx": {
+      "beforeHash": "c907d09636de8106f3082789cc0ebf64ab0721d414fbe4b2bb9b7b87d26915d1",
+      "afterHash": "5861d6e342aa04477fa880562332ee1910a0c6b676f7f4d18918a86e325133d2",
+      "reason": "Bounded golf journey improvements: filters, month continuity, early contents, readable linked attribution and corresponding exact-month regression expectations."
+    },
+    "src/components/GolfGuide.module.css": {
+      "beforeHash": "171e11fda8cf4a4a6e834207eecdf9b93e096b33389600d894b2160cc2dee1fc",
+      "afterHash": "a2f9be48ea767130b04d561cb3cffb50ca9b86df9314ca0fe1b8f694d490bbb9",
+      "reason": "Bounded golf journey improvements: filters, month continuity, early contents, readable linked attribution and corresponding exact-month regression expectations."
+    },
+    "tests/golf-zone.browser.test.mjs": {
+      "beforeHash": "7e866e5a80f009397b38fc347bd8ed9418349851b598931c14c2182441042a9a",
+      "afterHash": "f1fdc74ab1408b7834c9b51f4d7393642f5ebb538fefc33e7d233e18e21ce38e",
+      "reason": "Bounded golf journey improvements: filters, month continuity, early contents, readable linked attribution and corresponding exact-month regression expectations."
+    },
+    "tests/golf-guides.browser.test.mjs": {
+      "beforeHash": "9693e17d5ef760334e6e2db1f60effd7eaed592483ddf8ca655a90b8991c7cad",
+      "afterHash": "6975fd19646b46c3bbfc80f0cae194463f5de34f3e38a9aa565abf06c36ae4ed",
+      "reason": "Bounded golf journey improvements: filters, month continuity, early contents, readable linked attribution and corresponding exact-month regression expectations."
+    },
+    "tests/golf-finder-media.browser.test.mjs": {
+      "beforeHash": "433da06a0a16d6c2ce581088dd8997b5129243a6a8e6db25f1804e134c62e9aa",
+      "afterHash": "bad693319f95512efdf5fa3b958187a245cdd626582b959d23f0790912297946",
+      "reason": "Bounded golf journey improvements: filters, month continuity, early contents, readable linked attribution and corresponding exact-month regression expectations."
+    },
+    "tests/golf-visuals-fragment.browser.test.mjs": {
+      "beforeHash": "01e706e9beb194a8c8e35f71a433e1fd6bf23296fedd7c91e8728af6860d79a7",
+      "afterHash": "209d34a4dcf2a323004a5cb7d9d0ab54a0b54d572e3559c9df21c868ec078341",
+      "reason": "Bounded golf journey improvements: filters, month continuity, early contents, readable linked attribution and corresponding exact-month regression expectations."
+    },
+    "tests/guide-performance.test.mjs": {
+      "beforeHash": "71793906615945bbc781bba4c4fb7045a3975604ed7cda151226cb1445bb1ad8",
+      "afterHash": "cb813e9abb84d5226a72f9680f36d23daf23a8c3d88758dd6bcebc4aff6abddb",
+      "reason": "Bounded golf journey improvements: filters, month continuity, early contents, readable linked attribution and corresponding exact-month regression expectations."
+    },
+    "tests/golf-finder-media.test.mjs": {
+      "beforeHash": "b49a126a521cb64dc00510fcc3587417d9b920bd8a4d1ac8efbbb87c73953c62",
+      "afterHash": "51a55f675e8003d17b1308093af08b4094dce2f32d88d2cdcf02642d830f26a0",
+      "reason": "Wire the real new helper and useRef in the existing render harness; retain authoring-field and all twelve preview-identity assertions."
+    }
+  },
+  "addedFiles": {
+    "src/lib/golfFilters.ts": {
+      "beforeHash": null,
+      "afterHash": "d48abc203d78223e95840fe12ecd3bd852001f0787c8b198ef966291db49c561",
+      "reason": "Golf journey UI support, independent tests and bounded acceptance documentation; no new course claims or assets."
+    },
+    "src/components/GolfGuideNavigation.tsx": {
+      "beforeHash": null,
+      "afterHash": "df42cf9855037d85261901799d9efbeb7b78beeee41c99c3563c9a2d36fa8153",
+      "reason": "Golf journey UI support, independent tests and bounded acceptance documentation; no new course claims or assets."
+    },
+    "tests/golf-filters.test.mjs": {
+      "beforeHash": null,
+      "afterHash": "5cac8d4dc235fe13c007df08bd7744176dd7f8f249826d0126ab9a39f015c27b",
+      "reason": "Golf journey UI support, independent tests and bounded acceptance documentation; no new course claims or assets."
+    },
+    "tests/golf-filters.browser.test.mjs": {
+      "beforeHash": null,
+      "afterHash": "725161d25f2fa373da789c2b435382c1456bb7e642b6218232e3a69938fd43d4",
+      "reason": "Golf journey UI support, independent tests and bounded acceptance documentation; no new course claims or assets."
+    },
+    "tests/golf-guide-navigation.browser.test.mjs": {
+      "beforeHash": null,
+      "afterHash": "f54d9bfdedbbb71dfd7bc931b0cbeb66823c8614b7108c8aeeae16a2734d2546",
+      "reason": "Golf journey UI support, independent tests and bounded acceptance documentation; no new course claims or assets."
+    },
+    "docs/golf-journey-improvements.md": {
+      "beforeHash": null,
+      "afterHash": "8262aa8ea9d5c3f146721b34ea502d50df3ea7d53deb3d5ddb08c90d25768efd",
+      "reason": "Golf journey UI support, independent tests and bounded acceptance documentation; no new course claims or assets."
+    }
+  },
+  "revisionNote": "Pre-publication independent review repairs: restore visibly focused search after reset; preserve breadcrumb/footer month; debounce/cancel History writes. Historical overlays and before-hashes remain immutable. Final test-only repair: explicitly await finder readiness and requested June selection before inspecting month-specific links; no product-source change."
+}

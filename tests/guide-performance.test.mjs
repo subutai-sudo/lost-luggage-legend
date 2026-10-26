@@ -128,10 +128,32 @@ const finderPriorHarnessHashes = {
   'tests/guide-performance.test.mjs': 'a621dce81926f7fea00e2d6c97c1f150da7100e0d6962d7e127d830928ec6629',
 }
 const finderApproval = JSON.parse(await readFile(new URL('./fixtures/golf-finder-media-approved-changes.json', import.meta.url), 'utf8'))
-const expectedHash = path => {
+const finderHash = path => {
   if (finderPaths.includes(path)) return finderApproval.changes[path].afterHash
   if (finderAdded.includes(path)) return finderApproval.addedFiles[path].afterHash
   return mediaHash(path)
+}
+// Journey refinements are separately scoped; no previous approval is rewritten.
+const journeyPaths = [
+  'src/components/GolfZone.tsx', 'src/components/GolfZone.module.css',
+  'src/app/golf/[slug]/page.tsx', 'src/components/GolfGuide.module.css',
+  'tests/golf-zone.browser.test.mjs', 'tests/golf-guides.browser.test.mjs',
+  'tests/golf-finder-media.browser.test.mjs', 'tests/golf-visuals-fragment.browser.test.mjs',
+  'tests/golf-finder-media.test.mjs', 'tests/guide-performance.test.mjs',
+]
+const journeyAdded = [
+  'src/lib/golfFilters.ts', 'src/components/GolfGuideNavigation.tsx',
+  'tests/golf-filters.test.mjs', 'tests/golf-filters.browser.test.mjs',
+  'tests/golf-guide-navigation.browser.test.mjs', 'docs/golf-journey-improvements.md',
+]
+const journeyApproval = JSON.parse(await readFile(new URL('./fixtures/golf-journey-approved-changes.json', import.meta.url), 'utf8'))
+const journeyPriorHashes = {
+  "tests/golf-guides.browser.test.mjs": "9693e17d5ef760334e6e2db1f60effd7eaed592483ddf8ca655a90b8991c7cad"
+}
+const expectedHash = path => {
+  if (journeyPaths.includes(path)) return journeyApproval.changes[path].afterHash
+  if (journeyAdded.includes(path)) return journeyApproval.addedFiles[path].afterHash
+  return finderHash(path)
 }
 const accepts = (path, bytes) => sha256(bytes) === expectedHash(path)
 
@@ -250,6 +272,30 @@ test('finder media follow-up accepts only its exact named files and the last app
     if (finderPaths.includes(path)) assert.notEqual(expectedHash(path), finderApproval.changes[path].beforeHash)
   }
   assert.equal(expectedHash('src/data/golfCourseMedia.json'), mediaApproval.addedFiles['src/data/golfCourseMedia.json'].afterHash)
+})
+
+test('journey overlay preserves the prior approvals and rejects even one appended byte', async () => {
+  assert.equal(journeyApproval.schemaVersion, 1)
+  assert.equal(journeyApproval.kind, 'golf-journey-approved-change')
+  assert.equal(journeyApproval.baseline, '8f4a3508df4e716dcdde5e1ecea2d3da3028d5cf')
+  assert.deepEqual(Object.keys(journeyApproval.changes).sort(), [...journeyPaths].sort())
+  assert.deepEqual(Object.keys(journeyApproval.addedFiles).sort(), [...journeyAdded].sort())
+  for (const path of journeyPaths) {
+    const entry = journeyApproval.changes[path]
+    assert.equal(entry.beforeHash, finderHash(path) ?? journeyPriorHashes[path], `${path}: chain from last accepted bytes`)
+    assert.notEqual(entry.beforeHash, entry.afterHash)
+    assert.ok(entry.reason?.trim())
+  }
+  for (const path of journeyAdded) {
+    assert.equal(finderHash(path), undefined, `${path}: new file`)
+    assert.equal(journeyApproval.addedFiles[path].beforeHash, null)
+    assert.ok(journeyApproval.addedFiles[path].reason?.trim())
+  }
+  for (const path of [...journeyPaths, ...journeyAdded]) {
+    const bytes = await read(path)
+    assert.ok(accepts(path, bytes), path)
+    assert.equal(accepts(path, Buffer.concat([bytes, Buffer.from('\n/* unapproved */')])), false, path)
+  }
 })
 
 test('related image sizes still describe gutters, gaps, hover headroom and the capped container', () => {
