@@ -1,6 +1,7 @@
 'use client'
 
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
+import { GOLF_CHARACTERS, filterGolfCourses, golfCourseHref, golfFinderQuery, readGolfFilters, type GolfFilters } from '@/lib/golfFilters'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Navbar } from '@/components/Navbar'
@@ -68,25 +69,56 @@ function visualsLabel(course: GolfZoneCourse) {
 export function GolfZone({ courses, initialMonth, catalog }: Props) {
   const [month, setMonth] = useState(initialMonth)
   const [ready, setReady] = useState(false)
+  const [filters, setFilters] = useState<GolfFilters>({ q: '', character: '', photos: false })
+  const searchRef = useRef<HTMLInputElement>(null)
+  const urlTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+  function cancelUrlUpdate() {
+    if (urlTimer.current !== null) clearTimeout(urlTimer.current)
+    urlTimer.current = null
+  }
   const { featured, shortlist } = useMemo(() => getGolfMonthSelection(courses, month), [courses, month])
+  const filtered = useMemo(() => filterGolfCourses(shortlist, filters), [shortlist, filters])
+  const hasFilters = !!(filters.q || filters.character || filters.photos)
   const previews = useMemo(() => getGolfMonthPreviews(courses), [courses])
 
   useEffect(() => {
     const synchronize = () => {
+      cancelUrlUpdate()
       setMonth(readGolfMonth(window.location.search, new Date().getMonth() + 1))
+      setFilters(readGolfFilters(window.location.search))
       setReady(true)
     }
     synchronize()
     window.addEventListener('popstate', synchronize)
-    return () => window.removeEventListener('popstate', synchronize)
+    return () => {
+      window.removeEventListener('popstate', synchronize)
+      cancelUrlUpdate()
+    }
   }, [])
 
   function chooseMonth(next: number) {
+    cancelUrlUpdate()
     setMonth(next)
-    const url = new URL(window.location.href)
-    url.searchParams.set('month', String(next))
-    url.hash = ''
-    window.history.replaceState(window.history.state, '', `${url.pathname}${url.search}`)
+    if (next !== month) window.history.pushState(window.history.state, '', `${window.location.pathname}${golfFinderQuery(next, filters)}`)
+  }
+
+  function updateFilters(next: GolfFilters) {
+    setFilters(next)
+    cancelUrlUpdate()
+    // Keep input immediate but coalesce address-bar writes: WebKit limits History
+    // updates to 100 per 10 seconds. A pending update must not outlive navigation.
+    urlTimer.current = setTimeout(() => {
+      window.history.replaceState(window.history.state, '', `${window.location.pathname}${golfFinderQuery(month, next)}#golf-results`)
+      urlTimer.current = null
+    }, 300)
+  }
+
+  function clearFilters() {
+    cancelUrlUpdate()
+    setFilters({ q: '', character: '', photos: false })
+    window.history.replaceState(window.history.state, '', `${window.location.pathname}?month=${month}`)
+    searchRef.current?.focus({ preventScroll: true })
+    searchRef.current?.scrollIntoView({ block: 'center', behavior: 'instant' })
   }
 
   return (
@@ -129,10 +161,10 @@ export function GolfZone({ courses, initialMonth, catalog }: Props) {
             </div>
             <div className={styles.heroFoot}>
               <span>{MONTH_NAMES[month - 1]} · {featured.name}</span>
-              <Link href={`/golf/${featured.id}`}>
+              <Link href={golfCourseHref(featured.id, month)}>
                 Read the {featured.name} golf guide <span aria-hidden="true">↗</span>
               </Link>
-              <a href={`/golf/${featured.id}#course-visuals`}>Explore course visuals <span aria-hidden="true">↗</span></a>
+              <a href={golfCourseHref(featured.id, month, true)}>Explore course visuals <span aria-hidden="true">↗</span></a>
             </div>
           </div>
         </section>
@@ -191,7 +223,7 @@ export function GolfZone({ courses, initialMonth, catalog }: Props) {
           </div>
         </section>
 
-        <section className={styles.results} id="golf-results" aria-labelledby="golf-results-title">
+        <section className={styles.results} id="golf-results" tabIndex={-1} aria-labelledby="golf-results-title">
           <div className={styles.resultsInner}>
             <div className={styles.resultsHead}>
               <div>
@@ -200,17 +232,41 @@ export function GolfZone({ courses, initialMonth, catalog }: Props) {
                   {MONTH_NAMES[month - 1]}, six courses worth the trip.
                 </h2>
                 <p className={styles.resultsMeta}>
-                  Featured course: {featured.name}. Six editorial picks covering{' '}
+                  Monthly lead: {featured.name}. Six editorial picks covering{' '}
                   {new Set(shortlist.map(course => course.country)).size} countries.
                 </p>
               </div>
               <p className={styles.calendarNote}>A starting point, not a ranking.</p>
             </div>
 
-            <div className={styles.cards}>
-              {shortlist.map(course => (
+            {ready && <div className={styles.filters} data-golf-filters role="search" aria-label="Filter this month's six golf picks">
+              <p className={styles.filterIntro} id="golf-filter-help">Refine this month’s six picks. Filters do not search every course or show live tee times. Your choices are saved in the page link.</p>
+              <label className={styles.filterField} htmlFor="golf-course-search">Course or location
+                <input ref={searchRef} id="golf-course-search" type="search" maxLength={80} value={filters.q} placeholder="Name, city or country" aria-describedby="golf-filter-help" aria-controls="golf-course-cards" onChange={event => updateFilters({ ...filters, q: event.target.value })} />
+              </label>
+              <label className={styles.filterField} htmlFor="golf-character">Course character
+                <select id="golf-character" value={filters.character} aria-controls="golf-course-cards" onChange={event => updateFilters({ ...filters, character: event.target.value })}>
+                  <option value="">All course characters</option>
+                  {GOLF_CHARACTERS.map(value => <option key={value} value={value}>{value.replaceAll('-', ' ')} ({shortlist.filter(course => course.character === value).length})</option>)}
+                </select>
+              </label>
+              <label className={styles.photoFilter}>
+                <input type="checkbox" checked={filters.photos} aria-controls="golf-course-cards" onChange={event => updateFilters({ ...filters, photos: event.target.checked })} />
+                <span>On-page course photographs only</span>
+              </label>
+              <button className={styles.clearFilters} type="button" disabled={!hasFilters} onClick={clearFilters}>Clear filters</button>
+              <p className={styles.filterCount} data-golf-result-count>Showing {filtered.length} of {shortlist.length} {MONTH_NAMES[month - 1]} picks.</p>
+            </div>}
+            <noscript><p className={styles.resultsMeta}>Month selection and filters need JavaScript. The initial six picks and their course guides remain available below.</p></noscript>
+            {filtered.length === 0 && <div className={styles.empty} data-golf-empty>
+              <h3>No matching picks for this month.</h3>
+              <p>These filters apply to the six {MONTH_NAMES[month - 1]} picks, not every course. Clear them to see the full shortlist, or choose another month above.</p>
+              <button type="button" onClick={clearFilters}>Show all six {MONTH_NAMES[month - 1]} picks</button>
+            </div>}
+            <div className={styles.cards} id="golf-course-cards">
+              {filtered.map(course => (
                 <article key={course.id} className={styles.card} data-golf-card={course.id}>
-                  <Link href={`/golf/${course.id}`} className={styles.cardFigure} aria-label={`Explore the ${course.name} golf guide`}>
+                  <Link href={golfCourseHref(course.id, month)} className={styles.cardFigure} aria-label={`Explore the ${course.name} golf guide`}>
                     <Image
                       className={styles.cardImage}
                       src={finderImage(course, 640)}
@@ -227,7 +283,7 @@ export function GolfZone({ courses, initialMonth, catalog }: Props) {
                   <div className={styles.cardBody}>
                     <p className={styles.cardCharacter}>{course.character}</p>
                     <h3 className={styles.cardTitle}>
-                      <Link href={`/golf/${course.id}`}>{course.name}</Link>
+                      <Link href={golfCourseHref(course.id, month)}>{course.name}</Link>
                     </h3>
                     <p className={styles.cardPlace}>{course.city}, {course.country}</p>
                     {GOLF_OPERATIONAL_NOTICES[course.id] && (
@@ -238,10 +294,10 @@ export function GolfZone({ courses, initialMonth, catalog }: Props) {
                     )}
                     <GolfReason catalog={catalog} courseId={course.id} courseName={course.name} month={month} />
                     <p className={styles.cardLinks}>
-                      <Link href={`/golf/${course.id}`}>
+                      <Link href={golfCourseHref(course.id, month)}>
                         Read the {course.name} golf guide <span aria-hidden="true">↗</span>
                       </Link>
-                      <a href={`/golf/${course.id}#course-visuals`}>{visualsLabel(course)} <span aria-hidden="true">↗</span></a>
+                      <a href={golfCourseHref(course.id, month, true)}>{visualsLabel(course)} <span aria-hidden="true">↗</span></a>
                     </p>
                   </div>
                 </article>
@@ -249,7 +305,7 @@ export function GolfZone({ courses, initialMonth, catalog }: Props) {
             </div>
 
             <p className={styles['sr-only']} role="status" aria-live="polite" aria-atomic="true">
-              {MONTH_NAMES[month - 1]}: showing six editorial golf picks. Featured course: {featured.name}.
+              {MONTH_NAMES[month - 1]}: showing {filtered.length} of six editorial golf picks. Monthly lead: {featured.name}.
             </p>
 
             <div className={styles.notice}>

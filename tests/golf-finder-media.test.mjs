@@ -93,7 +93,8 @@ test('finder projection strips private and unused media fields without mutating 
 test('client never imports authoring media or rewrites local photos through destination discovery', async () => {
   const client = await read('src/components/GolfZone.tsx')
   assert.doesNotMatch(client, /import (?!type)[^\n]*(?:golfFinderMedia|golfMedia|golfCourseMedia)/)
-  assert.match(client, /course-visuals/)
+  assert.match(client, /golfCourseHref\(course.id, month, true\)/)
+  assert.match(await read('src/lib/golfFilters.ts'), /#course-visuals/)
   assert.match(client, /Course photograph/)
   assert.match(client, /Destination photograph/)
   assert.doesNotMatch(client, /Photos show destinations, not courses\./)
@@ -102,14 +103,14 @@ test('client never imports authoring media or rewrites local photos through dest
 test('all twelve real preview buttons show their own photo kind while the credits stay collapsed', async () => {
   const page = await renderPage()
   const component = wire(await read('src/components/GolfZone.tsx'), {
-    react: inline('export const useEffect = () => {}; export const useMemo = fn => fn(); export const useState = value => [value, () => {}]'),
+    react: inline('export const useEffect = () => {}; export const useMemo = fn => fn(); export const useRef = value => ({current: value}); export const useState = value => [value, () => {}]'),
     'react/jsx-runtime': inline('export const jsx = (type, props) => ({type, props}); export const jsxs = jsx;'),
     'next/image': inline('export default "Image"'), 'next/link': inline('export default "Link"'),
     '@/components/Navbar': inline('export const Navbar = "Navbar"'),
     '@/components/NewsletterSignup': inline('export const NewsletterSignup = "NewsletterSignup"'),
     '@/components/GolfReason': inline('export const GolfReason = "GolfReason"'),
     '@/data/golfOperationalNotices': inline('export const GOLF_OPERATIONAL_NOTICES = {}'),
-    '@/lib/golfDiscovery': discoveryModule, './GolfZone.module.css': inline('export default {}'),
+    '@/lib/golfDiscovery': discoveryModule, '@/lib/golfFilters': inline(compile(await read('src/lib/golfFilters.ts'))), './GolfZone.module.css': inline('export default {}'),
   })
   const tree = (await import(inline(component))).GolfZone(page.props)
   const nodes = []

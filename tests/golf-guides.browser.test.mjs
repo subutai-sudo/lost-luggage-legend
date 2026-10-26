@@ -13,13 +13,13 @@ test('every monthly course title, photo and primary guide link goes to its own g
     await page.locator(`button[data-golf-month="${month}"]`).click()
     for (const card of await page.locator('[data-golf-card]').all()) {
       const id = await card.getAttribute('data-golf-card')
-      await expect(card.locator('h3 a')).toHaveAttribute('href', `/golf/${id}`)
-      await expect(card.locator('a').first()).toHaveAttribute('href', `/golf/${id}`)
-      await expect(card.getByRole('link', { name: /Read the .*golf guide/ })).toHaveAttribute('href', `/golf/${id}`)
+      await expect(card.locator('h3 a')).toHaveAttribute('href', `/golf/${id}?month=${month}`)
+      await expect(card.locator('a').first()).toHaveAttribute('href', `/golf/${id}?month=${month}`)
+      await expect(card.getByRole('link', { name: /Read the .*golf guide/ })).toHaveAttribute('href', `/golf/${id}?month=${month}`)
     }
   }
   await page.locator('[data-golf-card] h3 a').first().click()
-  await expect(page).toHaveURL(/\/golf\/[a-z0-9-]+$/)
+  await expect(page).toHaveURL(/\/golf\/[a-z0-9-]+\?month=12$/)
   await expect(page.getByRole('heading', { name: /Visitor access/i })).toBeVisible()
 })
 
@@ -45,8 +45,10 @@ for (const width of [320, 390, 1440]) {
   for (const theme of ['light', 'dark']) {
     test(`golf guide layout ${width}px ${theme}`, async ({ page }) => {
       await page.setViewportSize({ width, height: 900 })
-      await page.addInitScript(theme => localStorage.setItem('theme', theme), theme)
+      await page.addInitScript(theme => localStorage.setItem('lll-theme', theme), theme)
       await page.goto('/golf/oitavos-dunes')
+      if (theme === 'dark') await expect(page.locator('html')).toHaveClass(/dark/)
+      else await expect(page.locator('html')).not.toHaveClass(/dark/)
       expect(await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth)).toBeLessThanOrEqual(1)
       await expect(page.locator('h1')).toBeVisible()
       const image = page.locator('main img').first()

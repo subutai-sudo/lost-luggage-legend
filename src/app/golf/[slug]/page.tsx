@@ -7,6 +7,7 @@ import { Navbar } from '@/components/Navbar'
 import { MONTH_NAMES } from '@/lib/golfDiscovery'
 import { getGolfGuide, getGolfGuides } from '@/lib/golfGuides'
 import { GolfCourseMedia } from '@/components/GolfCourseMedia'
+import { GolfGuideNavigation } from '@/components/GolfGuideNavigation'
 import { GOLF_OPERATIONAL_NOTICES } from '@/data/golfOperationalNotices'
 import { getGolfMediaForCourse } from '@/lib/golfMedia'
 import { pageMetadata } from '@/lib/site'
@@ -57,9 +58,6 @@ export default async function GolfGuidePage({ params }: Props) {
   const media = getGolfMediaForCourse(course.id)
   const photo = media?.photos[0]
   const hero = photo ? { src: photo.src, alt: photo.alt } : { src: destination.heroImage, alt: `${destination.title} — destination photograph, not ${course.name}` }
-  const heroCredit = photo
-    ? `Course photograph: ${photo.caption} Photo ${photo.author}, ${photo.license}, resized for display.`
-    : `Destination photograph: ${destination.title}. This is not a photograph of ${course.name}.`
 
   return (
     <div className={styles.root} data-golf-guide={course.id}>
@@ -82,7 +80,7 @@ export default async function GolfGuidePage({ params }: Props) {
         <div className={styles.heroShade} aria-hidden="true" />
         <div className={styles.heroInner}>
           <nav className={styles.breadcrumb} aria-label="Breadcrumb">
-            <Link href="/golf">Golf month finder</Link>
+            <GolfGuideNavigation breadcrumb />
             <span aria-hidden="true">/</span>
             <span>Course guide</span>
           </nav>
@@ -93,7 +91,9 @@ export default async function GolfGuidePage({ params }: Props) {
             <p className={styles.character}>{course.character.replaceAll('-', ' ')} golf</p>
           </div>
           <div className={styles.heroFoot}>
-            <p>{heroCredit}</p>
+            <p data-golf-hero-credit>{photo ? <>
+              Course photograph: {photo.caption} Photo {photo.author}, <a href={photo.sourcePage} rel="noreferrer">Original &amp; attribution</a> · <a href={photo.licenseUrl} rel="noreferrer">{photo.license}</a>, resized for display.
+            </> : <>Destination photograph: {destination.title}. This is not a photograph of {course.name}.</>}</p>
             <Link href="#golf-guide-main">Read the course guide <span aria-hidden="true">↓</span></Link>
           </div>
         </div>
@@ -101,6 +101,23 @@ export default async function GolfGuidePage({ params }: Props) {
 
       <div id="golf-guide-main" tabIndex={-1} className={styles.main}>
         <div className={styles.container}>
+          <div className={styles.earlyNavigation}>
+            <GolfGuideNavigation />
+            <nav aria-label="In this course guide">
+              <p className={styles.eyebrow}>In this course guide</p>
+              <div className={styles.contents}>
+                {media && <a href="#course-visuals">Course layout &amp; photographs</a>}
+                <a href="#playing-notes">Playing notes</a>
+                <a href="#visitor-access">Visitor access &amp; tee times</a>
+                <a href="#when-to-play">When to play</a>
+                <a href="#sources">Sources &amp; checks</a>
+              </div>
+              <div className={styles.monthLinks}>
+                <span>Jump to a monthly note</span>
+                {supportedMonths.map(month => <a key={month} href={`#golf-month-${month}`}>{MONTH_NAMES[month - 1]}</a>)}
+              </div>
+            </nav>
+          </div>
           <div className={styles.introduction}>
             {GOLF_OPERATIONAL_NOTICES[course.id] && (
               <p className={styles.tradeoff} data-golf-operational-notice>
@@ -123,16 +140,10 @@ export default async function GolfGuidePage({ params }: Props) {
                   <div><dt>Course location</dt><dd>{course.city}, {course.country}</dd></div>
                   <div>
                     <dt>Supported editorial months</dt>
-                    <dd data-golf-supported-months>{supportedMonths.map(month => MONTH_NAMES[month - 1]).join(' · ')}</dd>
+                    <dd data-golf-supported-months className={styles.supportedMonths}>{supportedMonths.map(month => <a key={month} href={`#golf-month-${month}`}>{MONTH_NAMES[month - 1]}</a>)}</dd>
                   </div>
                 </dl>
-                <p className={styles.note}>These are the months covered by our course-specific seasonal research, not an opening calendar or a claim that other months are unplayable.</p>
-                <nav className={styles.contents} aria-label="In this course guide">
-                  <a href="#playing-notes">Playing notes <span aria-hidden="true">↗</span></a>
-                  <a href="#visitor-access">Visitor access &amp; tee times <span aria-hidden="true">↗</span></a>
-                  <a href="#when-to-play">When to play <span aria-hidden="true">↗</span></a>
-                  <a href="#sources">Sources &amp; checks <span aria-hidden="true">↗</span></a>
-                </nav>
+                <p className={styles.note} data-golf-guide-note>These are the months covered by our course-specific seasonal research, not an opening calendar or a claim that other months are unplayable.</p>
               </div>
             </aside>
 
@@ -152,7 +163,7 @@ export default async function GolfGuidePage({ params }: Props) {
                 <ul className={styles.highlights} data-golf-planning>
                   {guide.planning.map(note => <li key={note}>{note}</li>)}
                 </ul>
-                <p className={styles.note}>Confirm the current visitor policy, any handicap requirements, course availability and maintenance directly with the club before committing to travel. We do not show live tee times or quote green fees.</p>
+                <p className={styles.note} data-golf-guide-note>Confirm the current visitor policy, any handicap requirements, course availability and maintenance directly with the club before committing to travel. We do not show live tee times or quote green fees.</p>
               </section>
 
               <section id="when-to-play" tabIndex={-1} className={styles.section}>
@@ -161,10 +172,10 @@ export default async function GolfGuidePage({ params }: Props) {
                 <p>Each supported month has its own reason and trade-off. This is editorial seasonal guidance, not a forecast, a ranking or a guarantee of access.</p>
                 <div className={styles.monthNotes}>
                   {monthlyNotes.map(note => (
-                    <section key={note.month} className={styles.monthNote} data-golf-reason data-golf-month={note.month} data-golf-course={course.id} aria-labelledby={`golf-month-${note.month}`}>
+                    <section key={note.month} id={`golf-month-${note.month}`} tabIndex={-1} className={styles.monthNote} data-golf-reason data-golf-month={note.month} data-golf-course={course.id} aria-labelledby={`golf-month-${note.month}-heading`}>
                       <div className={styles.monthHeading}>
                         <span aria-hidden="true">{String(note.month).padStart(2, '0')}</span>
-                        <h3 id={`golf-month-${note.month}`}>{MONTH_NAMES[note.month - 1]}</h3>
+                        <h3 id={`golf-month-${note.month}-heading`}>{MONTH_NAMES[note.month - 1]}</h3>
                       </div>
                       <p className={styles.why} data-golf-why>{note.why}</p>
                       <p className={styles.tradeoff}><strong>Keep in mind</strong> <span data-golf-tradeoff>{note.tradeoff}</span></p>
@@ -187,7 +198,7 @@ export default async function GolfGuidePage({ params }: Props) {
               <section id="sources" tabIndex={-1} className={styles.section}>
                 <p className={styles.sectionNumber} aria-hidden="true">04 / The reading behind the round</p>
                 <h2>Sources &amp; checks</h2>
-                <p className={styles.note}>Sources for this course guide and its monthly notes. Check dates describe when a source was reviewed, not a weather observation or a promise that visitor rules remain unchanged.</p>
+                <p className={styles.note} data-golf-guide-note>Sources for this course guide and its monthly notes. Check dates describe when a source was reviewed, not a weather observation or a promise that visitor rules remain unchanged.</p>
                 <ul className={styles.sourceList} data-golf-guide-sources>
                   {sources.map(source => (
                     <li key={source.id} id={`source-${source.id}`} tabIndex={-1}>
@@ -208,7 +219,7 @@ export default async function GolfGuidePage({ params }: Props) {
             </div>
             <Link href={`/guides/${destination.slug}`} className={styles.destinationLink}>{destination.title} destination logistics <span aria-hidden="true">↗</span></Link>
           </section>
-          <Link className={styles.backLink} href="/golf"><span aria-hidden="true">←</span> Back to the golf month finder</Link>
+          <GolfGuideNavigation />
         </div>
       </div>
       </main>
@@ -218,7 +229,7 @@ export default async function GolfGuidePage({ params }: Props) {
           <BrandLogo appearance="cinematic" />
           <p>Goldilocks Zone by Lost Luggage Legend.<br />Course field notes. A little timing, a better starting point.</p>
           <nav aria-label="Course guide footer">
-            <Link href="/golf">Golf month finder</Link>
+            <GolfGuideNavigation breadcrumb />
             <Link href="/guides">Destination guides</Link>
             <Link href="/privacy-policy">Privacy</Link>
             <Link href="/terms-of-service">Terms</Link>
