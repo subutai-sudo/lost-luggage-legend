@@ -105,10 +105,31 @@ const courseGuideHash = path => {
   if (courseGuideAdded.includes(path)) return courseGuideApproval.addedFiles[path].afterHash
   return previousHash(path)
 }
-const expectedHash = path => {
+const mediaHash = path => {
   if (mediaPaths.includes(path)) return mediaApproval.changes[path].afterHash
   if (mediaAdded.includes(path)) return mediaApproval.addedFiles[path].afterHash
   return courseGuideHash(path)
+}
+// Finder display follow-up. Keep all earlier fixtures immutable; a path already
+// owned by a prior overlay chains from its last approved hash, never the legacy
+// bytes. Test harness files predate no overlay, so pin their exact merge bytes.
+const finderPaths = [
+  'src/app/golf/page.tsx', 'src/components/GolfZone.tsx', 'src/components/GolfZone.module.css',
+  'tests/golf-core.test.mjs', 'tests/golf-zone.browser.test.mjs', 'tests/guide-performance.test.mjs',
+]
+const finderAdded = [
+  'src/lib/golfFinderMedia.ts', 'tests/golf-finder-media.test.mjs', 'tests/golf-finder-media.browser.test.mjs',
+]
+const finderPriorHarnessHashes = {
+  'tests/golf-core.test.mjs': '1c04f7ac53a1611c22f88b46179f66e2e12f3743b6c4b2a6455069640b7abadb',
+  'tests/golf-zone.browser.test.mjs': '3f650aeea9b3dd403ca23fb480f40db3cefd3cbdf37737102da063bacfe048b7',
+  'tests/guide-performance.test.mjs': 'a621dce81926f7fea00e2d6c97c1f150da7100e0d6962d7e127d830928ec6629',
+}
+const finderApproval = JSON.parse(await readFile(new URL('./fixtures/golf-finder-media-approved-changes.json', import.meta.url), 'utf8'))
+const expectedHash = path => {
+  if (finderPaths.includes(path)) return finderApproval.changes[path].afterHash
+  if (finderAdded.includes(path)) return finderApproval.addedFiles[path].afterHash
+  return mediaHash(path)
 }
 const accepts = (path, bytes) => sha256(bytes) === expectedHash(path)
 
@@ -197,6 +218,36 @@ test('course-media follow-up names only its reviewed files, chains onto the prio
     // Negative control: appended bytes in an approved file must be refused.
     assert.equal(accepts(path, Buffer.concat([bytes, Buffer.from('\n/* unapproved */')])), false, path)
   }
+})
+
+test('finder media follow-up accepts only its exact named files and the last approved chain', async () => {
+  assert.equal(finderApproval.schemaVersion, 1)
+  assert.equal(finderApproval.kind, 'golf-finder-media-approved-change')
+  assert.equal(finderApproval.golfFinderMediaBaseline, 'ebd3e1f92f6313718b7c10df9b286308730a1548')
+  assert.equal(finderApproval.legacyFixtureSha256, legacyFixtureHash)
+  assert.deepEqual(Object.keys(finderApproval.changes).sort(), [...finderPaths].sort())
+  assert.deepEqual(Object.keys(finderApproval.addedFiles).sort(), [...finderAdded].sort())
+  for (const path of finderPaths) {
+    const entry = finderApproval.changes[path]
+    assert.equal(entry.beforeHash, mediaHash(path) ?? finderPriorHarnessHashes[path], `${path}: chain to last accepted bytes`)
+    assert.notEqual(entry.afterHash, entry.beforeHash)
+    assert.match(entry.afterHash, /^[a-f0-9]{64}$/)
+    assert.ok(entry.reason?.trim())
+  }
+  for (const path of finderAdded) {
+    assert.equal(mediaHash(path), undefined, `${path}: genuinely new`)
+    assert.equal(finderApproval.addedFiles[path].beforeHash, null)
+    assert.match(finderApproval.addedFiles[path].afterHash, /^[a-f0-9]{64}$/)
+    assert.ok(finderApproval.addedFiles[path].reason?.trim())
+  }
+  for (const path of [...finderPaths, ...finderAdded]) {
+    const bytes = await read(path)
+    assert.ok(accepts(path, bytes), path)
+    assert.equal(accepts(path, Buffer.concat([bytes, Buffer.from('\n/* unapproved */')])), false, path)
+    // Never accept either pre-change bytes or post-change bytes interchangeably.
+    if (finderPaths.includes(path)) assert.notEqual(expectedHash(path), finderApproval.changes[path].beforeHash)
+  }
+  assert.equal(expectedHash('src/data/golfCourseMedia.json'), mediaApproval.addedFiles['src/data/golfCourseMedia.json'].afterHash)
 })
 
 test('related image sizes still describe gutters, gaps, hover headroom and the capped container', () => {

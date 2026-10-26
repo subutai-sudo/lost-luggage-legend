@@ -6,6 +6,7 @@ import golfSources from '@/data/golfSources.json'
 import golfNotes from '@/data/golfCourseNotes.json'
 import { getGolfDisplayCatalog, type GolfSource } from '@/lib/golfDiscovery'
 import { pageMetadata } from '@/lib/site'
+import { getGolfFinderMedia } from '@/lib/golfFinderMedia'
 
 export const metadata: Metadata = pageMetadata({
   title: 'Golf Goldilocks Zone — The Best Courses by Month',
@@ -15,6 +16,7 @@ export const metadata: Metadata = pageMetadata({
 
 export default function GolfPage() {
   const guides = new Map(DESTINATION_GUIDES.map(guide => [guide.id, guide]))
+  const media = getGolfFinderMedia()
   const courses: GolfZoneCourse[] = GOLF_COURSES.map(course => {
     const guide = guides.get(course.destinationId)
     if (!guide) throw new Error(`Golf course ${course.id} references an unknown destination: ${course.destinationId}`)
@@ -23,6 +25,7 @@ export default function GolfPage() {
       destinationTitle: guide.title,
       destinationSlug: guide.slug,
       image: guide.heroImage,
+      media: media[course.id],
     }
   })
 

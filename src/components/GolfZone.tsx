@@ -11,13 +11,15 @@ import {
   discoveryImage, getGolfMonthPreviews, getGolfMonthSelection, MONTH_NAMES, readGolfMonth,
   type GolfCourse, type GolfDisplayCatalog,
 } from '@/lib/golfDiscovery'
+import type { GolfFinderMedia } from '@/lib/golfFinderMedia'
 import styles from './GolfZone.module.css'
 
-/** A course plus the destination guide it belongs to, for photography and links. */
+/** Course-specific media and a clearly distinct destination fallback. */
 export interface GolfZoneCourse extends GolfCourse {
   destinationTitle: string
   destinationSlug: string
   image: string
+  media: GolfFinderMedia
 }
 
 interface Props {
@@ -33,6 +35,35 @@ const MONTH_TILE_SIZES = '(max-width: 639px) calc((90vw - 12px) / 3), (max-width
 // Results have 4.4% outer gutters AND inner width deductions on phone/tablet.
 // Include the 1.03 hover scale so the decoded image covers its painted size.
 const CARD_SIZES = '(max-width: 639px) calc(93.936vw - 41.2px), (max-width: 959px) calc(46.968vw - 45.32px), (min-width: 1474px) 442.22px, calc(31.312vw - 19.227px)'
+
+function finderImage(course: GolfZoneCourse, width: number) {
+  return course.media.photo?.src ?? discoveryImage(course.image, width)
+}
+function photoKind(course: GolfZoneCourse) {
+  return course.media.photo ? 'Course photograph' : 'Destination photograph'
+}
+function photoAlt(course: GolfZoneCourse) {
+  return course.media.photo?.alt ?? `${course.destinationTitle} — destination photograph, not the course`
+}
+function PhotoCredit({ course }: { course: GolfZoneCourse }) {
+  const photo = course.media.photo
+  return photo ? (
+    <span className={styles.photoCredit}>
+      {photo.author} · <a href={photo.sourcePage} rel="noreferrer">Photo source</a> ·{' '}
+      <a href={photo.licenseUrl} rel="noreferrer">{photo.license}</a>
+    </span>
+  ) : null
+}
+function visualsLabel(course: GolfZoneCourse) {
+  const { hasRoutingDiagram, layoutKind, photoCount, gallery } = course.media
+  const resources = [
+    hasRoutingDiagram && 'routing diagram',
+    layoutKind && { 'routing-map': 'published map', 'hole-tour': 'published hole tour', scorecard: 'published scorecard' }[layoutKind],
+    photoCount > 0 && 'course photos',
+    gallery && 'gallery link',
+  ].filter(Boolean)
+  return `Course visuals: ${resources.join(' · ')}`
+}
 
 export function GolfZone({ courses, initialMonth, catalog }: Props) {
   const [month, setMonth] = useState(initialMonth)
@@ -67,8 +98,8 @@ export function GolfZone({ courses, initialMonth, catalog }: Props) {
             key={featured.id}
             className={styles.heroImage}
             data-golf-hero-image
-            src={discoveryImage(featured.image, 1600)}
-            alt={`${featured.destinationTitle} — destination photograph`}
+            src={finderImage(featured, 1600)}
+            alt={photoAlt(featured)}
             fill
             sizes="100vw"
             fetchPriority="high"
@@ -85,17 +116,23 @@ export function GolfZone({ courses, initialMonth, catalog }: Props) {
               <p className={styles.heroLead}>
                 Pick a month and see six courses worth playing then — each with the reason it suits that
                 month, the trade-off to expect, and the checks behind it. An editorial starting point,
-                never a ranking or a green-fee quote. Photos show destinations, not courses.
+                never a ranking or a green-fee quote. Course photos where available; otherwise,
+                clearly labelled destination views — not the course.
               </p>
               <p className={styles.heroCta}>
                 <a href="#month-picker">Choose your month <span aria-hidden="true">↓</span></a>
               </p>
+            </div>
+            <div className={styles.heroPhotoNote} data-golf-hero-credit>
+              <span>{photoKind(featured)}{!featured.media.photo && ` · ${featured.destinationTitle}, not the course`}</span>
+              <PhotoCredit course={featured} />
             </div>
             <div className={styles.heroFoot}>
               <span>{MONTH_NAMES[month - 1]} · {featured.name}</span>
               <Link href={`/golf/${featured.id}`}>
                 Read the {featured.name} golf guide <span aria-hidden="true">↗</span>
               </Link>
+              <a href={`/golf/${featured.id}#course-visuals`}>Explore course visuals <span aria-hidden="true">↗</span></a>
             </div>
           </div>
         </section>
@@ -119,14 +156,14 @@ export function GolfZone({ courses, initialMonth, catalog }: Props) {
                   data-golf-month={index + 1}
                   aria-pressed={month === index + 1}
                   aria-label={MONTH_NAMES[index]}
-                  aria-description={`Preview course: ${course.name}, ${course.city}`}
+                  aria-description={`Preview course: ${course.name}, ${course.city}. ${photoKind(course)}${course.media.photo ? '' : ', not the course'}. Credits in Month-preview photographs below.`}
                   aria-controls="golf-results"
                   onClick={() => chooseMonth(index + 1)}
                   className={styles.month}
                 >
                   <Image
                     className={styles.monthImage}
-                    src={discoveryImage(course.image, 480)}
+                    src={finderImage(course, 480)}
                     alt=""
                     fill
                     sizes={MONTH_TILE_SIZES}
@@ -138,6 +175,18 @@ export function GolfZone({ courses, initialMonth, catalog }: Props) {
                 </button>
               ))}
             </div>
+            <details className={styles.previewCredits} data-golf-preview-credits>
+              <summary>Month-preview photographs &amp; credits</summary>
+              <p>Course photographs where available. Destination photographs show the named destination, not the course.</p>
+              <ul>
+                {previews.map((course, index) => (
+                  <li key={course.id} data-golf-preview-credit={index + 1}>
+                    <span>{MONTH_NAMES[index]} · {course.name} — {photoKind(course)}{!course.media.photo && ` · ${course.destinationTitle}`}</span>
+                    <PhotoCredit course={course} />
+                  </li>
+                ))}
+              </ul>
+            </details>
           </div>
         </section>
 
@@ -163,14 +212,17 @@ export function GolfZone({ courses, initialMonth, catalog }: Props) {
                   <Link href={`/golf/${course.id}`} className={styles.cardFigure} aria-label={`Explore the ${course.name} golf guide`}>
                     <Image
                       className={styles.cardImage}
-                      src={discoveryImage(course.image, 640)}
-                      alt={`${course.destinationTitle} — destination photograph`}
+                      src={finderImage(course, 640)}
+                      alt={photoAlt(course)}
                       fill
                       sizes={CARD_SIZES}
                       loading="lazy"
                     />
-                    <span className={styles.figureLabel} aria-hidden="true">{course.destinationTitle}</span>
+                    <span className={styles.figureLabel} data-golf-photo-kind>{photoKind(course)}</span>
                   </Link>
+                  <div className={styles.cardPhotoNote} data-golf-photo-credit>
+                    {course.media.photo ? <PhotoCredit course={course} /> : `${course.destinationTitle}, not the course.`}
+                  </div>
                   <div className={styles.cardBody}>
                     <p className={styles.cardCharacter}>{course.character}</p>
                     <h3 className={styles.cardTitle}>
@@ -188,6 +240,7 @@ export function GolfZone({ courses, initialMonth, catalog }: Props) {
                       <Link href={`/golf/${course.id}`}>
                         Read the {course.name} golf guide <span aria-hidden="true">↗</span>
                       </Link>
+                      <a href={`/golf/${course.id}#course-visuals`}>{visualsLabel(course)} <span aria-hidden="true">↗</span></a>
                     </p>
                   </div>
                 </article>

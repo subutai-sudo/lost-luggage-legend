@@ -11,6 +11,17 @@ const tabKey = browserName => (browserName === 'webkit' ? 'Alt+Tab' : 'Tab')
 const BASE = process.env.BROWSER_BASE_URL || 'http://127.0.0.1:3050'
 
 const monthCards = page => page.locator('[data-golf-zone] article[data-golf-card]')
+async function decodeSettledImage(image) {
+  // Native lazy/source selection can still be in flight after scrolling in
+  // WebKit. Wait for a stable loaded source, not a decode of the prior source.
+  await expect.poll(() => image.evaluate(async img => {
+    const source = img.currentSrc
+    if (!source || !img.complete || !img.naturalWidth) return false
+    await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)))
+    return img.complete && img.naturalWidth > 0 && img.currentSrc === source
+  })).toBe(true)
+  await image.evaluate(img => img.decode())
+}
 
 test('golf zone renders the calendar and a sourced six-course shortlist', async ({ page }) => {
   const response = await page.goto('/golf?month=10')
@@ -110,23 +121,23 @@ test('seasonal copy is presented as editorial guidance, not a ranking or a price
   expect(body).not.toMatch(/£\d|\$\d|\d+\s*(?:st|nd|rd|th)\s+(?:best|ranked)/i)
 })
 
-test('the month band and cards use real decoded destination photographs', async ({ page }) => {
+test('the month band and cards use decoded approved course or destination photographs', async ({ page }) => {
   await page.goto('/golf?month=10')
   const hero = page.locator('[data-golf-hero-image]')
   await expect(hero).toHaveCount(1)
   await expect(hero).toHaveAttribute('loading', 'eager')
   await expect(hero).toHaveAttribute('fetchpriority', 'high')
-  await hero.evaluate(element => element.decode())
+  await decodeSettledImage(hero)
   expect(await hero.evaluate(element => element.naturalWidth)).toBeGreaterThan(0)
 
   const painter = page.locator('button[data-golf-month="10"] img')
   await painter.scrollIntoViewIfNeeded()
-  await painter.evaluate(element => element.decode())
+  await decodeSettledImage(painter)
   expect(await painter.evaluate(element => element.naturalWidth)).toBeGreaterThan(0)
 
   const card = (await monthCards(page)).first().locator('img')
   await card.scrollIntoViewIfNeeded()
-  await card.evaluate(element => element.decode())
+  await decodeSettledImage(card)
   expect(await card.evaluate(element => element.naturalWidth)).toBeGreaterThan(0)
   // Photography stays first-party (the optimizer) and every optimized image
   // resolves back to the approved source host; no new image source appeared.
@@ -137,8 +148,15 @@ test('the month band and cards use real decoded destination photographs', async 
   }
   const optimized = sources.filter(source => source.includes('/_next/image?'))
   expect(optimized.length).toBeGreaterThanOrEqual(19) // 12 month tiles + hero + 6 cards
+  const approvedLocal = new Set([
+    '/golf-media/emirates-golf-club-majlis-course-02.webp', '/golf-media/tpc-scottsdale-stadium-course-01.webp',
+    '/golf-media/portmarnock-golf-club-02.webp', '/golf-media/muirfield-01.webp',
+    '/golf-media/bethpage-black-01.webp', '/golf-media/oitavos-dunes-01.webp',
+    '/golf-media/marco-simone-golf-country-club-01.webp',
+  ])
   for (const source of optimized) {
-    expect(decodeURIComponent(source)).toMatch(/url=https:\/\/images\.unsplash\.com\//)
+    const original = new URL(source).searchParams.get('url')
+    if (!original.startsWith('https://images.unsplash.com/')) expect(approvedLocal.has(original), original).toBe(true)
   }
 })
 
