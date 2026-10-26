@@ -24,10 +24,10 @@ A guide with nothing verified shows the resource it does have and no photograph.
 
 ## Refusals are deliberate
 
-The release set contains **36 photographs across 16 courses**, three on-page
+The release set contains **35 photographs across 16 courses**, three on-page
 routing diagrams and 32 external layout resources across 37 guides. Twenty-one
 guides have no on-page course photograph; five have no exact-layout resource.
-Seven previously accepted golf scenes were removed because their source did not
+Eight previously accepted golf scenes were removed because their source did not
 establish the exact named course/layout (including a Summerlin hotel scene and
 club-level images for multi-layout venues). A positive scene verdict is not an
 identity verdict, and the rejected files are pruned rather than merely hidden.

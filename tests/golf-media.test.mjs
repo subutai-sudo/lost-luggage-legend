@@ -151,6 +151,7 @@ test('identity-rejected photographs cannot return to named-layout guides', async
     '/golf-media/walton-heath-golf-club-old-01.webp',
     '/golf-media/wentworth-club-west-02.webp',
     '/golf-media/wentworth-club-west-04.webp',
+    '/golf-media/emirates-golf-club-majlis-course-01.webp',
     '/golf-media/emirates-golf-club-majlis-course-03.webp',
     '/golf-media/emirates-golf-club-majlis-course-04.webp',
   ]
@@ -160,7 +161,12 @@ test('identity-rejected photographs cannot return to named-layout guides', async
     assert.ok(!published.includes(src), `${src}: exact course/layout identity is unestablished`)
     await assert.rejects(readFile(new URL(`../public${src}`, import.meta.url)), { code: 'ENOENT' })
   }
-  assert.equal(published.length, 36, 'accepted photograph inventory changed; review before updating')
+  assert.equal(published.length, 35, 'accepted photograph inventory changed; review before updating')
+  const majlis = records.find(record => record.courseId === 'emirates-golf-club-majlis-course')
+  assert.equal(majlis.photos.length, 1)
+  assert.match(majlis.photos[0].scope, /2008 Dubai Desert Classic/)
+  assert.match(majlis.photos[0].scope, /tournament setting establishes the Majlis layout/i)
+  assert.doesNotMatch(majlis.photos[0].scope, /photographer identifies/i)
 })
 
 test('every shipped raster asset really is the format its filename claims', async () => {
@@ -189,7 +195,7 @@ test('every shipped raster asset really is the format its filename claims', asyn
       checked += 1
     }
   }
-  assert.equal(checked, 39, 'shipped asset inventory changed; update this guard deliberately')
+  assert.equal(checked, 38, 'shipped asset inventory changed; update this guard deliberately')
 })
 
 // The validator must enforce the copy rule itself. Previously the guard lived only

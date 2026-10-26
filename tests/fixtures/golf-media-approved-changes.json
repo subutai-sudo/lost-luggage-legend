@@ -30,12 +30,12 @@
     },
     "src/data/golfCourseMedia.json": {
       "beforeHash": null,
-      "afterHash": "2e4e34f9b4e3c0375ab569349499ec03574881fc920e28818294872f3296c9f7",
+      "afterHash": "91683cefa3fc93865b1b98bd490d03fe89eb9128d757ccc54c24b254e438123f",
       "reason": "Course-media section, validation module, ledger, tests and locally hosted course assets (maps and licence-approved photographs)."
     },
     "tests/golf-media.test.mjs": {
       "beforeHash": null,
-      "afterHash": "f7e057615c851fc0bb54892e2f684299b0666323204c1e5c79f7ff9a8f2e64b4",
+      "afterHash": "037aa9329c98006203fe04b21228e0cfb63901023a36f9bffa76cdb92d5012f5",
       "reason": "Course-media section, validation module, ledger, tests and locally hosted course assets (maps and licence-approved photographs)."
     },
     "tests/golf-media.browser.test.mjs": {
@@ -76,11 +76,6 @@
     "public/golf-media/crans-sur-sierre-golf-club-ballesteros-04.webp": {
       "beforeHash": null,
       "afterHash": "4f530ee01c938874043a44ea28a9cd2d78199548e30b5bf9db422aa5599ae208",
-      "reason": "Course-media section, validation module, ledger, tests and locally hosted course assets (maps and licence-approved photographs)."
-    },
-    "public/golf-media/emirates-golf-club-majlis-course-01.webp": {
-      "beforeHash": null,
-      "afterHash": "3d224f3d71d095fd31660ce45ad9bf7f191688458e2b68946bba42a222469333",
       "reason": "Course-media section, validation module, ledger, tests and locally hosted course assets (maps and licence-approved photographs)."
     },
     "public/golf-media/emirates-golf-club-majlis-course-02.webp": {
@@ -175,7 +170,7 @@
     },
     "docs/golf-course-media.md": {
       "beforeHash": null,
-      "afterHash": "eb82df87ef4fd4abbc461f7adf4475247abaeb19c263fc948b89385ee1618985",
+      "afterHash": "2d495e7265f7f2e22cc4898b575a56f50bc14585fafec05207c26db0774b73ad",
       "reason": "Acceptance and reproduction record for the course-media feature, including the refusal rules and the guards."
     },
     "public/golf-media/chambers-bay-03.webp": {
@@ -244,5 +239,5 @@
       "reason": "Licence-approved course photograph hosted locally, or a routing diagram drawn from mapped hole geometry."
     }
   },
-  "revisionNote": "Before publication: remove seven source-identity-rejected photographs and prune their assets; tighten the independent rejection inventory test. Earlier published baselines and beforeHash values are unchanged."
+  "revisionNote": "Before publication: remove eight source-identity-rejected photographs and prune their assets; retain the Majlis tournament photo with accurate event-to-layout basis; extend independent rejection tests. Published baselines and beforeHash values are unchanged."
 }
