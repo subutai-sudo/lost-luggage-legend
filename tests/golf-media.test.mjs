@@ -142,6 +142,27 @@ test('small print in the course-media section stays legible and its targets stay
   }
 })
 
+test('identity-rejected photographs cannot return to named-layout guides', async () => {
+  // Independent rejection inventory from exact-source review, not derived from
+  // the accepted ledger. A generic club/area scene does not identify a layout.
+  const rejected = [
+    '/golf-media/tpc-summerlin-02.webp',
+    '/golf-media/bro-hof-slott-stadium-02.webp',
+    '/golf-media/walton-heath-golf-club-old-01.webp',
+    '/golf-media/wentworth-club-west-02.webp',
+    '/golf-media/wentworth-club-west-04.webp',
+    '/golf-media/emirates-golf-club-majlis-course-03.webp',
+    '/golf-media/emirates-golf-club-majlis-course-04.webp',
+  ]
+  const records = JSON.parse(ledger)
+  const published = records.flatMap(record => record.photos.map(photo => photo.src))
+  for (const src of rejected) {
+    assert.ok(!published.includes(src), `${src}: exact course/layout identity is unestablished`)
+    await assert.rejects(readFile(new URL(`../public${src}`, import.meta.url)), { code: 'ENOENT' })
+  }
+  assert.equal(published.length, 36, 'accepted photograph inventory changed; review before updating')
+})
+
 test('every shipped raster asset really is the format its filename claims', async () => {
   // A normaliser that failed silently shipped JPEG bytes under .webp names, which
   // serves the wrong content type on every guide. Bytes, not filenames, decide.
@@ -168,7 +189,7 @@ test('every shipped raster asset really is the format its filename claims', asyn
       checked += 1
     }
   }
-  assert.equal(checked, 46, 'shipped asset inventory changed; update this guard deliberately')
+  assert.equal(checked, 39, 'shipped asset inventory changed; update this guard deliberately')
 })
 
 // The validator must enforce the copy rule itself. Previously the guard lived only

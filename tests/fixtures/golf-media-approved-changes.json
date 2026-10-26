@@ -30,12 +30,12 @@
     },
     "src/data/golfCourseMedia.json": {
       "beforeHash": null,
-      "afterHash": "179e5ef66c182c599ec620001a1df4f9c68717cac5ecce483491fbe0e38c873a",
+      "afterHash": "2e4e34f9b4e3c0375ab569349499ec03574881fc920e28818294872f3296c9f7",
       "reason": "Course-media section, validation module, ledger, tests and locally hosted course assets (maps and licence-approved photographs)."
     },
     "tests/golf-media.test.mjs": {
       "beforeHash": null,
-      "afterHash": "10d5bdf4beaf2c4e5a4d91832e45dc39f1d15e678be0525562934b2179b0dfd7",
+      "afterHash": "f7e057615c851fc0bb54892e2f684299b0666323204c1e5c79f7ff9a8f2e64b4",
       "reason": "Course-media section, validation module, ledger, tests and locally hosted course assets (maps and licence-approved photographs)."
     },
     "tests/golf-media.browser.test.mjs": {
@@ -46,11 +46,6 @@
     "public/golf-media/bethpage-black-01.webp": {
       "beforeHash": null,
       "afterHash": "a004b76691a263c403ae5048a2209a86e6033ac2b4d233e7cb368887ab391c8d",
-      "reason": "Course-media section, validation module, ledger, tests and locally hosted course assets (maps and licence-approved photographs)."
-    },
-    "public/golf-media/bro-hof-slott-stadium-02.webp": {
-      "beforeHash": null,
-      "afterHash": "75597338aee99bf310de29e5e25edae3a970b48309a7a7b158044762e0a2f466",
       "reason": "Course-media section, validation module, ledger, tests and locally hosted course assets (maps and licence-approved photographs)."
     },
     "public/golf-media/chambers-bay-01.webp": {
@@ -178,14 +173,9 @@
       "afterHash": "4e7ebb4ff9e71a5379a2de400803ebee59485e7abb5b1d84f69ba1c8f107b484",
       "reason": "Course-media section, validation module, ledger, tests and locally hosted course assets (maps and licence-approved photographs)."
     },
-    "public/golf-media/walton-heath-golf-club-old-01.webp": {
-      "beforeHash": null,
-      "afterHash": "fda7c5a3906e48e3d260fc288c358a5d2854845a952ac2d47078aac87997c328",
-      "reason": "Course-media section, validation module, ledger, tests and locally hosted course assets (maps and licence-approved photographs)."
-    },
     "docs/golf-course-media.md": {
       "beforeHash": null,
-      "afterHash": "19b1024b523e004c50a60e075a44641150d3f96e3551beb5c40edf1aae8a20d6",
+      "afterHash": "eb82df87ef4fd4abbc461f7adf4475247abaeb19c263fc948b89385ee1618985",
       "reason": "Acceptance and reproduction record for the course-media feature, including the refusal rules and the guards."
     },
     "public/golf-media/chambers-bay-03.webp": {
@@ -196,16 +186,6 @@
     "public/golf-media/chambers-bay-04.webp": {
       "beforeHash": null,
       "afterHash": "708088567caa69b47661ae4b4ac9d9de30fec14f14d76aeaea69a1facb6decd5",
-      "reason": "Licence-approved course photograph hosted locally, or a routing diagram drawn from mapped hole geometry."
-    },
-    "public/golf-media/emirates-golf-club-majlis-course-03.webp": {
-      "beforeHash": null,
-      "afterHash": "856ce9ea9aed0ecbe7a8a9e963c7b4a7392d03bc5c137c011d747c36d06380de",
-      "reason": "Licence-approved course photograph hosted locally, or a routing diagram drawn from mapped hole geometry."
-    },
-    "public/golf-media/emirates-golf-club-majlis-course-04.webp": {
-      "beforeHash": null,
-      "afterHash": "3d4994639a573f6d2677f121c10f98e097fda3aa9d83cd14633f0d42573bd6c3",
       "reason": "Licence-approved course photograph hosted locally, or a routing diagram drawn from mapped hole geometry."
     },
     "public/golf-media/glen-abbey-golf-club-04.webp": {
@@ -262,22 +242,7 @@
       "beforeHash": null,
       "afterHash": "b9b9280ee13c6919790b2150fd35b8575ce849b7080fbafc72c293a5ddb2c861",
       "reason": "Licence-approved course photograph hosted locally, or a routing diagram drawn from mapped hole geometry."
-    },
-    "public/golf-media/tpc-summerlin-02.webp": {
-      "beforeHash": null,
-      "afterHash": "fe94898218e1455cc6a626113f9beaa12116b876e648c70d04911585bbcecf1f",
-      "reason": "Licence-approved course photograph hosted locally, or a routing diagram drawn from mapped hole geometry."
-    },
-    "public/golf-media/wentworth-club-west-02.webp": {
-      "beforeHash": null,
-      "afterHash": "0ea5e876f3dd86720e55c7064543ff7e832d9e552f9c7a0eca5e5efea8138aa3",
-      "reason": "Licence-approved course photograph hosted locally, or a routing diagram drawn from mapped hole geometry."
-    },
-    "public/golf-media/wentworth-club-west-04.webp": {
-      "beforeHash": null,
-      "afterHash": "dea97306e4de46be58ff5d31bf19e835ef8147d7d71c3f5d74b68d17387208e8",
-      "reason": "Licence-approved course photograph hosted locally, or a routing diagram drawn from mapped hole geometry."
     }
   },
-  "revisionNote": "Re-verified after the independent implementation review: internal verification language removed from reader copy and enforced in the validator, honest gallery attribution, single-photograph sizing, social-image dimensions taken from the file, genuine WebP re-encode, and the diagram legibility repair."
+  "revisionNote": "Before publication: remove seven source-identity-rejected photographs and prune their assets; tighten the independent rejection inventory test. Earlier published baselines and beforeHash values are unchanged."
 }

@@ -6,7 +6,7 @@
       "label": "Al Maaden official course page and photographs",
       "publisher": "Al Maaden Golf",
       "checkedAt": "2026-10-25",
-      "scope": "Published by Al Maaden Golf \u2014 Al Maaden official course page and photographs. The images stay on their site; we do not republish them.",
+      "scope": "Published by Al Maaden Golf — Al Maaden official course page and photographs. The images stay on their site; we do not republish them.",
       "samePageAsLayout": false
     },
     "layout": {
@@ -24,10 +24,10 @@
     "courseId": "bali-national-golf-club",
     "gallery": {
       "url": "https://www.nelsonhaworth.com/bali-national-golf-club/",
-      "label": "Bali National historic course photographs \u2014 official architect portfolio",
+      "label": "Bali National historic course photographs — official architect portfolio",
       "publisher": "Nelson Haworth Golf Course Architects",
       "checkedAt": "2026-10-25",
-      "scope": "Published by Nelson Haworth Golf Course Architects \u2014 Bali National historic course photographs \u2014 official architect portfolio. The images stay on their site; we do not republish them.",
+      "scope": "Published by Nelson Haworth Golf Course Architects — Bali National historic course photographs — official architect portfolio. The images stay on their site; we do not republish them.",
       "samePageAsLayout": false
     },
     "layout": null,
@@ -41,7 +41,7 @@
       "label": "Bethpage Black official course photographs and flyovers",
       "publisher": "Ryder Cup / PGA of America",
       "checkedAt": "2026-10-25",
-      "scope": "Published by Ryder Cup / PGA of America \u2014 Bethpage Black official course photographs and flyovers. The images stay on their site; we do not republish them.",
+      "scope": "Published by Ryder Cup / PGA of America — Bethpage Black official course photographs and flyovers. The images stay on their site; we do not republish them.",
       "samePageAsLayout": true
     },
     "layout": {
@@ -57,7 +57,7 @@
         "src": "/golf-media/bethpage-black-01.webp",
         "width": 1600,
         "height": 2400,
-        "alt": "open course hillside with bunkers, golfers and spectators \u2014 Bethpage Black.",
+        "alt": "open course hillside with bunkers, golfers and spectators — Bethpage Black.",
         "caption": "At Bethpage Black: open course hillside with bunkers, golfers and spectators.",
         "scope": "Photograph by Dov Harrington, published on Wikimedia Commons under CC BY 2.0, where the photographer identifies the subject as Bethpage Black. It is not a club-supplied image, and it does not establish the exact hole, angle or current playing conditions.",
         "author": "Dov Harrington",
@@ -75,15 +75,15 @@
     "gallery": {
       "url": "https://gbr.is/about-the-course/",
       "label": "Brautarholt official course page with photographs",
-      "publisher": "Golfkl\u00fabbur Brautarholt",
+      "publisher": "Golfklúbbur Brautarholt",
       "checkedAt": "2026-10-25",
-      "scope": "Published by Golfkl\u00fabbur Brautarholt \u2014 Brautarholt official course page with photographs. The images stay on their site; we do not republish them.",
+      "scope": "Published by Golfklúbbur Brautarholt — Brautarholt official course page with photographs. The images stay on their site; we do not republish them.",
       "samePageAsLayout": false
     },
     "layout": {
       "url": "https://gbr.is/course-guide/",
       "label": "Brautarholt official 18-hole course guide",
-      "publisher": "Golfkl\u00fabbur Brautarholt",
+      "publisher": "Golfklúbbur Brautarholt",
       "checkedAt": "2026-10-25",
       "scope": "An official hole-by-hole tour published by the club for this course.",
       "kind": "hole-tour"
@@ -95,10 +95,10 @@
     "courseId": "bro-hof-slott-stadium",
     "gallery": {
       "url": "https://www.brohofslott.com/courses/the-stadium-course",
-      "label": "The Stadium Course \u2014 official course photographs",
+      "label": "The Stadium Course — official course photographs",
       "publisher": "Bro Hof Slott Golf Club",
       "checkedAt": "2026-10-25",
-      "scope": "Published by Bro Hof Slott Golf Club \u2014 The Stadium Course \u2014 official course photographs. The images stay on their site; we do not republish them.",
+      "scope": "Published by Bro Hof Slott Golf Club — The Stadium Course — official course photographs. The images stay on their site; we do not republish them.",
       "samePageAsLayout": true
     },
     "layout": {
@@ -109,22 +109,7 @@
       "scope": "An official hole-by-hole tour published by the club for this course.",
       "kind": "hole-tour"
     },
-    "photos": [
-      {
-        "src": "/golf-media/bro-hof-slott-stadium-02.webp",
-        "width": 1600,
-        "height": 1139,
-        "alt": "a hole beside a large lake, fairway and bunker \u2014 Bro Hof Slott (Stadium).",
-        "caption": "At Bro Hof Slott (Stadium): a hole beside a large lake, fairway and bunker.",
-        "scope": "Photograph by Holger.Ellgaard, published on Wikimedia Commons under CC BY-SA 4.0, where the photographer identifies the subject as Bro Hof Slott (Stadium). It is not a club-supplied image, and it does not establish the exact hole, angle or current playing conditions.",
-        "author": "Holger.Ellgaard",
-        "sourcePage": "https://commons.wikimedia.org/wiki/File:Bro_Hof_Slott_2016a.jpg",
-        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/99/Bro_Hof_Slott_2016a.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-        "license": "CC BY-SA 4.0",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
-        "checkedAt": "2026-10-25"
-      }
-    ],
+    "photos": [],
     "map": null
   },
   {
@@ -134,7 +119,7 @@
       "label": "Capilano official course and clubhouse imagery",
       "publisher": "Capilano Golf and Country Club",
       "checkedAt": "2026-10-25",
-      "scope": "Published by Capilano Golf and Country Club \u2014 Capilano official course and clubhouse imagery. The images stay on their site; we do not republish them.",
+      "scope": "Published by Capilano Golf and Country Club — Capilano official course and clubhouse imagery. The images stay on their site; we do not republish them.",
       "samePageAsLayout": false
     },
     "layout": null,
@@ -148,7 +133,7 @@
       "label": "Chambers Bay official course gallery",
       "publisher": "Chambers Bay",
       "checkedAt": "2026-10-25",
-      "scope": "Published by Chambers Bay \u2014 Chambers Bay official course gallery. The images stay on their site; we do not republish them.",
+      "scope": "Published by Chambers Bay — Chambers Bay official course gallery. The images stay on their site; we do not republish them.",
       "samePageAsLayout": false
     },
     "layout": {
@@ -164,7 +149,7 @@
         "src": "/golf-media/chambers-bay-01.webp",
         "width": 1600,
         "height": 900,
-        "alt": "coastal links course, multiple holes, bay water and headland \u2014 Chambers Bay.",
+        "alt": "coastal links course, multiple holes, bay water and headland — Chambers Bay.",
         "caption": "At Chambers Bay: coastal links course, multiple holes, bay water and headland.",
         "scope": "Photograph by Atomic Taco from Seattle, WA, USA, published on Wikimedia Commons under CC BY-SA 2.0, where the photographer identifies the subject as Chambers Bay. It is not a club-supplied image, and it does not establish the exact hole, angle or current playing conditions.",
         "author": "Atomic Taco from Seattle, WA, USA",
@@ -178,7 +163,7 @@
         "src": "/golf-media/chambers-bay-03.webp",
         "width": 1600,
         "height": 900,
-        "alt": "fairways and greens with flagsticks and bunkers on the coastal links \u2014 Chambers Bay.",
+        "alt": "fairways and greens with flagsticks and bunkers on the coastal links — Chambers Bay.",
         "caption": "At Chambers Bay: fairways and greens with flagsticks and bunkers on the coastal links.",
         "scope": "Photograph by Atomic Taco from Seattle, WA, USA, published on Wikimedia Commons under CC BY-SA 2.0, where the photographer identifies the subject as Chambers Bay. It is not a club-supplied image, and it does not establish the exact hole, angle or current playing conditions.",
         "author": "Atomic Taco from Seattle, WA, USA",
@@ -192,7 +177,7 @@
         "src": "/golf-media/chambers-bay-04.webp",
         "width": 1600,
         "height": 586,
-        "alt": "mown fairways and bunkers with golfers playing \u2014 Chambers Bay.",
+        "alt": "mown fairways and bunkers with golfers playing — Chambers Bay.",
         "caption": "At Chambers Bay: mown fairways and bunkers with golfers playing.",
         "scope": "Photograph by Atomic Taco from Seattle, WA, USA, published on Wikimedia Commons under CC BY-SA 2.0, where the photographer identifies the subject as Chambers Bay. It is not a club-supplied image, and it does not establish the exact hole, angle or current playing conditions.",
         "author": "Atomic Taco from Seattle, WA, USA",
@@ -242,7 +227,7 @@
       "label": "Dubsdread official course photographs",
       "publisher": "Cog Hill Golf and Country Club",
       "checkedAt": "2026-10-25",
-      "scope": "Published by Cog Hill Golf and Country Club \u2014 Dubsdread official course photographs. The images stay on their site; we do not republish them.",
+      "scope": "Published by Cog Hill Golf and Country Club — Dubsdread official course photographs. The images stay on their site; we do not republish them.",
       "samePageAsLayout": true
     },
     "layout": {
@@ -260,10 +245,10 @@
     "courseId": "crans-sur-sierre-golf-club-ballesteros",
     "gallery": {
       "url": "https://www.golfcrans.ch/en/photos/seve-ballesteros-course-58",
-      "label": "Seve Ballesteros course \u2014 official photo gallery",
+      "label": "Seve Ballesteros course — official photo gallery",
       "publisher": "Golf Club Crans-sur-Sierre",
       "checkedAt": "2026-10-25",
-      "scope": "Published by Golf Club Crans-sur-Sierre \u2014 Seve Ballesteros course \u2014 official photo gallery. The images stay on their site; we do not republish them.",
+      "scope": "Published by Golf Club Crans-sur-Sierre — Seve Ballesteros course — official photo gallery. The images stay on their site; we do not republish them.",
       "samePageAsLayout": false
     },
     "layout": {
@@ -279,7 +264,7 @@
         "src": "/golf-media/crans-sur-sierre-golf-club-ballesteros-01.webp",
         "width": 1600,
         "height": 1021,
-        "alt": "a golfer mid-swing on the fairway below alpine mountains \u2014 Crans-sur-Sierre Golf Club (Ballesteros).",
+        "alt": "a golfer mid-swing on the fairway below alpine mountains — Crans-sur-Sierre Golf Club (Ballesteros).",
         "caption": "At Crans-sur-Sierre Golf Club (Ballesteros): a golfer mid-swing on the fairway below alpine mountains.",
         "scope": "Photograph by Valaistourisme, published on Wikimedia Commons under CC BY-SA 3.0, where the photographer identifies the subject as Crans-sur-Sierre Golf Club (Ballesteros). It is not a club-supplied image, and it does not establish the exact hole, angle or current playing conditions.",
         "author": "Valaistourisme",
@@ -293,7 +278,7 @@
         "src": "/golf-media/crans-sur-sierre-golf-club-ballesteros-02.webp",
         "width": 1600,
         "height": 1200,
-        "alt": "a narrow tree-lined fairway leading to the distant green \u2014 Crans-sur-Sierre Golf Club (Ballesteros).",
+        "alt": "a narrow tree-lined fairway leading to the distant green — Crans-sur-Sierre Golf Club (Ballesteros).",
         "caption": "At Crans-sur-Sierre Golf Club (Ballesteros): a narrow tree-lined fairway leading to the distant green.",
         "scope": "Photograph by Ulrich Mayring, published on Wikimedia Commons under CC BY-SA 3.0, where the photographer identifies the subject as Crans-sur-Sierre Golf Club (Ballesteros). It is not a club-supplied image, and it does not establish the exact hole, angle or current playing conditions.",
         "author": "Ulrich Mayring",
@@ -307,7 +292,7 @@
         "src": "/golf-media/crans-sur-sierre-golf-club-ballesteros-03.webp",
         "width": 1600,
         "height": 1200,
-        "alt": "the green with its bunker and pond hazard, mountains behind \u2014 Crans-sur-Sierre Golf Club (Ballesteros).",
+        "alt": "the green with its bunker and pond hazard, mountains behind — Crans-sur-Sierre Golf Club (Ballesteros).",
         "caption": "At Crans-sur-Sierre Golf Club (Ballesteros): the green with its bunker and pond hazard, mountains behind.",
         "scope": "Photograph by Ulrich Mayring, published on Wikimedia Commons under CC BY-SA 3.0, where the photographer identifies the subject as Crans-sur-Sierre Golf Club (Ballesteros). It is not a club-supplied image, and it does not establish the exact hole, angle or current playing conditions.",
         "author": "Ulrich Mayring",
@@ -321,7 +306,7 @@
         "src": "/golf-media/crans-sur-sierre-golf-club-ballesteros-04.webp",
         "width": 1600,
         "height": 1200,
-        "alt": "the clubhouse terrace above a maintained fairway \u2014 Crans-sur-Sierre Golf Club (Ballesteros).",
+        "alt": "the clubhouse terrace above a maintained fairway — Crans-sur-Sierre Golf Club (Ballesteros).",
         "caption": "At Crans-sur-Sierre Golf Club (Ballesteros): the clubhouse terrace above a maintained fairway.",
         "scope": "Photograph by Ulrich Mayring, published on Wikimedia Commons under CC BY-SA 3.0, where the photographer identifies the subject as Crans-sur-Sierre Golf Club (Ballesteros). It is not a club-supplied image, and it does not establish the exact hole, angle or current playing conditions.",
         "author": "Ulrich Mayring",
@@ -338,10 +323,10 @@
     "courseId": "emirates-golf-club-majlis-course",
     "gallery": {
       "url": "https://www.dubaigolf.com/egc/golf/courses-and-academy/the-majlis-course/",
-      "label": "The Majlis Course \u2014 official course gallery",
+      "label": "The Majlis Course — official course gallery",
       "publisher": "Emirates Golf Club / Dubai Golf",
       "checkedAt": "2026-10-25",
-      "scope": "Published by Emirates Golf Club / Dubai Golf \u2014 The Majlis Course \u2014 official course gallery. The images stay on their site; we do not republish them.",
+      "scope": "Published by Emirates Golf Club / Dubai Golf — The Majlis Course — official course gallery. The images stay on their site; we do not republish them.",
       "samePageAsLayout": true
     },
     "layout": {
@@ -357,9 +342,9 @@
         "src": "/golf-media/emirates-golf-club-majlis-course-01.webp",
         "width": 961,
         "height": 752,
-        "alt": "golfers putting on a green framed by palms and water \u2014 Emirates Golf Club \u2013 Majlis Course.",
-        "caption": "At Emirates Golf Club \u2013 Majlis Course: golfers putting on a green framed by palms and water.",
-        "scope": "Photograph by Paddy Briggs (PaddyBriggs), published on Wikimedia Commons under Public domain, where the photographer identifies the subject as Emirates Golf Club \u2013 Majlis Course. It is not a club-supplied image, and it does not establish the exact hole, angle or current playing conditions.",
+        "alt": "golfers putting on a green framed by palms and water — Emirates Golf Club – Majlis Course.",
+        "caption": "At Emirates Golf Club – Majlis Course: golfers putting on a green framed by palms and water.",
+        "scope": "Photograph by Paddy Briggs (PaddyBriggs), published on Wikimedia Commons under Public domain, where the photographer identifies the subject as Emirates Golf Club – Majlis Course. It is not a club-supplied image, and it does not establish the exact hole, angle or current playing conditions.",
         "author": "Paddy Briggs (PaddyBriggs)",
         "sourcePage": "https://commons.wikimedia.org/wiki/File:EGC2001.jpg",
         "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/0/02/EGC2001.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
@@ -371,42 +356,14 @@
         "src": "/golf-media/emirates-golf-club-majlis-course-02.webp",
         "width": 700,
         "height": 439,
-        "alt": "an approach shot on the desert fairway with caddie alongside \u2014 Emirates Golf Club \u2013 Majlis Course.",
-        "caption": "At Emirates Golf Club \u2013 Majlis Course: an approach shot on the desert fairway with caddie alongside.",
-        "scope": "Photograph by Abdul Halim Ab Rahman, published on Wikimedia Commons under CC BY 2.0, where the photographer identifies the subject as Emirates Golf Club \u2013 Majlis Course. It is not a club-supplied image, and it does not establish the exact hole, angle or current playing conditions.",
+        "alt": "an approach shot on the desert fairway with caddie alongside — Emirates Golf Club – Majlis Course.",
+        "caption": "At Emirates Golf Club – Majlis Course: an approach shot on the desert fairway with caddie alongside.",
+        "scope": "Photograph by Abdul Halim Ab Rahman, published on Wikimedia Commons under CC BY 2.0, where the photographer identifies the subject as Emirates Golf Club – Majlis Course. It is not a club-supplied image, and it does not establish the exact hole, angle or current playing conditions.",
         "author": "Abdul Halim Ab Rahman",
         "sourcePage": "https://commons.wikimedia.org/wiki/File:Tiger_Wood_Dubai_Desert_Classic_08.jpg",
         "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fc/Tiger_Wood_Dubai_Desert_Classic_08.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
         "license": "CC BY 2.0",
         "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
-        "checkedAt": "2026-10-25"
-      },
-      {
-        "src": "/golf-media/emirates-golf-club-majlis-course-03.webp",
-        "width": 1600,
-        "height": 734,
-        "alt": "a striped mown fairway with bunkers and golfers \u2014 Emirates Golf Club \u2013 Majlis Course.",
-        "caption": "At Emirates Golf Club \u2013 Majlis Course: a striped mown fairway with bunkers and golfers.",
-        "scope": "Photograph by Edgar El, published on Wikimedia Commons under CC BY 3.0, where the photographer identifies the subject as Emirates Golf Club \u2013 Majlis Course. It is not a club-supplied image, and it does not establish the exact hole, angle or current playing conditions.",
-        "author": "Edgar El",
-        "sourcePage": "https://commons.wikimedia.org/wiki/File:Dubai_%E2%80%93_Marina_-_%D8%AF%D8%A8%D9%8A_%E2%80%93_%D9%85%D8%A7%D8%B1%D9%8A%D9%86%D8%A7_-_Golf_-_Emirates_Hills_2_-_%D8%AC%D9%88%D9%84%D9%81_-_%D8%AA%D9%84%D8%A7%D9%84_%D8%A7%D9%84%D8%A5%D9%85%D8%A7%D8%B1%D8%A7%D8%AA_2_-_panoramio.jpg",
-        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e5/Dubai_%E2%80%93_Marina_-_%D8%AF%D8%A8%D9%8A_%E2%80%93_%D9%85%D8%A7%D8%B1%D9%8A%D9%86%D8%A7_-_Golf_-_Emirates_Hills_2_-_%D8%AC%D9%88%D9%84%D9%81_-_%D8%AA%D9%84%D8%A7%D9%84_%D8%A7%D9%84%D8%A5%D9%85%D8%A7%D8%B1%D8%A7%D8%AA_2_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-        "license": "CC BY 3.0",
-        "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
-        "checkedAt": "2026-10-25"
-      },
-      {
-        "src": "/golf-media/emirates-golf-club-majlis-course-04.webp",
-        "width": 1600,
-        "height": 596,
-        "alt": "palm-lined fairways with golfers at play \u2014 Emirates Golf Club \u2013 Majlis Course.",
-        "caption": "At Emirates Golf Club \u2013 Majlis Course: palm-lined fairways with golfers at play.",
-        "scope": "Photograph by giggel, published on Wikimedia Commons under CC BY 3.0, where the photographer identifies the subject as Emirates Golf Club \u2013 Majlis Course. It is not a club-supplied image, and it does not establish the exact hole, angle or current playing conditions.",
-        "author": "giggel",
-        "sourcePage": "https://commons.wikimedia.org/wiki/File:Dubai_%E2%80%93_Marina_-_%D8%AF%D8%A8%D9%8A_%E2%80%93_%D9%85%D8%A7%D8%B1%D9%8A%D9%86%D8%A7_-_Golf_-_Emirates_Hills_2_-_%D8%AC%D9%88%D9%84%D9%81_-_%D8%AA%D9%84%D8%A7%D9%84_%D8%A7%D9%84%D8%A5%D9%85%D8%A7%D8%B1%D8%A7%D8%AA_2_-_panoramio_(2).jpg",
-        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/83/Dubai_%E2%80%93_Marina_-_%D8%AF%D8%A8%D9%8A_%E2%80%93_%D9%85%D8%A7%D8%B1%D9%8A%D9%86%D8%A7_-_Golf_-_Emirates_Hills_2_-_%D8%AC%D9%88%D9%84%D9%81_-_%D8%AA%D9%84%D8%A7%D9%84_%D8%A7%D9%84%D8%A5%D9%85%D8%A7%D8%B1%D8%A7%D8%AA_2_-_panoramio_%282%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-        "license": "CC BY 3.0",
-        "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
         "checkedAt": "2026-10-25"
       }
     ],
@@ -419,7 +376,7 @@
       "label": "FONTANA official course photographs",
       "publisher": "FONTANA Golf",
       "checkedAt": "2026-10-25",
-      "scope": "Published by FONTANA Golf \u2014 FONTANA official course photographs. The images stay on their site; we do not republish them.",
+      "scope": "Published by FONTANA Golf — FONTANA official course photographs. The images stay on their site; we do not republish them.",
       "samePageAsLayout": false
     },
     "layout": {
@@ -435,7 +392,7 @@
         "src": "/golf-media/fontana-golf-club-01.webp",
         "width": 1600,
         "height": 2133,
-        "alt": "the putting green and clubhouse during a parkland event \u2014 Fontana Golf Club.",
+        "alt": "the putting green and clubhouse during a parkland event — Fontana Golf Club.",
         "caption": "At Fontana Golf Club: the putting green and clubhouse during a parkland event.",
         "scope": "Photograph by Gryffindor, published on Wikimedia Commons under Public domain, where the photographer identifies the subject as Fontana Golf Club. It is not a club-supplied image, and it does not establish the exact hole, angle or current playing conditions.",
         "author": "Gryffindor",
@@ -452,10 +409,10 @@
     "courseId": "glen-abbey-golf-club",
     "gallery": {
       "url": "https://glenabbey.clublink.ca/about/gallery/thecourse/",
-      "label": "Glen Abbey \u2014 The Course official gallery",
+      "label": "Glen Abbey — The Course official gallery",
       "publisher": "Glen Abbey Golf Club / ClubLink",
       "checkedAt": "2026-10-25",
-      "scope": "Published by Glen Abbey Golf Club / ClubLink \u2014 Glen Abbey \u2014 The Course official gallery. The images stay on their site; we do not republish them.",
+      "scope": "Published by Glen Abbey Golf Club / ClubLink — Glen Abbey — The Course official gallery. The images stay on their site; we do not republish them.",
       "samePageAsLayout": false
     },
     "layout": {
@@ -463,7 +420,7 @@
       "label": "Glen Abbey official 2026 scorecard (not a map)",
       "publisher": "Glen Abbey Golf Club / ClubLink",
       "checkedAt": "2026-10-25",
-      "scope": "The club's published scorecard for this course \u2014 a card of hole yardages, not a routing map or a diagram of the layout.",
+      "scope": "The club's published scorecard for this course — a card of hole yardages, not a routing map or a diagram of the layout.",
       "kind": "scorecard"
     },
     "photos": [
@@ -471,7 +428,7 @@
         "src": "/golf-media/glen-abbey-golf-club-01.webp",
         "width": 1600,
         "height": 1200,
-        "alt": "a wide mown fairway beside the cart path in autumn \u2014 Glen Abbey Golf Club.",
+        "alt": "a wide mown fairway beside the cart path in autumn — Glen Abbey Golf Club.",
         "caption": "At Glen Abbey Golf Club: a wide mown fairway beside the cart path in autumn.",
         "scope": "Photograph by Whpq, published on Wikimedia Commons under CC BY-SA 4.0, where the photographer identifies the subject as Glen Abbey Golf Club. It is not a club-supplied image, and it does not establish the exact hole, angle or current playing conditions.",
         "author": "Whpq",
@@ -485,7 +442,7 @@
         "src": "/golf-media/glen-abbey-golf-club-02.webp",
         "width": 1600,
         "height": 1200,
-        "alt": "fairway, bunker and carts in the wooded valley \u2014 Glen Abbey Golf Club.",
+        "alt": "fairway, bunker and carts in the wooded valley — Glen Abbey Golf Club.",
         "caption": "At Glen Abbey Golf Club: fairway, bunker and carts in the wooded valley.",
         "scope": "Photograph by Whpq, published on Wikimedia Commons under CC BY-SA 4.0, where the photographer identifies the subject as Glen Abbey Golf Club. It is not a club-supplied image, and it does not establish the exact hole, angle or current playing conditions.",
         "author": "Whpq",
@@ -499,7 +456,7 @@
         "src": "/golf-media/glen-abbey-golf-club-03.webp",
         "width": 1600,
         "height": 1200,
-        "alt": "greens, bunkers and a pond seen from above \u2014 Glen Abbey Golf Club.",
+        "alt": "greens, bunkers and a pond seen from above — Glen Abbey Golf Club.",
         "caption": "At Glen Abbey Golf Club: greens, bunkers and a pond seen from above.",
         "scope": "Photograph by Whpq, published on Wikimedia Commons under CC BY-SA 4.0, where the photographer identifies the subject as Glen Abbey Golf Club. It is not a club-supplied image, and it does not establish the exact hole, angle or current playing conditions.",
         "author": "Whpq",
@@ -513,7 +470,7 @@
         "src": "/golf-media/glen-abbey-golf-club-04.webp",
         "width": 1600,
         "height": 1200,
-        "alt": "a fairway with flagstick and clubhouse between autumn tree lines \u2014 Glen Abbey Golf Club.",
+        "alt": "a fairway with flagstick and clubhouse between autumn tree lines — Glen Abbey Golf Club.",
         "caption": "At Glen Abbey Golf Club: a fairway with flagstick and clubhouse between autumn tree lines.",
         "scope": "Photograph by Whpq, published on Wikimedia Commons under CC BY-SA 4.0, where the photographer identifies the subject as Glen Abbey Golf Club. It is not a club-supplied image, and it does not establish the exact hole, angle or current playing conditions.",
         "author": "Whpq",
@@ -560,16 +517,16 @@
     "courseId": "jack-s-point",
     "gallery": {
       "url": "https://www.jackspoint.com/golf",
-      "label": "Jack\u2019s Point official course photo gallery",
-      "publisher": "Jack\u2019s Point",
+      "label": "Jack’s Point official course photo gallery",
+      "publisher": "Jack’s Point",
       "checkedAt": "2026-10-25",
-      "scope": "Published by Jack\u2019s Point \u2014 Jack\u2019s Point official course photo gallery. The images stay on their site; we do not republish them.",
+      "scope": "Published by Jack’s Point — Jack’s Point official course photo gallery. The images stay on their site; we do not republish them.",
       "samePageAsLayout": true
     },
     "layout": {
       "url": "https://www.jackspoint.com/golf",
-      "label": "Jack\u2019s Point official routing map",
-      "publisher": "Jack\u2019s Point",
+      "label": "Jack’s Point official routing map",
+      "publisher": "Jack’s Point",
       "checkedAt": "2026-10-25",
       "scope": "An official routing map published by the club for this course.",
       "kind": "routing-map"
@@ -584,7 +541,7 @@
       "label": "Official Golf Course photo gallery",
       "publisher": "Katameya Heights",
       "checkedAt": "2026-10-25",
-      "scope": "Published by Katameya Heights \u2014 Official Golf Course photo gallery. The images stay on their site; we do not republish them.",
+      "scope": "Published by Katameya Heights — Official Golf Course photo gallery. The images stay on their site; we do not republish them.",
       "samePageAsLayout": false
     },
     "layout": null,
@@ -595,16 +552,16 @@
     "courseId": "keilir-golf-club",
     "gallery": {
       "url": "https://www.keilir.is/",
-      "label": "Official Hvaleyrarv\u00f6llur course photographs",
-      "publisher": "Golfkl\u00fabburinn Keilir",
+      "label": "Official Hvaleyrarvöllur course photographs",
+      "publisher": "Golfklúbburinn Keilir",
       "checkedAt": "2026-10-25",
-      "scope": "Published by Golfkl\u00fabburinn Keilir \u2014 Official Hvaleyrarv\u00f6llur course photographs. The images stay on their site; we do not republish them.",
+      "scope": "Published by Golfklúbburinn Keilir — Official Hvaleyrarvöllur course photographs. The images stay on their site; we do not republish them.",
       "samePageAsLayout": false
     },
     "layout": {
       "url": "https://www.keilir.is/hola-fyrir-holu-hvaleyrarvollur/",
-      "label": "Hvaleyrarv\u00f6llur \u2014 hole-by-hole guide",
-      "publisher": "Golfkl\u00fabburinn Keilir",
+      "label": "Hvaleyrarvöllur — hole-by-hole guide",
+      "publisher": "Golfklúbburinn Keilir",
       "checkedAt": "2026-10-25",
       "scope": "An official hole-by-hole tour published by the club for this course.",
       "kind": "hole-tour"
@@ -619,7 +576,7 @@
       "label": "Kennemer course photographs on Wikimedia Commons",
       "publisher": "Wikimedia Commons contributors",
       "checkedAt": "2026-10-25",
-      "scope": "Published by Wikimedia Commons contributors \u2014 Kennemer course photographs on Wikimedia Commons. The images stay on their site; we do not republish them.",
+      "scope": "Published by Wikimedia Commons contributors — Kennemer course photographs on Wikimedia Commons. The images stay on their site; we do not republish them.",
       "samePageAsLayout": false
     },
     "layout": {
@@ -635,7 +592,7 @@
         "src": "/golf-media/kennemer-golf-country-club-01.webp",
         "width": 1600,
         "height": 1200,
-        "alt": "dune heath fairways, blue-flag greens and bunkers \u2014 Kennemer Golf & Country Club.",
+        "alt": "dune heath fairways, blue-flag greens and bunkers — Kennemer Golf & Country Club.",
         "caption": "At Kennemer Golf & Country Club: dune heath fairways, blue-flag greens and bunkers.",
         "scope": "Photograph by Ken123, published on Wikimedia Commons under CC BY-SA 3.0, where the photographer identifies the subject as Kennemer Golf & Country Club. It is not a club-supplied image, and it does not establish the exact hole, angle or current playing conditions.",
         "author": "Ken123",
@@ -649,7 +606,7 @@
         "src": "/golf-media/kennemer-golf-country-club-02.webp",
         "width": 1600,
         "height": 1200,
-        "alt": "a bunker and fairway with players and spectators \u2014 Kennemer Golf & Country Club.",
+        "alt": "a bunker and fairway with players and spectators — Kennemer Golf & Country Club.",
         "caption": "At Kennemer Golf & Country Club: a bunker and fairway with players and spectators.",
         "scope": "Photograph by Ken123, published on Wikimedia Commons under CC BY-SA 3.0, where the photographer identifies the subject as Kennemer Golf & Country Club. It is not a club-supplied image, and it does not establish the exact hole, angle or current playing conditions.",
         "author": "Ken123",
@@ -663,7 +620,7 @@
         "src": "/golf-media/kennemer-golf-country-club-03.webp",
         "width": 1600,
         "height": 2133,
-        "alt": "rolling fairways and a bunker below the distant clubhouse \u2014 Kennemer Golf & Country Club.",
+        "alt": "rolling fairways and a bunker below the distant clubhouse — Kennemer Golf & Country Club.",
         "caption": "At Kennemer Golf & Country Club: rolling fairways and a bunker below the distant clubhouse.",
         "scope": "Photograph by HillHi, published on Wikimedia Commons under CC0, where the photographer identifies the subject as Kennemer Golf & Country Club. It is not a club-supplied image, and it does not establish the exact hole, angle or current playing conditions.",
         "author": "HillHi",
@@ -677,7 +634,7 @@
         "src": "/golf-media/kennemer-golf-country-club-04.webp",
         "width": 1600,
         "height": 1200,
-        "alt": "a young golfer with club and ball on the mown turf \u2014 Kennemer Golf & Country Club.",
+        "alt": "a young golfer with club and ball on the mown turf — Kennemer Golf & Country Club.",
         "caption": "At Kennemer Golf & Country Club: a young golfer with club and ball on the mown turf.",
         "scope": "Photograph by HillHi, published on Wikimedia Commons under CC0, where the photographer identifies the subject as Kennemer Golf & Country Club. It is not a club-supplied image, and it does not establish the exact hole, angle or current playing conditions.",
         "author": "HillHi",
@@ -695,15 +652,15 @@
     "gallery": {
       "url": "https://kytajagolf.fi/en-gb/courses/south-east/",
       "label": "Official South East photographs and course preview",
-      "publisher": "Kyt\u00e4j\u00e4 Golf",
+      "publisher": "Kytäjä Golf",
       "checkedAt": "2026-10-25",
-      "scope": "Published by Kyt\u00e4j\u00e4 Golf \u2014 Official South East photographs and course preview. The images stay on their site; we do not republish them.",
+      "scope": "Published by Kytäjä Golf — Official South East photographs and course preview. The images stay on their site; we do not republish them.",
       "samePageAsLayout": true
     },
     "layout": {
       "url": "https://kytajagolf.fi/en-gb/courses/south-east/",
-      "label": "South East \u2014 official 18-hole tour",
-      "publisher": "Kyt\u00e4j\u00e4 Golf",
+      "label": "South East — official 18-hole tour",
+      "publisher": "Kytäjä Golf",
       "checkedAt": "2026-10-25",
       "scope": "An official hole-by-hole tour published by the club for this course.",
       "kind": "hole-tour"
@@ -718,12 +675,12 @@
       "label": "Official Ryder Cup course and hole photographs",
       "publisher": "Marco Simone Golf & Country Club",
       "checkedAt": "2026-10-25",
-      "scope": "Published by Marco Simone Golf & Country Club \u2014 Official Ryder Cup course and hole photographs. The images stay on their site; we do not republish them.",
+      "scope": "Published by Marco Simone Golf & Country Club — Official Ryder Cup course and hole photographs. The images stay on their site; we do not republish them.",
       "samePageAsLayout": true
     },
     "layout": {
       "url": "https://golfmarcosimone.com/the-holes/",
-      "label": "Ryder Cup course \u2014 official hole-by-hole guide",
+      "label": "Ryder Cup course — official hole-by-hole guide",
       "publisher": "Marco Simone Golf & Country Club",
       "checkedAt": "2026-10-25",
       "scope": "An official hole-by-hole tour published by the club for this course.",
@@ -734,7 +691,7 @@
         "src": "/golf-media/marco-simone-golf-country-club-01.webp",
         "width": 1600,
         "height": 1067,
-        "alt": "fairway, green, bunker and flagstick before tournament grandstands \u2014 Marco Simone Golf & Country Club.",
+        "alt": "fairway, green, bunker and flagstick before tournament grandstands — Marco Simone Golf & Country Club.",
         "caption": "At Marco Simone Golf & Country Club: fairway, green, bunker and flagstick before tournament grandstands.",
         "scope": "Photograph by Cutkiller2018, published on Wikimedia Commons under CC BY-SA 4.0, where the photographer identifies the subject as Marco Simone Golf & Country Club. It is not a club-supplied image, and it does not establish the exact hole, angle or current playing conditions.",
         "author": "Cutkiller2018",
@@ -754,7 +711,7 @@
       "label": "Official golf-course photo gallery",
       "publisher": "Millbrook Resort",
       "checkedAt": "2026-10-25",
-      "scope": "Published by Millbrook Resort \u2014 Official golf-course photo gallery. The images stay on their site; we do not republish them.",
+      "scope": "Published by Millbrook Resort — Official golf-course photo gallery. The images stay on their site; we do not republish them.",
       "samePageAsLayout": false
     },
     "layout": null,
@@ -763,7 +720,7 @@
         "src": "/golf-media/millbrook-resort-03.webp",
         "width": 1600,
         "height": 1200,
-        "alt": "a golfer mid-swing with the green and flagstick beyond \u2014 Millbrook Resort.",
+        "alt": "a golfer mid-swing with the green and flagstick beyond — Millbrook Resort.",
         "caption": "At Millbrook Resort: a golfer mid-swing with the green and flagstick beyond.",
         "scope": "Photograph by Golfnut01, published on Wikimedia Commons under CC BY-SA 4.0, where the photographer identifies the subject as Millbrook Resort. It is not a club-supplied image, and it does not establish the exact hole, angle or current playing conditions.",
         "author": "Golfnut01",
@@ -783,7 +740,7 @@
       "label": "Official championship-course hole photographs",
       "publisher": "Montgomerie Maxx Royal",
       "checkedAt": "2026-10-25",
-      "scope": "Published by Montgomerie Maxx Royal \u2014 Official championship-course hole photographs. The images stay on their site; we do not republish them.",
+      "scope": "Published by Montgomerie Maxx Royal — Official championship-course hole photographs. The images stay on their site; we do not republish them.",
       "samePageAsLayout": true
     },
     "layout": {
@@ -804,12 +761,12 @@
       "label": "Official Muirfield course photographs",
       "publisher": "Muirfield / The Honourable Company of Edinburgh Golfers",
       "checkedAt": "2026-10-25",
-      "scope": "Published by Muirfield / The Honourable Company of Edinburgh Golfers \u2014 Official Muirfield course photographs. The images stay on their site; we do not republish them.",
+      "scope": "Published by Muirfield / The Honourable Company of Edinburgh Golfers — Official Muirfield course photographs. The images stay on their site; we do not republish them.",
       "samePageAsLayout": true
     },
     "layout": {
       "url": "https://www.muirfield.org.uk/the-course/",
-      "label": "Muirfield \u2014 official 18-hole tour",
+      "label": "Muirfield — official 18-hole tour",
       "publisher": "Muirfield / The Honourable Company of Edinburgh Golfers",
       "checkedAt": "2026-10-25",
       "scope": "An official hole-by-hole tour published by the club for this course.",
@@ -820,7 +777,7 @@
         "src": "/golf-media/muirfield-01.webp",
         "width": 1600,
         "height": 1200,
-        "alt": "the links green, pot bunkers and clubhouse in championship condition \u2014 Muirfield.",
+        "alt": "the links green, pot bunkers and clubhouse in championship condition — Muirfield.",
         "caption": "At Muirfield: the links green, pot bunkers and clubhouse in championship condition.",
         "scope": "Photograph by alljengi, published on Wikimedia Commons under CC BY-SA 2.0, where the photographer identifies the subject as Muirfield. It is not a club-supplied image, and it does not establish the exact hole, angle or current playing conditions.",
         "author": "alljengi",
@@ -834,7 +791,7 @@
         "src": "/golf-media/muirfield-02.webp",
         "width": 1024,
         "height": 683,
-        "alt": "links fescue rough beside the fairway and green \u2014 Muirfield.",
+        "alt": "links fescue rough beside the fairway and green — Muirfield.",
         "caption": "At Muirfield: links fescue rough beside the fairway and green.",
         "scope": "Photograph by Richard Webb, published on Wikimedia Commons under CC BY-SA 2.0, where the photographer identifies the subject as Muirfield. It is not a club-supplied image, and it does not establish the exact hole, angle or current playing conditions.",
         "author": "Richard Webb",
@@ -848,7 +805,7 @@
         "src": "/golf-media/muirfield-03.webp",
         "width": 1600,
         "height": 1200,
-        "alt": "spectators behind the links fairway leading to the green \u2014 Muirfield.",
+        "alt": "spectators behind the links fairway leading to the green — Muirfield.",
         "caption": "At Muirfield: spectators behind the links fairway leading to the green.",
         "scope": "Photograph by Richard West, published on Wikimedia Commons under CC BY-SA 2.0, where the photographer identifies the subject as Muirfield. It is not a club-supplied image, and it does not establish the exact hole, angle or current playing conditions.",
         "author": "Richard West",
@@ -862,7 +819,7 @@
         "src": "/golf-media/muirfield-04.webp",
         "width": 1600,
         "height": 1200,
-        "alt": "the fairway and green with flagstick and bunker above the water \u2014 Muirfield.",
+        "alt": "the fairway and green with flagstick and bunker above the water — Muirfield.",
         "caption": "At Muirfield: the fairway and green with flagstick and bunker above the water.",
         "scope": "Photograph by Richard Webb, published on Wikimedia Commons under CC BY-SA 2.0, where the photographer identifies the subject as Muirfield. It is not a club-supplied image, and it does not establish the exact hole, angle or current playing conditions.",
         "author": "Richard Webb",
@@ -882,7 +839,7 @@
       "label": "Official course photograph and introduction",
       "publisher": "New South Wales Golf Club",
       "checkedAt": "2026-10-25",
-      "scope": "Published by New South Wales Golf Club \u2014 Official course photograph and introduction. The images stay on their site; we do not republish them.",
+      "scope": "Published by New South Wales Golf Club — Official course photograph and introduction. The images stay on their site; we do not republish them.",
       "samePageAsLayout": false
     },
     "layout": {
@@ -903,12 +860,12 @@
       "label": "Official Oitavos Dunes hole photographs",
       "publisher": "Oitavos Dunes",
       "checkedAt": "2026-10-25",
-      "scope": "Published by Oitavos Dunes \u2014 Official Oitavos Dunes hole photographs. The images stay on their site; we do not republish them.",
+      "scope": "Published by Oitavos Dunes — Official Oitavos Dunes hole photographs. The images stay on their site; we do not republish them.",
       "samePageAsLayout": true
     },
     "layout": {
       "url": "https://oitavosdunes.com/course-overview/",
-      "label": "Oitavos Dunes \u2014 official hole-by-hole guide",
+      "label": "Oitavos Dunes — official hole-by-hole guide",
       "publisher": "Oitavos Dunes",
       "checkedAt": "2026-10-25",
       "scope": "An official hole-by-hole tour published by the club for this course.",
@@ -919,10 +876,10 @@
         "src": "/golf-media/oitavos-dunes-01.webp",
         "width": 1600,
         "height": 743,
-        "alt": "a fairway with yardage markers and the cart path among stone pines \u2014 Oitavos Dunes.",
+        "alt": "a fairway with yardage markers and the cart path among stone pines — Oitavos Dunes.",
         "caption": "At Oitavos Dunes: a fairway with yardage markers and the cart path among stone pines.",
-        "scope": "Photograph by R\u00fadisicyon, published on Wikimedia Commons under CC BY-SA 4.0, where the photographer identifies the subject as Oitavos Dunes. It is not a club-supplied image, and it does not establish the exact hole, angle or current playing conditions.",
-        "author": "R\u00fadisicyon",
+        "scope": "Photograph by Rúdisicyon, published on Wikimedia Commons under CC BY-SA 4.0, where the photographer identifies the subject as Oitavos Dunes. It is not a club-supplied image, and it does not establish the exact hole, angle or current playing conditions.",
+        "author": "Rúdisicyon",
         "sourcePage": "https://commons.wikimedia.org/wiki/File:Oitavos_Dunes._05-18.jpg",
         "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Oitavos_Dunes._05-18.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original",
         "license": "CC BY-SA 4.0",
@@ -939,7 +896,7 @@
       "label": "Official Portmarnock Golf Club course photographs and tour",
       "publisher": "Portmarnock Golf Club",
       "checkedAt": "2026-10-25",
-      "scope": "Published by Portmarnock Golf Club \u2014 Official Portmarnock Golf Club course photographs and tour. The images stay on their site; we do not republish them.",
+      "scope": "Published by Portmarnock Golf Club — Official Portmarnock Golf Club course photographs and tour. The images stay on their site; we do not republish them.",
       "samePageAsLayout": true
     },
     "layout": {
@@ -955,7 +912,7 @@
         "src": "/golf-media/portmarnock-golf-club-02.webp",
         "width": 1600,
         "height": 1064,
-        "alt": "an aerial view of links fairways and greens beside the sea \u2014 Portmarnock Golf Club.",
+        "alt": "an aerial view of links fairways and greens beside the sea — Portmarnock Golf Club.",
         "caption": "At Portmarnock Golf Club: an aerial view of links fairways and greens beside the sea.",
         "scope": "Photograph by PGC, published on Wikimedia Commons under CC0, where the photographer identifies the subject as Portmarnock Golf Club. It is not a club-supplied image, and it does not establish the exact hole, angle or current playing conditions.",
         "author": "PGC",
@@ -969,7 +926,7 @@
         "src": "/golf-media/portmarnock-golf-club-03.webp",
         "width": 1600,
         "height": 1065,
-        "alt": "an aerial view of the coastal links across its sandy peninsula \u2014 Portmarnock Golf Club.",
+        "alt": "an aerial view of the coastal links across its sandy peninsula — Portmarnock Golf Club.",
         "caption": "At Portmarnock Golf Club: an aerial view of the coastal links across its sandy peninsula.",
         "scope": "Photograph by PGC, published on Wikimedia Commons under CC0, where the photographer identifies the subject as Portmarnock Golf Club. It is not a club-supplied image, and it does not establish the exact hole, angle or current playing conditions.",
         "author": "PGC",
@@ -987,15 +944,15 @@
     "gallery": {
       "url": "https://westcliffs.com/en/praia-del-rey-golf-course/",
       "label": "Official Praia d'El Rey course-photo gallery",
-      "publisher": "West Cliffs Resort / Praia d\u2019El Rey",
+      "publisher": "West Cliffs Resort / Praia d’El Rey",
       "checkedAt": "2026-10-25",
-      "scope": "Published by West Cliffs Resort / Praia d\u2019El Rey \u2014 Official Praia d'El Rey course-photo gallery. The images stay on their site; we do not republish them.",
+      "scope": "Published by West Cliffs Resort / Praia d’El Rey — Official Praia d'El Rey course-photo gallery. The images stay on their site; we do not republish them.",
       "samePageAsLayout": true
     },
     "layout": {
       "url": "https://westcliffs.com/en/praia-del-rey-golf-course/",
-      "label": "Praia d'El Rey \u2014 official course routing and hole guide",
-      "publisher": "West Cliffs Resort / Praia d\u2019El Rey",
+      "label": "Praia d'El Rey — official course routing and hole guide",
+      "publisher": "West Cliffs Resort / Praia d’El Rey",
       "checkedAt": "2026-10-25",
       "scope": "An official routing map published by the club for this course.",
       "kind": "routing-map"
@@ -1005,7 +962,7 @@
         "src": "/golf-media/praia-d-el-rey-01.webp",
         "width": 1280,
         "height": 960,
-        "alt": "fairway mowing stripes, the white clubhouse and coastal dunes \u2014 Praia d'El Rey.",
+        "alt": "fairway mowing stripes, the white clubhouse and coastal dunes — Praia d'El Rey.",
         "caption": "At Praia d'El Rey: fairway mowing stripes, the white clubhouse and coastal dunes.",
         "scope": "Photograph by Vitor Oliveira, published on Wikimedia Commons under CC BY-SA 2.0, where the photographer identifies the subject as Praia d'El Rey. It is not a club-supplied image, and it does not establish the exact hole, angle or current playing conditions.",
         "author": "Vitor Oliveira",
@@ -1019,7 +976,7 @@
         "src": "/golf-media/praia-d-el-rey-02.webp",
         "width": 1600,
         "height": 1130,
-        "alt": "the putting green with hole and position markers \u2014 Praia d'El Rey.",
+        "alt": "the putting green with hole and position markers — Praia d'El Rey.",
         "caption": "At Praia d'El Rey: the putting green with hole and position markers.",
         "scope": "Photograph by Vitor Oliveira, published on Wikimedia Commons under CC BY-SA 2.0, where the photographer identifies the subject as Praia d'El Rey. It is not a club-supplied image, and it does not establish the exact hole, angle or current playing conditions.",
         "author": "Vitor Oliveira",
@@ -1033,7 +990,7 @@
         "src": "/golf-media/praia-d-el-rey-03.webp",
         "width": 1600,
         "height": 1200,
-        "alt": "an aerial view of fairway, green, bunker and flagstick among the villas \u2014 Praia d'El Rey.",
+        "alt": "an aerial view of fairway, green, bunker and flagstick among the villas — Praia d'El Rey.",
         "caption": "At Praia d'El Rey: an aerial view of fairway, green, bunker and flagstick among the villas.",
         "scope": "Photograph by Vitor Oliveira from Torres Vedras, PORTUGAL, published on Wikimedia Commons under CC BY-SA 4.0, where the photographer identifies the subject as Praia d'El Rey. It is not a club-supplied image, and it does not establish the exact hole, angle or current playing conditions.",
         "author": "Vitor Oliveira from Torres Vedras, PORTUGAL",
@@ -1053,12 +1010,12 @@
       "label": "Official El Prat club imagery and video",
       "publisher": "Real Club de Golf El Prat",
       "checkedAt": "2026-10-25",
-      "scope": "Published by Real Club de Golf El Prat \u2014 Official El Prat club imagery and video. The images stay on their site; we do not republish them.",
+      "scope": "Published by Real Club de Golf El Prat — Official El Prat club imagery and video. The images stay on their site; we do not republish them.",
       "samePageAsLayout": false
     },
     "layout": {
       "url": "https://www.realclubdegolfelprat.com/en/courses/",
-      "label": "Official routing maps \u2014 Pink, Yellow and Green",
+      "label": "Official routing maps — Pink, Yellow and Green",
       "publisher": "Real Club de Golf El Prat",
       "checkedAt": "2026-10-25",
       "scope": "An official routing map published by the club for this course.",
@@ -1069,7 +1026,7 @@
         "src": "/golf-media/real-club-de-golf-el-prat-01.webp",
         "width": 1600,
         "height": 1200,
-        "alt": "fairway, sand bunker and winding cart path on rolling terrain \u2014 Real Club de Golf El Prat.",
+        "alt": "fairway, sand bunker and winding cart path on rolling terrain — Real Club de Golf El Prat.",
         "caption": "At Real Club de Golf El Prat: fairway, sand bunker and winding cart path on rolling terrain.",
         "scope": "Photograph by Pere prlpz, published on Wikimedia Commons under CC BY-SA 3.0, where the photographer identifies the subject as Real Club de Golf El Prat. It is not a club-supplied image, and it does not establish the exact hole, angle or current playing conditions.",
         "author": "Pere prlpz",
@@ -1083,10 +1040,10 @@
         "src": "/golf-media/real-club-de-golf-el-prat-03.webp",
         "width": 1600,
         "height": 1200,
-        "alt": "a mown fairway and green with flagstick and bunkers under rolling hills \u2014 Real Club de Golf El Prat.",
+        "alt": "a mown fairway and green with flagstick and bunkers under rolling hills — Real Club de Golf El Prat.",
         "caption": "At Real Club de Golf El Prat: a mown fairway and green with flagstick and bunkers under rolling hills.",
-        "scope": "Photograph by Pere L\u00f3pez Brosa, published on Wikimedia Commons under CC BY-SA 4.0, where the photographer identifies the subject as Real Club de Golf El Prat. It is not a club-supplied image, and it does not establish the exact hole, angle or current playing conditions.",
-        "author": "Pere L\u00f3pez Brosa",
+        "scope": "Photograph by Pere López Brosa, published on Wikimedia Commons under CC BY-SA 4.0, where the photographer identifies the subject as Real Club de Golf El Prat. It is not a club-supplied image, and it does not establish the exact hole, angle or current playing conditions.",
+        "author": "Pere López Brosa",
         "sourcePage": "https://commons.wikimedia.org/wiki/File:Club_de_Golf_del_Prat_-_Terrassa_-_20240707_192324.jpg",
         "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2c/Club_de_Golf_del_Prat_-_Terrassa_-_20240707_192324.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
         "license": "CC BY-SA 4.0",
@@ -1103,7 +1060,7 @@
       "label": "Royal Cape official course imagery and flyovers",
       "publisher": "Royal Cape Golf Club",
       "checkedAt": "2026-10-25",
-      "scope": "Published by Royal Cape Golf Club \u2014 Royal Cape official course imagery and flyovers. The images stay on their site; we do not republish them.",
+      "scope": "Published by Royal Cape Golf Club — Royal Cape official course imagery and flyovers. The images stay on their site; we do not republish them.",
       "samePageAsLayout": true
     },
     "layout": {
@@ -1121,10 +1078,10 @@
     "courseId": "royal-golf-marrakech-old-course",
     "gallery": {
       "url": "https://royal-golf-marrakech.com/parcours-golfiques/",
-      "label": "Official Old Course photographs \u2014 holes 3 and 13",
+      "label": "Official Old Course photographs — holes 3 and 13",
       "publisher": "Royal Golf Marrakech",
       "checkedAt": "2026-10-25",
-      "scope": "Published by Royal Golf Marrakech \u2014 Official Old Course photographs \u2014 holes 3 and 13. The images stay on their site; we do not republish them.",
+      "scope": "Published by Royal Golf Marrakech — Official Old Course photographs — holes 3 and 13. The images stay on their site; we do not republish them.",
       "samePageAsLayout": false
     },
     "layout": null,
@@ -1138,7 +1095,7 @@
       "label": "The Serapong official hole imagery and videos",
       "publisher": "Sentosa Golf Club",
       "checkedAt": "2026-10-25",
-      "scope": "Published by Sentosa Golf Club \u2014 The Serapong official hole imagery and videos. The images stay on their site; we do not republish them.",
+      "scope": "Published by Sentosa Golf Club — The Serapong official hole imagery and videos. The images stay on their site; we do not republish them.",
       "samePageAsLayout": true
     },
     "layout": {
@@ -1159,7 +1116,7 @@
       "label": "Steenberg official course photo gallery and flyovers",
       "publisher": "Steenberg Golf Club",
       "checkedAt": "2026-10-25",
-      "scope": "Published by Steenberg Golf Club \u2014 Steenberg official course photo gallery and flyovers. The images stay on their site; we do not republish them.",
+      "scope": "Published by Steenberg Golf Club — Steenberg official course photo gallery and flyovers. The images stay on their site; we do not republish them.",
       "samePageAsLayout": true
     },
     "layout": {
@@ -1210,7 +1167,7 @@
       "label": "Thai Country Club official photo gallery",
       "publisher": "Thai Country Club",
       "checkedAt": "2026-10-25",
-      "scope": "Published by Thai Country Club \u2014 Thai Country Club official photo gallery. The images stay on their site; we do not republish them.",
+      "scope": "Published by Thai Country Club — Thai Country Club official photo gallery. The images stay on their site; we do not republish them.",
       "samePageAsLayout": false
     },
     "layout": {
@@ -1231,7 +1188,7 @@
       "label": "Royal Melbourne West official course-photo gallery",
       "publisher": "The Royal Melbourne Golf Club",
       "checkedAt": "2026-10-25",
-      "scope": "Published by The Royal Melbourne Golf Club \u2014 Royal Melbourne West official course-photo gallery. The images stay on their site; we do not republish them.",
+      "scope": "Published by The Royal Melbourne Golf Club — Royal Melbourne West official course-photo gallery. The images stay on their site; we do not republish them.",
       "samePageAsLayout": true
     },
     "layout": {
@@ -1252,7 +1209,7 @@
       "label": "Torrey Pines South photo and hole index",
       "publisher": "TorreyPines.com / San Diego Golf Reservations",
       "checkedAt": "2026-10-25",
-      "scope": "Published by TorreyPines.com / San Diego Golf Reservations \u2014 Torrey Pines South photo and hole index. The images stay on their site; we do not republish them.",
+      "scope": "Published by TorreyPines.com / San Diego Golf Reservations — Torrey Pines South photo and hole index. The images stay on their site; we do not republish them.",
       "samePageAsLayout": false
     },
     "layout": {
@@ -1260,7 +1217,7 @@
       "label": "Official Torrey Pines South scorecard",
       "publisher": "City of San Diego",
       "checkedAt": "2026-10-25",
-      "scope": "The club's published scorecard for this course \u2014 a card of hole yardages, not a routing map or a diagram of the layout.",
+      "scope": "The club's published scorecard for this course — a card of hole yardages, not a routing map or a diagram of the layout.",
       "kind": "scorecard"
     },
     "photos": [
@@ -1268,9 +1225,9 @@
         "src": "/golf-media/torrey-pines-golf-course-south-course-01.webp",
         "width": 1600,
         "height": 1063,
-        "alt": "the putting green, bunker and flagstick before a crowd \u2014 Torrey Pines Golf Course \u2013 South Course.",
-        "caption": "At Torrey Pines Golf Course \u2013 South Course: the putting green, bunker and flagstick before a crowd.",
-        "scope": "Photograph by Dirk DBQ, published on Wikimedia Commons under CC BY 2.0, where the photographer identifies the subject as Torrey Pines Golf Course \u2013 South Course. It is not a club-supplied image, and it does not establish the exact hole, angle or current playing conditions.",
+        "alt": "the putting green, bunker and flagstick before a crowd — Torrey Pines Golf Course – South Course.",
+        "caption": "At Torrey Pines Golf Course – South Course: the putting green, bunker and flagstick before a crowd.",
+        "scope": "Photograph by Dirk DBQ, published on Wikimedia Commons under CC BY 2.0, where the photographer identifies the subject as Torrey Pines Golf Course – South Course. It is not a club-supplied image, and it does not establish the exact hole, angle or current playing conditions.",
         "author": "Dirk DBQ",
         "sourcePage": "https://commons.wikimedia.org/wiki/File:US_Open_-_2008_-_18th_Hole_at_Torrey_Pines_(2577943297).jpg",
         "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3a/US_Open_-_2008_-_18th_Hole_at_Torrey_Pines_%282577943297%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
@@ -1282,9 +1239,9 @@
         "src": "/golf-media/torrey-pines-golf-course-south-course-02.webp",
         "width": 1600,
         "height": 2137,
-        "alt": "golfers mid-swing on the cliffside fairway \u2014 Torrey Pines Golf Course \u2013 South Course.",
-        "caption": "At Torrey Pines Golf Course \u2013 South Course: golfers mid-swing on the cliffside fairway.",
-        "scope": "Photograph by Dirk DBQ, published on Wikimedia Commons under CC BY 2.0, where the photographer identifies the subject as Torrey Pines Golf Course \u2013 South Course. It is not a club-supplied image, and it does not establish the exact hole, angle or current playing conditions.",
+        "alt": "golfers mid-swing on the cliffside fairway — Torrey Pines Golf Course – South Course.",
+        "caption": "At Torrey Pines Golf Course – South Course: golfers mid-swing on the cliffside fairway.",
+        "scope": "Photograph by Dirk DBQ, published on Wikimedia Commons under CC BY 2.0, where the photographer identifies the subject as Torrey Pines Golf Course – South Course. It is not a club-supplied image, and it does not establish the exact hole, angle or current playing conditions.",
         "author": "Dirk DBQ",
         "sourcePage": "https://commons.wikimedia.org/wiki/File:US_Open_-_2008_-_-3_with_la_Jolla_in_backround_(2578747572).jpg",
         "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/72/US_Open_-_2008_-_-3_with_la_Jolla_in_backround_%282578747572%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
@@ -1299,10 +1256,10 @@
     "courseId": "tpc-scottsdale-stadium-course",
     "gallery": {
       "url": "https://tpc.com/scottsdale/photo-gallery/",
-      "label": "TPC Scottsdale official photo gallery \u2014 mixed layouts",
+      "label": "TPC Scottsdale official photo gallery — mixed layouts",
       "publisher": "TPC Scottsdale",
       "checkedAt": "2026-10-25",
-      "scope": "Published by TPC Scottsdale \u2014 TPC Scottsdale official photo gallery \u2014 mixed layouts. The images stay on their site; we do not republish them.",
+      "scope": "Published by TPC Scottsdale — TPC Scottsdale official photo gallery — mixed layouts. The images stay on their site; we do not republish them.",
       "samePageAsLayout": false
     },
     "layout": {
@@ -1310,7 +1267,7 @@
       "label": "Official TPC Scottsdale Stadium scorecard",
       "publisher": "TPC Scottsdale",
       "checkedAt": "2026-10-25",
-      "scope": "The club's published scorecard for this course \u2014 a card of hole yardages, not a routing map or a diagram of the layout.",
+      "scope": "The club's published scorecard for this course — a card of hole yardages, not a routing map or a diagram of the layout.",
       "kind": "scorecard"
     },
     "photos": [
@@ -1318,9 +1275,9 @@
         "src": "/golf-media/tpc-scottsdale-stadium-course-01.webp",
         "width": 1600,
         "height": 1014,
-        "alt": "the putting green, bunkers and grandstand below desert mountains \u2014 TPC Scottsdale \u2013 Stadium Course.",
-        "caption": "At TPC Scottsdale \u2013 Stadium Course: the putting green, bunkers and grandstand below desert mountains.",
-        "scope": "Photograph by Gage Skidmore, published on Wikimedia Commons under CC BY-SA 3.0, where the photographer identifies the subject as TPC Scottsdale \u2013 Stadium Course. It is not a club-supplied image, and it does not establish the exact hole, angle or current playing conditions.",
+        "alt": "the putting green, bunkers and grandstand below desert mountains — TPC Scottsdale – Stadium Course.",
+        "caption": "At TPC Scottsdale – Stadium Course: the putting green, bunkers and grandstand below desert mountains.",
+        "scope": "Photograph by Gage Skidmore, published on Wikimedia Commons under CC BY-SA 3.0, where the photographer identifies the subject as TPC Scottsdale – Stadium Course. It is not a club-supplied image, and it does not establish the exact hole, angle or current playing conditions.",
         "author": "Gage Skidmore",
         "sourcePage": "https://commons.wikimedia.org/wiki/File:Waste_Management_Phoenix_Open_by_Gage_Skidmore.jpg",
         "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/65/Waste_Management_Phoenix_Open_by_Gage_Skidmore.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
@@ -1338,33 +1295,18 @@
       "label": "TPC Summerlin official golf-course photo gallery",
       "publisher": "TPC Summerlin",
       "checkedAt": "2026-10-25",
-      "scope": "Published by TPC Summerlin \u2014 TPC Summerlin official golf-course photo gallery. The images stay on their site; we do not republish them.",
+      "scope": "Published by TPC Summerlin — TPC Summerlin official golf-course photo gallery. The images stay on their site; we do not republish them.",
       "samePageAsLayout": false
     },
     "layout": {
       "url": "https://tpc.com/summerlin/featured-holes/",
-      "label": "TPC Summerlin official featured-hole tour \u2014 holes 15\u201318",
+      "label": "TPC Summerlin official featured-hole tour — holes 15–18",
       "publisher": "TPC Summerlin",
       "checkedAt": "2026-10-25",
       "scope": "An official hole-by-hole tour published by the club for this course.",
       "kind": "hole-tour"
     },
-    "photos": [
-      {
-        "src": "/golf-media/tpc-summerlin-02.webp",
-        "width": 1600,
-        "height": 1200,
-        "alt": "a mown fairway with bunkers and a water hazard \u2014 TPC Summerlin.",
-        "caption": "At TPC Summerlin: a mown fairway with bunkers and a water hazard.",
-        "scope": "Photograph by Mliu92, published on Wikimedia Commons under CC BY-SA 3.0, where the photographer identifies the subject as TPC Summerlin. It is not a club-supplied image, and it does not establish the exact hole, angle or current playing conditions.",
-        "author": "Mliu92",
-        "sourcePage": "https://commons.wikimedia.org/wiki/File:JW_Marriott_and_Rampart_Casino,_Summerlin_(Las_Vegas).jpg",
-        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ad/JW_Marriott_and_Rampart_Casino%2C_Summerlin_%28Las_Vegas%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-        "license": "CC BY-SA 3.0",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
-        "checkedAt": "2026-10-25"
-      }
-    ],
+    "photos": [],
     "map": null
   },
   {
@@ -1374,33 +1316,18 @@
       "label": "Walton Heath Old official course photographs",
       "publisher": "Walton Heath Golf Club",
       "checkedAt": "2026-10-25",
-      "scope": "Published by Walton Heath Golf Club \u2014 Walton Heath Old official course photographs. The images stay on their site; we do not republish them.",
+      "scope": "Published by Walton Heath Golf Club — Walton Heath Old official course photographs. The images stay on their site; we do not republish them.",
       "samePageAsLayout": false
     },
     "layout": {
       "url": "https://www.waltonheath.com/uploads/waltonheath/File/Old%20Course%20Men's%20Scorecard%20(Dec%2024).pdf",
-      "label": "Walton Heath Old official men\u2019s scorecard",
+      "label": "Walton Heath Old official men’s scorecard",
       "publisher": "Walton Heath Golf Club",
       "checkedAt": "2026-10-25",
-      "scope": "The club's published scorecard for this course \u2014 a card of hole yardages, not a routing map or a diagram of the layout.",
+      "scope": "The club's published scorecard for this course — a card of hole yardages, not a routing map or a diagram of the layout.",
       "kind": "scorecard"
     },
-    "photos": [
-      {
-        "src": "/golf-media/walton-heath-golf-club-old-01.webp",
-        "width": 640,
-        "height": 480,
-        "alt": "a mown heathland fairway with a red hole flag \u2014 Walton Heath Golf Club (Old).",
-        "caption": "At Walton Heath Golf Club (Old): a mown heathland fairway with a red hole flag.",
-        "scope": "Photograph by Colin Bell, published on Wikimedia Commons under CC BY-SA 2.0, where the photographer identifies the subject as Walton Heath Golf Club (Old). It is not a club-supplied image, and it does not establish the exact hole, angle or current playing conditions.",
-        "author": "Colin Bell",
-        "sourcePage": "https://commons.wikimedia.org/wiki/File:Footpath_across_Walton_Heath_golf_course_-_geograph.org.uk_-_726163.jpg",
-        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/23/Footpath_across_Walton_Heath_golf_course_-_geograph.org.uk_-_726163.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-        "license": "CC BY-SA 2.0",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
-        "checkedAt": "2026-10-25"
-      }
-    ],
+    "photos": [],
     "map": null
   },
   {
@@ -1410,47 +1337,18 @@
       "label": "Wentworth West photographed hole-by-hole guide",
       "publisher": "GolfPass / Jason Scott Deegan",
       "checkedAt": "2026-10-25",
-      "scope": "Published by GolfPass / Jason Scott Deegan \u2014 Wentworth West photographed hole-by-hole guide. The images stay on their site; we do not republish them.",
+      "scope": "Published by GolfPass / Jason Scott Deegan — Wentworth West photographed hole-by-hole guide. The images stay on their site; we do not republish them.",
       "samePageAsLayout": false
     },
     "layout": {
       "url": "https://pgagbi.bluegolf.com/bluegolf/pgagbi16/course/wentworthclubwest/overview.htm",
       "label": "The PGA / BlueGolf Wentworth West interactive hole map",
-      "publisher": "The Professional Golfers\u2019 Association / BlueGolf",
+      "publisher": "The Professional Golfers’ Association / BlueGolf",
       "checkedAt": "2026-10-25",
       "scope": "An official hole-by-hole tour published by the club for this course.",
       "kind": "hole-tour"
     },
-    "photos": [
-      {
-        "src": "/golf-media/wentworth-club-west-02.webp",
-        "width": 1600,
-        "height": 1200,
-        "alt": "the putting green with flagstick and raked bunker \u2014 Wentworth Club (West).",
-        "caption": "At Wentworth Club (West): the putting green with flagstick and raked bunker.",
-        "scope": "Photograph by Peter S, published on Wikimedia Commons under CC BY-SA 2.0, where the photographer identifies the subject as Wentworth Club (West). It is not a club-supplied image, and it does not establish the exact hole, angle or current playing conditions.",
-        "author": "Peter S",
-        "sourcePage": "https://commons.wikimedia.org/wiki/File:Bunker_at_Wentworth_Golf_Course_-_geograph.org.uk_-_2330014.jpg",
-        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4d/Bunker_at_Wentworth_Golf_Course_-_geograph.org.uk_-_2330014.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-        "license": "CC BY-SA 2.0",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
-        "checkedAt": "2026-10-25"
-      },
-      {
-        "src": "/golf-media/wentworth-club-west-04.webp",
-        "width": 1600,
-        "height": 1200,
-        "alt": "striped mown turf with a tee marker and yardage sign \u2014 Wentworth Club (West).",
-        "caption": "At Wentworth Club (West): striped mown turf with a tee marker and yardage sign.",
-        "scope": "Photograph by Peter S, published on Wikimedia Commons under CC BY-SA 2.0, where the photographer identifies the subject as Wentworth Club (West). It is not a club-supplied image, and it does not establish the exact hole, angle or current playing conditions.",
-        "author": "Peter S",
-        "sourcePage": "https://commons.wikimedia.org/wiki/File:Golf_Course_from_near_the_clubhouse_(Wentworth)_-_geograph.org.uk_-_2330017.jpg",
-        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Golf_Course_from_near_the_clubhouse_%28Wentworth%29_-_geograph.org.uk_-_2330017.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-        "license": "CC BY-SA 2.0",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
-        "checkedAt": "2026-10-25"
-      }
-    ],
+    "photos": [],
     "map": null
   }
 ]
