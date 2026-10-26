@@ -1,11 +1,13 @@
 import Image from 'next/image'
 import type { GolfCourseMedia } from '@/lib/golfMedia'
 import styles from './GolfCourseMedia.module.css'
+import { GolfVisualsFragment } from './GolfVisualsFragment'
 
 export function GolfCourseMedia({ media, courseName }: { media: GolfCourseMedia; courseName: string }) {
   const layoutLabel = media.layout?.kind === 'routing-map' ? 'Open the published routing map' : media.layout?.kind === 'hole-tour' ? 'Explore the published hole-by-hole tour' : 'Open the published scorecard (not a routing map)'
   return (
     <section id="course-visuals" tabIndex={-1} className={styles.visuals} data-golf-media={media.courseId} aria-labelledby="course-visuals-heading">
+      <GolfVisualsFragment />
       <div className={styles.heading}>
         <p className={styles.eyebrow}>See the ground before you play</p>
         <h2 id="course-visuals-heading">Course layout &amp; photographs</h2>

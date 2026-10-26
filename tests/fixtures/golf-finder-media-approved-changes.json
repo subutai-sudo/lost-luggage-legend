@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "kind": "golf-finder-media-approved-change",
+  "golfFinderMediaBaseline": "ebd3e1f92f6313718b7c10df9b286308730a1548",
+  "legacyFixtureSha256": "65a2692a2b7235011c15f3001da95bed9577c9731167fc77ca1e437567a9fbb3",
+  "note": "The media squash merge tree is byte-identical to implementation base 7a70bae8efd6080abdc49470627314f5351abde4. Historical freezes and media approval remain unchanged.",
+  "changes": {
+    "src/app/golf/page.tsx": {
+      "beforeHash": "c5016fa6927a1cff62d5e9e0ff27844914891186ba537c5c72775e112062f866",
+      "afterHash": "9acc9b4cbdafe0e1906144cea6049e584195a7130490e44b3ff8377369ae496d",
+      "reason": "Project validated course media at the real server boundary without sending authoring records to the client."
+    },
+    "src/components/GolfZone.tsx": {
+      "beforeHash": "8ab02a83e73cf8409010df1cb045dea860c140ed47c351e331bb9747beab1710",
+      "afterHash": "fdeb094626b6f92d8d81cc8268a5d877682b45dc7b9be195765d0e4a709ecb89",
+      "reason": "Use first approved course photos, explicit destination fallbacks, complete credits and direct truthfully labelled course-visuals links."
+    },
+    "src/components/GolfZone.module.css": {
+      "beforeHash": "2bcf1f6462afe957d90134cfb4f72bf38f362c0369d8120fa5fdec1a13743e11",
+      "afterHash": "82146804e182b48674d289f8fb5f63772eaf0717d6bcfb0913d0b3c09105d7e8",
+      "reason": "Keep provenance at 13px with 24px links on solid contrasting surfaces; preserve image geometry and cinematic month band."
+    },
+    "tests/golf-core.test.mjs": {
+      "beforeHash": "1c04f7ac53a1611c22f88b46179f66e2e12f3743b6c4b2a6455069640b7abadb",
+      "afterHash": "675508ad6d6a6dba676d4d49c93f53dbb93d8a5d9ed1815ae13beaeff31295f1",
+      "reason": "Wire the real server-only finder media helper into the existing actual-page harness; retain all negative note/source controls."
+    },
+    "tests/golf-zone.browser.test.mjs": {
+      "beforeHash": "3f650aeea9b3dd403ca23fb480f40db3cefd3cbdf37737102da063bacfe048b7",
+      "afterHash": "7e866e5a80f009397b38fc347bd8ed9418349851b598931c14c2182441042a9a",
+      "reason": "Permit only the independently named local course image paths visible in October alongside existing Unsplash destination sources."
+    },
+    "tests/guide-performance.test.mjs": {
+      "beforeHash": "a621dce81926f7fea00e2d6c97c1f150da7100e0d6962d7e127d830928ec6629",
+      "afterHash": "71793906615945bbc781bba4c4fb7045a3975604ed7cda151226cb1445bb1ad8",
+      "reason": "Enumerate this exact follow-up in code and chain exact hashes with mutation controls; no historical fixture edits."
+    },
+    "src/components/GolfCourseMedia.tsx": {
+      "beforeHash": "235f5860508c61bbc68f6f54246957666c7147a2f7e10f165fb968e8fe10181d",
+      "afterHash": "7040ef1a542242ad9694bc902107d8f51d9470ed0ed8ba9a52b64d90176598d5",
+      "reason": "Mount only the null-rendering scoped visuals-fragment hydration helper; retain all server article markup and media."
+    }
+  },
+  "addedFiles": {
+    "src/lib/golfFinderMedia.ts": {
+      "beforeHash": null,
+      "afterHash": "6b0a4196c17b3ad55bc9831e3f716f99a8eeba890b20783f2707e8320e4ae107",
+      "reason": "Server-only, validated, explicit first-photo and visual-resource display projection."
+    },
+    "tests/golf-finder-media.test.mjs": {
+      "beforeHash": null,
+      "afterHash": "b49a126a521cb64dc00510fcc3587417d9b920bd8a4d1ac8efbbb87c73953c62",
+      "reason": "Red-first real-page projection and malformed-media boundary regressions."
+    },
+    "tests/golf-finder-media.browser.test.mjs": {
+      "beforeHash": null,
+      "afterHash": "433da06a0a16d6c2ce581088dd8997b5129243a6a8e6db25f1804e134c62e9aa",
+      "reason": "Red-first actual image identity, credits, twelve-month native interactions and direct fragment-focus regressions in both engines."
+    },
+    "src/components/GolfVisualsFragment.tsx": {
+      "beforeHash": null,
+      "afterHash": "0259d9957748ba65a93dd70c69e6da88843e1b504254eeb3dc2b8345c5781f81",
+      "reason": "Reveal and focus only the exact course-visuals fragment after hydration, document/font readiness and a frame; preserve other navigation and native no-JavaScript markup."
+    },
+    "tests/golf-visuals-fragment.test.mjs": {
+      "beforeHash": null,
+      "afterHash": "a9f3b91545581086ad09db34326c4e38e796fa84bd164b66aa30e1a638bff6ec",
+      "reason": "Exercise exact-hash guards, no normal-guide autofocus, readiness, cancellation, missing targets and lifecycle cleanup with the real compiled helper."
+    },
+    "tests/golf-visuals-fragment.browser.test.mjs": {
+      "beforeHash": null,
+      "afterHash": "01e706e9beb194a8c8e35f71a433e1fd6bf23296fedd7c91e8728af6860d79a7",
+      "reason": "Real-browser normal/unrelated-fragment negatives, same-page fragment focus and JavaScript-disabled native fallback."
+    }
+  },
+  "revisionNote": "Pre-publication harness revisions: wait for exact currentSrc and completed native load before decoding reused/lazy images, including the inherited zone photo test; pin destination fallback identities and assert complete seasonal copy and computed credit contrast. Prior beforeHash values stay unchanged. Pre-publication specification/fragment repair: visibly label every collapsed month preview at 13px on a solid surface; retain original cold-fragment browser assertions and add a scoped course-visuals lifecycle helper with negative controls. GolfCourseMedia beforeHash chains to the published media afterHash; earlier approval fixtures remain immutable."
+}
