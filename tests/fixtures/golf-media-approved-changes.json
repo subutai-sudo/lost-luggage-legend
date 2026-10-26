@@ -1,0 +1,243 @@
+{
+  "schemaVersion": 1,
+  "kind": "golf-media-approved-change",
+  "baseline": "a9fee50",
+  "golfMediaBaseline": "a9fee50102b72d17c025c103adec07b96dcd2afe",
+  "legacyPerformanceBaseline": "70a91debd34c83c9b35e856c845ce7c4e641da69",
+  "legacyFixtureSha256": "65a2692a2b7235011c15f3001da95bed9577c9731167fc77ca1e437567a9fbb3",
+  "changes": {
+    "src/app/golf/[slug]/page.tsx": {
+      "beforeHash": "18c6c10997eece310871432051f5256a6f849ff976762c424af413458bbb5d3d",
+      "afterHash": "c907d09636de8106f3082789cc0ebf64ab0721d414fbe4b2bb9b7b87d26915d1",
+      "reason": "Hero now credits an approved course photograph and the guide gains the course layout & photographs section."
+    }
+  },
+  "addedFiles": {
+    "src/components/GolfCourseMedia.tsx": {
+      "beforeHash": null,
+      "afterHash": "235f5860508c61bbc68f6f54246957666c7147a2f7e10f165fb968e8fe10181d",
+      "reason": "Course-media section, validation module, ledger, tests and locally hosted course assets (maps and licence-approved photographs)."
+    },
+    "src/components/GolfCourseMedia.module.css": {
+      "beforeHash": null,
+      "afterHash": "5571a9cc1f23951244eb4a9df2a0918e4c39aa29ff5c24411ebb2fd66d49738e",
+      "reason": "Course-media section, validation module, ledger, tests and locally hosted course assets (maps and licence-approved photographs)."
+    },
+    "src/lib/golfMedia.ts": {
+      "beforeHash": null,
+      "afterHash": "76aed2bbb2ed030d2a0f7a457c5878b83038258d9ed0c470149135ba69411c00",
+      "reason": "Course-media section, validation module, ledger, tests and locally hosted course assets (maps and licence-approved photographs)."
+    },
+    "src/data/golfCourseMedia.json": {
+      "beforeHash": null,
+      "afterHash": "91683cefa3fc93865b1b98bd490d03fe89eb9128d757ccc54c24b254e438123f",
+      "reason": "Course-media section, validation module, ledger, tests and locally hosted course assets (maps and licence-approved photographs)."
+    },
+    "tests/golf-media.test.mjs": {
+      "beforeHash": null,
+      "afterHash": "037aa9329c98006203fe04b21228e0cfb63901023a36f9bffa76cdb92d5012f5",
+      "reason": "Course-media section, validation module, ledger, tests and locally hosted course assets (maps and licence-approved photographs)."
+    },
+    "tests/golf-media.browser.test.mjs": {
+      "beforeHash": null,
+      "afterHash": "e34fa433e229a163e80ca0125d6035850c6d068d0a8f25d952f9fc11d41c4078",
+      "reason": "Course-media section, validation module, ledger, tests and locally hosted course assets (maps and licence-approved photographs)."
+    },
+    "public/golf-media/bethpage-black-01.webp": {
+      "beforeHash": null,
+      "afterHash": "a004b76691a263c403ae5048a2209a86e6033ac2b4d233e7cb368887ab391c8d",
+      "reason": "Course-media section, validation module, ledger, tests and locally hosted course assets (maps and licence-approved photographs)."
+    },
+    "public/golf-media/chambers-bay-01.webp": {
+      "beforeHash": null,
+      "afterHash": "3a51c2f098e73d0d87e0aed1b5c02e3e129fb501e2a80d893215e586407eb653",
+      "reason": "Course-media section, validation module, ledger, tests and locally hosted course assets (maps and licence-approved photographs)."
+    },
+    "public/golf-media/chambers-bay-routing.svg": {
+      "beforeHash": null,
+      "afterHash": "848bb5500607aa82880de73be30547abbb5be2a6a8a066d8fb2cf77d991b2f34",
+      "reason": "Course-media section, validation module, ledger, tests and locally hosted course assets (maps and licence-approved photographs)."
+    },
+    "public/golf-media/crans-sur-sierre-golf-club-ballesteros-01.webp": {
+      "beforeHash": null,
+      "afterHash": "ac3abe5b771c91bf9e1cc155991dfcd0aff67eda9e5a4c42253d1681a1a6d847",
+      "reason": "Course-media section, validation module, ledger, tests and locally hosted course assets (maps and licence-approved photographs)."
+    },
+    "public/golf-media/crans-sur-sierre-golf-club-ballesteros-02.webp": {
+      "beforeHash": null,
+      "afterHash": "0e6c000898eb88a4d6dacbcf94991023b25563820398a9cd37a952e62281426e",
+      "reason": "Course-media section, validation module, ledger, tests and locally hosted course assets (maps and licence-approved photographs)."
+    },
+    "public/golf-media/crans-sur-sierre-golf-club-ballesteros-03.webp": {
+      "beforeHash": null,
+      "afterHash": "f927d2e1ff762549d135d8e7546f8a39336bc5d0087a934f4ecd1ed74aadf34b",
+      "reason": "Course-media section, validation module, ledger, tests and locally hosted course assets (maps and licence-approved photographs)."
+    },
+    "public/golf-media/crans-sur-sierre-golf-club-ballesteros-04.webp": {
+      "beforeHash": null,
+      "afterHash": "4f530ee01c938874043a44ea28a9cd2d78199548e30b5bf9db422aa5599ae208",
+      "reason": "Course-media section, validation module, ledger, tests and locally hosted course assets (maps and licence-approved photographs)."
+    },
+    "public/golf-media/emirates-golf-club-majlis-course-02.webp": {
+      "beforeHash": null,
+      "afterHash": "922e2c68a6c5ad9bf5b220aae824084385c11123079eb014b7ccb9e225680901",
+      "reason": "Course-media section, validation module, ledger, tests and locally hosted course assets (maps and licence-approved photographs)."
+    },
+    "public/golf-media/fontana-golf-club-01.webp": {
+      "beforeHash": null,
+      "afterHash": "680b317424e964db98fdf68de0ac98e0be1bdbff2df4aca0cb4595ac69499ed7",
+      "reason": "Course-media section, validation module, ledger, tests and locally hosted course assets (maps and licence-approved photographs)."
+    },
+    "public/golf-media/glen-abbey-golf-club-01.webp": {
+      "beforeHash": null,
+      "afterHash": "1044f8c99f80f9c61b899c7f03fb23d34c856b455f83165b8517b07932b6a6d0",
+      "reason": "Course-media section, validation module, ledger, tests and locally hosted course assets (maps and licence-approved photographs)."
+    },
+    "public/golf-media/glen-abbey-golf-club-02.webp": {
+      "beforeHash": null,
+      "afterHash": "15526c720ab7f8ab64bc4fd40cb86801bb4965835406601504ba873f0c6ead3f",
+      "reason": "Course-media section, validation module, ledger, tests and locally hosted course assets (maps and licence-approved photographs)."
+    },
+    "public/golf-media/glen-abbey-golf-club-03.webp": {
+      "beforeHash": null,
+      "afterHash": "641b18d361476677ce6f5e3b411343782ffc6b6ba6b5c829d0ddf7a76eb33505",
+      "reason": "Course-media section, validation module, ledger, tests and locally hosted course assets (maps and licence-approved photographs)."
+    },
+    "public/golf-media/glen-abbey-golf-club-routing.svg": {
+      "beforeHash": null,
+      "afterHash": "14135cabde27c0b541c8f696f7ac53b6ff86e20bc47444db4a2dab0152eb42e9",
+      "reason": "Course-media section, validation module, ledger, tests and locally hosted course assets (maps and licence-approved photographs)."
+    },
+    "public/golf-media/kennemer-golf-country-club-01.webp": {
+      "beforeHash": null,
+      "afterHash": "164840e689815f2b2d10948c04740fe48ea4232cecc09e78dbfa9089601d203e",
+      "reason": "Course-media section, validation module, ledger, tests and locally hosted course assets (maps and licence-approved photographs)."
+    },
+    "public/golf-media/kennemer-golf-country-club-02.webp": {
+      "beforeHash": null,
+      "afterHash": "a0c3995668e9a3229404fe4f113fb9b1549b82b216b633d9f77c25e2b74740cf",
+      "reason": "Course-media section, validation module, ledger, tests and locally hosted course assets (maps and licence-approved photographs)."
+    },
+    "public/golf-media/muirfield-01.webp": {
+      "beforeHash": null,
+      "afterHash": "5db11e8759b6a4703b642fdd6572c144d0448a7b7f7ce656b8b05c586da582a9",
+      "reason": "Course-media section, validation module, ledger, tests and locally hosted course assets (maps and licence-approved photographs)."
+    },
+    "public/golf-media/muirfield-02.webp": {
+      "beforeHash": null,
+      "afterHash": "c51308d211492ebc7f41da0283ac53a02a602d37148a1aa42bc79b2e6f3820f9",
+      "reason": "Course-media section, validation module, ledger, tests and locally hosted course assets (maps and licence-approved photographs)."
+    },
+    "public/golf-media/oitavos-dunes-01.webp": {
+      "beforeHash": null,
+      "afterHash": "07da6cff5861b0abcd0ca5ca8723462f06bc212a8a7d2d958c834f340562f343",
+      "reason": "Course-media section, validation module, ledger, tests and locally hosted course assets (maps and licence-approved photographs)."
+    },
+    "public/golf-media/praia-d-el-rey-01.webp": {
+      "beforeHash": null,
+      "afterHash": "ab648f008cf18eb62f9da76cf36757804a7c2ac84a9a7809d28d0f6f5673ae1d",
+      "reason": "Course-media section, validation module, ledger, tests and locally hosted course assets (maps and licence-approved photographs)."
+    },
+    "public/golf-media/praia-d-el-rey-02.webp": {
+      "beforeHash": null,
+      "afterHash": "859a38dc2fa6ec6a4f6982eaa019d11f7cf2fec9dbff615a4cf57314877724dc",
+      "reason": "Course-media section, validation module, ledger, tests and locally hosted course assets (maps and licence-approved photographs)."
+    },
+    "public/golf-media/real-club-de-golf-el-prat-01.webp": {
+      "beforeHash": null,
+      "afterHash": "563650453f8075f5ddd1054c7ce83ac638df1bf42986562acc10105e79c5c7ef",
+      "reason": "Course-media section, validation module, ledger, tests and locally hosted course assets (maps and licence-approved photographs)."
+    },
+    "public/golf-media/steenberg-golf-club-routing.svg": {
+      "beforeHash": null,
+      "afterHash": "1b08b38365b7f353f77017081254b7eacf27e443aadecdf706becd21495375d6",
+      "reason": "Course-media section, validation module, ledger, tests and locally hosted course assets (maps and licence-approved photographs)."
+    },
+    "public/golf-media/torrey-pines-golf-course-south-course-01.webp": {
+      "beforeHash": null,
+      "afterHash": "cbae6aace96d64fccf4fd4fe6f2ed0c9d36b218acf9cd00f0d779bec8cc2e833",
+      "reason": "Course-media section, validation module, ledger, tests and locally hosted course assets (maps and licence-approved photographs)."
+    },
+    "public/golf-media/torrey-pines-golf-course-south-course-02.webp": {
+      "beforeHash": null,
+      "afterHash": "2866f383bae6d3fc821159969508a8847e6b8726b7a12851f2878af9dc80c92e",
+      "reason": "Course-media section, validation module, ledger, tests and locally hosted course assets (maps and licence-approved photographs)."
+    },
+    "public/golf-media/tpc-scottsdale-stadium-course-01.webp": {
+      "beforeHash": null,
+      "afterHash": "4e7ebb4ff9e71a5379a2de400803ebee59485e7abb5b1d84f69ba1c8f107b484",
+      "reason": "Course-media section, validation module, ledger, tests and locally hosted course assets (maps and licence-approved photographs)."
+    },
+    "docs/golf-course-media.md": {
+      "beforeHash": null,
+      "afterHash": "2d495e7265f7f2e22cc4898b575a56f50bc14585fafec05207c26db0774b73ad",
+      "reason": "Acceptance and reproduction record for the course-media feature, including the refusal rules and the guards."
+    },
+    "public/golf-media/chambers-bay-03.webp": {
+      "beforeHash": null,
+      "afterHash": "842f1ec19335892d3e77706e414e0a2daa894599e427c2fd3abc16214ce5b642",
+      "reason": "Licence-approved course photograph hosted locally, or a routing diagram drawn from mapped hole geometry."
+    },
+    "public/golf-media/chambers-bay-04.webp": {
+      "beforeHash": null,
+      "afterHash": "708088567caa69b47661ae4b4ac9d9de30fec14f14d76aeaea69a1facb6decd5",
+      "reason": "Licence-approved course photograph hosted locally, or a routing diagram drawn from mapped hole geometry."
+    },
+    "public/golf-media/glen-abbey-golf-club-04.webp": {
+      "beforeHash": null,
+      "afterHash": "d085e3a7cf970424e7b75b5694708b15f2e4bb2c52a68c1e369522eaa343d53e",
+      "reason": "Licence-approved course photograph hosted locally, or a routing diagram drawn from mapped hole geometry."
+    },
+    "public/golf-media/kennemer-golf-country-club-03.webp": {
+      "beforeHash": null,
+      "afterHash": "fe5b82b1d530d0746695678f3e96a8e9a992014d74b6dd05288a3b9145bd14e3",
+      "reason": "Licence-approved course photograph hosted locally, or a routing diagram drawn from mapped hole geometry."
+    },
+    "public/golf-media/kennemer-golf-country-club-04.webp": {
+      "beforeHash": null,
+      "afterHash": "477317680579410b61771e70e368e4f843ef1532d02ce6806aaa2c1005eb539a",
+      "reason": "Licence-approved course photograph hosted locally, or a routing diagram drawn from mapped hole geometry."
+    },
+    "public/golf-media/marco-simone-golf-country-club-01.webp": {
+      "beforeHash": null,
+      "afterHash": "08c6ae75eb4c89c410b0ce4ca389b5bba886f56292307b59a5f4ac9fe6095f7b",
+      "reason": "Licence-approved course photograph hosted locally, or a routing diagram drawn from mapped hole geometry."
+    },
+    "public/golf-media/millbrook-resort-03.webp": {
+      "beforeHash": null,
+      "afterHash": "d1d097f752b4736017cb2748265f29594c01ef628bb251e1975f50dfb7d59b07",
+      "reason": "Licence-approved course photograph hosted locally, or a routing diagram drawn from mapped hole geometry."
+    },
+    "public/golf-media/muirfield-03.webp": {
+      "beforeHash": null,
+      "afterHash": "fb89f3fad94fc3c49a1ff8613d684c2ff2396c8f5f1c89cc500ba1a20f020c54",
+      "reason": "Licence-approved course photograph hosted locally, or a routing diagram drawn from mapped hole geometry."
+    },
+    "public/golf-media/muirfield-04.webp": {
+      "beforeHash": null,
+      "afterHash": "46dbc040f470c70f673c8d9e76a656dfa94bc814eededaf45b77666ae34302f1",
+      "reason": "Licence-approved course photograph hosted locally, or a routing diagram drawn from mapped hole geometry."
+    },
+    "public/golf-media/portmarnock-golf-club-02.webp": {
+      "beforeHash": null,
+      "afterHash": "08a66fc91718ddd9176202e5e5084c7c9c63e05e9175c2157218526584cfb10e",
+      "reason": "Licence-approved course photograph hosted locally, or a routing diagram drawn from mapped hole geometry."
+    },
+    "public/golf-media/portmarnock-golf-club-03.webp": {
+      "beforeHash": null,
+      "afterHash": "930438c693f3226b8775ee38150f1641d078d68ce39a9d855a92100202d8b12d",
+      "reason": "Licence-approved course photograph hosted locally, or a routing diagram drawn from mapped hole geometry."
+    },
+    "public/golf-media/praia-d-el-rey-03.webp": {
+      "beforeHash": null,
+      "afterHash": "ee70ec5528cebf96cd980a83394468dfd2e04be4a395ea7d25987c1a75da5a38",
+      "reason": "Licence-approved course photograph hosted locally, or a routing diagram drawn from mapped hole geometry."
+    },
+    "public/golf-media/real-club-de-golf-el-prat-03.webp": {
+      "beforeHash": null,
+      "afterHash": "b9b9280ee13c6919790b2150fd35b8575ce849b7080fbafc72c293a5ddb2c861",
+      "reason": "Licence-approved course photograph hosted locally, or a routing diagram drawn from mapped hole geometry."
+    }
+  },
+  "revisionNote": "Before publication: remove eight source-identity-rejected photographs and prune their assets; retain the Majlis tournament photo with accurate event-to-layout basis; extend independent rejection tests. Published baselines and beforeHash values are unchanged."
+}
