@@ -54,13 +54,15 @@ async function checkImage(image, id) {
   // src/srcset props have committed. Wait for this exact asset AND native load,
   // then require source selection to settle before decode (WebKit aborts an
   // in-flight decode if a lazy source is selected during that call).
-  await expect.poll(() => image.evaluate(async (img, expected) => {
-    const source = img.currentSrc
-    if (!source || !img.complete || !img.naturalWidth) return false
-    const matches = new URL(source).searchParams.get('url') === expected.photo
-    await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)))
-    return !!matches && img.complete && img.naturalWidth > 0 && img.currentSrc === source
-  }, { photo: imagePath(id) })).toBe(true)
+  let priorReadySource = null
+  await expect.poll(async () => {
+    const state = await image.evaluate(img => ({ source: img.currentSrc, complete: img.complete, width: img.naturalWidth }))
+    const ready = !!state.source && state.complete && state.width > 0 && new URL(state.source).searchParams.get('url') === imagePath(id)
+    if (!ready) { priorReadySource = null; return false }
+    const stable = state.source === priorReadySource
+    priorReadySource = state.source
+    return stable
+  }).toBe(true)
   await image.evaluate(img => img.decode())
   const result = await image.evaluate(img => ({ url: img.currentSrc, width: img.naturalWidth, loading: img.loading }))
   expect(result.width).toBeGreaterThan(0)
