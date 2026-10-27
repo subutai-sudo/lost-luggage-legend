@@ -57,7 +57,7 @@ test('real finder page projects first approved photo, never destination scenery 
     assert.equal(course.media.layoutKind, record.layout?.kind ?? null)
     assert.equal(course.media.gallery, !!record.gallery)
     if (!record.photos.length) { assert.equal(course.media.photo, null); continue }
-    const keys = ['src', 'alt', 'author', 'license', 'licenseUrl', 'sourcePage']
+    const keys = ['src', 'alt', 'author', 'license', 'licenseUrl', 'sourcePage', ...(record.photos[0].modifications !== undefined ? ['modifications'] : [])]
     assert.deepEqual(Object.keys(course.media.photo).sort(), [...keys].sort())
     assert.deepEqual(course.media.photo, Object.fromEntries(keys.map(key => [key, record.photos[0][key]])))
   }

@@ -6,16 +6,29 @@ import sharp from 'sharp'
 import { page, guides, nodes, text, render, metadata } from './helpers/golf-guide-render.mjs'
 const read = path => readFile(new URL(`../${path}`, import.meta.url))
 const hash = bytes => createHash('sha256').update(bytes).digest('hex')
-const baseline = JSON.parse(await read('tests/fixtures/golf-guide-header-baseline.json'))
+import { baseline, headers, hashOverrides, approvedHeaderIds } from './helpers/golf-guide-approved-headers.mjs'
 const neutral = { url: '/brand/golf-guide-social.png', width: 1200, height: 630, alt: 'Golf course guides · Goldilocks Zone' }
 
 test('header inventory is complete and actual static route projection stays unchanged', () => {
-  assert.equal(baseline.records.length, 37)
-  assert.deepEqual(page.generateStaticParams(), baseline.records.map(g => ({slug:g.id})))
-  assert.deepEqual(guides.map(g=>g.course.id), baseline.records.map(g=>g.id))
-  assert.equal(baseline.records.filter(g=>g.photo).length, 22)
+  assert.equal(headers.length, 37)
+  assert.deepEqual(page.generateStaticParams(), headers.map(g => ({slug:g.id})))
+  assert.deepEqual(guides.map(g=>g.course.id), headers.map(g=>g.id))
+  assert.equal(headers.filter(g=>g.photo).length, 22)
 })
-for (const expected of baseline.records) {
+test('only the four explicitly approved photo/article expectations advance; all names, character and non-image metadata stay frozen', () => {
+  assert.equal(baseline.records.length, 37)
+  assert.equal(baseline.records.filter(record => record.photo).length, 18)
+  assert.deepEqual(headers.map(record => record.id), baseline.records.map(record => record.id))
+  assert.deepEqual(headers.filter((record, index) => record !== baseline.records[index]).map(record => record.id).sort(), [...approvedHeaderIds].sort())
+  for (const [index, record] of headers.entries()) {
+    const original = baseline.records[index]
+    assert.deepEqual({ ...record, photo: original.photo, articleHash: original.articleHash }, original)
+    if (!approvedHeaderIds.includes(record.id)) assert.deepEqual(record, original)
+  }
+  assert.ok(headers.find(record => record.id === 'oitavos-dunes').photo)
+  assert.equal(headers.find(record => record.id === 'royal-cape-golf-club').photo, null)
+})
+for (const expected of headers) {
   test(`${expected.id}: exact course hero or truthful no-photo state`, async () => {
     const all = nodes(await render(expected.id))
     const hero = all.find(n=>Object.hasOwn(n.props ?? {}, 'data-golf-guide-hero'))
@@ -50,11 +63,16 @@ for (const expected of baseline.records) {
     assert.notEqual(hash(JSON.stringify(main)+'unapproved'), expected.articleHash)
   })
 }
-test('article template and all sourced copy, notices, 37 photo records and 40 assets stay byte-exact', async () => {
+test('article template, sourced copy, notices and all 40 previously accepted assets stay byte-exact except the named media extension', async () => {
   const source = (await read('src/app/golf/[slug]/page.tsx')).toString()
   assert.equal(hash(source.slice(source.indexOf('      <div id="golf-guide-main"'))), baseline.articleSourceHash)
   assert.equal(Object.keys(baseline.hashes).filter(p=>p.startsWith('public/golf-media/')).length, 40)
-  for (const [path, expected] of Object.entries(baseline.hashes)) assert.equal(hash(await read(path)), expected, path)
+  for (const [path, expected] of Object.entries(baseline.hashes)) {
+    const bytes = await read(path)
+    const approved = hashOverrides[path] ?? expected
+    assert.equal(hash(bytes), approved, path)
+    assert.notEqual(hash(Buffer.concat([bytes, Buffer.from('unapproved')])), approved, `${path}: reject appended bytes`)
+  }
 })
 test('neutral social asset is a real 1200x630 PNG; disguised images fail the byte guard', async () => {
   const check = bytes => assert.deepEqual([...bytes.subarray(0,8)], [137,80,78,71,13,10,26,10])

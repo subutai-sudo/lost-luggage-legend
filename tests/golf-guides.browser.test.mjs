@@ -4,7 +4,7 @@ import ts from 'typescript'
 const text = readFileSync(new URL('../src/data/golfCourses.ts', import.meta.url), 'utf8')
 const source = ts.createSourceFile('golfCourses.ts', text, ts.ScriptTarget.Latest, true)
 const array = source.statements.filter(ts.isVariableStatement).flatMap(s => [...s.declarationList.declarations]).find(d => d.name.getText(source) === 'GOLF_COURSES').initializer
-const headers = JSON.parse(readFileSync(new URL('./fixtures/golf-guide-header-baseline.json', import.meta.url), 'utf8')).records
+import { headers } from './helpers/golf-guide-approved-headers.mjs'
 const courses = array.elements.map(e => Object.fromEntries(e.properties.map(p => [p.name.getText(source), p.initializer.text])))
 
 test('every monthly course title, photo and primary guide link goes to its own golf guide', async ({ page }) => {
@@ -65,7 +65,7 @@ for (const width of [320, 390, 1440]) {
       await page.setViewportSize({ width, height: 900 })
       // ThemeProvider reads lll-theme and applies the dark class after hydration.
       await page.addInitScript(theme => localStorage.setItem('lll-theme', theme), theme)
-      for (const id of ['oitavos-dunes', 'al-maaden-golf']) {
+      for (const id of ['oitavos-dunes', 'royal-cape-golf-club']) {
         const header = headers.find(record => record.id === id)
         await page.goto(`/golf/${id}`)
         await expect.poll(() => page.evaluate(() => document.documentElement.classList.contains('dark'))).toBe(theme === 'dark')

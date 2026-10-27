@@ -1,7 +1,6 @@
 import { test, expect } from './browser-fixture.mjs'
-import { readFileSync } from 'node:fs'
 
-const headers = JSON.parse(readFileSync(new URL('./fixtures/golf-guide-header-baseline.json', import.meta.url), 'utf8')).records
+import { headers } from './helpers/golf-guide-approved-headers.mjs'
 
 test('course guides expose real course media and an honestly labelled layout resource', async ({ page }) => {
   await page.goto('/golf/oitavos-dunes')

@@ -110,8 +110,11 @@
   flex-direction: column;
 }
 
+/* Match the homepage header geometry, independently of the story's gutters
+   and top padding. Navbar owns its responsive inner container and controls. */
 .navigation {
-  position: relative;
+  position: absolute;
+  inset: 0 0 auto;
   z-index: 6;
   --color-nav-bg: #0c211a;
   --color-nav-border: rgba(235, 246, 224, 0.23);

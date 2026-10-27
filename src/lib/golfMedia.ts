@@ -17,6 +17,7 @@ export interface GolfCoursePhoto {
   caption: string
   scope: string
   author: string
+  modifications?: string
   sourcePage: string
   originalUrl: string
   license: 'CC0' | 'Public domain' | 'CC BY 2.0' | 'CC BY 3.0' | 'CC BY 4.0' | 'CC BY-SA 2.0' | 'CC BY-SA 2.5' | 'CC BY-SA 3.0' | 'CC BY-SA 4.0'
@@ -107,6 +108,7 @@ export function validateGolfMedia(records: GolfCourseMedia[], courseIds: string[
     for (const photo of entry.photos) {
       dimensions(photo, entry.courseId)
       for (const field of ['alt', 'caption', 'scope', 'author'] as const) readerCopy(photo[field], field)
+      if (photo.modifications !== undefined) readerCopy(photo.modifications, 'modifications')
       https(photo.sourcePage, 'photo source'); https(photo.originalUrl, 'photo original'); https(photo.licenseUrl, 'photo licence')
       if (licenseLinks[photo.license] !== photo.licenseUrl) throw new Error('Unapproved or inconsistent golf photo licence')
       if (assets.has(photo.src) || originals.has(photo.originalUrl)) throw new Error('Repeated image asset across course guides')
@@ -142,7 +144,7 @@ export function getGolfCourseMedia(id: string, records: GolfCourseMedia[], cours
     courseId: record.courseId,
     gallery: record.gallery && displayResource(record.gallery),
     layout: record.layout && { ...displayResource(record.layout), kind: record.layout.kind },
-    photos: record.photos.map(p => ({ src: p.src, width: p.width, height: p.height, alt: p.alt, caption: p.caption, scope: p.scope, author: p.author, sourcePage: p.sourcePage, originalUrl: p.originalUrl, license: p.license, licenseUrl: p.licenseUrl, checkedAt: p.checkedAt })),
+    photos: record.photos.map(p => ({ src: p.src, width: p.width, height: p.height, alt: p.alt, caption: p.caption, scope: p.scope, author: p.author, ...(p.modifications !== undefined ? { modifications: p.modifications } : {}), sourcePage: p.sourcePage, originalUrl: p.originalUrl, license: p.license, licenseUrl: p.licenseUrl, checkedAt: p.checkedAt })),
     map: record.map && { src: record.map.src, width: record.map.width, height: record.map.height, alt: record.map.alt, sourcePage: record.map.sourcePage, checkedAt: record.map.checkedAt, scope: record.map.scope, holes: [...record.map.holes], license: record.map.license, licenseUrl: record.map.licenseUrl },
   }
 }
