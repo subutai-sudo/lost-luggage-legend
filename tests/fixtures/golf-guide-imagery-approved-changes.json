@@ -11,12 +11,12 @@
     },
     "tests/golf-guides.browser.test.mjs": {
       "beforeHash": "9693e17d5ef760334e6e2db1f60effd7eaed592483ddf8ca655a90b8991c7cad",
-      "afterHash": "f84023b26f8cfe11bcd0ff39da3a0c63658242e7ac9ac7733d527857b537eea5",
+      "afterHash": "44c0f0a15658fc862167f06fa3c95227d4f96d61dec26996858ec93a768ca06e",
       "reason": "Extend the bounded exact-byte or browser oracle for truthful course-guide imagery."
     },
     "tests/golf-media.browser.test.mjs": {
       "beforeHash": "e34fa433e229a163e80ca0125d6035850c6d068d0a8f25d952f9fc11d41c4078",
-      "afterHash": "15bb83246ee2120327db18471c3d05a47de8ad9c121423f0f29470d67eacc21a",
+      "afterHash": "4bb3c9b73a0d10138b8ba2ab9593641df2b4f6d3266464a99edf202648b200af",
       "reason": "Extend the bounded exact-byte or browser oracle for truthful course-guide imagery."
     },
     "tests/guide-performance.test.mjs": {

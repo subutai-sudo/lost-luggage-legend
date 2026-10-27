@@ -63,12 +63,33 @@ for (const width of [320, 390, 1440]) {
   for (const theme of ['light', 'dark']) {
     test(`golf guide layout ${width}px ${theme}`, async ({ page }) => {
       await page.setViewportSize({ width, height: 900 })
-      await page.addInitScript(theme => localStorage.setItem('theme', theme), theme)
-      await page.goto('/golf/oitavos-dunes')
-      expect(await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth)).toBeLessThanOrEqual(1)
-      await expect(page.locator('h1')).toBeVisible()
-      await expect(page.locator('[data-golf-guide-image]')).toHaveCount(0)
-      await expect(page.locator('[data-golf-guide-hero]')).toContainText('Course photograph not available')
+      // ThemeProvider reads lll-theme and applies the dark class after hydration.
+      await page.addInitScript(theme => localStorage.setItem('lll-theme', theme), theme)
+      for (const id of ['oitavos-dunes', 'al-maaden-golf']) {
+        const header = headers.find(record => record.id === id)
+        await page.goto(`/golf/${id}`)
+        await expect.poll(() => page.evaluate(() => document.documentElement.classList.contains('dark'))).toBe(theme === 'dark')
+        await expect.poll(() => page.evaluate(() => getComputedStyle(document.documentElement).getPropertyValue('--background-rgb').trim())).toBe(theme === 'dark' ? '26, 24, 20' : '249, 246, 240')
+        expect(await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth)).toBeLessThanOrEqual(1)
+        await expect(page.locator('h1')).toBeVisible()
+        await expect(page.locator('h1')).toHaveText(header.name)
+        const hero = page.locator('[data-golf-guide-hero]')
+        await expect(hero.locator('[data-golf-guide-character]')).toHaveText(header.character)
+        const image = hero.locator('[data-golf-guide-image]')
+        if (header.photo) {
+          await expect(image).toHaveCount(1)
+          await expect(image).toHaveAttribute('alt', header.photo.alt)
+          await expect.poll(() => image.evaluate(img => decodeURIComponent(img.currentSrc || img.src))).toContain(header.photo.src)
+          await expect.poll(() => image.evaluate(img => img.complete && img.naturalWidth > 0 && img.naturalHeight > 0)).toBe(true)
+          await image.evaluate(img => img.decode())
+          expect(await image.evaluate(img => img.naturalWidth)).toBeGreaterThan(0)
+          await expect(hero).toContainText(`Course photograph: ${header.photo.caption} Photo ${header.photo.author}, ${header.photo.license}`)
+        } else {
+          await expect(image).toHaveCount(0)
+          await expect(hero).toContainText(`Course photograph not available for ${header.name}.`)
+        }
+        await expect(hero).not.toContainText('Destination photograph')
+      }
     })
   }
 }
