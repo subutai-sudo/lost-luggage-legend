@@ -1,0 +1,1694 @@
+{
+  "baseline": "dcd93f02c23e4306eca01f7a5db86e0ccea0f70d",
+  "articleSourceHash": "a6d0323667e23e3516072802695ce95354f77b59e0cebacd03dfe6b6ba77ba89",
+  "hashes": {
+    "src/data/golfCourseMedia.json": "7b592965e52d9ab754107bbfaf0ab7487d95854ee2bceae5bacb3252af925a68",
+    "src/data/golfGuideDetails.json": "0c095aea083de7f624f64053614478158b669f3a5658e2d9600c2b49213388a5",
+    "src/data/golfCourseNotes.json": "336eae1adbfa3ddceaaf9c1636f02892309748eccbeaedc5844fed7d5dba0ba8",
+    "src/data/golfSources.json": "d2ceb11834f0e098c56045bc9c6f9436c6033743429f9c736053babe35b579e6",
+    "src/data/golfOperationalNotices.ts": "e4eab341e22a2190fc14d030bbc7f88476f867c8e91112a6645e2ea201d0745b",
+    "src/data/golfCourseCharacter.json": "8a33396c1b6316fae560ffe2fdfb599ee20d2fd304fed173e4964713ff5e051e",
+    "public/golf-media/bethpage-black-01.webp": "a004b76691a263c403ae5048a2209a86e6033ac2b4d233e7cb368887ab391c8d",
+    "public/golf-media/capilano-golf-and-country-club-01.webp": "96ed7e11472982f57bc3aabfc61ba39f13ff53c265fc87172b6424e7c8d86a97",
+    "public/golf-media/chambers-bay-01.webp": "3a51c2f098e73d0d87e0aed1b5c02e3e129fb501e2a80d893215e586407eb653",
+    "public/golf-media/chambers-bay-03.webp": "842f1ec19335892d3e77706e414e0a2daa894599e427c2fd3abc16214ce5b642",
+    "public/golf-media/chambers-bay-04.webp": "708088567caa69b47661ae4b4ac9d9de30fec14f14d76aeaea69a1facb6decd5",
+    "public/golf-media/chambers-bay-routing.svg": "848bb5500607aa82880de73be30547abbb5be2a6a8a066d8fb2cf77d991b2f34",
+    "public/golf-media/crans-sur-sierre-golf-club-ballesteros-01.webp": "ac3abe5b771c91bf9e1cc155991dfcd0aff67eda9e5a4c42253d1681a1a6d847",
+    "public/golf-media/crans-sur-sierre-golf-club-ballesteros-02.webp": "0e6c000898eb88a4d6dacbcf94991023b25563820398a9cd37a952e62281426e",
+    "public/golf-media/crans-sur-sierre-golf-club-ballesteros-03.webp": "f927d2e1ff762549d135d8e7546f8a39336bc5d0087a934f4ecd1ed74aadf34b",
+    "public/golf-media/crans-sur-sierre-golf-club-ballesteros-04.webp": "4f530ee01c938874043a44ea28a9cd2d78199548e30b5bf9db422aa5599ae208",
+    "public/golf-media/emirates-golf-club-majlis-course-02.webp": "922e2c68a6c5ad9bf5b220aae824084385c11123079eb014b7ccb9e225680901",
+    "public/golf-media/fontana-golf-club-01.webp": "680b317424e964db98fdf68de0ac98e0be1bdbff2df4aca0cb4595ac69499ed7",
+    "public/golf-media/glen-abbey-golf-club-01.webp": "1044f8c99f80f9c61b899c7f03fb23d34c856b455f83165b8517b07932b6a6d0",
+    "public/golf-media/glen-abbey-golf-club-02.webp": "15526c720ab7f8ab64bc4fd40cb86801bb4965835406601504ba873f0c6ead3f",
+    "public/golf-media/glen-abbey-golf-club-03.webp": "641b18d361476677ce6f5e3b411343782ffc6b6ba6b5c829d0ddf7a76eb33505",
+    "public/golf-media/glen-abbey-golf-club-04.webp": "d085e3a7cf970424e7b75b5694708b15f2e4bb2c52a68c1e369522eaa343d53e",
+    "public/golf-media/glen-abbey-golf-club-routing.svg": "14135cabde27c0b541c8f696f7ac53b6ff86e20bc47444db4a2dab0152eb42e9",
+    "public/golf-media/kennemer-golf-country-club-01.webp": "164840e689815f2b2d10948c04740fe48ea4232cecc09e78dbfa9089601d203e",
+    "public/golf-media/kennemer-golf-country-club-02.webp": "a0c3995668e9a3229404fe4f113fb9b1549b82b216b633d9f77c25e2b74740cf",
+    "public/golf-media/kennemer-golf-country-club-03.webp": "fe5b82b1d530d0746695678f3e96a8e9a992014d74b6dd05288a3b9145bd14e3",
+    "public/golf-media/kennemer-golf-country-club-04.webp": "477317680579410b61771e70e368e4f843ef1532d02ce6806aaa2c1005eb539a",
+    "public/golf-media/marco-simone-golf-country-club-01.webp": "08c6ae75eb4c89c410b0ce4ca389b5bba886f56292307b59a5f4ac9fe6095f7b",
+    "public/golf-media/millbrook-resort-03.webp": "d1d097f752b4736017cb2748265f29594c01ef628bb251e1975f50dfb7d59b07",
+    "public/golf-media/muirfield-01.webp": "5db11e8759b6a4703b642fdd6572c144d0448a7b7f7ce656b8b05c586da582a9",
+    "public/golf-media/muirfield-02.webp": "c51308d211492ebc7f41da0283ac53a02a602d37148a1aa42bc79b2e6f3820f9",
+    "public/golf-media/muirfield-03.webp": "fb89f3fad94fc3c49a1ff8613d684c2ff2396c8f5f1c89cc500ba1a20f020c54",
+    "public/golf-media/muirfield-04.webp": "46dbc040f470c70f673c8d9e76a656dfa94bc814eededaf45b77666ae34302f1",
+    "public/golf-media/oitavos-dunes-01.webp": "07da6cff5861b0abcd0ca5ca8723462f06bc212a8a7d2d958c834f340562f343",
+    "public/golf-media/portmarnock-golf-club-02.webp": "08a66fc91718ddd9176202e5e5084c7c9c63e05e9175c2157218526584cfb10e",
+    "public/golf-media/portmarnock-golf-club-03.webp": "930438c693f3226b8775ee38150f1641d078d68ce39a9d855a92100202d8b12d",
+    "public/golf-media/praia-d-el-rey-01.webp": "ab648f008cf18eb62f9da76cf36757804a7c2ac84a9a7809d28d0f6f5673ae1d",
+    "public/golf-media/praia-d-el-rey-02.webp": "859a38dc2fa6ec6a4f6982eaa019d11f7cf2fec9dbff615a4cf57314877724dc",
+    "public/golf-media/praia-d-el-rey-03.webp": "ee70ec5528cebf96cd980a83394468dfd2e04be4a395ea7d25987c1a75da5a38",
+    "public/golf-media/real-club-de-golf-el-prat-01.webp": "563650453f8075f5ddd1054c7ce83ac638df1bf42986562acc10105e79c5c7ef",
+    "public/golf-media/real-club-de-golf-el-prat-03.webp": "b9b9280ee13c6919790b2150fd35b8575ce849b7080fbafc72c293a5ddb2c861",
+    "public/golf-media/steenberg-golf-club-routing.svg": "1b08b38365b7f353f77017081254b7eacf27e443aadecdf706becd21495375d6",
+    "public/golf-media/the-royal-melbourne-golf-club-west-01.webp": "56af4752d6c0b9361eb16e4280174ca96e632c60c1f258c63fdc3a339153adbe",
+    "public/golf-media/torrey-pines-golf-course-south-course-01.webp": "cbae6aace96d64fccf4fd4fe6f2ed0c9d36b218acf9cd00f0d779bec8cc2e833",
+    "public/golf-media/torrey-pines-golf-course-south-course-02.webp": "2866f383bae6d3fc821159969508a8847e6b8726b7a12851f2878af9dc80c92e",
+    "public/golf-media/tpc-scottsdale-stadium-course-01.webp": "4e7ebb4ff9e71a5379a2de400803ebee59485e7abb5b1d84f69ba1c8f107b484"
+  },
+  "records": [
+    {
+      "id": "al-maaden-golf",
+      "name": "Al Maaden Golf",
+      "character": "Reflecting pools in a Moroccan-garden layout",
+      "photo": null,
+      "articleHash": "7ac97cfbabc7c196d53c77578b592c72d6996c8c380684c9b4b5cf33fc79ecd0",
+      "metadata": {
+        "title": "Al Maaden Golf Course Guide — When to Play & Visitor Access",
+        "description": "Plan a round at Al Maaden Golf in Marrakech, Morocco: course character, playing notes, visitor access and sourced month-by-month advice.",
+        "alternates": {
+          "canonical": "https://lostluggagelegend.com/golf/al-maaden-golf"
+        },
+        "openGraph": {
+          "type": "article",
+          "locale": "en_US",
+          "siteName": "Lost Luggage Legend",
+          "url": "https://lostluggagelegend.com/golf/al-maaden-golf",
+          "title": "Al Maaden Golf Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
+          "description": "Plan a round at Al Maaden Golf in Marrakech, Morocco: course character, playing notes, visitor access and sourced month-by-month advice.",
+          "images": [
+            {
+              "url": "https://images.unsplash.com/photo-1597212618440-806262de4f6b?w=1200&q=85&auto=format&fit=crop",
+              "width": 1200,
+              "height": 630,
+              "alt": "Marrakech destination photograph — not Al Maaden Golf"
+            }
+          ]
+        },
+        "twitter": {
+          "card": "summary_large_image",
+          "title": "Al Maaden Golf Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
+          "description": "Plan a round at Al Maaden Golf in Marrakech, Morocco: course character, playing notes, visitor access and sourced month-by-month advice.",
+          "images": [
+            "https://images.unsplash.com/photo-1597212618440-806262de4f6b?w=1200&q=85&auto=format&fit=crop"
+          ]
+        }
+      }
+    },
+    {
+      "id": "bali-national-golf-club",
+      "name": "Bali National Golf Club",
+      "character": "Former layout: terraced hills to coconut groves",
+      "photo": null,
+      "articleHash": "be8d30e89583497ee7337680358ff87a04723419546f804ec14236735f1cff38",
+      "metadata": {
+        "title": "Bali National Golf Club Course Guide — When to Play & Visitor Access",
+        "description": "Plan a round at Bali National Golf Club in Nusa Dua, Bali, Indonesia: course character, playing notes, visitor access and sourced month-by-month advice.",
+        "alternates": {
+          "canonical": "https://lostluggagelegend.com/golf/bali-national-golf-club"
+        },
+        "openGraph": {
+          "type": "article",
+          "locale": "en_US",
+          "siteName": "Lost Luggage Legend",
+          "url": "https://lostluggagelegend.com/golf/bali-national-golf-club",
+          "title": "Bali National Golf Club Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
+          "description": "Plan a round at Bali National Golf Club in Nusa Dua, Bali, Indonesia: course character, playing notes, visitor access and sourced month-by-month advice.",
+          "images": [
+            {
+              "url": "https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=1200&q=85&auto=format&fit=crop",
+              "width": 1200,
+              "height": 630,
+              "alt": "Bali destination photograph — not Bali National Golf Club"
+            }
+          ]
+        },
+        "twitter": {
+          "card": "summary_large_image",
+          "title": "Bali National Golf Club Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
+          "description": "Plan a round at Bali National Golf Club in Nusa Dua, Bali, Indonesia: course character, playing notes, visitor access and sourced month-by-month advice.",
+          "images": [
+            "https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=1200&q=85&auto=format&fit=crop"
+          ]
+        }
+      }
+    },
+    {
+      "id": "bethpage-black",
+      "name": "Bethpage Black",
+      "character": "Climbing approaches and imposing cross bunkers",
+      "photo": {
+        "src": "/golf-media/bethpage-black-01.webp",
+        "width": 1600,
+        "height": 2400,
+        "alt": "open course hillside with bunkers, golfers and spectators — Bethpage Black.",
+        "caption": "At Bethpage Black: open course hillside with bunkers, golfers and spectators.",
+        "scope": "Photograph by Dov Harrington, published on Wikimedia Commons under CC BY 2.0, where the photographer identifies the subject as Bethpage Black. It is not a club-supplied image, and it does not establish the exact hole, angle or current playing conditions.",
+        "author": "Dov Harrington",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:2009_US_Open_at_Bethpage_Black_-_3656112218.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fc/2009_US_Open_at_Bethpage_Black_-_3656112218.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+        "checkedAt": "2026-10-25"
+      },
+      "articleHash": "c7965cb395f78341cb34b9cc8aa7149c36ea4247ff5d6dbcd50e1f369179b761",
+      "metadata": {
+        "title": "Bethpage Black Course Guide — When to Play & Visitor Access",
+        "description": "Plan a round at Bethpage Black in Farmingdale, Long Island (New York), United States: course character, playing notes, visitor access and sourced month-by-month advice.",
+        "alternates": {
+          "canonical": "https://lostluggagelegend.com/golf/bethpage-black"
+        },
+        "openGraph": {
+          "type": "article",
+          "locale": "en_US",
+          "siteName": "Lost Luggage Legend",
+          "url": "https://lostluggagelegend.com/golf/bethpage-black",
+          "title": "Bethpage Black Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
+          "description": "Plan a round at Bethpage Black in Farmingdale, Long Island (New York), United States: course character, playing notes, visitor access and sourced month-by-month advice.",
+          "images": [
+            {
+              "url": "/golf-media/bethpage-black-01.webp",
+              "width": 1600,
+              "height": 2400,
+              "alt": "open course hillside with bunkers, golfers and spectators — Bethpage Black."
+            }
+          ]
+        },
+        "twitter": {
+          "card": "summary_large_image",
+          "title": "Bethpage Black Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
+          "description": "Plan a round at Bethpage Black in Farmingdale, Long Island (New York), United States: course character, playing notes, visitor access and sourced month-by-month advice.",
+          "images": [
+            "/golf-media/bethpage-black-01.webp"
+          ]
+        }
+      }
+    },
+    {
+      "id": "brautarholt-golf-club",
+      "name": "Brautarholt Golf Club",
+      "character": "Coastal carries around a rocky peninsula",
+      "photo": null,
+      "articleHash": "e016b17dd099646f08b9e1c591c09d2ab051f98d4db9a02c089aa9453e96e2d6",
+      "metadata": {
+        "title": "Brautarholt Golf Club Course Guide — When to Play & Visitor Access",
+        "description": "Plan a round at Brautarholt Golf Club in Brautarholt (near Reykjavik), Iceland: course character, playing notes, visitor access and sourced month-by-month advice.",
+        "alternates": {
+          "canonical": "https://lostluggagelegend.com/golf/brautarholt-golf-club"
+        },
+        "openGraph": {
+          "type": "article",
+          "locale": "en_US",
+          "siteName": "Lost Luggage Legend",
+          "url": "https://lostluggagelegend.com/golf/brautarholt-golf-club",
+          "title": "Brautarholt Golf Club Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
+          "description": "Plan a round at Brautarholt Golf Club in Brautarholt (near Reykjavik), Iceland: course character, playing notes, visitor access and sourced month-by-month advice.",
+          "images": [
+            {
+              "url": "https://images.unsplash.com/photo-1615130767419-e9ff3afa5a15?w=1200&q=85&auto=format&fit=crop",
+              "width": 1200,
+              "height": 630,
+              "alt": "Reykjavik destination photograph — not Brautarholt Golf Club"
+            }
+          ]
+        },
+        "twitter": {
+          "card": "summary_large_image",
+          "title": "Brautarholt Golf Club Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
+          "description": "Plan a round at Brautarholt Golf Club in Brautarholt (near Reykjavik), Iceland: course character, playing notes, visitor access and sourced month-by-month advice.",
+          "images": [
+            "https://images.unsplash.com/photo-1615130767419-e9ff3afa5a15?w=1200&q=85&auto=format&fit=crop"
+          ]
+        }
+      }
+    },
+    {
+      "id": "bro-hof-slott-stadium",
+      "name": "Bro Hof Slott (Stadium)",
+      "character": "Lake Mälaren carries and large, bunkered greens",
+      "photo": null,
+      "articleHash": "16c05b770681c9c07078a1376d57bc7430ed12ca67595456b9c01928ca840d3e",
+      "metadata": {
+        "title": "Bro Hof Slott (Stadium) Course Guide — When to Play & Visitor Access",
+        "description": "Plan a round at Bro Hof Slott (Stadium) in Bro (near Stockholm), Sweden: course character, playing notes, visitor access and sourced month-by-month advice.",
+        "alternates": {
+          "canonical": "https://lostluggagelegend.com/golf/bro-hof-slott-stadium"
+        },
+        "openGraph": {
+          "type": "article",
+          "locale": "en_US",
+          "siteName": "Lost Luggage Legend",
+          "url": "https://lostluggagelegend.com/golf/bro-hof-slott-stadium",
+          "title": "Bro Hof Slott (Stadium) Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
+          "description": "Plan a round at Bro Hof Slott (Stadium) in Bro (near Stockholm), Sweden: course character, playing notes, visitor access and sourced month-by-month advice.",
+          "images": [
+            {
+              "url": "https://images.unsplash.com/photo-1588653818221-2651ec1a6423?w=1200&q=85&auto=format&fit=crop",
+              "width": 1200,
+              "height": 630,
+              "alt": "Stockholm destination photograph — not Bro Hof Slott (Stadium)"
+            }
+          ]
+        },
+        "twitter": {
+          "card": "summary_large_image",
+          "title": "Bro Hof Slott (Stadium) Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
+          "description": "Plan a round at Bro Hof Slott (Stadium) in Bro (near Stockholm), Sweden: course character, playing notes, visitor access and sourced month-by-month advice.",
+          "images": [
+            "https://images.unsplash.com/photo-1588653818221-2651ec1a6423?w=1200&q=85&auto=format&fit=crop"
+          ]
+        }
+      }
+    },
+    {
+      "id": "capilano-golf-and-country-club",
+      "name": "Capilano Golf and Country Club",
+      "character": "Thompson bunkers through rainforest fairways",
+      "photo": {
+        "src": "/golf-media/capilano-golf-and-country-club-01.webp",
+        "width": 1600,
+        "height": 1200,
+        "alt": "An elevated view of Capilano's tree-lined fairways, greens and sand bunkers among dense conifers, with the golf and country club's clubhouse complex within the view.",
+        "caption": "An elevated view of Capilano Golf and Country Club's tree-lined course and clubhouse.",
+        "scope": "Photograph by James Cridland, published on Flickr under CC BY 2.0, where the title names the club. Resized for this page; no crop. Taken in December 2009, so the canopy and clubhouse are as they were then.",
+        "author": "James Cridland",
+        "sourcePage": "https://www.flickr.com/photos/jamescridland/4151777112/",
+        "originalUrl": "https://www.flickr.com/photo_download.gne?size=o&id=4151777112&secret=9b1a9fdd1c",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+        "checkedAt": "2026-10-26"
+      },
+      "articleHash": "affdba43536402ba581e4dd2bc6452cb47065d7c08a73848d460fd47f23b9987",
+      "metadata": {
+        "title": "Capilano Golf and Country Club Course Guide — When to Play & Visitor Access",
+        "description": "Plan a round at Capilano Golf and Country Club in West Vancouver, Canada: course character, playing notes, visitor access and sourced month-by-month advice.",
+        "alternates": {
+          "canonical": "https://lostluggagelegend.com/golf/capilano-golf-and-country-club"
+        },
+        "openGraph": {
+          "type": "article",
+          "locale": "en_US",
+          "siteName": "Lost Luggage Legend",
+          "url": "https://lostluggagelegend.com/golf/capilano-golf-and-country-club",
+          "title": "Capilano Golf and Country Club Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
+          "description": "Plan a round at Capilano Golf and Country Club in West Vancouver, Canada: course character, playing notes, visitor access and sourced month-by-month advice.",
+          "images": [
+            {
+              "url": "/golf-media/capilano-golf-and-country-club-01.webp",
+              "width": 1600,
+              "height": 1200,
+              "alt": "An elevated view of Capilano's tree-lined fairways, greens and sand bunkers among dense conifers, with the golf and country club's clubhouse complex within the view."
+            }
+          ]
+        },
+        "twitter": {
+          "card": "summary_large_image",
+          "title": "Capilano Golf and Country Club Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
+          "description": "Plan a round at Capilano Golf and Country Club in West Vancouver, Canada: course character, playing notes, visitor access and sourced month-by-month advice.",
+          "images": [
+            "/golf-media/capilano-golf-and-country-club-01.webp"
+          ]
+        }
+      }
+    },
+    {
+      "id": "chambers-bay",
+      "name": "Chambers Bay",
+      "character": "Dunes and broad fairways above Puget Sound",
+      "photo": {
+        "src": "/golf-media/chambers-bay-01.webp",
+        "width": 1600,
+        "height": 900,
+        "alt": "coastal links course, multiple holes, bay water and headland — Chambers Bay.",
+        "caption": "At Chambers Bay: coastal links course, multiple holes, bay water and headland.",
+        "scope": "Photograph by Atomic Taco from Seattle, WA, USA, published on Wikimedia Commons under CC BY-SA 2.0, where the photographer identifies the subject as Chambers Bay. It is not a club-supplied image, and it does not establish the exact hole, angle or current playing conditions.",
+        "author": "Atomic Taco from Seattle, WA, USA",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Chambers_Bay_Golf_Course_(17998597488).jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Chambers_Bay_Golf_Course_%2817998597488%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "license": "CC BY-SA 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "checkedAt": "2026-10-25"
+      },
+      "articleHash": "f2657a93bbdfa39fa6c5862b28a897ee9fc47f08150a64c584d53ffca32401cd",
+      "metadata": {
+        "title": "Chambers Bay Course Guide — When to Play & Visitor Access",
+        "description": "Plan a round at Chambers Bay in University Place (near Seattle), United States: course character, playing notes, visitor access and sourced month-by-month advice.",
+        "alternates": {
+          "canonical": "https://lostluggagelegend.com/golf/chambers-bay"
+        },
+        "openGraph": {
+          "type": "article",
+          "locale": "en_US",
+          "siteName": "Lost Luggage Legend",
+          "url": "https://lostluggagelegend.com/golf/chambers-bay",
+          "title": "Chambers Bay Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
+          "description": "Plan a round at Chambers Bay in University Place (near Seattle), United States: course character, playing notes, visitor access and sourced month-by-month advice.",
+          "images": [
+            {
+              "url": "/golf-media/chambers-bay-01.webp",
+              "width": 1600,
+              "height": 900,
+              "alt": "coastal links course, multiple holes, bay water and headland — Chambers Bay."
+            }
+          ]
+        },
+        "twitter": {
+          "card": "summary_large_image",
+          "title": "Chambers Bay Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
+          "description": "Plan a round at Chambers Bay in University Place (near Seattle), United States: course character, playing notes, visitor access and sourced month-by-month advice.",
+          "images": [
+            "/golf-media/chambers-bay-01.webp"
+          ]
+        }
+      }
+    },
+    {
+      "id": "cog-hill-no-4-dubsdread",
+      "name": "Cog Hill No.4 (Dubsdread)",
+      "character": "Tight landing areas; heavily bunkered greens",
+      "photo": null,
+      "articleHash": "ecc6218ef4dfb080b4fba1264f8bf05939ca0e1160fb38b907d868a2eeb3f4a3",
+      "metadata": {
+        "title": "Cog Hill No.4 (Dubsdread) Course Guide — When to Play & Visitor Access",
+        "description": "Plan a round at Cog Hill No.4 (Dubsdread) in Lemont, Illinois (Chicago), United States: course character, playing notes, visitor access and sourced month-by-month advice.",
+        "alternates": {
+          "canonical": "https://lostluggagelegend.com/golf/cog-hill-no-4-dubsdread"
+        },
+        "openGraph": {
+          "type": "article",
+          "locale": "en_US",
+          "siteName": "Lost Luggage Legend",
+          "url": "https://lostluggagelegend.com/golf/cog-hill-no-4-dubsdread",
+          "title": "Cog Hill No.4 (Dubsdread) Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
+          "description": "Plan a round at Cog Hill No.4 (Dubsdread) in Lemont, Illinois (Chicago), United States: course character, playing notes, visitor access and sourced month-by-month advice.",
+          "images": [
+            {
+              "url": "https://images.unsplash.com/photo-1494522855154-9297ac14b55f?w=1200&q=85&auto=format&fit=crop",
+              "width": 1200,
+              "height": 630,
+              "alt": "Chicago destination photograph — not Cog Hill No.4 (Dubsdread)"
+            }
+          ]
+        },
+        "twitter": {
+          "card": "summary_large_image",
+          "title": "Cog Hill No.4 (Dubsdread) Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
+          "description": "Plan a round at Cog Hill No.4 (Dubsdread) in Lemont, Illinois (Chicago), United States: course character, playing notes, visitor access and sourced month-by-month advice.",
+          "images": [
+            "https://images.unsplash.com/photo-1494522855154-9297ac14b55f?w=1200&q=85&auto=format&fit=crop"
+          ]
+        }
+      }
+    },
+    {
+      "id": "crans-sur-sierre-golf-club-ballesteros",
+      "name": "Crans-sur-Sierre Golf Club (Ballesteros)",
+      "character": "Precision golf on the Alpine Ballesteros layout",
+      "photo": {
+        "src": "/golf-media/crans-sur-sierre-golf-club-ballesteros-01.webp",
+        "width": 1600,
+        "height": 1021,
+        "alt": "a golfer mid-swing on the fairway below alpine mountains — Crans-sur-Sierre Golf Club (Ballesteros).",
+        "caption": "At Crans-sur-Sierre Golf Club (Ballesteros): a golfer mid-swing on the fairway below alpine mountains.",
+        "scope": "Photograph by Valaistourisme, published on Wikimedia Commons under CC BY-SA 3.0, where the photographer identifies the subject as Crans-sur-Sierre Golf Club (Ballesteros). It is not a club-supplied image, and it does not establish the exact hole, angle or current playing conditions.",
+        "author": "Valaistourisme",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Golf_(Crans-Montana).jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8b/Golf_%28Crans-Montana%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "checkedAt": "2026-10-25"
+      },
+      "articleHash": "a10c728f35e270676e05d322ce5fd243721c60916a9aca7880a9a90b0089d7f2",
+      "metadata": {
+        "title": "Crans-sur-Sierre Golf Club (Ballesteros) Course Guide — When to Play & Visitor Access",
+        "description": "Plan a round at Crans-sur-Sierre Golf Club (Ballesteros) in Crans-Montana, Valais (Geneva gateway), Switzerland: course character, playing notes, visitor access and sourced month-by-month advice.",
+        "alternates": {
+          "canonical": "https://lostluggagelegend.com/golf/crans-sur-sierre-golf-club-ballesteros"
+        },
+        "openGraph": {
+          "type": "article",
+          "locale": "en_US",
+          "siteName": "Lost Luggage Legend",
+          "url": "https://lostluggagelegend.com/golf/crans-sur-sierre-golf-club-ballesteros",
+          "title": "Crans-sur-Sierre Golf Club (Ballesteros) Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
+          "description": "Plan a round at Crans-sur-Sierre Golf Club (Ballesteros) in Crans-Montana, Valais (Geneva gateway), Switzerland: course character, playing notes, visitor access and sourced month-by-month advice.",
+          "images": [
+            {
+              "url": "/golf-media/crans-sur-sierre-golf-club-ballesteros-01.webp",
+              "width": 1600,
+              "height": 1021,
+              "alt": "a golfer mid-swing on the fairway below alpine mountains — Crans-sur-Sierre Golf Club (Ballesteros)."
+            }
+          ]
+        },
+        "twitter": {
+          "card": "summary_large_image",
+          "title": "Crans-sur-Sierre Golf Club (Ballesteros) Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
+          "description": "Plan a round at Crans-sur-Sierre Golf Club (Ballesteros) in Crans-Montana, Valais (Geneva gateway), Switzerland: course character, playing notes, visitor access and sourced month-by-month advice.",
+          "images": [
+            "/golf-media/crans-sur-sierre-golf-club-ballesteros-01.webp"
+          ]
+        }
+      }
+    },
+    {
+      "id": "emirates-golf-club-majlis-course",
+      "name": "Emirates Golf Club – Majlis Course",
+      "character": "Uphill approaches, water carries and sloping greens",
+      "photo": {
+        "src": "/golf-media/emirates-golf-club-majlis-course-02.webp",
+        "width": 700,
+        "height": 439,
+        "alt": "an approach shot on the desert fairway with caddie alongside — Emirates Golf Club – Majlis Course.",
+        "caption": "At Emirates Golf Club – Majlis Course: an approach shot on the desert fairway with caddie alongside.",
+        "scope": "Photograph by Abdul Halim Ab Rahman from the 2008 Dubai Desert Classic at Emirates Golf Club, published on Wikimedia Commons under CC BY 2.0. The tournament setting establishes the Majlis layout; this historical image does not show current playing conditions.",
+        "author": "Abdul Halim Ab Rahman",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Tiger_Wood_Dubai_Desert_Classic_08.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fc/Tiger_Wood_Dubai_Desert_Classic_08.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+        "checkedAt": "2026-10-25"
+      },
+      "articleHash": "bb2b6c8446ef0441533f706e604cc3b172940634be8f2f673d2a65fb4f7cc078",
+      "metadata": {
+        "title": "Emirates Golf Club – Majlis Course Course Guide — When to Play & Visitor Access",
+        "description": "Plan a round at Emirates Golf Club – Majlis Course in Dubai, United Arab Emirates: course character, playing notes, visitor access and sourced month-by-month advice.",
+        "alternates": {
+          "canonical": "https://lostluggagelegend.com/golf/emirates-golf-club-majlis-course"
+        },
+        "openGraph": {
+          "type": "article",
+          "locale": "en_US",
+          "siteName": "Lost Luggage Legend",
+          "url": "https://lostluggagelegend.com/golf/emirates-golf-club-majlis-course",
+          "title": "Emirates Golf Club – Majlis Course Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
+          "description": "Plan a round at Emirates Golf Club – Majlis Course in Dubai, United Arab Emirates: course character, playing notes, visitor access and sourced month-by-month advice.",
+          "images": [
+            {
+              "url": "/golf-media/emirates-golf-club-majlis-course-02.webp",
+              "width": 700,
+              "height": 439,
+              "alt": "an approach shot on the desert fairway with caddie alongside — Emirates Golf Club – Majlis Course."
+            }
+          ]
+        },
+        "twitter": {
+          "card": "summary_large_image",
+          "title": "Emirates Golf Club – Majlis Course Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
+          "description": "Plan a round at Emirates Golf Club – Majlis Course in Dubai, United Arab Emirates: course character, playing notes, visitor access and sourced month-by-month advice.",
+          "images": [
+            "/golf-media/emirates-golf-club-majlis-course-02.webp"
+          ]
+        }
+      }
+    },
+    {
+      "id": "fontana-golf-club",
+      "name": "Fontana Golf Club",
+      "character": "Water hazards and MacKenzie-style bunkering",
+      "photo": {
+        "src": "/golf-media/fontana-golf-club-01.webp",
+        "width": 1600,
+        "height": 2133,
+        "alt": "the putting green and clubhouse during a parkland event — Fontana Golf Club.",
+        "caption": "At Fontana Golf Club: the putting green and clubhouse during a parkland event.",
+        "scope": "Photograph by Gryffindor, published on Wikimedia Commons under Public domain, where the photographer identifies the subject as Fontana Golf Club. It is not a club-supplied image, and it does not establish the exact hole, angle or current playing conditions.",
+        "author": "Gryffindor",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Fontana_Vienna_Euro_PGA_2008.JPG",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Fontana_Vienna_Euro_PGA_2008.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "checkedAt": "2026-10-25"
+      },
+      "articleHash": "4e318d7d8f08d192c90ea1602793b41c3687cc54818178a0200b50dac70fc50e",
+      "metadata": {
+        "title": "Fontana Golf Club Course Guide — When to Play & Visitor Access",
+        "description": "Plan a round at Fontana Golf Club in Oberwaltersdorf (Vienna), Austria: course character, playing notes, visitor access and sourced month-by-month advice.",
+        "alternates": {
+          "canonical": "https://lostluggagelegend.com/golf/fontana-golf-club"
+        },
+        "openGraph": {
+          "type": "article",
+          "locale": "en_US",
+          "siteName": "Lost Luggage Legend",
+          "url": "https://lostluggagelegend.com/golf/fontana-golf-club",
+          "title": "Fontana Golf Club Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
+          "description": "Plan a round at Fontana Golf Club in Oberwaltersdorf (Vienna), Austria: course character, playing notes, visitor access and sourced month-by-month advice.",
+          "images": [
+            {
+              "url": "/golf-media/fontana-golf-club-01.webp",
+              "width": 1600,
+              "height": 2133,
+              "alt": "the putting green and clubhouse during a parkland event — Fontana Golf Club."
+            }
+          ]
+        },
+        "twitter": {
+          "card": "summary_large_image",
+          "title": "Fontana Golf Club Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
+          "description": "Plan a round at Fontana Golf Club in Oberwaltersdorf (Vienna), Austria: course character, playing notes, visitor access and sourced month-by-month advice.",
+          "images": [
+            "/golf-media/fontana-golf-club-01.webp"
+          ]
+        }
+      }
+    },
+    {
+      "id": "glen-abbey-golf-club",
+      "name": "Glen Abbey Golf Club",
+      "character": "From level ground into Sixteen Mile Creek valley",
+      "photo": {
+        "src": "/golf-media/glen-abbey-golf-club-01.webp",
+        "width": 1600,
+        "height": 1200,
+        "alt": "a wide mown fairway beside the cart path in autumn — Glen Abbey Golf Club.",
+        "caption": "At Glen Abbey Golf Club: a wide mown fairway beside the cart path in autumn.",
+        "scope": "Photograph by Whpq, published on Wikimedia Commons under CC BY-SA 4.0, where the photographer identifies the subject as Glen Abbey Golf Club. It is not a club-supplied image, and it does not establish the exact hole, angle or current playing conditions.",
+        "author": "Whpq",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Glen_Abbey_Golf_Course-2016-11-06-001.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Glen_Abbey_Golf_Course-2016-11-06-001.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "checkedAt": "2026-10-25"
+      },
+      "articleHash": "75e85523725dbae2c16a099fcd225d51dee9a074547b7417f18f53efc211ad9a",
+      "metadata": {
+        "title": "Glen Abbey Golf Club Course Guide — When to Play & Visitor Access",
+        "description": "Plan a round at Glen Abbey Golf Club in Oakville, Ontario (Toronto), Canada: course character, playing notes, visitor access and sourced month-by-month advice.",
+        "alternates": {
+          "canonical": "https://lostluggagelegend.com/golf/glen-abbey-golf-club"
+        },
+        "openGraph": {
+          "type": "article",
+          "locale": "en_US",
+          "siteName": "Lost Luggage Legend",
+          "url": "https://lostluggagelegend.com/golf/glen-abbey-golf-club",
+          "title": "Glen Abbey Golf Club Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
+          "description": "Plan a round at Glen Abbey Golf Club in Oakville, Ontario (Toronto), Canada: course character, playing notes, visitor access and sourced month-by-month advice.",
+          "images": [
+            {
+              "url": "/golf-media/glen-abbey-golf-club-01.webp",
+              "width": 1600,
+              "height": 1200,
+              "alt": "a wide mown fairway beside the cart path in autumn — Glen Abbey Golf Club."
+            }
+          ]
+        },
+        "twitter": {
+          "card": "summary_large_image",
+          "title": "Glen Abbey Golf Club Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
+          "description": "Plan a round at Glen Abbey Golf Club in Oakville, Ontario (Toronto), Canada: course character, playing notes, visitor access and sourced month-by-month advice.",
+          "images": [
+            "/golf-media/glen-abbey-golf-club-01.webp"
+          ]
+        }
+      }
+    },
+    {
+      "id": "jack-s-point",
+      "name": "Jack's Point",
+      "character": "Tussock, schist and bluffs beneath The Remarkables",
+      "photo": null,
+      "articleHash": "6dc15f39100f893ec37396df7c0696b6f2d0f7e86687286fdadd8283b1048540",
+      "metadata": {
+        "title": "Jack's Point Course Guide — When to Play & Visitor Access",
+        "description": "Plan a round at Jack's Point in Queenstown, New Zealand: course character, playing notes, visitor access and sourced month-by-month advice.",
+        "alternates": {
+          "canonical": "https://lostluggagelegend.com/golf/jack-s-point"
+        },
+        "openGraph": {
+          "type": "article",
+          "locale": "en_US",
+          "siteName": "Lost Luggage Legend",
+          "url": "https://lostluggagelegend.com/golf/jack-s-point",
+          "title": "Jack's Point Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
+          "description": "Plan a round at Jack's Point in Queenstown, New Zealand: course character, playing notes, visitor access and sourced month-by-month advice.",
+          "images": [
+            {
+              "url": "https://images.unsplash.com/photo-1600466403153-50193d187dde?w=1200&q=85&auto=format&fit=crop",
+              "width": 1200,
+              "height": 630,
+              "alt": "Queenstown destination photograph — not Jack's Point"
+            }
+          ]
+        },
+        "twitter": {
+          "card": "summary_large_image",
+          "title": "Jack's Point Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
+          "description": "Plan a round at Jack's Point in Queenstown, New Zealand: course character, playing notes, visitor access and sourced month-by-month advice.",
+          "images": [
+            "https://images.unsplash.com/photo-1600466403153-50193d187dde?w=1200&q=85&auto=format&fit=crop"
+          ]
+        }
+      }
+    },
+    {
+      "id": "katameya-heights-golf-tennis-resort",
+      "name": "Katameya Heights Golf & Tennis Resort",
+      "character": "Yves Bureau’s championship layout in Cairo",
+      "photo": null,
+      "articleHash": "0e8963031aefb659689e48fe68ae7808143968e9aa848028e03306c077a7eb9c",
+      "metadata": {
+        "title": "Katameya Heights Golf & Tennis Resort Course Guide — When to Play & Visitor Access",
+        "description": "Plan a round at Katameya Heights Golf & Tennis Resort in Cairo, Egypt: course character, playing notes, visitor access and sourced month-by-month advice.",
+        "alternates": {
+          "canonical": "https://lostluggagelegend.com/golf/katameya-heights-golf-tennis-resort"
+        },
+        "openGraph": {
+          "type": "article",
+          "locale": "en_US",
+          "siteName": "Lost Luggage Legend",
+          "url": "https://lostluggagelegend.com/golf/katameya-heights-golf-tennis-resort",
+          "title": "Katameya Heights Golf & Tennis Resort Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
+          "description": "Plan a round at Katameya Heights Golf & Tennis Resort in Cairo, Egypt: course character, playing notes, visitor access and sourced month-by-month advice.",
+          "images": [
+            {
+              "url": "https://images.unsplash.com/photo-1572252009286-268acec5ca0a?w=1200&q=85&auto=format&fit=crop",
+              "width": 1200,
+              "height": 630,
+              "alt": "Cairo destination photograph — not Katameya Heights Golf & Tennis Resort"
+            }
+          ]
+        },
+        "twitter": {
+          "card": "summary_large_image",
+          "title": "Katameya Heights Golf & Tennis Resort Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
+          "description": "Plan a round at Katameya Heights Golf & Tennis Resort in Cairo, Egypt: course character, playing notes, visitor access and sourced month-by-month advice.",
+          "images": [
+            "https://images.unsplash.com/photo-1572252009286-268acec5ca0a?w=1200&q=85&auto=format&fit=crop"
+          ]
+        }
+      }
+    },
+    {
+      "id": "keilir-golf-club",
+      "name": "Keilir Golf Club",
+      "character": "Lava on the front nine; peninsula on the back",
+      "photo": null,
+      "articleHash": "1e40b2d6d43de3e482a98b5baae93726e432c3a5b55f9ef27d427de223be14f4",
+      "metadata": {
+        "title": "Keilir Golf Club Course Guide — When to Play & Visitor Access",
+        "description": "Plan a round at Keilir Golf Club in Hafnarfjörður (Reykjavík), Iceland: course character, playing notes, visitor access and sourced month-by-month advice.",
+        "alternates": {
+          "canonical": "https://lostluggagelegend.com/golf/keilir-golf-club"
+        },
+        "openGraph": {
+          "type": "article",
+          "locale": "en_US",
+          "siteName": "Lost Luggage Legend",
+          "url": "https://lostluggagelegend.com/golf/keilir-golf-club",
+          "title": "Keilir Golf Club Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
+          "description": "Plan a round at Keilir Golf Club in Hafnarfjörður (Reykjavík), Iceland: course character, playing notes, visitor access and sourced month-by-month advice.",
+          "images": [
+            {
+              "url": "https://images.unsplash.com/photo-1615130767419-e9ff3afa5a15?w=1200&q=85&auto=format&fit=crop",
+              "width": 1200,
+              "height": 630,
+              "alt": "Reykjavik destination photograph — not Keilir Golf Club"
+            }
+          ]
+        },
+        "twitter": {
+          "card": "summary_large_image",
+          "title": "Keilir Golf Club Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
+          "description": "Plan a round at Keilir Golf Club in Hafnarfjörður (Reykjavík), Iceland: course character, playing notes, visitor access and sourced month-by-month advice.",
+          "images": [
+            "https://images.unsplash.com/photo-1615130767419-e9ff3afa5a15?w=1200&q=85&auto=format&fit=crop"
+          ]
+        }
+      }
+    },
+    {
+      "id": "kennemer-golf-country-club",
+      "name": "Kennemer Golf & Country Club",
+      "character": "Colt dune golf across three nine-hole loops",
+      "photo": {
+        "src": "/golf-media/kennemer-golf-country-club-01.webp",
+        "width": 1600,
+        "height": 1200,
+        "alt": "dune heath fairways, blue-flag greens and bunkers — Kennemer Golf & Country Club.",
+        "caption": "At Kennemer Golf & Country Club: dune heath fairways, blue-flag greens and bunkers.",
+        "scope": "Photograph by Ken123, published on Wikimedia Commons under CC BY-SA 3.0, where the photographer identifies the subject as Kennemer Golf & Country Club. It is not a club-supplied image, and it does not establish the exact hole, angle or current playing conditions.",
+        "author": "Ken123",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Kennemer_Golf_%26_Country_Club1.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/97/Kennemer_Golf_%26_Country_Club1.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "checkedAt": "2026-10-25"
+      },
+      "articleHash": "e639e142c4253fd8526e9c741b2958adfe753f5333c89cc30d5be03cfaf4b0f5",
+      "metadata": {
+        "title": "Kennemer Golf & Country Club Course Guide — When to Play & Visitor Access",
+        "description": "Plan a round at Kennemer Golf & Country Club in Zandvoort (near Amsterdam), Netherlands: course character, playing notes, visitor access and sourced month-by-month advice.",
+        "alternates": {
+          "canonical": "https://lostluggagelegend.com/golf/kennemer-golf-country-club"
+        },
+        "openGraph": {
+          "type": "article",
+          "locale": "en_US",
+          "siteName": "Lost Luggage Legend",
+          "url": "https://lostluggagelegend.com/golf/kennemer-golf-country-club",
+          "title": "Kennemer Golf & Country Club Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
+          "description": "Plan a round at Kennemer Golf & Country Club in Zandvoort (near Amsterdam), Netherlands: course character, playing notes, visitor access and sourced month-by-month advice.",
+          "images": [
+            {
+              "url": "/golf-media/kennemer-golf-country-club-01.webp",
+              "width": 1600,
+              "height": 1200,
+              "alt": "dune heath fairways, blue-flag greens and bunkers — Kennemer Golf & Country Club."
+            }
+          ]
+        },
+        "twitter": {
+          "card": "summary_large_image",
+          "title": "Kennemer Golf & Country Club Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
+          "description": "Plan a round at Kennemer Golf & Country Club in Zandvoort (near Amsterdam), Netherlands: course character, playing notes, visitor access and sourced month-by-month advice.",
+          "images": [
+            "/golf-media/kennemer-golf-country-club-01.webp"
+          ]
+        }
+      }
+    },
+    {
+      "id": "kyt-j-golf-south-east",
+      "name": "Kytäjä Golf (South East)",
+      "character": "Woodland out; Lake Kytäjä on the inward nine",
+      "photo": null,
+      "articleHash": "fe616dbb225971f36b40081c9e6af0b6e25f57112160bf5c28382e7343b695a9",
+      "metadata": {
+        "title": "Kytäjä Golf (South East) Course Guide — When to Play & Visitor Access",
+        "description": "Plan a round at Kytäjä Golf (South East) in Hyvinkää (Helsinki), Finland: course character, playing notes, visitor access and sourced month-by-month advice.",
+        "alternates": {
+          "canonical": "https://lostluggagelegend.com/golf/kyt-j-golf-south-east"
+        },
+        "openGraph": {
+          "type": "article",
+          "locale": "en_US",
+          "siteName": "Lost Luggage Legend",
+          "url": "https://lostluggagelegend.com/golf/kyt-j-golf-south-east",
+          "title": "Kytäjä Golf (South East) Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
+          "description": "Plan a round at Kytäjä Golf (South East) in Hyvinkää (Helsinki), Finland: course character, playing notes, visitor access and sourced month-by-month advice.",
+          "images": [
+            {
+              "url": "https://images.unsplash.com/photo-1538332576228-eb5b4c4de6f5?w=1200&q=85&auto=format&fit=crop",
+              "width": 1200,
+              "height": 630,
+              "alt": "Helsinki destination photograph — not Kytäjä Golf (South East)"
+            }
+          ]
+        },
+        "twitter": {
+          "card": "summary_large_image",
+          "title": "Kytäjä Golf (South East) Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
+          "description": "Plan a round at Kytäjä Golf (South East) in Hyvinkää (Helsinki), Finland: course character, playing notes, visitor access and sourced month-by-month advice.",
+          "images": [
+            "https://images.unsplash.com/photo-1538332576228-eb5b4c4de6f5?w=1200&q=85&auto=format&fit=crop"
+          ]
+        }
+      }
+    },
+    {
+      "id": "marco-simone-golf-country-club",
+      "name": "Marco Simone Golf & Country Club",
+      "character": "An undulating, open-parkland Ryder Cup layout",
+      "photo": {
+        "src": "/golf-media/marco-simone-golf-country-club-01.webp",
+        "width": 1600,
+        "height": 1067,
+        "alt": "fairway, green, bunker and flagstick before tournament grandstands — Marco Simone Golf & Country Club.",
+        "caption": "At Marco Simone Golf & Country Club: fairway, green, bunker and flagstick before tournament grandstands.",
+        "scope": "Photograph by Cutkiller2018, published on Wikimedia Commons under CC BY-SA 4.0, where the photographer identifies the subject as Marco Simone Golf & Country Club. It is not a club-supplied image, and it does not establish the exact hole, angle or current playing conditions.",
+        "author": "Cutkiller2018",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Ryder_Cup_2023_-_Grand_Stand.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Ryder_Cup_2023_-_Grand_Stand.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "checkedAt": "2026-10-25"
+      },
+      "articleHash": "201e9f5920005f5ef521150eb86ae58a75ba3a91948b4dbd86b9e9d2bc8d5b34",
+      "metadata": {
+        "title": "Marco Simone Golf & Country Club Course Guide — When to Play & Visitor Access",
+        "description": "Plan a round at Marco Simone Golf & Country Club in Guidonia (near Rome), Italy: course character, playing notes, visitor access and sourced month-by-month advice.",
+        "alternates": {
+          "canonical": "https://lostluggagelegend.com/golf/marco-simone-golf-country-club"
+        },
+        "openGraph": {
+          "type": "article",
+          "locale": "en_US",
+          "siteName": "Lost Luggage Legend",
+          "url": "https://lostluggagelegend.com/golf/marco-simone-golf-country-club",
+          "title": "Marco Simone Golf & Country Club Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
+          "description": "Plan a round at Marco Simone Golf & Country Club in Guidonia (near Rome), Italy: course character, playing notes, visitor access and sourced month-by-month advice.",
+          "images": [
+            {
+              "url": "/golf-media/marco-simone-golf-country-club-01.webp",
+              "width": 1600,
+              "height": 1067,
+              "alt": "fairway, green, bunker and flagstick before tournament grandstands — Marco Simone Golf & Country Club."
+            }
+          ]
+        },
+        "twitter": {
+          "card": "summary_large_image",
+          "title": "Marco Simone Golf & Country Club Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
+          "description": "Plan a round at Marco Simone Golf & Country Club in Guidonia (near Rome), Italy: course character, playing notes, visitor access and sourced month-by-month advice.",
+          "images": [
+            "/golf-media/marco-simone-golf-country-club-01.webp"
+          ]
+        }
+      }
+    },
+    {
+      "id": "millbrook-resort",
+      "name": "Millbrook Resort",
+      "character": "Two alpine courses: Remarkables and Coronet",
+      "photo": {
+        "src": "/golf-media/millbrook-resort-03.webp",
+        "width": 1600,
+        "height": 1200,
+        "alt": "a golfer mid-swing with the green and flagstick beyond — Millbrook Resort.",
+        "caption": "At Millbrook Resort: a golfer mid-swing with the green and flagstick beyond.",
+        "scope": "Photograph by Golfnut01, published on Wikimedia Commons under CC BY-SA 4.0, where the photographer identifies the subject as Millbrook Resort. It is not a club-supplied image, and it does not establish the exact hole, angle or current playing conditions.",
+        "author": "Golfnut01",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Rourke_Van_Der_Spuy_NZopen2016.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Rourke_Van_Der_Spuy_NZopen2016.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "checkedAt": "2026-10-25"
+      },
+      "articleHash": "91392a592b605fe8976a48b22cf074b8f6f5ab83f6a0b1fae30e858a393da263",
+      "metadata": {
+        "title": "Millbrook Resort Course Guide — When to Play & Visitor Access",
+        "description": "Plan a round at Millbrook Resort in Queenstown, New Zealand: course character, playing notes, visitor access and sourced month-by-month advice.",
+        "alternates": {
+          "canonical": "https://lostluggagelegend.com/golf/millbrook-resort"
+        },
+        "openGraph": {
+          "type": "article",
+          "locale": "en_US",
+          "siteName": "Lost Luggage Legend",
+          "url": "https://lostluggagelegend.com/golf/millbrook-resort",
+          "title": "Millbrook Resort Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
+          "description": "Plan a round at Millbrook Resort in Queenstown, New Zealand: course character, playing notes, visitor access and sourced month-by-month advice.",
+          "images": [
+            {
+              "url": "/golf-media/millbrook-resort-03.webp",
+              "width": 1600,
+              "height": 1200,
+              "alt": "a golfer mid-swing with the green and flagstick beyond — Millbrook Resort."
+            }
+          ]
+        },
+        "twitter": {
+          "card": "summary_large_image",
+          "title": "Millbrook Resort Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
+          "description": "Plan a round at Millbrook Resort in Queenstown, New Zealand: course character, playing notes, visitor access and sourced month-by-month advice.",
+          "images": [
+            "/golf-media/millbrook-resort-03.webp"
+          ]
+        }
+      }
+    },
+    {
+      "id": "montgomerie-maxx-royal",
+      "name": "Montgomerie Maxx Royal",
+      "character": "Sand and Mediterranean pines; a floodlit back nine",
+      "photo": null,
+      "articleHash": "072cf1662a2c8e8d53644d55486c2873493cfc26bb71f8bd0798e9eaff4de5b6",
+      "metadata": {
+        "title": "Montgomerie Maxx Royal Course Guide — When to Play & Visitor Access",
+        "description": "Plan a round at Montgomerie Maxx Royal in Belek, Antalya, Turkey: course character, playing notes, visitor access and sourced month-by-month advice.",
+        "alternates": {
+          "canonical": "https://lostluggagelegend.com/golf/montgomerie-maxx-royal"
+        },
+        "openGraph": {
+          "type": "article",
+          "locale": "en_US",
+          "siteName": "Lost Luggage Legend",
+          "url": "https://lostluggagelegend.com/golf/montgomerie-maxx-royal",
+          "title": "Montgomerie Maxx Royal Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
+          "description": "Plan a round at Montgomerie Maxx Royal in Belek, Antalya, Turkey: course character, playing notes, visitor access and sourced month-by-month advice.",
+          "images": [
+            {
+              "url": "https://images.unsplash.com/photo-1648325129746-abcc1b872380?w=1200&q=85&auto=format&fit=crop",
+              "width": 1200,
+              "height": 630,
+              "alt": "Antalya destination photograph — not Montgomerie Maxx Royal"
+            }
+          ]
+        },
+        "twitter": {
+          "card": "summary_large_image",
+          "title": "Montgomerie Maxx Royal Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
+          "description": "Plan a round at Montgomerie Maxx Royal in Belek, Antalya, Turkey: course character, playing notes, visitor access and sourced month-by-month advice.",
+          "images": [
+            "https://images.unsplash.com/photo-1648325129746-abcc1b872380?w=1200&q=85&auto=format&fit=crop"
+          ]
+        }
+      }
+    },
+    {
+      "id": "muirfield",
+      "name": "Muirfield",
+      "character": "Two opposing loops through East Lothian links",
+      "photo": {
+        "src": "/golf-media/muirfield-01.webp",
+        "width": 1600,
+        "height": 1200,
+        "alt": "the links green, pot bunkers and clubhouse in championship condition — Muirfield.",
+        "caption": "At Muirfield: the links green, pot bunkers and clubhouse in championship condition.",
+        "scope": "Photograph by alljengi, published on Wikimedia Commons under CC BY-SA 2.0, where the photographer identifies the subject as Muirfield. It is not a club-supplied image, and it does not establish the exact hole, angle or current playing conditions.",
+        "author": "alljengi",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:18th_Hole_at_Muirfield,_The_Open_2013_.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/52/18th_Hole_at_Muirfield%2C_The_Open_2013_.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original",
+        "license": "CC BY-SA 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "checkedAt": "2026-10-25"
+      },
+      "articleHash": "c49dff0f02669691838aed91a643a7efb2a646629a22c52f36e9b3acf1b619ea",
+      "metadata": {
+        "title": "Muirfield Course Guide — When to Play & Visitor Access",
+        "description": "Plan a round at Muirfield in Gullane, East Lothian (near Edinburgh), United Kingdom: course character, playing notes, visitor access and sourced month-by-month advice.",
+        "alternates": {
+          "canonical": "https://lostluggagelegend.com/golf/muirfield"
+        },
+        "openGraph": {
+          "type": "article",
+          "locale": "en_US",
+          "siteName": "Lost Luggage Legend",
+          "url": "https://lostluggagelegend.com/golf/muirfield",
+          "title": "Muirfield Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
+          "description": "Plan a round at Muirfield in Gullane, East Lothian (near Edinburgh), United Kingdom: course character, playing notes, visitor access and sourced month-by-month advice.",
+          "images": [
+            {
+              "url": "/golf-media/muirfield-01.webp",
+              "width": 1600,
+              "height": 1200,
+              "alt": "the links green, pot bunkers and clubhouse in championship condition — Muirfield."
+            }
+          ]
+        },
+        "twitter": {
+          "card": "summary_large_image",
+          "title": "Muirfield Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
+          "description": "Plan a round at Muirfield in Gullane, East Lothian (near Edinburgh), United Kingdom: course character, playing notes, visitor access and sourced month-by-month advice.",
+          "images": [
+            "/golf-media/muirfield-01.webp"
+          ]
+        }
+      }
+    },
+    {
+      "id": "new-south-wales-golf-club",
+      "name": "New South Wales Golf Club",
+      "character": "Rugged La Perouse cliffs above Botany Bay",
+      "photo": null,
+      "articleHash": "f8bb4438d0c509d51c19a8f3b6e52505307a6797e2f65c786f7896cdcb0bf713",
+      "metadata": {
+        "title": "New South Wales Golf Club Course Guide — When to Play & Visitor Access",
+        "description": "Plan a round at New South Wales Golf Club in Sydney, Australia: course character, playing notes, visitor access and sourced month-by-month advice.",
+        "alternates": {
+          "canonical": "https://lostluggagelegend.com/golf/new-south-wales-golf-club"
+        },
+        "openGraph": {
+          "type": "article",
+          "locale": "en_US",
+          "siteName": "Lost Luggage Legend",
+          "url": "https://lostluggagelegend.com/golf/new-south-wales-golf-club",
+          "title": "New South Wales Golf Club Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
+          "description": "Plan a round at New South Wales Golf Club in Sydney, Australia: course character, playing notes, visitor access and sourced month-by-month advice.",
+          "images": [
+            {
+              "url": "https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?w=1200&q=85&auto=format&fit=crop",
+              "width": 1200,
+              "height": 630,
+              "alt": "Sydney destination photograph — not New South Wales Golf Club"
+            }
+          ]
+        },
+        "twitter": {
+          "card": "summary_large_image",
+          "title": "New South Wales Golf Club Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
+          "description": "Plan a round at New South Wales Golf Club in Sydney, Australia: course character, playing notes, visitor access and sourced month-by-month advice.",
+          "images": [
+            "https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?w=1200&q=85&auto=format&fit=crop"
+          ]
+        }
+      }
+    },
+    {
+      "id": "oitavos-dunes",
+      "name": "Oitavos Dunes",
+      "character": "Atlantic-facing dunes and umbrella pines",
+      "photo": {
+        "src": "/golf-media/oitavos-dunes-01.webp",
+        "width": 1600,
+        "height": 743,
+        "alt": "a fairway with yardage markers and the cart path among stone pines — Oitavos Dunes.",
+        "caption": "At Oitavos Dunes: a fairway with yardage markers and the cart path among stone pines.",
+        "scope": "Photograph by Rúdisicyon, published on Wikimedia Commons under CC BY-SA 4.0, where the photographer identifies the subject as Oitavos Dunes. It is not a club-supplied image, and it does not establish the exact hole, angle or current playing conditions.",
+        "author": "Rúdisicyon",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Oitavos_Dunes._05-18.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Oitavos_Dunes._05-18.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "checkedAt": "2026-10-25"
+      },
+      "articleHash": "9540be0102e2a0b6c1612d46a411acefb483578d2ab1bf0c71712032ed872873",
+      "metadata": {
+        "title": "Oitavos Dunes Course Guide — When to Play & Visitor Access",
+        "description": "Plan a round at Oitavos Dunes in Cascais, Lisbon, Portugal: course character, playing notes, visitor access and sourced month-by-month advice.",
+        "alternates": {
+          "canonical": "https://lostluggagelegend.com/golf/oitavos-dunes"
+        },
+        "openGraph": {
+          "type": "article",
+          "locale": "en_US",
+          "siteName": "Lost Luggage Legend",
+          "url": "https://lostluggagelegend.com/golf/oitavos-dunes",
+          "title": "Oitavos Dunes Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
+          "description": "Plan a round at Oitavos Dunes in Cascais, Lisbon, Portugal: course character, playing notes, visitor access and sourced month-by-month advice.",
+          "images": [
+            {
+              "url": "/golf-media/oitavos-dunes-01.webp",
+              "width": 1600,
+              "height": 743,
+              "alt": "a fairway with yardage markers and the cart path among stone pines — Oitavos Dunes."
+            }
+          ]
+        },
+        "twitter": {
+          "card": "summary_large_image",
+          "title": "Oitavos Dunes Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
+          "description": "Plan a round at Oitavos Dunes in Cascais, Lisbon, Portugal: course character, playing notes, visitor access and sourced month-by-month advice.",
+          "images": [
+            "/golf-media/oitavos-dunes-01.webp"
+          ]
+        }
+      }
+    },
+    {
+      "id": "portmarnock-golf-club",
+      "name": "Portmarnock Golf Club",
+      "character": "27 holes across a narrow sandy peninsula",
+      "photo": {
+        "src": "/golf-media/portmarnock-golf-club-02.webp",
+        "width": 1600,
+        "height": 1064,
+        "alt": "an aerial view of links fairways and greens beside the sea — Portmarnock Golf Club.",
+        "caption": "At Portmarnock Golf Club: an aerial view of links fairways and greens beside the sea.",
+        "scope": "Photograph by PGC, published on Wikimedia Commons under CC0, where the photographer identifies the subject as Portmarnock Golf Club. It is not a club-supplied image, and it does not establish the exact hole, angle or current playing conditions.",
+        "author": "PGC",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Aerial_view_of_14th,_15th_and_16th_holes_at_Portmarnock_Golf_Club,_Ireland.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/75/Aerial_view_of_14th%2C_15th_and_16th_holes_at_Portmarnock_Golf_Club%2C_Ireland.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "license": "CC0",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "checkedAt": "2026-10-25"
+      },
+      "articleHash": "9910812c45f09fd959dd2cadc21052f1e681400db168695b952bf764928c715c",
+      "metadata": {
+        "title": "Portmarnock Golf Club Course Guide — When to Play & Visitor Access",
+        "description": "Plan a round at Portmarnock Golf Club in Portmarnock (near Dublin), Ireland: course character, playing notes, visitor access and sourced month-by-month advice.",
+        "alternates": {
+          "canonical": "https://lostluggagelegend.com/golf/portmarnock-golf-club"
+        },
+        "openGraph": {
+          "type": "article",
+          "locale": "en_US",
+          "siteName": "Lost Luggage Legend",
+          "url": "https://lostluggagelegend.com/golf/portmarnock-golf-club",
+          "title": "Portmarnock Golf Club Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
+          "description": "Plan a round at Portmarnock Golf Club in Portmarnock (near Dublin), Ireland: course character, playing notes, visitor access and sourced month-by-month advice.",
+          "images": [
+            {
+              "url": "/golf-media/portmarnock-golf-club-02.webp",
+              "width": 1600,
+              "height": 1064,
+              "alt": "an aerial view of links fairways and greens beside the sea — Portmarnock Golf Club."
+            }
+          ]
+        },
+        "twitter": {
+          "card": "summary_large_image",
+          "title": "Portmarnock Golf Club Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
+          "description": "Plan a round at Portmarnock Golf Club in Portmarnock (near Dublin), Ireland: course character, playing notes, visitor access and sourced month-by-month advice.",
+          "images": [
+            "/golf-media/portmarnock-golf-club-02.webp"
+          ]
+        }
+      }
+    },
+    {
+      "id": "praia-d-el-rey",
+      "name": "Praia d'El Rey",
+      "character": "Pine-forest holes meet Atlantic dunes",
+      "photo": {
+        "src": "/golf-media/praia-d-el-rey-01.webp",
+        "width": 1280,
+        "height": 960,
+        "alt": "fairway mowing stripes, the white clubhouse and coastal dunes — Praia d'El Rey.",
+        "caption": "At Praia d'El Rey: fairway mowing stripes, the white clubhouse and coastal dunes.",
+        "scope": "Photograph by Vitor Oliveira, published on Wikimedia Commons under CC BY-SA 2.0, where the photographer identifies the subject as Praia d'El Rey. It is not a club-supplied image, and it does not establish the exact hole, angle or current playing conditions.",
+        "author": "Vitor Oliveira",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Praia_D%27El_Rey_Golf_%26_Country_Club_-_Portugal_(2438980269).jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Praia_D%27El_Rey_Golf_%26_Country_Club_-_Portugal_%282438980269%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original",
+        "license": "CC BY-SA 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "checkedAt": "2026-10-25"
+      },
+      "articleHash": "97abee77aea1e021b7a6fb05de69e5dca1694026932d4b7807bae58d66e9a71b",
+      "metadata": {
+        "title": "Praia d'El Rey Course Guide — When to Play & Visitor Access",
+        "description": "Plan a round at Praia d'El Rey in Obidos (north of Lisbon), Portugal: course character, playing notes, visitor access and sourced month-by-month advice.",
+        "alternates": {
+          "canonical": "https://lostluggagelegend.com/golf/praia-d-el-rey"
+        },
+        "openGraph": {
+          "type": "article",
+          "locale": "en_US",
+          "siteName": "Lost Luggage Legend",
+          "url": "https://lostluggagelegend.com/golf/praia-d-el-rey",
+          "title": "Praia d'El Rey Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
+          "description": "Plan a round at Praia d'El Rey in Obidos (north of Lisbon), Portugal: course character, playing notes, visitor access and sourced month-by-month advice.",
+          "images": [
+            {
+              "url": "/golf-media/praia-d-el-rey-01.webp",
+              "width": 1280,
+              "height": 960,
+              "alt": "fairway mowing stripes, the white clubhouse and coastal dunes — Praia d'El Rey."
+            }
+          ]
+        },
+        "twitter": {
+          "card": "summary_large_image",
+          "title": "Praia d'El Rey Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
+          "description": "Plan a round at Praia d'El Rey in Obidos (north of Lisbon), Portugal: course character, playing notes, visitor access and sourced month-by-month advice.",
+          "images": [
+            "/golf-media/praia-d-el-rey-01.webp"
+          ]
+        }
+      }
+    },
+    {
+      "id": "real-club-de-golf-el-prat",
+      "name": "Real Club de Golf El Prat",
+      "character": "Five nine-hole loops; Pink, Yellow and Green",
+      "photo": {
+        "src": "/golf-media/real-club-de-golf-el-prat-01.webp",
+        "width": 1600,
+        "height": 1200,
+        "alt": "fairway, sand bunker and winding cart path on rolling terrain — Real Club de Golf El Prat.",
+        "caption": "At Real Club de Golf El Prat: fairway, sand bunker and winding cart path on rolling terrain.",
+        "scope": "Photograph by Pere prlpz, published on Wikimedia Commons under CC BY-SA 3.0, where the photographer identifies the subject as Real Club de Golf El Prat. It is not a club-supplied image, and it does not establish the exact hole, angle or current playing conditions.",
+        "author": "Pere prlpz",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Real_Club_de_Golf_El_Prat.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Real_Club_de_Golf_El_Prat.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "checkedAt": "2026-10-25"
+      },
+      "articleHash": "bcf5d3fd08edbd70f9302ee95244112e134cc4dd577a13ebc1f7dde2cf828d6f",
+      "metadata": {
+        "title": "Real Club de Golf El Prat Course Guide — When to Play & Visitor Access",
+        "description": "Plan a round at Real Club de Golf El Prat in Barcelona, Spain: course character, playing notes, visitor access and sourced month-by-month advice.",
+        "alternates": {
+          "canonical": "https://lostluggagelegend.com/golf/real-club-de-golf-el-prat"
+        },
+        "openGraph": {
+          "type": "article",
+          "locale": "en_US",
+          "siteName": "Lost Luggage Legend",
+          "url": "https://lostluggagelegend.com/golf/real-club-de-golf-el-prat",
+          "title": "Real Club de Golf El Prat Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
+          "description": "Plan a round at Real Club de Golf El Prat in Barcelona, Spain: course character, playing notes, visitor access and sourced month-by-month advice.",
+          "images": [
+            {
+              "url": "/golf-media/real-club-de-golf-el-prat-01.webp",
+              "width": 1600,
+              "height": 1200,
+              "alt": "fairway, sand bunker and winding cart path on rolling terrain — Real Club de Golf El Prat."
+            }
+          ]
+        },
+        "twitter": {
+          "card": "summary_large_image",
+          "title": "Real Club de Golf El Prat Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
+          "description": "Plan a round at Real Club de Golf El Prat in Barcelona, Spain: course character, playing notes, visitor access and sourced month-by-month advice.",
+          "images": [
+            "/golf-media/real-club-de-golf-el-prat-01.webp"
+          ]
+        }
+      }
+    },
+    {
+      "id": "royal-cape-golf-club",
+      "name": "Royal Cape Golf Club",
+      "character": "Flat, tree-lined fairways and contoured greens",
+      "photo": null,
+      "articleHash": "0c9e58fe7ac39a433dcf40550672fdf586b13205d3882aad0afdeb8ae86d5d3b",
+      "metadata": {
+        "title": "Royal Cape Golf Club Course Guide — When to Play & Visitor Access",
+        "description": "Plan a round at Royal Cape Golf Club in Cape Town, South Africa: course character, playing notes, visitor access and sourced month-by-month advice.",
+        "alternates": {
+          "canonical": "https://lostluggagelegend.com/golf/royal-cape-golf-club"
+        },
+        "openGraph": {
+          "type": "article",
+          "locale": "en_US",
+          "siteName": "Lost Luggage Legend",
+          "url": "https://lostluggagelegend.com/golf/royal-cape-golf-club",
+          "title": "Royal Cape Golf Club Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
+          "description": "Plan a round at Royal Cape Golf Club in Cape Town, South Africa: course character, playing notes, visitor access and sourced month-by-month advice.",
+          "images": [
+            {
+              "url": "https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=1200&q=85&auto=format&fit=crop",
+              "width": 1200,
+              "height": 630,
+              "alt": "Cape Town destination photograph — not Royal Cape Golf Club"
+            }
+          ]
+        },
+        "twitter": {
+          "card": "summary_large_image",
+          "title": "Royal Cape Golf Club Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
+          "description": "Plan a round at Royal Cape Golf Club in Cape Town, South Africa: course character, playing notes, visitor access and sourced month-by-month advice.",
+          "images": [
+            "https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=1200&q=85&auto=format&fit=crop"
+          ]
+        }
+      }
+    },
+    {
+      "id": "royal-golf-marrakech-old-course",
+      "name": "Royal Golf Marrakech (Old Course)",
+      "character": "The Golias–Massy Old Course in a wooded setting",
+      "photo": null,
+      "articleHash": "f73f08e19fd634695c4c5671d34cd40138f018047f9b09a2902e36d2361ccb20",
+      "metadata": {
+        "title": "Royal Golf Marrakech (Old Course) Course Guide — When to Play & Visitor Access",
+        "description": "Plan a round at Royal Golf Marrakech (Old Course) in Marrakech, Morocco: course character, playing notes, visitor access and sourced month-by-month advice.",
+        "alternates": {
+          "canonical": "https://lostluggagelegend.com/golf/royal-golf-marrakech-old-course"
+        },
+        "openGraph": {
+          "type": "article",
+          "locale": "en_US",
+          "siteName": "Lost Luggage Legend",
+          "url": "https://lostluggagelegend.com/golf/royal-golf-marrakech-old-course",
+          "title": "Royal Golf Marrakech (Old Course) Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
+          "description": "Plan a round at Royal Golf Marrakech (Old Course) in Marrakech, Morocco: course character, playing notes, visitor access and sourced month-by-month advice.",
+          "images": [
+            {
+              "url": "https://images.unsplash.com/photo-1597212618440-806262de4f6b?w=1200&q=85&auto=format&fit=crop",
+              "width": 1200,
+              "height": 630,
+              "alt": "Marrakech destination photograph — not Royal Golf Marrakech (Old Course)"
+            }
+          ]
+        },
+        "twitter": {
+          "card": "summary_large_image",
+          "title": "Royal Golf Marrakech (Old Course) Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
+          "description": "Plan a round at Royal Golf Marrakech (Old Course) in Marrakech, Morocco: course character, playing notes, visitor access and sourced month-by-month advice.",
+          "images": [
+            "https://images.unsplash.com/photo-1597212618440-806262de4f6b?w=1200&q=85&auto=format&fit=crop"
+          ]
+        }
+      }
+    },
+    {
+      "id": "sentosa-golf-club-serapong",
+      "name": "Sentosa Golf Club (Serapong)",
+      "character": "Tidal lagoons and sea channels shape the lines",
+      "photo": null,
+      "articleHash": "0dc3cdad75c0f8fbf29d45241eb6ae9692926281f63d5222538f416fd68fb7c0",
+      "metadata": {
+        "title": "Sentosa Golf Club (Serapong) Course Guide — When to Play & Visitor Access",
+        "description": "Plan a round at Sentosa Golf Club (Serapong) in Sentosa Island, Singapore, Singapore: course character, playing notes, visitor access and sourced month-by-month advice.",
+        "alternates": {
+          "canonical": "https://lostluggagelegend.com/golf/sentosa-golf-club-serapong"
+        },
+        "openGraph": {
+          "type": "article",
+          "locale": "en_US",
+          "siteName": "Lost Luggage Legend",
+          "url": "https://lostluggagelegend.com/golf/sentosa-golf-club-serapong",
+          "title": "Sentosa Golf Club (Serapong) Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
+          "description": "Plan a round at Sentosa Golf Club (Serapong) in Sentosa Island, Singapore, Singapore: course character, playing notes, visitor access and sourced month-by-month advice.",
+          "images": [
+            {
+              "url": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=1200&q=85&auto=format&fit=crop",
+              "width": 1200,
+              "height": 630,
+              "alt": "Singapore destination photograph — not Sentosa Golf Club (Serapong)"
+            }
+          ]
+        },
+        "twitter": {
+          "card": "summary_large_image",
+          "title": "Sentosa Golf Club (Serapong) Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
+          "description": "Plan a round at Sentosa Golf Club (Serapong) in Sentosa Island, Singapore, Singapore: course character, playing notes, visitor access and sourced month-by-month advice.",
+          "images": [
+            "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=1200&q=85&auto=format&fit=crop"
+          ]
+        }
+      }
+    },
+    {
+      "id": "steenberg-golf-club",
+      "name": "Steenberg Golf Club",
+      "character": "Cross bunkers and a stream-divided finish",
+      "photo": null,
+      "articleHash": "4a07ebaf79e5f4e337fdde0cdd8233d6c328798815a851de33b01e134ba79b5a",
+      "metadata": {
+        "title": "Steenberg Golf Club Course Guide — When to Play & Visitor Access",
+        "description": "Plan a round at Steenberg Golf Club in Constantia, Cape Town, South Africa: course character, playing notes, visitor access and sourced month-by-month advice.",
+        "alternates": {
+          "canonical": "https://lostluggagelegend.com/golf/steenberg-golf-club"
+        },
+        "openGraph": {
+          "type": "article",
+          "locale": "en_US",
+          "siteName": "Lost Luggage Legend",
+          "url": "https://lostluggagelegend.com/golf/steenberg-golf-club",
+          "title": "Steenberg Golf Club Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
+          "description": "Plan a round at Steenberg Golf Club in Constantia, Cape Town, South Africa: course character, playing notes, visitor access and sourced month-by-month advice.",
+          "images": [
+            {
+              "url": "https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=1200&q=85&auto=format&fit=crop",
+              "width": 1200,
+              "height": 630,
+              "alt": "Cape Town destination photograph — not Steenberg Golf Club"
+            }
+          ]
+        },
+        "twitter": {
+          "card": "summary_large_image",
+          "title": "Steenberg Golf Club Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
+          "description": "Plan a round at Steenberg Golf Club in Constantia, Cape Town, South Africa: course character, playing notes, visitor access and sourced month-by-month advice.",
+          "images": [
+            "https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=1200&q=85&auto=format&fit=crop"
+          ]
+        }
+      }
+    },
+    {
+      "id": "thai-country-club",
+      "name": "Thai Country Club",
+      "character": "Denis Griffiths design with water throughout",
+      "photo": null,
+      "articleHash": "931b5a88a1c154270a66e6cacd0cbeba5820c938babf4e719ebcc41b4ab9a37f",
+      "metadata": {
+        "title": "Thai Country Club Course Guide — When to Play & Visitor Access",
+        "description": "Plan a round at Thai Country Club in Bangkok, Thailand: course character, playing notes, visitor access and sourced month-by-month advice.",
+        "alternates": {
+          "canonical": "https://lostluggagelegend.com/golf/thai-country-club"
+        },
+        "openGraph": {
+          "type": "article",
+          "locale": "en_US",
+          "siteName": "Lost Luggage Legend",
+          "url": "https://lostluggagelegend.com/golf/thai-country-club",
+          "title": "Thai Country Club Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
+          "description": "Plan a round at Thai Country Club in Bangkok, Thailand: course character, playing notes, visitor access and sourced month-by-month advice.",
+          "images": [
+            {
+              "url": "https://images.unsplash.com/photo-1508009603885-50cf7c579365?w=1200&q=85&auto=format&fit=crop",
+              "width": 1200,
+              "height": 630,
+              "alt": "Bangkok destination photograph — not Thai Country Club"
+            }
+          ]
+        },
+        "twitter": {
+          "card": "summary_large_image",
+          "title": "Thai Country Club Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
+          "description": "Plan a round at Thai Country Club in Bangkok, Thailand: course character, playing notes, visitor access and sourced month-by-month advice.",
+          "images": [
+            "https://images.unsplash.com/photo-1508009603885-50cf7c579365?w=1200&q=85&auto=format&fit=crop"
+          ]
+        }
+      }
+    },
+    {
+      "id": "the-royal-melbourne-golf-club-west",
+      "name": "The Royal Melbourne Golf Club (West)",
+      "character": "Sandbelt doglegs, bold bunkers and approach angles",
+      "photo": {
+        "src": "/golf-media/the-royal-melbourne-golf-club-west-01.webp",
+        "width": 1600,
+        "height": 1067,
+        "alt": "A broad mown fairway with a chain of sand bunkers short of the green on Royal Melbourne's tree-lined West Course, spectators behind, during a 2011 Presidents Cup practice round.",
+        "caption": "Royal Melbourne's West Course — the hole the photographer titles “The 10th (18w)” — during the 2011 Presidents Cup practice round.",
+        "scope": "Photograph by Hone Morihana, published on Flickr under CC BY 2.0, where the photographer’s own title labels the West Course. Resized for this page; no crop. The 2011 Presidents Cup used a composite routing, so the tournament setting alone does not identify the course, and the hole number is not asserted. Dated tournament setup, not current conditions.",
+        "author": "Hone Morihana",
+        "sourcePage": "https://www.flickr.com/photos/hone-morihana/6346921802/",
+        "originalUrl": "https://www.flickr.com/photo_download.gne?size=o&id=6346921802&secret=6bebc566ae",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+        "checkedAt": "2026-10-26"
+      },
+      "articleHash": "b3ef7c4d37669e8c0ecfa955d51c3198423fd3b1d47ea99892ccc8c10b711dd1",
+      "metadata": {
+        "title": "The Royal Melbourne Golf Club (West) Course Guide — When to Play & Visitor Access",
+        "description": "Plan a round at The Royal Melbourne Golf Club (West) in Melbourne, Australia: course character, playing notes, visitor access and sourced month-by-month advice.",
+        "alternates": {
+          "canonical": "https://lostluggagelegend.com/golf/the-royal-melbourne-golf-club-west"
+        },
+        "openGraph": {
+          "type": "article",
+          "locale": "en_US",
+          "siteName": "Lost Luggage Legend",
+          "url": "https://lostluggagelegend.com/golf/the-royal-melbourne-golf-club-west",
+          "title": "The Royal Melbourne Golf Club (West) Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
+          "description": "Plan a round at The Royal Melbourne Golf Club (West) in Melbourne, Australia: course character, playing notes, visitor access and sourced month-by-month advice.",
+          "images": [
+            {
+              "url": "/golf-media/the-royal-melbourne-golf-club-west-01.webp",
+              "width": 1600,
+              "height": 1067,
+              "alt": "A broad mown fairway with a chain of sand bunkers short of the green on Royal Melbourne's tree-lined West Course, spectators behind, during a 2011 Presidents Cup practice round."
+            }
+          ]
+        },
+        "twitter": {
+          "card": "summary_large_image",
+          "title": "The Royal Melbourne Golf Club (West) Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
+          "description": "Plan a round at The Royal Melbourne Golf Club (West) in Melbourne, Australia: course character, playing notes, visitor access and sourced month-by-month advice.",
+          "images": [
+            "/golf-media/the-royal-melbourne-golf-club-west-01.webp"
+          ]
+        }
+      }
+    },
+    {
+      "id": "torrey-pines-golf-course-south-course",
+      "name": "Torrey Pines Golf Course – South Course",
+      "character": "Tight fairways and substantial rough on coastal bluffs",
+      "photo": {
+        "src": "/golf-media/torrey-pines-golf-course-south-course-01.webp",
+        "width": 1600,
+        "height": 1063,
+        "alt": "the putting green, bunker and flagstick before a crowd — Torrey Pines Golf Course – South Course.",
+        "caption": "At Torrey Pines Golf Course – South Course: the putting green, bunker and flagstick before a crowd.",
+        "scope": "Photograph by Dirk DBQ, published on Wikimedia Commons under CC BY 2.0, where the photographer identifies the subject as Torrey Pines Golf Course – South Course. It is not a club-supplied image, and it does not establish the exact hole, angle or current playing conditions.",
+        "author": "Dirk DBQ",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:US_Open_-_2008_-_18th_Hole_at_Torrey_Pines_(2577943297).jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3a/US_Open_-_2008_-_18th_Hole_at_Torrey_Pines_%282577943297%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+        "checkedAt": "2026-10-25"
+      },
+      "articleHash": "3610a229199cb32090bbf04e9fcfc0f0633798dfa6538c73f328b01daf9312ee",
+      "metadata": {
+        "title": "Torrey Pines Golf Course – South Course Course Guide — When to Play & Visitor Access",
+        "description": "Plan a round at Torrey Pines Golf Course – South Course in San Diego, United States: course character, playing notes, visitor access and sourced month-by-month advice.",
+        "alternates": {
+          "canonical": "https://lostluggagelegend.com/golf/torrey-pines-golf-course-south-course"
+        },
+        "openGraph": {
+          "type": "article",
+          "locale": "en_US",
+          "siteName": "Lost Luggage Legend",
+          "url": "https://lostluggagelegend.com/golf/torrey-pines-golf-course-south-course",
+          "title": "Torrey Pines Golf Course – South Course Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
+          "description": "Plan a round at Torrey Pines Golf Course – South Course in San Diego, United States: course character, playing notes, visitor access and sourced month-by-month advice.",
+          "images": [
+            {
+              "url": "/golf-media/torrey-pines-golf-course-south-course-01.webp",
+              "width": 1600,
+              "height": 1063,
+              "alt": "the putting green, bunker and flagstick before a crowd — Torrey Pines Golf Course – South Course."
+            }
+          ]
+        },
+        "twitter": {
+          "card": "summary_large_image",
+          "title": "Torrey Pines Golf Course – South Course Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
+          "description": "Plan a round at Torrey Pines Golf Course – South Course in San Diego, United States: course character, playing notes, visitor access and sourced month-by-month advice.",
+          "images": [
+            "/golf-media/torrey-pines-golf-course-south-course-01.webp"
+          ]
+        }
+      }
+    },
+    {
+      "id": "tpc-scottsdale-stadium-course",
+      "name": "TPC Scottsdale – Stadium Course",
+      "character": "The par-three 16th becomes a tournament Coliseum",
+      "photo": {
+        "src": "/golf-media/tpc-scottsdale-stadium-course-01.webp",
+        "width": 1600,
+        "height": 1014,
+        "alt": "the putting green, bunkers and grandstand below desert mountains — TPC Scottsdale – Stadium Course.",
+        "caption": "At TPC Scottsdale – Stadium Course: the putting green, bunkers and grandstand below desert mountains.",
+        "scope": "Photograph by Gage Skidmore, published on Wikimedia Commons under CC BY-SA 3.0, where the photographer identifies the subject as TPC Scottsdale – Stadium Course. It is not a club-supplied image, and it does not establish the exact hole, angle or current playing conditions.",
+        "author": "Gage Skidmore",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Waste_Management_Phoenix_Open_by_Gage_Skidmore.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/65/Waste_Management_Phoenix_Open_by_Gage_Skidmore.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "checkedAt": "2026-10-25"
+      },
+      "articleHash": "a42d795fb5e99eaa60dc0f73b02b1e02dae91389b403349030914f5b7ab95cc1",
+      "metadata": {
+        "title": "TPC Scottsdale – Stadium Course Course Guide — When to Play & Visitor Access",
+        "description": "Plan a round at TPC Scottsdale – Stadium Course in Scottsdale, United States: course character, playing notes, visitor access and sourced month-by-month advice.",
+        "alternates": {
+          "canonical": "https://lostluggagelegend.com/golf/tpc-scottsdale-stadium-course"
+        },
+        "openGraph": {
+          "type": "article",
+          "locale": "en_US",
+          "siteName": "Lost Luggage Legend",
+          "url": "https://lostluggagelegend.com/golf/tpc-scottsdale-stadium-course",
+          "title": "TPC Scottsdale – Stadium Course Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
+          "description": "Plan a round at TPC Scottsdale – Stadium Course in Scottsdale, United States: course character, playing notes, visitor access and sourced month-by-month advice.",
+          "images": [
+            {
+              "url": "/golf-media/tpc-scottsdale-stadium-course-01.webp",
+              "width": 1600,
+              "height": 1014,
+              "alt": "the putting green, bunkers and grandstand below desert mountains — TPC Scottsdale – Stadium Course."
+            }
+          ]
+        },
+        "twitter": {
+          "card": "summary_large_image",
+          "title": "TPC Scottsdale – Stadium Course Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
+          "description": "Plan a round at TPC Scottsdale – Stadium Course in Scottsdale, United States: course character, playing notes, visitor access and sourced month-by-month advice.",
+          "images": [
+            "/golf-media/tpc-scottsdale-stadium-course-01.webp"
+          ]
+        }
+      }
+    },
+    {
+      "id": "tpc-summerlin",
+      "name": "TPC Summerlin",
+      "character": "Desert arroyos, canyons and water features",
+      "photo": null,
+      "articleHash": "d1292bfdbd425a1c8fbd305d8a555d7d6b59e363fd38bcc9b6ee3b778ef04b53",
+      "metadata": {
+        "title": "TPC Summerlin Course Guide — When to Play & Visitor Access",
+        "description": "Plan a round at TPC Summerlin in Las Vegas, United States: course character, playing notes, visitor access and sourced month-by-month advice.",
+        "alternates": {
+          "canonical": "https://lostluggagelegend.com/golf/tpc-summerlin"
+        },
+        "openGraph": {
+          "type": "article",
+          "locale": "en_US",
+          "siteName": "Lost Luggage Legend",
+          "url": "https://lostluggagelegend.com/golf/tpc-summerlin",
+          "title": "TPC Summerlin Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
+          "description": "Plan a round at TPC Summerlin in Las Vegas, United States: course character, playing notes, visitor access and sourced month-by-month advice.",
+          "images": [
+            {
+              "url": "https://images.unsplash.com/photo-1581351721010-8cf859cb14a4?w=1200&q=85&auto=format&fit=crop",
+              "width": 1200,
+              "height": 630,
+              "alt": "Las Vegas destination photograph — not TPC Summerlin"
+            }
+          ]
+        },
+        "twitter": {
+          "card": "summary_large_image",
+          "title": "TPC Summerlin Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
+          "description": "Plan a round at TPC Summerlin in Las Vegas, United States: course character, playing notes, visitor access and sourced month-by-month advice.",
+          "images": [
+            "https://images.unsplash.com/photo-1581351721010-8cf859cb14a4?w=1200&q=85&auto=format&fit=crop"
+          ]
+        }
+      }
+    },
+    {
+      "id": "walton-heath-golf-club-old",
+      "name": "Walton Heath Golf Club (Old)",
+      "character": "Open Surrey heathland with smaller greens",
+      "photo": null,
+      "articleHash": "5eb7982ece3a315b7587144d2a9693751d60eeaf0925f523f997c07985b8a75e",
+      "metadata": {
+        "title": "Walton Heath Golf Club (Old) Course Guide — When to Play & Visitor Access",
+        "description": "Plan a round at Walton Heath Golf Club (Old) in Tadworth, Surrey (near London), United Kingdom: course character, playing notes, visitor access and sourced month-by-month advice.",
+        "alternates": {
+          "canonical": "https://lostluggagelegend.com/golf/walton-heath-golf-club-old"
+        },
+        "openGraph": {
+          "type": "article",
+          "locale": "en_US",
+          "siteName": "Lost Luggage Legend",
+          "url": "https://lostluggagelegend.com/golf/walton-heath-golf-club-old",
+          "title": "Walton Heath Golf Club (Old) Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
+          "description": "Plan a round at Walton Heath Golf Club (Old) in Tadworth, Surrey (near London), United Kingdom: course character, playing notes, visitor access and sourced month-by-month advice.",
+          "images": [
+            {
+              "url": "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=1200&q=85&auto=format&fit=crop",
+              "width": 1200,
+              "height": 630,
+              "alt": "London destination photograph — not Walton Heath Golf Club (Old)"
+            }
+          ]
+        },
+        "twitter": {
+          "card": "summary_large_image",
+          "title": "Walton Heath Golf Club (Old) Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
+          "description": "Plan a round at Walton Heath Golf Club (Old) in Tadworth, Surrey (near London), United Kingdom: course character, playing notes, visitor access and sourced month-by-month advice.",
+          "images": [
+            "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=1200&q=85&auto=format&fit=crop"
+          ]
+        }
+      }
+    },
+    {
+      "id": "wentworth-club-west",
+      "name": "Wentworth Club (West)",
+      "character": "Colt’s West Course through trees and heather",
+      "photo": null,
+      "articleHash": "22e28a8fa04d3388be299a176ff8f1a5b4148c334fea0952262f315b50fa412e",
+      "metadata": {
+        "title": "Wentworth Club (West) Course Guide — When to Play & Visitor Access",
+        "description": "Plan a round at Wentworth Club (West) in Virginia Water, Surrey (near London), United Kingdom: course character, playing notes, visitor access and sourced month-by-month advice.",
+        "alternates": {
+          "canonical": "https://lostluggagelegend.com/golf/wentworth-club-west"
+        },
+        "openGraph": {
+          "type": "article",
+          "locale": "en_US",
+          "siteName": "Lost Luggage Legend",
+          "url": "https://lostluggagelegend.com/golf/wentworth-club-west",
+          "title": "Wentworth Club (West) Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
+          "description": "Plan a round at Wentworth Club (West) in Virginia Water, Surrey (near London), United Kingdom: course character, playing notes, visitor access and sourced month-by-month advice.",
+          "images": [
+            {
+              "url": "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=1200&q=85&auto=format&fit=crop",
+              "width": 1200,
+              "height": 630,
+              "alt": "London destination photograph — not Wentworth Club (West)"
+            }
+          ]
+        },
+        "twitter": {
+          "card": "summary_large_image",
+          "title": "Wentworth Club (West) Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
+          "description": "Plan a round at Wentworth Club (West) in Virginia Water, Surrey (near London), United Kingdom: course character, playing notes, visitor access and sourced month-by-month advice.",
+          "images": [
+            "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=1200&q=85&auto=format&fit=crop"
+          ]
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "kind": "golf-guide-imagery-approved-change",
+  "baseline": "dcd93f02c23e4306eca01f7a5db86e0ccea0f70d",
+  "note": "Course headers use approved exact-course photographs or an explicit no-photo forest surface. Social fallbacks use only the neutral brand graphic. All legacy approvals are immutable.",
+  "changes": {
+    "src/app/golf/[slug]/page.tsx": {
+      "beforeHash": "c907d09636de8106f3082789cc0ebf64ab0721d414fbe4b2bb9b7b87d26915d1",
+      "afterHash": "7fcf38e5ba02cf0097a4381f9a2733737e402899fce9a609499e9d8e6164dd28",
+      "reason": "Remove destination imagery and generic header copy without changing the article."
+    },
+    "tests/golf-guides.browser.test.mjs": {
+      "beforeHash": "9693e17d5ef760334e6e2db1f60effd7eaed592483ddf8ca655a90b8991c7cad",
+      "afterHash": "44c0f0a15658fc862167f06fa3c95227d4f96d61dec26996858ec93a768ca06e",
+      "reason": "Extend the bounded exact-byte or browser oracle for truthful course-guide imagery."
+    },
+    "tests/golf-media.browser.test.mjs": {
+      "beforeHash": "e34fa433e229a163e80ca0125d6035850c6d068d0a8f25d952f9fc11d41c4078",
+      "afterHash": "4bb3c9b73a0d10138b8ba2ab9593641df2b4f6d3266464a99edf202648b200af",
+      "reason": "Extend the bounded exact-byte or browser oracle for truthful course-guide imagery."
+    },
+    "tests/guide-performance.test.mjs": {
+      "beforeHash": "64bc8169e5a99e691bf022453f40e952caf7d0dd478365a4863f7a148704b00c",
+      "afterHash": "7bbb622db4702b172e8e59900a094b9cf3e013f6c0e92bb5f0f1bfb36a20862d",
+      "reason": "Extend the bounded exact-byte or browser oracle for truthful course-guide imagery."
+    }
+  },
+  "addedFiles": {
+    "public/brand/golf-guide-social.png": {
+      "beforeHash": null,
+      "afterHash": "70562af9df7702338a79026b6dc3d521b8f47fd6efc1d68a1c32eb0742c9d67f",
+      "reason": "Neutral original sunrise brand graphic, not a course photograph."
+    },
+    "tests/golf-guide-headers.test.mjs": {
+      "beforeHash": null,
+      "afterHash": "281b791e3d3e954dda2e019433d764f0c6d755e4dc620f18ef3e305e1a5ccf22",
+      "reason": "Frozen pre-repair rendered guide expectations and actual-page regressions."
+    },
+    "tests/helpers/golf-guide-render.mjs": {
+      "beforeHash": null,
+      "afterHash": "c36cf6c2f9c3c65a89fa494590513b120e2dd0c0d11bbc3fbd6ff879978cce5e",
+      "reason": "Frozen pre-repair rendered guide expectations and actual-page regressions."
+    },
+    "tests/fixtures/golf-guide-header-baseline.json": {
+      "beforeHash": null,
+      "afterHash": "d146e2d3ee2a0bb80bdcd256fcbd1a2d5bde0c3775ad6ab08278c9a24b7b806a",
+      "reason": "Frozen pre-repair rendered guide expectations and actual-page regressions."
+    }
+  }
+}

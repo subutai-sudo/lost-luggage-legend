@@ -1,4 +1,7 @@
 import { test, expect } from './browser-fixture.mjs'
+import { readFileSync } from 'node:fs'
+
+const headers = JSON.parse(readFileSync(new URL('./fixtures/golf-guide-header-baseline.json', import.meta.url), 'utf8')).records
 
 test('course guides expose real course media and an honestly labelled layout resource', async ({ page }) => {
   await page.goto('/golf/oitavos-dunes')
@@ -21,12 +24,18 @@ test('course guides expose real course media and an honestly labelled layout res
   await expect(media).not.toContainText(/\b(?:our|the)?\s*(?:review|verification|research|audit)\b|\breviewed\b|\bverified\b|\bretrieved\b|\bscreenshot\b|\bevidence\b|HTTP \d{3}|do not infer|placeholder/i)
   // A source link is not a substitute for a photograph, and a scorecard is not a map.
   await expect(media.getByRole('heading', { name: 'Course photographs', exact: true })).toBeVisible()
-  // The hero must be internally consistent with the approved photo set: a course
-  // photograph when one is approved, the explicit destination disclosure otherwise.
+  // The independently frozen approval includes Oitavos's exact-course photograph.
+  const header = headers.find(record => record.id === 'oitavos-dunes')
   const hero = page.locator('[data-golf-guide-hero]')
-  const approvedPhotos = await media.locator('[data-golf-photo-gallery]').count()
-  if (approvedPhotos > 0) await expect(hero).toContainText(/Course photograph:/)
-  else await expect(hero).toContainText('Destination photograph')
+  const image = hero.locator('[data-golf-guide-image]')
+  await expect(image).toHaveCount(1)
+  await expect(image).toHaveAttribute('alt', header.photo.alt)
+  await expect.poll(() => image.evaluate(img => decodeURIComponent(img.currentSrc || img.src))).toContain(header.photo.src)
+  await expect.poll(() => image.evaluate(img => img.complete && img.naturalWidth > 0 && img.naturalHeight > 0)).toBe(true)
+  await image.evaluate(img => img.decode())
+  expect(await image.evaluate(img => img.naturalWidth)).toBeGreaterThan(0)
+  await expect(hero).toContainText(`Course photograph: ${header.photo.caption} Photo ${header.photo.author}, ${header.photo.license}`)
+  await expect(hero).not.toContainText('Destination photograph')
   await expect(hero).toContainText('Oitavos Dunes')
 })
 
