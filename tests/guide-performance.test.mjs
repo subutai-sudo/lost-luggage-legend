@@ -181,6 +181,7 @@ const guideHeaderHash = path => {
 // This release follows the final published header approval. Do not add its
 // photographs to an older overlay, or rewrite any published freeze.
 const releasePaths = [
+  'tests/golf-finder-media.browser.test.mjs',
   'src/lib/golfMedia.ts',
   'src/lib/golfFinderMedia.ts',
   'src/components/GolfCourseMedia.tsx',

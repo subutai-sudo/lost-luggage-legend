@@ -56,7 +56,7 @@
     },
     "tests/guide-performance.test.mjs": {
       "beforeHash": "7bbb622db4702b172e8e59900a094b9cf3e013f6c0e92bb5f0f1bfb36a20862d",
-      "afterHash": "a1cfbc64635006dffb4501728df4c23071689dcb27822282e9a7613a1d0eb4d9",
+      "afterHash": "59e25bba6f98d4af16d64e3822f3dccb6d555cef568188ad4e26797ec1e1bb82",
       "reason": "Reviewed bounded release change for navigation alignment, readable provenance or independent exact-byte regression coverage."
     },
     "src/lib/golfMedia.ts": {
@@ -78,6 +78,11 @@
       "beforeHash": "7fcf38e5ba02cf0097a4381f9a2733737e402899fce9a609499e9d8e6164dd28",
       "afterHash": "63da3640c7411dbf50254227aa005af0f518e0c91d2e2c5e3d5d3e61d1f69878",
       "reason": "Expose validated photo-modification notices and source-faithful creator credits without changing course facts or approved image bytes."
+    },
+    "tests/golf-finder-media.browser.test.mjs": {
+      "beforeHash": "9cacb75151ef594e909e590db8986dc3c9d8f46bf9b6be8adffdb7b32094d157",
+      "afterHash": "4b0e841a1099d84ab0c49c3eae0a6686f81e8e038567635d1c9372a7f7337627",
+      "reason": "Extend the independently pinned finder photo identity inventory with the four newly approved courses; preserve all existing image, no-photo, credit, keyboard and seasonal assertions."
     }
   },
   "addedFiles": {

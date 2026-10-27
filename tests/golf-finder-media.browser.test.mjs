@@ -9,6 +9,8 @@ const photos = {
   muirfield: '01', 'oitavos-dunes': '01', 'portmarnock-golf-club': '02', 'praia-d-el-rey': '01',
   'real-club-de-golf-el-prat': '01', 'torrey-pines-golf-course-south-course': '01', 'tpc-scottsdale-stadium-course': '01',
   'capilano-golf-and-country-club': '01', 'the-royal-melbourne-golf-club-west': '01',
+  'al-maaden-golf': '01', 'keilir-golf-club': '01',
+  'new-south-wales-golf-club': '01', 'wentworth-club-west': '01',
 }
 // A course without approved photography must render NO image at all: no
 // destination scenery, no beach or skyline, and no generic golf stock.
