@@ -59,7 +59,7 @@ export default async function GolfGuidePage({ params }: Props) {
   const photo = media?.photos[0]
   const characterLine = getGolfCourseCharacter()[course.id]
   const heroCredit = photo
-    ? `Course photograph: ${photo.caption} Photo ${photo.author}, ${photo.license}, resized for display.`
+    ? `Course photograph: ${photo.caption} Photo ${photo.author}, ${photo.license}, ${photo.modifications ?? 'resized for display.'}`
     : `Course photograph not available for ${course.name}. Explore the course's visual resources below.`
 
   return (

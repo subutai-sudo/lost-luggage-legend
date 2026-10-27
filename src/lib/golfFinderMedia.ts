@@ -5,7 +5,7 @@ import { validateGolfMedia, type GolfCourseMedia, type GolfCoursePhoto, type Gol
 
 /** Only display fields cross the finder client boundary; no authoring ledger. */
 export interface GolfFinderMedia {
-  photo: Pick<GolfCoursePhoto, 'src' | 'alt' | 'author' | 'license' | 'licenseUrl' | 'sourcePage'> | null
+  photo: Pick<GolfCoursePhoto, 'src' | 'alt' | 'author' | 'modifications' | 'license' | 'licenseUrl' | 'sourcePage'> | null
   photoCount: number
   hasRoutingDiagram: boolean
   layoutKind: GolfLayoutResource['kind'] | null
@@ -19,6 +19,7 @@ export function getGolfFinderMedia(records: GolfCourseMedia[] = golfCourseMedia 
     return [record.courseId, {
       photo: photo ? {
         src: photo.src, alt: photo.alt, author: photo.author,
+        ...(photo.modifications !== undefined ? { modifications: photo.modifications } : {}),
         license: photo.license, licenseUrl: photo.licenseUrl, sourcePage: photo.sourcePage,
       } : null,
       photoCount: record.photos.length,

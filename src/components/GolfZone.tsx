@@ -48,6 +48,7 @@ function PhotoCredit({ course }: { course: GolfZoneCourse }) {
     <span className={styles.photoCredit}>
       {photo.author} · <a href={photo.sourcePage} rel="noreferrer">Photo source</a> ·{' '}
       <a href={photo.licenseUrl} rel="noreferrer">{photo.license}</a>
+      {photo.modifications && ` · ${photo.modifications}`}
     </span>
   ) : null
 }
@@ -103,10 +104,10 @@ export function GolfZone({ courses, initialMonth, catalog }: Props) {
             loading="eager"
           />}
           <div className={styles.heroShade} aria-hidden="true" />
+          <div className={styles.navigation}>
+            <Navbar appearance="cinematic" brandAppearance="cinematic" />
+          </div>
           <div className={styles.heroInner}>
-            <div className={styles.navigation}>
-              <Navbar appearance="cinematic" brandAppearance="cinematic" />
-            </div>
             <div className={styles.heroStory}>
               <p className={styles.eyebrow}>Golf Goldilocks Zone</p>
               <h1 className={styles.heroTitle}>{featured.name}</h1>

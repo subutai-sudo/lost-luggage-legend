@@ -173,10 +173,48 @@ const guideHeaderPriorHarnessHashes = {
   "tests/golf-guides.browser.test.mjs": "9693e17d5ef760334e6e2db1f60effd7eaed592483ddf8ca655a90b8991c7cad",
   "tests/golf-media.browser.test.mjs": "e34fa433e229a163e80ca0125d6035850c6d068d0a8f25d952f9fc11d41c4078"
 }
-const expectedHash = path => {
+const guideHeaderHash = path => {
   if (guideHeaderPaths.includes(path)) return guideHeaderApproval.changes[path].afterHash
   if (guideHeaderAdded.includes(path)) return guideHeaderApproval.addedFiles[path].afterHash
   return imageryHash(path)
+}
+// This release follows the final published header approval. Do not add its
+// photographs to an older overlay, or rewrite any published freeze.
+const releasePaths = [
+  'tests/golf-finder-media.browser.test.mjs',
+  'src/lib/golfMedia.ts',
+  'src/lib/golfFinderMedia.ts',
+  'src/components/GolfCourseMedia.tsx',
+  'src/app/golf/[slug]/page.tsx',
+  'src/components/GolfZone.tsx', 'src/components/GolfZone.module.css',
+  'src/components/GolfGuide.module.css', 'src/data/golfCourseMedia.json',
+  'tests/golf-media.test.mjs', 'tests/golf-finder-media.test.mjs',
+  'tests/golf-guide-headers.test.mjs', 'tests/golf-guides.browser.test.mjs',
+  'tests/golf-media.browser.test.mjs', 'tests/guide-performance.test.mjs',
+]
+const releaseAdded = [
+  'tests/golf-photo-attribution.test.mjs',
+  'tests/golf-photo-attribution.browser.test.mjs',
+  'public/golf-media/new-south-wales-golf-club-01.webp',
+  'public/golf-media/wentworth-club-west-01.webp',
+  'public/golf-media/keilir-golf-club-01.webp',
+  'public/golf-media/al-maaden-golf-01.webp',
+  'public/golf-media/al-maaden-golf-02.webp',
+  'tests/helpers/golf-guide-approved-headers.mjs',
+  'tests/golf-guide-provenance.test.mjs',
+  'tests/golf-guide-provenance.browser.test.mjs',
+  'tests/golf-navigation-alignment.browser.test.mjs',
+]
+const releaseImmutableFixtures = {
+  'tests/fixtures/golf-guide-header-baseline.json': 'd146e2d3ee2a0bb80bdcd256fcbd1a2d5bde0c3775ad6ab08278c9a24b7b806a',
+  'tests/fixtures/golf-guide-imagery-approved-changes.json': 'fa12304d268dde9fe6b4e2d7cee91e2ab2559c1139a4d2e81de7f49f62cd4929',
+  'tests/fixtures/golf-imagery-approved-changes.json': '891c02028a191ae17989fd0f2ec1060111253ee232dc91e6bbc19d4791fb865e',
+}
+const releaseApproval = JSON.parse(await readFile(new URL('./fixtures/golf-navigation-photo-release-approved-changes.json', import.meta.url), 'utf8'))
+const expectedHash = path => {
+  if (releasePaths.includes(path)) return releaseApproval.changes[path].afterHash
+  if (releaseAdded.includes(path)) return releaseApproval.addedFiles[path].afterHash
+  return guideHeaderHash(path)
 }
 const accepts = (path, bytes) => sha256(bytes) === expectedHash(path)
 
@@ -353,6 +391,40 @@ test('course-guide header overlay permits only the exact named follow-up and rej
     assert.equal(accepts(path, Buffer.concat([bytes, Buffer.from('unapproved')])), false, path)
   }
   assert.equal(accepts('public/brand/unapproved.png', Buffer.from('unapproved')), false)
+})
+
+test('navigation/photo release chains exact bytes after the published header approval and refuses mutations', async () => {
+  assert.equal(releaseApproval.schemaVersion, 1)
+  assert.equal(releaseApproval.kind, 'golf-navigation-photo-release-approved-change')
+  assert.equal(releaseApproval.baseline, '7252d332db506db24716fd3ca3d2e91d5b9932d5')
+  assert.deepEqual(Object.keys(releaseApproval.changes).sort(), [...releasePaths].sort())
+  assert.deepEqual(Object.keys(releaseApproval.addedFiles).sort(), [...releaseAdded].sort())
+  assert.deepEqual(releaseApproval.immutableFixtures, releaseImmutableFixtures)
+  for (const [path, expected] of Object.entries(releaseImmutableFixtures)) {
+    assert.equal(sha256(await read(path)), expected, `${path}: published fixture must be byte-identical`)
+  }
+  for (const path of releasePaths) {
+    const entry = releaseApproval.changes[path]
+    assert.equal(entry.beforeHash, guideHeaderHash(path), `${path}: final published main expectation`)
+    assert.match(entry.afterHash, /^[a-f0-9]{64}$/)
+    assert.notEqual(entry.afterHash, entry.beforeHash, `${path}: only necessary exceptions`)
+    assert.ok(entry.reason?.trim())
+  }
+  for (const path of releaseAdded) {
+    const entry = releaseApproval.addedFiles[path]
+    assert.equal(guideHeaderHash(path), undefined, `${path}: genuinely new release file`)
+    assert.equal(entry.beforeHash, null)
+    assert.match(entry.afterHash, /^[a-f0-9]{64}$/)
+    assert.ok(entry.reason?.trim())
+  }
+  for (const path of [...releasePaths, ...releaseAdded]) {
+    const bytes = await read(path)
+    assert.ok(accepts(path, bytes), `${path}: exact release bytes`)
+    assert.equal(accepts(path, Buffer.concat([bytes, Buffer.from('\n/* unapproved release edit */')])), false, `${path}: appended mutation refused`)
+  }
+  assert.equal(accepts('public/golf-media/unapproved-course.webp', Buffer.from('unapproved')), false)
+  assert.ok(!releasePaths.includes('tests/fixtures/golf-navigation-photo-release-approved-changes.json'))
+  assert.ok(!releaseAdded.includes('tests/fixtures/golf-navigation-photo-release-approved-changes.json'), 'no self-referential hash')
 })
 
 test('related image sizes still describe gutters, gaps, hover headroom and the capped container', () => {

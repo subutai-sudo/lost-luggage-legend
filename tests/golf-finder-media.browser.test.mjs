@@ -9,6 +9,8 @@ const photos = {
   muirfield: '01', 'oitavos-dunes': '01', 'portmarnock-golf-club': '02', 'praia-d-el-rey': '01',
   'real-club-de-golf-el-prat': '01', 'torrey-pines-golf-course-south-course': '01', 'tpc-scottsdale-stadium-course': '01',
   'capilano-golf-and-country-club': '01', 'the-royal-melbourne-golf-club-west': '01',
+  'al-maaden-golf': '01', 'keilir-golf-club': '01',
+  'new-south-wales-golf-club': '01', 'wentworth-club-west': '01',
 }
 // A course without approved photography must render NO image at all: no
 // destination scenery, no beach or skyline, and no generic golf stock.
@@ -52,13 +54,15 @@ async function checkImage(image, id) {
   // src/srcset props have committed. Wait for this exact asset AND native load,
   // then require source selection to settle before decode (WebKit aborts an
   // in-flight decode if a lazy source is selected during that call).
-  await expect.poll(() => image.evaluate(async (img, expected) => {
-    const source = img.currentSrc
-    if (!source || !img.complete || !img.naturalWidth) return false
-    const matches = new URL(source).searchParams.get('url') === expected.photo
-    await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)))
-    return !!matches && img.complete && img.naturalWidth > 0 && img.currentSrc === source
-  }, { photo: imagePath(id) })).toBe(true)
+  let priorReadySource = null
+  await expect.poll(async () => {
+    const state = await image.evaluate(img => ({ source: img.currentSrc, complete: img.complete, width: img.naturalWidth }))
+    const ready = !!state.source && state.complete && state.width > 0 && new URL(state.source).searchParams.get('url') === imagePath(id)
+    if (!ready) { priorReadySource = null; return false }
+    const stable = state.source === priorReadySource
+    priorReadySource = state.source
+    return stable
+  }).toBe(true)
   await image.evaluate(img => img.decode())
   const result = await image.evaluate(img => ({ url: img.currentSrc, width: img.naturalWidth, loading: img.loading }))
   expect(result.width).toBeGreaterThan(0)

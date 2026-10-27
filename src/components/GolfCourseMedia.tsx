@@ -57,7 +57,7 @@ export function GolfCourseMedia({ media, courseName }: { media: GolfCourseMedia;
           <figcaption>
             <p className={styles.caption}>{photo.caption}</p>
             <p className={styles.note}>{photo.scope}</p>
-            <p className={styles.credit}>Photo: {photo.author} · <a href={photo.sourcePage} rel="noreferrer">Original &amp; attribution</a> · <a href={photo.licenseUrl} rel="noreferrer">{photo.license}</a>. Resized for display; cropped in the hero where used. Source checked <time dateTime={photo.checkedAt}>{photo.checkedAt}</time>.</p>
+            <p className={styles.credit}>Photo: {photo.author} · <a href={photo.sourcePage} rel="noreferrer">Original &amp; attribution</a> · <a href={photo.licenseUrl} rel="noreferrer">{photo.license}</a>. {photo.modifications ?? 'Resized for display; cropped in the hero where used.'} Source checked <time dateTime={photo.checkedAt}>{photo.checkedAt}</time>.</p>
           </figcaption>
         </figure>)}
       </div>}
