@@ -13,7 +13,7 @@ test('header inventory is complete and actual static route projection stays unch
   assert.equal(baseline.records.length, 37)
   assert.deepEqual(page.generateStaticParams(), baseline.records.map(g => ({slug:g.id})))
   assert.deepEqual(guides.map(g=>g.course.id), baseline.records.map(g=>g.id))
-  assert.equal(baseline.records.filter(g=>g.photo).length, 18)
+  assert.equal(baseline.records.filter(g=>g.photo).length, 22)
 })
 for (const expected of baseline.records) {
   test(`${expected.id}: exact course hero or truthful no-photo state`, async () => {

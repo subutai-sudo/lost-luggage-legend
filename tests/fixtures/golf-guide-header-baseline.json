@@ -2,7 +2,7 @@
   "baseline": "dcd93f02c23e4306eca01f7a5db86e0ccea0f70d",
   "articleSourceHash": "a6d0323667e23e3516072802695ce95354f77b59e0cebacd03dfe6b6ba77ba89",
   "hashes": {
-    "src/data/golfCourseMedia.json": "7b592965e52d9ab754107bbfaf0ab7487d95854ee2bceae5bacb3252af925a68",
+    "src/data/golfCourseMedia.json": "1a952b955c5eb59d7ca64b98f95bb4305f103b9182c84a2abf102fcccd903f55",
     "src/data/golfGuideDetails.json": "0c095aea083de7f624f64053614478158b669f3a5658e2d9600c2b49213388a5",
     "src/data/golfCourseNotes.json": "336eae1adbfa3ddceaaf9c1636f02892309748eccbeaedc5844fed7d5dba0ba8",
     "src/data/golfSources.json": "d2ceb11834f0e098c56045bc9c6f9436c6033743429f9c736053babe35b579e6",
@@ -54,8 +54,21 @@
       "id": "al-maaden-golf",
       "name": "Al Maaden Golf",
       "character": "Reflecting pools in a Moroccan-garden layout",
-      "photo": null,
-      "articleHash": "7ac97cfbabc7c196d53c77578b592c72d6996c8c380684c9b4b5cf33fc79ecd0",
+      "photo": {
+        "src": "/golf-media/al-maaden-golf-01.webp",
+        "width": 1100,
+        "height": 737,
+        "alt": "clubhouse terrace of square terracotta columns looking out over a fairway, green and bunker — Al Maaden Golf.",
+        "caption": "From the clubhouse terrace at Al Maaden: fairway, putting green and bunker beyond the columns, with the course directory sign in frame.",
+        "scope": "Photograph by DL2A – Didier Lefort Architectes Associés, published on Wikimedia Commons under CC BY-SA 3.0 from the architects' own documentation of the Al Maaden clubhouse. The file carries a small DL2A watermark and the original is 1100 pixels wide, so it is not suitable for very large display. It is not a club-supplied image, and it does not establish the exact hole or current playing conditions.",
+        "author": "DL2A – Didier Lefort Architectes Associés",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:DL2A---Al-Maaden-Maroc-Club-House-(10).png",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3e/DL2A---Al-Maaden-Maroc-Club-House-%2810%29.png",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "checkedAt": "2026-10-26"
+      },
+      "articleHash": "18e26d70c12060582a67c8f7770059ae1bb9f33448b0258a312c9a4b709d6871",
       "metadata": {
         "title": "Al Maaden Golf Course Guide — When to Play & Visitor Access",
         "description": "Plan a round at Al Maaden Golf in Marrakech, Morocco: course character, playing notes, visitor access and sourced month-by-month advice.",
@@ -71,10 +84,10 @@
           "description": "Plan a round at Al Maaden Golf in Marrakech, Morocco: course character, playing notes, visitor access and sourced month-by-month advice.",
           "images": [
             {
-              "url": "https://images.unsplash.com/photo-1597212618440-806262de4f6b?w=1200&q=85&auto=format&fit=crop",
-              "width": 1200,
-              "height": 630,
-              "alt": "Marrakech destination photograph — not Al Maaden Golf"
+              "url": "/golf-media/al-maaden-golf-01.webp",
+              "width": 1100,
+              "height": 737,
+              "alt": "clubhouse terrace of square terracotta columns looking out over a fairway, green and bunker — Al Maaden Golf."
             }
           ]
         },
@@ -83,7 +96,7 @@
           "title": "Al Maaden Golf Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
           "description": "Plan a round at Al Maaden Golf in Marrakech, Morocco: course character, playing notes, visitor access and sourced month-by-month advice.",
           "images": [
-            "https://images.unsplash.com/photo-1597212618440-806262de4f6b?w=1200&q=85&auto=format&fit=crop"
+            "/golf-media/al-maaden-golf-01.webp"
           ]
         }
       }
@@ -677,8 +690,21 @@
       "id": "keilir-golf-club",
       "name": "Keilir Golf Club",
       "character": "Lava on the front nine; peninsula on the back",
-      "photo": null,
-      "articleHash": "1e40b2d6d43de3e482a98b5baae93726e432c3a5b55f9ef27d427de223be14f4",
+      "photo": {
+        "src": "/golf-media/keilir-golf-club-01.webp",
+        "width": 1600,
+        "height": 1067,
+        "alt": "aerial view of a links course on a coastal peninsula, with a harbour and town beyond — Keilir Golf Club at Hvaleyrarvöllur.",
+        "caption": "Aerial view of the Hvaleyrarvöllur course at Keilir, on the coast south of Reykjavík, with the harbour and town beyond.",
+        "scope": "Aerial photograph by Eysteinn Guðni Guðnason, published on Wikimedia Commons under CC BY 4.0 and categorised there as Hvaleyrarvöllur, the course Keilir Golf Club plays. It is not a club-supplied image, and it does not establish current playing conditions.",
+        "author": "Eysteinn Guðni Guðnason",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Hvaleyri.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Hvaleyri.jpg",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+        "checkedAt": "2026-10-26"
+      },
+      "articleHash": "1e47f2de4640e86895bd195601de7f14aeaacc4623ad476345dec0f08e5d082c",
       "metadata": {
         "title": "Keilir Golf Club Course Guide — When to Play & Visitor Access",
         "description": "Plan a round at Keilir Golf Club in Hafnarfjörður (Reykjavík), Iceland: course character, playing notes, visitor access and sourced month-by-month advice.",
@@ -694,10 +720,10 @@
           "description": "Plan a round at Keilir Golf Club in Hafnarfjörður (Reykjavík), Iceland: course character, playing notes, visitor access and sourced month-by-month advice.",
           "images": [
             {
-              "url": "https://images.unsplash.com/photo-1615130767419-e9ff3afa5a15?w=1200&q=85&auto=format&fit=crop",
-              "width": 1200,
-              "height": 630,
-              "alt": "Reykjavik destination photograph — not Keilir Golf Club"
+              "url": "/golf-media/keilir-golf-club-01.webp",
+              "width": 1600,
+              "height": 1067,
+              "alt": "aerial view of a links course on a coastal peninsula, with a harbour and town beyond — Keilir Golf Club at Hvaleyrarvöllur."
             }
           ]
         },
@@ -706,7 +732,7 @@
           "title": "Keilir Golf Club Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
           "description": "Plan a round at Keilir Golf Club in Hafnarfjörður (Reykjavík), Iceland: course character, playing notes, visitor access and sourced month-by-month advice.",
           "images": [
-            "https://images.unsplash.com/photo-1615130767419-e9ff3afa5a15?w=1200&q=85&auto=format&fit=crop"
+            "/golf-media/keilir-golf-club-01.webp"
           ]
         }
       }
@@ -995,8 +1021,21 @@
       "id": "new-south-wales-golf-club",
       "name": "New South Wales Golf Club",
       "character": "Rugged La Perouse cliffs above Botany Bay",
-      "photo": null,
-      "articleHash": "f8bb4438d0c509d51c19a8f3b6e52505307a6797e2f65c786f7896cdcb0bf713",
+      "photo": {
+        "src": "/golf-media/new-south-wales-golf-club-01.webp",
+        "width": 1600,
+        "height": 900,
+        "alt": "fairway running toward a distant green above a rocky shoreline, with the sea beyond — New South Wales Golf Club.",
+        "caption": "At New South Wales Golf Club: the fifth fairway running down toward the fifth green, with the Tasman Sea beyond.",
+        "scope": "Photograph by Eddy23, published on Wikimedia Commons under CC BY-SA 4.0, where the uploader describes the view from the fifth fairway toward the fifth green and the Tasman Sea. It is not a club-supplied image, and it does not establish current playing conditions.",
+        "author": "Eddy23",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:New_South_Wales_Golf_Club_-_Fifth_Hole.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/47/New_South_Wales_Golf_Club_-_Fifth_Hole.jpg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "checkedAt": "2026-10-26"
+      },
+      "articleHash": "83ab1d5f4cd8bd5d57843fff836c14c53acf5c9ed24c8594f692b773961eb5f8",
       "metadata": {
         "title": "New South Wales Golf Club Course Guide — When to Play & Visitor Access",
         "description": "Plan a round at New South Wales Golf Club in Sydney, Australia: course character, playing notes, visitor access and sourced month-by-month advice.",
@@ -1012,10 +1051,10 @@
           "description": "Plan a round at New South Wales Golf Club in Sydney, Australia: course character, playing notes, visitor access and sourced month-by-month advice.",
           "images": [
             {
-              "url": "https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?w=1200&q=85&auto=format&fit=crop",
-              "width": 1200,
-              "height": 630,
-              "alt": "Sydney destination photograph — not New South Wales Golf Club"
+              "url": "/golf-media/new-south-wales-golf-club-01.webp",
+              "width": 1600,
+              "height": 900,
+              "alt": "fairway running toward a distant green above a rocky shoreline, with the sea beyond — New South Wales Golf Club."
             }
           ]
         },
@@ -1024,7 +1063,7 @@
           "title": "New South Wales Golf Club Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
           "description": "Plan a round at New South Wales Golf Club in Sydney, Australia: course character, playing notes, visitor access and sourced month-by-month advice.",
           "images": [
-            "https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?w=1200&q=85&auto=format&fit=crop"
+            "/golf-media/new-south-wales-golf-club-01.webp"
           ]
         }
       }
@@ -1656,8 +1695,21 @@
       "id": "wentworth-club-west",
       "name": "Wentworth Club (West)",
       "character": "Colt’s West Course through trees and heather",
-      "photo": null,
-      "articleHash": "22e28a8fa04d3388be299a176ff8f1a5b4148c334fea0952262f315b50fa412e",
+      "photo": {
+        "src": "/golf-media/wentworth-club-west-01.webp",
+        "width": 1600,
+        "height": 1066,
+        "alt": "mown fairway rising between trees with sand bunkers on either side — Wentworth Club, West course.",
+        "caption": "On the West course at Wentworth: a fairway climbing between trees, with bunkers cut into the banks on both sides.",
+        "scope": "Photograph by Alan Hunt, published on Geograph under CC BY-SA 2.0, where the caption names the West course at Wentworth. It is not a club-supplied image, and it does not establish which hole is shown or current playing conditions.",
+        "author": "Alan Hunt",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Wentworth,_West_course_-_geograph.org.uk_-_4580879.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Wentworth%2C_West_course_-_geograph.org.uk_-_4580879.jpg",
+        "license": "CC BY-SA 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "checkedAt": "2026-10-26"
+      },
+      "articleHash": "59f28d6406166c10bf338417ebccebb0875f5c89122b0fe26d7abb7a33220688",
       "metadata": {
         "title": "Wentworth Club (West) Course Guide — When to Play & Visitor Access",
         "description": "Plan a round at Wentworth Club (West) in Virginia Water, Surrey (near London), United Kingdom: course character, playing notes, visitor access and sourced month-by-month advice.",
@@ -1673,10 +1725,10 @@
           "description": "Plan a round at Wentworth Club (West) in Virginia Water, Surrey (near London), United Kingdom: course character, playing notes, visitor access and sourced month-by-month advice.",
           "images": [
             {
-              "url": "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=1200&q=85&auto=format&fit=crop",
-              "width": 1200,
-              "height": 630,
-              "alt": "London destination photograph — not Wentworth Club (West)"
+              "url": "/golf-media/wentworth-club-west-01.webp",
+              "width": 1600,
+              "height": 1066,
+              "alt": "mown fairway rising between trees with sand bunkers on either side — Wentworth Club, West course."
             }
           ]
         },
@@ -1685,7 +1737,7 @@
           "title": "Wentworth Club (West) Course Guide — When to Play & Visitor Access | Lost Luggage Legend",
           "description": "Plan a round at Wentworth Club (West) in Virginia Water, Surrey (near London), United Kingdom: course character, playing notes, visitor access and sourced month-by-month advice.",
           "images": [
-            "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=1200&q=85&auto=format&fit=crop"
+            "/golf-media/wentworth-club-west-01.webp"
           ]
         }
       }

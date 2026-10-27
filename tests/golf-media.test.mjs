@@ -161,7 +161,7 @@ test('identity-rejected photographs cannot return to named-layout guides', async
     assert.ok(!published.includes(src), `${src}: exact course/layout identity is unestablished`)
     await assert.rejects(readFile(new URL(`../public${src}`, import.meta.url)), { code: 'ENOENT' })
   }
-  assert.equal(published.length, 37, 'accepted photograph inventory changed; review before updating')
+  assert.equal(published.length, 42, 'accepted photograph inventory changed; review before updating')
   const majlis = records.find(record => record.courseId === 'emirates-golf-club-majlis-course')
   assert.equal(majlis.photos.length, 1)
   assert.match(majlis.photos[0].scope, /2008 Dubai Desert Classic/)
@@ -195,7 +195,7 @@ test('every shipped raster asset really is the format its filename claims', asyn
       checked += 1
     }
   }
-  assert.equal(checked, 40, 'shipped asset inventory changed; update this guard deliberately')
+  assert.equal(checked, 45, 'shipped asset inventory changed; update this guard deliberately')
 })
 
 // The validator must enforce the copy rule itself. Previously the guard lived only

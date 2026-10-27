@@ -21,7 +21,7 @@
     },
     "tests/guide-performance.test.mjs": {
       "beforeHash": "64bc8169e5a99e691bf022453f40e952caf7d0dd478365a4863f7a148704b00c",
-      "afterHash": "7bbb622db4702b172e8e59900a094b9cf3e013f6c0e92bb5f0f1bfb36a20862d",
+      "afterHash": "5802251193e1526f4a697b509a81602135eabb6c5b96a2f6fd765b33ae138415",
       "reason": "Extend the bounded exact-byte or browser oracle for truthful course-guide imagery."
     }
   },
@@ -33,7 +33,7 @@
     },
     "tests/golf-guide-headers.test.mjs": {
       "beforeHash": null,
-      "afterHash": "281b791e3d3e954dda2e019433d764f0c6d755e4dc620f18ef3e305e1a5ccf22",
+      "afterHash": "9513c4819f1e6340462fcc6a2435344dcd0baf9a49ffb9a1a427667a36d101a1",
       "reason": "Frozen pre-repair rendered guide expectations and actual-page regressions."
     },
     "tests/helpers/golf-guide-render.mjs": {
@@ -43,8 +43,33 @@
     },
     "tests/fixtures/golf-guide-header-baseline.json": {
       "beforeHash": null,
-      "afterHash": "d146e2d3ee2a0bb80bdcd256fcbd1a2d5bde0c3775ad6ab08278c9a24b7b806a",
+      "afterHash": "cd7ff3431888f2d87db107a3c21d6b67471bdbe2a877859bab4b9453c808f3e8",
       "reason": "Frozen pre-repair rendered guide expectations and actual-page regressions."
+    },
+    "public/golf-media/new-south-wales-golf-club-01.webp": {
+      "beforeHash": null,
+      "afterHash": "b012b1a863d04a0ec4dd878c53de705127ef3678a412bdeada88d59c9d79bb5e",
+      "reason": "Approved exact-course photograph with documented licence and identity review."
+    },
+    "public/golf-media/wentworth-club-west-01.webp": {
+      "beforeHash": null,
+      "afterHash": "44f477816f91107662a3aaf34d4458cdad41b6ad0eecad5d34505d02fb7d1fe2",
+      "reason": "Approved exact-course photograph with documented licence and identity review."
+    },
+    "public/golf-media/keilir-golf-club-01.webp": {
+      "beforeHash": null,
+      "afterHash": "e638d16ba5bfdad83793834dfbf0986fe56cc922aae83c260283aafbf2b1b3d3",
+      "reason": "Approved exact-course photograph with documented licence and identity review."
+    },
+    "public/golf-media/al-maaden-golf-01.webp": {
+      "beforeHash": null,
+      "afterHash": "59346beba6444000bcb66f26ba988bae7cf4a904e4675669b9db22f918ed22c5",
+      "reason": "Approved exact-course photograph with documented licence and identity review."
+    },
+    "public/golf-media/al-maaden-golf-02.webp": {
+      "beforeHash": null,
+      "afterHash": "02eb25cf06eccbae2fa538f020720e3d1da658d2160d5d5f266d01768c9c5183",
+      "reason": "Approved exact-course photograph with documented licence and identity review."
     }
   }
 }

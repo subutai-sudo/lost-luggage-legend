@@ -17,7 +17,36 @@
       "scope": "An official hole-by-hole tour published by the club for this course.",
       "kind": "hole-tour"
     },
-    "photos": [],
+    "photos": [
+      {
+        "src": "/golf-media/al-maaden-golf-01.webp",
+        "width": 1100,
+        "height": 737,
+        "alt": "clubhouse terrace of square terracotta columns looking out over a fairway, green and bunker — Al Maaden Golf.",
+        "caption": "From the clubhouse terrace at Al Maaden: fairway, putting green and bunker beyond the columns, with the course directory sign in frame.",
+        "scope": "Photograph by DL2A – Didier Lefort Architectes Associés, published on Wikimedia Commons under CC BY-SA 3.0 from the architects' own documentation of the Al Maaden clubhouse. The file carries a small DL2A watermark and the original is 1100 pixels wide, so it is not suitable for very large display. It is not a club-supplied image, and it does not establish the exact hole or current playing conditions.",
+        "author": "DL2A – Didier Lefort Architectes Associés",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:DL2A---Al-Maaden-Maroc-Club-House-(10).png",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3e/DL2A---Al-Maaden-Maroc-Club-House-%2810%29.png",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "checkedAt": "2026-10-26"
+      },
+      {
+        "src": "/golf-media/al-maaden-golf-02.webp",
+        "width": 1100,
+        "height": 731,
+        "alt": "row of rectangular reflecting pools with planted islands in front of the clubhouse — Al Maaden Golf.",
+        "caption": "The rectangular reflecting pools at Al Maaden, with planted islands and the clubhouse behind.",
+        "scope": "Photograph by DL2A – Didier Lefort Architectes Associés, published on Wikimedia Commons under CC BY-SA 3.0 from the architects' own documentation of the Al Maaden clubhouse. The file carries a small DL2A watermark and the original is 1100 pixels wide. It is not a club-supplied image, and it does not establish current playing conditions.",
+        "author": "DL2A – Didier Lefort Architectes Associés",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:DL2A---Al-Maaden-Maroc-Club-House-(21).png",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/75/DL2A---Al-Maaden-Maroc-Club-House-%2821%29.png",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "checkedAt": "2026-10-26"
+      }
+    ],
     "map": null
   },
   {
@@ -567,7 +596,22 @@
       "scope": "An official hole-by-hole tour published by the club for this course.",
       "kind": "hole-tour"
     },
-    "photos": [],
+    "photos": [
+      {
+        "src": "/golf-media/keilir-golf-club-01.webp",
+        "width": 1600,
+        "height": 1067,
+        "alt": "aerial view of a links course on a coastal peninsula, with a harbour and town beyond — Keilir Golf Club at Hvaleyrarvöllur.",
+        "caption": "Aerial view of the Hvaleyrarvöllur course at Keilir, on the coast south of Reykjavík, with the harbour and town beyond.",
+        "scope": "Aerial photograph by Eysteinn Guðni Guðnason, published on Wikimedia Commons under CC BY 4.0 and categorised there as Hvaleyrarvöllur, the course Keilir Golf Club plays. It is not a club-supplied image, and it does not establish current playing conditions.",
+        "author": "Eysteinn Guðni Guðnason",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Hvaleyri.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Hvaleyri.jpg",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+        "checkedAt": "2026-10-26"
+      }
+    ],
     "map": null
   },
   {
@@ -851,7 +895,22 @@
       "scope": "An official hole-by-hole tour published by the club for this course.",
       "kind": "hole-tour"
     },
-    "photos": [],
+    "photos": [
+      {
+        "src": "/golf-media/new-south-wales-golf-club-01.webp",
+        "width": 1600,
+        "height": 900,
+        "alt": "fairway running toward a distant green above a rocky shoreline, with the sea beyond — New South Wales Golf Club.",
+        "caption": "At New South Wales Golf Club: the fifth fairway running down toward the fifth green, with the Tasman Sea beyond.",
+        "scope": "Photograph by Eddy23, published on Wikimedia Commons under CC BY-SA 4.0, where the uploader describes the view from the fifth fairway toward the fifth green and the Tasman Sea. It is not a club-supplied image, and it does not establish current playing conditions.",
+        "author": "Eddy23",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:New_South_Wales_Golf_Club_-_Fifth_Hole.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/47/New_South_Wales_Golf_Club_-_Fifth_Hole.jpg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "checkedAt": "2026-10-26"
+      }
+    ],
     "map": null
   },
   {
@@ -1364,7 +1423,22 @@
       "scope": "An official hole-by-hole tour published by the club for this course.",
       "kind": "hole-tour"
     },
-    "photos": [],
+    "photos": [
+      {
+        "src": "/golf-media/wentworth-club-west-01.webp",
+        "width": 1600,
+        "height": 1066,
+        "alt": "mown fairway rising between trees with sand bunkers on either side — Wentworth Club, West course.",
+        "caption": "On the West course at Wentworth: a fairway climbing between trees, with bunkers cut into the banks on both sides.",
+        "scope": "Photograph by Alan Hunt, published on Geograph under CC BY-SA 2.0, where the caption names the West course at Wentworth. It is not a club-supplied image, and it does not establish which hole is shown or current playing conditions.",
+        "author": "Alan Hunt",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Wentworth,_West_course_-_geograph.org.uk_-_4580879.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Wentworth%2C_West_course_-_geograph.org.uk_-_4580879.jpg",
+        "license": "CC BY-SA 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "checkedAt": "2026-10-26"
+      }
+    ],
     "map": null
   }
 ]

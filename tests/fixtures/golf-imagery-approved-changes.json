@@ -22,13 +22,13 @@
     },
     "src/data/golfCourseMedia.json": {
       "beforeHash": "91683cefa3fc93865b1b98bd490d03fe89eb9128d757ccc54c24b254e438123f",
-      "afterHash": "7b592965e52d9ab754107bbfaf0ab7487d95854ee2bceae5bacb3252af925a68",
-      "reason": "Add the two independently accepted course photographs with their faithful captions, scope and CC BY 2.0 attribution."
+      "afterHash": "1a952b955c5eb59d7ca64b98f95bb4305f103b9182c84a2abf102fcccd903f55",
+      "reason": "Add the five independently accepted course photographs with their faithful captions, scope and licence attribution."
     },
     "tests/golf-media.test.mjs": {
       "beforeHash": "037aa9329c98006203fe04b21228e0cfb63901023a36f9bffa76cdb92d5012f5",
-      "afterHash": "827117e7cebb02b4a81867365d5f75f0ced9c06212c0e36fc2098d796ee39d92",
-      "reason": "Recount the accepted photograph and shipped asset inventories after the two approved additions."
+      "afterHash": "bf1de1271c9dfd7afbaf240fee0f98978044a88086ce3f3a4aa22e7d7b8345c6",
+      "reason": "Recount the accepted photograph and shipped asset inventories after the five approved additions."
     },
     "tests/golf-core.test.mjs": {
       "beforeHash": "675508ad6d6a6dba676d4d49c93f53dbb93d8a5d9ed1815ae13beaeff31295f1",
@@ -37,8 +37,8 @@
     },
     "tests/golf-finder-media.test.mjs": {
       "beforeHash": "b49a126a521cb64dc00510fcc3587417d9b920bd8a4d1ac8efbbb87c73953c62",
-      "afterHash": "7adab3b1b02e4d960822c03db399b7191aa56d0c423636015eee4c8801b737f9",
-      "reason": "Assert the projection carries no destination scenery and that the twelve preview labels reflect the accepted photo inventory."
+      "afterHash": "4b04365e519f5e994a7d0ef6526d96a005a230a5457fad6344901151ac2994a9",
+      "reason": "Assert the projection carries no destination scenery and that the twelve preview labels reflect the accepted photo inventory, including the approved Keilir and New South Wales photographs."
     },
     "tests/golf-finder-media.browser.test.mjs": {
       "beforeHash": "433da06a0a16d6c2ce581088dd8997b5129243a6a8e6db25f1804e134c62e9aa",

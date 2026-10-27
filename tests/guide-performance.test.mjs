@@ -167,6 +167,11 @@ const guideHeaderPaths = [
 const guideHeaderAdded = [
   'public/brand/golf-guide-social.png', 'tests/golf-guide-headers.test.mjs',
   'tests/helpers/golf-guide-render.mjs', 'tests/fixtures/golf-guide-header-baseline.json',
+  'public/golf-media/new-south-wales-golf-club-01.webp',
+  'public/golf-media/wentworth-club-west-01.webp',
+  'public/golf-media/keilir-golf-club-01.webp',
+  'public/golf-media/al-maaden-golf-01.webp',
+  'public/golf-media/al-maaden-golf-02.webp',
 ]
 const guideHeaderApproval = JSON.parse(await readFile(new URL('./fixtures/golf-guide-imagery-approved-changes.json', import.meta.url), 'utf8'))
 const guideHeaderPriorHarnessHashes = {

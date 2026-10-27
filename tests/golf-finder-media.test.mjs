@@ -65,9 +65,9 @@ test('real finder page projects first approved photo, never destination scenery 
   assert.equal(byId['oitavos-dunes'].media.photo.src, '/golf-media/oitavos-dunes-01.webp')
   assert.equal(byId['emirates-golf-club-majlis-course'].media.photo.src, '/golf-media/emirates-golf-club-majlis-course-02.webp')
   assert.equal(byId.muirfield.media.photo.src, '/golf-media/muirfield-01.webp')
-  assert.equal(byId['keilir-golf-club'].media.photo, null)
-  // A course without approved photography must not receive destination scenery:
-  // the destination guide is a validation reference only and projects nothing.
+  assert.equal(byId['keilir-golf-club'].media.photo.src, '/golf-media/keilir-golf-club-01.webp')
+  // Destination scenery must never reach a course preview: the destination
+  // guide is a validation reference only and projects nothing.
   assert.equal(byId['keilir-golf-club'].image, undefined)
   assert.equal(byId['keilir-golf-club'].destinationTitle, undefined)
   assert.equal(byId['keilir-golf-club'].destinationSlug, undefined)
@@ -133,7 +133,7 @@ test('all twelve real preview buttons show their own photo kind while the credit
   const buttons = nodes.filter(node => node.type === 'button' && node.props['data-golf-month'])
   assert.equal(buttons.length, 12)
   // Independently accepted lead photo kinds, not derived from the rendered flag.
-  const expected = ['Course photo', 'Course photo', 'Photo unavailable', 'Course photo', 'Course photo', 'Course photo', 'Photo unavailable', 'Course photo', 'Course photo', 'Course photo', 'Photo unavailable', 'Photo unavailable']
+  const expected = ['Course photo', 'Course photo', 'Photo unavailable', 'Course photo', 'Course photo', 'Course photo', 'Course photo', 'Course photo', 'Course photo', 'Course photo', 'Photo unavailable', 'Course photo']
   for (const [index, button] of buttons.entries()) {
     // A month without approved photography renders no image at all, so the child
     // here is a literal null rather than a missing element.
