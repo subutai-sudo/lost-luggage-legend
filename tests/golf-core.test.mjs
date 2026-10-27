@@ -303,6 +303,10 @@ const finderMediaModule = asModule(transpile((await readFile(new URL('../src/lib
   .replace("'../data/golfCourseMedia.json'", `'${mediaRecordsModule}'`)
   .replace("'../data/golfCourses'", `'${mediaCoursesModule}'`)
   .replace("'./golfMedia'", `'${mediaModule}'`)))
+const previewCopyModule = asModule(transpile((await readFile(new URL('../src/lib/golfPreviewCopy.ts', import.meta.url), 'utf8'))
+  .replace("import 'server-only'", '')
+  .replace("'../data/golfCourseCharacter.json'", `'${asModule(`export default ${await readFile(dataUrl('golfCourseCharacter.json'), 'utf8')}`)}'`)
+  .replace("'../data/golfCourses'", `'${mediaCoursesModule}'`)))
 const pageSource = await readFile(new URL('../src/app/golf/page.tsx', import.meta.url), 'utf8')
 const reasonSource = await readFile(new URL('../src/components/GolfReason.tsx', import.meta.url), 'utf8')
 const jsxModule = asModule('export const jsx = (type, props) => ({type, props}); export const jsxs = jsx;')
@@ -319,6 +323,7 @@ async function renderPage(catalog = { sources, notes }, inventory = courses) {
     '@/data/golfCourseNotes.json': asModule(`export default ${JSON.stringify(catalog.notes)};`),
     '@/lib/golfDiscovery': golfModule,
     '@/lib/golfFinderMedia': finderMediaModule,
+    '@/lib/golfPreviewCopy': previewCopyModule,
     '@/lib/site': asModule('export const pageMetadata = x => x;'),
   }
   for (const [name, replacement] of Object.entries(imports)) code = code.replaceAll(`'${name}'`, `'${replacement}'`).replaceAll(`"${name}"`, `"${replacement}"`)

@@ -27,6 +27,10 @@ async function renderPage(records = ledger) {
     '@/data/golfSources.json': jsonModule(JSON.parse(await read('src/data/golfSources.json'))),
     '@/data/golfCourseNotes.json': jsonModule(JSON.parse(await read('src/data/golfCourseNotes.json'))),
     '@/lib/golfDiscovery': discoveryModule,
+    '@/lib/golfPreviewCopy': inline(wire(await read('src/lib/golfPreviewCopy.ts'), {
+      'server-only': inline(''), '../data/golfCourseCharacter.json': jsonModule(JSON.parse(await read('src/data/golfCourseCharacter.json'))),
+      '../data/golfCourses': courseModule,
+    })),
     '@/lib/site': inline('export const pageMetadata = x => x'),
   }
   // The real server helper and real validator execute here; only the framework
@@ -62,7 +66,14 @@ test('real finder page projects first approved photo, never destination scenery 
   assert.equal(byId['emirates-golf-club-majlis-course'].media.photo.src, '/golf-media/emirates-golf-club-majlis-course-02.webp')
   assert.equal(byId.muirfield.media.photo.src, '/golf-media/muirfield-01.webp')
   assert.equal(byId['keilir-golf-club'].media.photo, null)
-  assert.match(byId['keilir-golf-club'].image, /^https:\/\/images.unsplash.com\//)
+  // A course without approved photography must not receive destination scenery:
+  // the destination guide is a validation reference only and projects nothing.
+  assert.equal(byId['keilir-golf-club'].image, undefined)
+  assert.equal(byId['keilir-golf-club'].destinationTitle, undefined)
+  assert.equal(byId['keilir-golf-club'].destinationSlug, undefined)
+  for (const course of page.props.courses) {
+    assert.doesNotMatch(JSON.stringify(course), /images\.unsplash\.com|heroImage/)
+  }
 })
 
 for (const [label, mutate] of [
@@ -95,8 +106,8 @@ test('client never imports authoring media or rewrites local photos through dest
   assert.doesNotMatch(client, /import (?!type)[^\n]*(?:golfFinderMedia|golfMedia|golfCourseMedia)/)
   assert.match(client, /course-visuals/)
   assert.match(client, /Course photograph/)
-  assert.match(client, /Destination photograph/)
-  assert.doesNotMatch(client, /Photos show destinations, not courses\./)
+  assert.match(client, /Course photo unavailable/)
+  assert.doesNotMatch(client, /destination photograph|not the course|images\.unsplash\.com/i)
 })
 
 test('all twelve real preview buttons show their own photo kind while the credits stay collapsed', async () => {
@@ -122,12 +133,16 @@ test('all twelve real preview buttons show their own photo kind while the credit
   const buttons = nodes.filter(node => node.type === 'button' && node.props['data-golf-month'])
   assert.equal(buttons.length, 12)
   // Independently accepted lead photo kinds, not derived from the rendered flag.
-  const expected = ['Course photo', 'Course photo', 'Destination view', 'Destination view', 'Course photo', 'Course photo', 'Destination view', 'Destination view', 'Course photo', 'Course photo', 'Destination view', 'Destination view']
+  const expected = ['Course photo', 'Course photo', 'Photo unavailable', 'Course photo', 'Course photo', 'Course photo', 'Photo unavailable', 'Course photo', 'Course photo', 'Course photo', 'Photo unavailable', 'Photo unavailable']
   for (const [index, button] of buttons.entries()) {
-    const label = button.props.children.find(node => node.props?.['data-golf-preview-kind'] !== undefined)
+    // A month without approved photography renders no image at all, so the child
+    // here is a literal null rather than a missing element.
+    const label = button.props.children.find(node => node?.props?.['data-golf-preview-kind'] !== undefined)
     assert.ok(label, `month ${index + 1}: must have its own visible photo-kind label`)
     assert.equal(label.props.children, expected[index])
     assert.notEqual(label.props.hidden, true)
+    const images = button.props.children.filter(node => node?.type === 'Image')
+    assert.equal(images.length, expected[index] === 'Course photo' ? 1 : 0, `month ${index + 1}: only an approved course photograph may render`)
   }
   assert.equal(nodes.find(node => node.type === 'details' && node.props['data-golf-preview-credits'] !== undefined).props.open, undefined)
 })

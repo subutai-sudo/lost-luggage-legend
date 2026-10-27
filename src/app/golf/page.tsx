@@ -7,6 +7,7 @@ import golfNotes from '@/data/golfCourseNotes.json'
 import { getGolfDisplayCatalog, type GolfSource } from '@/lib/golfDiscovery'
 import { pageMetadata } from '@/lib/site'
 import { getGolfFinderMedia } from '@/lib/golfFinderMedia'
+import { getGolfCourseCharacter } from '@/lib/golfPreviewCopy'
 
 export const metadata: Metadata = pageMetadata({
   title: 'Golf Goldilocks Zone — The Best Courses by Month',
@@ -17,16 +18,14 @@ export const metadata: Metadata = pageMetadata({
 export default function GolfPage() {
   const guides = new Map(DESTINATION_GUIDES.map(guide => [guide.id, guide]))
   const media = getGolfFinderMedia()
+  const character = getGolfCourseCharacter()
   const courses: GolfZoneCourse[] = GOLF_COURSES.map(course => {
     const guide = guides.get(course.destinationId)
     if (!guide) throw new Error(`Golf course ${course.id} references an unknown destination: ${course.destinationId}`)
-    return {
-      ...course,
-      destinationTitle: guide.title,
-      destinationSlug: guide.slug,
-      image: guide.heroImage,
-      media: media[course.id],
-    }
+    // The destination guide is only a validation reference now: no destination
+    // photograph, title or slug reaches the client, so unrelated travel imagery
+    // cannot reappear in a golf preview.
+    return { ...course, media: media[course.id], characterLine: character[course.id] }
   })
 
   // Validate authoring URLs, dates, references and all 72 eligible selections

@@ -128,11 +128,37 @@ const finderPriorHarnessHashes = {
   'tests/guide-performance.test.mjs': 'a621dce81926f7fea00e2d6c97c1f150da7100e0d6962d7e127d830928ec6629',
 }
 const finderApproval = JSON.parse(await readFile(new URL('./fixtures/golf-finder-media-approved-changes.json', import.meta.url), 'utf8'))
-const expectedHash = path => {
+// Chain end after the finder release. Kept as its own function because the
+// course-imagery follow-up below continues the chain.
+const finderHash = path => {
   if (finderPaths.includes(path)) return finderApproval.changes[path].afterHash
   if (finderAdded.includes(path)) return finderApproval.addedFiles[path].afterHash
   return mediaHash(path)
 }
+// Course-imagery follow-up: stops substituting unrelated destination scenery in
+// golf previews, adds sourced course-specific copy and two approved photographs.
+// Its inventory is enumerated in code here as well as in the JSON.
+const imageryPaths = [
+  'src/app/golf/page.tsx', 'src/components/GolfZone.tsx', 'src/components/GolfZone.module.css',
+  'src/data/golfCourseMedia.json', 'tests/golf-media.test.mjs', 'tests/golf-core.test.mjs',
+  'tests/golf-finder-media.test.mjs', 'tests/golf-finder-media.browser.test.mjs',
+  'tests/golf-zone.browser.test.mjs', 'tests/guide-performance.test.mjs',
+]
+const imageryAdded = [
+  'src/lib/golfPreviewCopy.ts', 'src/data/golfCourseCharacter.json', 'tests/golf-image-relevance.test.mjs',
+  'public/golf-media/the-royal-melbourne-golf-club-west-01.webp',
+  'public/golf-media/capilano-golf-and-country-club-01.webp',
+]
+// Following the established pattern, an approval document never lists its own
+// hash: that would be self-referential, because this test file is itself one of
+// the files the document pins. The inventories below are enumerated in code too.
+const imageryApproval = JSON.parse(await readFile(new URL('./fixtures/golf-imagery-approved-changes.json', import.meta.url), 'utf8'))
+const imageryHash = path => {
+  if (imageryPaths.includes(path)) return imageryApproval.changes[path].afterHash
+  if (imageryAdded.includes(path)) return imageryApproval.addedFiles[path].afterHash
+  return finderHash(path)
+}
+const expectedHash = path => imageryHash(path)
 const accepts = (path, bytes) => sha256(bytes) === expectedHash(path)
 
 const businessDeclarations = {
@@ -249,7 +275,40 @@ test('finder media follow-up accepts only its exact named files and the last app
     // Never accept either pre-change bytes or post-change bytes interchangeably.
     if (finderPaths.includes(path)) assert.notEqual(expectedHash(path), finderApproval.changes[path].beforeHash)
   }
-  assert.equal(expectedHash('src/data/golfCourseMedia.json'), mediaApproval.addedFiles['src/data/golfCourseMedia.json'].afterHash)
+  assert.equal(finderHash('src/data/golfCourseMedia.json'), mediaApproval.addedFiles['src/data/golfCourseMedia.json'].afterHash)
+})
+
+test('course-imagery follow-up names only its reviewed files, chains onto the prior approvals and rejects additions', async () => {
+  assert.equal(imageryApproval.schemaVersion, 1)
+  assert.equal(imageryApproval.kind, 'golf-imagery-approved-change')
+  assert.equal(imageryApproval.golfImageryBaseline, '8f4a3508df4e716dcdde5e1ecea2d3da3028d5cf')
+  assert.equal(imageryApproval.legacyFixtureSha256, legacyFixtureHash)
+  assert.deepEqual(Object.keys(imageryApproval.changes).sort(), [...imageryPaths].sort())
+  assert.deepEqual(Object.keys(imageryApproval.addedFiles).sort(), [...imageryAdded].sort())
+  for (const path of imageryPaths) {
+    const entry = imageryApproval.changes[path]
+    // The point of the chain: this overlay starts from the bytes the earlier
+    // release approved, never from the legacy freeze or an interchangeable hash.
+    assert.equal(entry.beforeHash, finderHash(path), `${path}: must chain onto the last approved bytes`)
+    assert.notEqual(entry.afterHash, entry.beforeHash)
+    assert.match(entry.afterHash, /^[a-f0-9]{64}$/)
+    assert.ok(entry.reason?.trim())
+    const bytes = await read(path)
+    assert.equal(sha256(bytes), entry.afterHash, path)
+    assert.notEqual(sha256(Buffer.concat([bytes, Buffer.from('\n/* unapproved */')])), entry.afterHash, path)
+  }
+  for (const path of imageryAdded) {
+    const entry = imageryApproval.addedFiles[path]
+    assert.equal(finderHash(path), undefined, `${path}: genuinely new file`)
+    assert.equal(entry.beforeHash, null)
+    assert.match(entry.afterHash, /^[a-f0-9]{64}$/)
+    assert.ok(entry.reason?.trim())
+    assert.equal(sha256(await read(path)), entry.afterHash, path)
+  }
+  // The two new photographs are the only added image assets, and the removed
+  // destination-fallback wiring leaves no orphan asset behind.
+  const addedImages = imageryAdded.filter(path => path.startsWith('public/golf-media/'))
+  assert.equal(addedImages.length, 2)
 })
 
 test('related image sizes still describe gutters, gaps, hover headroom and the capped container', () => {
@@ -280,7 +339,7 @@ test('all other baseline bytes stay frozen except exact explicitly approved afte
     const claim = owner.get(path)
     assert.ok(accepts(path, await read(path)), `${path}: ${claim ? `exact ${claim.overlay.name}-approved-change afterHash` : 'original legacy byte freeze'}`)
   }
-  const added = overlays.flatMap(overlay => overlay.added)
+  const added = [...overlays.flatMap(overlay => overlay.added), ...imageryAdded]
   for (const path of added) assert.ok(accepts(path, await read(path)), `${path}: exact approved new file`)
 })
 

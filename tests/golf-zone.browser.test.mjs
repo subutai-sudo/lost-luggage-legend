@@ -1,4 +1,5 @@
 import { test, expect } from './browser-fixture.mjs'
+import { readFile } from 'node:fs/promises'
 
 // Real production build, real images and real navigation; only marketing hosts
 // are blocked by the shared fixture. Every claim asserted here is one the
@@ -27,7 +28,8 @@ test('golf zone renders the calendar and a sourced six-course shortlist', async 
   const response = await page.goto('/golf?month=10')
   expect(response.status()).toBe(200)
 
-  await expect(page.locator('h1')).toHaveText(/right course, at the right time/i)
+  await expect(page.locator('h1')).toHaveText('Oitavos Dunes')
+  await expect(page.locator('[data-golf-hero-character]')).not.toBeEmpty()
   await expect(page.getByText('Golf Goldilocks Zone', { exact: true }).first()).toBeVisible()
 
   const months = page.locator('button[data-golf-month]')
@@ -139,24 +141,21 @@ test('the month band and cards use decoded approved course or destination photog
   await card.scrollIntoViewIfNeeded()
   await decodeSettledImage(card)
   expect(await card.evaluate(element => element.naturalWidth)).toBeGreaterThan(0)
-  // Photography stays first-party (the optimizer) and every optimized image
-  // resolves back to the approved source host; no new image source appeared.
-  const sources = await page.locator('[data-golf-zone] img').evaluateAll(elements => elements.map(element => element.currentSrc || element.src))
-  expect(sources.length).toBeGreaterThan(12)
-  for (const source of sources) {
-    expect(new URL(source).origin, source).toBe(new URL(BASE).origin)
-  }
+  // Every image in the golf finder is now a first-party, per-course asset
+  // reached through the optimizer. No destination, stock or third-party host
+  // may appear, and a course without approved photography renders no image.
+  const photoImages = page.locator('[data-golf-hero-image], button[data-golf-month] img, [data-golf-card] img')
+  const sources = await photoImages.evaluateAll(elements => elements.map(element => element.currentSrc || element.src))
+  expect(sources.length).toBeGreaterThan(0)
   const optimized = sources.filter(source => source.includes('/_next/image?'))
-  expect(optimized.length).toBeGreaterThanOrEqual(19) // 12 month tiles + hero + 6 cards
-  const approvedLocal = new Set([
-    '/golf-media/emirates-golf-club-majlis-course-02.webp', '/golf-media/tpc-scottsdale-stadium-course-01.webp',
-    '/golf-media/portmarnock-golf-club-02.webp', '/golf-media/muirfield-01.webp',
-    '/golf-media/bethpage-black-01.webp', '/golf-media/oitavos-dunes-01.webp',
-    '/golf-media/marco-simone-golf-country-club-01.webp',
-  ])
+  expect(optimized.length).toBe(sources.length)
+  const ledger = JSON.parse(await readFile(new URL('../src/data/golfCourseMedia.json', import.meta.url), 'utf8'))
+  const approvedLocal = new Set(ledger.flatMap(record => record.photos.map(photo => photo.src)))
+  expect(approvedLocal.size).toBeGreaterThan(30)
   for (const source of optimized) {
+    expect(new URL(source).origin, source).toBe(new URL(BASE).origin)
     const original = new URL(source).searchParams.get('url')
-    if (!original.startsWith('https://images.unsplash.com/')) expect(approvedLocal.has(original), original).toBe(true)
+    expect(approvedLocal.has(original), original).toBe(true)
   }
 })
 
