@@ -21,12 +21,11 @@ test('course guides expose real course media and an honestly labelled layout res
   await expect(media).not.toContainText(/\b(?:our|the)?\s*(?:review|verification|research|audit)\b|\breviewed\b|\bverified\b|\bretrieved\b|\bscreenshot\b|\bevidence\b|HTTP \d{3}|do not infer|placeholder/i)
   // A source link is not a substitute for a photograph, and a scorecard is not a map.
   await expect(media.getByRole('heading', { name: 'Course photographs', exact: true })).toBeVisible()
-  // The hero must be internally consistent with the approved photo set: a course
-  // photograph when one is approved, the explicit destination disclosure otherwise.
+  // Oitavos has no approved photograph: no destination substitute in its header.
   const hero = page.locator('[data-golf-guide-hero]')
-  const approvedPhotos = await media.locator('[data-golf-photo-gallery]').count()
-  if (approvedPhotos > 0) await expect(hero).toContainText(/Course photograph:/)
-  else await expect(hero).toContainText('Destination photograph')
+  await expect(hero.locator('[data-golf-guide-image]')).toHaveCount(0)
+  await expect(hero).toContainText('Course photograph not available')
+  await expect(hero).not.toContainText('Destination photograph')
   await expect(hero).toContainText('Oitavos Dunes')
 })
 

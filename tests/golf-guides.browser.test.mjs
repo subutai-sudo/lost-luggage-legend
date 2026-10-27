@@ -4,6 +4,7 @@ import ts from 'typescript'
 const text = readFileSync(new URL('../src/data/golfCourses.ts', import.meta.url), 'utf8')
 const source = ts.createSourceFile('golfCourses.ts', text, ts.ScriptTarget.Latest, true)
 const array = source.statements.filter(ts.isVariableStatement).flatMap(s => [...s.declarationList.declarations]).find(d => d.name.getText(source) === 'GOLF_COURSES').initializer
+const headers = JSON.parse(readFileSync(new URL('./fixtures/golf-guide-header-baseline.json', import.meta.url), 'utf8')).records
 const courses = array.elements.map(e => Object.fromEntries(e.properties.map(p => [p.name.getText(source), p.initializer.text])))
 
 test('every monthly course title, photo and primary guide link goes to its own golf guide', async ({ page }) => {
@@ -28,6 +29,23 @@ for (const course of courses) {
     const response = await page.goto(`/golf/${course.id}`)
     expect(response.status()).toBe(200)
     await expect(page.locator('h1')).toHaveText(course.name)
+    const header = headers.find(record => record.id === course.id)
+    const hero = page.locator('[data-golf-guide-hero]')
+    await expect(hero.locator('[data-golf-guide-character]')).toHaveText(header.character)
+    const image = hero.locator('[data-golf-guide-image]')
+    if (header.photo) {
+      await expect(image).toHaveCount(1)
+      await expect.poll(() => image.evaluate(img => decodeURIComponent(img.currentSrc || img.src))).toContain(header.photo.src)
+      await image.evaluate(img => img.decode())
+      expect(await image.evaluate(img => img.naturalWidth)).toBeGreaterThan(0)
+    } else {
+      await expect(image).toHaveCount(0)
+      await expect(hero).toContainText('Course photograph not available')
+    }
+    const social = header.photo ?? {src:'/brand/golf-guide-social.png',width:1200,height:630}
+    await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content', `https://lostluggagelegend.com${social.src}`)
+    await expect(page.locator('meta[property="og:image:width"]')).toHaveAttribute('content', String(social.width))
+    await expect(page.locator('meta[property="og:image:height"]')).toHaveAttribute('content', String(social.height))
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', `https://lostluggagelegend.com/golf/${course.id}`)
     await expect(page.getByRole('heading', { name: /Visitor access/i })).toBeVisible()
     await expect(page.getByRole('heading', { name: /Playing|Course character/i }).first()).toBeVisible()
@@ -49,9 +67,8 @@ for (const width of [320, 390, 1440]) {
       await page.goto('/golf/oitavos-dunes')
       expect(await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth)).toBeLessThanOrEqual(1)
       await expect(page.locator('h1')).toBeVisible()
-      const image = page.locator('main img').first()
-      await image.evaluate(img => img.decode())
-      expect(await image.evaluate(img => img.naturalWidth)).toBeGreaterThan(0)
+      await expect(page.locator('[data-golf-guide-image]')).toHaveCount(0)
+      await expect(page.locator('[data-golf-guide-hero]')).toContainText('Course photograph not available')
     })
   }
 }

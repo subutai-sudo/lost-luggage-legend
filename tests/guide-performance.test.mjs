@@ -158,7 +158,26 @@ const imageryHash = path => {
   if (imageryAdded.includes(path)) return imageryApproval.addedFiles[path].afterHash
   return finderHash(path)
 }
-const expectedHash = path => imageryHash(path)
+// Course-guide headers follow the final PR21 approved bytes. Earlier approvals
+// remain immutable; only this separately enumerated overlay advances the chain.
+const guideHeaderPaths = [
+  'src/app/golf/[slug]/page.tsx', 'tests/golf-guides.browser.test.mjs',
+  'tests/golf-media.browser.test.mjs', 'tests/guide-performance.test.mjs',
+]
+const guideHeaderAdded = [
+  'public/brand/golf-guide-social.png', 'tests/golf-guide-headers.test.mjs',
+  'tests/helpers/golf-guide-render.mjs', 'tests/fixtures/golf-guide-header-baseline.json',
+]
+const guideHeaderApproval = JSON.parse(await readFile(new URL('./fixtures/golf-guide-imagery-approved-changes.json', import.meta.url), 'utf8'))
+const guideHeaderPriorHarnessHashes = {
+  "tests/golf-guides.browser.test.mjs": "9693e17d5ef760334e6e2db1f60effd7eaed592483ddf8ca655a90b8991c7cad",
+  "tests/golf-media.browser.test.mjs": "e34fa433e229a163e80ca0125d6035850c6d068d0a8f25d952f9fc11d41c4078"
+}
+const expectedHash = path => {
+  if (guideHeaderPaths.includes(path)) return guideHeaderApproval.changes[path].afterHash
+  if (guideHeaderAdded.includes(path)) return guideHeaderApproval.addedFiles[path].afterHash
+  return imageryHash(path)
+}
 const accepts = (path, bytes) => sha256(bytes) === expectedHash(path)
 
 const businessDeclarations = {
@@ -294,7 +313,7 @@ test('course-imagery follow-up names only its reviewed files, chains onto the pr
     assert.match(entry.afterHash, /^[a-f0-9]{64}$/)
     assert.ok(entry.reason?.trim())
     const bytes = await read(path)
-    assert.equal(sha256(bytes), entry.afterHash, path)
+    assert.ok(accepts(path, bytes), path)
     assert.notEqual(sha256(Buffer.concat([bytes, Buffer.from('\n/* unapproved */')])), entry.afterHash, path)
   }
   for (const path of imageryAdded) {
@@ -309,6 +328,31 @@ test('course-imagery follow-up names only its reviewed files, chains onto the pr
   // destination-fallback wiring leaves no orphan asset behind.
   const addedImages = imageryAdded.filter(path => path.startsWith('public/golf-media/'))
   assert.equal(addedImages.length, 2)
+})
+
+test('course-guide header overlay permits only the exact named follow-up and rejects mutations', async () => {
+  assert.equal(guideHeaderApproval.schemaVersion, 1)
+  assert.equal(guideHeaderApproval.kind, 'golf-guide-imagery-approved-change')
+  assert.equal(guideHeaderApproval.baseline, 'dcd93f02c23e4306eca01f7a5db86e0ccea0f70d')
+  assert.deepEqual(Object.keys(guideHeaderApproval.changes).sort(), [...guideHeaderPaths].sort())
+  assert.deepEqual(Object.keys(guideHeaderApproval.addedFiles).sort(), [...guideHeaderAdded].sort())
+  for (const path of guideHeaderPaths) {
+    const entry = guideHeaderApproval.changes[path]
+    assert.equal(entry.beforeHash, imageryHash(path) ?? guideHeaderPriorHarnessHashes[path], path)
+    assert.notEqual(entry.afterHash, entry.beforeHash)
+    assert.ok(entry.reason?.trim())
+  }
+  for (const path of guideHeaderAdded) {
+    assert.equal(imageryHash(path), undefined, path)
+    assert.equal(guideHeaderApproval.addedFiles[path].beforeHash, null)
+    assert.ok(guideHeaderApproval.addedFiles[path].reason?.trim())
+  }
+  for (const path of [...guideHeaderPaths, ...guideHeaderAdded]) {
+    const bytes = await read(path)
+    assert.ok(accepts(path, bytes), path)
+    assert.equal(accepts(path, Buffer.concat([bytes, Buffer.from('unapproved')])), false, path)
+  }
+  assert.equal(accepts('public/brand/unapproved.png', Buffer.from('unapproved')), false)
 })
 
 test('related image sizes still describe gutters, gaps, hover headroom and the capped container', () => {

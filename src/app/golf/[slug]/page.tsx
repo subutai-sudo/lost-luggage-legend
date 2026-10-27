@@ -10,6 +10,7 @@ import { GolfCourseMedia } from '@/components/GolfCourseMedia'
 import { GOLF_OPERATIONAL_NOTICES } from '@/data/golfOperationalNotices'
 import { getGolfMediaForCourse } from '@/lib/golfMedia'
 import { pageMetadata } from '@/lib/site'
+import { getGolfCourseCharacter } from '@/lib/golfPreviewCopy'
 import styles from '@/components/GolfGuide.module.css'
 
 interface Props {
@@ -26,7 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
   const guide = getGolfGuide(slug)
   if (!guide) notFound()
-  const { course, destination } = guide
+  const { course } = guide
   const title = `${course.name} Course Guide — When to Play & Visitor Access`
   const description = `Plan a round at ${course.name} in ${course.city}, ${course.country}: course character, playing notes, visitor access and sourced month-by-month advice.`
   const metadata = pageMetadata({ title, description, path: `/golf/${course.id}` })
@@ -35,7 +36,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const socialPhoto = getGolfMediaForCourse(course.id)?.photos[0]
   const heroImage = socialPhoto
     ? { src: socialPhoto.src, width: socialPhoto.width, height: socialPhoto.height, alt: socialPhoto.alt }
-    : { src: destination.heroImage, alt: `${destination.title} destination photograph — not ${course.name}` }
+    : { src: '/brand/golf-guide-social.png', width: 1200, height: 630, alt: 'Golf course guides · Goldilocks Zone' }
   return {
     ...metadata,
     openGraph: {
@@ -43,7 +44,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: 'article',
       // Declared dimensions must describe the image actually used; a portrait course
       // photograph is not a 1200x630 box.
-      images: [{ url: heroImage.src, ...('width' in heroImage ? { width: heroImage.width, height: heroImage.height } : { width: 1200, height: 630 }), alt: heroImage.alt } as { url: string; width: number; height: number; alt: string }],
+      images: [{ url: heroImage.src, width: heroImage.width, height: heroImage.height, alt: heroImage.alt }],
     },
     twitter: { ...metadata.twitter, images: [heroImage.src] },
   }
@@ -56,10 +57,10 @@ export default async function GolfGuidePage({ params }: Props) {
   const { course, destination, supportedMonths, monthlyNotes, sources } = guide
   const media = getGolfMediaForCourse(course.id)
   const photo = media?.photos[0]
-  const hero = photo ? { src: photo.src, alt: photo.alt } : { src: destination.heroImage, alt: `${destination.title} — destination photograph, not ${course.name}` }
+  const characterLine = getGolfCourseCharacter()[course.id]
   const heroCredit = photo
     ? `Course photograph: ${photo.caption} Photo ${photo.author}, ${photo.license}, resized for display.`
-    : `Destination photograph: ${destination.title}. This is not a photograph of ${course.name}.`
+    : `Course photograph not available for ${course.name}. Explore the course's visual resources below.`
 
   return (
     <div className={styles.root} data-golf-guide={course.id}>
@@ -70,15 +71,15 @@ export default async function GolfGuidePage({ params }: Props) {
 
       <main id="main-content">
       <header className={styles.hero} data-golf-guide-hero>
-        <Image
-          src={hero.src}
-          alt={hero.alt}
+        {photo && <Image
+          src={photo.src}
+          alt={photo.alt}
           className={styles.heroImage}
           fill
           priority
           sizes="100vw"
           data-golf-guide-image
-        />
+        />}
         <div className={styles.heroShade} aria-hidden="true" />
         <div className={styles.heroInner}>
           <nav className={styles.breadcrumb} aria-label="Breadcrumb">
@@ -90,7 +91,7 @@ export default async function GolfGuidePage({ params }: Props) {
             <p className={styles.eyebrow}>Golf Goldilocks Zone · Course field notes</p>
             <h1>{course.name}</h1>
             <p className={styles.location}>{course.city}, {course.country}</p>
-            <p className={styles.character}>{course.character.replaceAll('-', ' ')} golf</p>
+            <p className={styles.character} data-golf-guide-character>{characterLine}</p>
           </div>
           <div className={styles.heroFoot}>
             <p>{heroCredit}</p>
