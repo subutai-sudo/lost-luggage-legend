@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "kind": "golf-imagery-approved-change",
+  "golfImageryBaseline": "8f4a3508df4e716dcdde5e1ecea2d3da3028d5cf",
+  "legacyFixtureSha256": "65a2692a2b7235011c15f3001da95bed9577c9731167fc77ca1e437567a9fbb3",
+  "note": "Golf previews no longer substitute destination scenery; a course without approved photography renders a typographic card. Two photographs were added after independent identity, licence and pixel review.",
+  "changes": {
+    "src/app/golf/page.tsx": {
+      "beforeHash": "9acc9b4cbdafe0e1906144cea6049e584195a7130490e44b3ff8377369ae496d",
+      "afterHash": "cc35c32cc7f8b849f2547610bb4e08ae87262d9c26d8698aceaa5ce87f71fdb7",
+      "reason": "Drop the unused destination photograph, title and slug from the projected course props: a course without approved photography must not receive travel scenery."
+    },
+    "src/components/GolfZone.tsx": {
+      "beforeHash": "fdeb094626b6f92d8d81cc8268a5d877682b45dc7b9be195765d0e4a709ecb89",
+      "afterHash": "15662c6b77ce90b04c5691e542f07a0848661837de5123f6122486cf84c4046f",
+      "reason": "Remove every destination-image fallback, name the actual course in the hero, month tiles and image overlays, and show the sourced course character line."
+    },
+    "src/components/GolfZone.module.css": {
+      "beforeHash": "82146804e182b48674d289f8fb5f63772eaf0717d6bcfb0913d0b3c09105d7e8",
+      "afterHash": "75cf9e8514b9d04f7afcfbe26ecf547ea6134a59db87d6ab2e964fdbe8481c45",
+      "reason": "Style the course-name overlay with its character line, size the tile for a readable course label, and keep the hero character line on the acid accent."
+    },
+    "src/data/golfCourseMedia.json": {
+      "beforeHash": "91683cefa3fc93865b1b98bd490d03fe89eb9128d757ccc54c24b254e438123f",
+      "afterHash": "7b592965e52d9ab754107bbfaf0ab7487d95854ee2bceae5bacb3252af925a68",
+      "reason": "Add the two independently accepted course photographs with their faithful captions, scope and CC BY 2.0 attribution."
+    },
+    "tests/golf-media.test.mjs": {
+      "beforeHash": "037aa9329c98006203fe04b21228e0cfb63901023a36f9bffa76cdb92d5012f5",
+      "afterHash": "827117e7cebb02b4a81867365d5f75f0ced9c06212c0e36fc2098d796ee39d92",
+      "reason": "Recount the accepted photograph and shipped asset inventories after the two approved additions."
+    },
+    "tests/golf-core.test.mjs": {
+      "beforeHash": "675508ad6d6a6dba676d4d49c93f53dbb93d8a5d9ed1815ae13beaeff31295f1",
+      "afterHash": "fa20f4e58f34b3ccadc2e86ba6539925af1620b8388d20b3ea380d572c91df14",
+      "reason": "Wire the new character-copy module into the real page harness."
+    },
+    "tests/golf-finder-media.test.mjs": {
+      "beforeHash": "b49a126a521cb64dc00510fcc3587417d9b920bd8a4d1ac8efbbb87c73953c62",
+      "afterHash": "7adab3b1b02e4d960822c03db399b7191aa56d0c423636015eee4c8801b737f9",
+      "reason": "Assert the projection carries no destination scenery and that the twelve preview labels reflect the accepted photo inventory."
+    },
+    "tests/golf-finder-media.browser.test.mjs": {
+      "beforeHash": "433da06a0a16d6c2ce581088dd8997b5129243a6a8e6db25f1804e134c62e9aa",
+      "afterHash": "9cacb75151ef594e909e590db8986dc3c9d8f46bf9b6be8adffdb7b32094d157",
+      "reason": "Assert real course identity, no rendered image for a course without photography, and the sourced character line in the hero and every card overlay."
+    },
+    "tests/golf-zone.browser.test.mjs": {
+      "beforeHash": "7e866e5a80f009397b38fc347bd8ed9418349851b598931c14c2182441042a9a",
+      "afterHash": "c73eeb806f0ede84d4011542e3642cd6d844003c19490f135d504ba115ba2084",
+      "reason": "Require every finder image to be a first-party course asset reached through the optimizer."
+    },
+    "tests/guide-performance.test.mjs": {
+      "beforeHash": "71793906615945bbc781bba4c4fb7045a3975604ed7cda151226cb1445bb1ad8",
+      "afterHash": "64bc8169e5a99e691bf022453f40e952caf7d0dd478365a4863f7a148704b00c",
+      "reason": "Enumerate this follow-up in code and chain the exact hashes with negative controls."
+    }
+  },
+  "addedFiles": {
+    "src/lib/golfPreviewCopy.ts": {
+      "beforeHash": null,
+      "afterHash": "626b6f0202550f2799b6a6b82a5f51fbb1235e7bc0b641508b675c96e1ea5886",
+      "reason": "Server-only validation and projection of the sourced per-course character lines."
+    },
+    "src/data/golfCourseCharacter.json": {
+      "beforeHash": null,
+      "afterHash": "8a33396c1b6316fae560ffe2fdfb599ee20d2fd304fed173e4964713ff5e051e",
+      "reason": "Reader-facing course-specific character copy for all 37 courses, paraphrased from their existing sourced guide records."
+    },
+    "tests/golf-image-relevance.test.mjs": {
+      "beforeHash": null,
+      "afterHash": "9fb50977538484728de638340c12e5b253da70055b6514527468ab8f1301fb92",
+      "reason": "Red-captured regressions for unrelated destination imagery, course naming and generic or incomplete copy."
+    },
+    "public/golf-media/the-royal-melbourne-golf-club-west-01.webp": {
+      "beforeHash": null,
+      "afterHash": "56af4752d6c0b9361eb16e4280174ca96e632c60c1f258c63fdc3a339153adbe",
+      "reason": "Independently accepted Royal Melbourne West photograph (Hone Morihana, CC BY 2.0), re-encoded from the original download."
+    },
+    "public/golf-media/capilano-golf-and-country-club-01.webp": {
+      "beforeHash": null,
+      "afterHash": "96ed7e11472982f57bc3aabfc61ba39f13ff53c265fc87172b6424e7c8d86a97",
+      "reason": "Independently accepted Capilano Golf and Country Club photograph (James Cridland, CC BY 2.0), re-encoded from the original download."
+    }
+  }
+}

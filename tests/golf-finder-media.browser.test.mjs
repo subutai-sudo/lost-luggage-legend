@@ -8,37 +8,44 @@ const photos = {
   'kennemer-golf-country-club': '01', 'marco-simone-golf-country-club': '01', 'millbrook-resort': '03',
   muirfield: '01', 'oitavos-dunes': '01', 'portmarnock-golf-club': '02', 'praia-d-el-rey': '01',
   'real-club-de-golf-el-prat': '01', 'torrey-pines-golf-course-south-course': '01', 'tpc-scottsdale-stadium-course': '01',
+  'capilano-golf-and-country-club': '01', 'the-royal-melbourne-golf-club-west': '01',
 }
-// Destination IDs frozen from the approved, unchanged media-release tree.
-// A destination fallback is never an arbitrary Unsplash image or nearby club.
-const fallbackPhotos = {
-  'al-maaden-golf': '/photo-1597212618440-806262de4f6b',
-  'bali-national-golf-club': '/photo-1537996194471-e657df975ab4',
-  'brautarholt-golf-club': '/photo-1615130767419-e9ff3afa5a15',
-  'bro-hof-slott-stadium': '/photo-1588653818221-2651ec1a6423',
-  'capilano-golf-and-country-club': '/photo-1559511260-66a654ae982a',
-  'cog-hill-no-4-dubsdread': '/photo-1494522855154-9297ac14b55f',
-  'jack-s-point': '/photo-1600466403153-50193d187dde',
-  'katameya-heights-golf-tennis-resort': '/photo-1572252009286-268acec5ca0a',
-  'keilir-golf-club': '/photo-1615130767419-e9ff3afa5a15',
-  'kyt-j-golf-south-east': '/photo-1538332576228-eb5b4c4de6f5',
-  'montgomerie-maxx-royal': '/photo-1648325129746-abcc1b872380',
-  'new-south-wales-golf-club': '/photo-1506973035872-a4ec16b8e8d9',
-  'royal-cape-golf-club': '/photo-1580060839134-75a5edca2e99',
-  'royal-golf-marrakech-old-course': '/photo-1597212618440-806262de4f6b',
-  'sentosa-golf-club-serapong': '/photo-1525625293386-3f8f99389edd',
-  'steenberg-golf-club': '/photo-1580060839134-75a5edca2e99',
-  'thai-country-club': '/photo-1508009603885-50cf7c579365',
-  'the-royal-melbourne-golf-club-west': '/photo-1514395462725-fb4566210144',
-  'tpc-summerlin': '/photo-1581351721010-8cf859cb14a4',
-  'walton-heath-golf-club-old': '/photo-1513635269975-59663e0ac1ad',
-  'wentworth-club-west': '/photo-1513635269975-59663e0ac1ad',
-}
+// A course without approved photography must render NO image at all: no
+// destination scenery, no beach or skyline, and no generic golf stock.
 const notes = JSON.parse(await readFile(new URL('../src/data/golfCourseNotes.json', import.meta.url), 'utf8'))
 const leads = ['emirates-golf-club-majlis-course', 'tpc-scottsdale-stadium-course', 'royal-cape-golf-club', 'the-royal-melbourne-golf-club-west', 'portmarnock-golf-club', 'muirfield', 'keilir-golf-club', 'capilano-golf-and-country-club', 'bethpage-black', 'oitavos-dunes', 'steenberg-golf-club', 'new-south-wales-golf-club']
 const ledger = JSON.parse(await readFile(new URL('../src/data/golfCourseMedia.json', import.meta.url), 'utf8'))
+// Independently frozen expected names for the twelve monthly leads, so a wrong
+// or generic heading cannot validate itself against the rendered text.
+const LEAD_CHARACTER = [
+  'Uphill approaches, water carries and sloping greens',
+  'The par-three 16th becomes a tournament Coliseum',
+  'Flat, tree-lined fairways and contoured greens',
+  'Sandbelt doglegs, bold bunkers and approach angles',
+  '27 holes across a narrow sandy peninsula',
+  'Two opposing loops through East Lothian links',
+  'Lava on the front nine; peninsula on the back',
+  'Thompson bunkers through rainforest fairways',
+  'Climbing approaches and imposing cross bunkers',
+  'Atlantic-facing dunes and umbrella pines',
+  'Cross bunkers and a stream-divided finish',
+  'Rugged La Perouse cliffs above Botany Bay',
+]
+const LEAD_NAMES = [
+  'Emirates Golf Club – Majlis Course', 'TPC Scottsdale – Stadium Course', 'Royal Cape Golf Club',
+  'The Royal Melbourne Golf Club (West)', 'Portmarnock Golf Club', 'Muirfield', 'Keilir Golf Club',
+  'Capilano Golf and Country Club', 'Bethpage Black', 'Oitavos Dunes', 'Steenberg Golf Club',
+  'New South Wales Golf Club',
+]
 const tab = engine => engine === 'webkit' ? 'Alt+Tab' : 'Tab'
-const kind = id => photos[id] ? 'Course photograph' : 'Destination photograph'
+const kind = id => photos[id] ? 'Course photograph' : 'Course photo unavailable'
+const tileKind = id => photos[id] ? 'Course photo' : 'Photo unavailable'
+async function expectNoImagery(scope) {
+  await expect(scope.locator('img')).toHaveCount(0)
+}
+function imagePath(id) {
+  return photos[id] ? `/golf-media/${id}-${photos[id]}.webp` : null
+}
 async function checkImage(image, id) {
   await image.scrollIntoViewIfNeeded()
   // A reused card can still have the previous month's currentSrc when its new
@@ -48,22 +55,16 @@ async function checkImage(image, id) {
   await expect.poll(() => image.evaluate(async (img, expected) => {
     const source = img.currentSrc
     if (!source || !img.complete || !img.naturalWidth) return false
-    const raw = new URL(source).searchParams.get('url')
-    const matches = expected.photo ? raw === expected.photo : raw && new URL(raw).hostname === 'images.unsplash.com' && new URL(raw).pathname === expected.destination
+    const matches = new URL(source).searchParams.get('url') === expected.photo
     await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)))
     return !!matches && img.complete && img.naturalWidth > 0 && img.currentSrc === source
-  }, { photo: photos[id] ? `/golf-media/${id}-${photos[id]}.webp` : null, destination: fallbackPhotos[id] })).toBe(true)
+  }, { photo: imagePath(id) })).toBe(true)
   await image.evaluate(img => img.decode())
   const result = await image.evaluate(img => ({ url: img.currentSrc, width: img.naturalWidth, loading: img.loading }))
   expect(result.width).toBeGreaterThan(0)
   const url = new URL(result.url)
   expect(url.origin).toBe(new URL(process.env.BROWSER_BASE_URL || 'http://localhost:3001').origin)
-  const src = url.searchParams.get('url')
-  if (photos[id]) expect(src).toBe(`/golf-media/${id}-${photos[id]}.webp`)
-  else {
-    expect(new URL(src).origin).toBe('https://images.unsplash.com')
-    expect(new URL(src).pathname).toBe(fallbackPhotos[id])
-  }
+  expect(url.searchParams.get('url')).toBe(imagePath(id))
   return result
 }
 async function credit(scope, id) {
@@ -125,7 +126,10 @@ for (const width of [320, 390, 1440]) for (const theme of ['light', 'dark']) {
       const id = leads[month - 1]
       const button = page.locator(`button[data-golf-month="${month}"]`)
       await expect(button).toHaveAttribute('aria-description', new RegExp(`${kind(id)}`))
-      await checkImage(button.locator('img'), id)
+      await expect(button.locator('[data-golf-preview-kind]')).toHaveText(tileKind(id))
+      await expect(button.locator('[data-golf-preview-course]')).toHaveText(LEAD_NAMES[month - 1])
+      if (photos[id]) await checkImage(button.locator('img'), id)
+      else await expectNoImagery(button)
       if (photos[id]) await credit(previewCredits.locator(`[data-golf-preview-credit="${month}"]`), id)
       await button.focus()
       await page.keyboard.press(month % 2 ? 'Enter' : 'Space')
@@ -133,20 +137,42 @@ for (const width of [320, 390, 1440]) for (const theme of ['light', 'dark']) {
       await page.keyboard.press(tab(browserName))
       if (month < 12) await expect(page.locator(`button[data-golf-month="${month + 1}"]`)).toBeFocused()
       else await expect(previewCredits.locator('summary')).toBeFocused()
-      const hero = page.locator('[data-golf-hero-image]')
-      await checkImage(hero, id)
-      await expect(hero).toHaveAttribute('loading', 'eager')
-      await expect(hero).toHaveAttribute('fetchpriority', 'high')
-      await expect(page.locator('[data-golf-hero-credit]')).toContainText(kind(id))
-      await credit(page.locator('[data-golf-hero-credit]'), id)
+      const featured = ledger.find(r => r.courseId === id)
+      await expect(page.locator('h1')).toHaveText(LEAD_NAMES[month - 1])
+      await expect(page.locator('[data-golf-hero-character]')).toHaveText(LEAD_CHARACTER[month - 1])
+      if (photos[id]) {
+        const hero = page.locator('[data-golf-hero-image]')
+        await checkImage(hero, id)
+        await expect(hero).toHaveAttribute('loading', 'eager')
+        await expect(hero).toHaveAttribute('fetchpriority', 'high')
+        await expect(page.locator('[data-golf-hero-credit]')).toContainText(kind(id))
+        await credit(page.locator('[data-golf-hero-credit]'), id)
+      } else {
+        // The hero section also contains the navigation brand mark, so assert the
+        // hero photograph element itself is absent rather than counting all images.
+        await expect(page.locator('[data-golf-hero-image]')).toHaveCount(0)
+        await expect(page.locator('[data-golf-hero-credit]')).toContainText(kind(id))
+      }
+      expect(featured, `${id}: media ledger record`).toBeTruthy()
       const cards = page.locator('[data-golf-card]')
       await expect(cards).toHaveCount(6)
       for (const card of await cards.all()) {
         const cardId = await card.getAttribute('data-golf-card')
         await expect(card.locator('[data-golf-photo-kind]')).toHaveText(kind(cardId))
-        await checkImage(card.locator('img'), cardId)
-        await expect(card.locator('img')).toHaveAttribute('loading', 'lazy')
-        await credit(card.locator('[data-golf-photo-credit]'), cardId)
+        await expect(card.locator('[data-golf-figure-title]')).toHaveText(await card.locator('h3').innerText())
+        // The overlay carries a specific, sourced line — never a bare photo label
+        // and never generic travel marketing.
+        const phrase = await card.locator('[data-golf-figure-phrase]').innerText()
+        expect(phrase.length).toBeGreaterThan(20)
+        expect(phrase).not.toMatch(/unforgettable|world-?class|must-?play|paradise|stunning|iconic|hidden gem|breathtaking/i)
+        if (cardId === id) await expect(card.locator('[data-golf-figure-phrase]')).toHaveText(LEAD_CHARACTER[month - 1])
+        if (photos[cardId]) {
+          await checkImage(card.locator('img'), cardId)
+          await expect(card.locator('img')).toHaveAttribute('loading', 'lazy')
+          await credit(card.locator('[data-golf-photo-credit]'), cardId)
+        } else {
+          await expectNoImagery(card)
+        }
         const note = notes.find(note => note.courseId === cardId && note.month === month)
         expect(note, `${cardId}/${month}: exact frozen seasonal note`).toBeTruthy()
         await expect(card.locator('[data-golf-why]')).toHaveText(note.why)
@@ -204,7 +230,8 @@ for (const width of [320, 390, 1440]) for (const theme of ['light', 'dark']) tes
     const button = page.locator(`button[data-golf-month="${month}"]`)
     const label = button.locator('[data-golf-preview-kind]')
     await expect(button).toHaveAccessibleName(new Date(2026, month - 1).toLocaleString('en', { month: 'long' }))
-    await expect(label).toHaveText(photos[id] ? 'Course photo' : 'Destination view')
+    await expect(label).toHaveText(tileKind(id))
+    await expect(button.locator('[data-golf-preview-course]')).toBeVisible()
     await label.scrollIntoViewIfNeeded()
     await expect(label).toBeVisible()
     await expect(label).toBeInViewport()
@@ -217,7 +244,8 @@ for (const width of [320, 390, 1440]) for (const theme of ['light', 'dark']) tes
     expect(geometry.font).toBeGreaterThanOrEqual(13)
     expect(geometry.color).toBe('rgb(243, 241, 233)')
     expect(geometry.background).toBe('rgb(12, 33, 26)')
-    await checkImage(button.locator('img'), id)
+    if (photos[id]) await checkImage(button.locator('img'), id)
+    else await expectNoImagery(button)
   }
   await expect(credits).not.toHaveAttribute('open')
   expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(1)

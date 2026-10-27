@@ -123,7 +123,22 @@
       "samePageAsLayout": false
     },
     "layout": null,
-    "photos": [],
+    "photos": [
+      {
+        "src": "/golf-media/capilano-golf-and-country-club-01.webp",
+        "width": 1600,
+        "height": 1200,
+        "alt": "An elevated view of Capilano's tree-lined fairways, greens and sand bunkers among dense conifers, with the golf and country club's clubhouse complex within the view.",
+        "caption": "An elevated view of Capilano Golf and Country Club's tree-lined course and clubhouse.",
+        "scope": "Photograph by James Cridland, published on Flickr under CC BY 2.0, where the title names the club. Resized for this page; no crop. Taken in December 2009, so the canopy and clubhouse are as they were then.",
+        "author": "James Cridland",
+        "sourcePage": "https://www.flickr.com/photos/jamescridland/4151777112/",
+        "originalUrl": "https://www.flickr.com/photo_download.gne?size=o&id=4151777112&secret=9b1a9fdd1c",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+        "checkedAt": "2026-10-26"
+      }
+    ],
     "map": null
   },
   {
@@ -1185,7 +1200,22 @@
       "scope": "An official hole-by-hole tour published by the club for this course.",
       "kind": "hole-tour"
     },
-    "photos": [],
+    "photos": [
+      {
+        "src": "/golf-media/the-royal-melbourne-golf-club-west-01.webp",
+        "width": 1600,
+        "height": 1067,
+        "alt": "A broad mown fairway with a chain of sand bunkers short of the green on Royal Melbourne's tree-lined West Course, spectators behind, during a 2011 Presidents Cup practice round.",
+        "caption": "Royal Melbourne's West Course — the hole the photographer titles “The 10th (18w)” — during the 2011 Presidents Cup practice round.",
+        "scope": "Photograph by Hone Morihana, published on Flickr under CC BY 2.0, where the photographer’s own title labels the West Course. Resized for this page; no crop. The 2011 Presidents Cup used a composite routing, so the tournament setting alone does not identify the course, and the hole number is not asserted. Dated tournament setup, not current conditions.",
+        "author": "Hone Morihana",
+        "sourcePage": "https://www.flickr.com/photos/hone-morihana/6346921802/",
+        "originalUrl": "https://www.flickr.com/photo_download.gne?size=o&id=6346921802&secret=6bebc566ae",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+        "checkedAt": "2026-10-26"
+      }
+    ],
     "map": null
   },
   {

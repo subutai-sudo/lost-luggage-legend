@@ -8,18 +8,18 @@ import { NewsletterSignup } from '@/components/NewsletterSignup'
 import { GolfReason } from '@/components/GolfReason'
 import { GOLF_OPERATIONAL_NOTICES } from '@/data/golfOperationalNotices'
 import {
-  discoveryImage, getGolfMonthPreviews, getGolfMonthSelection, MONTH_NAMES, readGolfMonth,
+  getGolfMonthPreviews, getGolfMonthSelection, MONTH_NAMES, readGolfMonth,
   type GolfCourse, type GolfDisplayCatalog,
 } from '@/lib/golfDiscovery'
 import type { GolfFinderMedia } from '@/lib/golfFinderMedia'
 import styles from './GolfZone.module.css'
 
-/** Course-specific media and a clearly distinct destination fallback. */
+/** Course-specific photography only; unavailable images remain typographic. */
 export interface GolfZoneCourse extends GolfCourse {
-  destinationTitle: string
-  destinationSlug: string
-  image: string
   media: GolfFinderMedia
+  /** Sourced, course-specific character line. Distinct from `character`, which
+   *  is the catalog's broad category label (e.g. "parkland"). */
+  characterLine: string
 }
 
 interface Props {
@@ -36,14 +36,11 @@ const MONTH_TILE_SIZES = '(max-width: 639px) calc((90vw - 12px) / 3), (max-width
 // Include the 1.03 hover scale so the decoded image covers its painted size.
 const CARD_SIZES = '(max-width: 639px) calc(93.936vw - 41.2px), (max-width: 959px) calc(46.968vw - 45.32px), (min-width: 1474px) 442.22px, calc(31.312vw - 19.227px)'
 
-function finderImage(course: GolfZoneCourse, width: number) {
-  return course.media.photo?.src ?? discoveryImage(course.image, width)
-}
 function photoKind(course: GolfZoneCourse) {
-  return course.media.photo ? 'Course photograph' : 'Destination photograph'
+  return course.media.photo ? 'Course photograph' : 'Course photo unavailable'
 }
 function photoAlt(course: GolfZoneCourse) {
-  return course.media.photo?.alt ?? `${course.destinationTitle} — destination photograph, not the course`
+  return course.media.photo?.alt ?? ''
 }
 function PhotoCredit({ course }: { course: GolfZoneCourse }) {
   const photo = course.media.photo
@@ -94,17 +91,17 @@ export function GolfZone({ courses, initialMonth, catalog }: Props) {
       <a className={styles.skip} href="#month-picker">Skip to month picker</a>
       <main id="main-content">
         <section className={styles.hero} data-golf-hero aria-label="Golf Goldilocks Zone course finder">
-          <Image
+          {featured.media.photo && <Image
             key={featured.id}
             className={styles.heroImage}
             data-golf-hero-image
-            src={finderImage(featured, 1600)}
+            src={featured.media.photo.src}
             alt={photoAlt(featured)}
             fill
             sizes="100vw"
             fetchPriority="high"
             loading="eager"
-          />
+          />}
           <div className={styles.heroShade} aria-hidden="true" />
           <div className={styles.heroInner}>
             <div className={styles.navigation}>
@@ -112,19 +109,18 @@ export function GolfZone({ courses, initialMonth, catalog }: Props) {
             </div>
             <div className={styles.heroStory}>
               <p className={styles.eyebrow}>Golf Goldilocks Zone</p>
-              <h1 className={styles.heroTitle}>The right course, at the right time.</h1>
+              <h1 className={styles.heroTitle}>{featured.name}</h1>
+              <p className={styles.heroCharacter} data-golf-hero-character>{featured.characterLine}</p>
               <p className={styles.heroLead}>
-                Pick a month and see six courses worth playing then — each with the reason it suits that
-                month, the trade-off to expect, and the checks behind it. An editorial starting point,
-                never a ranking or a green-fee quote. Course photos where available; otherwise,
-                clearly labelled destination views — not the course.
+                {MONTH_NAMES[month - 1]} · {featured.city}, {featured.country}. Choose a month for six
+                course-specific guides, seasonal reasons and the trade-offs to plan around.
               </p>
               <p className={styles.heroCta}>
                 <a href="#month-picker">Choose your month <span aria-hidden="true">↓</span></a>
               </p>
             </div>
             <div className={styles.heroPhotoNote} data-golf-hero-credit>
-              <span>{photoKind(featured)}{!featured.media.photo && ` · ${featured.destinationTitle}, not the course`}</span>
+              <span>{photoKind(featured)}</span>
               <PhotoCredit course={featured} />
             </div>
             <div className={styles.heroFoot}>
@@ -156,33 +152,34 @@ export function GolfZone({ courses, initialMonth, catalog }: Props) {
                   data-golf-month={index + 1}
                   aria-pressed={month === index + 1}
                   aria-label={MONTH_NAMES[index]}
-                  aria-description={`Preview course: ${course.name}, ${course.city}. ${photoKind(course)}${course.media.photo ? '' : ', not the course'}. Credits in Month-preview photographs below.`}
+                  aria-description={`Preview course: ${course.name}, ${course.city}. ${photoKind(course)}. Credits in Month-preview photographs below.`}
                   aria-controls="golf-results"
                   onClick={() => chooseMonth(index + 1)}
                   className={styles.month}
                 >
-                  <Image
+                  {course.media.photo && <Image
                     className={styles.monthImage}
-                    src={finderImage(course, 480)}
+                    src={course.media.photo.src}
                     alt=""
                     fill
                     sizes={MONTH_TILE_SIZES}
                     loading="lazy"
-                  />
+                  />}
                   <span className={styles.monthNumber} aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
                   <span className={styles.monthName} aria-hidden="true">{MONTH_NAMES[index]}</span>
+                  <span className={styles.monthCourse} data-golf-preview-course>{course.name}</span>
                   <span className={styles.monthPlace} aria-hidden="true">{course.city}</span>
-                  <span className={styles.monthPhotoKind} data-golf-preview-kind>{course.media.photo ? 'Course photo' : 'Destination view'}</span>
+                  <span className={styles.monthPhotoKind} data-golf-preview-kind>{course.media.photo ? 'Course photo' : 'Photo unavailable'}</span>
                 </button>
               ))}
             </div>
             <details className={styles.previewCredits} data-golf-preview-credits>
               <summary>Month-preview photographs &amp; credits</summary>
-              <p>Course photographs where available. Destination photographs show the named destination, not the course.</p>
+              <p>Photographs show the named golf course. Where no course photograph is available, the course stays visible without a substitute destination image.</p>
               <ul>
                 {previews.map((course, index) => (
                   <li key={course.id} data-golf-preview-credit={index + 1}>
-                    <span>{MONTH_NAMES[index]} · {course.name} — {photoKind(course)}{!course.media.photo && ` · ${course.destinationTitle}`}</span>
+                    <span>{MONTH_NAMES[index]} · {course.name} — {photoKind(course)}</span>
                     <PhotoCredit course={course} />
                   </li>
                 ))}
@@ -211,18 +208,22 @@ export function GolfZone({ courses, initialMonth, catalog }: Props) {
               {shortlist.map(course => (
                 <article key={course.id} className={styles.card} data-golf-card={course.id}>
                   <Link href={`/golf/${course.id}`} className={styles.cardFigure} aria-label={`Explore the ${course.name} golf guide`}>
-                    <Image
+                    {course.media.photo && <Image
                       className={styles.cardImage}
-                      src={finderImage(course, 640)}
+                      src={course.media.photo.src}
                       alt={photoAlt(course)}
                       fill
                       sizes={CARD_SIZES}
                       loading="lazy"
-                    />
-                    <span className={styles.figureLabel} data-golf-photo-kind>{photoKind(course)}</span>
+                    />}
+                    <span className={styles.figureCopy}>
+                      <span className={styles.figureTitle} data-golf-figure-title>{course.name}</span>
+                      <span className={styles.figurePhrase} data-golf-figure-phrase>{course.characterLine}</span>
+                      <span className={styles.figureLabel} data-golf-photo-kind>{photoKind(course)}</span>
+                    </span>
                   </Link>
                   <div className={styles.cardPhotoNote} data-golf-photo-credit>
-                    {course.media.photo ? <PhotoCredit course={course} /> : `${course.destinationTitle}, not the course.`}
+                    {course.media.photo ? <PhotoCredit course={course} /> : 'No course photograph is available. Explore the publisher’s gallery through Course visuals.'}
                   </div>
                   <div className={styles.cardBody}>
                     <p className={styles.cardCharacter}>{course.character}</p>
