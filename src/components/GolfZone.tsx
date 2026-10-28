@@ -56,7 +56,7 @@ function visualsLabel(course: GolfZoneCourse) {
   const { hasRoutingDiagram, layoutKind, photoCount, gallery } = course.media
   const resources = [
     hasRoutingDiagram && 'routing diagram',
-    layoutKind && { 'routing-map': 'published map', 'hole-tour': 'published hole tour', scorecard: 'published scorecard' }[layoutKind],
+    layoutKind && { 'routing-map': 'published map', 'hole-tour': 'published hole tour', 'hole-diagrams': 'published hole diagrams', 'video-tour': 'published video tour', scorecard: 'published scorecard' }[layoutKind],
     photoCount > 0 && 'course photos',
     gallery && 'gallery link',
   ].filter(Boolean)

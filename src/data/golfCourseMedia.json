@@ -112,12 +112,12 @@
       "samePageAsLayout": false
     },
     "layout": {
+      "kind": "hole-diagrams",
       "url": "https://gbr.is/course-guide/",
-      "label": "Brautarholt official 18-hole course guide",
+      "label": "Open Brautarholt’s 18-hole diagram guide",
+      "scope": "Individual diagrams and playing notes for holes 1–18, published by Golfklúbbur Brautarholt.",
       "publisher": "Golfklúbbur Brautarholt",
-      "checkedAt": "2026-10-25",
-      "scope": "An official hole-by-hole tour published by the club for this course.",
-      "kind": "hole-tour"
+      "checkedAt": "2026-10-28"
     },
     "photos": [],
     "map": null
@@ -133,12 +133,12 @@
       "samePageAsLayout": true
     },
     "layout": {
+      "kind": "routing-map",
       "url": "https://www.brohofslott.com/courses/the-stadium-course",
-      "label": "The Stadium Course official overview and hole guide",
+      "label": "Open the Stadium Course map and hole diagrams",
+      "scope": "The Stadium Course overview includes a full routing map and individual hole diagrams; it is separate from the Castle Course.",
       "publisher": "Bro Hof Slott Golf Club",
-      "checkedAt": "2026-10-25",
-      "scope": "An official hole-by-hole tour published by the club for this course.",
-      "kind": "hole-tour"
+      "checkedAt": "2026-10-28"
     },
     "photos": [],
     "map": null
@@ -277,12 +277,12 @@
       "samePageAsLayout": true
     },
     "layout": {
+      "kind": "routing-map",
       "url": "https://coghillgolf.com/course-no-4/",
-      "label": "Dubsdread official course tour",
+      "label": "Open Dubsdread’s official course layout",
+      "scope": "A full routing illustration for Course No. 4 — Dubsdread, alongside its course tour and scorecard.",
       "publisher": "Cog Hill Golf and Country Club",
-      "checkedAt": "2026-10-25",
-      "scope": "An official hole-by-hole tour published by the club for this course.",
-      "kind": "hole-tour"
+      "checkedAt": "2026-10-28"
     },
     "photos": [],
     "map": null
@@ -556,12 +556,12 @@
       "samePageAsLayout": true
     },
     "layout": {
+      "kind": "routing-map",
       "url": "https://www.jackspoint.com/golf",
-      "label": "Jack’s Point official routing map",
+      "label": "Open Jack’s Point’s official routing map",
+      "scope": "The club’s golf page includes a full routing illustration with holes numbered 1–18.",
       "publisher": "Jack’s Point",
-      "checkedAt": "2026-10-25",
-      "scope": "An official routing map published by the club for this course.",
-      "kind": "routing-map"
+      "checkedAt": "2026-10-28"
     },
     "photos": [],
     "map": null
@@ -576,7 +576,14 @@
       "scope": "Published by Katameya Heights — Official Golf Course photo gallery. The images stay on their site; we do not republish them.",
       "samePageAsLayout": false
     },
-    "layout": null,
+    "layout": {
+      "kind": "scorecard",
+      "url": "https://katameyaheights.com/en/Local-Rules",
+      "label": "Open the Championship Course scorecard and local rules",
+      "scope": "The 18-hole Championship Course scorecard gives yardages, pars and stroke indices, not a routing diagram. The separate New Nine card is also on the page.",
+      "publisher": "Katameya Heights",
+      "checkedAt": "2026-10-28"
+    },
     "photos": [],
     "map": null
   },
@@ -703,15 +710,15 @@
       "publisher": "Kytäjä Golf",
       "checkedAt": "2026-10-25",
       "scope": "Published by Kytäjä Golf — Official South East photographs and course preview. The images stay on their site; we do not republish them.",
-      "samePageAsLayout": true
+      "samePageAsLayout": false
     },
     "layout": {
-      "url": "https://kytajagolf.fi/en-gb/courses/south-east/",
-      "label": "South East — official 18-hole tour",
+      "kind": "hole-diagrams",
+      "url": "https://kytajagolf.fi/kentat/south-east/vayla-1/",
+      "label": "Open South East’s 18-hole diagram guide (Finnish)",
+      "scope": "Start at hole 1 and use the numbered links for all 18 South East hole diagrams, with distances and playing notes in Finnish; this is not the North West course.",
       "publisher": "Kytäjä Golf",
-      "checkedAt": "2026-10-25",
-      "scope": "An official hole-by-hole tour published by the club for this course.",
-      "kind": "hole-tour"
+      "checkedAt": "2026-10-28"
     },
     "photos": [],
     "map": null
@@ -789,15 +796,15 @@
       "publisher": "Montgomerie Maxx Royal",
       "checkedAt": "2026-10-25",
       "scope": "Published by Montgomerie Maxx Royal — Official championship-course hole photographs. The images stay on their site; we do not republish them.",
-      "samePageAsLayout": true
+      "samePageAsLayout": false
     },
     "layout": {
-      "url": "https://www.montgomeriemaxxroyal.com/hole-by-hole",
-      "label": "Official hole-by-hole guide with hole diagrams",
+      "kind": "routing-map",
+      "url": "https://www.montgomeriemaxxroyal.com/championship",
+      "label": "Open Montgomerie Maxx Royal’s course map",
+      "scope": "The Championship Course page includes the full routing map and a link to its hole-by-hole schematics and videos.",
       "publisher": "Montgomerie Maxx Royal",
-      "checkedAt": "2026-10-25",
-      "scope": "An official hole-by-hole tour published by the club for this course.",
-      "kind": "hole-tour"
+      "checkedAt": "2026-10-28"
     },
     "photos": [],
     "map": null
@@ -1128,12 +1135,12 @@
       "samePageAsLayout": true
     },
     "layout": {
+      "kind": "video-tour",
       "url": "https://www.royalcapegolf.co.za/course",
-      "label": "Royal Cape official course layout and hole guide",
+      "label": "Watch Royal Cape’s official hole flyovers",
+      "scope": "The club’s course page provides hole-flyover videos, not a static routing map.",
       "publisher": "Royal Cape Golf Club",
-      "checkedAt": "2026-10-25",
-      "scope": "An official routing map published by the club for this course.",
-      "kind": "routing-map"
+      "checkedAt": "2026-10-28"
     },
     "photos": [],
     "map": null
@@ -1148,7 +1155,14 @@
       "scope": "Published by Royal Golf Marrakech — Official Old Course photographs — holes 3 and 13. The images stay on their site; we do not republish them.",
       "samePageAsLayout": false
     },
-    "layout": null,
+    "layout": {
+      "kind": "routing-map",
+      "url": "https://royal-golf-marrakech.com/wp-content/uploads/2024/04/royalgolfmarrakechregionmap2023withlogo.jpg",
+      "label": "Open Royal Golf Marrakech’s course map (image)",
+      "scope": "The map marks the Old Course’s 18 holes in red and the separate New Course’s nine holes in blue. Follow the red numbering for the Old Course.",
+      "publisher": "Royal Golf Marrakech",
+      "checkedAt": "2026-10-28"
+    },
     "photos": [],
     "map": null
   },
@@ -1163,12 +1177,12 @@
       "samePageAsLayout": true
     },
     "layout": {
+      "kind": "video-tour",
       "url": "https://www.sentosagolf.com/the-serapong/",
-      "label": "The Serapong official 18-hole tour",
+      "label": "Watch the Serapong’s official 18-hole video tour",
+      "scope": "Individual videos and descriptions cover Serapong holes 1–18; this is not the Tanjong course.",
       "publisher": "Sentosa Golf Club",
-      "checkedAt": "2026-10-25",
-      "scope": "An official hole-by-hole tour published by the club for this course.",
-      "kind": "hole-tour"
+      "checkedAt": "2026-10-28"
     },
     "photos": [],
     "map": null
@@ -1184,12 +1198,12 @@
       "samePageAsLayout": true
     },
     "layout": {
+      "kind": "video-tour",
       "url": "https://www.steenberggolfclub.co.za/golf-course",
-      "label": "Steenberg official 18-hole flyover guide",
+      "label": "Explore Steenberg’s official hole photos and flyovers",
+      "scope": "The club’s hole-by-hole guide combines photographs, playing notes and flyovers for its 18-hole course.",
       "publisher": "Steenberg Golf Club",
-      "checkedAt": "2026-10-25",
-      "scope": "An official hole-by-hole tour published by the club for this course.",
-      "kind": "hole-tour"
+      "checkedAt": "2026-10-28"
     },
     "photos": [],
     "map": {
@@ -1235,12 +1249,12 @@
       "samePageAsLayout": false
     },
     "layout": {
+      "kind": "video-tour",
       "url": "https://www.thaicountryclub.com/golf-course/",
-      "label": "Thai Country Club official 18-hole video tour",
+      "label": "Watch Thai Country Club’s official 18-hole video tour",
+      "scope": "Videos cover holes 1–18 and are labelled by the club as footage from the 2022 Aramco Team Series Bangkok.",
       "publisher": "Thai Country Club",
-      "checkedAt": "2026-10-25",
-      "scope": "An official hole-by-hole tour published by the club for this course.",
-      "kind": "hole-tour"
+      "checkedAt": "2026-10-28"
     },
     "photos": [],
     "map": null
@@ -1378,12 +1392,12 @@
       "samePageAsLayout": false
     },
     "layout": {
+      "kind": "hole-tour",
       "url": "https://tpc.com/summerlin/featured-holes/",
-      "label": "TPC Summerlin official featured-hole tour — holes 15–18",
+      "label": "Explore TPC Summerlin’s featured holes 15–18",
+      "scope": "Photographs and descriptions cover only holes 15–18, not a complete 18-hole routing map or yardage guide.",
       "publisher": "TPC Summerlin",
-      "checkedAt": "2026-10-25",
-      "scope": "An official hole-by-hole tour published by the club for this course.",
-      "kind": "hole-tour"
+      "checkedAt": "2026-10-28"
     },
     "photos": [],
     "map": null
@@ -1399,12 +1413,12 @@
       "samePageAsLayout": false
     },
     "layout": {
+      "kind": "routing-map",
       "url": "https://www.waltonheath.com/uploads/waltonheath/File/Old%20Course%20Men's%20Scorecard%20(Dec%2024).pdf",
-      "label": "Walton Heath Old official men’s scorecard",
+      "label": "Open Walton Heath Old’s routing map and scorecard (PDF)",
+      "scope": "The club’s December 2024 Old Course men’s scorecard includes a numbered 1–18 routing map as well as hole yardages. It is not the New Course card.",
       "publisher": "Walton Heath Golf Club",
-      "checkedAt": "2026-10-25",
-      "scope": "The club's published scorecard for this course — a card of hole yardages, not a routing map or a diagram of the layout.",
-      "kind": "scorecard"
+      "checkedAt": "2026-10-28"
     },
     "photos": [],
     "map": null

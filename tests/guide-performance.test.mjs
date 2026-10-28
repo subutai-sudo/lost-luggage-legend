@@ -211,10 +211,41 @@ const releaseImmutableFixtures = {
   'tests/fixtures/golf-imagery-approved-changes.json': '891c02028a191ae17989fd0f2ec1060111253ee232dc91e6bbc19d4791fb865e',
 }
 const releaseApproval = JSON.parse(await readFile(new URL('./fixtures/golf-navigation-photo-release-approved-changes.json', import.meta.url), 'utf8'))
-const expectedHash = path => {
+const releaseHash = path => {
   if (releasePaths.includes(path)) return releaseApproval.changes[path].afterHash
   if (releaseAdded.includes(path)) return releaseApproval.addedFiles[path].afterHash
   return guideHeaderHash(path)
+}
+// Published PR23 is the only predecessor. This candidate overlay is generated
+// after source freeze and still requires independent review; generation is not
+// an assertion that its deltas have been reviewed. Never self-hash its document.
+const layoutPaths = [
+  'src/data/golfCourseMedia.json', 'src/lib/golfMedia.ts', 'src/components/GolfCourseMedia.tsx',
+  'src/components/GolfZone.tsx', 'tests/golf-finder-media.browser.test.mjs', 'tests/guide-performance.test.mjs', 'tests/helpers/golf-guide-approved-headers.mjs',
+  'tests/golf-guide-headers.test.mjs',
+]
+const layoutAdded = [
+  'tests/golf-official-layouts.test.mjs', 'tests/golf-official-layouts.browser.test.mjs',
+  'tests/fixtures/golf-official-layouts-expected.json',
+]
+const layoutDocumentPath = 'tests/fixtures/golf-official-layouts-approved-changes.json'
+const layoutApproval = JSON.parse(await readFile(new URL(layoutDocumentPath, root), 'utf8'))
+const layoutImmutableFixtures = {
+  "tests/fixtures/accessibility-approved-changes.json": "9aa3e49ce61b2a423c4a7d5a55b958331156ce31db22bf39d5f1e8082a8ad98b",
+  "tests/fixtures/golf-approved-changes.json": "75b0a06680a72e8357351ff12c6a35d16abd444561efdbc3aa88dbaf13225af6",
+  "tests/fixtures/golf-finder-media-approved-changes.json": "bdced3ee15ca539e19cc66e4e69761e8963fde74f21e7848451ea2717eb8e93b",
+  "tests/fixtures/golf-guide-header-baseline.json": "d146e2d3ee2a0bb80bdcd256fcbd1a2d5bde0c3775ad6ab08278c9a24b7b806a",
+  "tests/fixtures/golf-guide-imagery-approved-changes.json": "fa12304d268dde9fe6b4e2d7cee91e2ab2559c1139a4d2e81de7f49f62cd4929",
+  "tests/fixtures/golf-guides-approved-changes.json": "4ef605794938e3c2e26c65af05d9462d85f90f6683b0046dee9e12857cb342e7",
+  "tests/fixtures/golf-imagery-approved-changes.json": "891c02028a191ae17989fd0f2ec1060111253ee232dc91e6bbc19d4791fb865e",
+  "tests/fixtures/golf-media-approved-changes.json": "a2d17803123b92514148788cad4c23564e8f862660af30030d4e98fcf3cfe8a8",
+  "tests/fixtures/golf-navigation-photo-release-approved-changes.json": "711ac4b16639420ae65045ab65513cd208166ee44ceedf9b296606e7e9079aeb",
+  "tests/fixtures/guide-performance-baseline.json": "65a2692a2b7235011c15f3001da95bed9577c9731167fc77ca1e437567a9fbb3"
+}
+const expectedHash = path => {
+  if (layoutPaths.includes(path)) return layoutApproval.changes[path].afterHash
+  if (layoutAdded.includes(path)) return layoutApproval.addedFiles[path].afterHash
+  return releaseHash(path)
 }
 const accepts = (path, bytes) => sha256(bytes) === expectedHash(path)
 
@@ -425,6 +456,80 @@ test('navigation/photo release chains exact bytes after the published header app
   assert.equal(accepts('public/golf-media/unapproved-course.webp', Buffer.from('unapproved')), false)
   assert.ok(!releasePaths.includes('tests/fixtures/golf-navigation-photo-release-approved-changes.json'))
   assert.ok(!releaseAdded.includes('tests/fixtures/golf-navigation-photo-release-approved-changes.json'), 'no self-referential hash')
+})
+
+test('official-layout candidate overlay chains only exact named files after PR23 and rejects mutations', async () => {
+  assert.equal(layoutApproval.schemaVersion, 1)
+  assert.equal(layoutApproval.kind, 'golf-official-layouts-approved-change')
+  assert.equal(layoutApproval.baseline, '8b47a24849bee70227b118a4c5ad761cd1ebce44')
+  assert.equal(layoutApproval.status, 'candidate-bytes-pinned-awaiting-independent-review', 'source freeze is not independent approval')
+  assert.deepEqual(Object.keys(layoutApproval.changes).sort(), [...layoutPaths].sort())
+  assert.deepEqual(Object.keys(layoutApproval.addedFiles).sort(), [...layoutAdded].sort())
+  assert.deepEqual(layoutApproval.immutableFixtures, layoutImmutableFixtures)
+  for (const [path, expected] of Object.entries(layoutImmutableFixtures)) {
+    assert.equal(sha256(await read(path)), expected, `${path}: every published fixture remains byte-identical`)
+  }
+  for (const path of layoutPaths) {
+    const entry = layoutApproval.changes[path]
+    assert.equal(entry.beforeHash, releaseHash(path), `${path}: chain from PR23, including its added helper`)
+    assert.match(entry.afterHash, /^[a-f0-9]{64}$/)
+    assert.notEqual(entry.afterHash, entry.beforeHash, `${path}: no unnecessary exception`)
+    assert.ok(entry.reason?.trim())
+    assert.equal(accepts(path, Buffer.from('unapproved')), false)
+    assert.notEqual(expectedHash(path), entry.beforeHash, `${path}: never accept either predecessor or new bytes interchangeably`)
+  }
+  for (const path of layoutAdded) {
+    const entry = layoutApproval.addedFiles[path]
+    assert.equal(releaseHash(path), undefined, `${path}: genuinely new`)
+    assert.equal(entry.beforeHash, null)
+    assert.match(entry.afterHash, /^[a-f0-9]{64}$/)
+    assert.ok(entry.reason?.trim())
+  }
+  for (const path of [...layoutPaths, ...layoutAdded]) {
+    const bytes = await read(path)
+    assert.ok(accepts(path, bytes), `${path}: exact pinned candidate bytes`)
+    assert.equal(accepts(path, Buffer.concat([bytes, Buffer.from('\n/* unapproved official-layout edit */')])), false, path)
+  }
+  assert.equal(accepts('src/components/UnapprovedLayout.tsx', Buffer.from('unapproved')), false)
+  assert.equal(accepts('public/golf-media/unapproved-layout.svg', Buffer.from('unapproved')), false)
+  assert.ok(![...layoutPaths, ...layoutAdded].includes(layoutDocumentPath), 'never self-hash an approval document')
+  assert.deepEqual(Object.keys(layoutApproval.hashOverrides), ['src/data/golfCourseMedia.json'])
+  assert.equal(layoutApproval.hashOverrides['src/data/golfCourseMedia.json'], layoutApproval.changes['src/data/golfCourseMedia.json'].afterHash)
+})
+
+test('layout-only article overrides inherit PR23 headers and reject unknown identities, stale chains and non-hash fields', async () => {
+  const { headers, baseline, approvedHeaderIds, approvedArticleIds, articleHashOverrides, validateLayoutArticleOverrides } = await import('./helpers/golf-guide-approved-headers.mjs')
+  assert.deepEqual(headers.filter((record, index) => record !== baseline.records[index]).map(record => record.id).sort(), [...approvedHeaderIds].sort(), 'still only four photo/header record replacements')
+  const expectedResources = JSON.parse((await read('tests/fixtures/golf-official-layouts-expected.json')).toString())
+  assert.deepEqual(Object.keys(expectedResources.resources).sort(), [...approvedArticleIds].sort(), 'independent authored resource identity inventory')
+  assert.deepEqual(Object.keys(articleHashOverrides).sort(), [...approvedArticleIds].sort())
+  const unknown = structuredClone(layoutApproval.articleOverrides)
+  unknown['unapproved-course'] = { beforeArticleHash: '0'.repeat(64), articleHash: '1'.repeat(64) }
+  assert.throws(() => validateLayoutArticleOverrides(unknown))
+  const missing = structuredClone(layoutApproval.articleOverrides)
+  delete missing[approvedArticleIds[0]]
+  assert.throws(() => validateLayoutArticleOverrides(missing))
+  for (const field of ['photo', 'name', 'metadata', 'character']) {
+    const extra = structuredClone(layoutApproval.articleOverrides)
+    extra[approvedArticleIds[0]][field] = 'unapproved'
+    assert.throws(() => validateLayoutArticleOverrides(extra), field)
+  }
+  for (const id of approvedArticleIds) {
+    const stale = structuredClone(layoutApproval.articleOverrides)
+    stale[id].beforeArticleHash = '0'.repeat(64)
+    assert.throws(() => validateLayoutArticleOverrides(stale), `${id}: broken predecessor`)
+    const unchanged = structuredClone(layoutApproval.articleOverrides)
+    unchanged[id].articleHash = unchanged[id].beforeArticleHash
+    assert.throws(() => validateLayoutArticleOverrides(unchanged), `${id}: unnecessary exception`)
+  }
+  const { nodes, render } = await import('./helpers/golf-guide-render.mjs')
+  for (const record of headers) {
+    const main = nodes(await render(record.id)).find(node => node.props?.id === 'golf-guide-main')
+    assert.ok(main)
+    const expected = articleHashOverrides[record.id] ?? record.articleHash
+    assert.equal(sha256(JSON.stringify(main)), expected, `${record.id}: complete article frozen to its one exact expectation`)
+    assert.notEqual(sha256(JSON.stringify(main) + 'unapproved'), expected, `${record.id}: article mutation refused`)
+  }
 })
 
 test('related image sizes still describe gutters, gaps, hover headroom and the capped container', () => {

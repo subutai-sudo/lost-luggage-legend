@@ -185,7 +185,7 @@ for (const width of [320, 390, 1440]) for (const theme of ['light', 'dark']) {
         const resource = card.locator(`a[href="/golf/${cardId}#course-visuals"]`)
         await expect(resource).toHaveCount(1)
         if (record.map) await expect(resource).toContainText('routing diagram')
-        if (record.layout) await expect(resource).toContainText({ 'hole-tour': 'published hole tour', 'routing-map': 'published map', scorecard: 'published scorecard' }[record.layout.kind])
+        if (record.layout) await expect(resource).toContainText({ 'hole-tour': 'published hole tour', 'routing-map': 'published map', 'hole-diagrams': 'published hole diagrams', 'video-tour': 'published video tour', scorecard: 'published scorecard' }[record.layout.kind])
         await expect(card.getByRole('link', { name: `Read the ${await card.locator('h3').innerText()} golf guide`, exact: true })).toHaveCount(1)
       }
       expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(1)

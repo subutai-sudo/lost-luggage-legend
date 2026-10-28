@@ -1,0 +1,140 @@
+{
+  "schemaVersion": 1,
+  "kind": "golf-official-layouts-approved-change",
+  "baseline": "8b47a24849bee70227b118a4c5ad761cd1ebce44",
+  "status": "candidate-bytes-pinned-awaiting-independent-review",
+  "note": "Candidate acceptance overlay only. Generated deltas are not independent approval. Preserve every published fixture and all photo/name/metadata expectations; only named official layout resources, their scoped presentation, and regression harness bytes may advance. The external finalizer pins source-frozen candidate bytes; independent review is still required. No approval-document self-hash.",
+  "immutableFixtures": {
+    "tests/fixtures/accessibility-approved-changes.json": "9aa3e49ce61b2a423c4a7d5a55b958331156ce31db22bf39d5f1e8082a8ad98b",
+    "tests/fixtures/golf-approved-changes.json": "75b0a06680a72e8357351ff12c6a35d16abd444561efdbc3aa88dbaf13225af6",
+    "tests/fixtures/golf-finder-media-approved-changes.json": "bdced3ee15ca539e19cc66e4e69761e8963fde74f21e7848451ea2717eb8e93b",
+    "tests/fixtures/golf-guide-header-baseline.json": "d146e2d3ee2a0bb80bdcd256fcbd1a2d5bde0c3775ad6ab08278c9a24b7b806a",
+    "tests/fixtures/golf-guide-imagery-approved-changes.json": "fa12304d268dde9fe6b4e2d7cee91e2ab2559c1139a4d2e81de7f49f62cd4929",
+    "tests/fixtures/golf-guides-approved-changes.json": "4ef605794938e3c2e26c65af05d9462d85f90f6683b0046dee9e12857cb342e7",
+    "tests/fixtures/golf-imagery-approved-changes.json": "891c02028a191ae17989fd0f2ec1060111253ee232dc91e6bbc19d4791fb865e",
+    "tests/fixtures/golf-media-approved-changes.json": "a2d17803123b92514148788cad4c23564e8f862660af30030d4e98fcf3cfe8a8",
+    "tests/fixtures/golf-navigation-photo-release-approved-changes.json": "711ac4b16639420ae65045ab65513cd208166ee44ceedf9b296606e7e9079aeb",
+    "tests/fixtures/guide-performance-baseline.json": "65a2692a2b7235011c15f3001da95bed9577c9731167fc77ca1e437567a9fbb3"
+  },
+  "changes": {
+    "src/data/golfCourseMedia.json": {
+      "beforeHash": "0816027e4d27a8d1333ebce1236c8dd1500410b4573714956e5961a2dcd0bf24",
+      "afterHash": "7721467da440d5e2048427dbd9ec12cf54ab5d270bfc527d249b0e05dff81e51",
+      "reason": "Bounded official layout-resource correction and truthful resource-kind presentation."
+    },
+    "src/lib/golfMedia.ts": {
+      "beforeHash": "0fe502b316b6fbdd6b382cbe43ab7e599b3392b0e2955625dcc44952b72a84b0",
+      "afterHash": "e07363b5decdd8c51ed7f7368430389d68393afe82d55df01165d6b08e7ac9d5",
+      "reason": "Bounded official layout-resource correction and truthful resource-kind presentation."
+    },
+    "src/components/GolfCourseMedia.tsx": {
+      "beforeHash": "2d7bdb52343c53957cbf5ada9ed4c4ffade2f67072e69967fdb308b111e6a7fc",
+      "afterHash": "a8f30ed9e7bcd4b57bf0ffe4d4b0e8f6076e998030cbe9c667618dbb6faf61eb",
+      "reason": "Bounded official layout-resource correction and truthful resource-kind presentation."
+    },
+    "src/components/GolfZone.tsx": {
+      "beforeHash": "76635df076cb1c7e274fcc71a757fb91bac8c2e79dc4477327dd692c7a2f9c43",
+      "afterHash": "38614562d1cca8b4ab360a372e8dbbc0ddc6bee5272d32a722363a047f314c50",
+      "reason": "Extend only the existing resource-kind display-label dictionary for hole diagrams and video tours."
+    },
+    "tests/guide-performance.test.mjs": {
+      "beforeHash": "59e25bba6f98d4af16d64e3822f3dccb6d555cef568188ad4e26797ec1e1bb82",
+      "afterHash": "29150dc2383da694580aa907d5caa8380063194f6f3e0e99f65619aa3f13f61a",
+      "reason": "Exact-byte chain or narrowly keyed layout-only rendered-article regression support; preserve old photo and non-media expectations."
+    },
+    "tests/helpers/golf-guide-approved-headers.mjs": {
+      "beforeHash": "653cf2b32df00fd1ed12eebd665a84cc78518cc0ea843763f7e3d52fe61673cc",
+      "afterHash": "c7f33d5c507a856514c131ea66cb823b2bcf92685b18b8a139c98ce16077526d",
+      "reason": "Exact-byte chain or narrowly keyed layout-only rendered-article regression support; preserve old photo and non-media expectations."
+    },
+    "tests/golf-guide-headers.test.mjs": {
+      "beforeHash": "3c13c10a7fc08361b9b4b3d735f09f4d24770c95d259c45d7d9b9362232764c9",
+      "afterHash": "8e9fd5715688f5a6fd5d50c0842e6607cd864064cc6c1d82742801b43df0bc22",
+      "reason": "Exact-byte chain or narrowly keyed layout-only rendered-article regression support; preserve old photo and non-media expectations."
+    },
+    "tests/golf-finder-media.browser.test.mjs": {
+      "beforeHash": "9bf7f50cb691ce7ddf3e4d9bd9196567d9cfbe91dd658a9864751765abf386f8",
+      "afterHash": "24bb576c326189b4f7ee74473656bcfe82e1439db7e0326d94aa59c1612b6cea",
+      "reason": "Extend the existing visual-resource assertion with the two newly supported resource-kind labels; keep all image and journey assertions unchanged."
+    }
+  },
+  "addedFiles": {
+    "tests/golf-official-layouts.test.mjs": {
+      "beforeHash": null,
+      "afterHash": "e8e30dc10c907bcb3c93dfd502ee6b939b939df968351af1b7fead72ab54bb66",
+      "reason": "Independent authored official-resource expectations and bounded unit/browser regression coverage."
+    },
+    "tests/golf-official-layouts.browser.test.mjs": {
+      "beforeHash": null,
+      "afterHash": "a94b5316fb573f35b01e4631636b2d964fa4a5ac312d4c7a918caa1509b167e1",
+      "reason": "Independent authored official-resource expectations and bounded unit/browser regression coverage."
+    },
+    "tests/fixtures/golf-official-layouts-expected.json": {
+      "beforeHash": null,
+      "afterHash": "5a002decfc0bdc42f9f1aec4ea75c81cbc545f3a6186cf39732c897522543e9b",
+      "reason": "Independent authored official-resource expectations and bounded unit/browser regression coverage."
+    }
+  },
+  "articleOverrides": {
+    "brautarholt-golf-club": {
+      "beforeArticleHash": "e016b17dd099646f08b9e1c591c09d2ab051f98d4db9a02c089aa9453e96e2d6",
+      "articleHash": "e6ec9103c5e35ff5c93d0e5a8965273df913f570e1fbcd6006007d64d2813bf5"
+    },
+    "bro-hof-slott-stadium": {
+      "beforeArticleHash": "16c05b770681c9c07078a1376d57bc7430ed12ca67595456b9c01928ca840d3e",
+      "articleHash": "6dcabd5a6bf109508cf1455f1830127a1989b9713c6ab8eee3626fdc803b4920"
+    },
+    "cog-hill-no-4-dubsdread": {
+      "beforeArticleHash": "ecc6218ef4dfb080b4fba1264f8bf05939ca0e1160fb38b907d868a2eeb3f4a3",
+      "articleHash": "d91b73c44e1e583f3467727b395c9884b0b3a513e560913ecd2ff3f874e28336"
+    },
+    "jack-s-point": {
+      "beforeArticleHash": "6dc15f39100f893ec37396df7c0696b6f2d0f7e86687286fdadd8283b1048540",
+      "articleHash": "c713e3a056a837e7bde7b3dda2afec310961ce5f12ad8a3b8d27f29d645bc8de"
+    },
+    "katameya-heights-golf-tennis-resort": {
+      "beforeArticleHash": "0e8963031aefb659689e48fe68ae7808143968e9aa848028e03306c077a7eb9c",
+      "articleHash": "b0c97b98759dd4a4d4cf4bc12f0a6a1712096ab67f1f7c2663d25f5dc68eb27c"
+    },
+    "kyt-j-golf-south-east": {
+      "beforeArticleHash": "fe616dbb225971f36b40081c9e6af0b6e25f57112160bf5c28382e7343b695a9",
+      "articleHash": "ca2effaf89a17fa583e8bd68a36aa74c639c0e12b6522a9df6448d532937330f"
+    },
+    "montgomerie-maxx-royal": {
+      "beforeArticleHash": "072cf1662a2c8e8d53644d55486c2873493cfc26bb71f8bd0798e9eaff4de5b6",
+      "articleHash": "4d715691d506e187e7231315133a54cd0ba1c701a386a4fc0e59c23ba80d5b9a"
+    },
+    "royal-cape-golf-club": {
+      "beforeArticleHash": "0c9e58fe7ac39a433dcf40550672fdf586b13205d3882aad0afdeb8ae86d5d3b",
+      "articleHash": "a6adbc622cb518f4c699ebf6eeb866bc5532b0e240088584a507a4c6d822c45b"
+    },
+    "royal-golf-marrakech-old-course": {
+      "beforeArticleHash": "f73f08e19fd634695c4c5671d34cd40138f018047f9b09a2902e36d2361ccb20",
+      "articleHash": "dfc59dfa022dc1691204299c8cdcd710bc3dcb2c08f9c849ad72095cd85d2256"
+    },
+    "sentosa-golf-club-serapong": {
+      "beforeArticleHash": "0dc3cdad75c0f8fbf29d45241eb6ae9692926281f63d5222538f416fd68fb7c0",
+      "articleHash": "8575acb3e09b1f323a75cda6d9e4d43b47ceb1072fb5bd1403d575c1743fe2ed"
+    },
+    "steenberg-golf-club": {
+      "beforeArticleHash": "4a07ebaf79e5f4e337fdde0cdd8233d6c328798815a851de33b01e134ba79b5a",
+      "articleHash": "11fab4e9090ce773e4b6ec800e928230e0acd170e258686146a11caf278111c8"
+    },
+    "thai-country-club": {
+      "beforeArticleHash": "931b5a88a1c154270a66e6cacd0cbeba5820c938babf4e719ebcc41b4ab9a37f",
+      "articleHash": "6aec743f0b0eb1bb4277d40749b29a755f5c356c95849e9c1344c183231a8a8f"
+    },
+    "tpc-summerlin": {
+      "beforeArticleHash": "d1292bfdbd425a1c8fbd305d8a555d7d6b59e363fd38bcc9b6ee3b778ef04b53",
+      "articleHash": "a95b48a9fe2c4920bb807bd7d30837dd2fa5902497b81265ed20d8ebe49d91a2"
+    },
+    "walton-heath-golf-club-old": {
+      "beforeArticleHash": "5eb7982ece3a315b7587144d2a9693751d60eeaf0925f523f997c07985b8a75e",
+      "articleHash": "ff08d3638df255d2bd7c28ba5fc9278cfeca29fc3c939a7d6725089a399fbcfa"
+    }
+  },
+  "hashOverrides": {
+    "src/data/golfCourseMedia.json": "7721467da440d5e2048427dbd9ec12cf54ab5d270bfc527d249b0e05dff81e51"
+  },
+  "revisionNote": "Revision 2: fix reviewed Serapong alias duplication; assert visible kind labels; extend existing finder oracle for the two new resource kinds without changing assertions or deadlines."
+}
