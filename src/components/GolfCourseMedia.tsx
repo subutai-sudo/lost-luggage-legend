@@ -4,7 +4,13 @@ import styles from './GolfCourseMedia.module.css'
 import { GolfVisualsFragment } from './GolfVisualsFragment'
 
 export function GolfCourseMedia({ media, courseName }: { media: GolfCourseMedia; courseName: string }) {
-  const layoutLabel = media.layout?.kind === 'routing-map' ? 'Open the published routing map' : media.layout?.kind === 'hole-tour' ? 'Explore the published hole-by-hole tour' : 'Open the published scorecard (not a routing map)'
+  const resourceKinds = {
+    'routing-map': 'Course routing map',
+    'hole-diagrams': 'Hole-by-hole diagrams',
+    'video-tour': 'Hole-flyover video guide',
+    'hole-tour': 'Hole tour',
+    scorecard: 'Scorecard · not a routing map',
+  }
   return (
     <section id="course-visuals" tabIndex={-1} className={styles.visuals} data-golf-media={media.courseId} aria-labelledby="course-visuals-heading">
       <GolfVisualsFragment />
@@ -18,10 +24,12 @@ export function GolfCourseMedia({ media, courseName }: { media: GolfCourseMedia;
           <p className={styles.eyebrow}>01 / Read the routing</p>
           <h3>Course layout</h3>
           {media.layout ? <>
+            <p className={styles.note} data-golf-layout-kind={media.layout.kind}>{resourceKinds[media.layout.kind]}</p>
             <p>{media.layout.scope}</p>
-            <a className={styles.action} href={media.layout.url} rel="noreferrer" data-golf-layout-resource>{layoutLabel} <span aria-hidden="true">↗</span></a>
+            <a className={styles.action} href={media.layout.url} rel="noreferrer" data-golf-layout-resource>{media.layout.label} <span aria-hidden="true">↗</span></a>
             <p className={styles.credit}>{media.layout.publisher} · Checked <time dateTime={media.layout.checkedAt}>{media.layout.checkedAt}</time></p>
-          </> : <p data-golf-layout-unavailable>No exact-course routing map or hole tour is available for this course yet. We do not substitute a nearby course or draw a speculative layout.</p>}
+            <p className={styles.note}>Opens the publisher’s resource. Maps and guides remain hosted by their publisher.</p>
+          </> : <p data-golf-layout-unavailable>An official layout resource is not linked here yet. This does not mean the club has no course map; its published photographs are linked below.</p>}
           {media.map && <p className={styles.note}>The diagram uses community-mapped hole geometry rather than a club-issued card, so layouts and numbering may change.</p>}
         </div>
         {media.map && <figure className={styles.map} data-golf-routing-map>

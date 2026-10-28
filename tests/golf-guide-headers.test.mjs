@@ -6,7 +6,7 @@ import sharp from 'sharp'
 import { page, guides, nodes, text, render, metadata } from './helpers/golf-guide-render.mjs'
 const read = path => readFile(new URL(`../${path}`, import.meta.url))
 const hash = bytes => createHash('sha256').update(bytes).digest('hex')
-import { baseline, headers, hashOverrides, approvedHeaderIds } from './helpers/golf-guide-approved-headers.mjs'
+import { baseline, headers, hashOverrides, approvedHeaderIds, articleHashOverrides } from './helpers/golf-guide-approved-headers.mjs'
 const neutral = { url: '/brand/golf-guide-social.png', width: 1200, height: 630, alt: 'Golf course guides · Goldilocks Zone' }
 
 test('header inventory is complete and actual static route projection stays unchanged', () => {
@@ -59,8 +59,8 @@ for (const expected of headers) {
   test(`${expected.id}: entire rendered article including notes, sources and access is unchanged`, async () => {
     const main = nodes(await render(expected.id)).find(n=>n.props?.id==='golf-guide-main')
     assert.ok(main)
-    assert.equal(hash(JSON.stringify(main)), expected.articleHash)
-    assert.notEqual(hash(JSON.stringify(main)+'unapproved'), expected.articleHash)
+    assert.equal(hash(JSON.stringify(main)), articleHashOverrides[expected.id] ?? expected.articleHash)
+    assert.notEqual(hash(JSON.stringify(main)+'unapproved'), articleHashOverrides[expected.id] ?? expected.articleHash)
   })
 }
 test('article template, sourced copy, notices and all 40 previously accepted assets stay byte-exact except the named media extension', async () => {

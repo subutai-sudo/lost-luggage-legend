@@ -7,7 +7,7 @@ export interface GolfMediaResource {
   scope: string
 }
 export interface GolfLayoutResource extends GolfMediaResource {
-  kind: 'routing-map' | 'hole-tour' | 'scorecard'
+  kind: 'routing-map' | 'hole-tour' | 'hole-diagrams' | 'video-tour' | 'scorecard'
 }
 export interface GolfCoursePhoto {
   src: string
@@ -102,7 +102,7 @@ export function validateGolfMedia(records: GolfCourseMedia[], courseIds: string[
     if (entry.gallery !== null) resource(entry.gallery)
     if (entry.layout !== null) {
       resource(entry.layout)
-      if (!['routing-map', 'hole-tour', 'scorecard'].includes(entry.layout.kind)) throw new Error('Invalid layout resource type')
+      if (!['routing-map', 'hole-tour', 'hole-diagrams', 'video-tour', 'scorecard'].includes(entry.layout.kind)) throw new Error('Invalid layout resource type')
     }
     if (!Array.isArray(entry.photos)) throw new Error('Golf photos require an explicit list, including when unavailable')
     for (const photo of entry.photos) {
