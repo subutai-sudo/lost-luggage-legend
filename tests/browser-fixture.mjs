@@ -4,7 +4,7 @@ import { test as base, expect } from '@playwright/test'
 // popunders. Real map data, images and local image optimization remain enabled.
 // Monetization-script behavior needs its own separately authorized integration
 // test; it is intentionally outside this suite's assertions.
-const marketingHosts = new Set(['scripts.stay22.com', 'plausible.io'])
+const marketingHosts = new Set(['scripts.stay22.com', 'plausible.io', 'umami.scheduledloss.com'])
 
 export const test = base.extend({
   page: async ({ page }, use) => {
