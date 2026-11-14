@@ -16,7 +16,7 @@ export default function PrivacyPolicy() {
           <span className="issue-label text-[#c9a96e] mb-4 block">Legal</span>
           <h1 className="font-display text-4xl md:text-5xl font-bold text-white">Privacy Policy</h1>
           <p className="text-white/40 text-sm mt-3" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
-            Last updated: April 2026
+            Last updated: November 2026
           </p>
         </div>
       </div>
@@ -37,8 +37,10 @@ export default function PrivacyPolicy() {
               share your address with third parties for marketing purposes.
             </p>
             <p className="text-[#3d3a36]" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
-              <strong>Analytics:</strong> We use privacy-respecting analytics (Plausible or similar) to understand how
-              visitors use our site. No personal data is stored. No cookies are used.
+              <strong>Analytics:</strong> We use Plausible and self-hosted Umami to understand pages viewed,
+              referring sites, approximate location, and browser and device information. These analytics
+              tools do not use analytics cookies. Umami is configured to honor Do Not Track and to exclude
+              URL query strings and fragments.
             </p>
           </section>
 
