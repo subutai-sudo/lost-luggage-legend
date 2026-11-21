@@ -139,17 +139,17 @@ export function GoldilocksHome({ guides, initialMonth, year, seasonalCatalog }: 
           <div className={styles.results} data-results>
             {shortlist.map((guide, index) => (
               <article className={styles.guide} key={guide.id} data-id={guide.id}>
-                <Link className={styles['image-link']} href={`/guides/${guide.slug}?month=${month}`} aria-label={`Explore ${guide.title} guide`}>
+                <Link prefetch={false} className={styles['image-link']} href={`/guides/${guide.slug}?month=${month}`} aria-label={`Explore ${guide.title} guide`}>
                   <Image src={discoveryImage(guide.image, 800)} alt={`${guide.title} — destination photograph`}
                     fill sizes="(max-width: 380px) 90vw, (max-width: 700px) 44vw, 30vw" />
                 </Link>
                 <div className={styles.guideBody}>
                 <div className={styles.travelLabel}><span>Field notes / {String(index + 1).padStart(2, '0')}</span><span>{MONTH_NAMES[month - 1]}</span></div>
                 <p className={styles['guide-tag']}>{guide.subtitle}</p>
-                <h3><Link href={`/guides/${guide.slug}?month=${month}`}>{guide.title}</Link></h3>
+                <h3><Link prefetch={false} href={`/guides/${guide.slug}?month=${month}`}>{guide.title}</Link></h3>
                 <SeasonalReason catalog={seasonalCatalog} destinationId={guide.id} title={guide.title}
                   month={month} fallbackExcerpt={guide.excerpt} />
-                <Link className={styles['read-guide']} href={`/guides/${guide.slug}?month=${month}`} aria-label={`Read the ${guide.title} guide`}>Read the guide <span aria-hidden="true">↗</span></Link>
+                <Link prefetch={false} className={styles['read-guide']} href={`/guides/${guide.slug}?month=${month}`} aria-label={`Read the ${guide.title} guide`}>Read the guide <span aria-hidden="true">↗</span></Link>
                 <SaveDestinationButton destinationId={guide.id} title={guide.title} month={month} />
                 </div>
               </article>
