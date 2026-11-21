@@ -2,6 +2,8 @@ import Link from 'next/link'
 import { Navbar } from '@/components/Navbar'
 import { GoldilockZone } from '@/components/GoldilockZone'
 import { pageMetadata } from '@/lib/site'
+import { TravelTheme } from '@/components/TravelTheme'
+import { TravelEditionStrip } from '@/components/TravelEditionStrip'
 
 export const metadata = pageMetadata({
   title: 'Explore the Goldilocks Zone Map',
@@ -11,13 +13,14 @@ export const metadata = pageMetadata({
 
 export default function ExplorePage() {
   return (
-    <>
-      <Navbar />
+    <TravelTheme>
+      <Navbar brandAppearance="cinematic" />
+      <TravelEditionStrip />
       <main>
-        <header className="max-w-7xl mx-auto px-6 lg:px-12 py-16 lg:py-20">
+        <header className="max-w-7xl mx-auto px-6 lg:px-12 py-8 lg:py-10">
           <p className="text-accent text-xs font-semibold uppercase tracking-widest mb-4">Another way to wander</p>
-          <h1 className="font-display text-4xl md:text-6xl font-bold text-ink leading-tight mb-5">Explore the Goldilocks Zone map</h1>
-          <p className="text-ink-light text-lg leading-relaxed max-w-2xl">
+          <h1 className="font-display text-3xl md:text-4xl font-normal text-ink leading-tight mb-5">Explore the Goldilocks Zone map</h1>
+          <p className="text-ink-light text-sm leading-relaxed max-w-2xl">
             Prefer to explore by place? Choose a date range and open a destination on the map
             to read its guide. Seasonal windows are editorial suggestions, not live weather,
             crowd or price forecasts.
@@ -29,6 +32,6 @@ export default function ExplorePage() {
         </header>
         <GoldilockZone />
       </main>
-    </>
+    </TravelTheme>
   )
 }

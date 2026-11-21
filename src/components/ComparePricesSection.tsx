@@ -1,8 +1,11 @@
 'use client'
 
-import React, { useState, useMemo, useEffect, useRef } from 'react'
+import React, { useState, useMemo, useEffect, useRef, useCallback } from 'react'
 import { useCurrency, CurrencyCode } from '@/components/CurrencyProvider'
 import { bookingDateError, localDateString, nextCalendarDay } from '@/lib/bookingDates'
+import { plannerDestination, readTripContext, type TripContext } from '@/lib/tripContext'
+import { TripContextSearchObserver } from './TripContextLink'
+import { TripContextNote } from './TripContextNote'
 import styles from './ComparePricesSection.module.css'
 
 interface Airport {
@@ -118,6 +121,8 @@ const AIRPORTS: Airport[] = [
   { code: 'TLV', city: 'Tel Aviv', country: 'Israel', fullName: 'Ben Gurion' },
   { code: 'AUH', city: 'Abu Dhabi', country: 'UAE', fullName: 'Zayed International' },
   { code: 'DOH', city: 'Doha', country: 'Qatar', fullName: 'Hamad International' },
+  // Already present in FlightSearch's airport inventory and Maldives gateway map.
+  { code: 'MLE', city: 'Male', country: 'Maldives', fullName: 'Velana International' },
   
   // Australia/Oceania
   { code: 'SYD', city: 'Sydney', country: 'Australia', fullName: 'Kingsford Smith' },
@@ -350,6 +355,42 @@ export function ComparePricesSection() {
   const hotelInputRef = useRef<HTMLInputElement>(null)
   const suppressSuggestionFocus = useRef(false)
 
+  // Empty server and first client render: never read window/query in a state
+  // initializer. The isolated observer follows router/history changes as well
+  // as initial hydration without making the server form a Suspense fallback.
+  const [tripContext, setTripContext] = useState<TripContext>({ destination: null, month: null })
+  const previousContext = useRef<TripContext | null>(null)
+  const handleTripContext = useCallback((search: string) => {
+    const context = readTripContext(search)
+    const previous = previousContext.current
+    if (previous && previous.destination?.slug === context.destination?.slug && previous.month === context.month) return
+    previousContext.current = context
+    setTripContext(context)
+    // Month changes update the reminder, not fields the visitor has edited.
+    if (previous && previous.destination?.slug === context.destination?.slug) return
+    const seed = plannerDestination(context, AIRPORTS)
+    setOriginInput(seed.origin)
+    setSelectedOriginAirports([])
+    setDestInput(seed.flightDestination)
+    setSelectedDestAirports(seed.airportCodes)
+    setHotelDest(seed.hotelDestination)
+    setDepartDate(seed.departDate)
+    setReturnDate(seed.returnDate)
+    setHasSearched(false)
+    setShowOriginSuggestions(false)
+    setShowDestSuggestions(false)
+    setShowHotelSuggestions(false)
+  }, [])
+  const contextAirportCodes = plannerDestination(tripContext, AIRPORTS).airportCodes
+  const selectedArrival = AIRPORTS.find(airport => airport.code === selectedDestAirports[0])
+  const contextGatewayNote = tripContext.destination
+    ? selectedDestAirports.length > 0
+      ? selectedDestAirports.length === 1 && contextAirportCodes.includes(selectedDestAirports[0])
+        ? `${selectedDestAirports[0]} (${selectedArrival?.city ?? ''}) is the flight gateway used for outbound searches for ${tripContext.destination.title}. You can change it; check onward transfers.`
+        : `${selectedArrival?.city ?? ''} (${selectedDestAirports.join(', ')}) is the selected flight arrival for outbound searches. Your original ${tripContext.destination.title} trip idea is inspiration only; this airport selection does not establish a connection to it.`
+      : `Choose an arrival airport for ${tripContext.destination.title}; replace the destination text to search city names or airport codes. No airport has been selected.`
+    : ''
+
   // Guard the mouse default (including touch's compatibility mousedown), not
   // pointerdown: canceling a touch pointerdown suppresses WebKit's native click.
   // Without this guard Safari can blur the input to no relatedTarget and remove
@@ -484,20 +525,14 @@ export function ComparePricesSection() {
   // Handle input changes
   const handleOriginChange = (value: string) => {
     setOriginInput(value)
-    if (!value) {
-      setSelectedOriginAirports([])
-    } else {
-      setShowOriginSuggestions(true)
-    }
+    setSelectedOriginAirports([])
+    setShowOriginSuggestions(Boolean(value))
   }
   
   const handleDestChange = (value: string) => {
     setDestInput(value)
-    if (!value) {
-      setSelectedDestAirports([])
-    } else {
-      setShowDestSuggestions(true)
-    }
+    setSelectedDestAirports([])
+    setShowDestSuggestions(Boolean(value))
   }
 
   const handleHotelDestChange = (value: string) => {
@@ -559,13 +594,8 @@ export function ComparePricesSection() {
   // Handle type switch
   const handleTypeChange = (type: 'flights' | 'hotels') => {
     setSearchType(type)
-    setOriginInput('')
-    setDestInput('')
-    setHotelDest('')
-    setSelectedOriginAirports([])
-    setSelectedDestAirports([])
-    setDepartDate('')
-    setReturnDate('')
+    // Keep independently editable destinations and user-entered dates/origin.
+    // Validation still runs for each mode before exposing supplier links.
     setHasSearched(false)
     setShowOriginSuggestions(false)
     setShowDestSuggestions(false)
@@ -591,6 +621,7 @@ export function ComparePricesSection() {
   
   return (
     <section id="compare-prices" className={`${styles.section} py-20 lg:py-28 scroll-mt-20`} style={{ backgroundColor: 'var(--color-bg)' }}>
+      <TripContextSearchObserver onChange={handleTripContext} />
       <div className="max-w-6xl mx-auto px-6 lg:px-12">
         {/* Header */}
         <div className="text-center mb-12">
@@ -606,11 +637,13 @@ export function ComparePricesSection() {
           </h2>
           <p className="text-lg max-w-2xl mx-auto" style={{ color: 'var(--color-ink-light)' }}>
             {searchType === 'flights' 
-              ? 'Search live prices across Kayak, Expedia, and Google Flights. Click through to book at the best rate.'
-              : 'Compare hotel rates across Booking.com, Expedia, Hotels.com, Vrbo, and more. Click through to see real prices.'}
+              ? 'Prepare searches for Kayak, Expedia, and Google Flights. Open each supplier to check current prices and availability.'
+              : 'Prepare hotel searches for Booking.com, Expedia, Hotels.com, Vrbo, and more. Prices and availability are confirmed on supplier sites.'}
           </p>
         </div>
         
+        <TripContextNote context={tripContext} gatewayNote={contextGatewayNote} />
+
         {/* Search Form */}
         <div className="max-w-4xl mx-auto mb-8">
           <div className="bg-white rounded-2xl shadow-xl border p-6" style={{ borderColor: 'var(--color-border)', backgroundColor: 'var(--color-card-bg)' }}>

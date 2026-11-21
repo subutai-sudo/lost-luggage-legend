@@ -33,7 +33,7 @@ test('guide directory uses the photographic theme and preserves the entire sourc
   await expect(page.locator('[data-guide-directory]')).not.toContainText(/traveler rating|\d\.\d\s*\/\s*5/i)
   await page.locator('[data-guide-hero-image]').evaluate(img => img.decode())
   const palette = await page.locator('[data-guide-theme]').evaluate(el => getComputedStyle(el).getPropertyValue('--guide-forest').trim())
-  expect(palette).toBe('#0c211a')
+  expect(palette).toBe('#102735')
 })
 
 test('alphabet targets are usable and land below the sticky header', async ({ page }) => {
@@ -92,7 +92,7 @@ test('article preserves guide discovery, real hero and downstream booking target
   await expect(page.locator('[data-guide-comparison]')).toHaveCount(1)
   await expect(page.locator('[data-guide-related] a[href^="/guides/"]')).toHaveCount(3)
   const flightLink = page.getByRole('link', { name: /Compare Flights/ })
-  await expect(flightLink).toHaveAttribute('href', '/plan#compare-prices')
+  await expect(flightLink).toHaveAttribute('href', '/plan?destination=lisbon#compare-prices')
   await flightLink.click()
   await expect(page.locator('#compare-prices')).toBeInViewport()
 })

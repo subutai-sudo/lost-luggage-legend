@@ -21,6 +21,7 @@ const css = inline('export default new Proxy({}, { get: (_, key) => key })')
 const noop = inline('export const Navbar = () => null; export const BrandLogo = () => null; export const GolfVisualsFragment = () => null; export const NewsletterSignup = () => null; export const GolfReason = () => null')
 const framework = {
   ...runtime,
+  '@/components/GolfEmblem': await module('src/components/GolfEmblem.tsx', runtime),
   'next/image': inline(`import { createElement } from '${runtime.react}'; export default ({src, alt, width, height}) => createElement('img', {src, alt, width, height})`),
   'next/link': inline('export default "a"'),
   'next/navigation': inline('export const notFound = () => { throw new Error("Not found") }'),

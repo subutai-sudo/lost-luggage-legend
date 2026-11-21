@@ -1,0 +1,25 @@
+import { test, expect } from './browser-fixture.mjs'
+for (const width of [320, 390, 768, 1440]) for (const theme of ['light', 'dark']) {
+  test(`${width}px ${theme}: seatback-style explorer keeps real map controls and destination coverage`, async ({ page }) => {
+    await page.setViewportSize({ width, height: 1000 })
+    await page.addInitScript(t => localStorage.setItem('lll-theme', t), theme)
+    await page.goto('/explore', { waitUntil: 'domcontentloaded' })
+    const screen = page.locator('[data-inflight-explorer]')
+    await expect(screen).toBeVisible()
+    await expect.poll(() => page.evaluate(() => document.documentElement.classList.contains('dark'))).toBe(theme === 'dark')
+    await expect(screen).toContainText('Not live flight tracking')
+    await expect(screen.getByLabel('From date')).toBeVisible()
+    await expect(screen.getByLabel('To date')).toBeVisible()
+    await screen.getByRole('button', { name: 'All (100)', exact: true }).click()
+    await expect(screen.getByRole('button', { name: 'All (100)', exact: true })).toHaveAttribute('aria-pressed', 'true')
+    await expect(screen.locator('[role="button"][aria-label^="Open the "]')).toHaveCount(100)
+    await expect.poll(() => screen.locator('path.rsm-geography').count()).toBeGreaterThan(100)
+    await expect(screen.locator('[data-map-count]')).toHaveText('100')
+    await screen.getByRole('button', { name: 'Next 30 days', exact: true }).click()
+    expect(await screen.getByLabel('From date').inputValue()).toMatch(/^\d{4}-\d{2}-\d{2}$/)
+    expect(await screen.getByLabel('To date').inputValue()).toMatch(/^\d{4}-\d{2}-\d{2}$/)
+    const size = await page.evaluate(() => ({ viewport: innerWidth, scroll: document.documentElement.scrollWidth }))
+    expect(size.scroll).toBeLessThanOrEqual(size.viewport + 1)
+    await expect(page.getByRole('heading', { level: 1 })).toHaveCount(1)
+  })
+}

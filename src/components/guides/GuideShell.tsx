@@ -2,16 +2,20 @@ import type { ReactNode } from 'react'
 import Link from 'next/link'
 import { Navbar } from '@/components/Navbar'
 import { BrandLogo } from '@/components/BrandLogo'
+import { TripContextLink } from '@/components/TripContextLink'
+import { buildPlanHref } from '@/lib/tripContext'
+import { TravelEditionStrip } from '@/components/TravelEditionStrip'
 import styles from './GuideTheme.module.css'
 
 /** Guide-only visual scope: homepage/planning surfaces keep their own tokens. */
-export function GuideShell({ children }: { children: ReactNode }) {
+export function GuideShell({ children, destinationSlug }: { children: ReactNode; destinationSlug?: string }) {
   return (
-    <div className={styles.root} data-guide-theme>
+    <div className={styles.root} data-guide-theme data-design-edition="travel">
       <a className={styles.skip} href="#guide-main">Skip to guide content</a>
       <div className={styles.navigation}>
         <Navbar brandAppearance="cinematic" />
       </div>
+      <TravelEditionStrip />
       {children}
       <footer className={styles.footer}>
         <div className={styles.footerTop}>
@@ -21,9 +25,9 @@ export function GuideShell({ children }: { children: ReactNode }) {
         <div className={styles.footerBottom}>
           <p>Goldilocks Zone by Lost Luggage Legend.<br />Editorial inspiration, not a forecast.</p>
           <nav aria-label="Guide footer">
-            <Link href="/">Choose a month</Link>
-            <Link href="/guides">All guides</Link>
-            <Link href="/plan">Plan your trip</Link>
+            <TripContextLink href="/">Choose a month</TripContextLink>
+            <TripContextLink href="/guides">All guides</TripContextLink>
+            <TripContextLink href={buildPlanHref(destinationSlug)}>Plan your trip</TripContextLink>
             <Link href="/privacy-policy">Privacy</Link>
             <Link href="/terms-of-service">Terms</Link>
             <Link href="/affiliate-disclosure">Affiliate disclosure</Link>

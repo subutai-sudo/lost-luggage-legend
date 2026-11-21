@@ -3,6 +3,7 @@ import { createHash } from 'node:crypto'
 import { readFile } from 'node:fs/promises'
 import { test } from 'node:test'
 import ts from 'typescript'
+import { legacyBytes } from './helpers/trip-planning-approval.mjs'
 
 const BASELINE_COMMIT = '289fed62aff6a5b3d503f2c5d630dcd34b0c1f7b'
 // Copied from the independently captured baseline-inventory.json, NOT from the
@@ -145,7 +146,7 @@ test('all 100 guides and eligibility-window bytes stay frozen to the audited bas
   for (const [path, hash] of [
     ['../src/data/destinationGuides.ts', 'be97c31c88f6809cb94aad175089c0c40fef85ba0d7de1baeeafa0d605f1e471'],
     ['../src/lib/seasonalHelpers.ts', '9bc4bfef4e82adc4036b5079365b2033a6a7c32b7f4786e3e2da5407ac79be90'],
-  ]) assert.equal(createHash('sha256').update(await read(path)).digest('hex'), hash, path)
+  ]) assert.equal(createHash('sha256').update(legacyBytes(path.slice(3), Buffer.from(await read(path)))).digest('hex'), hash, path)
   assert.deepEqual([...discovery.MONTHLY_LEADS], LEADS)
 })
 

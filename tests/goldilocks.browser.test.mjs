@@ -72,12 +72,12 @@ function photoIdentity(src, baseURL) {
   return url.origin + url.pathname
 }
 
-function expectGuideURL(href, guide, baseURL) {
+function expectGuideURL(href, guide, baseURL, month) {
   expect(href, `${guide.id}: nonempty guide link`).toBeTruthy()
   const url = new URL(href, baseURL)
   expect([new URL(baseURL).origin, 'https://lostluggagelegend.com']).toContain(url.origin)
   expect(url.pathname).toBe(`/guides/${guide.slug}`)
-  expect(url.search).toBe('')
+  expect(url.search).toBe(`?month=${month}`)
   expect(url.hash).toBe('')
 }
 
@@ -128,9 +128,9 @@ async function expectMonth(page, month) {
     const guide = guideById.get(card.id)
     expect(card.text).toContain(guide.title)
     expect(card.links.length, `${card.id}: image, title and read-guide links`).toBe(3)
-    for (const href of card.links) expectGuideURL(href, guide, page.url())
+    for (const href of card.links) expectGuideURL(href, guide, page.url(), month)
   }
-  expectGuideURL(state.featureLink, featured, page.url())
+  expectGuideURL(state.featureLink, featured, page.url(), month)
   await expect(page.locator('img[data-hero-image]')).toHaveCount(1)
   expect(await page.locator('img[data-hero-image]').getAttribute('alt')).toContain(featured.title)
   const selectedThumb = page.locator(`button[data-month="${month}"] img`)

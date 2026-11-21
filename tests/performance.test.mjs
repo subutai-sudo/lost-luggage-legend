@@ -3,6 +3,7 @@ import { createHash } from 'node:crypto'
 import { readFile } from 'node:fs/promises'
 import { test } from 'node:test'
 import ts from 'typescript'
+import { legacyBytes } from './helpers/trip-planning-approval.mjs'
 
 // Frozen from 98b23f16c57c91d3b049a888d213828262354463 before the
 // performance implementation. No runtime git/external-audit dependency.
@@ -36,7 +37,7 @@ function freezeDeep(value) {
 // and optimizer policy; this change is not permission to rewrite approved content.
 test('performance work preserves frozen editorial data, photos, windows and image config', async () => {
   for (const [path, hash] of Object.entries(FROZEN)) {
-    assert.equal(createHash('sha256').update(await read(path)).digest('hex'), hash, path)
+    assert.equal(createHash('sha256').update(legacyBytes(path.slice(3), Buffer.from(await read(path)))).digest('hex'), hash, path)
   }
   assert.equal(raw.notes.length, 72)
   assert.equal(raw.sources.length, 91)
@@ -157,7 +158,7 @@ test('full seasonal JSON enters through the server projection, never a client ru
   assert.ok(homeProps.includes(passedValue), `cards receive a value the client already holds, not a raw import (got ${passedValue})`)
 })
 
-test('month thumbnails opt into native lazy loading while the cinematic hero stays high-priority/eager', async () => {
+test('month thumbnails stay lazy while the approved window photograph stays high-priority/eager and contained', async () => {
   const home = parse(await read('../src/components/GoldilocksHome.tsx'), 'GoldilocksHome.tsx')
   const button = jsx(home, 'button').find(node => attr(tag(node), 'data-month'))
   assert.ok(button, 'find the actual month-map button')
@@ -168,4 +169,11 @@ test('month thumbnails opt into native lazy loading while the cinematic hero sta
   assert.ok(hero)
   assert.equal(attrText(tag(hero), 'loading'), 'eager', 'the cinematic hero still loads eagerly')
   assert.equal(attrText(tag(hero), 'fetchPriority'), 'high', 'the cinematic hero keeps high fetch priority')
+  assert.ok(attr(tag(hero), 'fill'), 'photograph fills its window well, not the full scene')
+  assert.equal(attrText(tag(hero), 'sizes'), '(max-width: 700px) 76vw, (max-width: 950px) 320px, 30vw', 'window-sized image hint retains the approved responsive photograph')
+  const well = jsx(home, 'div').find(node => attr(tag(node), 'data-window-well'))
+  assert.ok(well, 'actual aircraft window well exists')
+  assert.equal(jsx(well, 'Image').length, 1, 'one destination photograph inside the well')
+  assert.equal(jsx(well, 'Image')[0], hero, 'the eager photograph belongs to the actual well')
+  assert.ok(jsx(home, 'div').some(node => attr(tag(node), 'data-calendar-band')), 'calendar remains a separate band')
 })

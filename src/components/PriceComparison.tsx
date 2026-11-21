@@ -1,8 +1,11 @@
 'use client'
 
-import { DestinationGuide } from '@/data/destinationGuides'
+import type { DestinationGuide } from '@/data/destinationGuides'
 import { useCurrency, CurrencyCode } from '@/components/CurrencyProvider'
 import Link from 'next/link'
+import { useCallback, useState } from 'react'
+import { buildPlanHref, readTripContext } from '@/lib/tripContext'
+import { TripContextSearchObserver } from './TripContextLink'
 import styles from './PriceComparison.module.css'
 
 const STAY22_AID = process.env.NEXT_PUBLIC_STAY22_AID || '1193160bctld'
@@ -16,8 +19,8 @@ const STAY22_AID = process.env.NEXT_PUBLIC_STAY22_AID || '1193160bctld'
 const SUPPLIERS = [
   {
     id: 'stay22',
-    name: 'Compare All Sites',
-    description: 'Best price across Booking.com, Expedia, Hotels.com, Vrbo, KAYAK & more',
+    name: 'Explore hotel options',
+    description: 'Continue to a booking provider via Stay22; check prices and availability there',
     url: (dest: string, currency: CurrencyCode = 'USD') => {
       let url = `https://www.stay22.com/allez/roam?aid=${STAY22_AID}&campaign=lll-guide&address=${encodeURIComponent(dest)}`
       if (currency !== 'USD') url += `&currency=${currency}`
@@ -45,7 +48,7 @@ const SUPPLIERS = [
   {
     id: 'flight-search',
     name: 'Compare Flights',
-    description: 'Choose your airports and dates, then compare live prices',
+    description: 'Choose your airports and dates, then check prices on supplier sites',
     // Guides have no selected dates or origin. Use the real search form rather
     // than inventing travel dates in a supplier link.
     url: (_dest: string, _currency: CurrencyCode = 'USD') => '/plan#compare-prices',
@@ -94,9 +97,13 @@ export function PriceComparison({ guide, destination, appearance = 'default' }: 
   const { currency } = useCurrency()
   const featured = SUPPLIERS.find(s => s.featured)
   const others = SUPPLIERS.filter(s => !s.featured)
+  const [tripSearch, setTripSearch] = useState('')
+  const handleTripSearch = useCallback((search: string) => setTripSearch(search), [])
+  const flightHref = buildPlanHref(guide.slug, readTripContext(tripSearch).month)
 
   return (
     <div data-guide-comparison={appearance} className={cinematic ? styles.cinematic : "my-12 p-6 bg-card-bg rounded-sm border border-border"}>
+      <TripContextSearchObserver onChange={handleTripSearch} />
       {/* Header */}
       <div className={cinematic ? styles.header : "flex items-center justify-between mb-6"}>
         <div>
@@ -105,12 +112,12 @@ export function PriceComparison({ guide, destination, appearance = 'default' }: 
             Where to stay in {guide.title}
           </h3>
           <p className={cinematic ? styles.intro : "text-muted text-sm mt-1"} style={cinematic ? undefined : { fontFamily: "'Source Sans 3', sans-serif" }}>
-            Click through to compare live rates across booking sites.
+            Open supplier sites to check current rates and availability.
           </p>
         </div>
         <div className={cinematic ? styles.liveNote : "hidden md:flex items-center gap-2 text-muted text-xs"} style={cinematic ? undefined : { fontFamily: "'Source Sans 3', sans-serif" }}>
           <span className={cinematic ? styles.accent : "text-gold"}>&#10022;</span>
-          <span>Real prices from each site</span>
+          <span>Searches open on supplier sites</span>
         </div>
       </div>
 
@@ -162,7 +169,7 @@ export function PriceComparison({ guide, destination, appearance = 'default' }: 
       {/* Other supplier grid */}
       <div className={cinematic ? styles.supplierGrid : "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3"}>
         {others.map((supplier) => {
-          const url = supplier.url(destination, currency)
+          const url = supplier.id === 'flight-search' ? flightHref : supplier.url(destination, currency)
           const SupplierLink = url.startsWith('/') ? Link : 'a'
           return (
             <SupplierLink

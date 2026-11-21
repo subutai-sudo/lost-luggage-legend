@@ -1,0 +1,80 @@
+.panel {
+  --saved-paper: #eeeee3;
+  --saved-ink: #1d3027;
+  --saved-muted: #506052;
+  --saved-line: #7d8c7e;
+  --saved-card: #f8f7ef;
+  --ink: var(--saved-ink);
+  box-sizing: border-box;
+  min-width: 0;
+  margin: 36px 0 0;
+  padding: clamp(20px, 4vw, 40px);
+  border: 1px solid var(--saved-line);
+  background: var(--saved-paper);
+  color: var(--saved-ink);
+  font-family: var(--sans, 'Avenir Next', Avenir, 'Trebuchet MS', sans-serif);
+  overflow-wrap: anywhere;
+}
+:global(.dark) .panel {
+  --saved-paper: #182c23;
+  --saved-ink: #f3f1e9;
+  --saved-muted: #c2cbbb;
+  --saved-line: #80917d;
+  --saved-card: #21392d;
+}
+.panel *, .saveControl * { box-sizing: border-box; }
+.panelHeader { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; }
+.panel h2, .panel h3, .panel h4 { color: var(--saved-ink); font-family: var(--serif, Georgia, 'Times New Roman', serif); font-weight: 400; overflow-wrap: anywhere; }
+.panel h2 { margin: 5px 0 12px; font-size: clamp(28px, 4vw, 38px); line-height: 1.15; }
+.eyebrow { margin: 0; font-size: 13px; line-height: 1.5; letter-spacing: .08em; text-transform: uppercase; }
+.disclosure, .count, .empty, .hint, .notice, .comparisonIntro, .unavailable { font-size: 14px; line-height: 1.65; }
+.disclosure { margin: 0; color: var(--saved-muted); }
+.count { margin: 0; flex-shrink: 0; font-variant-numeric: tabular-nums; color: var(--saved-muted); }
+.status { margin: 12px 0 0; font-size: 14px; line-height: 1.6; }
+.status:empty { margin: 0; }
+.notice { padding: 12px 0; margin: 8px 0; border-bottom: 1px solid var(--saved-line); }
+.empty { margin: 22px 0; max-width: 64ch; }
+.savedList { margin: 24px 0; padding: 0; list-style: none; border-top: 1px solid var(--saved-line); }
+.savedRow { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--saved-line); min-width: 0; }
+.savedIdentity { display: flex; flex-direction: column; align-items: flex-start; min-width: 0; }
+.panel .savedTitle { display: inline-flex; align-items: center; min-height: 44px; color: var(--saved-ink); font-family: var(--serif, Georgia, serif); font-size: 23px; line-height: 1.3; text-decoration: underline; text-underline-offset: 4px; }
+.savedMonth { font-size: 13px; color: var(--saved-muted); line-height: 1.6; }
+.actions { display: flex; align-items: stretch; flex-wrap: wrap; gap: 12px; }
+.panel button { min-height: 44px; min-width: 44px; max-width: 100%; padding: 10px 16px; border: 1px solid var(--saved-line); border-radius: 0; font: inherit; font-size: 14px; line-height: 1.5; cursor: pointer; white-space: normal; overflow-wrap: anywhere; touch-action: manipulation; }
+.panel .compareButton { background: #e0f29b; border-color: #e0f29b; color: #1d3027; font-weight: 600; }
+.panel .compareButton:disabled { background: transparent; color: var(--saved-muted); border: 1px dashed var(--saved-line); cursor: not-allowed; }
+.panel .removeButton, .panel .clearButton { background: transparent; color: var(--saved-ink); }
+.removeButton { flex-shrink: 0; }
+.panel button:hover:not(:disabled) { text-decoration: underline; text-underline-offset: 3px; }
+.panel button:focus-visible, .panel a:focus-visible, .panel summary:focus-visible, .panel h2:focus { outline: 3px solid var(--saved-ink); outline-offset: 3px; }
+.hint { margin: 10px 0 0; color: var(--saved-muted); }
+.comparison { margin-top: 30px; padding-top: 24px; border-top: 1px solid var(--saved-line); min-width: 0; }
+.comparison h3 { margin: 0 0 10px; font-size: 28px; line-height: 1.2; }
+.comparisonIntro { margin: 0 0 20px; max-width: 65ch; color: var(--saved-muted); }
+.comparisonGrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.comparisonCard { min-width: 0; padding: 20px; border: 1px solid var(--saved-line); background: var(--saved-card); }
+.comparisonCard h4 { margin: 4px 0 12px; font-size: 26px; line-height: 1.2; }
+.month { margin: 0; color: var(--saved-muted); font-size: 13px; font-weight: 600; line-height: 1.6; }
+/* SeasonalReason is shared: lift its provenance floor only in this panel. */
+.panel .seasonal > div { --reason-muted: var(--saved-muted); }
+.panel .seasonal p, .panel .seasonal summary, .panel .seasonal a { font-size: 13px; line-height: 1.65; }
+.panel .seasonal a, .panel .seasonal summary { min-height: 44px; }
+.panel .seasonal a { max-width: 100%; overflow-wrap: anywhere; }
+.panel .guideLink { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 44px; margin-top: 18px; color: var(--saved-ink); font-size: 14px; line-height: 1.6; text-decoration: underline; text-underline-offset: 4px; }
+.saveControl { display: flex; align-items: flex-start; flex-direction: column; gap: 8px; min-width: 0; margin-top: 12px; }
+.saveButton { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-width: 80px; min-height: 44px; max-width: 100%; padding: 10px 15px; background: transparent; border: 1px solid currentColor; border-radius: 0; color: inherit; font: inherit; font-size: 14px; line-height: 1.5; cursor: pointer; touch-action: manipulation; }
+.saveButton[aria-pressed='true'] { background: #e0f29b; color: #1d3027; border-color: #1d3027; }
+.saveButton:hover:not(:disabled) { text-decoration: underline; text-underline-offset: 3px; }
+.saveButton:focus-visible { outline: 3px solid currentColor; outline-offset: 3px; }
+.saveButton:disabled { cursor: wait; }
+.feedback { max-width: 38ch; margin: 0; color: inherit; font-size: 13px; line-height: 1.6; overflow-wrap: anywhere; }
+.srOnly { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+@media (max-width: 1000px) { .comparisonGrid { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 480px) {
+  .panelHeader { flex-direction: column; gap: 12px; }
+  .panel { padding: 18px; }
+  .savedRow { flex-wrap: wrap; }
+  .comparisonCard { padding: 16px; }
+  .actions { flex-direction: column; }
+  .actions button { width: 100%; }
+}

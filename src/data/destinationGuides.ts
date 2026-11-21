@@ -25,7 +25,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Tropical',
     themeColor: '#0077b6',
     excerpt:
-      'Overwater bungalows, bioluminescent plankton beaches, and some of the clearest water on earth. The Maldives is the gold standard for remote luxury.',
+      'Island stays, lagoons and journeys by boat or air. Choose a Maldives visit around the island, transfer and activities you want, not only an overwater-room photograph.',
     heroImage:
       'https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Maldives&adults=2',
@@ -88,7 +88,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'City',
     themeColor: '#e63946',
     excerpt:
-      'Shibuya scrambles, tsukiji fish markets at 5am, hidden ramen counters in lantern-lit alleys. Tokyo is a megacity that still somehow feels intimate.',
+      'Asakusa temple approaches, Tsukiji Outer Market food shops and neighbourhood meals. Choose one part of Tokyo at a time and leave room for the journey between them.',
     heroImage:
       'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Tokyo+Japan&adults=2',
@@ -109,7 +109,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Coastal',
     themeColor: '#0077b6',
     excerpt:
-      'Pastel villages stacked like dice on limestone cliffs above the Tyrrhenian Sea. Lemon groves, coastal drives with 300-hairpin bends, and pasta that costs €4 and changes your life.',
+      'Pastel villages on cliffs above the Tyrrhenian Sea, lemon groves and coastal walks. Plan around the villages you want to visit and check the current bus and ferry options.',
     heroImage:
       'https://images.unsplash.com/photo-1612698093158-e07ac200d44e?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Amalfi+Coast+Italy&adults=2',
@@ -130,7 +130,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Zen',
     themeColor: '#606c38',
     excerpt:
-      'Kinkaku-ji at dawn before the tour buses arrive. A machiya townhouse dinner in Pontochō. Bamboo groves at Arashiyama. Kyoto is Japan distilled to its quietest essence.',
+      'Temple gardens, Gion streets and the food shops of Nishiki Market. Give Kyoto time, respect its neighbourhoods and check access before building a day around a particular visit.',
     heroImage:
       'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Kyoto+Japan&adults=2',
@@ -235,7 +235,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'City',
     themeColor: '#e63946',
     excerpt:
-      'The world\'s best airport is a destination in itself, with a butterfly garden, infinity pool, and rooftop bar. Singapore is the ideal 48-hour stopover — clean, safe, and effortlessly international.',
+      'Hawker centres, gardens and neighbourhood walks make Singapore a stopover option. Match any outing to your connection time and check the facilities you intend to use.',
     heroImage:
       'https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Singapore&adults=2',
@@ -256,7 +256,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Digital Nomad',
     themeColor: '#0077b6',
     excerpt:
-      'Tram 28 rattling through Alfama, pastéis de nata fresh from the oven, co-working spaces in converted palaces. Lisbon is Europe\'s most affordable Western capital and a digital nomad favourite for good reason.',
+      'Tram 28, Alfama streets, pastéis de nata and viewpoints over the Tagus. Compare accommodation and transport for your dates rather than relying on a city-wide affordability ranking.',
     heroImage:
       'https://images.unsplash.com/photo-1754151630904-da4334bddfbf?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Lisbon+Portugal&adults=2',
@@ -361,7 +361,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Culture',
     themeColor: '#e63946',
     excerpt:
-      'Fried fish tacos in Coyoacán, Frida Kahlo\'s blue courtyard, rooftop mezcal bars above the Zócalo. Mexico City is one of the great undiscovered urban capitals — dense with culture, absurdly affordable, and perpetually alive.',
+      'Casa Azul in Coyoacán, neighbourhood meals and time to explore beyond a checklist. Plan Mexico City around the visits you can reserve and the journeys between them.',
     heroImage:
       'https://images.unsplash.com/photo-1585464231875-d9ef1f5ad396?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Mexico+City&adults=2',
@@ -378,11 +378,11 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     id: 'marrakech',
     slug: 'marrakech',
     title: 'Marrakech',
-    subtitle: 'Kechmich, Morocco',
+    subtitle: 'Morocco',
     theme: 'Culture',
     themeColor: '#bc6c25',
     excerpt:
-      'Djemaa el-Fna at dusk, smoke from grilled lamb souks drifting over the medina, riads with hand-laid zellige tilework. Marrakech is sensory overload in the best possible way — chaotic, beautiful, and surprisingly affordable.',
+      'Jemaa el-Fna, medina souks and riad courtyards offer a first look at Marrakech. Keep a medina evening and a timed Jardin Majorelle visit as distinct parts of the trip.',
     heroImage:
       'https://images.unsplash.com/photo-1597212618440-806262de4f6b?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Marrakech+Morocco&adults=2',
@@ -403,7 +403,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Nordic',
     themeColor: '#1d3557',
     excerpt:
-      'Sauna culture you can actually join for €20, design district vintage shops, archipelagos accessible by ferry. Helsinki is the rare Nordic capital that stays affordable and never feels touristy, even in summer.',
+      'Saunas, design shops and island outings give Helsinki different rhythms across the year. Check the chosen sauna and ferry service, and compare accommodation for your dates.',
     heroImage:
       "https://images.unsplash.com/photo-1538332576228-eb5b4c4de6f5?w=1200&q=85&auto=format&fit=crop",
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Helsinki+Finland&adults=2',
@@ -424,7 +424,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Adventure',
     themeColor: '#2d6a4f',
     excerpt:
-      'Table Mountain clouds rolling over the city bowl, penguins waddling at Boulders Beach, wine regions an hour away. Cape Town is the most geographically dramatic city in Africa — part California coast, part European elegance, entirely itself.',
+      'Table Mountain above the city and the Atlantic promenade at Sea Point. Leave room for weather-dependent plans and arrange the return journey as carefully as the outing.',
     heroImage:
       'https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=1200&q=85&auto=format&fit=crop',
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Cape+Town+South+Africa&adults=2',
@@ -972,7 +972,7 @@ export const DESTINATION_GUIDES: DestinationGuide[] = [
     theme: 'Cultural',
     themeColor: '#c1121f',
     excerpt:
-      "The Alcazar's tilework, flamenco in Triana, and Plaza de Espana's crescent along the Guadalquivir. Orange trees shade streets built for slow evenings. -- Mar-May, Oct-Nov is the ideal window.",
+      "The Alcazar's tilework, flamenco in Triana, and Plaza de Espana's crescent. Orange trees shade streets built for slow evenings. -- Mar-May, Oct-Nov is the ideal window.",
     heroImage:
       "https://images.unsplash.com/photo-1661442196029-ecc4a8e0a0b8?w=1200&q=85&auto=format&fit=crop",
     stay22Url: 'https://www.expedia.com/Hotel-Search?destination=Seville&adults=2',

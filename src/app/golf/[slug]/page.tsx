@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { BrandLogo } from '@/components/BrandLogo'
+import { GolfEmblem } from '@/components/GolfEmblem'
 import { Navbar } from '@/components/Navbar'
 import { MONTH_NAMES } from '@/lib/golfDiscovery'
 import { getGolfGuide, getGolfGuides } from '@/lib/golfGuides'
@@ -63,7 +64,7 @@ export default async function GolfGuidePage({ params }: Props) {
     : `Course photograph not available for ${course.name}. Explore the course's visual resources below.`
 
   return (
-    <div className={styles.root} data-golf-guide={course.id}>
+    <div className={styles.root} data-golf-guide={course.id} data-design-edition="golf">
       <a className={styles.skip} href="#golf-guide-main">Skip to course guide</a>
       <div className={styles.navigation}>
         <Navbar appearance="cinematic" brandAppearance="cinematic" />
@@ -87,6 +88,11 @@ export default async function GolfGuidePage({ params }: Props) {
             <span aria-hidden="true">/</span>
             <span>Course guide</span>
           </nav>
+          <div className={styles.clubhouseImprint} data-golf-edition aria-hidden="true">
+            <GolfEmblem className={styles.golfEmblem} />
+            <span className={styles.editionLabel}>The golf edition</span>
+            <span className={styles.editionDetail}>Seasonal course field notes</span>
+          </div>
           <div className={styles.heroStory}>
             <p className={styles.eyebrow}>Golf Goldilocks Zone · Course field notes</p>
             <h1>{course.name}</h1>

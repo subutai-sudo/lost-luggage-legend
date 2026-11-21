@@ -1,0 +1,91 @@
+.root {
+  --travel-paper: #f5f1e7;
+  --travel-card: #fffdf7;
+  --travel-ink: #142c3b;
+  --travel-muted: #516574;
+  --travel-line: #a6b2b6;
+  --travel-sky: #dce9ed;
+  --travel-night: #102735;
+  --travel-lime: #e0f29b;
+  --color-bg: var(--travel-paper);
+  --color-bg-subtle: #e6eceb;
+  --color-bg-warm: #eee8db;
+  --color-card-bg: var(--travel-card);
+  --color-ink: var(--travel-ink);
+  --color-ink-light: var(--travel-muted);
+  --color-muted: var(--travel-muted);
+  --color-border: var(--travel-line);
+  --color-sand: var(--travel-line);
+  --color-cream: var(--travel-paper);
+  --color-parchment: #eee8db;
+  --color-navy: #142c3b;
+  --color-navy-deep: #102735;
+  --color-gold: #80502d;
+  --color-gold-dark: #6c4023;
+  --color-accent: #325f75;
+  --color-accent-light: #325f75;
+  min-height: 100vh;
+  background: var(--travel-paper);
+  color: var(--travel-ink);
+  font-family: 'Avenir Next', Avenir, 'Trebuchet MS', sans-serif;
+  color-scheme: light;
+  isolation: isolate;
+}
+:global(.dark) .root {
+  --travel-paper: #142c3b;
+  --travel-card: #1b3545;
+  --travel-ink: #f5f1e7;
+  --travel-muted: #c0d1d9;
+  --travel-line: #718995;
+  --travel-sky: #223f50;
+  --color-bg-subtle: #1b3545;
+  --color-bg-warm: #1b3545;
+  --color-parchment: #1b3545;
+  --color-gold: #e0f29b;
+  --color-gold-dark: #e0f29b;
+  --color-accent: #c3dfe9;
+  --color-accent-light: #c3dfe9;
+  color-scheme: dark;
+}
+.root * { box-sizing: border-box; }
+/* Navigation owns a separate dark token boundary in either page theme. */
+.root :global(.glass-nav) {
+  --color-nav-bg: #102735;
+  --color-nav-border: #7995a25c;
+  --color-ink: #f5f1e7;
+  --color-ink-light: #e4edf1;
+  --color-muted: #c0d1d9;
+  --color-gold: #e0f29b;
+  --color-card-bg: #1b3545;
+  --color-bg-subtle: #223f50;
+  --color-border: #718995;
+  background: #102735;
+  color: #f5f1e7;
+}
+.root :global(.font-display), .intro h1 { font-family: Georgia, 'Times New Roman', serif; }
+.root :global(#header-currencies button[aria-pressed='true']) { color: #e0f29b !important; }
+.root :global(#compare-prices) { --planning-accent-text: var(--travel-ink); }
+.root :is(a, button, input, select, summary):focus-visible { outline: 3px solid currentColor; outline-offset: 4px; }
+.root :is(input, select, textarea):focus-visible { outline-color: var(--travel-ink); }
+.root :is(input, select, textarea) { color: var(--travel-ink); background-color: var(--travel-card); border-color: var(--travel-line); }
+.root :is(input, select) { height: 44px; box-sizing: border-box; padding-block: 0; }
+.root input::placeholder, .root textarea::placeholder { color: var(--travel-muted); opacity: 1; }
+.root :is(button, summary) { min-height: 44px; }
+.root :global(.btn-primary) { background: var(--travel-night); color: #f5f1e7; border: 1px solid var(--travel-line); border-radius: 0; box-shadow: none; }
+:global(.dark) .root :global(.btn-primary) { background: var(--travel-lime); color: #142c3b; }
+.root ::selection { background: var(--travel-lime); color: #142c3b; }
+.intro {
+  position: relative;
+  max-width: 1440px;
+  margin-inline: auto;
+  padding: clamp(40px, 6vw, 84px) clamp(20px, 4.4vw, 64px) 36px;
+  border-bottom: 1px dashed var(--travel-line);
+  background: radial-gradient(ellipse at 100% 0, var(--travel-sky), transparent 62%);
+}
+.intro h1 { max-width: 18ch; font-size: clamp(40px, 6.5vw, 88px); font-weight: 400; line-height: 1.04; letter-spacing: -.05em; color: var(--travel-ink); }
+.intro > p { position: relative; max-width: 60ch; }
+.intro > p:first-child { color: var(--travel-muted); font-size: 13px; letter-spacing: .12em; }
+.intro nav a { display: inline-flex; align-items: center; min-height: 44px; color: var(--travel-ink); }
+.intro > svg { display: block; width: clamp(140px, 28vw, 340px); height: auto; margin: 0 0 24px auto; color: var(--travel-muted); }
+@media (min-width: 900px) { .intro > svg { position: absolute; right: 4.4%; top: 44px; width: 30%; max-width: 380px; } .intro h1 { max-width: 65%; } }
+@media (prefers-reduced-motion: reduce) { .root *, .root *::before, .root *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }

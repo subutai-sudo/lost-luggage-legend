@@ -293,6 +293,7 @@ for (const theme of ['light', 'dark']) {
       await page.locator('#hotel-destination').fill('Lisbon')
       await suggestion(page, 'Lisbon').click()
       await page.locator('#hotel-checkin').fill(date)
+      await page.locator('#hotel-checkout').fill('2030-01-12')
       await form.getByRole('button', { name: 'Search Hotels', exact: true }).click()
       await expect(links(page)).toHaveCount(6)
       await expect.soft(status).toContainText(/6 hotel comparison links.*Lisbon/i)
