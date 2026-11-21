@@ -441,11 +441,64 @@ function inverse(entry, input, label, self = false) {
   assert.ok(replayed.equals(bytes), `${label}: reversible forward replay`)
   return restored
 }
+// Additive follow-up, authored from the complete published 96a74ea tree.
+// The document itself is deliberately not self-pinned; its covered files are.
+export const followupBase = '96a74ea328c898daf798c776a13c4f94b765810d'
+export const followupFixturePath = 'tests/fixtures/shortlist-prefetch-approved-changes.json'
+export const followupTestPath = 'tests/shortlist-prefetch.test.mjs'
+export const followupPaths = [followupFixturePath, followupTestPath]
+export const followupChangedPaths = ['src/components/GoldilocksHome.tsx', 'tests/helpers/trip-planning-approval.mjs', selfHarnessPath]
+const followupManifestDigest = 'a9a8d410f1867dca37d893cd0d8205d3bf99f6155982cf86bd4655962b27cfbd'
+export const followupApproval = JSON.parse(await readFile(new URL('../fixtures/shortlist-prefetch-approved-changes.json', import.meta.url), 'utf8'))
+export function validateFollowup(doc = followupApproval) {
+  assert.equal(doc.schemaVersion, 1)
+  assert.equal(doc.kind, 'shortlist-prefetch-exact-inverse-followup')
+  assert.ok(['awaiting-independent-review', 'independently-reviewed'].includes(doc.status))
+  assert.equal(doc.publishedBase, followupBase)
+  assert.equal(sha256(JSON.stringify(doc.independentPublishedManifest)), followupManifestDigest, 'independent complete 307-file published manifest is immutable')
+  assert.equal(doc.independentPublishedManifest.head, followupBase)
+  const files = doc.independentPublishedManifest.files
+  assert.equal(Object.keys(files).length, 307)
+  inventory(files, [...Object.keys(publishedHashes), ...addedPaths, candidateFixturePath], 'independent follow-up baseline covers every shipping file')
+  inventory(doc.changes, followupChangedPaths, 'only three explicitly owned follow-up changes')
+  inventory(doc.addedFiles, [followupTestPath], 'only the new standalone Node guard is pinned; no cyclic document pin')
+  assert.equal(doc.changes['src/components/GoldilocksHome.tsx'].beforeHash, approval.changes['src/components/GoldilocksHome.tsx'].afterHash)
+  assert.equal(doc.changes['tests/helpers/trip-planning-approval.mjs'].beforeHash, approval.addedFiles['tests/helpers/trip-planning-approval.mjs'].afterHash)
+  for (const path of followupChangedPaths) {
+    const entry = doc.changes[path]
+    assert.equal(entry.beforeHash, files[path].sha256, `${path}: chain starts at published 96a74ea bytes`)
+    assert.match(entry.afterHash, /^[a-f0-9]{64}$/)
+    assert.notEqual(entry.afterHash, entry.beforeHash)
+    assert.ok(entry.reason?.trim())
+    assert.ok(Array.isArray(entry.edits) && entry.edits.length > 0)
+  }
+  const added = doc.addedFiles[followupTestPath]
+  assert.equal(added.beforeHash, null)
+  assert.match(added.afterHash, /^[a-f0-9]{64}$/)
+  assert.ok(added.reason?.trim())
+  assert.ok(!Object.hasOwn(files, followupTestPath))
+  assert.ok(!Object.hasOwn(doc.changes, followupFixturePath) && !Object.hasOwn(doc.addedFiles, followupFixturePath))
+}
+export function followupBytes(path, input) {
+  if (followupChangedPaths.includes(path)) return inverse(followupApproval.changes[path], input, `shortlist follow-up/${path}`)
+  if (path === followupTestPath) assert.equal(sha256(input), followupApproval.addedFiles[path].afterHash, `${path}: exact new follow-up guard`)
+  return Buffer.from(input)
+}
+export async function verifyFollowupInventory(root = new URL('../../', import.meta.url)) {
+  validateFollowup()
+  for (const [path, entry] of Object.entries(followupApproval.independentPublishedManifest.files)) {
+    const bytes = followupBytes(path, await readFile(new URL(path, root)))
+    assert.equal(sha256(bytes), entry.sha256, `${path}: complete 96a74ea freeze`)
+    assert.equal(bytes.length, entry.bytes, `${path}: published byte count`)
+  }
+  followupBytes(followupTestPath, await readFile(new URL(followupTestPath, root)))
+  return { published: 307, changed: followupChangedPaths.length, added: followupPaths.length }
+}
 validateApproval()
 
 // Fail closed on an unknown path. Callers that retain a legacy freeze use
 // legacyBytes below; unknown paths there receive NO exception to that freeze.
-export function normalizeApproved(path, input) {
+function normalizePriorApproved(path, input) {
   assert.ok(changedPaths.includes(path) || addedPaths.includes(path) || securityPaths.includes(path), `${path}: not an approved feature/prerequisite path`)
   if (securityPaths.includes(path)) return inverse(approval.securityPrerequisite.changes[path], input, `security prerequisite/${path}`)
   if (addedPaths.includes(path)) {
@@ -454,11 +507,15 @@ export function normalizeApproved(path, input) {
   }
   return inverse(approval.changes[path], input, path)
 }
+export function normalizeApproved(path, input) {
+  return normalizePriorApproved(path, followupBytes(path, input))
+}
 export function publishedBytes(path, input) {
+  input = followupBytes(path, input)
   if (path === selfHarnessPath) return inverse(approval.selfHarness, input, path, true)
-  if (changedPaths.includes(path)) return normalizeApproved(path, input)
-  if (securityPaths.includes(path)) return normalizeApproved(path, input)
-  if (addedPaths.includes(path)) { normalizeApproved(path, input); return Buffer.from(input) }
+  if (changedPaths.includes(path)) return normalizePriorApproved(path, input)
+  if (securityPaths.includes(path)) return normalizePriorApproved(path, input)
+  if (addedPaths.includes(path)) { normalizePriorApproved(path, input); return Buffer.from(input) }
   return Buffer.from(input)
 }
 export function legacyBytes(path, input) {
@@ -472,7 +529,7 @@ export function acceptsApproved(path, input) {
 
 export const candidateFixturePath = 'tests/fixtures/trip-planning-approved-changes.json'
 export function assertScopeInventory(paths) {
-  assert.deepEqual([...paths].sort(), [...Object.keys(publishedHashes), ...addedPaths, candidateFixturePath].sort(), 'unknown, missing and duplicate repository paths are refused; no env/keys/research default permits')
+  assert.deepEqual([...paths].sort(), [...Object.keys(publishedHashes), ...addedPaths, candidateFixturePath, ...followupPaths].sort(), 'unknown, missing and duplicate repository paths are refused; no env/keys/research default permits')
 }
 export async function verifyPublishedInventory(root = new URL('../../', import.meta.url)) {
   // Runtime/install trees and the worktree git pointer are not shipping inputs.
@@ -490,6 +547,7 @@ export async function verifyPublishedInventory(root = new URL('../../', import.m
   }
   await walk()
   assertScopeInventory(paths)
+  await verifyFollowupInventory(root)
   for (const [path, hash] of Object.entries(publishedHashes)) {
     const bytes = await readFile(new URL(path, root))
     const restored = publishedBytes(path, bytes)
@@ -499,3 +557,4 @@ export async function verifyPublishedInventory(root = new URL('../../', import.m
   for (const path of addedPaths) normalizeApproved(path, await readFile(new URL(path, root)))
   return { published: Object.keys(publishedHashes).length, added: addedPaths.length, immutableFixtures: Object.keys(approval.immutableFixtures).length }
 }
+validateFollowup()
