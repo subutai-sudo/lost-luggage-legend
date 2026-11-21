@@ -4,8 +4,10 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Navbar } from '@/components/Navbar'
+import { AviationMark } from '@/components/AviationMark'
 import { NewsletterSignup } from '@/components/NewsletterSignup'
 import { SeasonalReason } from '@/components/SeasonalReason'
+import { SavedDestinationsProvider, SaveDestinationButton, SavedDestinationsPanel } from '@/components/SavedDestinations'
 import type { SeasonalDisplayCatalog } from '@/lib/seasonalReasons'
 import { discoveryImage, getMonthPreviews, getMonthSelection, MONTH_NAMES, readTravelMonth, type GoldilocksDestination } from '@/lib/goldilocksDiscovery'
 import styles from './GoldilocksHome.module.css'
@@ -51,34 +53,58 @@ export function GoldilocksHome({ guides, initialMonth, year, seasonalCatalog }: 
   }
 
   return (
-    <div className={styles.root} data-goldilocks-home data-ready={ready}>
+    <SavedDestinationsProvider guides={guides}>
+    <div className={styles.root} data-goldilocks-home data-design-edition="travel" data-ready={ready}>
       <a className={styles.skip} href="#month-picker">Skip to month picker</a>
       <main id="main-content">
         <section id="goldilock" data-hero-scene className={styles.hero} aria-label="Goldilocks Zone seasonal destination finder">
-          <Image key={featured.id} className={styles['hero-image']} data-hero-image
-            src={discoveryImage(featured.image, 1600)} alt={`${featured.title} — destination photograph`}
-            fill sizes="100vw" fetchPriority="high" loading="eager" />
           <div className={styles.navigation}><Navbar appearance="cinematic" /></div>
+          <span className={styles.monthWatermark} aria-hidden="true">{String(month).padStart(2, '0')}</span>
+          <div className={styles.flightPath}><AviationMark variant="flight-path" /></div>
           <div className={styles.intro}>
-            <p className={styles.eyebrow}>Goldilocks Zone</p>
-            <h1>Somewhere,<br /><em>just right.</em></h1>
-            <p className={styles['intro-copy']}>The world changes with the calendar.<br />Pick your month. Find six places<br />worth a closer look.</p>
+            <p className={styles.eyebrow}><AviationMark className={styles.introPlane} /> Goldilocks Zone / Travel by month</p>
+            <h1>Take the{' '}<br /><em>window seat.</em></h1>
+            <p className={styles['intro-copy']}>One month. Six possibilities.<br />See where the timing could take you.</p>
             <a className={styles.monthJump} href="#month-picker">Choose your month <span aria-hidden="true">↓</span></a>
           </div>
-          <div className={styles['frame-caption']}>
-            <span className={styles.label}>In the frame · {MONTH_NAMES[month - 1]}</span>
-            <Link href={`/guides/${featured.slug}`} data-feature-link>
+          <div className={styles.windowScene} data-aircraft-window>
+            <div className={styles.windowWell} data-window-well>
+              <Image key={featured.id} className={styles['hero-image']} data-hero-image
+                src={discoveryImage(featured.image, 1600)} alt={`${featured.title} — destination photograph`}
+                fill sizes="(max-width: 700px) 76vw, (max-width: 950px) 320px, 30vw" fetchPriority="high" loading="eager" />
+            </div>
+            <div className={styles.windowSill} data-window-sill aria-hidden="true" />
+            <span className={styles.windowDimmer} aria-hidden="true"><i /><i /><i /><i /><i /></span>
+            <p className={styles.windowNote}>{MONTH_NAMES[month - 1]} / A different view</p>
+          </div>
+          <div className={styles['frame-caption']} data-travel-ticket>
+            <div className={styles.ticketHeading} data-ticket-edition>
+              <span>LLL / Goldilocks Zone</span><AviationMark /><span>Destination edition</span>
+            </div>
+            <div className={styles.ticketContent}>
+            <span className={styles.label}>Destination / Travel inspiration</span>
+            <Link href={`/guides/${featured.slug}?month=${month}`} data-feature-link>
               <strong data-feature-title>{featured.title}</strong>
               <span>{featured.subtitle}</span>
               <span aria-hidden="true">Explore the guide ↗</span>
             </Link>
+            </div>
+            <div className={styles.ticketStub}>
+              <span>Travel month</span><strong data-ticket-month>{MONTH_NAMES[month - 1]}</strong>
+              <span className={styles.ticketMonthNumber} aria-hidden="true">{String(month).padStart(2, '0')}</span>
+              <span className={styles.ticketStamp} aria-hidden="true">Stay<br />curious</span>
+            </div>
+            <div className={styles.ticketTearoff} data-ticket-tearoff>
+              <span className={styles.ticketStripes} aria-hidden="true" />
+              <span>Editorial travel inspiration<br /><strong>Not a booking</strong> · Just a beginning.</span>
+            </div>
           </div>
         </section>
         <div className={styles.calendarBand} data-calendar-band>
           <section className={styles.calendar} aria-labelledby="month-picker">
             <div className={styles['calendar-label']}>
               <h2 id="month-picker" tabIndex={-1}>When could you go?</h2>
-              <p>A month. A different perspective.</p>
+              <p>Your departure point is a month, not an airport.</p>
             </div>
             <div className={styles.months} role="group" aria-label="Choose your travel month">
               {previews.map((guide, index) => (
@@ -86,8 +112,8 @@ export function GoldilocksHome({ guides, initialMonth, year, seasonalCatalog }: 
                   aria-label={MONTH_NAMES[index]} aria-description={`Preview destination: ${guide.title}`}
                   aria-pressed={month === index + 1} aria-controls="seasonal-results"
                   title={`${MONTH_NAMES[index]} · ${guide.title}`} onClick={() => chooseMonth(index + 1)}>
-                  <Image src={discoveryImage(guide.image, 480)} alt="" fill loading="lazy"
-                    sizes="(max-width: 380px) calc(30vw - 4px), (max-width: 700px) calc(29.333vw - 5.333px), calc(15.2vw - 7.5px)" />
+                  <span className={styles.monthPhoto} aria-hidden="true"><Image src={discoveryImage(guide.image, 480)} alt="" fill loading="lazy"
+                    sizes="(max-width: 380px) calc(30vw - 4px), (max-width: 700px) calc(29.333vw - 5.333px), calc(15.2vw - 7.5px)" /></span>
                   <span className={styles.number} aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
                   <span className={styles['month-name']} aria-hidden="true">{MONTH_NAMES[index]}</span>
                   <span className={styles['month-place']} aria-hidden="true">{guide.title}</span>
@@ -111,25 +137,30 @@ export function GoldilocksHome({ guides, initialMonth, year, seasonalCatalog }: 
             <div className={styles['results-meta']}><p><strong>Six selections</strong> from <strong data-count>{total}</strong> matching guides.</p><p>A starting point, not a ranking.</p></div>
           </div>
           <div className={styles.results} data-results>
-            {shortlist.map(guide => (
+            {shortlist.map((guide, index) => (
               <article className={styles.guide} key={guide.id} data-id={guide.id}>
-                <Link className={styles['image-link']} href={`/guides/${guide.slug}`} aria-label={`Explore ${guide.title} guide`}>
+                <Link className={styles['image-link']} href={`/guides/${guide.slug}?month=${month}`} aria-label={`Explore ${guide.title} guide`}>
                   <Image src={discoveryImage(guide.image, 800)} alt={`${guide.title} — destination photograph`}
                     fill sizes="(max-width: 380px) 90vw, (max-width: 700px) 44vw, 30vw" />
                 </Link>
+                <div className={styles.guideBody}>
+                <div className={styles.travelLabel}><span>Field notes / {String(index + 1).padStart(2, '0')}</span><span>{MONTH_NAMES[month - 1]}</span></div>
                 <p className={styles['guide-tag']}>{guide.subtitle}</p>
-                <h3><Link href={`/guides/${guide.slug}`}>{guide.title}</Link></h3>
+                <h3><Link href={`/guides/${guide.slug}?month=${month}`}>{guide.title}</Link></h3>
                 <SeasonalReason catalog={seasonalCatalog} destinationId={guide.id} title={guide.title}
                   month={month} fallbackExcerpt={guide.excerpt} />
-                <Link className={styles['read-guide']} href={`/guides/${guide.slug}`} aria-label={`Read the ${guide.title} guide`}>Read the guide <span aria-hidden="true">↗</span></Link>
+                <Link className={styles['read-guide']} href={`/guides/${guide.slug}?month=${month}`} aria-label={`Read the ${guide.title} guide`}>Read the guide <span aria-hidden="true">↗</span></Link>
+                <SaveDestinationButton destinationId={guide.id} title={guide.title} month={month} />
+                </div>
               </article>
             ))}
           </div>
+          <SavedDestinationsPanel guides={guides} seasonalCatalog={seasonalCatalog} />
           <p className={styles['sr-only']} role="status" aria-live="polite" aria-atomic="true">
             {ready && `${MONTH_NAMES[month - 1]}: showing six of ${total} matching editorial guides. Featured destination: ${featured.title}.`}
           </p>
           <div className={styles['index-links']}>
-            <Link href="/guides">All destination guides ↗</Link>
+            <Link href={`/guides?month=${month}`}>All destination guides ↗</Link>
             <Link href="/explore">Explore the optional map ↗</Link>
           </div>
           <div className={styles['source-note']}>
@@ -145,7 +176,7 @@ export function GoldilocksHome({ guides, initialMonth, year, seasonalCatalog }: 
       <footer className={styles.footer}>
         <div><p>LOST LUGGAGE LEGEND / GOLDILOCKS ZONE</p><p>© {year} Lost Luggage Legend.</p></div>
         <p className={styles.endline}>Travel by the calendar. Stay curious.</p>
-        <nav aria-label="Footer"><Link href="/guides">All Guides</Link><Link href="/plan">Plan your trip</Link><Link href="/privacy-policy">Privacy</Link><Link href="/terms-of-service">Terms</Link><Link href="/affiliate-disclosure">Affiliate disclosure</Link></nav>
+        <nav aria-label="Footer"><Link href="/guides">All Guides</Link><Link href={`/plan?month=${month}#compare-prices`}>Plan your trip</Link><Link href="/privacy-policy">Privacy</Link><Link href="/terms-of-service">Terms</Link><Link href="/affiliate-disclosure">Affiliate disclosure</Link></nav>
         <p>We may earn commissions from deliberate booking links, at no extra cost to you.</p>
       </footer>
       <dialog ref={dialog} className={styles.methodDialog} aria-labelledby="method-title"
@@ -166,5 +197,6 @@ export function GoldilocksHome({ guides, initialMonth, year, seasonalCatalog }: 
         </div>
       </dialog>
     </div>
+    </SavedDestinationsProvider>
   )
 }

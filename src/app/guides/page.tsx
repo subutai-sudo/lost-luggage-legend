@@ -3,13 +3,14 @@ import Link from 'next/link'
 import { DESTINATION_GUIDES } from '@/data/destinationGuides'
 import { NewsletterSignup } from '@/components/NewsletterSignup'
 import { GuideShell } from '@/components/guides/GuideShell'
+import { TripContextLink } from '@/components/TripContextLink'
 import { getGoldilockMonthsLabel } from '@/lib/seasonalHelpers'
 import { pageMetadata } from '@/lib/site'
 import styles from './GuideIndex.module.css'
 
 export const metadata = pageMetadata({
   title: 'All Destination Guides',
-  description: 'Browse 100+ expert destination guides with honest price comparisons. Find your next trip — from Bangkok to Barcelona, Maldives to Marrakech.',
+  description: 'Browse destination guides with seasonal inspiration, practical planning notes and links to booking options. Find your next trip — from Bangkok to Barcelona, Maldives to Marrakech.',
   path: '/guides',
 })
 
@@ -39,14 +40,14 @@ export default function GuidesPage() {
         </div>
         <div className={styles.caption}>
           <span>In the frame</span>
-          <Link href={`/guides/${hero.slug}`}><strong>{hero.title}</strong><span>{hero.subtitle}</span></Link>
+          <TripContextLink href={`/guides/${hero.slug}`}><strong>{hero.title}</strong><span>{hero.subtitle}</span></TripContextLink>
         </div>
       </header>
 
       <main id="guide-main" className={styles.main} data-guide-directory>
         <section className={styles.indexIntro} aria-labelledby="directory-title">
           <div><p className={styles.smallLabel}>Your next chapter</p><h2 id="directory-title">A world to look<br /><em>closer at.</em></h2></div>
-          <p className={styles.indexCopy}>Explore {sorted.length} destination guides, from neighbourhood ideas to seasonal context and practical planning. Start with a place—or <Link href="/">let the calendar lead ↗</Link>.</p>
+          <p className={styles.indexCopy}>Explore {sorted.length} destination guides, from neighbourhood ideas to seasonal context and practical planning. Start with a place—or <TripContextLink href="/">let the calendar lead ↗</TripContextLink>.</p>
         </section>
         <nav className={styles.alphabet} aria-label="Browse guides by letter">
           {letters.map(letter => grouped.has(letter)
@@ -61,7 +62,7 @@ export default function GuidesPage() {
               <div className={styles.letterHeading}><h2 id={`heading-${letter}`}>{letter}</h2><span>{String(guides.length).padStart(2, '0')} {guides.length === 1 ? 'guide' : 'guides'}</span></div>
               <div className={styles.grid}>
                 {guides.map(guide => (
-                  <Link key={guide.id} href={`/guides/${guide.slug}`} className={styles.card}
+                  <TripContextLink key={guide.id} href={`/guides/${guide.slug}`} className={styles.card}
                     data-guide-card={guide.id} aria-label={`Read the ${guide.title} guide`}>
                     <span className={styles.cardImage}>
                       <Image src={guide.heroImage} alt={guide.title} fill
@@ -73,7 +74,7 @@ export default function GuidesPage() {
                       <span className={styles.window} data-guide-window>{getGoldilockMonthsLabel(guide.id)} <span>· editorial window</span></span>
                       <span className={styles.cardEnd}>{guide.theme}<span aria-hidden="true">↗</span></span>
                     </div>
-                  </Link>
+                  </TripContextLink>
                 ))}
               </div>
             </section>

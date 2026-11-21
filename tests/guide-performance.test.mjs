@@ -3,6 +3,7 @@ import { createHash } from 'node:crypto'
 import { readFile } from 'node:fs/promises'
 import { test } from 'node:test'
 import ts from 'typescript'
+import { approval as tripApproval, changedPaths as tripPaths, addedPaths as tripAdded, continuationPaths, securityPaths, validateApproval, normalizeApproved, acceptsApproved, publishedBytes, legacyBytes, verifyPublishedInventory, assertScopeInventory, publishedHashes, candidateFixturePath } from './helpers/trip-planning-approval.mjs'
 
 const root = new URL('../', import.meta.url)
 const fixtureBytes = await readFile(new URL('./fixtures/guide-performance-baseline.json', import.meta.url))
@@ -67,6 +68,7 @@ const oldSizes = '(max-width: 639px) 100vw, (max-width: 959px) 50vw, 33vw'
 const correctedSizes = '(max-width: 639px) calc(103.5vw - 41.4px), (max-width: 959px) calc(51.75vw - 45.54px), (min-width: 1344px) 411.24px, calc(34.5vw - 52.44px)'
 const field = /(?<=src=\{r\.heroImage\}[\s\S]{0,200}sizes=")[^"]+(?=")/g
 const source = await readFile(new URL(pagePath, root), 'utf8')
+const globalSource = source
 const sha256 = bytes => createHash('sha256').update(bytes).digest('hex')
 const read = path => readFile(new URL(path, root))
 
@@ -216,7 +218,9 @@ const expectedHash = path => {
   if (releaseAdded.includes(path)) return releaseApproval.addedFiles[path].afterHash
   return guideHeaderHash(path)
 }
-const accepts = (path, bytes) => sha256(bytes) === expectedHash(path)
+const accepts = (path, bytes) => {
+  try { return sha256(legacyBytes(path, bytes)) === expectedHash(path) } catch { return false }
+}
 
 const businessDeclarations = {
   'src/components/FlightSearch.tsx': ['AIRPORTS', 'DEST_COORDS', 'haversineKm', 'estimateFlightHours', 'DEST_AIRPORTS', 'makeFlightUrl'],
@@ -224,6 +228,105 @@ const businessDeclarations = {
   'src/components/PriceComparison.tsx': ['STAY22_AID', 'SUPPLIERS'],
 }
 const legacyFixtureHash = '65a2692a2b7235011c15f3001da95bed9577c9731167fc77ca1e437567a9fbb3'
+
+test('complete 273-file independent freeze and every explicit new file stay bounded, including all ten old fixtures', async () => {
+  assert.deepEqual(await verifyPublishedInventory(), { published: 273, added: tripAdded.length, immutableFixtures: 10 })
+  const paths = [...Object.keys(publishedHashes), ...tripAdded, candidateFixturePath]
+  assertScopeInventory(paths)
+  for (const path of ['src/lib/unknown.ts', '.env.local', 'private-key.pem', 'docs/raw-research.json']) assert.throws(() => assertScopeInventory([...paths, path]), path)
+  assert.throws(() => assertScopeInventory(paths.slice(1)), 'missing file')
+  assert.throws(() => assertScopeInventory([...paths, paths[0]]), 'duplicate claim')
+})
+
+test('all 37 golf articles retain the published full render after only exact ornament normalization', async () => {
+  const { guides, render, renderPublished, normalizeGolfPresentation, nodes } = await import('./helpers/golf-guide-render.mjs')
+  assert.equal(guides.length, 37)
+  for (const { course } of guides) {
+    const current = await render(course.id)
+    const published = await renderPublished(course.id)
+    assert.deepEqual(normalizeGolfPresentation(current), published, `${course.id}: entire published tree, not a regenerated article hash`)
+    assert.equal(nodes(current).filter(n => Object.hasOwn(n.props ?? {}, 'data-golf-edition')).length, 1, 'actual ornament is present before normalization')
+    const mutate = (value, fn) => {
+      const copy = (v) => Array.isArray(v) ? v.map(copy) : v && typeof v === 'object' ? { ...v, props: { ...v.props, ...(Object.hasOwn(v.props ?? {}, 'children') ? { children: copy(v.props.children) } : {}) } } : v
+      const result = copy(value); fn(result); return result
+    }
+    assert.throws(() => normalizeGolfPresentation(mutate(current, t => { delete t.props['data-design-edition'] })))
+    assert.throws(() => normalizeGolfPresentation(mutate(current, t => { nodes(t).find(n => n.props?.className === 'editionLabel').props.children += ' unapproved' })))
+    const changed = mutate(current, t => { nodes(t).find(n => n.type === 'h1').props.children += ' unapproved' })
+    assert.notDeepEqual(normalizeGolfPresentation(changed), published, 'content edits are never stripped with ornament')
+  }
+})
+
+test('trip-planning candidate is exact, reversible, path-bounded and rejects missing claims and mutations', async () => {
+  validateApproval()
+  for (const path of [...tripPaths, ...tripAdded, ...securityPaths]) {
+    const bytes = await read(path)
+    assert.ok(acceptsApproved(path, bytes), `${path}: final pinned candidate bytes`)
+    assert.equal(acceptsApproved(path, Buffer.concat([bytes, Buffer.from('\n/* arbitrary bytes */')])), false, path)
+    assert.equal(acceptsApproved(path, bytes.subarray(0, -1)), false, `${path}: deletion refused`)
+    if (tripPaths.includes(path) || securityPaths.includes(path)) {
+      const before = normalizeApproved(path, bytes)
+      assert.equal(sha256(before), (tripApproval.changes[path] ?? tripApproval.securityPrerequisite.changes[path]).beforeHash, path)
+      assert.equal(acceptsApproved(path, before), false, `${path}: old and new are not interchangeable`)
+    }
+    const missing = structuredClone(tripApproval)
+    const claims = securityPaths.includes(path) ? missing.securityPrerequisite.changes : missing[tripPaths.includes(path) ? 'changes' : 'addedFiles']
+    delete claims[path]
+    assert.throws(() => validateApproval(missing), `${path}: deleting a claim cannot disable a guard`)
+  }
+  assert.throws(() => normalizeApproved('src/lib/unapproved.ts', Buffer.from('arbitrary')))
+  assert.equal(acceptsApproved('src/lib/unapproved.ts', Buffer.from('arbitrary')), false)
+  for (const path of continuationPaths) {
+    const published = publishedBytes(path, await read(path))
+    const entry = tripApproval.publishedAnalyticsContinuation.changes[path]
+    assert.equal(sha256(published), entry.afterHash, `${path}: preserve exact PR25 production bytes`)
+    assert.equal(sha256(legacyBytes(path, await read(path))), entry.beforeHash, `${path}: historical oracle still exact`)
+    assert.equal(accepts(path, Buffer.concat([await read(path), Buffer.from('unapproved')])), false)
+  }
+  const self = await read('tests/guide-performance.test.mjs')
+  assert.ok(accepts('tests/guide-performance.test.mjs', self), 'historical harness reconstructed without a cyclic afterHash')
+  assert.equal(accepts('tests/guide-performance.test.mjs', Buffer.concat([self, Buffer.from('unapproved')])), false)
+})
+
+test('real business declarations retain supplier URL functions, date validation and flight math outside the approved copy/gateway delta', async () => {
+  function declaration(path, text, name) {
+    const tree = ts.createSourceFile(path, text, ts.ScriptTarget.Latest, true, ts.ScriptKind.TSX)
+    const found = []
+    function visit(node) {
+      if ((ts.isVariableDeclaration(node) || ts.isFunctionDeclaration(node)) && node.name?.getText(tree) === name) found.push(node)
+      ts.forEachChild(node, visit)
+    }
+    visit(tree)
+    assert.equal(found.length, 1, `${path}: one ${name}`)
+    return { tree, node: found[0], text: found[0].getText(tree) }
+  }
+  for (const [path, names] of Object.entries(businessDeclarations)) {
+    const current = (await read(path)).toString()
+    const baseline = publishedBytes(path, Buffer.from(current)).toString()
+    for (const name of names) {
+      const actual = declaration(path, current, name)
+      const before = declaration(path, baseline, name)
+      if (path === 'src/components/ComparePricesSection.tsx' && name === 'AIRPORTS') {
+        const insertion = "  // Already present in FlightSearch's airport inventory and Maldives gateway map.\n  { code: 'MLE', city: 'Male', country: 'Maldives', fullName: 'Velana International' },\n"
+        assert.equal(actual.text.split(insertion).length, 2)
+        assert.equal(actual.text.replace(insertion, ''), before.text, 'exactly the existing-known Male/MLE record; no other airport delta')
+        const flightSource = (await read('src/components/FlightSearch.tsx')).toString()
+        assert.ok(flightSource.includes("{ iata: 'MLE', name: 'Velana International', city: 'Male', country: 'Maldives', lat: 4.1918, lon: 73.5292 }"), 'independent existing FlightSearch airport record')
+        assert.ok(flightSource.includes("maldives: 'MLE'"), 'independent existing Maldives gateway mapping')
+      } else if (path === 'src/components/PriceComparison.tsx' && name === 'SUPPLIERS') {
+        const records = item => item.node.initializer.elements.map(record => Object.fromEntries(record.properties.map(prop => [prop.name.getText(item.tree), prop.initializer.getText(item.tree)])))
+        const oldRecords = records(before)
+        const expected = structuredClone(oldRecords)
+        expected.find(record => record.id === "'stay22'").name = "'Explore hotel options'"
+        expected.find(record => record.id === "'stay22'").description = "'Continue to a booking provider via Stay22; check prices and availability there'"
+        expected.find(record => record.id === "'flight-search'").description = "'Choose your airports and dates, then check prices on supplier sites'"
+        assert.deepEqual(records(actual), expected, 'only these three copy fields may change; every URL function is byte-identical')
+      } else {
+        assert.equal(actual.text, before.text, `${path}: real ${name} bytes unchanged, not merely normalized away`)
+      }
+    }
+  }
+})
 
 test('every acceptance overlay names only its reviewed files and preserves the immutable legacy oracle', () => {
   assert.equal(sha256(fixtureBytes), legacyFixtureHash, 'never regenerate or edit the legacy performance fixture')
@@ -360,7 +463,7 @@ test('course-imagery follow-up names only its reviewed files, chains onto the pr
     assert.equal(entry.beforeHash, null)
     assert.match(entry.afterHash, /^[a-f0-9]{64}$/)
     assert.ok(entry.reason?.trim())
-    assert.equal(sha256(await read(path)), entry.afterHash, path)
+    assert.equal(sha256(legacyBytes(path, await read(path))), entry.afterHash, path)
   }
   // The two new photographs are the only added image assets, and the removed
   // destination-fallback wiring leaves no orphan asset behind.
@@ -432,8 +535,9 @@ test('related image sizes still describe gutters, gaps, hover headroom and the c
 })
 
 test('guide source accepts only the exact accessibility-approved change plus the prior related Image sizes correction', () => {
+  const source = legacyBytes(pagePath, Buffer.from(globalSource)).toString()
   assert.equal([...source.matchAll(field)].length, 1, 'normalize exactly one related field, never all sizes props')
-  assert.ok(accepts(pagePath, source), 'exact approved article bytes, not an arbitrary accessibility edit')
+  assert.ok(accepts(pagePath, globalSource), 'exact approved article bytes, not an arbitrary accessibility edit')
   // Independently reconstruct the pre-accessibility source by reversing ONLY
   // the two reviewed fragment-focus changes. This retains the old full-source
   // oracle, including every image attribute and all unrelated article markup.
@@ -480,7 +584,7 @@ test('airport data, flight math, supplier definitions, date validation and URL d
   for (const [path, names] of Object.entries(businessDeclarations)) {
     const hashes = accessibility.doc.unchangedBusinessDeclarations[path]
     assert.deepEqual(Object.keys(hashes).sort(), [...names].sort(), `${path}: exact independently selected declaration inventory`)
-    const tree = ts.createSourceFile(path, (await read(path)).toString(), ts.ScriptTarget.Latest, true, ts.ScriptKind.TSX)
+    const tree = ts.createSourceFile(path, legacyBytes(path, await read(path)).toString(), ts.ScriptTarget.Latest, true, ts.ScriptKind.TSX)
     for (const name of names) {
       const found = []
       function visit(node) {

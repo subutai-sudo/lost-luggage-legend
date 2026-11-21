@@ -201,9 +201,9 @@ test('paper-surface labels keep readable contrast and hero action uses bright in
   })
   expect(measurements.labels).toHaveLength(3)
   for (const label of measurements.labels) expect(label.ratio, label.text).toBeGreaterThanOrEqual(4.5)
-  expect(measurements.heroAction).toEqual([224, 242, 155])
+  expect(measurements.heroAction).toEqual([224, 189, 120])
   // Bright cinematic branding must never inherit the shared light-mode nav paper.
-  expect(measurements.navBackground).toEqual([12, 33, 26])
+  expect(measurements.navBackground).toEqual([13, 48, 40])
   expect(measurements.navWordmark).toEqual([243, 241, 233])
   expect(measurements.navDescriptor).toEqual([210, 222, 196])
 })

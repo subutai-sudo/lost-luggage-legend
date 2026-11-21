@@ -1,0 +1,43 @@
+import { test, expect } from './browser-fixture.mjs'
+for (const width of [320, 390, 768, 1024, 1440]) for (const theme of ['light', 'dark']) {
+  test(`${width}px ${theme}: aircraft window is real, exposed, responsive and retains the paper ticket`, async ({ page }) => {
+    await page.setViewportSize({ width, height: 1000 })
+    await page.addInitScript(t => localStorage.setItem('lll-theme', t), theme)
+    await page.goto('/?month=1', { waitUntil: 'domcontentloaded' })
+    await expect(page.locator('[data-goldilocks-home]')).toHaveAttribute('data-ready', 'true')
+    await expect.poll(() => page.evaluate(() => document.documentElement.classList.contains('dark'))).toBe(theme === 'dark')
+    const window = page.locator('[data-aircraft-window]')
+    await expect(window).toBeVisible()
+    await expect(window.locator('[data-window-sill]')).toHaveCount(1)
+    await window.scrollIntoViewIfNeeded()
+    await expect(window.locator('[data-hero-image]')).toHaveAttribute('alt', 'Maldives — destination photograph')
+    await window.locator('[data-hero-image]').evaluate(e => e.decode())
+    await expect(page.locator('[data-travel-ticket] [data-ticket-month]')).toHaveText('January')
+    const m = await page.evaluate(() => {
+      const frame = document.querySelector('[data-aircraft-window]')
+      const well = frame.querySelector('[data-window-well]')
+      const r = well.getBoundingClientRect()
+      const hit = document.elementFromPoint(r.x + r.width / 2, r.y + Math.min(70, r.height / 4))
+      const sill = frame.querySelector('[data-window-sill]')
+      const s = sill.getBoundingClientRect()
+      const sillHit = document.elementFromPoint(s.x + s.width / 2, s.bottom - 6)
+      return { frame: frame.getBoundingClientRect().toJSON(), well: r.toJSON(), ticket: document.querySelector('[data-travel-ticket]').getBoundingClientRect().toJSON(), sillExposed: sill.contains(sillHit), radius: getComputedStyle(well).borderTopLeftRadius, windowExposed: well.contains(hit), width: innerWidth, scroll: document.documentElement.scrollWidth }
+    })
+    expect(m.frame.width).toBeGreaterThanOrEqual(190)
+    expect(m.frame.height).toBeGreaterThanOrEqual(250)
+    expect(m.frame.left).toBeGreaterThanOrEqual(0)
+    expect(m.frame.right).toBeLessThanOrEqual(width)
+    expect(m.radius).not.toBe('0px')
+    expect(m.well.width / m.well.height, 'tall window opening, not a squat oval').toBeLessThanOrEqual(.72)
+    const overlap = m.ticket.left < m.frame.right && m.ticket.right > m.frame.left && m.ticket.top < m.frame.bottom && m.ticket.bottom > m.frame.top
+    expect(overlap, 'ticket must leave the entire surround and sill clear').toBe(false)
+    expect(m.sillExposed, 'lower sill is visible, not covered by ticket or glass').toBe(true)
+    expect(m.windowExposed, 'top of destination photograph is not hidden behind ticket or type').toBe(true)
+    expect(m.scroll).toBeLessThanOrEqual(m.width + 1)
+    await page.getByRole('link', { name: 'Choose your month', exact: true }).click()
+    await expect(page.locator('#month-picker')).toBeInViewport()
+    await page.locator('button[data-month="3"]').click()
+    await expect(page.locator('[data-ticket-month]')).toHaveText('March')
+    await expect(page.locator('[data-results] > article')).toHaveCount(6)
+  })
+}

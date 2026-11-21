@@ -6,6 +6,9 @@ import { NewsletterSignup } from '@/components/NewsletterSignup'
 import { PriceComparison } from '@/components/PriceComparison'
 import { FlightSearch } from '@/components/FlightSearch'
 import { GuideShell } from '@/components/guides/GuideShell'
+import { PracticalGuideNotes } from '@/components/PracticalGuideNotes'
+import { TripContextLink } from '@/components/TripContextLink'
+import { getPracticalGuideNotes } from '@/data/practicalGuideNotes'
 import { getGoldilockMonthsLabel } from '@/lib/seasonalHelpers'
 import styles from './GuideArticle.module.css'
 import { siteUrl } from '@/lib/site'
@@ -69,7 +72,7 @@ export default async function GuidePage({ params }: Props) {
   const articleContent = getArticleContent(guide)
 
   return (
-    <GuideShell>
+    <GuideShell destinationSlug={guide.slug}>
       <header className={styles.hero} data-guide-hero>
         <Image
           src={guide.heroImage}
@@ -83,7 +86,7 @@ export default async function GuidePage({ params }: Props) {
         <div className={styles.heroShade} aria-hidden="true" />
         <div className={styles.heroInner}>
           <div className={styles.breadcrumb} aria-label="Breadcrumb">
-            <Link href="/guides">All destination guides</Link>
+            <TripContextLink href="/guides">All destination guides</TripContextLink>
             <span aria-hidden="true">/</span>
             <span>{guide.title}</span>
           </div>
@@ -131,12 +134,16 @@ export default async function GuidePage({ params }: Props) {
                     ))}
                 </dl>
                 <p className={styles.editorialNote}>
-                  Editorial planning notes, not live conditions or quotes. Month windows can
-                  include peak season; check current weather, opening times and prices before booking.
+                  Temperature and budget figures are rough, undated planning estimates, not current
+                  conditions or supplier quotes. Month windows can include peak season; check weather,
+                  opening times and prices before booking.
                 </p>
                 <div className={styles.contents} aria-label="In this guide">
                   <p className={styles.eyebrow}>In this guide</p>
                   <ol>
+                    {getPracticalGuideNotes(guide.id) && (
+                      <li><a href="#practical-field-notes">Practical field notes</a></li>
+                    )}
                     {articleContent.sections.map((section, i) => (
                       <li key={section.title}>
                         <Link href={`#guide-section-${i + 1}`}>
@@ -152,6 +159,7 @@ export default async function GuidePage({ params }: Props) {
             </aside>
 
             <article className={styles.article} aria-label={`${guide.title} travel guide`}>
+              <PracticalGuideNotes guideId={guide.id} />
               {articleContent.sections.map((section, i) => (
                 <section key={i} id={`guide-section-${i + 1}`} className={styles.section}>
                   <span className={styles.sectionNumber} aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
@@ -189,11 +197,11 @@ export default async function GuidePage({ params }: Props) {
                   <p className={styles.eyebrow}>Keep exploring</p>
                   <h2 id="related-heading">You might also like</h2>
                 </div>
-                <Link href="/guides">All destination guides <span aria-hidden="true">↗</span></Link>
+                <TripContextLink href="/guides">All destination guides <span aria-hidden="true">↗</span></TripContextLink>
               </div>
               <div className={styles.relatedGrid}>
                 {related.map((r) => (
-                  <Link key={r.slug} href={`/guides/${r.slug}`} className={styles.relatedCard}>
+                  <TripContextLink key={r.slug} href={`/guides/${r.slug}`} className={styles.relatedCard}>
                     <div className={styles.relatedImage}>
                       <Image
                         src={r.heroImage}
@@ -206,7 +214,7 @@ export default async function GuidePage({ params }: Props) {
                       <p>{r.subtitle}</p>
                       <h3>{r.title} <span aria-hidden="true">↗</span></h3>
                     </div>
-                  </Link>
+                  </TripContextLink>
                 ))}
               </div>
             </section>
@@ -258,11 +266,11 @@ function getArticleContent(guide: DestinationGuide): { sections: Array<{ title: 
       sections: [
         {
           title: 'Why Singapore Should Be Your Next Stopover',
-          content: `Singapore's Changi Airport has won "World's Best Airport" more times than any other, and for good reason -- it is effectively a destination in itself. But step outside the terminal and you'll find a city that punches far above its weight. In 48 hours, you can eat your way through hawker centres ranked better than Michelin-starred restaurants, wander through a rainforest botanic garden, and watch the Marina Bay skyline light up from a rooftop bar. Singapore is a city designed for walking -- and surprisingly affordable if you know where to eat.`,
+          content: `Singapore’s Changi Airport can be part of a stopover plan, but check which facilities are accessible from your terminal and whether you need to clear immigration. But step outside the terminal and you'll find a city that punches far above its weight. In 48 hours, you can eat your way through hawker centres and neighbourhood food stalls, wander through a rainforest botanic garden, and watch the Marina Bay skyline light up from a rooftop bar. Choose a compact route and compare the actual cost of meals and transport for your visit.`,
           items: [
             'Gardens by the Bay: Supertrees and the Cloud Forest are unforgettable at dusk',
-            'Hawker Centre etiquette: Find a seat first, then order -- never the other way around',
-            'MRT is faster and cleaner than any taxi: Get an EZ-Link card at any 7-Eleven',
+            'Hawker centres: Check the stall’s ordering and seating arrangements before joining a queue',
+            'MRT: Compare the route and current ticket options with your planned journeys',
           ],
         },
         {
@@ -281,12 +289,12 @@ function getArticleContent(guide: DestinationGuide): { sections: Array<{ title: 
           title: 'Why Lisbon Feels Different',
           content: `Lisbon sits where the Tagus River meets the Atlantic. The light is softer here than in most European capitals, and the city spills dramatically down seven hills toward the water. Yellow trams creak around tight corners, laundry hangs from balconies, and the smell of pastel de nata and grilled sardines drifts through the streets.
 
-This is not a polished theme-park version of Europe. It is layered, slightly chaotic in the best way, and remarkably affordable for its quality of life. You can spend a morning wandering the tiled streets of Alfama, take a 10-minute ferry across the river for seafood lunch with a view of the city, then end the day watching the sunset from one of the many miradouros while listening to fado drifting from a small bar.`,
+This is not a polished theme-park version of Europe. It is layered, slightly chaotic in the best way, with a mix of neighbourhoods and places to stay. You can spend a morning wandering the tiled streets of Alfama, take a 10-minute ferry across the river for seafood lunch with a view of the city, then end the day watching the sunset from one of the many miradouros while listening to fado drifting from a small bar.`,
 
           items: [
-            'Miradouro da Senhora do Monte or da Graça for sunset — far quieter than the overcrowded São Pedro de Alcântara',
+            'Miradouro da Senhora do Monte or da Graça for sunset — choose a viewpoint that fits your walking route',
             'Mouraria for authentic small restaurants and fado houses away from the main tourist circuit',
-            'Take the cheap ferry from Terreiro do Paço to Cacilhas for fresh grilled fish with a perfect view back across the water',
+            'Cacilhas outing: Check the current ferry route and departure terminal before planning a meal across the river',
             'Day trip to Sintra during the week — the fairy-tale palaces and forests are magical when not overwhelmed by weekend crowds',
             'Walk the LX Factory district — converted warehouses with bookstores, street art, restaurants and independent shops',
           ],
@@ -295,13 +303,13 @@ This is not a polished theme-park version of Europe. It is layered, slightly cha
           title: 'Best Time to Visit',
           content: `The ideal windows are **May–June** and **September–October**.
 
-These months give you warm, pleasant weather (18–26°C), long days, and fewer crowds than peak summer. The city feels alive but not overwhelmed. September often has the best balance — the sea water is at its warmest and hotel rates are noticeably lower than July and August.
+These months give you warm, pleasant weather (18–26°C), long days, and fewer crowds than peak summer. The city feels alive but not overwhelmed. For September, compare weather, access and dated hotel offers rather than assuming a particular saving.
 
-July and August are hot, busy, and more expensive. Winter (November–March) is mild and significantly cheaper but can be rainy. February and March are the quietest months and excellent value if you don’t mind occasional rain showers.`,
+For July and August, check heat, event dates and actual room offers. Winter (November–March) can be rainy; check conditions and actual accommodation offers rather than assuming a saving or a quiet stay.`,
         },
         {
           title: 'What It Costs',
-          content: `Lisbon remains one of the best-value capital cities in Western Europe.
+          content: `Build a Lisbon budget around your own dates, location and travel style.
 
 **Realistic daily budget (per person, excluding accommodation):**
 - Budget traveller: €65–90
@@ -315,16 +323,16 @@ July and August are hot, busy, and more expensive. Winter (November–March) is 
 - Tram 28 single ticket: €3–4 (buy a reloadable Viva Viagem card for better value)
 - Mid-range hotel or apartment in a good location: €95–190 per night
 
-Flights from major European cities are frequently under €150 return. Transatlantic flights from the East Coast of the US typically range $650–950 depending on season.
+Check flight prices for your own origin and dates on supplier sites; these local spending estimates do not establish an airfare.
 
 The city rewards those who eat and drink where the locals do rather than the main tourist squares.`,
         },
         {
           title: 'Practical Tips',
           content: `• Wear comfortable shoes — the hills are steep and constant.
-• Buy a Viva Viagem card at any metro station — it works on trams, metro, trains and ferries and saves money.
+• Compare current transport cards and the operators they cover with the journeys you plan to make.
 • Many of the best restaurants don’t take reservations — show up early (around 7pm) or be prepared to wait.
-• The best pastel de nata are still at Pastéis de Belém (the original), but many neighbourhood bakeries make them just as well and cost half as much.
+• Try neighbourhood bakeries as well as well-known pastry shops; compare their actual menus rather than assuming a price difference.
 • Avoid eating on the main tourist squares (Rossio, Praça do Comércio) — the food is overpriced and average. Walk one or two blocks away.`,
         },
       ],
@@ -335,14 +343,14 @@ The city rewards those who eat and drink where the locals do rather than the mai
           title: 'Dubai Is Like Nothing Else on Earth',
           content: `Love it or find it excessive, Dubai is impossible to dismiss. The world's tallest building anchors a skyline that looks AI-generated. Indoor ski slopes exist beside desert. The Dubai Mall has an aquarium, a waterfall, and more retail than most people can walk. But beneath the spectacle, there\'s a genuinely fascinating city -- old Dubai (Bastakiya and Deira) preserves coral-and-shell buildings and wind towers that predate air conditioning by centuries. Spend two days in each version.`,
           items: [
-            'Dubai Metro: Gold Class costs 3x more but is rarely worth it -- standard class is fine and spotless',
+            'Dubai Metro: Check the current fare, cabin rules and route before choosing a ticket',
             'Old Dubai: Visit the Gold Souk and textile market in Deira before 10am to beat the heat',
             'Burj Khalifa: Book the "At the Top" observation deck at 4pm and stay for sunset -- book 2+ weeks ahead',
           ],
         },
         {
           title: 'Best Time to Visit',
-          content: `November to March is prime time: 20-28°C, clear skies, and outdoor life in full swing. Summer (June-September) is deliberately brutal -- 42°C-plus and 80% humidity. If you must go in summer, everything is air-conditioned and hotels drop 40-60% off peak pricing.`,
+          content: `November to March is prime time: 20-28°C, clear skies, and outdoor life in full swing. Summer heat makes exposed sightseeing demanding. Check the forecast, plan indoor breaks and compare dated hotel offers rather than assuming a seasonal discount.`,
         },
         {
           title: 'What It Costs',
@@ -354,16 +362,16 @@ The city rewards those who eat and drink where the locals do rather than the mai
       sections: [
         {
           title: 'Bangkok Is the Original Southeast Asian Stopover',
-          content: `Long before Dubai or Singapore built their airport cities, Bangkok was already the region's great connecting point -- a city where six hours of transit could include a temple visit, a market dinner, and a massage for less than $50. That equation still holds. The Grand Palace glitters at noon. Street food markets operate 24 hours. The Chao Phraya river ferry costs less than a metro ticket in most cities and delivers you somewhere beautiful. Bangkok rewards travellers who slow down and eat adventurously.`,
+          content: `Long before Dubai or Singapore built their airport cities, Bangkok was already the region's great connecting point -- a city worth considering for a longer connection. Check entry eligibility, airport travel and the return check-in deadline before planning to leave the terminal. The Grand Palace glitters at noon. Street food markets operate 24 hours. The Chao Phraya river services offer another way to explore; check the operator, route and fare for your journey. Bangkok rewards travellers who slow down and eat adventurously.`,
           items: [
-            'River ferries: The orange-flagged boats are tourists; the green-flagged ones are locals -- go green',
+            'River ferries: Choose by the operator’s current route and stopping pattern, not an assumed tourist-versus-local flag distinction',
             'Chatuchak Weekend Market: 15,000 stalls -- go Saturday morning, bring water, leave with less than you bought',
             'Massage: A professional 1-hour Thai massage is THB 250-400 (~$7-11 USD) -- tip THB 50-100',
           ],
         },
         {
           title: 'Best Time to Visit',
-          content: `November to February is ideal: 25-32°C, low humidity, and minimal rain. March and April are brutally hot (38°C+) but the Songkran water festival (April 13-15) is unforgettable. May-October is rainy season -- downpours are intense but brief, and prices drop significantly.`,
+          content: `November to February is ideal: 25-32°C, low humidity, and minimal rain. March and April are brutally hot (38°C+) but the Songkran water festival (April 13-15) is unforgettable. May-October is rainy season -- check rainfall forecasts and dated accommodation offers rather than assuming a discount.`,
         },
         {
           title: 'What It Costs',
@@ -377,81 +385,79 @@ The city rewards those who eat and drink where the locals do rather than the mai
           title: 'Barcelona Is Where Mediterranean Culture Meets Serious Business',
           content: `On one block: Gaudí's undulating facades dripping with coloured ceramic. On the next: a design studio selling €400 trainers and a venture-backed co-working space full of remote engineers. Barcelona has always been the city where European sophistication meets coastal ease -- and where the economy has forced a generation to get creative. The result is a food scene that\'s genuinely world-class, a nightlife that starts after midnight, and beaches that make the Algarve look inaccessible.`,
           items: [
-            'La Boqueria Market: Go before 10am, eat at Can Paixano (cava and tapas), not the tourist trap stalls near the entrance',
-            'Sagrada Família: Book the "Expert Guided Tour" ticket -- you skip the line and get the tower',
+            'La Boqueria Market: Check the market and individual stall hours before planning breakfast',
+            'Sagrada Família: Read the selected ticket’s entry and tower-access inclusions before paying',
             'Gothic Quarter: Get lost deliberately -- the best bars are down alleys with no signage',
           ],
         },
         {
           title: 'Best Time to Visit',
-          content: `May-June and September-October are ideal: 20-26°C, the city isn't packed, and hotel rates are 30-40% lower than July-August. Pride and Sant Joan (late June) bring massive street parties. December-February is low season -- cold enough for a jacket, quiet enough to enjoy the museums.`,
+          content: `May-June and September-October are editorial options; compare current weather, events and room offers for your actual dates. Pride and Sant Joan (late June) bring massive street parties. December-February is low season -- cold enough for a jacket, quiet enough to enjoy the museums.`,
         },
         {
           title: 'What It Costs',
-          content: `Barcelona has become expensive by Spanish standards. Tapas runs €3-8 per plate. La Boqueria meals €15-25. Metro single ride €2.40. Mid-range hotels €120-220/night. Sagrada Família tickets €26-41. Beach clubs are free to access, drinks not included.`,
+          content: `Barcelona has become expensive by Spanish standards. Tapas runs €3-8 per plate. La Boqueria meals €15-25. Metro single ride €2.40. Mid-range hotels €120-220/night. Sagrada Família tickets €26-41. Check any beach venue’s entry charge, minimum spend and reservation conditions.`,
         },
       ],
     },
     'amsterdam': {
       sections: [
         {
-          title: 'Amsterdam Is Surprisingly Manageable -- And Even More Surprisingly Affordable',
-          content: `Everyone knows the canals, the bikes, and the Anne Frank House queues. What surprises first-time visitors is how small the centre actually is. The entire historic core is walkable in an afternoon. Jordaan's morning light through its narrow canal streets is as good as any photo you've seen. The Rijksmuseum is three hours well spent. And on a Tuesday morning in November, you can have the Van Gogh Museum almost to yourself. Amsterdam's secret is that it\'s as much a small-town city as an international one -- if you stay in the centre and walk everywhere.`,
+          title: 'Amsterdam, Beyond the Canal Photograph',
+          content: `Everyone knows the canals, the bikes, and the Anne Frank House queues. What surprises first-time visitors is how small the centre actually is. The entire historic core is walkable in an afternoon. Jordaan's morning light through its narrow canal streets is as good as any photo you've seen. The Rijksmuseum is three hours well spent. Book the museums you most want to see without assuming a quiet visit on a particular weekday. Amsterdam's secret is that it\'s as much a small-town city as an international one -- if you stay in the centre and walk everywhere.`,
           items: [
-            'Museumkaart: €60 for a year -- covers 60+ museums including the Rijksmuseum and Van Gogh. Worth it if you visit 2+ museums',
+            'Museum passes: Check current eligibility, covered museums, reservation rules and validity against individual tickets',
             'Bike rental: €10-15/day from any of the 20 rental shops near Centraal Station',
             'Canal Ring boat tour: €19-29 -- the 1-hour version is sufficient; the open-bar version is not',
           ],
         },
         {
           title: 'Best Time to Visit',
-          content: `Late April to early June is peak -- King's Day (April 27) is chaotic in the best way, the city is warm, and the canal house gardens are in bloom. September-October is equally beautiful with fewer crowds and lower prices. December brings Christmas markets and the oddest Amsterdam tradition: Sinterklaas arrives in November and the city goes slightly mad.`,
+          content: `Late April to early June is peak -- King's Day (April 27) is chaotic in the best way, the city is warm, and the canal house gardens are in bloom. September-October is equally beautiful with its own weather and event-calendar trade-offs. December brings Christmas markets and the oddest Amsterdam tradition: Sinterklaas arrives in November and the city goes slightly mad.`,
         },
         {
           title: 'What It Costs',
-          content: `Amsterdam is expensive but not prohibitively so. Canal house hotels €150-280/night. Bike rental €10-15/day. Dinner at a decent restaurant €35-60. Albert Cuyp Market food €5-10 per meal. Anne Frank House: free with a pre-booked ticket (sold out months ahead for peak dates -- book ASAP).`,
+          content: `Amsterdam is expensive but not prohibitively so. Canal house hotels €150-280/night. Bike rental €10-15/day. Dinner at a decent restaurant €35-60. Albert Cuyp Market food €5-10 per meal. Anne Frank House: Check admission charges and the official ticket-release calendar; do not assume free admission.`,
         },
       ],
     },
     'mexico-city': {
       sections: [
         {
-          title: 'Mexico City Is One of the World\'s Great Urban Capitals',
-          content: `CDMX -- as locals call it -- sits at 2,240m elevation in a valley surrounded by mountains, which means the light is perpetually golden and the air thin enough to notice. Frida Kahlo's Casa Azul is as moving as everyone says. The Zócalo's scale is humbling. The city's 160-plus museums make it one of the most culturally dense cities on earth. And the food -- tacos al pastor at 2am from a stand that\'s been there since 1968 -- is simply not comparable to anything outside Mexico.`,
+          title: "Mexico City, one neighbourhood at a time",
+          content: `Casa Azul gives a Coyoacán visit a clear focus: a preserved home, its collections and its garden. Give that visit room to breathe rather than racing between distant sights. Start with the admission you can actually reserve, then build the rest of the day around it.`,
           items: [
-            'Coyoacán: Frida Kahlo\'s museum (book tickets 2+ weeks ahead) and the neighborhood market tacos',
-            'Roma Norte and Condesa: Tree-lined streets, design shops, and some of the best restaurant density in the city',
-            'Metro: Fast, cheap, extensive -- use it. Get a tarjeta de Movilidad Integrada at any Metro station',
+            "Reserve Casa Azul through the museum’s own booking link before arranging the visit",
+            "Use the practical notes for bag restrictions, accessibility questions and evening-session checks",
           ],
         },
         {
-          title: 'Best Time to Visit',
-          content: `March to May offers the best weather: 20-26°C and low rainfall. The December holiday season is magical but busy. June to September is rainy season -- rain tends to come in short afternoon bursts and clear the air. Avoid Semana Santa (March/April) unless you enjoy crowds and closures.`,
+          title: "Best Time to Visit",
+          content: `Use the editorial month window as a starting point, not a forecast. Check the weather for your dates and the museum’s holiday closures separately. An evening programme needs its own calendar check; an ordinary opening day does not establish late admission.`,
         },
         {
-          title: 'What It Costs',
-          content: `CDMX is extraordinarily affordable. Street tacos MXN 20-40 (~$1-2 USD). Mercado meals MXN 100-200. Mid-range hotels MXN 1,200-2,500/night. Museum admissions MXN 70-230. Metro rides MXN 5. Uber runs 30-60% cheaper than taxis.`,
+          title: "What It Costs",
+          content: `Build your budget from a dated accommodation quote, museum tickets and the journeys you intend to take. Compare the full transport journey rather than assuming an app ride is cheaper than a taxi. Check current prices and cancellation conditions with each supplier.`,
         },
       ],
     },
     'marrakech': {
       sections: [
         {
-          title: 'Marrakech Is Sensory Overload in the Best Possible Way',
-          content: `Djemaa el-Fna at dusk -- the square fills with smoke from 100 braziers, the sound of storytellers and musicians layered over each other, the smell of grilled lamb and cumin -- is one of those travel moments that stays with you. Beyond the medina chaos, Marrakech has quiet riads with hand-laid zellige tilework, rooftop restaurants overlooking minarets, and the Yves Saint Laurent garden in the Gueliz district that provides about 90 minutes of perfect calm. The contrast between chaos and stillness is the entire point.`,
+          title: "Marrakech, between square and courtyard",
+          content: `Jemaa el-Fna, the medina souks and riad courtyards offer different ways to experience Marrakech. Keep a first evening focused on the medina; plan Jardin Majorelle as a separate reserved visit. A shorter route with a clear return to your accommodation is more useful than a checklist that depends on unconfirmed access.`,
           items: [
-            'Djemaa el-Fna: Eat at the food stalls (look for the ones with the most locals) -- go after 8pm when the full smoke-and-music experience is happening',
-            'Medina souks: Negotiate everything. Start at 30-40% of the asking price and walk away at least twice',
-            'Majorelle Garden: Book online to avoid the queue -- YSL\'s cobalt blue is even better in person',
+            "Confirm your riad’s entrance and meeting point before going out",
+            "Check the garden and each museum’s admission arrangements separately",
           ],
         },
         {
-          title: 'Best Time to Visit',
-          content: `March to May and October to November: 22-30°C, blue skies, and the medina is lively without being oppressive. Summer (June-August) is very hot (38°C+) but hotels drop to 40-60% off peak pricing. December-January is quiet and cool (12-20°C) -- ideal for exploring but some restaurants close for the low season.`,
+          title: "Best Time to Visit",
+          content: `The editorial spring and autumn windows are a starting point for choosing dates. Check the forecast and plan exposed walking around the conditions you find. Summer heat is not evidence of a particular hotel discount; compare actual offers. Check Ramadan dates and local service arrangements for your own travel period.`,
         },
         {
-          title: 'What It Costs',
-          content: `Marrakech is very affordable. Riad rooms €60-180/night (breakfast included). Street food meals MAD 30-80 (~$3-8 USD). Museum entries MAD 10-70. Traditional hammam spa experience MAD 150-400. Souk bargaining: a good leather bag MAD 300-500.`,
+          title: "What It Costs",
+          content: `Compare dated riad offers, including breakfast only when it is explicitly included. Ask what a hammam treatment, guided visit or transfer covers before paying. For Majorelle, read the selected ticket’s conditions before purchase; do not assume a combined ticket covers every site on any day.`,
         },
       ],
     },
@@ -479,43 +485,40 @@ The city rewards those who eat and drink where the locals do rather than the mai
     'cape-town': {
       sections: [
         {
-          title: 'Cape Town Has No Business Being This Beautiful',
-          content: `Table Mountain clouds roll over the city bowl like a tablecloth being set. Penguins waddle at Boulders Beach. The Cape Winelands are an hour away. Cape Town is split between the Atlantic seaboard (cold water, dramatic, full of surfers) and the Indian Ocean side (warmer, gentler, quieter). The city centre has had a rough decade but the restaurant scene in Gardens, Tamboerskloof, and De Waterkant is genuinely world-class. The Bo-Kaap neighbourhood -- brightly painted houses climbing up the hillside -- is one of the most photographed streets in the world, and it still feels genuinely alive.`,
+          title: "Cape Town, with room for a change of plan",
+          content: `Sea Point’s Atlantic promenade offers a coastal outing without making a mountain ascent the centrepiece of every day. Table Mountain is a separate, weather-dependent plan. Keep the itinerary flexible enough to choose the coast or a meal when the cableway is not operating, and make the return journey part of the decision.`,
           items: [
-            'Table Mountain: Hike up (2-3 hours) or take the cable car (book at 7am for same-day afternoon slots)',
-            'Bo-Kaap: Go on a walking food tour with a local -- it\'s the best way to understand the neighbourhood',
-            'Cape Winelands: Franschhoek or Stellenbosch -- both are excellent, Franschhoek has better restaurants, Stellenbosch has better wine estates',
+            "Check the cableway operator’s current status before leaving",
+            "Ask your host for current route and after-dark transport advice",
           ],
         },
         {
-          title: 'Best Time to Visit',
-          content: `November to March is summer: 20-28°C, low rainfall, long evenings. This is peak season and the Cape Winelands get busy. June-August is winter -- some restaurants close, but it\'s quiet and cheap. The sardine run (July) brings massive shoals of fish and predators up the east coast.`,
+          title: "Best Time to Visit",
+          content: `The editorial November–March window can help frame a trip, but it does not guarantee a clear mountain or safe hiking conditions. Check the day’s weather and cableway status. Leave an alternative in the itinerary rather than putting a weather-dependent ascent immediately before a fixed departure.`,
         },
         {
-          title: 'What It Costs',
-          content: `Cape Town offers exceptional value. Guesthouse rooms ZAR 1,200-2,500/night (~$65-135 USD). Street food meals ZAR 40-100. Cable car to Table Mountain ZAR 370 return. Winery tastings ZAR 100-300. Whale watching tours ZAR 1,200-1,800.`,
+          title: "What It Costs",
+          content: `Get current quotes for your accommodation and any excursions, then add transfers and the exact cableway ticket you want. Compare the total and cancellation terms, not just a headline room rate. Ask whether a wine outing includes transport, tastings and meals before choosing it.`,
         },
       ],
     },
     'maldives': {
       sections: [
         {
-          title: 'The Maldives Is a Once-in-a-Lifetime Destination',
-          content: `The Maldives sits 600 miles southwest of India, 26 atolls scattered across the Indian Ocean like a handful of emeralds dropped in blue ink. Getting there is a long journey -- most visitors fly via Dubai, Doha, or Singapore -- but once you land on Malé and transfer to your seaplane or speedboat, the world you left behind ceases to exist. Every resort occupies its own island. The overwater bungalows that make up the poster images of the Maldives are not a gimmick -- waking to the sound of waves beneath your floor, private infinity pool dropping into warm turquoise water, is a genuinely different way to exist for a week.`,
+          title: "The Maldives starts with the island journey",
+          content: `A Maldives stay begins with a choice of island and transfer, not only a room photograph. Resorts near the international airport may use speedboats; others involve seaplanes or domestic flights. Choose the journey that works with your arrival and departure before deciding how much of a short stay to spend in transit.`,
           items: [
-            'Best resort area: North Malé Atoll for proximity to Malé; Baa Atoll for diving (UNESCO biosphere); Alifu Dhaalu for the Conrad\'s iconic floating villas',
-            'Seaplane transfers are spectacular but noisy -- bring earplugs for the 30-45 minute flight',
-            'Bring snorkel gear: house reef snorkeling is included with every resort and the coral is still extraordinary',
-            'Book at least 6 months ahead for Christmas/New Year season -- the Maldives fills up 12 months in advance for peak dates',
+            "Have the property confirm the transfer for your actual international flights",
+            "Ask about reef access and equipment rather than assuming snorkelling is included",
           ],
         },
         {
-          title: 'Best Time to Visit',
-          content: `November to April is the dry season and the best window to visit. The monsoon winds that define the rest of the year bring rougher seas and brief but heavy rain showers -- though even in wet season (May-October), most days still have 6-8 hours of sun. Water temperature is warm year-round (27-29°C). The shoulder months of April and November offer the best combination of weather and lower pricing.`,
+          title: "Best Time to Visit",
+          content: `Use the editorial month window to begin comparing dates, then check current weather and the property’s transfer advice. A month label cannot promise calm water, sunshine or a particular rate. Keep weather-dependent activities flexible and read the cancellation terms before paying for them.`,
         },
         {
-          title: 'What It Costs',
-          content: `The Maldives is unambiguously expensive. A starting-level overwater bungalow at a 4-star resort runs $400-700/night. Five-star all-inclusive properties start at $800/night and go to $3,000+ for the iconic floating villas. Seaplane transfers are $300-600 per person each way. Diving trips run $80-180 per dive. All-inclusive packages bring the effective daily cost down significantly when you factor in meals and activities.`,
+          title: "What It Costs",
+          content: `Compare a full written offer: room, meal plan, taxes, service charges, activities and both directions of the transfer. Ask which charges are per person and which are per room. An all-inclusive label does not establish that your desired drinks, equipment or excursions are covered; request the actual inclusion list.`,
         },
       ],
     },
@@ -533,7 +536,7 @@ The city rewards those who eat and drink where the locals do rather than the mai
         },
         {
           title: 'Best Time to Visit',
-          content: `May-June and September-October are ideal: 24-30°C, skies clear, the island is lively but not impassable. July-August is peak season -- the island receives 30,000 visitors a day in August, and the narrow caldera path becomes genuinely uncomfortable. Easter is magical if you can get a booking; the island is lit with candles and the Orthodox procession is spectacular. Winter (November-March) many restaurants and hotels close, but those that remain are peaceful and prices drop 50-70%.`,
+          content: `May-June and September-October are ideal: 24-30°C, skies clear, the island is lively but not impassable. July-August is peak season -- the island receives 30,000 visitors a day in August, and the narrow caldera path becomes genuinely uncomfortable. Easter is magical if you can get a booking; the island is lit with candles and the Orthodox procession is spectacular. Winter (November-March) many restaurants and hotels close, so check the actual available accommodation and service options before committing.`,
         },
         {
           title: 'What It Costs',
@@ -555,33 +558,31 @@ The city rewards those who eat and drink where the locals do rather than the mai
         },
         {
           title: 'Best Time to Visit',
-          content: `December to February is summer -- 20-28°C, long days (sunset at 9pm), the best hiking weather. This is peak season and prices are at their highest. March-April brings autumn colours and smaller crowds. June-August is winter -- freezing temperatures, ski season, après-ski culture, and significantly lower accommodation prices outside the ski fields. May and October are the quietest months with reasonable prices and no crowds.`,
+          content: `December to February is summer -- 20-28°C, long days (sunset at 9pm), the best hiking weather. Check accommodation and activity availability for your dates. March-April brings autumn colours and smaller crowds. June-August is winter -- freezing temperatures, ski season, après-ski culture, and a different accommodation and activity calendar to check. May and October need their own weather and activity-access checks; do not assume an empty town or a particular rate.`,
         },
         {
           title: 'What It Costs',
-          content: `Queenstown is expensive by New Zealand standards. Adventure activities: bungee NZD 195-295, jet boating NZD 130-190, skydiving NZD 299-459. Meals at decent restaurants NZD 40-80 per person. Accommodation near the lake NZD 200-450/night. Car rental NZD 70-130/day. The DOC (Department of Conservation) hiking huts and tracks are excellent and free -- this is one of the world\'s great hiking destinations and the best trails cost nothing to walk.`,
+          content: `Queenstown is expensive by New Zealand standards. Adventure activities: bungee NZD 195-295, jet boating NZD 130-190, skydiving NZD 299-459. Meals at decent restaurants NZD 40-80 per person. Accommodation near the lake NZD 200-450/night. Car rental NZD 70-130/day. Check DOC booking requirements, hut charges and track access individually before planning a hike.`,
         },
       ],
     },
     'tokyo': {
       sections: [
         {
-          title: 'Tokyo Is Three Cities in One',
-          content: `Tokyo is not one city -- it\'s layered. Old Tokyo survives in the temples of Asakusa, where incense smoke curls around visitors at Sensō-ji and the approach street (Nakamise-dōri) has been selling tourist trinkets and traditional sweets for 400 years. Modern Tokyo is in the Shibuya crossing (1,500 people cross at once during busy phases, on a system that somehow works), the neon of Shinjuku, the luxury of Ginza. And then there\'s the Tokyo that regular people live in -- the yokocho (alley bars) of Golden Gai with 6-stool establishments each with their own personality, the bathhouse-temples of Yanaka that escaped wartime bombing, the covered shopping streets of Takeshita-dōri in Harajuku. Spend five days minimum.`,
+          title: "Tokyo, without the cross-city checklist",
+          content: `Choose a neighbourhood before choosing a long list of sights. Asakusa brings Kaminarimon, the Sensoji approach and the Sumida riverfront into one visit. Tsukiji Outer Market is a different food-shopping outing, not the former wholesale auction market. Leave room to enjoy each area rather than connecting them solely to collect photographs.`,
           items: [
-            'Shibuya Scramble Crossing: Go at 11pm on a Saturday for maximum chaos -- stand on the Starbucks terrace above for the full view',
-            'Tsukiji Outer Market: Go before 9am for the freshest sushi breakfast of your life -- Toyosu Market is for professionals, the outer market is for everyone',
-            'Yanaka: The best-preserved old Tokyo neighbourhood -- walk from Yanaka Ginza shopping street to Yanaka Cemetery at golden hour',
-            'Train system: Get a Suica card at any station -- it works on metro, JR, and convenience stores. Download Google Maps and it will route you perfectly',
+            "Keep shop and temple-interior access separate from a neighbourhood walk",
+            "Plan the last useful train connection before an evening out",
           ],
         },
         {
-          title: 'Best Time to Visit',
-          content: `March to May is ideal: cherry blossom season (sakura) turns the city pink, temperatures are 15-22°C, and the festivals are in full swing. November is equally compelling for autumn foliage -- the ginkgo trees of Meiji Jingu turn gold. June starts the rainy season (tsuyu) -- it rains most days, but prices drop and the city is less crowded. August is brutally hot and humid (35°C+) and packed with domestic tourists. Late January-February is cold (5-10°C), quiet, and cheap.`,
+          title: "Best Time to Visit",
+          content: `The editorial spring and autumn windows are suggestions, not promises of blossom or foliage on a particular date. Check conditions for the places you want to see and reserve date-specific experiences through their operators. Neither a rainy month nor a winter visit establishes a guaranteed saving or an empty attraction.`,
         },
         {
-          title: 'What It Costs',
-          content: `Tokyo is more affordable than its reputation suggests. A bowl of ramen Tokyo JPY 800-1,500. A Michelin-starred omakase dinner JPY 15,000-40,000. Metro day pass JPY 600-1,500. Hotel rooms near Shinjuku JPY 12,000-30,000/night. The Japan Rail Pass (JR Pass) is essential if you\'re travelling beyond Tokyo -- the Shinkansen (bullet train) to Kyoto costs JPY 13,320 one-way without it. Convenience store food (7-Eleven, Lawson, FamilyMart) is exceptional quality and costs JPY 200-600 per item.`,
+          title: "What It Costs",
+          content: `Compare accommodation for your dates and the actual journeys you plan to make. A nationwide rail pass is not automatically worthwhile for a city stay or a single intercity trip: compare the covered journeys and restrictions with individual tickets. Check the lines included in any Tokyo subway pass before buying.`,
         },
       ],
     },
@@ -589,11 +590,11 @@ The city rewards those who eat and drink where the locals do rather than the mai
       sections: [
         {
           title: 'The Amalfi Coast Is as Beautiful as the Crowds Are Thick',
-          content: `The SS163 Amalfitana -- the coastal road that winds 50 kilometres from Sorrento to Salerno -- is one of the great drives of the world, carved into cliffs above the Tyrrhenian Sea, every turn revealing another pastel village stacked impossibly up the rock face. Amalfi town itself has a maritime history that predates Venice -- the Republic of Amalfi was a Mediterranean superpower in the 10th-12th centuries, and the cathedral of Sant'Andrea at its centre still has that authority. The rest of the coast is smaller: Positano is vertically challenged (everything is up or down, never flat), Ravello sits 350 metres above the sea with gardens that make you understand why Wagner came here to compose. The trick to the Amalfi Coast is to stay mid-week, avoid August entirely, and treat the bus (the only public transport on the coast) as a scenic amusement ride rather than reliable transport.`,
+          content: `The SS163 Amalfitana -- the coastal road that winds 50 kilometres from Sorrento to Salerno -- is one of the great drives of the world, carved into cliffs above the Tyrrhenian Sea, every turn revealing another pastel village stacked impossibly up the rock face. Amalfi town itself has a maritime history that predates Venice -- the Republic of Amalfi was a Mediterranean superpower in the 10th-12th centuries, and the cathedral of Sant'Andrea at its centre still has that authority. The rest of the coast is smaller: Positano is vertically challenged (everything is up or down, never flat), Ravello sits 350 metres above the sea with gardens that make you understand why Wagner came here to compose. The trick to the Amalfi Coast is to stay mid-week, avoid August entirely, and compare current bus and ferry routes and keep a backup for disruption.`,
           items: [
             'Positano from below: The iconic view is from the water -- take the 8:15am Hydrofoils from Amalfi town before the tour boats arrive',
             'Path of the Gods: The hiking trail (Sentiero degli Dei) between Bomerano and Nocelle is one of Europe\'s great day walks -- 7km, 4 hours, spectacular',
-            'Eat in Praiano, not Positano: The same views, half the prices, and the restaurants are genuinely local',
+            'Consider Praiano as well as Positano: Compare the actual menu, location and return transport rather than assuming a saving',
             'Parking: Do not drive and park in Positano in summer -- the road is one lane in places and queues are measured in hours',
           ],
         },
@@ -603,29 +604,27 @@ The city rewards those who eat and drink where the locals do rather than the mai
         },
         {
           title: 'What It Costs',
-          content: `The Amalfi Coast is expensive in summer. A hotel room with a sea view in Positano or Amalfi town €200-500/night in peak season. A decent restaurant meal €40-70 per person. Sita bus tickets are cheap (€1.50-3) but get very crowded. The Amalfi coast ferry service (April-October) is more pleasant than the bus and often faster -- a day pass is €15-25. Private boat hire for a day is €400-900 depending on size and whether you have a captain.`,
+          content: `The Amalfi Coast is expensive in summer. A hotel room with a sea view in Positano or Amalfi town €200-500/night in peak season. A decent restaurant meal €40-70 per person. Sita bus tickets are cheap (€1.50-3) but get very crowded. Check the ferry operator’s current routes, seasonal timetable, weather notices and fares rather than assuming a network-wide operating season or day pass. Private boat hire for a day is €400-900 depending on size and whether you have a captain.`,
         },
       ],
     },
     'kyoto': {
       sections: [
         {
-          title: 'Kyoto Is Japan\'s Cultural Memory',
-          content: `Kyoto was deliberately spared from bombing in World War II -- General LeMay\'s B-29s flew over it on their way to incinerate other cities because the US wanted an intact Japan to negotiate with. The result is a city with 1,600 Buddhist temples and 400 Shinto shrines, more than any other city on earth. Fushimi Inari with its 10,000 vermillion torii gates winding up a mountain is the image everyone knows. But Kyoto\'s real gift is the quiet: the moss garden at Saihō-ji (Kokedera), the bamboo grove at Arashiyama at 6am before the tour groups arrive, the stone gardens of Ryōan-ji at dusk when the last visitors have left. Come in autumn (November) for the maple leaves turning the hills crimson. Come in spring for sakura. Kyoto in rain is a different city -- greyer, quieter, more contemplative.`,
+          title: "Kyoto rewards a smaller itinerary",
+          content: `Give one area your attention instead of trying to cross Kyoto between every stop. Nishiki and the central shopping streets can form one visit; Gion can be another. Temple gardens, private lanes and evening programmes each have their own access rules. Build the day around the particular visit you can arrange rather than an assumed dawn or after-closing opening.`,
           items: [
-            'Fushimi Inari: Go before 7am -- the lower gates are always busy, the upper mountain trails (2-3 hours to the top) are nearly empty even at 8am in peak season',
-            'Bamboo grove Arashiyama: Same advice -- arrive at opening (9am) or at dusk. The grove is genuinely otherworldly in the hour before sunset',
-            'Nishiki Market: 400 metres of vendor stalls. Eat as you walk -- tofu skin, pickled vegetables, mochi. Go hungry.',
-            'Tea ceremony: Book a proper experience in Gion (not a tourist package) -- the tea master at Wa.orra is exceptional',
+            "Use rail for the main journey into the centre where practical",
+            "At Nishiki, eat in the shop’s designated space rather than while walking",
           ],
         },
         {
-          title: 'Best Time to Visit',
-          content: `Mid-to-late November for koyo (autumn foliage) is the most spectacular -- the maple leaves turn red and gold, temple gardens hire lighting, the city fills with visitors from across Asia. March-April for sakura (cherry blossom) is equally beloved and equally busy. Late October and early December are quieter windows with good weather. June is rainy season (tsuyu) -- Kyoto\'s gardens are at their greenest and most lush, crowds drop, prices fall. Summer (July-August) is hot (35°C+) and humid. Winter is cold (2-8°C) but clear and beautiful, with few tourists.`,
+          title: "Best Time to Visit",
+          content: `Spring and autumn are popular editorial windows, but flowers and autumn colour do not follow a fixed booking calendar. Check the exact dates of any temple illumination or special opening before planning an evening around it. Use the city’s sightseeing tools to consider another area when a route looks crowded.`,
         },
         {
-          title: 'What It Costs',
-          content: `Kyoto is moderately priced. Temple entry fees are typically ¥500-1,000 (¥2,000 for premium experiences like the moss garden). A kaiseki (traditional multi-course dinner) at a good restaurant ¥8,000-20,000 per person. Hotels in the centre (Gion, Kawaramachi) ¥12,000-35,000/night. JR Shinkansen from Tokyo (2h15m) costs ¥13,870 one-way in reserved seating. Cycling rental ¥1,500-3,000/day is the best way to explore the eastern hills.`,
+          title: "What It Costs",
+          content: `Compare your chosen temple admissions, meals and transport with accommodation for the actual dates. Special visits can have separate booking conditions and inclusions. Check restaurant cancellation rules and the cost of each rail journey instead of treating a pass or bicycle rental as automatically the best option.`,
         },
       ],
     },
@@ -636,14 +635,14 @@ The city rewards those who eat and drink where the locals do rather than the mai
           content: `The Maasai Mara National Reserve is 1,510 square kilometres of savannah, riverine forest, and acacia woodland in southwestern Kenya. Every year, between July and October, the Great Migration passes through -- 1.5 million wildebeest cross from the Serengeti in Tanzania, drawn by rain-fed grass, trailed by lions, leopards, cheetahs, and the largest Nile crocodiles in Africa waiting at every river crossing. The Mara River crossing at this time is visceral: 500-pound crocodiles, 300-pound wildebeest, the water boiling white. The rest of the year, the Mara is quieter -- but the resident lion prides, elephant herds, and leopard sightings are extraordinary at any time. The best camps are in the private conservancies bordering the main reserve (Mara North, Olare Motorogi, Naboisho) -- they offer night drives, bush walks, and lower vehicle density.`,
           items: [
             'Great Migration timing varies year to year based on rains -- the Mara River crossings typically peak in August-September but have been as early as July',
-            'Stay in a conservancy, not just the reserve: Lower fees, fewer vehicles, better wildlife encounters, and you can do walking safaris and night drives',
+            'Compare reserve and conservancy stays: Ask the specific camp about fees, permitted activities and vehicle policies; none establishes a wildlife guarantee',
             'Balloon safari at dawn: Kenya Shillings 45,000-55,000 (~$350-430 USD) -- the aerial view of the migration is extraordinary and the champagne breakfast landing in the bush is a travel memory for life',
             'Pack layers: Morning game drives leave at 6am and return at 10am -- it\'s cold, then hot. A fleece and sunhat are both essential',
           ],
         },
         {
           title: 'Best Time to Visit',
-          content: `The Great Migration (July-October) is the peak season and when the Mara is most dramatic. River crossings happen unpredictably -- spend at least 3 nights so you can position yourself. The "green season" (November-May) is quieter, cheaper, and excellent for general wildlife viewing. January-February is calving season -- predator action is high as lions and cheetahs hunt newborn wildebeest. Long rains (April-May) make some roads impassable and some camps close. The shoulder months of June and November offer the best combination of price and wildlife.`,
+          content: `The Great Migration (July-October) is the peak season and when the Mara is most dramatic. River crossings happen unpredictably -- spend at least 3 nights so you can position yourself. The "green season" (November-May) needs its own rainfall, camp-access and wildlife-planning checks. Ask the camp about local wildlife patterns for your dates rather than assuming that migration or calving activity is in the reserve. Long rains (April-May) make some roads impassable and some camps close. For June and November, ask the camp about current access and seasonal wildlife patterns; compare dated prices separately.`,
         },
         {
           title: 'What It Costs',
@@ -655,12 +654,12 @@ The city rewards those who eat and drink where the locals do rather than the mai
       sections: [
         {
           title: 'Patagonia Is at the End of the World and Worth Every Hour of the Journey',
-          content: `Patagonia covers the southern third of Chile and Argentina -- a landscape that looks like geology left unfinished. Granite towers rise from glacial lakes. Ice fields feed glaciers that calve icebergs into milky turquoise water. The wind is a constant presence, sometimes gentle, sometimes enough to knock you sideways. Torres del Paine National Park (Chilean side) is the most visited -- the three towers (Las Torres) at sunrise, reflected in Laguna Torres, are one of the iconic images of adventure travel. The Argentine side -- Los Glaciares National Park -- has Fitz Roy (3,405m, the mountain that changes shape every ten minutes as clouds move) and the Perito Moreno glacier, one of the few glaciers in the world still advancing. Patagonia rewards slow travel: five days minimum, ideally ten.`,
+          content: `Patagonia covers the southern third of Chile and Argentina -- a landscape that looks like geology left unfinished. Granite towers rise from glacial lakes. Ice fields feed glaciers that calve icebergs into milky turquoise water. The wind is a constant presence, sometimes gentle, sometimes enough to knock you sideways. Torres del Paine National Park (Chilean side) is the most visited -- the three towers (Las Torres) at sunrise, reflected in Laguna Torres, are one of the iconic images of adventure travel. The Argentine side -- Los Glaciares National Park -- has Fitz Roy (3,405m, the mountain that changes shape every ten minutes as clouds move) and the Perito Moreno glacier, a glacier whose current viewing and excursion access should be checked with local operators. Patagonia rewards slow travel: five days minimum, ideally ten.`,
           items: [
-            'Torres del Paine W Trek: 5 days, the classic route -- start from the west (Mirador Las Torres) and work your way to the French Valley for the less-visited spectacular views',
+            'Torres del Paine W Trek: Choose the direction around your confirmed trail, accommodation and transport bookings; check the park’s current access rules',
             'Perito Moreno Glacier: Walk onto the ice with crampons -- you\'ll feel small and the blue colour (light refraction in dense ice) is unreal',
             'Gaucho experience: Book a day with a working estancia -- horse riding, lamb on a spit, wool shearing demonstrations. Several near El Calafate and El Chaltén are genuine working farms',
-            'El Chaltén: Argentina\'s trekking capital, free to enter the national park, Fitz Roy trail (22km round trip) is demanding but the summit views are incomparable',
+            'El Chaltén: Check current national-park admission, trail conditions and route difficulty before setting out towards Fitz Roy',
           ],
         },
         {
@@ -669,7 +668,7 @@ The city rewards those who eat and drink where the locals do rather than the mai
         },
         {
           title: 'What It Costs',
-          content: `Patagonia is expensive and remote. Flights to Punta Arenas or El Calafate from Buenos Aires run ARS 80,000-200,000 each way (book months ahead for the cheapest fares). Bus fares between towns are cheap (~$15-30) but the distances are enormous. Refugio (mountain hut) beds on the W Trek are $40-80/night in summer -- book 3-6 months ahead. Hotels in Puerto Natales and El Calafate are $80-200/night. Full-board at a good estancia is $150-300/night including activities. Budget $150-250/day excluding accommodation for food, transport, and activities.`,
+          content: `Patagonia is expensive and remote. Flights to Punta Arenas or El Calafate from Buenos Aires run ARS 80,000-200,000 each way (compare actual flight offers and their change conditions). Bus fares between towns are cheap (~$15-30) but the distances are enormous. Refugio (mountain hut) beds on the W Trek are $40-80/night in summer -- book 3-6 months ahead. Hotels in Puerto Natales and El Calafate are $80-200/night. Full-board at a good estancia is $150-300/night including activities. Budget $150-250/day excluding accommodation for food, transport, and activities.`,
         },
       ],
     },
@@ -680,14 +679,14 @@ The city rewards those who eat and drink where the locals do rather than the mai
           content: `Iceland sits on the Mid-Atlantic Ridge -- the boundary between the North American and Eurasian tectonic plates. You can stand in the gap between two continents at Þingvellir National Park, watching the canyon walls slowly drift apart at a rate you can measure with your own feet. The geology is not historical; it\'s happening now. Geysers erupt on schedule. Waterfalls thunder. Lava fields from eruptions in the 2010s are still bare rock. The Blue Lagoon (despite being touristy) is genuinely extraordinary -- the silicate water at 38°C against 5°C air temperature in a black volcanic landscape. Outside the Golden Circle (the tourist circuit of Þingvellir, Geysir, and Gullfoss), Iceland opens up: the Westfjords in the northwest are barely visited, the snout of Vatnajökull glacier is accessible for ice hiking, the East Fjords fishing villages have some of the best lobster in the country.`,
           items: [
             'Ring Road (Route 1): The 1,332km circuit around the island -- allow 10-14 days minimum. The road is fully paved now but weather windows in the highlands (F-roads) are June-September only',
-            'Northern lights: September to March, check the Icelandic Met Office aurora forecast daily -- the KP index needs to be 3+ for visible lights from Reykjavik',
+            'Northern lights: September to March, check the Icelandic Met Office aurora forecast daily -- use current cloud and aurora forecasts rather than a single guaranteed visibility threshold',
             'Midnight sun: May-August -- the sun barely sets. Sleep with an eye mask. The quality of 11pm light is unlike anything.',
             'Swimming pools: Entry to Reykjavik\'s Sundlaugsvegurtunin is 920 ISK -- the hot pots (37-44°C) are central to Icelandic social life and completely different from the Blue Lagoon experience',
           ],
         },
         {
           title: 'Best Time to Visit',
-          content: `June-August for midnight sun, accessible highlands, and the most reliable driving conditions. August is the warmest (10-15°C) but also the wettest and most crowded. September-March for northern lights, winter landscapes, and lower prices (outside Christmas). February is the darkest month (5 hours of daylight) but aurora probability is highest and ice cave tours (into Vatnajökull glacier) are at their best. May and October offer a balance: longer days, fewer crowds, northern lights beginning/ending, highland roads closed.`,
+          content: `June-August for midnight sun, accessible highlands, and the most reliable driving conditions. August is the warmest (10-15°C) but also the wettest and most crowded. September-March for a winter-landscape trip; northern lights depend on conditions and accommodation prices need checking. Check daylight, cloud cover and current ice-cave access for your exact dates; no month guarantees an aurora sighting or a safe ice-cave visit. May and October offer a balance: longer days, fewer crowds, northern lights beginning/ending, highland roads closed.`,
         },
         {
           title: 'What It Costs',
@@ -709,7 +708,7 @@ The city rewards those who eat and drink where the locals do rather than the mai
         },
         {
           title: 'Best Time to Visit',
-          content: `April to October is the dry season and the best window: 27-31°C, low humidity, blue skies. August is peak season and the busiest -- book accommodation months ahead for Ubud and the south. July has the best combination of weather and events. Wet season (November-March) brings daily tropical downpours (usually afternoon/evening) but the island is lush, green, and significantly cheaper -- Uluwatu\'s surf is at its best in December-February. Nyepi (Balinese New Year, typically March) is a day of complete silence -- the airport closes, everything stops.`,
+          content: `April to October is the dry season and the best window: 27-31°C, low humidity, blue skies. August is peak season and the busiest -- book accommodation months ahead for Ubud and the south. July has the best combination of weather and events. Wet season (November-March) brings daily tropical downpours (usually afternoon/evening) so check the forecast and specific activity conditions -- Uluwatu\'s surf is at its best in December-February. Nyepi (Balinese New Year, typically March) is a day of complete silence -- the airport closes, everything stops.`,
         },
         {
           title: 'What It Costs',
@@ -735,7 +734,7 @@ The city rewards those who eat and drink where the locals do rather than the mai
         },
         {
           title: 'What It Costs',
-          content: `Stockholm is expensive. A mid-range restaurant meal SEK 200-350 (~$19-33 USD). Tunnelbana single ticket SEK 39 (~$3.70). A beer SEK 75-95 (~$7-9). Mid-range hotel SEK 1,500-2,800/night (~$140-265). The Stockholm Card covers public transport and museums. Budget tip: dagens rätt (daily special) at most restaurants is SEK 120-150 including drink, salad, and coffee.`,
+          content: `Stockholm is expensive. A mid-range restaurant meal SEK 200-350 (~$19-33 USD). Tunnelbana single ticket SEK 39 (~$3.70). A beer SEK 75-95 (~$7-9). Mid-range hotel SEK 1,500-2,800/night (~$140-265). Check current sightseeing-pass products and transport coverage separately. Budget tip: dagens rätt (daily special) at most restaurants is SEK 120-150 including drink, salad, and coffee.`,
         },
       ],
     },
@@ -752,7 +751,7 @@ The city rewards those who eat and drink where the locals do rather than the mai
         },
         {
           title: 'Best Time to Visit',
-          content: `June to September is ideal: 20-27°C, long evenings by the lake, open-air cinema. December brings Christmas markets and mulled wine (0-5°C). January-February are grey and cold but hotel prices drop 20-30%. May and October are shoulder months with fewer tourists and crisp days.`,
+          content: `June to September is ideal: 20-27°C, long evenings by the lake, open-air cinema. December brings Christmas markets and mulled wine (0-5°C). January-February are grey and cold so compare the actual room offers for your dates. May and October are shoulder months with fewer tourists and crisp days.`,
         },
         {
           title: 'What It Costs',
@@ -794,7 +793,7 @@ The city rewards those who eat and drink where the locals do rather than the mai
         },
         {
           title: 'Best Time to Visit',
-          content: `June-August for midnight sun, accessible highlands, and puffin colonies. September-March for northern lights -- check vedur.is for aurora forecasts. February is darkest but has highest aurora probability. May and October are shoulder months with moderate prices.`,
+          content: `June-August for midnight sun, accessible highlands, and puffin colonies. September-March for northern lights -- check vedur.is for aurora forecasts. Check cloud cover and the aurora forecast for the actual night; a month does not guarantee a sighting. May and October are shoulder months with moderate prices.`,
         },
         {
           title: 'What It Costs',
@@ -806,7 +805,7 @@ The city rewards those who eat and drink where the locals do rather than the mai
       sections: [
         {
           title: 'Why Chicago Is America\'s Most Underestimated City',
-          content: `Chicago rebuilt itself from the Great Fire of 1871 into a city of architectural ambition. The skyline along Lake Michigan is one of the great urban views in North America, and the 28-mile lakefront park is a gift no other American city can match. The Art Institute holds Seurat\'s A Sunday on La Grande Jatte and Hopper\'s Nighthawks. The food scene is world-class: Italian beef sandwiches, Polish sausages, and the Randolph Street restaurant corridor in the West Loop. Chicago is friendlier, cleaner, and more liveable than any comparable American city.`,
+          content: `Chicago rebuilt itself from the Great Fire of 1871 into a city of architectural ambition. The skyline along Lake Michigan is one of the great urban views in North America, and the 28-mile lakefront park is a gift no other American city can match. The Art Institute holds Seurat\'s A Sunday on La Grande Jatte and Hopper\'s Nighthawks. The food scene is world-class: Italian beef sandwiches, Polish sausages, and the Randolph Street restaurant corridor in the West Loop. Choose the neighbourhoods and outings that suit your interests rather than a city ranking.`,
           items: [
             'Architecture boat tour: The Chicago Architecture Center\'s 90-minute river cruise ($47) is the best way to understand the city -- book the 10am slot',
             'Millennium Park: Free. The Bean is worth the photo. Pritzker Pavilion hosts free concerts all summer',
@@ -815,7 +814,7 @@ The city rewards those who eat and drink where the locals do rather than the mai
         },
         {
           title: 'Best Time to Visit',
-          content: `June to September: 22-30°C, lake beaches open, outdoor festivals every weekend. September is ideal -- warm days, cool nights, fewer crowds. October has fall colour. Winter (Dec-Mar) is harsh (-10 to -1°C) but hotel prices drop 30-40% and Christkindlmarket is atmospheric.`,
+          content: `June to September: 22-30°C, lake beaches open, outdoor festivals every weekend. September is ideal -- warm days, cool nights, fewer crowds. October has fall colour. Winter (Dec-Mar) is harsh (-10 to -1°C) so plan for cold conditions and check the dates of any Christmas market before booking.`,
         },
         {
           title: 'What It Costs',
@@ -837,7 +836,7 @@ The city rewards those who eat and drink where the locals do rather than the mai
         },
         {
           title: 'Best Time to Visit',
-          content: `June to October is prime Boston: 22-28°C, harbour walks, and outdoor dining. September-October is peak -- fall foliage in the surrounding areas, Harvard and MIT back in session giving the city intellectual energy, and the weather is crisp and clear. Summer (July-August) is warm and humid but the Charles River Esplanade is perfect for evening walks. Winter (December-March) is cold (-6 to 4°C) and snowy, but hotel prices drop significantly and the holiday season is atmospheric. April-May is unpredictable -- could be 18°C or a nor\'easter.`,
+          content: `June to October is prime Boston: 22-28°C, harbour walks, and outdoor dining. September-October is peak -- fall foliage in the surrounding areas, Harvard and MIT back in session giving the city intellectual energy, and the weather is crisp and clear. Summer (July-August) is warm and humid but the Charles River Esplanade is perfect for evening walks. Winter (December-March) is cold (-6 to 4°C) and snowy, so compare weather, events and dated accommodation offers. April-May is unpredictable -- could be 18°C or a nor\'easter.`,
         },
         {
           title: 'What It Costs',
@@ -879,7 +878,7 @@ The city rewards those who eat and drink where the locals do rather than the mai
         },
         {
           title: 'Best Time to Visit',
-          content: `June to September is prime: 22-30°C, outdoor patios along King Street West, and the Canadian National Exhibition (August). September has TIFF (Toronto International Film Festival) -- the city buzzes with energy. October brings fall colour to the Don Valley and High Park. Winter (December-March) is cold (-8 to 0°C) with regular snow, but hotel prices drop and the PATH underground network keeps you warm.`,
+          content: `June to September is prime: 22-30°C, outdoor patios along King Street West, and the Canadian National Exhibition (August). September has TIFF (Toronto International Film Festival) -- the city buzzes with energy. October brings fall colour to the Don Valley and High Park. Winter (December-March) is cold (-8 to 0°C) with regular snow, so plan around cold weather and check the access hours of any indoor route.`,
         },
         {
           title: 'What It Costs',
@@ -904,7 +903,7 @@ The city rewards those who eat and drink where the locals do rather than the mai
         },
         {
           title: 'What It Costs',
-          content: `Vancouver is expensive by Canadian standards. A restaurant main CAD $22-40 (~$16-30 USD). SkyTrain single fare CAD $3.15-5.05. Craft beer CAD $8-10. Mid-range hotel CAD $200-350/night (~$150-260 USD). Grouse Mountain gondola CAD $65. Stanley Park is free. Granville Island is free to browse. The Vancouver CityPass ($89 CAD) covers Capilano Suspension Bridge, FlyOver Canada, and more. Daily budget: CAD $130-220 ($100-165 USD) comfortable.`,
+          content: `Vancouver is expensive by Canadian standards. A restaurant main CAD $22-40 (~$16-30 USD). SkyTrain single fare CAD $3.15-5.05. Craft beer CAD $8-10. Mid-range hotel CAD $200-350/night (~$150-260 USD). Grouse Mountain gondola CAD $65. Stanley Park is free. Granville Island is free to browse. Compare individual attraction tickets with the inclusions of any currently advertised pass. Daily budget: CAD $130-220 ($100-165 USD) comfortable.`,
         },
       ],
     },
@@ -921,11 +920,11 @@ The city rewards those who eat and drink where the locals do rather than the mai
         },
         {
           title: 'Best Time to Visit',
-          content: `June to September is Portland\'s golden window: 22-30°C, almost zero rain, and the city moves outdoors. July and August are peak -- the Portland Rose Festival (June), Waterfront Blues Festival (July), and beer gardens everywhere. September is ideal: warm, fewer crowds, and hop harvest season for beer lovers. October has spectacular fall colour and the Oregon Brewers Festival. Winter (November-March) is grey, drizzly, and 3-8°C -- but hotel prices drop 30-40% and the city\'s coffee and bookstore culture is at its coziest. April-May is unpredictable.`,
+          content: `June to September is Portland\'s golden window: 22-30°C, almost zero rain, and the city moves outdoors. July and August are peak -- the Portland Rose Festival (June), Waterfront Blues Festival (July), and beer gardens everywhere. September is ideal: warm, fewer crowds, and hop harvest season for beer lovers. October has spectacular fall colour and the Oregon Brewers Festival. Winter (November-March) is grey, drizzly, and 3-8°C -- so compare dated accommodation offers and plan indoor alternatives. April-May is unpredictable.`,
         },
         {
           title: 'What It Costs',
-          content: `Portland is moderate and tax-free (Oregon has no sales tax). Food cart meal $8-14. Restaurant dinner $18-35. MAX Light Rail from airport $2.50. Craft pint $6-8. Mid-range hotel $140-250/night. Powell\'s is free. Forest Park is free. The Portland CityPASS ($59) covers zoo, gardens, and more. Daily budget: $90-160 comfortable.`,
+          content: `Check the taxes and fees on the actual accommodation or activity quote rather than treating a Portland stay as tax-free. Food cart meal $8-14. Restaurant dinner $18-35. MAX Light Rail from airport $2.50. Craft pint $6-8. Mid-range hotel $140-250/night. Powell\'s is free. Forest Park is free. Check individual attraction admissions and any current pass inclusions before paying. Daily budget: $90-160 comfortable.`,
         },
       ],
     },
@@ -933,7 +932,7 @@ The city rewards those who eat and drink where the locals do rather than the mai
       sections: [
         {
           title: 'Why Denver Is the Mile-High City That Actually Delivers',
-          content: `Denver sits exactly one mile (1,609 metres) above sea level, and the altitude is real -- you\'ll feel it climbing stairs on your first day. But the thin air also means 300 days of sunshine a year and some of the clearest skies in America. The city has reinvented itself from a cowtown into a food and craft beer capital: the RiNo (River North Art District) is a former industrial zone now packed with breweries, street art, and the Denver Central Market food hall. Union Station, the beautifully restored 1914 train terminal, is now the city\'s living room with restaurants, bars, and a boutique hotel. And the Rocky Mountains are visible from downtown, 30 minutes to world-class hiking and 90 minutes to ski resorts.`,
+          content: `Denver sits exactly one mile (1,609 metres) above sea level, and the altitude is real -- you\'ll feel it climbing stairs on your first day. Altitude is not a weather forecast; check conditions before planning a mountain outing. The city has reinvented itself from a cowtown into a food and craft beer capital: the RiNo (River North Art District) is a former industrial zone now packed with breweries, street art, and the Denver Central Market food hall. Union Station, the beautifully restored 1914 train terminal, is now the city\'s living room with restaurants, bars, and a boutique hotel. And the Rocky Mountains are visible from downtown, 30 minutes to world-class hiking and 90 minutes to ski resorts.`,
           items: [
             'Red Rocks Amphitheatre: Even without a concert, the park is free to visit and the Trading Post Trail (1.4 miles) loops through the formations. Sunrise here is extraordinary',
             'Denver Central Market: RiNo\'s food hall -- grab a seat at the communal tables. The tamale counter and the rotisserie chicken are the best bets. Open daily',
@@ -958,12 +957,12 @@ The city rewards those who eat and drink where the locals do rather than the mai
           items: [
             'Nairobi National Park: Half-day game drive, $43 USD for non-residents. You can see lions with skyscrapers in the background. Arrive at 6am gate opening for best wildlife',
             'Carnivore Restaurant: The original "beast of a feast" -- ostrich, crocodile, and game meats grilled on Maasai swords. Set menu $35-45 USD. The Simba Saloon bar next door is less touristy',
-            'Maasai Market: Rotates locations by day of week (Tuesday: High Court, Thursday: Nakumatt Junction, Saturday: High Court). Arrive early, bargain hard -- start at 40% of asking price',
+            'Maasai Market: Confirm the current location and agree a price you are comfortable paying, without a fixed bargaining formula',
           ],
         },
         {
           title: 'Best Time to Visit',
-          content: `June to October is the dry season and the best time: 15-25°C, clear skies, and the Great Migration begins in the Maasai Mara (July-October). January-February is also dry and warm (20-28°C). The long rains (March-May) bring heavy afternoon downpours and muddy roads. November-December has short rains -- lighter but unpredictable. The altitude (1,795m) means nights are cool year-round (10-15°C). July-August is peak safari season and hotel prices are highest.`,
+          content: `June to October is the dry season and the best time: 15-25°C, clear skies, and the Great Migration begins in the Maasai Mara (July-October). January-February is also dry and warm (20-28°C). The long rains (March-May) bring heavy afternoon downpours and muddy roads. November-December has short rains -- lighter but unpredictable. The altitude (1,795m) means nights are cool year-round (10-15°C). For a July-August safari, compare actual camp and hotel availability and prices.`,
         },
         {
           title: 'What It Costs',
@@ -975,7 +974,7 @@ The city rewards those who eat and drink where the locals do rather than the mai
       sections: [
         {
           title: 'Why San Francisco Is Still America\'s Most Interesting City',
-          content: `San Francisco operates on a different frequency than the rest of America. The hills are real -- some streets hit 31-degree grades, and the cable cars (the only mobile National Historic Landmark) still climb them daily. The Golden Gate Bridge is the most photographed structure in the world for good reason: walk or bike across on a clear morning when the fog burns off and the Pacific opens up below. The Mission District has the best burritos in the country (La Taqueria vs Taqueria Cancún is the local debate), the Ferry Building Saturday farmers market is a cathedral of California produce, and Dolores Park on a sunny afternoon is where the city gathers. Tech money has changed the city, but the fog, the views, the food, and the walkability remain unbeatable.`,
+          content: `San Francisco operates on a different frequency than the rest of America. The hills are real -- some streets hit 31-degree grades, and the cable cars (the only mobile National Historic Landmark) still climb them daily. The Golden Gate Bridge is a landmark for good reason: walk or bike across on a clear morning when the fog burns off and the Pacific opens up below. The Mission District has the best burritos in the country (La Taqueria vs Taqueria Cancún is the local debate), the Ferry Building Saturday farmers market is a cathedral of California produce, and Dolores Park on a sunny afternoon is where the city gathers. Tech money has changed the city, but the fog, the views, the food, and the walkability remain unbeatable.`,
           items: [
             'Golden Gate Bridge: Walk or bike from the Marina side (parking at Crissy Field). Best in morning before 10am when fog clears. Bikes from Blazing Saddles $35-45/day',
             'Mission burrito: La Taqueria (2889 Mission) -- the carne asada super burrito. Cash only, line moves fast. Or Taqueria Cancún for the al pastor',
@@ -1005,7 +1004,7 @@ The city rewards those who eat and drink where the locals do rather than the mai
         },
         {
           title: 'Best Time to Visit',
-          content: `June to August is peak St. Petersburg: 18-23°C, White Nights, and the city at its most alive. July is warmest. September is quieter with golden light and lower prices. May has long days but can be cold (8-15°C). Winter (November-March) is harsh: -8 to -2°C, short days (5-6 hours of daylight in December), and grey skies -- but the Hermitage is emptier, hotel prices drop 40-50%, and the frozen canals are atmospheric. April is slushy and not recommended.`,
+          content: `June to August is peak St. Petersburg: 18-23°C, White Nights, and the city at its most alive. July is warmest. September is quieter with golden light and different seasonal conditions. May has long days but can be cold (8-15°C). Winter (November-March) is harsh: -8 to -2°C, short days (5-6 hours of daylight in December), and grey skies -- so check current access, transport and room offers for your dates. April is slushy and not recommended.`,
         },
         {
           title: 'What It Costs',
@@ -1018,30 +1017,34 @@ The city rewards those who eat and drink where the locals do rather than the mai
 
   const bestMonths = guide.stats.find(s => s.label.includes('Best'))?.value || 'the warmer months'
   const flightTime = guide.stats.find(s => s.label.includes('Flight') || s.label.includes('flight'))?.value
-  const avgTemp = guide.stats.find(s => s.label.includes('Temp') || s.label.includes('temp'))?.value
 
   const defaultContent = {
     sections: [
       {
         title: `Planning Your ${guide.title} Trip`,
-        content: `${guide.title}, ${guide.subtitle}, is a ${guide.theme.toLowerCase()} destination best visited during ${bestMonths}.${avgTemp ? ` Expect average temperatures around ${avgTemp}.` : ''} ${flightTime ? `Flight time from most European hubs is approximately ${flightTime}.` : ''} This guide provides the essential framework for planning — use the flight-time tools and booking links below to explore departure options and check current prices on supplier sites.`,
+        content: `${guide.title}, ${guide.subtitle}, is an option for a ${guide.theme.toLowerCase()} trip. The catalog’s editorial month window is ${bestMonths}; it is not a forecast or a promise of a discount. Use the flight-time tools and booking links below to explore departure options and check current prices on supplier sites.`,
         items: [
-          `Best time to go: ${bestMonths}${avgTemp ? ` — average temperature ${avgTemp}` : ''}`,
-          `${flightTime ? `Flight time: ${flightTime} from major European hubs` : 'Explore departure options using the flight tools below'}`,
+          `Editorial month window: ${bestMonths}`,
+          `${flightTime ? `Catalog flight-time estimate: ${flightTime}; origin unspecified — check your route` : 'Explore departure options using the flight tools below'}`,
           `Travel style: ${guide.tags.join(', ')}`,
         ],
       },
       {
         title: 'Best Time to Visit',
-        content: `The ideal window for ${guide.title} is ${bestMonths}. Travelling during these months typically means the best combination of weather, availability, and reasonable pricing. Shoulder months on either side of peak season can offer significant savings with only marginal weather trade-offs. Always check current conditions before booking — seasonal patterns vary year to year.`,
+        content: `Use ${bestMonths} as an editorial starting point for ${guide.title}, then check weather, events and access for your dates. A month window does not establish a hotel discount or a quiet attraction. Compare dated offers and cancellation terms, and check the specific places you want to visit before committing.`,
       },
       {
         title: 'Getting There & Getting Around',
-        content: `${guide.title} is served by major international routes${flightTime ? ` with flight times of approximately ${flightTime} from European hubs` : ''}. Once there, public transport, ride-sharing, and local tour operators cover most visitor needs. Use the flight-time tools and booking links below to explore departure options and compare current prices on supplier sites.`,
+        content: `Check the gateway and onward journey for the part of ${guide.title} you want to visit; do not assume an airport or transport service is nearby. Confirm the return trip as well as the outward route, especially for an evening or remote stay. Use the flight-time tools and booking links below to explore departure options and check current prices on supplier sites.`,
       },
     ],
   }
 
-  return content[guide.id] || defaultContent
+  const article = content[guide.id] || defaultContent
+  return {
+    sections: article.sections.map(section => section.title === 'What It Costs' && /\d/.test(section.content)
+      ? { ...section, content: `Rough, undated planning estimates — not current supplier quotes. Check the supplier’s current total, currency and inclusions before budgeting.\n\n${section.content}` }
+      : section),
+  }
 }
 

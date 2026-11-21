@@ -56,6 +56,9 @@ async function finderNodes(month) {
     '@/components/Navbar': inline('export const Navbar = "Navbar"'),
     '@/components/NewsletterSignup': inline('export const NewsletterSignup = "NewsletterSignup"'),
     '@/components/GolfReason': inline('export const GolfReason = "GolfReason"'),
+    '@/components/GolfEmblem': inline(wire(await read('src/components/GolfEmblem.tsx'), {
+      'react/jsx-runtime': inline('export const jsx = (type, props) => ({type, props}); export const jsxs = jsx;'),
+    })),
     '@/data/golfOperationalNotices': inline('export const GOLF_OPERATIONAL_NOTICES = {}'),
     '@/lib/golfDiscovery': discoveryModule, './GolfZone.module.css': inline('export default {}'),
   })

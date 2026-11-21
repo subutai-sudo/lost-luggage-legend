@@ -44,7 +44,7 @@ for (const slug of ['london', 'antalya']) {
     })
     expect(order).toEqual({ flightAfterArticle: true, bookingAfterFlight: true })
     const flightLink = page.getByRole('link', { name: /Compare Flights/ })
-    await expect(flightLink).toHaveAttribute('href', '/plan#compare-prices')
+    await expect(flightLink).toHaveAttribute('href', `/plan?destination=${slug}#compare-prices`)
     await flightLink.click()
     await expect(page.locator('#compare-prices')).toBeInViewport()
   })

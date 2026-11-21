@@ -6,6 +6,7 @@ import Link from 'next/link'
 import { Navbar } from '@/components/Navbar'
 import { NewsletterSignup } from '@/components/NewsletterSignup'
 import { GolfReason } from '@/components/GolfReason'
+import { GolfEmblem } from '@/components/GolfEmblem'
 import { GOLF_OPERATIONAL_NOTICES } from '@/data/golfOperationalNotices'
 import {
   getGolfMonthPreviews, getGolfMonthSelection, MONTH_NAMES, readGolfMonth,
@@ -88,7 +89,7 @@ export function GolfZone({ courses, initialMonth, catalog }: Props) {
   }
 
   return (
-    <div className={styles.root} data-golf-zone data-ready={ready}>
+    <div className={styles.root} data-golf-zone data-design-edition="golf" data-ready={ready}>
       <a className={styles.skip} href="#month-picker">Skip to month picker</a>
       <main id="main-content">
         <section className={styles.hero} data-golf-hero aria-label="Golf Goldilocks Zone course finder">
@@ -108,6 +109,11 @@ export function GolfZone({ courses, initialMonth, catalog }: Props) {
             <Navbar appearance="cinematic" brandAppearance="cinematic" />
           </div>
           <div className={styles.heroInner}>
+            <div className={styles.clubhouseImprint} data-golf-edition aria-hidden="true">
+              <GolfEmblem className={styles.golfEmblem} />
+              <span className={styles.editionLabel}>The golf edition</span>
+              <span className={styles.editionDetail}>Seasonal course field notes</span>
+            </div>
             <div className={styles.heroStory}>
               <p className={styles.eyebrow}>Golf Goldilocks Zone</p>
               <h1 className={styles.heroTitle}>{featured.name}</h1>
@@ -121,7 +127,7 @@ export function GolfZone({ courses, initialMonth, catalog }: Props) {
               </p>
             </div>
             <div className={styles.heroPhotoNote} data-golf-hero-credit>
-              <span>{photoKind(featured)}</span>
+              <span>{photoKind(featured)}{!featured.media.photo && ` · ${featured.name}`}</span>
               <PhotoCredit course={featured} />
             </div>
             <div className={styles.heroFoot}>
@@ -136,6 +142,10 @@ export function GolfZone({ courses, initialMonth, catalog }: Props) {
 
         <section className={styles.calendar} aria-labelledby="month-picker">
           <div className={styles.calendarInner}>
+            <div className={styles.calendarLedger} data-golf-calendar-ledger aria-hidden="true">
+              <span>Golf Goldilocks Zone / Seasonal ledger</span>
+              <span>12 months · 6 picks per month</span>
+            </div>
             <div className={styles.calendarHead}>
               <div>
                 <p className={styles.eyebrow}>When could you play?</p>
@@ -209,6 +219,7 @@ export function GolfZone({ courses, initialMonth, catalog }: Props) {
               {shortlist.map(course => (
                 <article key={course.id} className={styles.card} data-golf-card={course.id}>
                   <Link href={`/golf/${course.id}`} className={styles.cardFigure} aria-label={`Explore the ${course.name} golf guide`}>
+                    {!course.media.photo && <GolfEmblem className={styles.cardEmblem} />}
                     {course.media.photo && <Image
                       className={styles.cardImage}
                       src={course.media.photo.src}
@@ -227,6 +238,9 @@ export function GolfZone({ courses, initialMonth, catalog }: Props) {
                     {course.media.photo ? <PhotoCredit course={course} /> : 'No course photograph is available. Explore the publisher’s gallery through Course visuals.'}
                   </div>
                   <div className={styles.cardBody}>
+                    <p className={styles.cardImprint} data-golf-card-imprint aria-hidden="true">
+                      <span>Course field notes</span><span>{MONTH_NAMES[month - 1]}</span>
+                    </p>
                     <p className={styles.cardCharacter}>{course.character}</p>
                     <h3 className={styles.cardTitle}>
                       <Link href={`/golf/${course.id}`}>{course.name}</Link>

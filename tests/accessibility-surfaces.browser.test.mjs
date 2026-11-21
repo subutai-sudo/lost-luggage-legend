@@ -159,7 +159,7 @@ for (const theme of ['light', 'dark']) {
       await page.setViewportSize({ width: 320, height: 844 })
       await page.goto('/plan')
       await settleTheme(page, theme)
-      await readable(page.getByText('Your next chapter', { exact: true }), 'plan eyebrow')
+      await readable(page.getByText('From the first idea to take-off', { exact: true }), 'plan eyebrow')
       const nav = page.getByRole('navigation', { name: 'Trip planning links' })
       for (const link of await nav.getByRole('link').all()) {
         const rect = await link.boundingBox()
@@ -191,7 +191,7 @@ for (const theme of ['light', 'dark']) {
       await settleTheme(page, theme)
       const comparison = page.locator('[data-guide-comparison]')
       const action = comparison.getByRole('link', { name: /Compare Flights/ })
-      await expect(action).toHaveAttribute('href', '/plan#compare-prices')
+      await expect(action).toHaveAttribute('href', '/plan?destination=lisbon#compare-prices')
       await readable(action.getByText('Compare Flights', { exact: true }), 'ordinary Compare Flights action')
       for (const [supplier, color] of [['GetYourGuide', 'rgb(255, 90, 95)'], ['Tripadvisor', 'rgb(52, 224, 161)']]) {
         const mark = comparison.getByText(supplier, { exact: true })

@@ -1,0 +1,84 @@
+.notes {
+  min-width: 0;
+  padding-block: 48px;
+  border-top: 1px solid var(--guide-line, #82927755);
+  color: var(--guide-ink, #1d241f);
+  scroll-margin-top: 88px;
+}
+
+.notes .eyebrow {
+  margin: 0 0 16px;
+  color: var(--guide-muted, #59634f);
+  font-size: 13px;
+  line-height: 1.6;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.notes h2 {
+  margin: 0 0 32px;
+  color: var(--guide-ink, #1d241f);
+  font-family: var(--guide-serif, Georgia, 'Times New Roman', serif);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -.03em;
+}
+
+.note + .note { margin-top: 28px; }
+
+.note h3 {
+  margin: 0 0 10px;
+  color: var(--guide-ink, #1d241f);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.note p {
+  margin: 0;
+  max-width: 70ch;
+  font-size: 16px;
+  line-height: 1.85;
+  overflow-wrap: break-word;
+}
+
+.sources {
+  margin-top: 32px;
+  padding: 16px 20px;
+  border: 1px solid var(--guide-line, #82927755);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.sources summary {
+  min-height: 28px;
+  padding-block: 4px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.sources p { margin-block: 12px; }
+.sources ul { margin: 0; padding-left: 20px; }
+.sources li + li { margin-top: 14px; }
+.sources a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  overflow-wrap: anywhere;
+}
+.sources span {
+  display: block;
+  color: var(--guide-muted, #59634f);
+  font-size: 13px;
+}
+.sources a:focus-visible,
+.sources summary:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+}
+
+@media (max-width: 639px) {
+  .notes { padding-block: 32px; }
+  .sources { padding: 12px; }
+}

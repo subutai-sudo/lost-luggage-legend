@@ -9,6 +9,7 @@ import {
   ZoomableGroup,
 } from 'react-simple-maps'
 import { DESTINATION_GUIDES } from '@/data/destinationGuides'
+import styles from './GoldilockZone.module.css'
 import {
   isInGoldilockZoneForRange,
   isComingIntoSeason,
@@ -172,21 +173,20 @@ export function GoldilockZone() {
   }
 
   return (
-    <section id="goldilock" className="py-20 lg:py-28 bg-[#f9f6f0]">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        <div className="text-center mb-12">
-          <h2 className="font-display text-5xl font-bold text-[#2c2520] mb-3">
-            The Goldilock Zone
-          </h2>
-          <p className="text-[#6b5e52] max-w-2xl mx-auto">
-            Not too hot. Not too crowded. Not too expensive.<br />
-            These destinations are in their ideal travel window.
-          </p>
+    <section id="goldilock" className={styles.root} data-inflight-explorer>
+      <div className={styles.console}>
+        <div className={styles.screenHeader}>
+          <div><p className={styles.eyebrow}>LLL / Destination explorer</p><h2>Your next point of view.</h2></div>
+          <p className={styles.mode}>Editorial travel seasons<br /><strong>Not live flight tracking</strong></p>
         </div>
+        <ol className={styles.journey} aria-label="How to explore">
+          <li><span>01</span> Choose your dates</li><li><span aria-hidden="true">✈</span> Explore places</li><li><span>03</span> Open a guide</li>
+        </ol>
 
         {/* Controls */}
-        <div className="flex flex-col items-center gap-6 mb-10">
-          <div className="flex gap-3 flex-wrap justify-center">
+        <div className={styles.controls}>
+          <p className={styles.panelLabel}>Your travel window</p>
+          <div className={styles.actions}>
             {[
               { label: 'Next 30 days', days: 30 },
               { label: 'Next 3 months', days: 90 },
@@ -200,43 +200,48 @@ export function GoldilockZone() {
                   setFromDate(from.toISOString().split('T')[0])
                   setToDate(to.toISOString().split('T')[0])
                 }}
-                className="px-5 py-2 text-sm rounded-full border border-amber-300 hover:bg-white transition-colors"
+                className={styles.preset}
               >
                 {preset.label}
               </button>
             ))}
             <button
               onClick={surpriseMe}
-              className="px-6 py-2 bg-[#2c2520] hover:bg-amber-800 text-white rounded-full text-sm font-medium transition-colors"
+              className={styles.surprise}
             >
               Surprise Me ✨
             </button>
           </div>
 
-          <div className="flex gap-6">
+          <div className={styles.dates}>
             <div>
-              <div className="text-xs text-amber-700 font-medium mb-1">FROM</div>
+              <label className={styles.dateLabel} htmlFor="explore-from">FROM</label>
               <input
                 type="date"
+                id="explore-from"
+                aria-label="From date"
                 value={fromDate}
                 onChange={(e) => setFromDate(e.target.value)}
-                className="px-4 py-3 border border-amber-200 rounded-2xl focus:border-amber-500 text-sm"
+                className={styles.dateInput}
               />
             </div>
             <div>
-              <div className="text-xs text-amber-700 font-medium mb-1">TO</div>
+              <label className={styles.dateLabel} htmlFor="explore-to">TO</label>
               <input
                 type="date"
+                id="explore-to"
+                aria-label="To date"
                 value={toDate}
                 onChange={(e) => setToDate(e.target.value)}
-                className="px-4 py-3 border border-amber-200 rounded-2xl focus:border-amber-500 text-sm"
+                className={styles.dateInput}
               />
             </div>
           </div>
         </div>
 
         {/* Tabs */}
-        <div className="flex justify-center gap-2 mb-8">
+        <div className={styles.tabs} role="group" aria-label="Destination season filters">
+          <p className={styles.panelLabel}>Places on this view</p>
           {[
             { key: 'in-season' as const, label: 'In Season Now', color: 'amber' },
             { key: 'coming' as const, label: 'Coming Soon', color: 'blue' },
@@ -245,18 +250,16 @@ export function GoldilockZone() {
             <button
               key={tab.key}
               onClick={() => setActiveTab(tab.key)}
-              className={`px-6 py-2.5 rounded-2xl text-sm font-medium transition-all ${
-                activeTab === tab.key
-                  ? 'bg-[#2c2520] text-white shadow'
-                  : 'bg-white border border-amber-200 hover:bg-amber-50'
-              }`}
+              aria-pressed={activeTab === tab.key}
+              className={styles.tab}
             >
               {tab.label} ({tabCounts[tab.key]})
             </button>
           ))}
         </div>
 
-        <div className="relative bg-white rounded-3xl shadow border border-amber-100 overflow-hidden" style={{ height: '560px' }}>
+        <div className={styles.viewport}>
+          <div className={styles.mapStatus}><span>World view / drag to explore</span><span><strong data-map-count>{filteredGuides.length}</strong> places</span></div>
           <ComposableMap
             projection="geoNaturalEarth1"
             projectionConfig={{ scale: 170, center: [15, 5] }}
@@ -274,8 +277,8 @@ export function GoldilockZone() {
                     <Geography
                       key={geo.rsmKey}
                       geography={geo}
-                      fill="#f5f0e8"
-                      stroke="#e8d9c8"
+                      fill="#526e7f"
+                      stroke="#91abba"
                       strokeWidth={0.6}
                     />
                   ))
@@ -347,7 +350,7 @@ export function GoldilockZone() {
           {/* Tooltip */}
           {tooltip && (
             <div
-              className="absolute pointer-events-none bg-white shadow-lg px-4 py-2 rounded-2xl text-sm font-medium border border-amber-200 z-50"
+              className={styles.tooltip}
               style={{
                 left: '50%',
                 top: '60px',
@@ -359,7 +362,7 @@ export function GoldilockZone() {
           )}
 
           {/* Legend */}
-          <div className="absolute bottom-6 left-6 bg-white/95 backdrop-blur-sm px-5 py-3 rounded-2xl shadow border border-amber-100 text-xs flex gap-5">
+          <div className={styles.legend}>
             <div className="flex items-center gap-2">
               <div className="w-3 h-3 rounded-full bg-[#d97706]"></div>
               <span>In Season</span>
@@ -374,6 +377,7 @@ export function GoldilockZone() {
             </div>
           </div>
         </div>
+        <p className={styles.screenFoot}>Seasonal windows are editorial guidance—not live weather, crowd levels, prices or flight routes. Select a destination marker to read its guide.</p>
       </div>
     </section>
   )

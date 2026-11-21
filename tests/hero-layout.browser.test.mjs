@@ -14,15 +14,22 @@ for (const width of [320, 390, 768, 1440]) {
       const hero = document.querySelector('[data-hero-scene]')
       const band = document.querySelector('[data-calendar-band]')
       const image = document.querySelector('[data-hero-image]')
+      const window = document.querySelector('[data-window-well]')
       const jump = document.querySelector('a[href="#month-picker"]:not([class*="skip"])')
       const caption = document.querySelector('[data-feature-link]').parentElement
-      return { hero: hero.getBoundingClientRect().toJSON(), band: band.getBoundingClientRect().toJSON(), image: image.getBoundingClientRect().toJSON(), jump: jump.getBoundingClientRect().toJSON(), caption: caption.getBoundingClientRect().toJSON(), nested: hero.contains(band), overflow: document.documentElement.scrollWidth, viewport: innerWidth }
+      return { hero: hero.getBoundingClientRect().toJSON(), band: band.getBoundingClientRect().toJSON(), image: image.getBoundingClientRect().toJSON(), window: window.getBoundingClientRect().toJSON(), windowWidth: window.clientWidth, windowHeight: window.clientHeight, jump: jump.getBoundingClientRect().toJSON(), caption: caption.getBoundingClientRect().toJSON(), nested: hero.contains(band), overflow: document.documentElement.scrollWidth, viewport: innerWidth }
     })
     expect(layout.nested, 'calendar must not be inside the photo frame').toBe(false)
     expect(layout.band.top, 'calendar must start below the complete splash image').toBeGreaterThanOrEqual(layout.hero.bottom - 1)
     expect(layout.hero.height, 'give the main photograph its own substantial frame').toBeGreaterThanOrEqual(480)
-    expect(layout.image.width).toBeGreaterThanOrEqual(layout.hero.width)
-    expect(layout.image.height).toBeGreaterThanOrEqual(layout.hero.height)
+    // The authorized window-seat composition replaces the full-bleed photo.
+    // Preserve a substantial real photograph filling its actual window well.
+    expect(layout.image.width).toBeGreaterThanOrEqual(190)
+    expect(layout.image.height).toBeGreaterThanOrEqual(250)
+    expect(layout.image.width).toBeGreaterThanOrEqual(layout.windowWidth - 1)
+    expect(layout.image.height).toBeGreaterThanOrEqual(layout.windowHeight - 1)
+    expect(layout.window.top).toBeGreaterThanOrEqual(layout.hero.top)
+    expect(layout.window.bottom).toBeLessThanOrEqual(layout.hero.bottom)
     expect(layout.caption.top).toBeGreaterThanOrEqual(layout.hero.top)
     expect(layout.caption.bottom).toBeLessThanOrEqual(layout.hero.bottom)
     expect(layout.jump.bottom).toBeLessThanOrEqual(layout.hero.bottom)

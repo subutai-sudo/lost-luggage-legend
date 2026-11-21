@@ -115,12 +115,18 @@ test('hero photograph keeps high priority, eager bytes and its approved photo', 
     naturalWidth: element.naturalWidth,
     dpr: devicePixelRatio,
     viewport: innerWidth,
+    windowWidth: element.closest('[data-aircraft-window]').getBoundingClientRect().width,
+    paintedWidth: element.getBoundingClientRect().width,
   }))
   expect(measured.complete).toBe(true)
   expect(measured.naturalWidth).toBeGreaterThan(0)
   const chosen = optimizerParams(measured.chosen, page.url())
   expect(chosen.source).toBe(`https://images.unsplash.com/${LEAD_PHOTOS[HERO_MONTH - 1]}${HERO_QUERY}`)
   expect(chosen.quality).toBe('75')
-  expect(chosen.width).toBe(nearestSupported(neededWidth(measured.viewport, measured.dpr)))
-  expect(chosen.width).toBeGreaterThanOrEqual(640)
+  // The approved window scene budgets its complete surround, not a full-bleed
+  // viewport. Keep independent pixel coverage for the photograph inside it.
+  expect(measured.windowWidth).toBeLessThan(measured.viewport)
+  expect(measured.paintedWidth).toBeGreaterThan(0)
+  expect(chosen.width).toBe(nearestSupported(neededWidth(measured.windowWidth, measured.dpr)))
+  expect(chosen.width).toBeGreaterThanOrEqual(neededWidth(measured.paintedWidth, measured.dpr))
 })

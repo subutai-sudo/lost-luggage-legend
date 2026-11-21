@@ -246,8 +246,8 @@ for (const width of [320, 390, 1440]) for (const theme of ['light', 'dark']) tes
     })
     expect(geometry.inside).toBe(true)
     expect(geometry.font).toBeGreaterThanOrEqual(13)
-    expect(geometry.color).toBe('rgb(243, 241, 233)')
-    expect(geometry.background).toBe('rgb(12, 33, 26)')
+    expect(geometry.color).toBe('rgb(246, 241, 230)')
+    expect(geometry.background).toBe('rgb(13, 48, 40)')
     if (photos[id]) await checkImage(button.locator('img'), id)
     else await expectNoImagery(button)
   }
