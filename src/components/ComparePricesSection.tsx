@@ -626,11 +626,11 @@ export function ComparePricesSection() {
         {/* Header */}
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 mb-4">
-            <span className="w-8 h-px bg-[#0891b2]"></span>
+            <span className={`${styles.divider} w-8 h-px`}></span>
             <span className={`${styles.eyebrow} text-xs font-semibold uppercase tracking-widest`}>
               {searchType === 'flights' ? 'Flight Search' : 'Hotel Search'}
             </span>
-            <span className="w-8 h-px bg-[#0891b2]"></span>
+            <span className={`${styles.divider} w-8 h-px`}></span>
           </div>
           <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight mb-4" style={{ color: 'var(--color-ink)' }}>
             Compare {searchType === 'flights' ? 'Flight' : 'Hotel'} Prices
@@ -897,8 +897,9 @@ export function ComparePricesSection() {
                 className="flex items-center gap-2 px-8 py-3 rounded-full font-semibold text-white transition-all disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-lg hover:scale-105"
                 style={{ 
                   background: isFormValid
-                    ? 'linear-gradient(135deg, #0e7490 0%, #155e75 100%)'
-                    : 'var(--color-muted)'
+                    ? 'var(--planning-action-bg)'
+                    : 'var(--color-muted)',
+                  color: isFormValid ? 'var(--planning-action-ink)' : 'white'
                 }}
               >
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -919,7 +920,7 @@ export function ComparePricesSection() {
         {hasSearched && supplierLinks.length > 0 && (
           <div className="max-w-4xl mx-auto">
             {/* Route Summary */}
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 p-4 rounded-xl border" style={{ borderColor: 'var(--color-accent)', backgroundColor: 'rgba(8, 145, 178, 0.05)' }}>
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 p-4 rounded-xl border" style={{ borderColor: 'var(--color-border)', backgroundColor: 'var(--color-bg-warm)' }}>
               <div>
                 <p className="text-sm font-medium" style={{ color: 'var(--color-ink)' }}>
                   {searchType === 'flights' ? 'Flights' : 'Hotels'}:{' '}
@@ -940,7 +941,7 @@ export function ComparePricesSection() {
                 <p className="text-xs uppercase tracking-wider" style={{ color: 'var(--color-muted)' }}>
                   Compare across
                 </p>
-                <p className="text-2xl font-bold" style={{ color: '#0891b2' }}>{supplierLinks.length} sites</p>
+                <p className="text-2xl font-bold" style={{ color: 'var(--planning-accent-text)' }}>{supplierLinks.length} sites</p>
               </div>
             </div>
             
@@ -966,8 +967,8 @@ export function ComparePricesSection() {
                       {/* Rank */}
                       <span className="w-6 h-6 flex items-center justify-center text-xs font-bold rounded-full" 
                         style={{ 
-                          backgroundColor: index === 0 ? '#0891b2' : 'var(--color-bg-subtle)',
-                          color: index === 0 ? 'white' : 'var(--color-muted)'
+                          backgroundColor: index === 0 ? 'var(--planning-action-bg)' : 'var(--color-bg-subtle)',
+                          color: index === 0 ? 'var(--planning-action-ink)' : 'var(--color-muted)'
                         }}>
                         {index + 1}
                       </span>
@@ -1008,10 +1009,10 @@ export function ComparePricesSection() {
                     
                     <div className="flex items-center gap-6">
                       {/* CTA */}
-                      <span className="hidden sm:inline-block px-4 py-2 rounded-lg text-sm font-semibold text-white" style={{ background: 'linear-gradient(135deg, #0e7490 0%, #155e75 100%)' }}>
+                      <span className="hidden sm:inline-block px-4 py-2 rounded-lg text-sm font-semibold text-white" style={{ background: 'var(--planning-action-bg)', color: 'var(--planning-action-ink)' }}>
                         Check Prices
                       </span>
-                      <span className="sm:hidden px-3 py-1.5 rounded-lg text-xs font-semibold text-white" style={{ background: 'linear-gradient(135deg, #0e7490 0%, #155e75 100%)' }}>
+                      <span className="sm:hidden px-3 py-1.5 rounded-lg text-xs font-semibold text-white" style={{ background: 'var(--planning-action-bg)', color: 'var(--planning-action-ink)' }}>
                         Check
                       </span>
                     </div>
@@ -1059,19 +1060,19 @@ export function ComparePricesSection() {
             {/* Trust Indicators */}
             <div className="flex flex-wrap items-center justify-center gap-6 mt-8 pt-8 border-t" style={{ borderColor: 'var(--color-border)' }}>
               <div className="flex items-center gap-2">
-                <svg className="w-5 h-5" style={{ color: '#0891b2' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="w-5 h-5" style={{ color: 'var(--planning-accent-text)' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
                 <span className="text-sm font-medium" style={{ color: 'var(--color-ink)' }}>Secure booking links</span>
               </div>
               <div className="flex items-center gap-2">
-                <svg className="w-5 h-5" style={{ color: '#0891b2' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="w-5 h-5" style={{ color: 'var(--planning-accent-text)' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                 </svg>
                 <span className="text-sm font-medium" style={{ color: 'var(--color-ink)' }}>Real prices from real sites</span>
               </div>
               <div className="flex items-center gap-2">
-                <svg className="w-5 h-5" style={{ color: '#0891b2' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="w-5 h-5" style={{ color: 'var(--planning-accent-text)' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
                 <span className="text-sm font-medium" style={{ color: 'var(--color-ink)' }}>No booking fees</span>

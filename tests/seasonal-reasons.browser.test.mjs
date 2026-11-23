@@ -66,6 +66,9 @@ for (const theme of ['light', 'dark']) {
       await page.setViewportSize({ width, height: 900 })
       await page.addInitScript(value => localStorage.setItem('lll-theme', value), theme)
       await page.goto('/?month=10')
+      await expect(page.locator('[data-goldilocks-home]')).toHaveAttribute('data-ready', 'true')
+      await expect(page.locator('[data-selected-month]')).toHaveText('October')
+      await expect(page.locator('[data-seasonal-note][data-seasonal-month="10"]')).toHaveCount(6)
       await expect(page.locator('[data-seasonal-note]')).toHaveCount(6)
       for (const note of await page.locator('[data-seasonal-note]').all()) {
         const summary = note.locator('summary')

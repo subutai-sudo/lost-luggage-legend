@@ -253,14 +253,16 @@ for (const theme of ['light', 'dark']) {
       await page.locator('#hotel-checkin').fill(date)
       const search = form.getByRole('button', { name: 'Search Hotels', exact: true })
       await expect(search).toBeEnabled()
+      await expect(search).toHaveCSS('background-color', theme === 'dark' ? 'rgb(224, 242, 155)' : 'rgb(20, 44, 59)')
+      await expect(search).toHaveCSS('color', theme === 'dark' ? 'rgb(20, 44, 59)' : 'rgb(245, 241, 231)')
+      await settle(search)
       const painted = await paint(search)
-      // White text must meet AA at BOTH opaque gradient endpoints.
-      const stops = [...painted.backgroundImage.matchAll(/rgb\((\d+), (\d+), (\d+)\)/g)].map(m => m.slice(1).map(Number))
-      expect(stops.length).toBeGreaterThanOrEqual(2)
-      for (const stop of stops) {
-        const l = stop.map(v => v / 255).map(v => v <= .04045 ? v / 12.92 : ((v + .055) / 1.055) ** 2.4).reduce((s, v, i) => s + v * [.2126, .7152, .0722][i], 0)
-        expect.soft(1.05 / (l + .05)).toBeGreaterThanOrEqual(4.5)
-      }
+      // The travel theme uses solid actions; measure their actual foreground
+      // and composited background rather than the retired cyan gradient.
+      expect(painted.backgroundImage).toBe('none')
+      expect(painted.background).toBe(theme === 'dark' ? 'rgb(224, 242, 155)' : 'rgb(20, 44, 59)')
+      expect(painted.color).toBe(theme === 'dark' ? 'rgb(20, 44, 59)' : 'rgb(245, 241, 231)')
+      expect.soft(painted.textContrast).toBeGreaterThanOrEqual(4.5)
     })
 
     test('always-mounted polite atomic status tracks generated links, later edits, mode and invalid dates without navigation', async ({ page }) => {

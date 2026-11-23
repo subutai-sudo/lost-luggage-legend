@@ -483,13 +483,13 @@ for (const width of [320, 390]) {
     const overflow = await page.evaluate(() => ({ width: document.documentElement.clientWidth, scroll: Math.max(document.documentElement.scrollWidth, document.body.scrollWidth) }))
     expect(overflow.scroll).toBeLessThanOrEqual(overflow.width + 1)
     const remove = namedButton(region, 'Remove Tokyo')
-    await remove.focus()
-    await page.keyboard.press(' ')
+    // Act on the element itself: focus and keydown resolve against the same live
+    // node, so a re-render between the two can no longer swallow the key press.
+    await remove.press(' ')
     await expect(namedButton(region, 'Remove Tokyo')).toHaveCount(0)
     await expect(namedButton(card(page, 'tokyo'), 'Save Tokyo')).toHaveAttribute('aria-pressed', 'false')
     const resave = namedButton(card(page, 'tokyo'), 'Save Tokyo')
-    await resave.focus()
-    await page.keyboard.press('Enter')
+    await resave.press('Enter')
     await expect(namedButton(card(page, 'tokyo'), 'Unsave Tokyo')).toHaveAttribute('aria-pressed', 'true')
     await page.keyboard.press(browserName === 'webkit' ? 'Alt+Tab' : 'Tab')
     expect(await page.evaluate(() => document.activeElement?.tagName)).not.toBe('BODY')
