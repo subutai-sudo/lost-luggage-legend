@@ -21,7 +21,23 @@ for (const width of [320, 390, 768, 1024, 1440]) for (const theme of ['light', '
       const sill = frame.querySelector('[data-window-sill]')
       const s = sill.getBoundingClientRect()
       const sillHit = document.elementFromPoint(s.x + s.width / 2, s.bottom - 6)
-      return { frame: frame.getBoundingClientRect().toJSON(), well: r.toJSON(), ticket: document.querySelector('[data-travel-ticket]').getBoundingClientRect().toJSON(), sillExposed: sill.contains(sillHit), radius: getComputedStyle(well).borderTopLeftRadius, windowExposed: well.contains(hit), width: innerWidth, scroll: document.documentElement.scrollWidth }
+      const scene = frame.getBoundingClientRect()
+      const face = getComputedStyle(frame, '::before')
+      const border = getComputedStyle(frame)
+      const trim = { left: scene.left + parseFloat(border.borderLeftWidth) + parseFloat(face.left), right: scene.right - parseFloat(border.borderRightWidth) - parseFloat(face.right), top: scene.top + parseFloat(border.borderTopWidth) + parseFloat(face.top), bottom: scene.bottom - parseFloat(border.borderBottomWidth) - parseFloat(face.bottom) }
+      const bands = [r.left - trim.left, trim.right - r.right, r.top - trim.top, trim.bottom - r.bottom]
+      const dimmer = frame.querySelector('[class*="windowDimmer"]')
+      const control = dimmer.getBoundingClientRect()
+      const face2 = getComputedStyle(dimmer), upper = getComputedStyle(dimmer, '::before'), lower = getComputedStyle(dimmer, '::after')
+      const luminance = value => (value.match(/[\d.]+/g) || Array(3).fill(0)).map(Number).slice(0, 3).map(v => {
+        v /= 255
+        return v <= .04045 ? v / 12.92 : ((v + .055) / 1.055) ** 2.4
+      }).reduce((sum, v, i) => sum + v * [.2126, .7152, .0722][i], 0)
+      const dots = [...dimmer.querySelectorAll('i')].map(dot => {
+        const b = dot.getBoundingClientRect()
+        return { width: b.width, height: b.height, left: b.left, right: b.right, top: b.top, bottom: b.bottom, centerY: (b.top + b.bottom) / 2, visible: getComputedStyle(dot).display !== 'none' && getComputedStyle(dot).visibility === 'visible' && getComputedStyle(dot).opacity !== '0' }
+      })
+      return { frame: scene.toJSON(), well: r.toJSON(), trim, bands, control: { ...control.toJSON(), centerY: (control.top + control.bottom) / 2, radius: face2.borderTopLeftRadius, upperHalf: parseFloat(upper.height), lowerHalf: parseFloat(lower.height), upperInk: luminance(upper.backgroundColor), lowerInk: luminance(lower.backgroundColor) }, dots, decorative: dimmer.getAttribute('aria-hidden') === 'true' && !dimmer.querySelector('button, a, input, [tabindex]'), ticket: document.querySelector('[data-travel-ticket]').getBoundingClientRect().toJSON(), sillExposed: sill.contains(sillHit), radius: getComputedStyle(well).borderTopLeftRadius, windowExposed: well.contains(hit), width: innerWidth, scroll: document.documentElement.scrollWidth }
     })
     expect(m.frame.width).toBeGreaterThanOrEqual(190)
     expect(m.frame.height).toBeGreaterThanOrEqual(250)
@@ -34,6 +50,39 @@ for (const width of [320, 390, 768, 1024, 1440]) for (const theme of ['light', '
     expect(m.sillExposed, 'lower sill is visible, not covered by ticket or glass').toBe(true)
     expect(m.windowExposed, 'top of destination photograph is not hidden behind ticket or type').toBe(true)
     expect(m.scroll).toBeLessThanOrEqual(m.width + 1)
+    expect(Math.min(...m.bands), 'continuous trim on all four sides').toBeGreaterThanOrEqual(18)
+    expect(Math.max(...m.bands) - Math.min(...m.bands), 'trim is even, not a projecting bottom bowl').toBeLessThanOrEqual(2)
+    expect(m.control.top, 'dimmer sits below the window trim').toBeGreaterThan(m.trim.bottom)
+    expect(m.control.bottom).toBeLessThan(m.frame.bottom)
+    expect(Math.abs(m.control.width - m.control.height), 'reference dimmer is a circle, not a pill').toBeLessThanOrEqual(1)
+    expect(m.control.radius).toBe('50%')
+    expect(Math.abs(m.control.upperHalf - m.control.lowerHalf), 'rocker splits evenly top and bottom').toBeLessThanOrEqual(1)
+    expect(m.control.upperInk, 'upper rocker half is the lighter one, as in the reference').toBeGreaterThan(m.control.lowerInk + .15)
+    expect(m.dots, 'the shade control is a plain bezel and rocker, with no indicator dots').toHaveLength(0)
+    expect(m.decorative, 'no invented brightness interaction').toBe(true)
+    await expect.poll(() => page.locator('[data-hero-scene] h1').evaluate(e => getComputedStyle(e).color), { message: 'theme ink has finished its existing colour transition' }).toBe(theme === 'dark' ? 'rgb(245, 241, 231)' : 'rgb(20, 44, 59)')
+    const palette = await page.evaluate(() => {
+      const style = selector => getComputedStyle(document.querySelector(selector))
+      const hero = style('[data-hero-scene]'), heading = style('[data-hero-scene] h1')
+      const jump = style('[data-hero-scene] a[href="#month-picker"]'), signup = style('#newsletter .btn-primary')
+      const input = style('#newsletter input[type="email"]')
+      return { hero: hero.backgroundColor, heading: heading.color, header: style('.glass-nav').backgroundColor, navAccent: style('.glass-nav').getPropertyValue('--color-accent').trim(), footer: style('footer').backgroundColor, jump: [jump.backgroundColor, jump.color], signup: [signup.backgroundColor, signup.color], inputRadius: input.borderRadius, inputFont: input.fontFamily, bodyFont: style('[data-goldilocks-home]').fontFamily }
+    })
+    expect(palette.hero, 'dark hero paints the published PR28 night cabin').toBe(theme === 'dark' ? 'rgb(16, 39, 53)' : 'rgb(238, 232, 220)')
+    expect(palette.heading).toBe(theme === 'dark' ? 'rgb(245, 241, 231)' : 'rgb(20, 44, 59)')
+    expect(palette.header, 'header and footer share the same aviation navy').toBe('rgb(16, 39, 53)')
+    expect(palette.footer).toBe('rgb(16, 39, 53)')
+    const actionPalette = theme === 'dark' ? ['rgb(224, 242, 155)', 'rgb(20, 44, 59)'] : ['rgb(20, 44, 59)', 'rgb(245, 241, 231)']
+    expect(palette.jump).toEqual(actionPalette)
+    expect(palette.signup, 'secondary form action uses the same primary-action treatment').toEqual(actionPalette)
+    expect(palette.navAccent).toBe('#e0f29b')
+    expect(palette.inputRadius).toBe('0px')
+    expect(palette.inputFont).toBe(palette.bodyFont)
+    expect(palette.inputFont).toContain('Avenir Next')
+    const email = page.locator('#newsletter input[type="email"]')
+    await email.focus()
+    await expect.poll(() => email.evaluate(e => getComputedStyle(e).outlineColor)).toBe(theme === 'dark' ? 'rgb(245, 241, 231)' : 'rgb(20, 44, 59)')
+    expect(await email.evaluate(e => getComputedStyle(e).outlineWidth)).toBe('3px')
     await page.getByRole('link', { name: 'Choose your month', exact: true }).click()
     await expect(page.locator('#month-picker')).toBeInViewport()
     await page.locator('button[data-month="3"]').click()

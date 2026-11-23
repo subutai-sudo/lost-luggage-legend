@@ -1,0 +1,1676 @@
+{
+  "schemaVersion": 1,
+  "kind": "featured-guide-prefetch-exact-inverse-followup",
+  "status": "awaiting-independent-review",
+  "publishedBase": "6fafede9db46670fd95a99750c6cdc98416f611b",
+  "reviewNote": "Candidate pins awaiting independent review; no published fixture is modified or replaced. Complete baseline captured from Git f892fd4 at authoring only. Runtime guards require no Git. The candidate document is excluded from its own pins to avoid a cyclic hash. Unpublished revision: establish October hydration readiness with exactly three additional browser assertions. Prior 311-file candidate copies and exact delta are archived under featured-fix/readiness-integration; original failed run and trace remain read-only. Product bytes are unchanged from the reviewed candidate. Unpublished revision: the user expanded authorized scope to uniform four-sided aircraft-window trim, rounded-housing-contained dimmer dots and coherent homepage/travel/planning colours. Exactly four additional product files plus the additive window browser assertions are claimed; the travel-theme browser guard is the sole new inventory addition (312 total). GoldilocksHome.tsx retains only its reviewed 17-byte prefetch insertion. Published 309 -> 307 -> 273 manifests and all twelve published fixtures remain immutable. Candidate awaits fresh independent exact-byte review; prior reports and failures remain archived.",
+  "independentPublishedManifest": {
+    "head": "6fafede9db46670fd95a99750c6cdc98416f611b",
+    "files": {
+      ".env.local.example": {
+        "sha256": "81f0d028994ffd48f1dfccc930bbae63bc01f302985e3a140959bdffd95a1c26",
+        "bytes": 631
+      },
+      ".gitignore": {
+        "sha256": "d25e8917264d2d956c0d0b1a5fd84201b2ee00eb76366fac58c3e610f87c1976",
+        "bytes": 345
+      },
+      ".npmrc": {
+        "sha256": "a093bb2fed59d699b7f9a62a5203cc196054c624e9c39c6d908c9e7db5dd2464",
+        "bytes": 22
+      },
+      "AGENTS.md": {
+        "sha256": "063098f6cb31bb44c6f8fbea25b3876de7ee1e5f7d00a50dbab506f6415eb7f0",
+        "bytes": 679
+      },
+      "CONTENT_GUIDE.md": {
+        "sha256": "a26e7be95cd434041da22702662ee0f08797b53c0218f96a158e3b109e8b152c",
+        "bytes": 7181
+      },
+      "CONTENT_PIPELINE.md": {
+        "sha256": "ece1e4272e9242b56c374d79473379ecdf402c5bc69bcce3a21c013151ab1864",
+        "bytes": 2841
+      },
+      "CONTENT_PLAYBOOK.md": {
+        "sha256": "2ba2b1c90ae9f940204cf07803bac745f0b98fec0b86af703aba0454d88c0016",
+        "bytes": 8836
+      },
+      "NEXT.md": {
+        "sha256": "591890a72fc8cece05c58a68236e549d3058722be924eaf48ef617886b92ad61",
+        "bytes": 3864
+      },
+      "QA_CHECKLIST.md": {
+        "sha256": "ec97a1e8bb9f3221a887fb8630182744546bba29b8d7d00b07adb9cad8d3df94",
+        "bytes": 1935
+      },
+      "QA_REPORT_TEMPLATE.md": {
+        "sha256": "5a5be5b222c2bd9e82697254288c0a16d38511ddefc93b468931b600ce1d434b",
+        "bytes": 3205
+      },
+      "REVIEW_QUEUE.md": {
+        "sha256": "486ada4a42d94ed2980b7367a20718a0c7318ba2914d7a75dc8c0b613a6b53d7",
+        "bytes": 836
+      },
+      "SPEC.md": {
+        "sha256": "f63b7ab13ae823d3ea532346857ef3f3a14b6d482bb83295037fac7c88dd85d4",
+        "bytes": 3358
+      },
+      "TECHNICAL_PLAYBOOK.md": {
+        "sha256": "300f5440585eb1ad1dfb92fbe9b65058d9d364028be718eecd9a7c63d3dcb5ed",
+        "bytes": 9343
+      },
+      "WEEKLY_AUDIT_CHECKLIST.md": {
+        "sha256": "bc6bbac7023589f59d6a4ca8fe5cc2c52484dcb405fcb3047edcfabe11f8c5b9",
+        "bytes": 5652
+      },
+      "audit-reports/week-2026-04-07-report.md": {
+        "sha256": "d337ad2e160a17579bdfeaef2133df644466bf26163d6dd68df0896ccb4e314b",
+        "bytes": 5129
+      },
+      "content-calendar-month2.md": {
+        "sha256": "ba1adf236f8747d71f35011f850f6801445e89ecd875addfa56300525d86ae00",
+        "bytes": 6042
+      },
+      "destinations/NEXT.md": {
+        "sha256": "591890a72fc8cece05c58a68236e549d3058722be924eaf48ef617886b92ad61",
+        "bytes": 3864
+      },
+      "docs/AFFILIATE_PARTNERSHIPS.md": {
+        "sha256": "3808890a999ac6de84771d186ab92719066839b5354831d1cfa7d6bbf68bfa12",
+        "bytes": 4171
+      },
+      "docs/AFFILIATE_STATUS.txt": {
+        "sha256": "f117cf9255a83278b40d97354f76e9169d236223ff8b0c49129d92b377aaca06",
+        "bytes": 3028
+      },
+      "docs/AFFILIATE_STATUS_WEEK3_UPDATE.txt": {
+        "sha256": "fb75224102327b088d1e738768b6c85bcb2411584502fcacedabd03731b36ded",
+        "bytes": 4144
+      },
+      "docs/CINEMATIC-BRAND.md": {
+        "sha256": "384cbec1284f32c9f6fc57759b268692b28a64ebdeb817f19ca99488689db089",
+        "bytes": 4445
+      },
+      "docs/CINEMATIC-GUIDES.md": {
+        "sha256": "09618ff522f40938b1ebd18678c8a8accccd73101318b3b6e9acb8400e132fd5",
+        "bytes": 5980
+      },
+      "docs/CINEMATIC-HOMEPAGE.md": {
+        "sha256": "f218e205cf1abbc288462c7de5e9b010b2604a940d6cb551e5d78fa7e843b646",
+        "bytes": 4331
+      },
+      "docs/CINEMATIC-ROUTES.md": {
+        "sha256": "174be282417096d3852963c5805dbe8be9579fc657634a6ec17f8f2a40cb5839",
+        "bytes": 1614
+      },
+      "docs/DESTINATION-PHOTOS.md": {
+        "sha256": "8c5ad92ae4c821118d0073dd2d080f62e9c290605e7cd731ed9dff6e64de890e",
+        "bytes": 5291
+      },
+      "docs/GOLF-ZONE.md": {
+        "sha256": "6dc73c74986f3ddff6d027f1300ee94875396891d223bdddfc7f454ad4703c91",
+        "bytes": 5669
+      },
+      "docs/GUIDE-ACCURACY.md": {
+        "sha256": "2b93ae56e83936e6750520a487411558c4b30b081a8abfc79e9d94a7b49b3890",
+        "bytes": 4956
+      },
+      "docs/GUIDE-PERFORMANCE.md": {
+        "sha256": "3513d3ac51911f6c9758084d6ae9728bd4c39944bcf89f0675125fec4df62e17",
+        "bytes": 12682
+      },
+      "docs/PERFORMANCE.md": {
+        "sha256": "59daf7806ecbcd0a2a3dfebdd077455f4fd5fb2cbd0af52bf4fe07df2aac2f74",
+        "bytes": 4611
+      },
+      "docs/SEASONAL-REASONS.md": {
+        "sha256": "15775d95e7aed47b3153cd47798c2cf2ead84930c4c79733ff846f83c1373949",
+        "bytes": 7786
+      },
+      "docs/SEASONAL-SHORTLIST.md": {
+        "sha256": "858a7b0bbe4a1224fbb94dd68558c8b9cf451d8a9a5065653a77dbe2542850ad",
+        "bytes": 8192
+      },
+      "docs/SEO.md": {
+        "sha256": "dd8cff61f356c20efa69ebef757bae826b198a92bb19ce92084b056af0a2940b",
+        "bytes": 3532
+      },
+      "docs/content-strategy-and-editorial-guidelines.md": {
+        "sha256": "289769d4e403d449a64807f1e58b856a77de4f27842b90dc8c99d31f049be358",
+        "bytes": 10444
+      },
+      "docs/course-specific-golf-guides.md": {
+        "sha256": "20a90083b624fc56449e02ba0f777d861e879536c9c88b0cb0aa5405cc41cfc4",
+        "bytes": 2612
+      },
+      "docs/editorial/travel-claims-review.md": {
+        "sha256": "c80473178158be132cfb230ada968f7d883df7334059b709dd6293fab647ba91",
+        "bytes": 9489
+      },
+      "docs/golf-course-media.md": {
+        "sha256": "2d495e7265f7f2e22cc4898b575a56f50bc14585fafec05207c26db0774b73ad",
+        "bytes": 5366
+      },
+      "docs/golf-guide-details-evidence.md": {
+        "sha256": "c0a8f3a89b84b981d252b2379114ae4cbaeb599fdbd19af2ce9826f1831ee1c5",
+        "bytes": 31203
+      },
+      "docs/outreach-emails.md": {
+        "sha256": "b924b9f1ff6d03b1a67250683a7daa947590ee2df5ca9b19f8be1d76ace35d02",
+        "bytes": 3620
+      },
+      "docs/plans/cinematic-brand-mark.md": {
+        "sha256": "e7fee4e6f1b80ccc7d0b7e261715b15d128ac5322f18e5109591722d21155d31",
+        "bytes": 3018
+      },
+      "docs/plans/cinematic-guides.md": {
+        "sha256": "03fa4a33d768ff8a80eb13466eeb71fda09d700c701572cd133f67742b905d57",
+        "bytes": 9950
+      },
+      "docs/plans/core-journey-accessibility.md": {
+        "sha256": "54bc2af21fc564b8bd7f701559f398abd6508b7c7a9112a7ece61f6b4ce18bf9",
+        "bytes": 3977
+      },
+      "docs/plans/destination-photo-accuracy.md": {
+        "sha256": "19a52afbe6382739ef7f553e9640eb80b754360afb4e97b329a243cf5155d38f",
+        "bytes": 4890
+      },
+      "docs/plans/golf-goldilocks-zone.md": {
+        "sha256": "7ab5d877bea2cdeb6750252ab7380de646f021f21c2f3ea99c45d7db53b80e67",
+        "bytes": 5296
+      },
+      "docs/plans/guide-card-performance.md": {
+        "sha256": "abc8663d59bcd36cfc176fe0b45427e0520d31fd13db17db54597eec2f8190e1",
+        "bytes": 3846
+      },
+      "docs/plans/guide-copy-antalya-photo.md": {
+        "sha256": "9c6b8e9ba5c7de66e56f9ba4687bc0fc00f68f01280b6bcca1207f83b47908d2",
+        "bytes": 3695
+      },
+      "docs/plans/mobile-performance.md": {
+        "sha256": "5a6a4055b3de546bf85acd2177611b4ae1cd9af458155bae494ca6010ed54b29",
+        "bytes": 4425
+      },
+      "docs/plans/seasonal-reasons.md": {
+        "sha256": "0919b7d4bc0c0d3cc938ae6f3acb82d302c5d90f15756d054b7248c533b1c2a5",
+        "bytes": 6891
+      },
+      "docs/plans/seasonal-shortlist-accuracy.md": {
+        "sha256": "93d5659d28e01ce7edbd4a65f30737eb52da60185500864bcc79c454c381bb1d",
+        "bytes": 5036
+      },
+      "next-env.d.ts": {
+        "sha256": "7b550dda9686c16f36a17bf9051d5dbf31e98555b30d114ac49fc49a1e712651",
+        "bytes": 247
+      },
+      "next.config.js": {
+        "sha256": "77ccf261fbe99e1fdba503cb8566b5cb0ba8f2cb364c6b7751af70448852ce26",
+        "bytes": 375
+      },
+      "package-lock.json": {
+        "sha256": "7ea9fd9a019931232932ac58d5ad6691d7fdd990017fd6e2dff7085f3c7394d8",
+        "bytes": 245546
+      },
+      "package.json": {
+        "sha256": "136c58b2d083f640f93e4bbd20d72814057226f1edfff9038aa1c72cd0de153b",
+        "bytes": 1223
+      },
+      "playwright.affiliate.config.mjs": {
+        "sha256": "68dd4e805c755cf02708e1b4f94fe1a98fdf94bd5fabe1d12a7e61e40711bda6",
+        "bytes": 335
+      },
+      "playwright.config.mjs": {
+        "sha256": "0b78bafc7c29156ca535bb3a27aeff03f2bc83410207cc7ffe5fca1807f465c6",
+        "bytes": 635
+      },
+      "postcss.config.js": {
+        "sha256": "137e618876acb0d2d008c7d52c3030e23084cfbf0b27cb3e330b8c1fbc456ea4",
+        "bytes": 93
+      },
+      "public/brand/apple-touch-icon.png": {
+        "sha256": "b79605bb8807c1f729f61d7cc33ff69789e2cdb83ea1560be1c192a31208f959",
+        "bytes": 10187
+      },
+      "public/brand/favicon-32.png": {
+        "sha256": "4c5dd5ce60c59e148d2fb964c51555d5c03d44670c6ae3050b38d0391f09ac6a",
+        "bytes": 1597
+      },
+      "public/brand/goldilocks-mark.svg": {
+        "sha256": "544f2034baba5a41a4efc0baa63311a466a4a1782409c264220c8d155476f8eb",
+        "bytes": 910
+      },
+      "public/brand/golf-guide-social.png": {
+        "sha256": "70562af9df7702338a79026b6dc3d521b8f47fd6efc1d68a1c32eb0742c9d67f",
+        "bytes": 42502
+      },
+      "public/golf-media/al-maaden-golf-01.webp": {
+        "sha256": "59346beba6444000bcb66f26ba988bae7cf4a904e4675669b9db22f918ed22c5",
+        "bytes": 147796
+      },
+      "public/golf-media/al-maaden-golf-02.webp": {
+        "sha256": "02eb25cf06eccbae2fa538f020720e3d1da658d2160d5d5f266d01768c9c5183",
+        "bytes": 72624
+      },
+      "public/golf-media/bethpage-black-01.webp": {
+        "sha256": "a004b76691a263c403ae5048a2209a86e6033ac2b4d233e7cb368887ab391c8d",
+        "bytes": 288884
+      },
+      "public/golf-media/capilano-golf-and-country-club-01.webp": {
+        "sha256": "96ed7e11472982f57bc3aabfc61ba39f13ff53c265fc87172b6424e7c8d86a97",
+        "bytes": 479044
+      },
+      "public/golf-media/chambers-bay-01.webp": {
+        "sha256": "3a51c2f098e73d0d87e0aed1b5c02e3e129fb501e2a80d893215e586407eb653",
+        "bytes": 110322
+      },
+      "public/golf-media/chambers-bay-03.webp": {
+        "sha256": "842f1ec19335892d3e77706e414e0a2daa894599e427c2fd3abc16214ce5b642",
+        "bytes": 127182
+      },
+      "public/golf-media/chambers-bay-04.webp": {
+        "sha256": "708088567caa69b47661ae4b4ac9d9de30fec14f14d76aeaea69a1facb6decd5",
+        "bytes": 99034
+      },
+      "public/golf-media/chambers-bay-routing.svg": {
+        "sha256": "848bb5500607aa82880de73be30547abbb5be2a6a8a066d8fb2cf77d991b2f34",
+        "bytes": 66347
+      },
+      "public/golf-media/crans-sur-sierre-golf-club-ballesteros-01.webp": {
+        "sha256": "ac3abe5b771c91bf9e1cc155991dfcd0aff67eda9e5a4c42253d1681a1a6d847",
+        "bytes": 297348
+      },
+      "public/golf-media/crans-sur-sierre-golf-club-ballesteros-02.webp": {
+        "sha256": "0e6c000898eb88a4d6dacbcf94991023b25563820398a9cd37a952e62281426e",
+        "bytes": 164570
+      },
+      "public/golf-media/crans-sur-sierre-golf-club-ballesteros-03.webp": {
+        "sha256": "f927d2e1ff762549d135d8e7546f8a39336bc5d0087a934f4ecd1ed74aadf34b",
+        "bytes": 116284
+      },
+      "public/golf-media/crans-sur-sierre-golf-club-ballesteros-04.webp": {
+        "sha256": "4f530ee01c938874043a44ea28a9cd2d78199548e30b5bf9db422aa5599ae208",
+        "bytes": 221812
+      },
+      "public/golf-media/emirates-golf-club-majlis-course-02.webp": {
+        "sha256": "922e2c68a6c5ad9bf5b220aae824084385c11123079eb014b7ccb9e225680901",
+        "bytes": 52588
+      },
+      "public/golf-media/fontana-golf-club-01.webp": {
+        "sha256": "680b317424e964db98fdf68de0ac98e0be1bdbff2df4aca0cb4595ac69499ed7",
+        "bytes": 178864
+      },
+      "public/golf-media/glen-abbey-golf-club-01.webp": {
+        "sha256": "1044f8c99f80f9c61b899c7f03fb23d34c856b455f83165b8517b07932b6a6d0",
+        "bytes": 345084
+      },
+      "public/golf-media/glen-abbey-golf-club-02.webp": {
+        "sha256": "15526c720ab7f8ab64bc4fd40cb86801bb4965835406601504ba873f0c6ead3f",
+        "bytes": 282326
+      },
+      "public/golf-media/glen-abbey-golf-club-03.webp": {
+        "sha256": "641b18d361476677ce6f5e3b411343782ffc6b6ba6b5c829d0ddf7a76eb33505",
+        "bytes": 339606
+      },
+      "public/golf-media/glen-abbey-golf-club-04.webp": {
+        "sha256": "d085e3a7cf970424e7b75b5694708b15f2e4bb2c52a68c1e369522eaa343d53e",
+        "bytes": 273664
+      },
+      "public/golf-media/glen-abbey-golf-club-routing.svg": {
+        "sha256": "14135cabde27c0b541c8f696f7ac53b6ff86e20bc47444db4a2dab0152eb42e9",
+        "bytes": 94194
+      },
+      "public/golf-media/keilir-golf-club-01.webp": {
+        "sha256": "e638d16ba5bfdad83793834dfbf0986fe56cc922aae83c260283aafbf2b1b3d3",
+        "bytes": 291054
+      },
+      "public/golf-media/kennemer-golf-country-club-01.webp": {
+        "sha256": "164840e689815f2b2d10948c04740fe48ea4232cecc09e78dbfa9089601d203e",
+        "bytes": 325598
+      },
+      "public/golf-media/kennemer-golf-country-club-02.webp": {
+        "sha256": "a0c3995668e9a3229404fe4f113fb9b1549b82b216b633d9f77c25e2b74740cf",
+        "bytes": 177578
+      },
+      "public/golf-media/kennemer-golf-country-club-03.webp": {
+        "sha256": "fe5b82b1d530d0746695678f3e96a8e9a992014d74b6dd05288a3b9145bd14e3",
+        "bytes": 450688
+      },
+      "public/golf-media/kennemer-golf-country-club-04.webp": {
+        "sha256": "477317680579410b61771e70e368e4f843ef1532d02ce6806aaa2c1005eb539a",
+        "bytes": 302488
+      },
+      "public/golf-media/marco-simone-golf-country-club-01.webp": {
+        "sha256": "08c6ae75eb4c89c410b0ce4ca389b5bba886f56292307b59a5f4ac9fe6095f7b",
+        "bytes": 380670
+      },
+      "public/golf-media/millbrook-resort-03.webp": {
+        "sha256": "d1d097f752b4736017cb2748265f29594c01ef628bb251e1975f50dfb7d59b07",
+        "bytes": 228212
+      },
+      "public/golf-media/muirfield-01.webp": {
+        "sha256": "5db11e8759b6a4703b642fdd6572c144d0448a7b7f7ce656b8b05c586da582a9",
+        "bytes": 225044
+      },
+      "public/golf-media/muirfield-02.webp": {
+        "sha256": "c51308d211492ebc7f41da0283ac53a02a602d37148a1aa42bc79b2e6f3820f9",
+        "bytes": 108400
+      },
+      "public/golf-media/muirfield-03.webp": {
+        "sha256": "fb89f3fad94fc3c49a1ff8613d684c2ff2396c8f5f1c89cc500ba1a20f020c54",
+        "bytes": 129900
+      },
+      "public/golf-media/muirfield-04.webp": {
+        "sha256": "46dbc040f470c70f673c8d9e76a656dfa94bc814eededaf45b77666ae34302f1",
+        "bytes": 208464
+      },
+      "public/golf-media/new-south-wales-golf-club-01.webp": {
+        "sha256": "b012b1a863d04a0ec4dd878c53de705127ef3678a412bdeada88d59c9d79bb5e",
+        "bytes": 192666
+      },
+      "public/golf-media/oitavos-dunes-01.webp": {
+        "sha256": "07da6cff5861b0abcd0ca5ca8723462f06bc212a8a7d2d958c834f340562f343",
+        "bytes": 338238
+      },
+      "public/golf-media/portmarnock-golf-club-02.webp": {
+        "sha256": "08a66fc91718ddd9176202e5e5084c7c9c63e05e9175c2157218526584cfb10e",
+        "bytes": 263956
+      },
+      "public/golf-media/portmarnock-golf-club-03.webp": {
+        "sha256": "930438c693f3226b8775ee38150f1641d078d68ce39a9d855a92100202d8b12d",
+        "bytes": 199104
+      },
+      "public/golf-media/praia-d-el-rey-01.webp": {
+        "sha256": "ab648f008cf18eb62f9da76cf36757804a7c2ac84a9a7809d28d0f6f5673ae1d",
+        "bytes": 261878
+      },
+      "public/golf-media/praia-d-el-rey-02.webp": {
+        "sha256": "859a38dc2fa6ec6a4f6982eaa019d11f7cf2fec9dbff615a4cf57314877724dc",
+        "bytes": 418298
+      },
+      "public/golf-media/praia-d-el-rey-03.webp": {
+        "sha256": "ee70ec5528cebf96cd980a83394468dfd2e04be4a395ea7d25987c1a75da5a38",
+        "bytes": 355164
+      },
+      "public/golf-media/real-club-de-golf-el-prat-01.webp": {
+        "sha256": "563650453f8075f5ddd1054c7ce83ac638df1bf42986562acc10105e79c5c7ef",
+        "bytes": 289278
+      },
+      "public/golf-media/real-club-de-golf-el-prat-03.webp": {
+        "sha256": "b9b9280ee13c6919790b2150fd35b8575ce849b7080fbafc72c293a5ddb2c861",
+        "bytes": 425194
+      },
+      "public/golf-media/steenberg-golf-club-routing.svg": {
+        "sha256": "1b08b38365b7f353f77017081254b7eacf27e443aadecdf706becd21495375d6",
+        "bytes": 16929
+      },
+      "public/golf-media/the-royal-melbourne-golf-club-west-01.webp": {
+        "sha256": "56af4752d6c0b9361eb16e4280174ca96e632c60c1f258c63fdc3a339153adbe",
+        "bytes": 201960
+      },
+      "public/golf-media/torrey-pines-golf-course-south-course-01.webp": {
+        "sha256": "cbae6aace96d64fccf4fd4fe6f2ed0c9d36b218acf9cd00f0d779bec8cc2e833",
+        "bytes": 260958
+      },
+      "public/golf-media/torrey-pines-golf-course-south-course-02.webp": {
+        "sha256": "2866f383bae6d3fc821159969508a8847e6b8726b7a12851f2878af9dc80c92e",
+        "bytes": 164004
+      },
+      "public/golf-media/tpc-scottsdale-stadium-course-01.webp": {
+        "sha256": "4e7ebb4ff9e71a5379a2de400803ebee59485e7abb5b1d84f69ba1c8f107b484",
+        "bytes": 115596
+      },
+      "public/golf-media/wentworth-club-west-01.webp": {
+        "sha256": "44f477816f91107662a3aaf34d4458cdad41b6ad0eecad5d34505d02fb7d1fe2",
+        "bytes": 381526
+      },
+      "public/logos/agoda.png": {
+        "sha256": "e7b7dc4337dc12c14fdc83d1aa12a5c89a50a0667b048cf45c133a6788c55b0b",
+        "bytes": 17180
+      },
+      "public/logos/booking.png": {
+        "sha256": "aa16ecf4c6a8214bbc294aafa388b0e65b24400a6f7b5f32aaa4e57b68fd08c3",
+        "bytes": 67765
+      },
+      "public/logos/expedia.png": {
+        "sha256": "255e010e4975190efaa776518730e9ed9d492a9d7fcce6d16440462a3efba9a5",
+        "bytes": 59973
+      },
+      "public/logos/getyourguide.png": {
+        "sha256": "4a6a54efa60f03a2e346b8900f8b4d7ed2f87024447661260f2b95fc93771108",
+        "bytes": 5150
+      },
+      "public/logos/google.svg": {
+        "sha256": "4e01f98a634e6b304f7e1e111b1fb805f58ecc7ffe075b6609dcd515474bc43c",
+        "bytes": 835
+      },
+      "public/logos/hotelscom.png": {
+        "sha256": "43400faf8d16704e12f7a2e5bbcdc289051a7ba1cf4bec7b03eb881522fa82cf",
+        "bytes": 20796
+      },
+      "public/logos/kayak.png": {
+        "sha256": "4a8790f15e4fd2d2501d90f7b2dc68e82027a36c797d95d1aad05a1fdf3ac9f3",
+        "bytes": 6787
+      },
+      "public/logos/stay22.svg": {
+        "sha256": "7cb9d582ad05445eaf97f2a99705bc7dc281c5601aec91fac33cd05887d60d3d",
+        "bytes": 352
+      },
+      "public/logos/tripadvisor.png": {
+        "sha256": "092aba66bb1b0c7cd19ac289687733ace6ee298d69d548506d5a3626950b1dc1",
+        "bytes": 60198
+      },
+      "public/logos/vrbo.png": {
+        "sha256": "028ab05895d2a9ecde6ce2ff4255d87656b548b20736eeb8b2ce54fcc2e20e29",
+        "bytes": 137970
+      },
+      "scripts/next.mjs": {
+        "sha256": "e2107806ef079db825da230ad002b318af3227cb4b1a25f14aeb6ecaf16ff92f",
+        "bytes": 1415
+      },
+      "scripts/render-brand-icons.cjs": {
+        "sha256": "dc9f333247d34bb86f5d1159b821f8f91e758066f69991932ed86c405584dab4",
+        "bytes": 1560
+      },
+      "src/GoldilockZone.tsx": {
+        "sha256": "b20f17b3e947205f8fcdf8e1e231002ac755b5e8fd304aa41cc437bfe8062647",
+        "bytes": 22238
+      },
+      "src/app/affiliate-disclosure/page.tsx": {
+        "sha256": "812811755df29542feb647fe815cd9257282d9bf42e5792bde965dd44817e8bd",
+        "bytes": 6728
+      },
+      "src/app/api/newsletter/route.ts": {
+        "sha256": "8ae7e2a7aff95c80806d4d41c375d72722ee24a81db81c5e7e11ce645aad18c2",
+        "bytes": 2479
+      },
+      "src/app/explore/page.tsx": {
+        "sha256": "2e055e4857c87ba0ecce446b8a2a0078fcb020a0335a04bd8079466ae5a8b8ca",
+        "bytes": 1793
+      },
+      "src/app/globals.css": {
+        "sha256": "8fcc11d20f0e24506b3557731e51eacc5b79bccee235a9ccc1cbc8c9bcaf1d79",
+        "bytes": 14313
+      },
+      "src/app/go/[encoded]/route.ts": {
+        "sha256": "bc637a1ac30644cb9811be0160003383cd59abbb9be7735c0f89e248c9075439",
+        "bytes": 679
+      },
+      "src/app/golf/[slug]/page.tsx": {
+        "sha256": "332fe0f236ce454fee9c57238c55db804190b807ba147985f4fe6771ad30bdcb",
+        "bytes": 13237
+      },
+      "src/app/golf/page.tsx": {
+        "sha256": "cc35c32cc7f8b849f2547610bb4e08ae87262d9c26d8698aceaa5ce87f71fdb7",
+        "bytes": 2189
+      },
+      "src/app/guides/GuideIndex.module.css": {
+        "sha256": "14a98c44f5c83bf4fc588f71ca6f9b745304b93a9d1ce11d4b554f84b1a79010",
+        "bytes": 7385
+      },
+      "src/app/guides/[slug]/GuideArticle.module.css": {
+        "sha256": "64afb1d17f15709e102fdfbe982862fe320264ecb33aeba3fd1f8e92577010f8",
+        "bytes": 14728
+      },
+      "src/app/guides/[slug]/page.tsx": {
+        "sha256": "a1f311b23042d4eaba4c8793bafbb6b1b165f5db2020074976f9e1fd48dc261e",
+        "bytes": 88123
+      },
+      "src/app/guides/page.tsx": {
+        "sha256": "5f265dd85f8a11af5dd238f7e8ca6e54ecc4b83ec05e3a192eb12577770d7250",
+        "bytes": 5373
+      },
+      "src/app/layout.tsx": {
+        "sha256": "d90ab9998b5c05ea9b3daf03b7590165c244fc34ef34206b7cc29bea1448e2e4",
+        "bytes": 4746
+      },
+      "src/app/page.tsx": {
+        "sha256": "1ead789725dc2a9a91dd8aaf6823c18989c3cd78de6a8066c308380c1112ac54",
+        "bytes": 1976
+      },
+      "src/app/plan/PlanIntro.module.css": {
+        "sha256": "ee147b899b4b324da51c35459cc1d6ec6052e0c7e6d5e2150d11af6298d70272",
+        "bytes": 679
+      },
+      "src/app/plan/page.tsx": {
+        "sha256": "a10f8c1f650cea4d10166f7cca152931279d16b588e1f88a30fc910232b5c0df",
+        "bytes": 1934
+      },
+      "src/app/privacy-policy/page.tsx": {
+        "sha256": "215409ddcb5cd941bfa43496e10e792fc79bb4f59a44853f724d907e457ee0a5",
+        "bytes": 5673
+      },
+      "src/app/robots.ts": {
+        "sha256": "7cabbdfaac2143ab827088c078ef4a64ee961fc4090bb9f1a178a97ddfc6523b",
+        "bytes": 277
+      },
+      "src/app/sitemap.ts": {
+        "sha256": "e01e3ee48c043974d177886434f71432c0429a81c9080c04a99948651f1e6cfb",
+        "bytes": 526
+      },
+      "src/app/terms-of-service/page.tsx": {
+        "sha256": "deec8714ecd813f330894aeef6501c10f7d3aff77c0091898fafecaff61bb5eb",
+        "bytes": 5012
+      },
+      "src/components/AffiliateDisclosure.tsx": {
+        "sha256": "13531de875f0bc37edd05372495d5c7567abf903fdb101cb9378ca775035329f",
+        "bytes": 1511
+      },
+      "src/components/AviationMark.tsx": {
+        "sha256": "ebeedf28d001ad9c2f1c7402228b5faba3e0de06b877827299d370f4894e55e4",
+        "bytes": 1449
+      },
+      "src/components/BrandLogo.module.css": {
+        "sha256": "19139568d5d91fdbc15b399b264d4e5cdac0181c38a94d2d4e147af421c73c9d",
+        "bytes": 1754
+      },
+      "src/components/BrandLogo.tsx": {
+        "sha256": "82b2f06e7023b16a19c4ea21a735f195dd06911d167bf7183d6803e261465f6b",
+        "bytes": 1088
+      },
+      "src/components/ComparePricesSection.module.css": {
+        "sha256": "fe5eb1698c942e524e02750abf43b8417a898de48c930ae32aabf207cbd039f4",
+        "bytes": 1629
+      },
+      "src/components/ComparePricesSection.tsx": {
+        "sha256": "5221f63475ab5cacc0d7d403d01294ed700f65f3b34ebe52b6866e999bd0455c",
+        "bytes": 59691
+      },
+      "src/components/CurrencyProvider.tsx": {
+        "sha256": "5225bad31e4c5ffd5caa4a3b172e8f70514d3aec0e845f632891ed944478fbf3",
+        "bytes": 2265
+      },
+      "src/components/DestinationGuideCard.tsx": {
+        "sha256": "75637f985275697cb8952906377dcf66350228f3bfddae57f9ff212b8629338d",
+        "bytes": 9498
+      },
+      "src/components/DestinationGuidesSection.tsx": {
+        "sha256": "b447674f821c7d0b270c606004753b0fc4ff6931d53ae9ccd4119af82c74900a",
+        "bytes": 4518
+      },
+      "src/components/FeaturedArticle.tsx": {
+        "sha256": "a12b626635bf4c9f713f7ca21271651e3b2ce2af10181f9ca512794af6c23ccf",
+        "bytes": 4161
+      },
+      "src/components/FlightSearch.tsx": {
+        "sha256": "80faa0133b3f0ba27dfea5a990d20a5e1787a32ddc3c5693089713e9241352e5",
+        "bytes": 34715
+      },
+      "src/components/GoldilockZone.module.css": {
+        "sha256": "ab526238ceed04be90a7e93d2bd24be8645a8663692ad7b430728cc53d343c45",
+        "bytes": 5893
+      },
+      "src/components/GoldilockZone.tsx": {
+        "sha256": "0d4c75aa30611a8f5228881193ec6b94794186cc85e28c79ecda24f9a5792a3a",
+        "bytes": 13725
+      },
+      "src/components/GoldilocksHome.module.css": {
+        "sha256": "63c34b696118bf49756c2ca558103b4fae9cf4f718591f334031d3e0d2e32d78",
+        "bytes": 27946
+      },
+      "src/components/GoldilocksHome.tsx": {
+        "sha256": "444eeb2c51d706e7f63b6c6a8565a8d80eac2b7817643cd47257ec7e36e59ed1",
+        "bytes": 14290
+      },
+      "src/components/GolfCourseMedia.module.css": {
+        "sha256": "5571a9cc1f23951244eb4a9df2a0918e4c39aa29ff5c24411ebb2fd66d49738e",
+        "bytes": 2993
+      },
+      "src/components/GolfCourseMedia.tsx": {
+        "sha256": "2d7bdb52343c53957cbf5ada9ed4c4ffade2f67072e69967fdb308b111e6a7fc",
+        "bytes": 5691
+      },
+      "src/components/GolfEmblem.tsx": {
+        "sha256": "ce0c865fc815889c9664d8a6a6d007ad2adec643e1e7eefaa95ac37d3908b132",
+        "bytes": 1513
+      },
+      "src/components/GolfGuide.module.css": {
+        "sha256": "a791463d290d34c8cb2d3f7398a9faaf50ed9181fb0fb24fe03a1b868c6cd0c5",
+        "bytes": 12627
+      },
+      "src/components/GolfReason.module.css": {
+        "sha256": "eca29666c2ed38374834b97d184b6f8687ab7ef50b231fb20e9de41662c031d3",
+        "bytes": 1744
+      },
+      "src/components/GolfReason.tsx": {
+        "sha256": "febb36b46b0b1ef11ed3c84941a454323257a9866a894e1f7724fe57e80b1b3a",
+        "bytes": 1892
+      },
+      "src/components/GolfVisualsFragment.tsx": {
+        "sha256": "0259d9957748ba65a93dd70c69e6da88843e1b504254eeb3dc2b8345c5781f81",
+        "bytes": 1353
+      },
+      "src/components/GolfZone.module.css": {
+        "sha256": "dcb94dcfd7b16aeb004cca5b94d36ca09866d635263be863bb7382cd4d08e438",
+        "bytes": 15459
+      },
+      "src/components/GolfZone.tsx": {
+        "sha256": "06d43d6b65046266b53845a1c90c7d8059527dc9fb3c7d73ca84ee027f1a8f54",
+        "bytes": 14850
+      },
+      "src/components/Navbar.tsx": {
+        "sha256": "680a2450e399e639f71123b710f0c579015cce8ed7fc6b41036319ba91156f8f",
+        "bytes": 11247
+      },
+      "src/components/NewsletterSignup.tsx": {
+        "sha256": "f11f4842e5f4a4d9f04717151254ca763a42ca84b19e21034a4e82d84e25d105",
+        "bytes": 5843
+      },
+      "src/components/PracticalGuideNotes.module.css": {
+        "sha256": "bead58341f9721ff7c373ded87aea75b4090293f4880029b498c5f5d69e2f86f",
+        "bytes": 1660
+      },
+      "src/components/PracticalGuideNotes.tsx": {
+        "sha256": "0077bb93d641af370ccc83da5ea108320121d2e30e6afcc9e3532d29d94f2b7f",
+        "bytes": 1373
+      },
+      "src/components/PriceComparison.module.css": {
+        "sha256": "a4c13e991ca5dd4d2a9d4b28b819742a45b039528ca8a5c45db34fe1c0e3e770",
+        "bytes": 5498
+      },
+      "src/components/PriceComparison.tsx": {
+        "sha256": "92588dafa0456647dc6cc6e37d401c84fbdc8aff2fddb674b04472814d515645",
+        "bytes": 11849
+      },
+      "src/components/ProductList.tsx": {
+        "sha256": "3853a429183486e503ff50ba2b2f72f4ae311e909efab149b8496bb6e3beef6d",
+        "bytes": 5791
+      },
+      "src/components/SavedDestinations.module.css": {
+        "sha256": "6daabdbf7613028e32b0785bd333e15a761ed43ce77b4796c76381b8b706dfda",
+        "bytes": 6070
+      },
+      "src/components/SavedDestinations.tsx": {
+        "sha256": "3496ecdb43ab8d12e24d142b2dfdcb06eae9272573c73de46831219e530c78b3",
+        "bytes": 10084
+      },
+      "src/components/SeasonalReason.module.css": {
+        "sha256": "c54fe8fb7210b589e2c86f2f882835471572b5ce1198adec3cfb65668c3b63c7",
+        "bytes": 1698
+      },
+      "src/components/SeasonalReason.tsx": {
+        "sha256": "1730f188a0b3ae8efe29e7b17e679879fee3009d3851f071980eca22d49a729e",
+        "bytes": 2066
+      },
+      "src/components/SuppliersSection.tsx": {
+        "sha256": "5aa238d7b6716161d69411815876a5fdc5d9533af6fe5d2defa13140e0ca2c91",
+        "bytes": 28303
+      },
+      "src/components/ThemeProvider.tsx": {
+        "sha256": "593e69e69417f6d55d4c4c9e18bc049d5a5e3f835870593dc1699b49d0465791",
+        "bytes": 3471
+      },
+      "src/components/TravelEditionStrip.module.css": {
+        "sha256": "a50861fa97f60b3679c49833c8098df86570bb0552bf630cfe501c417281e61a",
+        "bytes": 932
+      },
+      "src/components/TravelEditionStrip.tsx": {
+        "sha256": "9051994cf539e2871ff362b38a6f08ae13004d8abdef4a5d2c598c3a7a31048e",
+        "bytes": 528
+      },
+      "src/components/TravelTheme.module.css": {
+        "sha256": "d5177840dd7fe54c66399a01dbf28caa68c85d0b8f7123020580c82f10c07fff",
+        "bytes": 4111
+      },
+      "src/components/TravelTheme.tsx": {
+        "sha256": "832d5c37e93898fb130fccddb198ea5f5d07a446cb546714b7865ab453936f08",
+        "bytes": 753
+      },
+      "src/components/TripContextLink.tsx": {
+        "sha256": "d5b3491cd0aebf2101ee357a146ebd586e00c349dd7f3bc74c62eccd422a2ad4",
+        "bytes": 1725
+      },
+      "src/components/TripContextNote.tsx": {
+        "sha256": "22699396edd1b4f9a33921884841368558d1f2d3ebd4d31b35606282991bb698",
+        "bytes": 971
+      },
+      "src/components/UmamiAnalytics.tsx": {
+        "sha256": "8c8b6e041aa254f6c00b388fbeb739bff48fad021047c7e2eca629753b9c3e2e",
+        "bytes": 739
+      },
+      "src/components/guides/GuideShell.tsx": {
+        "sha256": "b08f7fc8c74e1dd386d4e6639f74ac72816e4f088046d38203dcd25817c995ec",
+        "bytes": 1928
+      },
+      "src/components/guides/GuideTheme.module.css": {
+        "sha256": "876e994bf4454f99e8be6842c0b0a7338548991fc3c41f0cba5733f46a7d8244",
+        "bytes": 4773
+      },
+      "src/components/themeBoot.ts": {
+        "sha256": "ca9a348434270d643fc4e5c850506ebb44ef6708222d781dafc14a256bc15133",
+        "bytes": 1157
+      },
+      "src/content/articles/airline-carry-on-size-limits-2026.md": {
+        "sha256": "8a14e0ba321948ae715983b696d81cfa560f4f7867441444a083b330fca39640",
+        "bytes": 6407
+      },
+      "src/content/articles/away-vs-monos-carry-on.md": {
+        "sha256": "7a55a4a69dc54b8f85749a87434f36f2f6ff4abe34bfc8d4d03d5690fefaa395",
+        "bytes": 8166
+      },
+      "src/content/articles/best-carry-on-bags-under-150.md": {
+        "sha256": "a3eafbd59b0b94402620bc2d3d52de2bc25b9b27961ad59d94586197b20e9a36",
+        "bytes": 12636
+      },
+      "src/content/articles/best-laptop-bags-under-seat.md": {
+        "sha256": "c531f7f1171a881656786475359bcd922a7920a61383825b33db0d3c295bdb3c",
+        "bytes": 8266
+      },
+      "src/content/articles/best-packing-cubes-2026.md": {
+        "sha256": "c18908daba9170499af56d40c4f2fd77ef5f6cf51ae9c81fd35d472c4edd7942",
+        "bytes": 6518
+      },
+      "src/content/articles/best-personal-item-bags.md": {
+        "sha256": "21ca8accb4a61e8e5dc687e1f0f938503313cefe22ca484bb1e05e4737f7cbc1",
+        "bytes": 6530
+      },
+      "src/content/articles/how-to-pack-for-week-conference-carry-on.md": {
+        "sha256": "2cff0e4d6155d134bd8d981bd6cd5dc24c55b551ff2163c7ce5f294eb8bd3717",
+        "bytes": 7426
+      },
+      "src/content/articles/roam-luggage-carry-on-review.md": {
+        "sha256": "089b882cd1ef581f8eff884260ee645e4164c5eb462d4148c3605e6f36adbe13",
+        "bytes": 5510
+      },
+      "src/content/articles/transatlantic-flight-carry-on-essentials.md": {
+        "sha256": "b6ceadb0bc04ca831d36e0e72a1290816a829e7b117dd6290c605871a14fe921",
+        "bytes": 6002
+      },
+      "src/content/articles/tsa-precheck-vs-clear.md": {
+        "sha256": "066f4f2f7cba8081143c9d50f9eb9f5b9d6fecc8e35a1ab11d911f344cf7ef27",
+        "bytes": 6837
+      },
+      "src/data/destinationGuides.ts": {
+        "sha256": "45291cfcaa068ae29bcaff433142d4c667d709c7db01a2ff4a84f39d80a82d70",
+        "bytes": 80632
+      },
+      "src/data/destinationPhotoEvidence.json": {
+        "sha256": "29f345c2b007768c51cb3ca7bc838fe6ea5ca4c77ddb45784f74e9f6140511c6",
+        "bytes": 31910
+      },
+      "src/data/golfCourseCharacter.json": {
+        "sha256": "8a33396c1b6316fae560ffe2fdfb599ee20d2fd304fed173e4964713ff5e051e",
+        "bytes": 2858
+      },
+      "src/data/golfCourseMedia.json": {
+        "sha256": "0816027e4d27a8d1333ebce1236c8dd1500410b4573714956e5961a2dcd0bf24",
+        "bytes": 80277
+      },
+      "src/data/golfCourseNotes.json": {
+        "sha256": "336eae1adbfa3ddceaaf9c1636f02892309748eccbeaedc5844fed7d5dba0ba8",
+        "bytes": 33706
+      },
+      "src/data/golfCourseReview.json": {
+        "sha256": "98fc026dfe401651b123ab3533ec7b33040843369c02d8392a0c8efec5864d21",
+        "bytes": 31334
+      },
+      "src/data/golfCourses.ts": {
+        "sha256": "a8e3b46072ad51e7abb7505a680bb14aaaa696ac60a03306cfac215bf9fea9de",
+        "bytes": 7827
+      },
+      "src/data/golfGuideDetails.json": {
+        "sha256": "0c095aea083de7f624f64053614478158b669f3a5658e2d9600c2b49213388a5",
+        "bytes": 71066
+      },
+      "src/data/golfOperationalNotices.ts": {
+        "sha256": "e4eab341e22a2190fc14d030bbc7f88476f867c8e91112a6645e2ea201d0745b",
+        "bytes": 705
+      },
+      "src/data/golfSources.json": {
+        "sha256": "d2ceb11834f0e098c56045bc9c6f9436c6033743429f9c736053babe35b579e6",
+        "bytes": 59526
+      },
+      "src/data/practicalGuideNotes.ts": {
+        "sha256": "cd5d5f7027ec58e949c977cf9943c4774d96917b5cafaa2168e55e55a97ea5ba",
+        "bytes": 21830
+      },
+      "src/data/seasonalReasons.json": {
+        "sha256": "63a037b2908e282e9bd7da9f242686fc1d19848e972b77306f9dd6749aedb1e0",
+        "bytes": 92420
+      },
+      "src/data/seasonalShortlistReview.json": {
+        "sha256": "0842145532fe754729bf68434e55f3d2f44491f1ca21482650490975b761ad3e",
+        "bytes": 62316
+      },
+      "src/lib/affiliate.ts": {
+        "sha256": "55f1622bfcd87d477757822e5a07dd6ffcf1daca8df4b6efa987dcefb0e3615f",
+        "bytes": 8464
+      },
+      "src/lib/bookingDates.ts": {
+        "sha256": "f0178040d1aeba4e97f17a248d42d68eda007a8caf6b22e530a7e122dc3824fb",
+        "bytes": 1669
+      },
+      "src/lib/goldilocksDiscovery.ts": {
+        "sha256": "9bbc212de5e37c8ae8a4e4c9177d5b410468fbba408bc84874d7c36a872cd63b",
+        "bytes": 3690
+      },
+      "src/lib/golfDiscovery.ts": {
+        "sha256": "c52307b6f7aaa48f60c4a68911f44056621fb46179d2acc0981b6f827cbb7364",
+        "bytes": 13949
+      },
+      "src/lib/golfFinderMedia.ts": {
+        "sha256": "d7afba1e0c023ed06314a033994b5efb618aaac9ca9aa906c2de315d0f532d4e",
+        "bytes": 1408
+      },
+      "src/lib/golfGuides.ts": {
+        "sha256": "7d7e83acff26078225cfe1be18e4b37d4bc152586cd856e7a87806565470d371",
+        "bytes": 8605
+      },
+      "src/lib/golfMedia.ts": {
+        "sha256": "0fe502b316b6fbdd6b382cbe43ab7e599b3392b0e2955625dcc44952b72a84b0",
+        "bytes": 9364
+      },
+      "src/lib/golfPreviewCopy.ts": {
+        "sha256": "626b6f0202550f2799b6a6b82a5f51fbb1235e7bc0b641508b675c96e1ea5886",
+        "bytes": 2037
+      },
+      "src/lib/newsletter.ts": {
+        "sha256": "3c740d3fb5ed75af28d6c84d657d3a716e8022c313dca2d0432ee86f03ba8441",
+        "bytes": 8416
+      },
+      "src/lib/savedDestinations.ts": {
+        "sha256": "2bec1f37f69b20b111c181207f7815a22e569188e79bbfab43d652b309893043",
+        "bytes": 6806
+      },
+      "src/lib/seasonalHelpers.ts": {
+        "sha256": "9bc4bfef4e82adc4036b5079365b2033a6a7c32b7f4786e3e2da5407ac79be90",
+        "bytes": 9940
+      },
+      "src/lib/seasonalReasons.ts": {
+        "sha256": "82e23edd7c3bc3bcb7625cfe660eb3d0f2058b25f2c9c38006a34829807bc267",
+        "bytes": 4903
+      },
+      "src/lib/site.ts": {
+        "sha256": "022eb01c2b82ec6b65e16d9340fd1c69d7a156947a91c1e844b184fb112a2c0e",
+        "bytes": 1545
+      },
+      "src/lib/tripContext.ts": {
+        "sha256": "413c77acf20d1eebd06afcc85cf77cb5e9103064e1585946eed502618895dc7b",
+        "bytes": 8604
+      },
+      "src/page.tsx": {
+        "sha256": "2bbe74bd71552e7bc8eaf28a117bea8fc8df1701bf6197681a57d5248021c231",
+        "bytes": 11998
+      },
+      "src/scripts/generate-article.mjs": {
+        "sha256": "968a29715ebaa07db132c47d3a1e538929fa6998ee5c177b4de9704b5c616132",
+        "bytes": 1691
+      },
+      "src/scripts/generate-article.sh": {
+        "sha256": "5c993412bd63bcae0bd942e0cba2d68bd970c95b18f67941c4b5e305a8b04464",
+        "bytes": 1449
+      },
+      "src/seasonalHelpers.ts": {
+        "sha256": "f330f56e3dcfbd4b6e9161120f3e55ab55e8f37b62f0d291b3ac7c8cf3c8be07",
+        "bytes": 7666
+      },
+      "src/types/react-simple-maps.d.ts": {
+        "sha256": "a065dbce609c950ca4f2ad3ebaf20c3e7a5070f6c0d04ba02f9dc6f5174ef81e",
+        "bytes": 1492
+      },
+      "tailwind.config.js.bak": {
+        "sha256": "7a4d81fe7ed1bb35c40d54fe7598bc33f137ba2fc2db247a81f61b36359b6b1d",
+        "bytes": 476
+      },
+      "tailwind.config.ts": {
+        "sha256": "1732c12106630d2c34af69e61e6c8e562e7d5bf54c8e7fe5b4eb3c51448a8996",
+        "bytes": 232
+      },
+      "tests/README.md": {
+        "sha256": "f62b379c0010e1be667925b686531bf33ab54c9097db602c07390591904fa2b3",
+        "bytes": 5685
+      },
+      "tests/accessibility-guide.browser.test.mjs": {
+        "sha256": "6f7741a35e00b2e01a2f21b55d6fc5f150a226c0390f0b90e69c0ad6e272dd33",
+        "bytes": 9064
+      },
+      "tests/accessibility-plan.browser.test.mjs": {
+        "sha256": "9e8fd4f7b12a35492c3f07a6dc6e6ec78940f24a0832266bd6e698624f89a8d2",
+        "bytes": 17708
+      },
+      "tests/accessibility-surfaces.browser.test.mjs": {
+        "sha256": "80db7cf03af019e6d529150e79911c15553e78c174c327498f88102532c31d19",
+        "bytes": 11039
+      },
+      "tests/assets-map.browser.test.mjs": {
+        "sha256": "99d45bf0d76c9694ebb779b30dd8dbd9124aebf9debd673eaa68aef92d2ad177",
+        "bytes": 3162
+      },
+      "tests/booking.browser.test.mjs": {
+        "sha256": "4ce105d390e64a2bd1a77c193af5f15f631b29f6d9882748799aa2ce17f4ac23",
+        "bytes": 6658
+      },
+      "tests/bookingDates.test.mjs": {
+        "sha256": "d28671c4a7c3e66e721946128680506cd520f86b16f89df26071531c36f2c23f",
+        "bytes": 2638
+      },
+      "tests/brand.browser.test.mjs": {
+        "sha256": "3c42f13e882d7fa934bdd2ca712393f27426a23eec886fbc413b270eb4c9960a",
+        "bytes": 5660
+      },
+      "tests/browser-fixture.mjs": {
+        "sha256": "9987af6dd0c61c70a856391bd7e4130fc7cadbde4d1b0a180b3f32a0b818734a",
+        "bytes": 655
+      },
+      "tests/design-editions.browser.test.mjs": {
+        "sha256": "00ac7a41a0a43b2ecb3fb4b50a71dacbcbae9be8545b97b4c6ec0112f1baac6d",
+        "bytes": 6207
+      },
+      "tests/destination-photos.browser.test.mjs": {
+        "sha256": "7775c6766efd76d2a63beba000992e6c4474ff8114e7ef5998430b7990479c67",
+        "bytes": 9218
+      },
+      "tests/destination-photos.test.mjs": {
+        "sha256": "943aeacec60de498005a6ece43a7259b3e68bd870e709baa09def849d7fd5c2d",
+        "bytes": 10971
+      },
+      "tests/fixtures/accessibility-approved-changes.json": {
+        "sha256": "9aa3e49ce61b2a423c4a7d5a55b958331156ce31db22bf39d5f1e8082a8ad98b",
+        "bytes": 7266
+      },
+      "tests/fixtures/golf-approved-changes.json": {
+        "sha256": "75b0a06680a72e8357351ff12c6a35d16abd444561efdbc3aa88dbaf13225af6",
+        "bytes": 4998
+      },
+      "tests/fixtures/golf-finder-media-approved-changes.json": {
+        "sha256": "bdced3ee15ca539e19cc66e4e69761e8963fde74f21e7848451ea2717eb8e93b",
+        "bytes": 5489
+      },
+      "tests/fixtures/golf-guide-header-baseline.json": {
+        "sha256": "d146e2d3ee2a0bb80bdcd256fcbd1a2d5bde0c3775ad6ab08278c9a24b7b806a",
+        "bytes": 100207
+      },
+      "tests/fixtures/golf-guide-imagery-approved-changes.json": {
+        "sha256": "fa12304d268dde9fe6b4e2d7cee91e2ab2559c1139a4d2e81de7f49f62cd4929",
+        "bytes": 2693
+      },
+      "tests/fixtures/golf-guides-approved-changes.json": {
+        "sha256": "4ef605794938e3c2e26c65af05d9462d85f90f6683b0046dee9e12857cb342e7",
+        "bytes": 4368
+      },
+      "tests/fixtures/golf-imagery-approved-changes.json": {
+        "sha256": "891c02028a191ae17989fd0f2ec1060111253ee232dc91e6bbc19d4791fb865e",
+        "bytes": 5582
+      },
+      "tests/fixtures/golf-media-approved-changes.json": {
+        "sha256": "a2d17803123b92514148788cad4c23564e8f862660af30030d4e98fcf3cfe8a8",
+        "bytes": 15150
+      },
+      "tests/fixtures/golf-navigation-photo-release-approved-changes.json": {
+        "sha256": "711ac4b16639420ae65045ab65513cd208166ee44ceedf9b296606e7e9079aeb",
+        "bytes": 15891
+      },
+      "tests/fixtures/guide-performance-baseline.json": {
+        "sha256": "65a2692a2b7235011c15f3001da95bed9577c9731167fc77ca1e437567a9fbb3",
+        "bytes": 17904
+      },
+      "tests/fixtures/shortlist-prefetch-approved-changes.json": {
+        "sha256": "8fbdaa4f03f61260796e3bb98d4acf8beeb7cd182ed148cae27a6ca39ee2701b",
+        "bytes": 62054
+      },
+      "tests/fixtures/trip-planning-approved-changes.json": {
+        "sha256": "bbbb4dfa28c716c9b7463d492bb89a6ce562d113a3e6c5eddd5ee46dc41577d3",
+        "bytes": 444922
+      },
+      "tests/goldilocks-core.test.mjs": {
+        "sha256": "4ff706c9922b45823dee1e96dfd38741bdaf725b3d975242682214a28c8b1d5e",
+        "bytes": 4057
+      },
+      "tests/goldilocks.browser.test.mjs": {
+        "sha256": "2c8737100c13ec4122faf85120186fc978e67d76eae162e226cd4d7f817d8133",
+        "bytes": 23616
+      },
+      "tests/golf-core.test.mjs": {
+        "sha256": "fa20f4e58f34b3ccadc2e86ba6539925af1620b8388d20b3ea380d572c91df14",
+        "bytes": 26887
+      },
+      "tests/golf-design.test.mjs": {
+        "sha256": "1edfb9b896ce1ce4579702269beb11c0b590648a9a1c09cfd8a9f71ff0454072",
+        "bytes": 10611
+      },
+      "tests/golf-editorial.test.mjs": {
+        "sha256": "ad447cf767c12eb930166578dbc3b82d5fab3ee945a2b068f32ccff88bd26a47",
+        "bytes": 7041
+      },
+      "tests/golf-finder-media.browser.test.mjs": {
+        "sha256": "7c669bb54d9ef7d6b7bb28f2422fb925cce41127528e5d52395a5ed6736cf1e2",
+        "bytes": 16170
+      },
+      "tests/golf-finder-media.test.mjs": {
+        "sha256": "5e71453f92fc8e2a1d05d51948b17977d23c87645bc570e6244a89a94e403e96",
+        "bytes": 9792
+      },
+      "tests/golf-guide-headers.test.mjs": {
+        "sha256": "3c13c10a7fc08361b9b4b3d735f09f4d24770c95d259c45d7d9b9362232764c9",
+        "bytes": 5377
+      },
+      "tests/golf-guide-provenance.browser.test.mjs": {
+        "sha256": "e19e5fd56036dcf22b8d598f88e1ad09c0e369ad0039b151f13c68776cbf7d00",
+        "bytes": 1974
+      },
+      "tests/golf-guide-provenance.test.mjs": {
+        "sha256": "cd9d0b5603b646d49c4e38e4c3238f0ab7d84a73a779c445202194bbf1a5a043",
+        "bytes": 1215
+      },
+      "tests/golf-guides.browser.test.mjs": {
+        "sha256": "4403a8ec536da9c0851127e0ab81ac9569f9c72c18e5e8d7298848c01bca3ecc",
+        "bytes": 6953
+      },
+      "tests/golf-guides.test.mjs": {
+        "sha256": "9d9b4310a1131ec0e97e89a8d79052f92075a020e734b424ed7270a7f49a31f6",
+        "bytes": 4825
+      },
+      "tests/golf-image-relevance.test.mjs": {
+        "sha256": "6d3d1cd2f69ec485443892c5aa8705dcf56d7a683db6fd1277a0e519908ad25b",
+        "bytes": 9876
+      },
+      "tests/golf-media.browser.test.mjs": {
+        "sha256": "56c51282b06b1e399b06790dc2c08ba81997e359b1a094b06eb51cc2a91c962f",
+        "bytes": 7304
+      },
+      "tests/golf-media.test.mjs": {
+        "sha256": "bf1de1271c9dfd7afbaf240fee0f98978044a88086ce3f3a4aa22e7d7b8345c6",
+        "bytes": 15935
+      },
+      "tests/golf-navigation-alignment.browser.test.mjs": {
+        "sha256": "24971a6fb40f760c7363d1bcc9c5ea2f904923a6496ce8c7a532d576321163cc",
+        "bytes": 6958
+      },
+      "tests/golf-overflow.browser.test.mjs": {
+        "sha256": "ce57fcc6b1e8b2e0303a2f84d2a859211fc208ea27633d042a821fc94175b97b",
+        "bytes": 3826
+      },
+      "tests/golf-photo-attribution.browser.test.mjs": {
+        "sha256": "09b08a34ce8f370597c4608dde9951fb6990e53a0e0a302bd8774f4d16ef0c86",
+        "bytes": 2212
+      },
+      "tests/golf-photo-attribution.test.mjs": {
+        "sha256": "2c0232e09706f9b16f2172fd5804ee710b451e9bec88c631b4f49e266818cef3",
+        "bytes": 13554
+      },
+      "tests/golf-visuals-fragment.browser.test.mjs": {
+        "sha256": "7131c8e951f75ce18b2bc5a4f5f271f45ee43f03948ec5982ad696f679765efa",
+        "bytes": 4182
+      },
+      "tests/golf-visuals-fragment.test.mjs": {
+        "sha256": "a9f3b91545581086ad09db34326c4e38e796fa84bd164b66aa30e1a638bff6ec",
+        "bytes": 4212
+      },
+      "tests/golf-zone.browser.test.mjs": {
+        "sha256": "0df9e15293628fe1e60efba99cdf5c94260ec7651ad95c981531d9646652760e",
+        "bytes": 14086
+      },
+      "tests/guide-accuracy.browser.test.mjs": {
+        "sha256": "eba0d469465f48f4434b6ac3eb04bf921b6ec4697e51003e4c2aac9f96c11cec",
+        "bytes": 2855
+      },
+      "tests/guide-claims.test.mjs": {
+        "sha256": "ea3b17166d00504f3971f777f0a51055aaf9d2bc567ed8fc2097780b396b2f8b",
+        "bytes": 6554
+      },
+      "tests/guide-copy.test.mjs": {
+        "sha256": "501baaab23f137b0f5bfc138eb3621d1d9f3cf52e869c618a4962e5fbbd558ef",
+        "bytes": 6511
+      },
+      "tests/guide-performance.browser.test.mjs": {
+        "sha256": "22d3cd3a95472e3f238ff3754b54505a6ee1f642f148a692addd6fb47c632505",
+        "bytes": 6675
+      },
+      "tests/guide-performance.test.mjs": {
+        "sha256": "e6dc924cfe04ad18282a4c01830a183622daaf68f928e0d49684f02eb4db847a",
+        "bytes": 36779
+      },
+      "tests/guides-theme.browser.test.mjs": {
+        "sha256": "da753ad2d48fac2865cc95487d59f26288fc9ebbbafdc7cad879461c041a9074",
+        "bytes": 8158
+      },
+      "tests/helpers/golf-guide-approved-headers.mjs": {
+        "sha256": "653cf2b32df00fd1ed12eebd665a84cc78518cc0ea843763f7e3d52fe61673cc",
+        "bytes": 2198
+      },
+      "tests/helpers/golf-guide-render.mjs": {
+        "sha256": "add11058d1123f75ff718f21c08ff5892d1d7905fd5957770177fbedf6df5cf2",
+        "bytes": 5059
+      },
+      "tests/helpers/trip-planning-approval.mjs": {
+        "sha256": "44b496038d18c0028430eb454affad155616fa4a29fbb2472540f19c9495fa37",
+        "bytes": 46326
+      },
+      "tests/hero-layout.browser.test.mjs": {
+        "sha256": "25ed3d2c3244d63291dde874f3112ca8ce44fb8ce71df5a11f269c7d40e38c5e",
+        "bytes": 3621
+      },
+      "tests/inflight-explore.browser.test.mjs": {
+        "sha256": "b525aa5c5f9d733e78d5e026dec13284a8045b6dc2704d2638de48a396b68b5c",
+        "bytes": 1870
+      },
+      "tests/navbar.browser.test.mjs": {
+        "sha256": "dc2f219d0d8ea3fb0ec4989535cf9be7cb677908069cac2c70e4de8ec49ea2cd",
+        "bytes": 8735
+      },
+      "tests/newsletter.unconfigured.test.mjs": {
+        "sha256": "f77e60264d20ffe6818a6cd38e45f27d83f76fa5cb2bab87f952d55a662d7cb7",
+        "bytes": 1528
+      },
+      "tests/next-launcher.test.mjs": {
+        "sha256": "69ea558960f1a1fdb11e8c746260982701a53266f95c2afdb9f6b0c267dc52cf",
+        "bytes": 962
+      },
+      "tests/nova.browser.test.mjs": {
+        "sha256": "90525f1d67b3302cdd42cb3df4fba8d26765c502bdb8bc7480d8eeb1fba76d71",
+        "bytes": 1466
+      },
+      "tests/performance.browser.test.mjs": {
+        "sha256": "79ccafef5c0ae3ea41282e7fed9e9f80094fd454bdc0ee27dcf33894b2c6a230",
+        "bytes": 6477
+      },
+      "tests/performance.test.mjs": {
+        "sha256": "665eb1f8194e8baad67480d5a3792914b07c92f7b788cad335bd7373a4859ce7",
+        "bytes": 11969
+      },
+      "tests/practical-guide-notes.test.mjs": {
+        "sha256": "dd9e4ff7e976c79eed7b0023834b4a9f03616d9ae481f5264109706bd3b99cba",
+        "bytes": 6606
+      },
+      "tests/saved-destinations-concurrency.test.mjs": {
+        "sha256": "647d6ae5830fa42c5d32a9aa672bc4d0b9a2006bd540ba91de8e04e5226bc332",
+        "bytes": 5184
+      },
+      "tests/saved-destinations.test.mjs": {
+        "sha256": "41759250929c70691575703e107553480fcdd901991bbea3c67e9d8473d260c6",
+        "bytes": 12328
+      },
+      "tests/seasonal-reasons.browser.test.mjs": {
+        "sha256": "0cf0b21d32837556a6cb8188eda53bc898cb8192298fe067ef418152ceaa049a",
+        "bytes": 5596
+      },
+      "tests/seasonal-reasons.test.mjs": {
+        "sha256": "f42fcbb3cb5eaf2358de57651115b3ebe92d19d086df23dfce3de270f1f79b11",
+        "bytes": 5562
+      },
+      "tests/seasonal-shortlist.browser.test.mjs": {
+        "sha256": "86220c15471d3d7f9754e7b9ab922c104c794453e125da42fa400be44943c449",
+        "bytes": 7571
+      },
+      "tests/seasonal-shortlist.test.mjs": {
+        "sha256": "dab24416f55babd512e6f73b4961da448524ed89cffb1e6d8729e66d7213f44a",
+        "bytes": 14362
+      },
+      "tests/seo.integration.test.mjs": {
+        "sha256": "b744a63fa3d78b54f6365089c8a395a85e963c547cfa54ef1fd54b1d0eba0bb6",
+        "bytes": 8849
+      },
+      "tests/shortlist-prefetch.test.mjs": {
+        "sha256": "e76465c2f747d304677ca2f278b9546f1055f708fe1d26276c6f87c1f68255fe",
+        "bytes": 6128
+      },
+      "tests/stay22.live.test.mjs": {
+        "sha256": "faa5fabb9480af52e416db0ff054f2a018b1e33aa14479cbeb31eb55d687772b",
+        "bytes": 4522
+      },
+      "tests/ticket-art-direction.browser.test.mjs": {
+        "sha256": "362ccdf05cc1cdc2198e17fe3287065f437982ffdc80757dd24d3846c151b0a1",
+        "bytes": 3270
+      },
+      "tests/ticket-placement.browser.test.mjs": {
+        "sha256": "9aca088474c9736e57ae17ac8ec5a42c7e0629d7394d4cefd67c6d06708a7f5f",
+        "bytes": 2192
+      },
+      "tests/travel-design.test.mjs": {
+        "sha256": "cc6dc9eb837ffc2b13823fe82a69e46ab5d2358b3074312db2e9706548756f13",
+        "bytes": 6179
+      },
+      "tests/travel-strip.browser.test.mjs": {
+        "sha256": "c6d1bae4d58d0a3059524ad198e66d77734a7416a3dc21ebfa8e0cc6617fc690",
+        "bytes": 4430
+      },
+      "tests/trip-context.test.mjs": {
+        "sha256": "31325581f5d08a87ae4ac6289ba0bf40e50e83c4a30daf2486d9712036c33bb5",
+        "bytes": 23987
+      },
+      "tests/trip-improvements.browser.test.mjs": {
+        "sha256": "e0e3c195fc1d20dddfc2e1d669e1625af4c6fcade89d57420c9683365bb0d3a8",
+        "bytes": 33371
+      },
+      "tests/umami.test.mjs": {
+        "sha256": "ab2bbd0fda34d49ddea5d285c6165b357c211a6ffd7e8893d9abbec305424995",
+        "bytes": 2538
+      },
+      "tests/window-seat-hero.browser.test.mjs": {
+        "sha256": "7ddb686df9c720d03d858e758aa2a4cdf8510444bf6241ced4a42b6ea3dce9d5",
+        "bytes": 3266
+      },
+      "tsconfig.json": {
+        "sha256": "fb8dab2900d0cd8a3c57fd085763410220de9dc8c514d5e86d04abfe16d5cacd",
+        "bytes": 702
+      },
+      "tsconfig.tsbuildinfo": {
+        "sha256": "dcbcc2b7b12004e585c404b0b8c5bd2cded48fa35e57347a2e3d05e99bdaa848",
+        "bytes": 112901
+      }
+    }
+  },
+  "immutableFixtures": {
+    "tests/fixtures/accessibility-approved-changes.json": "9aa3e49ce61b2a423c4a7d5a55b958331156ce31db22bf39d5f1e8082a8ad98b",
+    "tests/fixtures/golf-approved-changes.json": "75b0a06680a72e8357351ff12c6a35d16abd444561efdbc3aa88dbaf13225af6",
+    "tests/fixtures/golf-finder-media-approved-changes.json": "bdced3ee15ca539e19cc66e4e69761e8963fde74f21e7848451ea2717eb8e93b",
+    "tests/fixtures/golf-guide-header-baseline.json": "d146e2d3ee2a0bb80bdcd256fcbd1a2d5bde0c3775ad6ab08278c9a24b7b806a",
+    "tests/fixtures/golf-guide-imagery-approved-changes.json": "fa12304d268dde9fe6b4e2d7cee91e2ab2559c1139a4d2e81de7f49f62cd4929",
+    "tests/fixtures/golf-guides-approved-changes.json": "4ef605794938e3c2e26c65af05d9462d85f90f6683b0046dee9e12857cb342e7",
+    "tests/fixtures/golf-imagery-approved-changes.json": "891c02028a191ae17989fd0f2ec1060111253ee232dc91e6bbc19d4791fb865e",
+    "tests/fixtures/golf-media-approved-changes.json": "a2d17803123b92514148788cad4c23564e8f862660af30030d4e98fcf3cfe8a8",
+    "tests/fixtures/golf-navigation-photo-release-approved-changes.json": "711ac4b16639420ae65045ab65513cd208166ee44ceedf9b296606e7e9079aeb",
+    "tests/fixtures/guide-performance-baseline.json": "65a2692a2b7235011c15f3001da95bed9577c9731167fc77ca1e437567a9fbb3",
+    "tests/fixtures/shortlist-prefetch-approved-changes.json": "8fbdaa4f03f61260796e3bb98d4acf8beeb7cd182ed148cae27a6ca39ee2701b",
+    "tests/fixtures/trip-planning-approved-changes.json": "bbbb4dfa28c716c9b7463d492bb89a6ce562d113a3e6c5eddd5ee46dc41577d3"
+  },
+  "changes": {
+    "src/components/GoldilocksHome.tsx": {
+      "beforeHash": "444eeb2c51d706e7f63b6c6a8565a8d80eac2b7817643cd47257ec7e36e59ed1",
+      "afterHash": "21ebbfbfb2f45945782b6bfa981898d2b2a6d952051a42f84fc73b38fb540c02",
+      "reason": "Only the featured destination guide Link gains prefetch={false}; the three published card flags and all other product bytes remain unchanged. Featured detail Link keeps its single prefetch flag; the decorative shade-dot spans are removed so the dimmer is one empty aria-hidden decoration.",
+      "edits": [
+        {
+          "beforeOffset": 4182,
+          "afterOffset": 4182,
+          "before": "ICAgICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPXtzdHlsZXMud2luZG93RGltbWVyfSBhcmlhLWhpZGRlbj0idHJ1ZSI+PGkgLz48aSAvPjxpIC8+PGkgLz48aSAvPjwvc3Bhbj4K",
+          "after": "ICAgICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPXtzdHlsZXMud2luZG93RGltbWVyfSBhcmlhLWhpZGRlbj0idHJ1ZSIgLz4K"
+        },
+        {
+          "beforeOffset": 4786,
+          "afterOffset": 4756,
+          "before": "ICAgICAgICAgICAgPExpbmsgaHJlZj17YC9ndWlkZXMvJHtmZWF0dXJlZC5zbHVnfT9tb250aD0ke21vbnRofWB9IGRhdGEtZmVhdHVyZS1saW5rPgo=",
+          "after": "ICAgICAgICAgICAgPExpbmsgcHJlZmV0Y2g9e2ZhbHNlfSBocmVmPXtgL2d1aWRlcy8ke2ZlYXR1cmVkLnNsdWd9P21vbnRoPSR7bW9udGh9YH0gZGF0YS1mZWF0dXJlLWxpbms+Cg=="
+        }
+      ]
+    },
+    "tests/helpers/trip-planning-approval.mjs": {
+      "beforeHash": "44b496038d18c0028430eb454affad155616fa4a29fbb2472540f19c9495fa37",
+      "afterHash": "963ff38a72b48e195f4b15ee3486d1de16cb6abec407ce02d0a6808041ec5543",
+      "reason": "Exact latest inverse authorizes only the nine enumerated changed paths and three additions, including the user-expanded uniform-window and travel-theme scope; published 309 baseline, historical reconstruction and all twelve fixtures stay immutable. Unpublished contrast revision adds only the explicit accessibility-oracle claim; retains the independent published manifest and exact baseline chain.",
+      "edits": [
+        {
+          "beforeOffset": 39216,
+          "afterOffset": 39216,
+          "before": "ZXhwb3J0IGNvbnN0IGZvbGxvd3VwUGF0aHMgPSBbZm9sbG93dXBGaXh0dXJlUGF0aCwgZm9sbG93dXBUZXN0UGF0aF0K",
+          "after": "Y29uc3QgcHJpb3JGb2xsb3d1cFBhdGhzID0gW2ZvbGxvd3VwRml4dHVyZVBhdGgsIGZvbGxvd3VwVGVzdFBhdGhdCmV4cG9ydCBjb25zdCBmZWF0dXJlZEJhc2UgPSAnNmZhZmVkZTlkYjQ2NjcwZmQ5NWE5OTc1MGM2Y2RjOTg0MTZmNjExYicKLy8gUHVibGlzaGVkIFBSMjggKHRoZW1lIGJvb3QgKyBkYXJrIGhlcm8pIHNpdHMgYmV0d2VlbiBmODkyZmQ0IGFuZCB0aGlzIHJlbGVhc2UncwovLyBiYXNlLiBJdCBpcyBkZXNjcmliZWQgYXMgaXRzIG93biByZXZlcnNpYmxlIGxheWVyIHNvIHRoZSBjaGFpbiBiZWxvdyBuZXZlcgovLyBuZWVkcyBnaXQgaW5zdGFsbGVkIHRvIHN0ZXAgYmFja3dhcmRzIHRocm91Z2ggaXQuCmV4cG9ydCBjb25zdCB0aGVtZUJvb3RCYXNlID0gJ2Y4OTJmZDRhYTAzMDA2Y2EwM2ViNDhiOWU3YTI0MWMxZTRjNDc5MWYnCmV4cG9ydCBjb25zdCB0aGVtZUJvb3RGaXh0dXJlUGF0aCA9ICd0ZXN0cy9maXh0dXJlcy90aGVtZS1ib290LWFwcHJvdmVkLWNoYW5nZXMuanNvbicKZXhwb3J0IGNvbnN0IHRoZW1lQm9vdENoYW5nZWRQYXRocyA9IFsnc3JjL2FwcC9nbG9iYWxzLmNzcycsICdzcmMvYXBwL2xheW91dC50c3gnLCAnc3JjL2NvbXBvbmVudHMvR29sZGlsb2Nrc0hvbWUubW9kdWxlLmNzcycsICdzcmMvY29tcG9uZW50cy9OYXZiYXIudHN4JywgJ3NyYy9jb21wb25lbnRzL1RoZW1lUHJvdmlkZXIudHN4J10KZXhwb3J0IGNvbnN0IHRoZW1lQm9vdEFkZGVkUGF0aCA9ICdzcmMvY29tcG9uZW50cy90aGVtZUJvb3QudHMnCmV4cG9ydCBjb25zdCB0aGVtZUJvb3RQYXRocyA9IFt0aGVtZUJvb3RGaXh0dXJlUGF0aCwgdGhlbWVCb290QWRkZWRQYXRoXQpjb25zdCB0aGVtZUJvb3REaWdlc3QgPSAnMDJmMzgxMDE5ZDVmYTliYmJjNGY1MzJkM2I0NDBlZDNkY2ViNDM1NWIwOGU2NTkzNWYyMDg5OGEyNTI4NWM4YicKZXhwb3J0IGNvbnN0IHRoZW1lQm9vdEFwcHJvdmFsID0gSlNPTi5wYXJzZShhd2FpdCByZWFkRmlsZShuZXcgVVJMKCcuLi9maXh0dXJlcy90aGVtZS1ib290LWFwcHJvdmVkLWNoYW5nZXMuanNvbicsIGltcG9ydC5tZXRhLnVybCksICd1dGY4JykpCmV4cG9ydCBjb25zdCBmZWF0dXJlZEZpeHR1cmVQYXRoID0gJ3Rlc3RzL2ZpeHR1cmVzL2ZlYXR1cmVkLWd1aWRlLXByZWZldGNoLWFwcHJvdmVkLWNoYW5nZXMuanNvbicKZXhwb3J0IGNvbnN0IGZlYXR1cmVkVGVzdFBhdGggPSAndGVzdHMvZmVhdHVyZWQtZ3VpZGUtcHJlZmV0Y2gudGVzdC5tanMnCmV4cG9ydCBjb25zdCBmZWF0dXJlZEJyb3dzZXJQYXRoID0gJ3Rlc3RzL3RyYXZlbC10aGVtZS1jb25zaXN0ZW5jeS5icm93c2VyLnRlc3QubWpzJwpleHBvcnQgY29uc3QgZmVhdHVyZWRQYXRocyA9IFtmZWF0dXJlZEZpeHR1cmVQYXRoLCBmZWF0dXJlZFRlc3RQYXRoLCBmZWF0dXJlZEJyb3dzZXJQYXRoXQpleHBvcnQgY29uc3QgZm9sbG93dXBQYXRocyA9IFsuLi5wcmlvckZvbGxvd3VwUGF0aHMsIC4uLmZlYXR1cmVkUGF0aHNdCmV4cG9ydCBjb25zdCBmZWF0dXJlZENoYW5nZWRQYXRocyA9IFsnc3JjL2NvbXBvbmVudHMvR29sZGlsb2Nrc0hvbWUudHN4JywgJ3Rlc3RzL2hlbHBlcnMvdHJpcC1wbGFubmluZy1hcHByb3ZhbC5tanMnLCBmb2xsb3d1cFRlc3RQYXRoLCAndGVzdHMvc2Vhc29uYWwtcmVhc29ucy5icm93c2VyLnRlc3QubWpzJywgJ3NyYy9jb21wb25lbnRzL0dvbGRpbG9ja3NIb21lLm1vZHVsZS5jc3MnLCAnc3JjL2NvbXBvbmVudHMvVHJhdmVsVGhlbWUubW9kdWxlLmNzcycsICdzcmMvY29tcG9uZW50cy9Db21wYXJlUHJpY2VzU2VjdGlvbi50c3gnLCAnc3JjL2NvbXBvbmVudHMvQ29tcGFyZVByaWNlc1NlY3Rpb24ubW9kdWxlLmNzcycsICd0ZXN0cy93aW5kb3ctc2VhdC1oZXJvLmJyb3dzZXIudGVzdC5tanMnLCAndGVzdHMvYWNjZXNzaWJpbGl0eS1wbGFuLmJyb3dzZXIudGVzdC5tanMnLCAndGVzdHMvZ3VpZGUtcGVyZm9ybWFuY2UudGVzdC5tanMnLCAndGVzdHMvdHJpcC1pbXByb3ZlbWVudHMuYnJvd3Nlci50ZXN0Lm1qcyddCmNvbnN0IGZlYXR1cmVkTWFuaWZlc3REaWdlc3QgPSAnOGU2MDYzMGM2MDFkMmFkYTBhYWFkOWQ1YTg1ODNjYjEzMWE3OTBjNzBjMDFjNGVhNmZmZjhjZDc0ZGI4NTI3YycKZXhwb3J0IGNvbnN0IGZlYXR1cmVkQXBwcm92YWwgPSBKU09OLnBhcnNlKGF3YWl0IHJlYWRGaWxlKG5ldyBVUkwoJy4uL2ZpeHR1cmVzL2ZlYXR1cmVkLWd1aWRlLXByZWZldGNoLWFwcHJvdmVkLWNoYW5nZXMuanNvbicsIGltcG9ydC5tZXRhLnVybCksICd1dGY4JykpCmV4cG9ydCBmdW5jdGlvbiB2YWxpZGF0ZUZlYXR1cmVkKGRvYyA9IGZlYXR1cmVkQXBwcm92YWwpIHsKICBhc3NlcnQuZXF1YWwoZG9jLnNjaGVtYVZlcnNpb24sIDEpCiAgYXNzZXJ0LmVxdWFsKGRvYy5raW5kLCAnZmVhdHVyZWQtZ3VpZGUtcHJlZmV0Y2gtZXhhY3QtaW52ZXJzZS1mb2xsb3d1cCcpCiAgYXNzZXJ0Lm9rKFsnYXdhaXRpbmctaW5kZXBlbmRlbnQtcmV2aWV3JywgJ2luZGVwZW5kZW50bHktcmV2aWV3ZWQnXS5pbmNsdWRlcyhkb2Muc3RhdHVzKSkKICBhc3NlcnQuZXF1YWwoZG9jLnB1Ymxpc2hlZEJhc2UsIGZlYXR1cmVkQmFzZSkKICBhc3NlcnQuZXF1YWwoZG9jLmluZGVwZW5kZW50UHVibGlzaGVkTWFuaWZlc3QuaGVhZCwgZmVhdHVyZWRCYXNlKQogIGFzc2VydC5lcXVhbChzaGEyNTYoSlNPTi5zdHJpbmdpZnkoZG9jLmluZGVwZW5kZW50UHVibGlzaGVkTWFuaWZlc3QpKSwgZmVhdHVyZWRNYW5pZmVzdERpZ2VzdCwgJ2luZGVwZW5kZW50IGNvbXBsZXRlIDMxMC1maWxlIHB1Ymxpc2hlZCBtYW5pZmVzdCBpcyBpbW11dGFibGUnKQogIGNvbnN0IGZpbGVzID0gZG9jLmluZGVwZW5kZW50UHVibGlzaGVkTWFuaWZlc3QuZmlsZXMKICBhc3NlcnQuZXF1YWwoT2JqZWN0LmtleXMoZmlsZXMpLmxlbmd0aCwgMzEwKQogIGludmVudG9yeShmaWxlcywgWy4uLk9iamVjdC5rZXlzKHB1Ymxpc2hlZEhhc2hlcyksIC4uLmFkZGVkUGF0aHMsIGNhbmRpZGF0ZUZpeHR1cmVQYXRoLCAuLi5wcmlvckZvbGxvd3VwUGF0aHMsIHRoZW1lQm9vdEFkZGVkUGF0aF0sICdjb21wbGV0ZSBwdWJsaXNoZWQgNmZhZmVkZSBpbnZlbnRvcnknKQogIGNvbnN0IGZpeHR1cmVzID0gT2JqZWN0LmtleXMoZmlsZXMpLmZpbHRlcihwYXRoID0+IHBhdGguc3RhcnRzV2l0aCgndGVzdHMvZml4dHVyZXMvJykpCiAgYXNzZXJ0LmVxdWFsKGZpeHR1cmVzLmxlbmd0aCwgMTIpCiAgaW52ZW50b3J5KGRvYy5pbW11dGFibGVGaXh0dXJlcywgZml4dHVyZXMsICdhbGwgdHdlbHZlIHB1Ymxpc2hlZCBmaXh0dXJlcyByZW1haW4gaW1tdXRhYmxlJykKICBmb3IgKGNvbnN0IHBhdGggb2YgZml4dHVyZXMpIGFzc2VydC5lcXVhbChkb2MuaW1tdXRhYmxlRml4dHVyZXNbcGF0aF0sIGZpbGVzW3BhdGhdLnNoYTI1NiwgcGF0aCkKICBpbnZlbnRvcnkoZG9jLmNoYW5nZXMsIGZlYXR1cmVkQ2hhbmdlZFBhdGhzLCAnb25seSB0d2VsdmUgZXhwbGljaXRseSBhdXRob3JpemVkIGZlYXR1cmVkLCB2aXN1YWwsIGNvbnRyYXN0LW9yYWNsZSwgc2NvcGUtaW52ZW50b3J5IGFuZCBhY3RpdmF0aW9uLXJhY2UgY2hhbmdlcycpCiAgaW52ZW50b3J5KGRvYy5hZGRlZEZpbGVzLCBbZmVhdHVyZWRUZXN0UGF0aCwgZmVhdHVyZWRCcm93c2VyUGF0aF0sICdvbmx5IHRoZSBuZXcgTm9kZSBhbmQgYnJvd3NlciBndWFyZHM7IG5vIGN5Y2xpYyBkb2N1bWVudCBwaW4nKQogIGZvciAoY29uc3QgcGF0aCBvZiBmZWF0dXJlZENoYW5nZWRQYXRocykgewogICAgY29uc3QgZW50cnkgPSBkb2MuY2hhbmdlc1twYXRoXQogICAgYXNzZXJ0LmVxdWFsKGVudHJ5LmJlZm9yZUhhc2gsIGZpbGVzW3BhdGhdLnNoYTI1NiwgYCR7cGF0aH06IGV4YWN0IHB1Ymxpc2hlZCA2ZmFmZWRlIGJlZm9yZUhhc2hgKQogICAgY29uc3QgYm9vdCA9IHRoZW1lQm9vdEFwcHJvdmFsLmNoYW5nZXNbcGF0aF0KICAgIGNvbnN0IHByaW9yID0gZm9sbG93dXBBcHByb3ZhbC5jaGFuZ2VzW3BhdGhdIHx8IGZvbGxvd3VwQXBwcm92YWwuYWRkZWRGaWxlc1twYXRoXSB8fCBhcHByb3ZhbC5jaGFuZ2VzW3BhdGhdIHx8IGFwcHJvdmFsLmFkZGVkRmlsZXNbcGF0aF0KICAgIGNvbnN0IHVwc3RyZWFtID0gYm9vdCA/IGJvb3QuYWZ0ZXJIYXNoIDogKHByaW9yID8gcHJpb3IuYWZ0ZXJIYXNoIDogcHVibGlzaGVkSGFzaGVzW3BhdGhdKQogICAgYXNzZXJ0LmVxdWFsKGVudHJ5LmJlZm9yZUhhc2gsIHVwc3RyZWFtLCBgJHtwYXRofTogdW5icm9rZW4gcHVibGlzaGVkIGNoYWluIHRocm91Z2ggUFIyOGApCiAgICBhc3NlcnQubWF0Y2goZW50cnkuYWZ0ZXJIYXNoLCAvXlthLWYwLTldezY0fSQvKQogICAgYXNzZXJ0Lm5vdEVxdWFsKGVudHJ5LmFmdGVySGFzaCwgZW50cnkuYmVmb3JlSGFzaCkKICAgIGFzc2VydC5vayhlbnRyeS5yZWFzb24/LnRyaW0oKSkKICAgIGFzc2VydC5vayhBcnJheS5pc0FycmF5KGVudHJ5LmVkaXRzKSAmJiBlbnRyeS5lZGl0cy5sZW5ndGggPiAwKQogIH0KICBmb3IgKGNvbnN0IHBhdGggb2YgW2ZlYXR1cmVkVGVzdFBhdGgsIGZlYXR1cmVkQnJvd3NlclBhdGhdKSB7CiAgICBjb25zdCBhZGRlZCA9IGRvYy5hZGRlZEZpbGVzW3BhdGhdCiAgICBhc3NlcnQuZXF1YWwoYWRkZWQuYmVmb3JlSGFzaCwgbnVsbCkKICAgIGFzc2VydC5tYXRjaChhZGRlZC5hZnRlckhhc2gsIC9eW2EtZjAtOV17NjR9JC8pCiAgICBhc3NlcnQub2soYWRkZWQucmVhc29uPy50cmltKCkpCiAgICBhc3NlcnQub2soIU9iamVjdC5oYXNPd24oZmlsZXMsIHBhdGgpKQogIH0KICBhc3NlcnQub2soIU9iamVjdC5oYXNPd24oZG9jLmNoYW5nZXMsIGZlYXR1cmVkRml4dHVyZVBhdGgpICYmICFPYmplY3QuaGFzT3duKGRvYy5hZGRlZEZpbGVzLCBmZWF0dXJlZEZpeHR1cmVQYXRoKSkKfQovLyBOb3JtYWxpemUgZXhhY3RseSBvbmNlIHRvIHRoZSBwdWJsaXNoZWQgNmZhZmVkZSBiYXNlLgpleHBvcnQgZnVuY3Rpb24gZmVhdHVyZWRCeXRlcyhwYXRoLCBpbnB1dCkgewogIGlmIChmZWF0dXJlZENoYW5nZWRQYXRocy5pbmNsdWRlcyhwYXRoKSkgcmV0dXJuIGludmVyc2UoZmVhdHVyZWRBcHByb3ZhbC5jaGFuZ2VzW3BhdGhdLCBpbnB1dCwgYGZlYXR1cmVkIGZvbGxvdy11cC8ke3BhdGh9YCkKICBpZiAoW2ZlYXR1cmVkVGVzdFBhdGgsIGZlYXR1cmVkQnJvd3NlclBhdGhdLmluY2x1ZGVzKHBhdGgpKSBhc3NlcnQuZXF1YWwoc2hhMjU2KGlucHV0KSwgZmVhdHVyZWRBcHByb3ZhbC5hZGRlZEZpbGVzW3BhdGhdLmFmdGVySGFzaCwgYCR7cGF0aH06IGV4YWN0IGxhdGVzdCBndWFyZGApCiAgcmV0dXJuIEJ1ZmZlci5mcm9tKGlucHV0KQp9CmV4cG9ydCBhc3luYyBmdW5jdGlvbiB2ZXJpZnlGZWF0dXJlZEludmVudG9yeShyb290ID0gbmV3IFVSTCgnLi4vLi4vJywgaW1wb3J0Lm1ldGEudXJsKSkgewogIHZhbGlkYXRlRmVhdHVyZWQoKQogIGZvciAoY29uc3QgW3BhdGgsIGVudHJ5XSBvZiBPYmplY3QuZW50cmllcyhmZWF0dXJlZEFwcHJvdmFsLmluZGVwZW5kZW50UHVibGlzaGVkTWFuaWZlc3QuZmlsZXMpKSB7CiAgICBjb25zdCBieXRlcyA9IGZlYXR1cmVkQnl0ZXMocGF0aCwgYXdhaXQgcmVhZEZpbGUobmV3IFVSTChwYXRoLCByb290KSkpCiAgICBhc3NlcnQuZXF1YWwoc2hhMjU2KGJ5dGVzKSwgZW50cnkuc2hhMjU2LCBgJHtwYXRofTogY29tcGxldGUgNmZhZmVkZSBmcmVlemVgKQogICAgYXNzZXJ0LmVxdWFsKGJ5dGVzLmxlbmd0aCwgZW50cnkuYnl0ZXMsIGAke3BhdGh9OiBwdWJsaXNoZWQgYnl0ZSBjb3VudGApCiAgfQogIGZvciAoY29uc3QgcGF0aCBvZiBbZmVhdHVyZWRUZXN0UGF0aCwgZmVhdHVyZWRCcm93c2VyUGF0aF0pIGZlYXR1cmVkQnl0ZXMocGF0aCwgYXdhaXQgcmVhZEZpbGUobmV3IFVSTChwYXRoLCByb290KSkpCiAgcmV0dXJuIHsgcHVibGlzaGVkOiAzMTAsIGNoYW5nZWQ6IDEyLCBhZGRlZDogMywgaW1tdXRhYmxlRml4dHVyZXM6IDEyIH0KfQo="
+        },
+        {
+          "beforeOffset": 41719,
+          "afterOffset": 47595,
+          "before": "ZXhwb3J0IGZ1bmN0aW9uIGZvbGxvd3VwQnl0ZXMocGF0aCwgaW5wdXQpIHsK",
+          "after": "ZnVuY3Rpb24gcHJpb3JGb2xsb3d1cEJ5dGVzKHBhdGgsIGlucHV0KSB7Cg=="
+        },
+        {
+          "beforeOffset": 42064,
+          "afterOffset": 47938,
+          "before": "",
+          "after": "fQpleHBvcnQgZnVuY3Rpb24gdmFsaWRhdGVUaGVtZUJvb3QoZG9jID0gdGhlbWVCb290QXBwcm92YWwpIHsKICBhc3NlcnQuZXF1YWwoZG9jLnNjaGVtYVZlcnNpb24sIDEpCiAgYXNzZXJ0LmVxdWFsKGRvYy5raW5kLCAncHVibGlzaGVkLXRoZW1lLWJvb3QtZXhhY3QtaW52ZXJzZS1sYXllcicpCiAgYXNzZXJ0LmVxdWFsKGRvYy5zdGF0dXMsICdwdWJsaXNoZWQnKQogIGFzc2VydC5lcXVhbChkb2MucHVibGlzaGVkQmFzZSwgdGhlbWVCb290QmFzZSkKICBhc3NlcnQuZXF1YWwoZG9jLnB1Ymxpc2hlZEhlYWQsIGZlYXR1cmVkQmFzZSkKICBhc3NlcnQuZXF1YWwoc2hhMjU2KEpTT04uc3RyaW5naWZ5KGRvYykpLCB0aGVtZUJvb3REaWdlc3QsICdwdWJsaXNoZWQgUFIyOCBsYXllciBpcyBpbW11dGFibGUnKQogIGludmVudG9yeShkb2MuY2hhbmdlcywgdGhlbWVCb290Q2hhbmdlZFBhdGhzLCAnZXhhY3RseSB0aGUgZml2ZSBQUjI4IHN1cmZhY2VzJykKICBpbnZlbnRvcnkoZG9jLmFkZGVkRmlsZXMsIFt0aGVtZUJvb3RBZGRlZFBhdGhdLCAnb25seSB0aGUgUFIyOCBib290IHNjcmlwdCBpcyBuZXcnKQogIGZvciAoY29uc3QgcGF0aCBvZiB0aGVtZUJvb3RDaGFuZ2VkUGF0aHMpIHsKICAgIGNvbnN0IGVudHJ5ID0gZG9jLmNoYW5nZXNbcGF0aF0KICAgIGFzc2VydC5tYXRjaChlbnRyeS5iZWZvcmVIYXNoLCAvXlthLWYwLTldezY0fSQvKQogICAgYXNzZXJ0Lm1hdGNoKGVudHJ5LmFmdGVySGFzaCwgL15bYS1mMC05XXs2NH0kLykKICAgIGFzc2VydC5ub3RFcXVhbChlbnRyeS5iZWZvcmVIYXNoLCBlbnRyeS5hZnRlckhhc2gpCiAgICBhc3NlcnQub2soZW50cnkucmVhc29uPy50cmltKCkpCiAgICBhc3NlcnQub2soQXJyYXkuaXNBcnJheShlbnRyeS5lZGl0cykgJiYgZW50cnkuZWRpdHMubGVuZ3RoID4gMCkKICB9CiAgY29uc3QgYWRkZWQgPSBkb2MuYWRkZWRGaWxlc1t0aGVtZUJvb3RBZGRlZFBhdGhdCiAgYXNzZXJ0LmVxdWFsKGFkZGVkLmJlZm9yZUhhc2gsIG51bGwpCiAgYXNzZXJ0Lm1hdGNoKGFkZGVkLmFmdGVySGFzaCwgL15bYS1mMC05XXs2NH0kLykKfQovLyBQdWJsaXNoZWQgUFIyOCBpbnZlcnNlOiBzdGVwIGZyb20gdGhlIG5ldyBtYWluIGJhc2UgYmFjayB0byBmODkyZmQ0LgpleHBvcnQgZnVuY3Rpb24gdGhlbWVCb290Qnl0ZXMocGF0aCwgaW5wdXQpIHsKICBpZiAodGhlbWVCb290Q2hhbmdlZFBhdGhzLmluY2x1ZGVzKHBhdGgpKSByZXR1cm4gaW52ZXJzZSh0aGVtZUJvb3RBcHByb3ZhbC5jaGFuZ2VzW3BhdGhdLCBpbnB1dCwgYHB1Ymxpc2hlZCBQUjI4LyR7cGF0aH1gKQogIGlmIChwYXRoID09PSB0aGVtZUJvb3RBZGRlZFBhdGgpIGFzc2VydC5lcXVhbChzaGEyNTYoaW5wdXQpLCB0aGVtZUJvb3RBcHByb3ZhbC5hZGRlZEZpbGVzW3BhdGhdLmFmdGVySGFzaCwgYCR7cGF0aH06IGV4YWN0IHB1Ymxpc2hlZCBQUjI4IGJvb3Qgc2NyaXB0YCkKICByZXR1cm4gQnVmZmVyLmZyb20oaW5wdXQpCn0KZXhwb3J0IGZ1bmN0aW9uIGZvbGxvd3VwQnl0ZXMocGF0aCwgaW5wdXQpIHsKICByZXR1cm4gcHJpb3JGb2xsb3d1cEJ5dGVzKHBhdGgsIHRoZW1lQm9vdEJ5dGVzKHBhdGgsIGZlYXR1cmVkQnl0ZXMocGF0aCwgaW5wdXQpKSkK"
+        },
+        {
+          "beforeOffset": 42600,
+          "afterOffset": 50094,
+          "before": "ICByZXR1cm4geyBwdWJsaXNoZWQ6IDMwNywgY2hhbmdlZDogZm9sbG93dXBDaGFuZ2VkUGF0aHMubGVuZ3RoLCBhZGRlZDogZm9sbG93dXBQYXRocy5sZW5ndGggfQo=",
+          "after": "ICByZXR1cm4geyBwdWJsaXNoZWQ6IDMwNywgY2hhbmdlZDogZm9sbG93dXBDaGFuZ2VkUGF0aHMubGVuZ3RoLCBhZGRlZDogcHJpb3JGb2xsb3d1cFBhdGhzLmxlbmd0aCB9Cg=="
+        },
+        {
+          "beforeOffset": 44513,
+          "afterOffset": 52012,
+          "before": "ICBhc3NlcnQuZGVlcEVxdWFsKFsuLi5wYXRoc10uc29ydCgpLCBbLi4uT2JqZWN0LmtleXMocHVibGlzaGVkSGFzaGVzKSwgLi4uYWRkZWRQYXRocywgY2FuZGlkYXRlRml4dHVyZVBhdGgsIC4uLmZvbGxvd3VwUGF0aHNdLnNvcnQoKSwgJ3Vua25vd24sIG1pc3NpbmcgYW5kIGR1cGxpY2F0ZSByZXBvc2l0b3J5IHBhdGhzIGFyZSByZWZ1c2VkOyBubyBlbnYva2V5cy9yZXNlYXJjaCBkZWZhdWx0IHBlcm1pdHMnKQo=",
+          "after": "ICBhc3NlcnQuZGVlcEVxdWFsKFsuLi5wYXRoc10uc29ydCgpLCBbLi4uT2JqZWN0LmtleXMocHVibGlzaGVkSGFzaGVzKSwgLi4uYWRkZWRQYXRocywgY2FuZGlkYXRlRml4dHVyZVBhdGgsIC4uLmZvbGxvd3VwUGF0aHMsIC4uLnRoZW1lQm9vdFBhdGhzXS5zb3J0KCksICd1bmtub3duLCBtaXNzaW5nIGFuZCBkdXBsaWNhdGUgcmVwb3NpdG9yeSBwYXRocyBhcmUgcmVmdXNlZDsgbm8gZW52L2tleXMvcmVzZWFyY2ggZGVmYXVsdCBwZXJtaXRzJykK"
+        },
+        {
+          "beforeOffset": 45626,
+          "afterOffset": 53144,
+          "before": "",
+          "after": "ICBhd2FpdCB2ZXJpZnlGZWF0dXJlZEludmVudG9yeShyb290KQo="
+        },
+        {
+          "beforeOffset": 46326,
+          "afterOffset": 53882,
+          "before": "",
+          "after": "dmFsaWRhdGVGZWF0dXJlZCgpCnZhbGlkYXRlVGhlbWVCb290KCkK"
+        }
+      ]
+    },
+    "tests/shortlist-prefetch.test.mjs": {
+      "beforeHash": "e76465c2f747d304677ca2f278b9546f1055f708fe1d26276c6f87c1f68255fe",
+      "afterHash": "229078323f296622b6ade98b5f29302386a0aedcd79d9a13eb575945acfec703",
+      "reason": "Normalize the direct source view through the new featured layer before the untouched three-card expectations and prior pins; extend only the additive inventory.",
+      "edits": [
+        {
+          "beforeOffset": 356,
+          "afterOffset": 356,
+          "before": "ICBub3JtYWxpemVBcHByb3ZlZCwgcHVibGlzaGVkQnl0ZXMsIHNoYTI1NiwK",
+          "after": "ICBub3JtYWxpemVBcHByb3ZlZCwgcHVibGlzaGVkQnl0ZXMsIHNoYTI1NiwgZmVhdHVyZWRCeXRlcywgZmVhdHVyZWRQYXRocywgdGhlbWVCb290UGF0aHMsCg=="
+        },
+        {
+          "beforeOffset": 915,
+          "afterOffset": 961,
+          "before": "ICBjb25zdCBzb3VyY2UgPSBjdXJyZW50LnRvU3RyaW5nKCkK",
+          "after": "ICBjb25zdCBzb3VyY2UgPSBmZWF0dXJlZEJ5dGVzKGhvbWUsIGN1cnJlbnQpLnRvU3RyaW5nKCkK"
+        },
+        {
+          "beforeOffset": 2875,
+          "afterOffset": 2942,
+          "before": "ICBjb25zdCBwYXRocyA9IFsuLi5PYmplY3Qua2V5cyhmaWxlcyksIC4uLmZvbGxvd3VwUGF0aHNdCiAgYXNzZXJ0LmVxdWFsKHBhdGhzLmxlbmd0aCwgMzA5KQo=",
+          "after": "ICBjb25zdCBwcmlvclBhdGhzID0gWy4uLk9iamVjdC5rZXlzKGZpbGVzKSwgZm9sbG93dXBGaXh0dXJlUGF0aCwgZm9sbG93dXBUZXN0UGF0aF0KICBhc3NlcnQuZXF1YWwocHJpb3JQYXRocy5sZW5ndGgsIDMwOSkKICBjb25zdCBwYXRocyA9IFsuLi5wcmlvclBhdGhzLCAuLi5mZWF0dXJlZFBhdGhzLCAuLi50aGVtZUJvb3RQYXRoc10KICBhc3NlcnQuZXF1YWwocGF0aHMubGVuZ3RoLCAzMTQpCg=="
+        },
+        {
+          "beforeOffset": 4617,
+          "afterOffset": 4818,
+          "before": "ICBjb25zdCBhZGRlZCA9IGF3YWl0IHJlYWQoZm9sbG93dXBUZXN0UGF0aCkK",
+          "after": "ICBjb25zdCBhZGRlZCA9IGZlYXR1cmVkQnl0ZXMoZm9sbG93dXBUZXN0UGF0aCwgYXdhaXQgcmVhZChmb2xsb3d1cFRlc3RQYXRoKSkK"
+        }
+      ]
+    },
+    "tests/seasonal-reasons.browser.test.mjs": {
+      "beforeHash": "0cf0b21d32837556a6cb8188eda53bc898cb8192298fe067ef418152ceaa049a",
+      "afterHash": "caa08f0aa6e4178426e34b0e1b53c86e5d770aead84967c1c90d3fd2268af404",
+      "reason": "Add only root-ready true, selected October and six exact October seasonal notes before all unchanged disclosure geometry/source checks; no deadline, retry or product change.",
+      "edits": [
+        {
+          "beforeOffset": 3935,
+          "afterOffset": 3935,
+          "before": "",
+          "after": "ICAgICAgYXdhaXQgZXhwZWN0KHBhZ2UubG9jYXRvcignW2RhdGEtZ29sZGlsb2Nrcy1ob21lXScpKS50b0hhdmVBdHRyaWJ1dGUoJ2RhdGEtcmVhZHknLCAndHJ1ZScpCiAgICAgIGF3YWl0IGV4cGVjdChwYWdlLmxvY2F0b3IoJ1tkYXRhLXNlbGVjdGVkLW1vbnRoXScpKS50b0hhdmVUZXh0KCdPY3RvYmVyJykKICAgICAgYXdhaXQgZXhwZWN0KHBhZ2UubG9jYXRvcignW2RhdGEtc2Vhc29uYWwtbm90ZV1bZGF0YS1zZWFzb25hbC1tb250aD0iMTAiXScpKS50b0hhdmVDb3VudCg2KQo="
+        }
+      ]
+    },
+    "src/components/GoldilocksHome.module.css": {
+      "beforeHash": "63c34b696118bf49756c2ca558103b4fae9cf4f718591f334031d3e0d2e32d78",
+      "afterHash": "bbef83f031e4ce6776a6169f7250d623e1985b8381c9b6cbf0476160fbe18972",
+      "reason": "Authorized uniform four-sided window trim, contained below-trim dimmer and coherent homepage navigation/newsletter typography, focus and colours; exact CSS inverse. Final dimmer reauthored from the second reference: one circular bezel whose rocker splits evenly into a light upper and darker lower half, with the five evenly spaced indicator dots outside the circle in a column on the panel to its left; the dot column is vertically centred on the rocker at both breakpoints. Final dimmer reauthored from the second reference: one circular bezel whose rocker splits evenly into a light upper and darker lower half, with the five evenly spaced indicator dots outside the circle in a column on the panel to its left; the dot column is vertically centred on the rocker at both breakpoints. Final dimmer follows the supplied reference and the follow-up instruction to remove the dots: one circular bezel whose rocker splits evenly into a lighter upper and darker lower half, with no indicator dots at either breakpoint.",
+      "edits": [
+        {
+          "beforeOffset": 161,
+          "afterOffset": 161,
+          "before": "",
+          "after": "ICAtLWNhYmluLXBhcGVyOiAjZWVlOGRjOwogIC0tY2FiaW4tZWRnZTogI2RlZDZjNzsKICAtLWNhYmluLWhhbG86ICNmZmZkZjc7CiAgLS1jYWJpbi1ydWxlOiAjZDZjZGJkOwogIC0tY2FiaW4td2F0ZXJtYXJrOiAjZGVkNWM0OwogIC0tY2FiaW4taW5rOiAjMTQyYzNiOwogIC0tY2FiaW4tbXV0ZWQ6ICM0MDU1NjM7CiAgLS1jYWJpbi1hY2NlbnQ6ICM5YzQyMWY7CiAgLS1jYWJpbi1jdGE6ICMxNDJjM2I7CiAgLS1jYWJpbi1jdGEtaW5rOiAjZjVmMWU3OwogIC0tY2FiaW4taG92ZXI6ICMyNzRjNjA7Cg=="
+        },
+        {
+          "beforeOffset": 576,
+          "afterOffset": 862,
+          "before": "Omdsb2JhbCguZGFyaykgLnJvb3QgeyAtLWluazogI2Y1ZjFlNzsgLS1wYXBlcjogIzE0MmMzYjsgLS1jYXJkOiAjMWIzNTQ1OyAtLW11dGVkOiAjYzBkMWQ5OyAtLXNreTogIzIyM2Y1MDsgLS1ydWxlOiAjNzE4OTk1OyB9Cg==",
+          "after": "Omdsb2JhbCguZGFyaykgLnJvb3QgeyAtLWluazogI2Y1ZjFlNzsgLS1wYXBlcjogIzE0MmMzYjsgLS1jYXJkOiAjMWIzNTQ1OyAtLW11dGVkOiAjYzBkMWQ5OyAtLXNreTogIzIyM2Y1MDsgLS1ydWxlOiAjNzE4OTk1OyAtLWNhYmluLXBhcGVyOiAjMTQyYzNiOyAtLWNhYmluLWVkZ2U6ICMxMDI3MzU7IC0tY2FiaW4taGFsbzogIzFiMzU0NTsgLS1jYWJpbi1ydWxlOiAjNDI2MTc0OyAtLWNhYmluLXdhdGVybWFyazogIzI1NDc1ODsgLS1jYWJpbi1pbms6ICNmNWYxZTc7IC0tY2FiaW4tbXV0ZWQ6ICNjMGQxZDk7IC0tY2FiaW4tYWNjZW50OiAjZjE4YzY0OyAtLWNhYmluLWN0YTogI2UwZjI5YjsgLS1jYWJpbi1jdGEtaW5rOiAjMTQyYzNiOyAtLWNhYmluLWhvdmVyOiAjZWNmOGJmOyB9Cg=="
+        },
+        {
+          "beforeOffset": 1050,
+          "afterOffset": 1600,
+          "before": "LnJvb3QgLmhlcm8gOmlzKGJ1dHRvbiwgYSk6Zm9jdXMtdmlzaWJsZSB7IG91dGxpbmUtY29sb3I6ICMxNDJjM2I7IGJveC1zaGFkb3c6IDAgMCAwIDlweCAjZWVlOGRjOyB9Cg==",
+          "after": "LnJvb3QgLmhlcm8gOmlzKGJ1dHRvbiwgYSk6Zm9jdXMtdmlzaWJsZSB7IG91dGxpbmUtY29sb3I6IHZhcigtLWNhYmluLWluayk7IGJveC1zaGFkb3c6IDAgMCAwIDlweCB2YXIoLS1jYWJpbi1wYXBlcik7IH0K"
+        },
+        {
+          "beforeOffset": 1913,
+          "afterOffset": 2483,
+          "before": "ICAtLWNvbG9yLW5hdi1iZzogcmdiYSgxNiwgMzksIDUzLCAuNzUpOwo=",
+          "after": "ICAtLWNvbG9yLW5hdi1iZzogIzEwMjczNTsK"
+        },
+        {
+          "beforeOffset": 2092,
+          "afterOffset": 2648,
+          "before": "",
+          "after": "ICAtLWNvbG9yLWFjY2VudDogdmFyKC0tYWNpZCk7CiAgLS1jb2xvci1hY2NlbnQtbGlnaHQ6IHZhcigtLWFjaWQpOwo="
+        },
+        {
+          "beforeOffset": 2357,
+          "afterOffset": 2981,
+          "before": "Lmhlcm8geyBwb3NpdGlvbjogcmVsYXRpdmU7IGlzb2xhdGlvbjogaXNvbGF0ZTsgZGlzcGxheTogZ3JpZDsgYWxpZ24tY29udGVudDogc3RhcnQ7IGdyaWQtdGVtcGxhdGUtY29sdW1uczogbWlubWF4KDAsIDEuMTJmcikgbWlubWF4KDM0MHB4LCAxZnIpOyBncmlkLXRlbXBsYXRlLXJvd3M6IGF1dG8gYXV0byBhdXRvOyBtaW4taGVpZ2h0OiA4ODBweDsgYmFja2dyb3VuZDogI2VlZThkYzsgY29sb3I6ICMxNDJjM2I7IG92ZXJmbG93OiBoaWRkZW47IH0K",
+          "after": "Lmhlcm8geyBwb3NpdGlvbjogcmVsYXRpdmU7IGlzb2xhdGlvbjogaXNvbGF0ZTsgZGlzcGxheTogZ3JpZDsgYWxpZ24tY29udGVudDogc3RhcnQ7IGdyaWQtdGVtcGxhdGUtY29sdW1uczogbWlubWF4KDAsIDEuMTJmcikgbWlubWF4KDM0MHB4LCAxZnIpOyBncmlkLXRlbXBsYXRlLXJvd3M6IGF1dG8gYXV0byBhdXRvOyBtaW4taGVpZ2h0OiA4ODBweDsgYmFja2dyb3VuZDogdmFyKC0tY2FiaW4tcGFwZXIpOyBjb2xvcjogdmFyKC0tY2FiaW4taW5rKTsgb3ZlcmZsb3c6IGhpZGRlbjsgfQo="
+        },
+        {
+          "beforeOffset": 2756,
+          "afterOffset": 3400,
+          "before": "Lmhlcm86OmJlZm9yZSB7IGNvbnRlbnQ6ICcnOyBwb3NpdGlvbjogYWJzb2x1dGU7IGluc2V0OiA2NXB4IDAgMDsgei1pbmRleDogLTI7IHBvaW50ZXItZXZlbnRzOiBub25lOyBiYWNrZ3JvdW5kOiByYWRpYWwtZ3JhZGllbnQoZWxsaXBzZSBhdCA4NSUgMjAlLCNmZmZkZjcgMCx0cmFuc3BhcmVudCA1MyUpLGxpbmVhci1ncmFkaWVudCgxMTBkZWcsI2VlZThkYyA0MiUsI2RlZDZjNyAxMDAlKTsgfQouaGVybzo6YWZ0ZXIgeyBjb250ZW50OiAnJzsgcG9zaXRpb246IGFic29sdXRlOyB0b3A6IDY1cHg7IHJpZ2h0OiAzJTsgYm90dG9tOiAwOyB3aWR0aDogNDMlOyB6LWluZGV4OiAtMTsgYm9yZGVyLWlubGluZTogMXB4IHNvbGlkICNkNmNkYmQ7IGJvcmRlci1yYWRpdXM6IDQ4JSA0OCUgMCAwIC8gMjIlIDIyJSAwIDA7IHBvaW50ZXItZXZlbnRzOiBub25lOyB9Cg==",
+          "after": "Lmhlcm86OmJlZm9yZSB7IGNvbnRlbnQ6ICcnOyBwb3NpdGlvbjogYWJzb2x1dGU7IGluc2V0OiA2NXB4IDAgMDsgei1pbmRleDogLTI7IHBvaW50ZXItZXZlbnRzOiBub25lOyBiYWNrZ3JvdW5kOiByYWRpYWwtZ3JhZGllbnQoZWxsaXBzZSBhdCA4NSUgMjAlLHZhcigtLWNhYmluLWhhbG8pIDAsdHJhbnNwYXJlbnQgNTMlKSxsaW5lYXItZ3JhZGllbnQoMTEwZGVnLHZhcigtLWNhYmluLXBhcGVyKSA0MiUsdmFyKC0tY2FiaW4tZWRnZSkgMTAwJSk7IH0KLmhlcm86OmFmdGVyIHsgY29udGVudDogJyc7IHBvc2l0aW9uOiBhYnNvbHV0ZTsgdG9wOiA2NXB4OyByaWdodDogMyU7IGJvdHRvbTogMDsgd2lkdGg6IDQzJTsgei1pbmRleDogLTE7IGJvcmRlci1pbmxpbmU6IDFweCBzb2xpZCB2YXIoLS1jYWJpbi1ydWxlKTsgYm9yZGVyLXJhZGl1czogNDglIDQ4JSAwIDAgLyAyMiUgMjIlIDAgMDsgcG9pbnRlci1ldmVudHM6IG5vbmU7IH0K"
+        },
+        {
+          "beforeOffset": 3330,
+          "afterOffset": 4015,
+          "before": "Lm1vbnRoV2F0ZXJtYXJrIHsgcG9zaXRpb246IGFic29sdXRlOyBsZWZ0OiAtMjJweDsgdG9wOiA3M3B4OyB6LWluZGV4OiAtMTsgY29sb3I6ICNkZWQ1YzQ7IGZvbnQ6IDQwMCBjbGFtcCgyNDBweCwzMnZ3LDQ2MHB4KS8xIHZhcigtLXNlcmlmKTsgbGV0dGVyLXNwYWNpbmc6IC0uMWVtOyBwb2ludGVyLWV2ZW50czogbm9uZTsgfQoud2luZG93U2NlbmUgeyBwb3NpdGlvbjogYWJzb2x1dGU7IHRvcDogMTQ1cHg7IHJpZ2h0OiAxMCU7IHdpZHRoOiBtaW4oMzB2dywzODBweCk7IGhlaWdodDogNjUwcHg7IHBhZGRpbmc6IDI1cHggMjVweCAxMDBweDsgYm9yZGVyOiAxcHggc29saWQgI2M5YzljMjsgYm9yZGVyLXJhZGl1czogNDYlIDQ2JSA0MyUgNDMlIC8gMjQlIDI0JSAyMSUgMjElOyBiYWNrZ3JvdW5kOiBsaW5lYXItZ3JhZGllbnQoMTAwZGVnLCNmOGY4ZjQsI2YwZjBlYiA0NSUsI2ZhZmFmNyk7IGJveC1zaGFkb3c6IGluc2V0IDJweCAycHggNHB4ICNmZmYsIGluc2V0IC0ycHggLTJweCA1cHggI2Q1ZDVjZCwgOHB4IDEycHggMjhweCAjNzE2ZTYzMWM7IH0KLndpbmRvd1NjZW5lOjpiZWZvcmUgeyBjb250ZW50OiAnJzsgcG9zaXRpb246IGFic29sdXRlOyBpbnNldDogMTJweCAxMXB4IDE1cHg7IGJvcmRlcjogMXB4IHNvbGlkICNkZWRlZDc7IGJvcmRlci1yYWRpdXM6IDQ1JSA0NSUgNDIlIDQyJSAvIDIzJSAyMyUgMjAlIDIwJTsgYm94LXNoYWRvdzogaW5zZXQgNHB4IDNweCA4cHggI2I1YjdhZTI2OyBwb2ludGVyLWV2ZW50czogbm9uZTsgfQo=",
+          "after": "Lm1vbnRoV2F0ZXJtYXJrIHsgcG9zaXRpb246IGFic29sdXRlOyBsZWZ0OiAtMjJweDsgdG9wOiA3M3B4OyB6LWluZGV4OiAtMTsgY29sb3I6IHZhcigtLWNhYmluLXdhdGVybWFyayk7IGZvbnQ6IDQwMCBjbGFtcCgyNDBweCwzMnZ3LDQ2MHB4KS8xIHZhcigtLXNlcmlmKTsgbGV0dGVyLXNwYWNpbmc6IC0uMWVtOyBwb2ludGVyLWV2ZW50czogbm9uZTsgfQoud2luZG93U2NlbmUgeyAtLXdpbmRvdy1mb290OiA3NXB4OyBwb3NpdGlvbjogYWJzb2x1dGU7IHRvcDogMTQ1cHg7IHJpZ2h0OiAxMCU7IHdpZHRoOiBtaW4oMzB2dywzODBweCk7IGhlaWdodDogNjUwcHg7IHBhZGRpbmc6IDI1cHggMjVweCAxMDBweDsgYm9yZGVyOiAxcHggc29saWQgdHJhbnNwYXJlbnQ7IGJvcmRlci1yYWRpdXM6IDQ2JSA0NiUgNDMlIDQzJSAvIDI0JSAyNCUgMjElIDIxJTsgfQoud2luZG93U2NlbmU6OmJlZm9yZSB7IGNvbnRlbnQ6ICcnOyBwb3NpdGlvbjogYWJzb2x1dGU7IGluc2V0OiAtMXB4IC0xcHggY2FsYyh2YXIoLS13aW5kb3ctZm9vdCkgLSAxcHgpOyBib3JkZXI6IDFweCBzb2xpZCAjYzljOWMyOyBib3JkZXItcmFkaXVzOiBpbmhlcml0OyBiYWNrZ3JvdW5kOiBsaW5lYXItZ3JhZGllbnQoMTAwZGVnLCNmOGY4ZjQsI2YwZjBlYiA0NSUsI2ZhZmFmNyk7IGJveC1zaGFkb3c6IGluc2V0IDJweCAycHggNHB4ICNmZmYsIGluc2V0IC0ycHggLTJweCA1cHggI2Q1ZDVjZCwgOHB4IDEycHggMjhweCAjNzE2ZTYzMWM7IHBvaW50ZXItZXZlbnRzOiBub25lOyB9Cg=="
+        },
+        {
+          "beforeOffset": 4498,
+          "afterOffset": 5182,
+          "before": "LyogT3JpZ2luYWwgNzg3LWluc3BpcmVkIG1vdWxkaW5nOiBicm9hZCByZWNlc3NlZCBsb3dlciBib3dsLCBubyBzaGFkZSBoYW5kbGUuICovCi53aW5kb3dTaWxsIHsgcG9zaXRpb246IGFic29sdXRlOyBsZWZ0OiAyM3B4OyByaWdodDogMjNweDsgYm90dG9tOiA1MHB4OyBoZWlnaHQ6IDc0cHg7IGJvcmRlcjogMXB4IHNvbGlkICNkZGRmZDg7IGJvcmRlci10b3A6IDA7IGJvcmRlci1yYWRpdXM6IDklIDklIDQ2JSA0NiUgLyAxOCUgMTglIDg1JSA4NSU7IGJhY2tncm91bmQ6IGxpbmVhci1ncmFkaWVudCgxODBkZWcsI2NkZDFjYyAwLCNmZGZkZmEgNDYlLCNlNWU3ZTAgMTAwJSk7IGJveC1zaGFkb3c6IGluc2V0IDAgLTNweCA1cHggI2M5Y2VjMjgwLCAwIDNweCA0cHggI2ZmZjk7IH0KLndpbmRvd0RpbW1lciB7IHBvc2l0aW9uOiBhYnNvbHV0ZTsgbGVmdDogY2FsYyg1MCUgLSAxNnB4KTsgYm90dG9tOiAxMnB4OyB3aWR0aDogMzJweDsgaGVpZ2h0OiAzNHB4OyBib3JkZXI6IDFweCBzb2xpZCAjYTdhZmFmOyBib3JkZXItcmFkaXVzOiA1MCU7IGJhY2tncm91bmQ6IGxpbmVhci1ncmFkaWVudCgjZWRmMWYxLCNjNmNmZDIpOyBib3gtc2hhZG93OiAwIDAgMCAzcHggI2ZkZmRmYSxpbnNldCAwIDFweCAzcHggI2ZmZjsgcG9pbnRlci1ldmVudHM6IG5vbmU7IH0KLndpbmRvd0RpbW1lcjo6YmVmb3JlLCAud2luZG93RGltbWVyOjphZnRlciB7IHBvc2l0aW9uOiBhYnNvbHV0ZTsgbGVmdDogMDsgd2lkdGg6IDEwMCU7IGNvbG9yOiAjNTM2NzZiOyB0ZXh0LWFsaWduOiBjZW50ZXI7IGZvbnQ6IDEzcHgvMTVweCB2YXIoLS1zYW5zKTsgfQoud2luZG93RGltbWVyOjpiZWZvcmUgeyBjb250ZW50OiAnJzsgdG9wOiAwOyBoZWlnaHQ6IDUwJTsgYm9yZGVyLXJhZGl1czogMjBweCAyMHB4IDAgMDsgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkICNhYWI3YmE7IGJhY2tncm91bmQ6ICNlNmU5ZTk7IH0KLndpbmRvd0RpbW1lcjo6YWZ0ZXIgeyBjb250ZW50OiAnJzsgYm90dG9tOiAwOyBoZWlnaHQ6IDUwJTsgYm9yZGVyLXJhZGl1czogMCAwIDIwcHggMjBweDsgYmFja2dyb3VuZDogIzljYTlhZTsgfQoud2luZG93RGltbWVyIGkgeyBwb3NpdGlvbjogcmVsYXRpdmU7IHotaW5kZXg6IDE7IGxlZnQ6IDJweDsgdG9wOiA1cHg7IGRpc3BsYXk6IGJsb2NrOyB3aWR0aDogM3B4OyBoZWlnaHQ6IDNweDsgbWFyZ2luLWJvdHRvbTogMnB4OyBib3JkZXItcmFkaXVzOiA1MCU7IGJhY2tncm91bmQ6ICM1MjZiNzg7IH0KLndpbmRvd05vdGUgeyBwb3NpdGlvbjogYWJzb2x1dGU7IHRvcDogLTU1cHg7IHJpZ2h0OiAwOyBtYXJnaW46IDA7IGNvbG9yOiAjNDA1NTYzOyBmb250OiA0MDAgMTNweC8xLjYgJ0NvdXJpZXIgTmV3Jyxtb25vc3BhY2U7IHRleHQtdHJhbnNmb3JtOiB1cHBlcmNhc2U7IGxldHRlci1zcGFjaW5nOiAuMDhlbTsgfQo=",
+          "after": "LyogQ29udGludW91cyBtb3VsZGVkIHRyaW07IGEgY2lyY3VsYXIgZGltbWVyIHdpdGggaXRzIG93biBpbmRpY2F0b3IgY29sdW1uLiAqLwoud2luZG93U2lsbCB7IHBvc2l0aW9uOiBhYnNvbHV0ZTsgaW5zZXQ6IDEycHggMTFweCBjYWxjKHZhcigtLXdpbmRvdy1mb290KSArIDEycHgpOyBib3JkZXI6IDFweCBzb2xpZCAjZGVkZWQ3OyBib3JkZXItcmFkaXVzOiA0NSUgNDUlIDQyJSA0MiUgLyAyMyUgMjMlIDIwJSAyMCU7IGJveC1zaGFkb3c6IGluc2V0IDRweCAzcHggOHB4ICNiNWI3YWUyNjsgfQovKiBSZWZlcmVuY2UgZGltbWVyOiBhIHBsYWluIGNpcmN1bGFyIGJlemVsIGFyb3VuZCBhIHJvY2tlciB0aGF0IHNwbGl0cyBldmVubHkKICAgaW50byBhIGxpZ2h0ZXIgdXBwZXIgYW5kIGRhcmtlciBsb3dlciBoYWxmLiBObyBkb3RzIG9yIGV4dHJhIG1hcmtpbmdzLiAqLwoud2luZG93RGltbWVyIHsgcG9zaXRpb246IGFic29sdXRlOyBsZWZ0OiBjYWxjKDUwJSAtIDIzcHgpOyBib3R0b206IDEycHg7IHdpZHRoOiA0NnB4OyBoZWlnaHQ6IDQ2cHg7IGJvcmRlcjogMXB4IHNvbGlkICNiNmJkYjg7IGJvcmRlci1yYWRpdXM6IDUwJTsgYmFja2dyb3VuZDogcmFkaWFsLWdyYWRpZW50KGNpcmNsZSBhdCAzOCUgMjYlLCNmYmZiZjcsI2U5ZWNlNiA2MCUsI2Q4ZGVkNyk7IGJveC1zaGFkb3c6IDAgMCAwIDNweCAjZmRmZGZhLGluc2V0IDAgMnB4IDVweCAjZmZmLGluc2V0IDAgLTJweCA1cHggI2M1Y2JjMzsgcG9pbnRlci1ldmVudHM6IG5vbmU7IH0KLndpbmRvd0RpbW1lcjo6YmVmb3JlLCAud2luZG93RGltbWVyOjphZnRlciB7IGNvbnRlbnQ6ICcnOyBwb3NpdGlvbjogYWJzb2x1dGU7IGxlZnQ6IDdweDsgd2lkdGg6IDMwcHg7IGJveC1zaXppbmc6IGJvcmRlci1ib3g7IH0KLndpbmRvd0RpbW1lcjo6YmVmb3JlIHsgdG9wOiA3cHg7IGhlaWdodDogMTVweDsgYm9yZGVyOiAxcHggc29saWQgI2MzYzljMjsgYm9yZGVyLWJvdHRvbS1jb2xvcjogI2FlYjZiMDsgYm9yZGVyLXJhZGl1czogMTVweCAxNXB4IDAgMDsgYmFja2dyb3VuZDogI2VkZWRlNzsgfQoud2luZG93RGltbWVyOjphZnRlciB7IGJvdHRvbTogN3B4OyBoZWlnaHQ6IDE1cHg7IGJvcmRlcjogMXB4IHNvbGlkICM3ZjhjOGY7IGJvcmRlci10b3A6IDA7IGJvcmRlci1yYWRpdXM6IDAgMCAxNXB4IDE1cHg7IGJhY2tncm91bmQ6ICM4ZTk5OWI7IH0KLndpbmRvd05vdGUgeyBwb3NpdGlvbjogYWJzb2x1dGU7IHRvcDogLTU1cHg7IHJpZ2h0OiAwOyBtYXJnaW46IDA7IGNvbG9yOiB2YXIoLS1jYWJpbi1tdXRlZCk7IGZvbnQ6IDQwMCAxM3B4LzEuNiAnQ291cmllciBOZXcnLG1vbm9zcGFjZTsgdGV4dC10cmFuc2Zvcm06IHVwcGVyY2FzZTsgbGV0dGVyLXNwYWNpbmc6IC4wOGVtOyB9Cg=="
+        },
+        {
+          "beforeOffset": 6106,
+          "afterOffset": 6750,
+          "before": "LmludHJvIC5leWVicm93IHsgY29sb3I6ICM0MDU1NjM7IGxldHRlci1zcGFjaW5nOiAuMDllbTsgfQo=",
+          "after": "LmludHJvIC5leWVicm93IHsgY29sb3I6IHZhcigtLWNhYmluLW11dGVkKTsgbGV0dGVyLXNwYWNpbmc6IC4wOWVtOyB9Cg=="
+        },
+        {
+          "beforeOffset": 6224,
+          "afterOffset": 6879,
+          "before": "LnJvb3QgaDEgeyBtYXgtd2lkdGg6IDEwMCU7IG1hcmdpbjogMDsgY29sb3I6ICMxNDJjM2I7IGZvbnQ6IDQwMCBjbGFtcCg2MHB4LCA2Ljd2dywgMTA2cHgpLzEuMDIgdmFyKC0tc2VyaWYpOyBsZXR0ZXItc3BhY2luZzogLS4wNmVtOyB9Ci5yb290IGgxIGVtIHsgY29sb3I6ICM5YzQyMWY7IGZvbnQtd2VpZ2h0OiA0MDA7IH0KLmludHJvLWNvcHkgeyBtYXgtd2lkdGg6IDQwMHB4OyBtYXJnaW46IDI4cHggMCAwOyBjb2xvcjogIzQwNTU2MzsgZm9udC1zaXplOiAxNnB4OyBsaW5lLWhlaWdodDogMS44OyB9Ci5tb250aEp1bXAgeyBkaXNwbGF5OiBpbmxpbmUtZmxleDsgYWxpZ24taXRlbXM6IGNlbnRlcjsganVzdGlmeS1jb250ZW50OiBzcGFjZS1iZXR3ZWVuOyBnYXA6IDQwcHg7IG1pbi1oZWlnaHQ6IDUycHg7IG1hcmdpbi10b3A6IDI4cHg7IHBhZGRpbmc6IDAgMjBweDsgY29sb3I6ICNmNWYxZTcgIWltcG9ydGFudDsgYmFja2dyb3VuZDogIzE0MmMzYjsgZm9udC1zaXplOiAxNHB4OyBmb250LXdlaWdodDogNjAwOyB9Ci5tb250aEp1bXA6aG92ZXIgeyBiYWNrZ3JvdW5kOiAjMjc0YzYwOyB9Cg==",
+          "after": "LnJvb3QgaDEgeyBtYXgtd2lkdGg6IDEwMCU7IG1hcmdpbjogMDsgY29sb3I6IHZhcigtLWNhYmluLWluayk7IGZvbnQ6IDQwMCBjbGFtcCg2MHB4LCA2Ljd2dywgMTA2cHgpLzEuMDIgdmFyKC0tc2VyaWYpOyBsZXR0ZXItc3BhY2luZzogLS4wNmVtOyB9Ci5yb290IGgxIGVtIHsgY29sb3I6IHZhcigtLWNhYmluLWFjY2VudCk7IGZvbnQtd2VpZ2h0OiA0MDA7IH0KLmludHJvLWNvcHkgeyBtYXgtd2lkdGg6IDQwMHB4OyBtYXJnaW46IDI4cHggMCAwOyBjb2xvcjogdmFyKC0tY2FiaW4tbXV0ZWQpOyBmb250LXNpemU6IDE2cHg7IGxpbmUtaGVpZ2h0OiAxLjg7IH0KLm1vbnRoSnVtcCB7IGRpc3BsYXk6IGlubGluZS1mbGV4OyBhbGlnbi1pdGVtczogY2VudGVyOyBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWJldHdlZW47IGdhcDogNDBweDsgbWluLWhlaWdodDogNTJweDsgbWFyZ2luLXRvcDogMjhweDsgcGFkZGluZzogMCAyMHB4OyBjb2xvcjogdmFyKC0tY2FiaW4tY3RhLWluaykgIWltcG9ydGFudDsgYmFja2dyb3VuZDogdmFyKC0tY2FiaW4tY3RhKTsgZm9udC1zaXplOiAxNHB4OyBmb250LXdlaWdodDogNjAwOyB9Ci5tb250aEp1bXA6aG92ZXIgeyBiYWNrZ3JvdW5kOiB2YXIoLS1jYWJpbi1ob3Zlcik7IH0K"
+        },
+        {
+          "beforeOffset": 17747,
+          "afterOffset": 18467,
+          "before": "Lm5ld3NsZXR0ZXIgaW5wdXQgeyBtaW4td2lkdGg6IDA7IGhlaWdodDogNDhweDsgY29sb3I6IHZhcigtLWluayk7IGJhY2tncm91bmQ6IHZhcigtLWNhcmQpOyB9Ci5uZXdzbGV0dGVyIDpnbG9iYWwoLmJ0bi1wcmltYXJ5KSB7IG1pbi1oZWlnaHQ6IDQ4cHg7IGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLXJ1bGUpOyBib3JkZXItcmFkaXVzOiAwOyBjb2xvcjogdmFyKC0taW5rKTsgYmFja2dyb3VuZDogdHJhbnNwYXJlbnQ7IGJveC1zaGFkb3c6IG5vbmU7IH0K",
+          "after": "Lm5ld3NsZXR0ZXIgaW5wdXQgeyBtaW4td2lkdGg6IDA7IGhlaWdodDogNDhweDsgYm9yZGVyOiAxcHggc29saWQgdmFyKC0tcnVsZSk7IGJvcmRlci1yYWRpdXM6IDA7IGZvbnQtZmFtaWx5OiB2YXIoLS1zYW5zKTsgY29sb3I6IHZhcigtLWluayk7IGJhY2tncm91bmQ6IHZhcigtLWNhcmQpOyB9Ci5uZXdzbGV0dGVyIGlucHV0OjpwbGFjZWhvbGRlciB7IGNvbG9yOiB2YXIoLS1tdXRlZCk7IG9wYWNpdHk6IDE7IH0KLm5ld3NsZXR0ZXIgaW5wdXQ6Zm9jdXMgeyBib3JkZXItY29sb3I6IHZhcigtLWluayk7IG91dGxpbmU6IDNweCBzb2xpZCB2YXIoLS1pbmspOyBvdXRsaW5lLW9mZnNldDogM3B4OyBib3gtc2hhZG93OiBub25lOyB9Ci5uZXdzbGV0dGVyIDpnbG9iYWwoLmJ0bi1wcmltYXJ5KSB7IG1pbi1oZWlnaHQ6IDQ4cHg7IGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWNhYmluLWN0YSk7IGJvcmRlci1yYWRpdXM6IDA7IGNvbG9yOiB2YXIoLS1jYWJpbi1jdGEtaW5rKTsgYmFja2dyb3VuZDogdmFyKC0tY2FiaW4tY3RhKTsgYm94LXNoYWRvdzogbm9uZTsgfQoubmV3c2xldHRlciA6Z2xvYmFsKC5idG4tcHJpbWFyeSk6aG92ZXIgeyBiYWNrZ3JvdW5kOiB2YXIoLS1jYWJpbi1ob3Zlcik7IH0K"
+        },
+        {
+          "beforeOffset": 21108,
+          "afterOffset": 22191,
+          "before": "ICAud2luZG93U2NlbmUgeyB3aWR0aDogNzYlOyBtYXgtd2lkdGg6IDMwMHB4OyBoZWlnaHQ6IGNsYW1wKDQzMHB4LDEzMXZ3LDUyMHB4KTsgbWFyZ2luLXRvcDogNDRweDsgcGFkZGluZzogMjBweCAxOHB4IDc4cHg7IH0K",
+          "after": "ICAud2luZG93U2NlbmUgeyAtLXdpbmRvdy1mb290OiA2MHB4OyB3aWR0aDogNzYlOyBtYXgtd2lkdGg6IDMwMHB4OyBoZWlnaHQ6IGNsYW1wKDQzMHB4LDEzMXZ3LDUyMHB4KTsgbWFyZ2luLXRvcDogNDRweDsgcGFkZGluZzogMjBweCAyMHB4IDgwcHg7IH0K"
+        },
+        {
+          "beforeOffset": 21266,
+          "afterOffset": 22370,
+          "before": "ICAud2luZG93U2lsbCB7IGxlZnQ6IDE3cHg7IHJpZ2h0OiAxN3B4OyBib3R0b206IDQycHg7IGhlaWdodDogNTdweDsgfQogIC53aW5kb3dEaW1tZXIgeyBib3R0b206IDlweDsgd2lkdGg6IDI2cHg7IGhlaWdodDogMjhweDsgbGVmdDogY2FsYyg1MCUgLSAxM3B4KTsgfQogIC53aW5kb3dEaW1tZXI6OmJlZm9yZSwgLndpbmRvd0RpbW1lcjo6YWZ0ZXIgeyBmb250LXNpemU6IDExcHg7IGxpbmUtaGVpZ2h0OiAxMnB4OyB9CiAgLndpbmRvd0RpbW1lciBpIHsgbGVmdDogMnB4OyB0b3A6IDJweDsgfQogIC53aW5kb3dOb3RlIHsgdG9wOiAtMzNweDsgZm9udC1zaXplOiAxM3B4OyBsZXR0ZXItc3BhY2luZzogLjAyZW07IH0K",
+          "after": "ICAud2luZG93RGltbWVyIHsgYm90dG9tOiA5cHg7IHdpZHRoOiA0MHB4OyBoZWlnaHQ6IDQwcHg7IGxlZnQ6IGNhbGMoNTAlIC0gMjBweCk7IH0KICAud2luZG93RGltbWVyOjpiZWZvcmUsIC53aW5kb3dEaW1tZXI6OmFmdGVyIHsgbGVmdDogNnB4OyB3aWR0aDogMjZweDsgfQogIC53aW5kb3dEaW1tZXI6OmJlZm9yZSB7IHRvcDogNnB4OyBoZWlnaHQ6IDEzcHg7IGJvcmRlci1yYWRpdXM6IDEzcHggMTNweCAwIDA7IH0KICAud2luZG93RGltbWVyOjphZnRlciB7IGJvdHRvbTogNnB4OyBoZWlnaHQ6IDEzcHg7IGJvcmRlci1yYWRpdXM6IDAgMCAxM3B4IDEzcHg7IH0KICAgICAgICAgICAgLndpbmRvd05vdGUgeyB0b3A6IC0zM3B4OyBmb250LXNpemU6IDEzcHg7IGxldHRlci1zcGFjaW5nOiAuMDJlbTsgfQo="
+        },
+        {
+          "beforeOffset": 26212,
+          "afterOffset": 27366,
+          "before": "ICBib3JkZXItYm90dG9tLWNvbG9yOiAjNDU2MDZkOwogIGJhY2tncm91bmQ6ICMyYTQ1NTM7Cg==",
+          "after": "ICBib3JkZXItYm90dG9tLWNvbG9yOiAjN2Q5YWE4OwogIGJhY2tncm91bmQ6ICM1YzdjOGM7Cg=="
+        },
+        {
+          "beforeOffset": 26334,
+          "afterOffset": 27488,
+          "before": "Omdsb2JhbCguZGFyaykgLndpbmRvd0RpbW1lciBpIHsKICBiYWNrZ3JvdW5kOiAjOTNhZWJjOwp9Cg==",
+          "after": ""
+        }
+      ]
+    },
+    "src/components/TravelTheme.module.css": {
+      "reason": "Only two navigation accent variables become the approved lime; all other travel CSS remains byte-identical.",
+      "edits": [
+        {
+          "beforeOffset": 1682,
+          "afterOffset": 1682,
+          "before": "",
+          "after": "ICAtLWNvbG9yLWFjY2VudDogI2UwZjI5YjsKICAtLWNvbG9yLWFjY2VudC1saWdodDogI2UwZjI5YjsK"
+        }
+      ],
+      "beforeHash": "d5177840dd7fe54c66399a01dbf28caa68c85d0b8f7123020580c82f10c07fff",
+      "afterHash": "fadc64a67c5c664a42355e7cdb65a4b5df9076ada86c04bbc5b88f1a42d2f967"
+    },
+    "src/components/ComparePricesSection.tsx": {
+      "reason": "Only JSX className/style presentation changes; all pre-return logic, handlers, supplier definitions, link routing and content retained.",
+      "edits": [
+        {
+          "beforeOffset": 31312,
+          "afterOffset": 31312,
+          "before": "ICAgICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPSJ3LTggaC1weCBiZy1bIzA4OTFiMl0iPjwvc3Bhbj4K",
+          "after": "ICAgICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPXtgJHtzdHlsZXMuZGl2aWRlcn0gdy04IGgtcHhgfT48L3NwYW4+Cg=="
+        },
+        {
+          "beforeOffset": 31567,
+          "afterOffset": 31574,
+          "before": "ICAgICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPSJ3LTggaC1weCBiZy1bIzA4OTFiMl0iPjwvc3Bhbj4K",
+          "after": "ICAgICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPXtgJHtzdHlsZXMuZGl2aWRlcn0gdy04IGgtcHhgfT48L3NwYW4+Cg=="
+        },
+        {
+          "beforeOffset": 48514,
+          "afterOffset": 48528,
+          "before": "ICAgICAgICAgICAgICAgICAgICA/ICdsaW5lYXItZ3JhZGllbnQoMTM1ZGVnLCAjMGU3NDkwIDAlLCAjMTU1ZTc1IDEwMCUpJwogICAgICAgICAgICAgICAgICAgIDogJ3ZhcigtLWNvbG9yLW11dGVkKScK",
+          "after": "ICAgICAgICAgICAgICAgICAgICA/ICd2YXIoLS1wbGFubmluZy1hY3Rpb24tYmcpJwogICAgICAgICAgICAgICAgICAgIDogJ3ZhcigtLWNvbG9yLW11dGVkKScsCiAgICAgICAgICAgICAgICAgIGNvbG9yOiBpc0Zvcm1WYWxpZCA/ICd2YXIoLS1wbGFubmluZy1hY3Rpb24taW5rKScgOiAnd2hpdGUnCg=="
+        },
+        {
+          "beforeOffset": 49599,
+          "afterOffset": 49668,
+          "before": "ICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9ImZsZXggZmxleC1jb2wgbWQ6ZmxleC1yb3cgbWQ6aXRlbXMtY2VudGVyIGp1c3RpZnktYmV0d2VlbiBnYXAtNCBtYi02IHAtNCByb3VuZGVkLXhsIGJvcmRlciIgc3R5bGU9e3sgYm9yZGVyQ29sb3I6ICd2YXIoLS1jb2xvci1hY2NlbnQpJywgYmFja2dyb3VuZENvbG9yOiAncmdiYSg4LCAxNDUsIDE3OCwgMC4wNSknIH19Pgo=",
+          "after": "ICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9ImZsZXggZmxleC1jb2wgbWQ6ZmxleC1yb3cgbWQ6aXRlbXMtY2VudGVyIGp1c3RpZnktYmV0d2VlbiBnYXAtNCBtYi02IHAtNCByb3VuZGVkLXhsIGJvcmRlciIgc3R5bGU9e3sgYm9yZGVyQ29sb3I6ICd2YXIoLS1jb2xvci1ib3JkZXIpJywgYmFja2dyb3VuZENvbG9yOiAndmFyKC0tY29sb3ItYmctd2FybSknIH19Pgo="
+        },
+        {
+          "beforeOffset": 50813,
+          "afterOffset": 50879,
+          "before": "ICAgICAgICAgICAgICAgIDxwIGNsYXNzTmFtZT0idGV4dC0yeGwgZm9udC1ib2xkIiBzdHlsZT17eyBjb2xvcjogJyMwODkxYjInIH19PntzdXBwbGllckxpbmtzLmxlbmd0aH0gc2l0ZXM8L3A+Cg==",
+          "after": "ICAgICAgICAgICAgICAgIDxwIGNsYXNzTmFtZT0idGV4dC0yeGwgZm9udC1ib2xkIiBzdHlsZT17eyBjb2xvcjogJ3ZhcigtLXBsYW5uaW5nLWFjY2VudC10ZXh0KScgfX0+e3N1cHBsaWVyTGlua3MubGVuZ3RofSBzaXRlczwvcD4K"
+        },
+        {
+          "beforeOffset": 52427,
+          "afterOffset": 52513,
+          "before": "ICAgICAgICAgICAgICAgICAgICAgICAgICBiYWNrZ3JvdW5kQ29sb3I6IGluZGV4ID09PSAwID8gJyMwODkxYjInIDogJ3ZhcigtLWNvbG9yLWJnLXN1YnRsZSknLAogICAgICAgICAgICAgICAgICAgICAgICAgIGNvbG9yOiBpbmRleCA9PT0gMCA/ICd3aGl0ZScgOiAndmFyKC0tY29sb3ItbXV0ZWQpJwo=",
+          "after": "ICAgICAgICAgICAgICAgICAgICAgICAgICBiYWNrZ3JvdW5kQ29sb3I6IGluZGV4ID09PSAwID8gJ3ZhcigtLXBsYW5uaW5nLWFjdGlvbi1iZyknIDogJ3ZhcigtLWNvbG9yLWJnLXN1YnRsZSknLAogICAgICAgICAgICAgICAgICAgICAgICAgIGNvbG9yOiBpbmRleCA9PT0gMCA/ICd2YXIoLS1wbGFubmluZy1hY3Rpb24taW5rKScgOiAndmFyKC0tY29sb3ItbXV0ZWQpJwo="
+        },
+        {
+          "beforeOffset": 54475,
+          "afterOffset": 54600,
+          "before": "ICAgICAgICAgICAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT0iaGlkZGVuIHNtOmlubGluZS1ibG9jayBweC00IHB5LTIgcm91bmRlZC1sZyB0ZXh0LXNtIGZvbnQtc2VtaWJvbGQgdGV4dC13aGl0ZSIgc3R5bGU9e3sgYmFja2dyb3VuZDogJ2xpbmVhci1ncmFkaWVudCgxMzVkZWcsICMwZTc0OTAgMCUsICMxNTVlNzUgMTAwJSknIH19Pgo=",
+          "after": "ICAgICAgICAgICAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT0iaGlkZGVuIHNtOmlubGluZS1ibG9jayBweC00IHB5LTIgcm91bmRlZC1sZyB0ZXh0LXNtIGZvbnQtc2VtaWJvbGQgdGV4dC13aGl0ZSIgc3R5bGU9e3sgYmFja2dyb3VuZDogJ3ZhcigtLXBsYW5uaW5nLWFjdGlvbi1iZyknLCBjb2xvcjogJ3ZhcigtLXBsYW5uaW5nLWFjdGlvbi1pbmspJyB9fT4K"
+        },
+        {
+          "beforeOffset": 54736,
+          "afterOffset": 54874,
+          "before": "ICAgICAgICAgICAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT0ic206aGlkZGVuIHB4LTMgcHktMS41IHJvdW5kZWQtbGcgdGV4dC14cyBmb250LXNlbWlib2xkIHRleHQtd2hpdGUiIHN0eWxlPXt7IGJhY2tncm91bmQ6ICdsaW5lYXItZ3JhZGllbnQoMTM1ZGVnLCAjMGU3NDkwIDAlLCAjMTU1ZTc1IDEwMCUpJyB9fT4K",
+          "after": "ICAgICAgICAgICAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT0ic206aGlkZGVuIHB4LTMgcHktMS41IHJvdW5kZWQtbGcgdGV4dC14cyBmb250LXNlbWlib2xkIHRleHQtd2hpdGUiIHN0eWxlPXt7IGJhY2tncm91bmQ6ICd2YXIoLS1wbGFubmluZy1hY3Rpb24tYmcpJywgY29sb3I6ICd2YXIoLS1wbGFubmluZy1hY3Rpb24taW5rKScgfX0+Cg=="
+        },
+        {
+          "beforeOffset": 58087,
+          "afterOffset": 58238,
+          "before": "ICAgICAgICAgICAgICAgIDxzdmcgY2xhc3NOYW1lPSJ3LTUgaC01IiBzdHlsZT17eyBjb2xvcjogJyMwODkxYjInIH19IGZpbGw9Im5vbmUiIHZpZXdCb3g9IjAgMCAyNCAyNCIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiPgo=",
+          "after": "ICAgICAgICAgICAgICAgIDxzdmcgY2xhc3NOYW1lPSJ3LTUgaC01IiBzdHlsZT17eyBjb2xvcjogJ3ZhcigtLXBsYW5uaW5nLWFjY2VudC10ZXh0KScgfX0gZmlsbD0ibm9uZSIgdmlld0JveD0iMCAwIDI0IDI0IiBzdHJva2U9ImN1cnJlbnRDb2xvciI+Cg=="
+        },
+        {
+          "beforeOffset": 58715,
+          "afterOffset": 58886,
+          "before": "ICAgICAgICAgICAgICAgIDxzdmcgY2xhc3NOYW1lPSJ3LTUgaC01IiBzdHlsZT17eyBjb2xvcjogJyMwODkxYjInIH19IGZpbGw9Im5vbmUiIHZpZXdCb3g9IjAgMCAyNCAyNCIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiPgo=",
+          "after": "ICAgICAgICAgICAgICAgIDxzdmcgY2xhc3NOYW1lPSJ3LTUgaC01IiBzdHlsZT17eyBjb2xvcjogJ3ZhcigtLXBsYW5uaW5nLWFjY2VudC10ZXh0KScgfX0gZmlsbD0ibm9uZSIgdmlld0JveD0iMCAwIDI0IDI0IiBzdHJva2U9ImN1cnJlbnRDb2xvciI+Cg=="
+        },
+        {
+          "beforeOffset": 59190,
+          "afterOffset": 59381,
+          "before": "ICAgICAgICAgICAgICAgIDxzdmcgY2xhc3NOYW1lPSJ3LTUgaC01IiBzdHlsZT17eyBjb2xvcjogJyMwODkxYjInIH19IGZpbGw9Im5vbmUiIHZpZXdCb3g9IjAgMCAyNCAyNCIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiPgo=",
+          "after": "ICAgICAgICAgICAgICAgIDxzdmcgY2xhc3NOYW1lPSJ3LTUgaC01IiBzdHlsZT17eyBjb2xvcjogJ3ZhcigtLXBsYW5uaW5nLWFjY2VudC10ZXh0KScgfX0gZmlsbD0ibm9uZSIgdmlld0JveD0iMCAwIDI0IDI0IiBzdHJva2U9ImN1cnJlbnRDb2xvciI+Cg=="
+        }
+      ],
+      "beforeHash": "5221f63475ab5cacc0d7d403d01294ed700f65f3b34ebe52b6866e999bd0455c",
+      "afterHash": "d1fde219ade1b7bcd586dd513488600a869627236fa9f156de99eec1e49f195a"
+    },
+    "src/components/ComparePricesSection.module.css": {
+      "reason": "Scoped planning palette tokens and presentation rules only; preserves form focus and disabled/enabled behavior.",
+      "edits": [
+        {
+          "beforeOffset": 11,
+          "afterOffset": 11,
+          "before": "ICAtLXBsYW5uaW5nLWFjY2VudC10ZXh0OiAjMGU3NDkwOwogIC0tcGxhbm5pbmctZm9jdXM6ICMwZTc0OTA7Cg==",
+          "after": "ICAtLXBsYW5uaW5nLWFjY2VudC10ZXh0OiB2YXIoLS1jb2xvci1pbmspOwogIC0tcGxhbm5pbmctZm9jdXM6IHZhcigtLWNvbG9yLWluayk7CiAgLS1wbGFubmluZy1hY3Rpb24tYmc6IHZhcigtLWNvbG9yLW5hdnkpOwogIC0tcGxhbm5pbmctYWN0aW9uLWluazogI2Y1ZjFlNzsK"
+        },
+        {
+          "beforeOffset": 108,
+          "afterOffset": 203,
+          "before": "ICAtLXBsYW5uaW5nLWFjY2VudC10ZXh0OiAjNjdlOGY5OwogIC0tcGxhbm5pbmctZm9jdXM6ICM2N2U4Zjk7Cg==",
+          "after": "ICAtLXBsYW5uaW5nLWFjdGlvbi1iZzogI2UwZjI5YjsKICAtLXBsYW5uaW5nLWFjdGlvbi1pbms6ICMxNDJjM2I7Cn0KCi5kaXZpZGVyIHsKICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1wbGFubmluZy1hY2NlbnQtdGV4dCk7Cg=="
+        }
+      ],
+      "beforeHash": "fe5eb1698c942e524e02750abf43b8417a898de48c930ae32aabf207cbd039f4",
+      "afterHash": "9a715958e46fd8d909aa36c26698eeec9669a1bfecc18931afc2dbd3adbb7d94"
+    },
+    "tests/window-seat-hero.browser.test.mjs": {
+      "beforeHash": "7ddb686df9c720d03d858e758aa2a4cdf8510444bf6241ced4a42b6ea3dce9d5",
+      "afterHash": "826ea2e487bfe651a93e160a9fe5802aeaad4932a05066ffac8d55409989dbaa",
+      "reason": "Additive four-band trim, rounded housing corner, typography, focus and theme checks; inherited window geometry and thresholds retained. Window guard now measures the circular rocker (square box, 50% radius, even split with the lighter half on top) and requires every dot to sit outside the circle in an evenly spaced column centred beside it, still inside the scene; all inherited photo, ticket, trim, exposure and navigation checks are retained. Window guard now measures the circular rocker (square box, 50% radius, even split with the lighter half on top) and requires every dot to sit outside the circle in an evenly spaced column centred beside it, still inside the scene; all inherited photo, ticket, trim, exposure and navigation checks are retained. Window guard measures the plain circular bezel and rocker (square box, 50% radius, even split with the lighter half on top) and asserts the control carries no indicator dots; all inherited photo, ticket, trim, exposure and navigation checks are retained.",
+      "edits": [
+        {
+          "beforeOffset": 1688,
+          "afterOffset": 1688,
+          "before": "ICAgICAgcmV0dXJuIHsgZnJhbWU6IGZyYW1lLmdldEJvdW5kaW5nQ2xpZW50UmVjdCgpLnRvSlNPTigpLCB3ZWxsOiByLnRvSlNPTigpLCB0aWNrZXQ6IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoJ1tkYXRhLXRyYXZlbC10aWNrZXRdJykuZ2V0Qm91bmRpbmdDbGllbnRSZWN0KCkudG9KU09OKCksIHNpbGxFeHBvc2VkOiBzaWxsLmNvbnRhaW5zKHNpbGxIaXQpLCByYWRpdXM6IGdldENvbXB1dGVkU3R5bGUod2VsbCkuYm9yZGVyVG9wTGVmdFJhZGl1cywgd2luZG93RXhwb3NlZDogd2VsbC5jb250YWlucyhoaXQpLCB3aWR0aDogaW5uZXJXaWR0aCwgc2Nyb2xsOiBkb2N1bWVudC5kb2N1bWVudEVsZW1lbnQuc2Nyb2xsV2lkdGggfQo=",
+          "after": "ICAgICAgY29uc3Qgc2NlbmUgPSBmcmFtZS5nZXRCb3VuZGluZ0NsaWVudFJlY3QoKQogICAgICBjb25zdCBmYWNlID0gZ2V0Q29tcHV0ZWRTdHlsZShmcmFtZSwgJzo6YmVmb3JlJykKICAgICAgY29uc3QgYm9yZGVyID0gZ2V0Q29tcHV0ZWRTdHlsZShmcmFtZSkKICAgICAgY29uc3QgdHJpbSA9IHsgbGVmdDogc2NlbmUubGVmdCArIHBhcnNlRmxvYXQoYm9yZGVyLmJvcmRlckxlZnRXaWR0aCkgKyBwYXJzZUZsb2F0KGZhY2UubGVmdCksIHJpZ2h0OiBzY2VuZS5yaWdodCAtIHBhcnNlRmxvYXQoYm9yZGVyLmJvcmRlclJpZ2h0V2lkdGgpIC0gcGFyc2VGbG9hdChmYWNlLnJpZ2h0KSwgdG9wOiBzY2VuZS50b3AgKyBwYXJzZUZsb2F0KGJvcmRlci5ib3JkZXJUb3BXaWR0aCkgKyBwYXJzZUZsb2F0KGZhY2UudG9wKSwgYm90dG9tOiBzY2VuZS5ib3R0b20gLSBwYXJzZUZsb2F0KGJvcmRlci5ib3JkZXJCb3R0b21XaWR0aCkgLSBwYXJzZUZsb2F0KGZhY2UuYm90dG9tKSB9CiAgICAgIGNvbnN0IGJhbmRzID0gW3IubGVmdCAtIHRyaW0ubGVmdCwgdHJpbS5yaWdodCAtIHIucmlnaHQsIHIudG9wIC0gdHJpbS50b3AsIHRyaW0uYm90dG9tIC0gci5ib3R0b21dCiAgICAgIGNvbnN0IGRpbW1lciA9IGZyYW1lLnF1ZXJ5U2VsZWN0b3IoJ1tjbGFzcyo9IndpbmRvd0RpbW1lciJdJykKICAgICAgY29uc3QgY29udHJvbCA9IGRpbW1lci5nZXRCb3VuZGluZ0NsaWVudFJlY3QoKQogICAgICBjb25zdCBmYWNlMiA9IGdldENvbXB1dGVkU3R5bGUoZGltbWVyKSwgdXBwZXIgPSBnZXRDb21wdXRlZFN0eWxlKGRpbW1lciwgJzo6YmVmb3JlJyksIGxvd2VyID0gZ2V0Q29tcHV0ZWRTdHlsZShkaW1tZXIsICc6OmFmdGVyJykKICAgICAgY29uc3QgbHVtaW5hbmNlID0gdmFsdWUgPT4gKHZhbHVlLm1hdGNoKC9bXGQuXSsvZykgfHwgQXJyYXkoMykuZmlsbCgwKSkubWFwKE51bWJlcikuc2xpY2UoMCwgMykubWFwKHYgPT4gewogICAgICAgIHYgLz0gMjU1CiAgICAgICAgcmV0dXJuIHYgPD0gLjA0MDQ1ID8gdiAvIDEyLjkyIDogKCh2ICsgLjA1NSkgLyAxLjA1NSkgKiogMi40CiAgICAgIH0pLnJlZHVjZSgoc3VtLCB2LCBpKSA9PiBzdW0gKyB2ICogWy4yMTI2LCAuNzE1MiwgLjA3MjJdW2ldLCAwKQogICAgICBjb25zdCBkb3RzID0gWy4uLmRpbW1lci5xdWVyeVNlbGVjdG9yQWxsKCdpJyldLm1hcChkb3QgPT4gewogICAgICAgIGNvbnN0IGIgPSBkb3QuZ2V0Qm91bmRpbmdDbGllbnRSZWN0KCkKICAgICAgICByZXR1cm4geyB3aWR0aDogYi53aWR0aCwgaGVpZ2h0OiBiLmhlaWdodCwgbGVmdDogYi5sZWZ0LCByaWdodDogYi5yaWdodCwgdG9wOiBiLnRvcCwgYm90dG9tOiBiLmJvdHRvbSwgY2VudGVyWTogKGIudG9wICsgYi5ib3R0b20pIC8gMiwgdmlzaWJsZTogZ2V0Q29tcHV0ZWRTdHlsZShkb3QpLmRpc3BsYXkgIT09ICdub25lJyAmJiBnZXRDb21wdXRlZFN0eWxlKGRvdCkudmlzaWJpbGl0eSA9PT0gJ3Zpc2libGUnICYmIGdldENvbXB1dGVkU3R5bGUoZG90KS5vcGFjaXR5ICE9PSAnMCcgfQogICAgICB9KQogICAgICByZXR1cm4geyBmcmFtZTogc2NlbmUudG9KU09OKCksIHdlbGw6IHIudG9KU09OKCksIHRyaW0sIGJhbmRzLCBjb250cm9sOiB7IC4uLmNvbnRyb2wudG9KU09OKCksIGNlbnRlclk6IChjb250cm9sLnRvcCArIGNvbnRyb2wuYm90dG9tKSAvIDIsIHJhZGl1czogZmFjZTIuYm9yZGVyVG9wTGVmdFJhZGl1cywgdXBwZXJIYWxmOiBwYXJzZUZsb2F0KHVwcGVyLmhlaWdodCksIGxvd2VySGFsZjogcGFyc2VGbG9hdChsb3dlci5oZWlnaHQpLCB1cHBlckluazogbHVtaW5hbmNlKHVwcGVyLmJhY2tncm91bmRDb2xvciksIGxvd2VySW5rOiBsdW1pbmFuY2UobG93ZXIuYmFja2dyb3VuZENvbG9yKSB9LCBkb3RzLCBkZWNvcmF0aXZlOiBkaW1tZXIuZ2V0QXR0cmlidXRlKCdhcmlhLWhpZGRlbicpID09PSAndHJ1ZScgJiYgIWRpbW1lci5xdWVyeVNlbGVjdG9yKCdidXR0b24sIGEsIGlucHV0LCBbdGFiaW5kZXhdJyksIHRpY2tldDogZG9jdW1lbnQucXVlcnlTZWxlY3RvcignW2RhdGEtdHJhdmVsLXRpY2tldF0nKS5nZXRCb3VuZGluZ0NsaWVudFJlY3QoKS50b0pTT04oKSwgc2lsbEV4cG9zZWQ6IHNpbGwuY29udGFpbnMoc2lsbEhpdCksIHJhZGl1czogZ2V0Q29tcHV0ZWRTdHlsZSh3ZWxsKS5ib3JkZXJUb3BMZWZ0UmFkaXVzLCB3aW5kb3dFeHBvc2VkOiB3ZWxsLmNvbnRhaW5zKGhpdCksIHdpZHRoOiBpbm5lcldpZHRoLCBzY3JvbGw6IGRvY3VtZW50LmRvY3VtZW50RWxlbWVudC5zY3JvbGxXaWR0aCB9Cg=="
+        },
+        {
+          "beforeOffset": 2904,
+          "afterOffset": 4826,
+          "before": "",
+          "after": "ICAgIGV4cGVjdChNYXRoLm1pbiguLi5tLmJhbmRzKSwgJ2NvbnRpbnVvdXMgdHJpbSBvbiBhbGwgZm91ciBzaWRlcycpLnRvQmVHcmVhdGVyVGhhbk9yRXF1YWwoMTgpCiAgICBleHBlY3QoTWF0aC5tYXgoLi4ubS5iYW5kcykgLSBNYXRoLm1pbiguLi5tLmJhbmRzKSwgJ3RyaW0gaXMgZXZlbiwgbm90IGEgcHJvamVjdGluZyBib3R0b20gYm93bCcpLnRvQmVMZXNzVGhhbk9yRXF1YWwoMikKICAgIGV4cGVjdChtLmNvbnRyb2wudG9wLCAnZGltbWVyIHNpdHMgYmVsb3cgdGhlIHdpbmRvdyB0cmltJykudG9CZUdyZWF0ZXJUaGFuKG0udHJpbS5ib3R0b20pCiAgICBleHBlY3QobS5jb250cm9sLmJvdHRvbSkudG9CZUxlc3NUaGFuKG0uZnJhbWUuYm90dG9tKQogICAgZXhwZWN0KE1hdGguYWJzKG0uY29udHJvbC53aWR0aCAtIG0uY29udHJvbC5oZWlnaHQpLCAncmVmZXJlbmNlIGRpbW1lciBpcyBhIGNpcmNsZSwgbm90IGEgcGlsbCcpLnRvQmVMZXNzVGhhbk9yRXF1YWwoMSkKICAgIGV4cGVjdChtLmNvbnRyb2wucmFkaXVzKS50b0JlKCc1MCUnKQogICAgZXhwZWN0KE1hdGguYWJzKG0uY29udHJvbC51cHBlckhhbGYgLSBtLmNvbnRyb2wubG93ZXJIYWxmKSwgJ3JvY2tlciBzcGxpdHMgZXZlbmx5IHRvcCBhbmQgYm90dG9tJykudG9CZUxlc3NUaGFuT3JFcXVhbCgxKQogICAgZXhwZWN0KG0uY29udHJvbC51cHBlckluaywgJ3VwcGVyIHJvY2tlciBoYWxmIGlzIHRoZSBsaWdodGVyIG9uZSwgYXMgaW4gdGhlIHJlZmVyZW5jZScpLnRvQmVHcmVhdGVyVGhhbihtLmNvbnRyb2wubG93ZXJJbmsgKyAuMTUpCiAgICBleHBlY3QobS5kb3RzLCAndGhlIHNoYWRlIGNvbnRyb2wgaXMgYSBwbGFpbiBiZXplbCBhbmQgcm9ja2VyLCB3aXRoIG5vIGluZGljYXRvciBkb3RzJykudG9IYXZlTGVuZ3RoKDApCiAgICBleHBlY3QobS5kZWNvcmF0aXZlLCAnbm8gaW52ZW50ZWQgYnJpZ2h0bmVzcyBpbnRlcmFjdGlvbicpLnRvQmUodHJ1ZSkKICAgIGF3YWl0IGV4cGVjdC5wb2xsKCgpID0+IHBhZ2UubG9jYXRvcignW2RhdGEtaGVyby1zY2VuZV0gaDEnKS5ldmFsdWF0ZShlID0+IGdldENvbXB1dGVkU3R5bGUoZSkuY29sb3IpLCB7IG1lc3NhZ2U6ICd0aGVtZSBpbmsgaGFzIGZpbmlzaGVkIGl0cyBleGlzdGluZyBjb2xvdXIgdHJhbnNpdGlvbicgfSkudG9CZSh0aGVtZSA9PT0gJ2RhcmsnID8gJ3JnYigyNDUsIDI0MSwgMjMxKScgOiAncmdiKDIwLCA0NCwgNTkpJykKICAgIGNvbnN0IHBhbGV0dGUgPSBhd2FpdCBwYWdlLmV2YWx1YXRlKCgpID0+IHsKICAgICAgY29uc3Qgc3R5bGUgPSBzZWxlY3RvciA9PiBnZXRDb21wdXRlZFN0eWxlKGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3Ioc2VsZWN0b3IpKQogICAgICBjb25zdCBoZXJvID0gc3R5bGUoJ1tkYXRhLWhlcm8tc2NlbmVdJyksIGhlYWRpbmcgPSBzdHlsZSgnW2RhdGEtaGVyby1zY2VuZV0gaDEnKQogICAgICBjb25zdCBqdW1wID0gc3R5bGUoJ1tkYXRhLWhlcm8tc2NlbmVdIGFbaHJlZj0iI21vbnRoLXBpY2tlciJdJyksIHNpZ251cCA9IHN0eWxlKCcjbmV3c2xldHRlciAuYnRuLXByaW1hcnknKQogICAgICBjb25zdCBpbnB1dCA9IHN0eWxlKCcjbmV3c2xldHRlciBpbnB1dFt0eXBlPSJlbWFpbCJdJykKICAgICAgcmV0dXJuIHsgaGVybzogaGVyby5iYWNrZ3JvdW5kQ29sb3IsIGhlYWRpbmc6IGhlYWRpbmcuY29sb3IsIGhlYWRlcjogc3R5bGUoJy5nbGFzcy1uYXYnKS5iYWNrZ3JvdW5kQ29sb3IsIG5hdkFjY2VudDogc3R5bGUoJy5nbGFzcy1uYXYnKS5nZXRQcm9wZXJ0eVZhbHVlKCctLWNvbG9yLWFjY2VudCcpLnRyaW0oKSwgZm9vdGVyOiBzdHlsZSgnZm9vdGVyJykuYmFja2dyb3VuZENvbG9yLCBqdW1wOiBbanVtcC5iYWNrZ3JvdW5kQ29sb3IsIGp1bXAuY29sb3JdLCBzaWdudXA6IFtzaWdudXAuYmFja2dyb3VuZENvbG9yLCBzaWdudXAuY29sb3JdLCBpbnB1dFJhZGl1czogaW5wdXQuYm9yZGVyUmFkaXVzLCBpbnB1dEZvbnQ6IGlucHV0LmZvbnRGYW1pbHksIGJvZHlGb250OiBzdHlsZSgnW2RhdGEtZ29sZGlsb2Nrcy1ob21lXScpLmZvbnRGYW1pbHkgfQogICAgfSkKICAgIGV4cGVjdChwYWxldHRlLmhlcm8sICdkYXJrIGhlcm8gcGFpbnRzIHRoZSBwdWJsaXNoZWQgUFIyOCBuaWdodCBjYWJpbicpLnRvQmUodGhlbWUgPT09ICdkYXJrJyA/ICdyZ2IoMTYsIDM5LCA1MyknIDogJ3JnYigyMzgsIDIzMiwgMjIwKScpCiAgICBleHBlY3QocGFsZXR0ZS5oZWFkaW5nKS50b0JlKHRoZW1lID09PSAnZGFyaycgPyAncmdiKDI0NSwgMjQxLCAyMzEpJyA6ICdyZ2IoMjAsIDQ0LCA1OSknKQogICAgZXhwZWN0KHBhbGV0dGUuaGVhZGVyLCAnaGVhZGVyIGFuZCBmb290ZXIgc2hhcmUgdGhlIHNhbWUgYXZpYXRpb24gbmF2eScpLnRvQmUoJ3JnYigxNiwgMzksIDUzKScpCiAgICBleHBlY3QocGFsZXR0ZS5mb290ZXIpLnRvQmUoJ3JnYigxNiwgMzksIDUzKScpCiAgICBjb25zdCBhY3Rpb25QYWxldHRlID0gdGhlbWUgPT09ICdkYXJrJyA/IFsncmdiKDIyNCwgMjQyLCAxNTUpJywgJ3JnYigyMCwgNDQsIDU5KSddIDogWydyZ2IoMjAsIDQ0LCA1OSknLCAncmdiKDI0NSwgMjQxLCAyMzEpJ10KICAgIGV4cGVjdChwYWxldHRlLmp1bXApLnRvRXF1YWwoYWN0aW9uUGFsZXR0ZSkKICAgIGV4cGVjdChwYWxldHRlLnNpZ251cCwgJ3NlY29uZGFyeSBmb3JtIGFjdGlvbiB1c2VzIHRoZSBzYW1lIHByaW1hcnktYWN0aW9uIHRyZWF0bWVudCcpLnRvRXF1YWwoYWN0aW9uUGFsZXR0ZSkKICAgIGV4cGVjdChwYWxldHRlLm5hdkFjY2VudCkudG9CZSgnI2UwZjI5YicpCiAgICBleHBlY3QocGFsZXR0ZS5pbnB1dFJhZGl1cykudG9CZSgnMHB4JykKICAgIGV4cGVjdChwYWxldHRlLmlucHV0Rm9udCkudG9CZShwYWxldHRlLmJvZHlGb250KQogICAgZXhwZWN0KHBhbGV0dGUuaW5wdXRGb250KS50b0NvbnRhaW4oJ0F2ZW5pciBOZXh0JykKICAgIGNvbnN0IGVtYWlsID0gcGFnZS5sb2NhdG9yKCcjbmV3c2xldHRlciBpbnB1dFt0eXBlPSJlbWFpbCJdJykKICAgIGF3YWl0IGVtYWlsLmZvY3VzKCkKICAgIGF3YWl0IGV4cGVjdC5wb2xsKCgpID0+IGVtYWlsLmV2YWx1YXRlKGUgPT4gZ2V0Q29tcHV0ZWRTdHlsZShlKS5vdXRsaW5lQ29sb3IpKS50b0JlKHRoZW1lID09PSAnZGFyaycgPyAncmdiKDI0NSwgMjQxLCAyMzEpJyA6ICdyZ2IoMjAsIDQ0LCA1OSknKQogICAgZXhwZWN0KGF3YWl0IGVtYWlsLmV2YWx1YXRlKGUgPT4gZ2V0Q29tcHV0ZWRTdHlsZShlKS5vdXRsaW5lV2lkdGgpKS50b0JlKCczcHgnKQo="
+        }
+      ]
+    },
+    "tests/accessibility-plan.browser.test.mjs": {
+      "beforeHash": "9e8fd4f7b12a35492c3f07a6dc6e6ec78940f24a0832266bd6e698624f89a8d2",
+      "afterHash": "41e9775c22cf7a6ed0b1daf92bd9f426864bb62b0efb554c1189acd4c4c94d51",
+      "reason": "Retire only the obsolete cyan-gradient/white-ink oracle for the authorized solid travel actions. Await exact committed foreground/background, keep the existing settling helper, then require exact approved paint and independently composited text contrast >=4.5. All other assertions, controls, input, focus, errors and deadlines remain byte-identical.",
+      "edits": [
+        {
+          "beforeOffset": 14101,
+          "afterOffset": 14101,
+          "before": "",
+          "after": "ICAgICAgYXdhaXQgZXhwZWN0KHNlYXJjaCkudG9IYXZlQ1NTKCdiYWNrZ3JvdW5kLWNvbG9yJywgdGhlbWUgPT09ICdkYXJrJyA/ICdyZ2IoMjI0LCAyNDIsIDE1NSknIDogJ3JnYigyMCwgNDQsIDU5KScpCiAgICAgIGF3YWl0IGV4cGVjdChzZWFyY2gpLnRvSGF2ZUNTUygnY29sb3InLCB0aGVtZSA9PT0gJ2RhcmsnID8gJ3JnYigyMCwgNDQsIDU5KScgOiAncmdiKDI0NSwgMjQxLCAyMzEpJykKICAgICAgYXdhaXQgc2V0dGxlKHNlYXJjaCkK"
+        },
+        {
+          "beforeOffset": 14143,
+          "afterOffset": 14395,
+          "before": "ICAgICAgLy8gV2hpdGUgdGV4dCBtdXN0IG1lZXQgQUEgYXQgQk9USCBvcGFxdWUgZ3JhZGllbnQgZW5kcG9pbnRzLgogICAgICBjb25zdCBzdG9wcyA9IFsuLi5wYWludGVkLmJhY2tncm91bmRJbWFnZS5tYXRjaEFsbCgvcmdiXCgoXGQrKSwgKFxkKyksIChcZCspXCkvZyldLm1hcChtID0+IG0uc2xpY2UoMSkubWFwKE51bWJlcikpCiAgICAgIGV4cGVjdChzdG9wcy5sZW5ndGgpLnRvQmVHcmVhdGVyVGhhbk9yRXF1YWwoMikKICAgICAgZm9yIChjb25zdCBzdG9wIG9mIHN0b3BzKSB7CiAgICAgICAgY29uc3QgbCA9IHN0b3AubWFwKHYgPT4gdiAvIDI1NSkubWFwKHYgPT4gdiA8PSAuMDQwNDUgPyB2IC8gMTIuOTIgOiAoKHYgKyAuMDU1KSAvIDEuMDU1KSAqKiAyLjQpLnJlZHVjZSgocywgdiwgaSkgPT4gcyArIHYgKiBbLjIxMjYsIC43MTUyLCAuMDcyMl1baV0sIDApCiAgICAgICAgZXhwZWN0LnNvZnQoMS4wNSAvIChsICsgLjA1KSkudG9CZUdyZWF0ZXJUaGFuT3JFcXVhbCg0LjUpCiAgICAgIH0K",
+          "after": "ICAgICAgLy8gVGhlIHRyYXZlbCB0aGVtZSB1c2VzIHNvbGlkIGFjdGlvbnM7IG1lYXN1cmUgdGhlaXIgYWN0dWFsIGZvcmVncm91bmQKICAgICAgLy8gYW5kIGNvbXBvc2l0ZWQgYmFja2dyb3VuZCByYXRoZXIgdGhhbiB0aGUgcmV0aXJlZCBjeWFuIGdyYWRpZW50LgogICAgICBleHBlY3QocGFpbnRlZC5iYWNrZ3JvdW5kSW1hZ2UpLnRvQmUoJ25vbmUnKQogICAgICBleHBlY3QocGFpbnRlZC5iYWNrZ3JvdW5kKS50b0JlKHRoZW1lID09PSAnZGFyaycgPyAncmdiKDIyNCwgMjQyLCAxNTUpJyA6ICdyZ2IoMjAsIDQ0LCA1OSknKQogICAgICBleHBlY3QocGFpbnRlZC5jb2xvcikudG9CZSh0aGVtZSA9PT0gJ2RhcmsnID8gJ3JnYigyMCwgNDQsIDU5KScgOiAncmdiKDI0NSwgMjQxLCAyMzEpJykKICAgICAgZXhwZWN0LnNvZnQocGFpbnRlZC50ZXh0Q29udHJhc3QpLnRvQmVHcmVhdGVyVGhhbk9yRXF1YWwoNC41KQo="
+        }
+      ]
+    },
+    "tests/guide-performance.test.mjs": {
+      "beforeHash": "e6dc924cfe04ad18282a4c01830a183622daaf68f928e0d49684f02eb4db847a",
+      "afterHash": "2c319e9d36e527bc6a827fc409c2782cadf357bd307484639da4fb9332cd66a5",
+      "reason": "Published scope invariant must count the two paths PR28 added, so the exact repository inventory stays exact rather than silently broader.",
+      "edits": [
+        {
+          "beforeOffset": 186,
+          "afterOffset": 186,
+          "before": "aW1wb3J0IHsgYXBwcm92YWwgYXMgdHJpcEFwcHJvdmFsLCBjaGFuZ2VkUGF0aHMgYXMgdHJpcFBhdGhzLCBhZGRlZFBhdGhzIGFzIHRyaXBBZGRlZCwgY29udGludWF0aW9uUGF0aHMsIHNlY3VyaXR5UGF0aHMsIHZhbGlkYXRlQXBwcm92YWwsIG5vcm1hbGl6ZUFwcHJvdmVkLCBhY2NlcHRzQXBwcm92ZWQsIHB1Ymxpc2hlZEJ5dGVzLCBsZWdhY3lCeXRlcywgdmVyaWZ5UHVibGlzaGVkSW52ZW50b3J5LCBhc3NlcnRTY29wZUludmVudG9yeSwgcHVibGlzaGVkSGFzaGVzLCBjYW5kaWRhdGVGaXh0dXJlUGF0aCwgZm9sbG93dXBQYXRocyB9IGZyb20gJy4vaGVscGVycy90cmlwLXBsYW5uaW5nLWFwcHJvdmFsLm1qcycK",
+          "after": "aW1wb3J0IHsgYXBwcm92YWwgYXMgdHJpcEFwcHJvdmFsLCBjaGFuZ2VkUGF0aHMgYXMgdHJpcFBhdGhzLCBhZGRlZFBhdGhzIGFzIHRyaXBBZGRlZCwgY29udGludWF0aW9uUGF0aHMsIHNlY3VyaXR5UGF0aHMsIHZhbGlkYXRlQXBwcm92YWwsIG5vcm1hbGl6ZUFwcHJvdmVkLCBhY2NlcHRzQXBwcm92ZWQsIHB1Ymxpc2hlZEJ5dGVzLCBsZWdhY3lCeXRlcywgdmVyaWZ5UHVibGlzaGVkSW52ZW50b3J5LCBhc3NlcnRTY29wZUludmVudG9yeSwgcHVibGlzaGVkSGFzaGVzLCBjYW5kaWRhdGVGaXh0dXJlUGF0aCwgZm9sbG93dXBQYXRocywgdGhlbWVCb290UGF0aHMgfSBmcm9tICcuL2hlbHBlcnMvdHJpcC1wbGFubmluZy1hcHByb3ZhbC5tanMnCg=="
+        },
+        {
+          "beforeOffset": 12956,
+          "afterOffset": 12972,
+          "before": "ICBjb25zdCBwYXRocyA9IFsuLi5PYmplY3Qua2V5cyhwdWJsaXNoZWRIYXNoZXMpLCAuLi50cmlwQWRkZWQsIGNhbmRpZGF0ZUZpeHR1cmVQYXRoLCAuLi5mb2xsb3d1cFBhdGhzXQo=",
+          "after": "ICBjb25zdCBwYXRocyA9IFsuLi5PYmplY3Qua2V5cyhwdWJsaXNoZWRIYXNoZXMpLCAuLi50cmlwQWRkZWQsIGNhbmRpZGF0ZUZpeHR1cmVQYXRoLCAuLi5mb2xsb3d1cFBhdGhzLCAuLi50aGVtZUJvb3RQYXRoc10K"
+        }
+      ]
+    },
+    "tests/trip-improvements.browser.test.mjs": {
+      "beforeHash": "e0e3c195fc1d20dddfc2e1d669e1625af4c6fcade89d57420c9683365bb0d3a8",
+      "afterHash": "fdd3522babaf35ef303b55ec5a9f22de554adef603adea5b2a9d4c8bd91abc02",
+      "reason": "Activation step resolves focus and keydown against one live node; the previous separate focus()+keyboard.press() pair could lose the key to a re-render under full-suite load. Assertions, geometry, naming and cap checks are unchanged.",
+      "edits": [
+        {
+          "beforeOffset": 28643,
+          "afterOffset": 28643,
+          "before": "ICAgIGF3YWl0IHJlbW92ZS5mb2N1cygpCiAgICBhd2FpdCBwYWdlLmtleWJvYXJkLnByZXNzKCcgJykK",
+          "after": "ICAgIC8vIEFjdCBvbiB0aGUgZWxlbWVudCBpdHNlbGY6IGZvY3VzIGFuZCBrZXlkb3duIHJlc29sdmUgYWdhaW5zdCB0aGUgc2FtZSBsaXZlCiAgICAvLyBub2RlLCBzbyBhIHJlLXJlbmRlciBiZXR3ZWVuIHRoZSB0d28gY2FuIG5vIGxvbmdlciBzd2FsbG93IHRoZSBrZXkgcHJlc3MuCiAgICBhd2FpdCByZW1vdmUucHJlc3MoJyAnKQo="
+        },
+        {
+          "beforeOffset": 28944,
+          "afterOffset": 29075,
+          "before": "ICAgIGF3YWl0IHJlc2F2ZS5mb2N1cygpCiAgICBhd2FpdCBwYWdlLmtleWJvYXJkLnByZXNzKCdFbnRlcicpCg==",
+          "after": "ICAgIGF3YWl0IHJlc2F2ZS5wcmVzcygnRW50ZXInKQo="
+        }
+      ]
+    }
+  },
+  "addedFiles": {
+    "tests/featured-guide-prefetch.test.mjs": {
+      "beforeHash": null,
+      "afterHash": "3071a511dbf1a699f6c9aa8402fcb322e04203d91f839b91a41634147edc54b9",
+      "reason": "Standalone all-four destination detail Link, exact insertion, complete reconstruction and fail-closed negative controls."
+    },
+    "tests/travel-theme-consistency.browser.test.mjs": {
+      "beforeHash": null,
+      "reason": "New four-case (two themes by two engines) travel navigation/planning palette and actual flight/hotel outbound nofollow behavior guard; revised before publication to assert navigation accents explicitly, retain the guide shell's established 0.92 navy opacity and check the second accent token only on the newly scoped planner/Explore navigation.",
+      "afterHash": "b2b4bbb03bafd71e44eb520611045d627351a8805f25ecb18e275483b472488d"
+    }
+  }
+}

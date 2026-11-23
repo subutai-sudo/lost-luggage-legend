@@ -446,7 +446,79 @@ function inverse(entry, input, label, self = false) {
 export const followupBase = '96a74ea328c898daf798c776a13c4f94b765810d'
 export const followupFixturePath = 'tests/fixtures/shortlist-prefetch-approved-changes.json'
 export const followupTestPath = 'tests/shortlist-prefetch.test.mjs'
-export const followupPaths = [followupFixturePath, followupTestPath]
+const priorFollowupPaths = [followupFixturePath, followupTestPath]
+export const featuredBase = '6fafede9db46670fd95a99750c6cdc98416f611b'
+// Published PR28 (theme boot + dark hero) sits between f892fd4 and this release's
+// base. It is described as its own reversible layer so the chain below never
+// needs git installed to step backwards through it.
+export const themeBootBase = 'f892fd4aa03006ca03eb48b9e7a241c1e4c4791f'
+export const themeBootFixturePath = 'tests/fixtures/theme-boot-approved-changes.json'
+export const themeBootChangedPaths = ['src/app/globals.css', 'src/app/layout.tsx', 'src/components/GoldilocksHome.module.css', 'src/components/Navbar.tsx', 'src/components/ThemeProvider.tsx']
+export const themeBootAddedPath = 'src/components/themeBoot.ts'
+export const themeBootPaths = [themeBootFixturePath, themeBootAddedPath]
+const themeBootDigest = '02f381019d5fa9bbbc4f532d3b440ed3dceb4355b08e65935f20898a25285c8b'
+export const themeBootApproval = JSON.parse(await readFile(new URL('../fixtures/theme-boot-approved-changes.json', import.meta.url), 'utf8'))
+export const featuredFixturePath = 'tests/fixtures/featured-guide-prefetch-approved-changes.json'
+export const featuredTestPath = 'tests/featured-guide-prefetch.test.mjs'
+export const featuredBrowserPath = 'tests/travel-theme-consistency.browser.test.mjs'
+export const featuredPaths = [featuredFixturePath, featuredTestPath, featuredBrowserPath]
+export const followupPaths = [...priorFollowupPaths, ...featuredPaths]
+export const featuredChangedPaths = ['src/components/GoldilocksHome.tsx', 'tests/helpers/trip-planning-approval.mjs', followupTestPath, 'tests/seasonal-reasons.browser.test.mjs', 'src/components/GoldilocksHome.module.css', 'src/components/TravelTheme.module.css', 'src/components/ComparePricesSection.tsx', 'src/components/ComparePricesSection.module.css', 'tests/window-seat-hero.browser.test.mjs', 'tests/accessibility-plan.browser.test.mjs', 'tests/guide-performance.test.mjs', 'tests/trip-improvements.browser.test.mjs']
+const featuredManifestDigest = '8e60630c601d2ada0aaad9d5a8583cb131a790c70c01c4ea6fff8cd74db8527c'
+export const featuredApproval = JSON.parse(await readFile(new URL('../fixtures/featured-guide-prefetch-approved-changes.json', import.meta.url), 'utf8'))
+export function validateFeatured(doc = featuredApproval) {
+  assert.equal(doc.schemaVersion, 1)
+  assert.equal(doc.kind, 'featured-guide-prefetch-exact-inverse-followup')
+  assert.ok(['awaiting-independent-review', 'independently-reviewed'].includes(doc.status))
+  assert.equal(doc.publishedBase, featuredBase)
+  assert.equal(doc.independentPublishedManifest.head, featuredBase)
+  assert.equal(sha256(JSON.stringify(doc.independentPublishedManifest)), featuredManifestDigest, 'independent complete 310-file published manifest is immutable')
+  const files = doc.independentPublishedManifest.files
+  assert.equal(Object.keys(files).length, 310)
+  inventory(files, [...Object.keys(publishedHashes), ...addedPaths, candidateFixturePath, ...priorFollowupPaths, themeBootAddedPath], 'complete published 6fafede inventory')
+  const fixtures = Object.keys(files).filter(path => path.startsWith('tests/fixtures/'))
+  assert.equal(fixtures.length, 12)
+  inventory(doc.immutableFixtures, fixtures, 'all twelve published fixtures remain immutable')
+  for (const path of fixtures) assert.equal(doc.immutableFixtures[path], files[path].sha256, path)
+  inventory(doc.changes, featuredChangedPaths, 'only twelve explicitly authorized featured, visual, contrast-oracle, scope-inventory and activation-race changes')
+  inventory(doc.addedFiles, [featuredTestPath, featuredBrowserPath], 'only the new Node and browser guards; no cyclic document pin')
+  for (const path of featuredChangedPaths) {
+    const entry = doc.changes[path]
+    assert.equal(entry.beforeHash, files[path].sha256, `${path}: exact published 6fafede beforeHash`)
+    const boot = themeBootApproval.changes[path]
+    const prior = followupApproval.changes[path] || followupApproval.addedFiles[path] || approval.changes[path] || approval.addedFiles[path]
+    const upstream = boot ? boot.afterHash : (prior ? prior.afterHash : publishedHashes[path])
+    assert.equal(entry.beforeHash, upstream, `${path}: unbroken published chain through PR28`)
+    assert.match(entry.afterHash, /^[a-f0-9]{64}$/)
+    assert.notEqual(entry.afterHash, entry.beforeHash)
+    assert.ok(entry.reason?.trim())
+    assert.ok(Array.isArray(entry.edits) && entry.edits.length > 0)
+  }
+  for (const path of [featuredTestPath, featuredBrowserPath]) {
+    const added = doc.addedFiles[path]
+    assert.equal(added.beforeHash, null)
+    assert.match(added.afterHash, /^[a-f0-9]{64}$/)
+    assert.ok(added.reason?.trim())
+    assert.ok(!Object.hasOwn(files, path))
+  }
+  assert.ok(!Object.hasOwn(doc.changes, featuredFixturePath) && !Object.hasOwn(doc.addedFiles, featuredFixturePath))
+}
+// Normalize exactly once to the published 6fafede base.
+export function featuredBytes(path, input) {
+  if (featuredChangedPaths.includes(path)) return inverse(featuredApproval.changes[path], input, `featured follow-up/${path}`)
+  if ([featuredTestPath, featuredBrowserPath].includes(path)) assert.equal(sha256(input), featuredApproval.addedFiles[path].afterHash, `${path}: exact latest guard`)
+  return Buffer.from(input)
+}
+export async function verifyFeaturedInventory(root = new URL('../../', import.meta.url)) {
+  validateFeatured()
+  for (const [path, entry] of Object.entries(featuredApproval.independentPublishedManifest.files)) {
+    const bytes = featuredBytes(path, await readFile(new URL(path, root)))
+    assert.equal(sha256(bytes), entry.sha256, `${path}: complete 6fafede freeze`)
+    assert.equal(bytes.length, entry.bytes, `${path}: published byte count`)
+  }
+  for (const path of [featuredTestPath, featuredBrowserPath]) featuredBytes(path, await readFile(new URL(path, root)))
+  return { published: 310, changed: 12, added: 3, immutableFixtures: 12 }
+}
 export const followupChangedPaths = ['src/components/GoldilocksHome.tsx', 'tests/helpers/trip-planning-approval.mjs', selfHarnessPath]
 const followupManifestDigest = 'a9a8d410f1867dca37d893cd0d8205d3bf99f6155982cf86bd4655962b27cfbd'
 export const followupApproval = JSON.parse(await readFile(new URL('../fixtures/shortlist-prefetch-approved-changes.json', import.meta.url), 'utf8'))
@@ -479,10 +551,40 @@ export function validateFollowup(doc = followupApproval) {
   assert.ok(!Object.hasOwn(files, followupTestPath))
   assert.ok(!Object.hasOwn(doc.changes, followupFixturePath) && !Object.hasOwn(doc.addedFiles, followupFixturePath))
 }
-export function followupBytes(path, input) {
+function priorFollowupBytes(path, input) {
   if (followupChangedPaths.includes(path)) return inverse(followupApproval.changes[path], input, `shortlist follow-up/${path}`)
   if (path === followupTestPath) assert.equal(sha256(input), followupApproval.addedFiles[path].afterHash, `${path}: exact new follow-up guard`)
   return Buffer.from(input)
+}
+export function validateThemeBoot(doc = themeBootApproval) {
+  assert.equal(doc.schemaVersion, 1)
+  assert.equal(doc.kind, 'published-theme-boot-exact-inverse-layer')
+  assert.equal(doc.status, 'published')
+  assert.equal(doc.publishedBase, themeBootBase)
+  assert.equal(doc.publishedHead, featuredBase)
+  assert.equal(sha256(JSON.stringify(doc)), themeBootDigest, 'published PR28 layer is immutable')
+  inventory(doc.changes, themeBootChangedPaths, 'exactly the five PR28 surfaces')
+  inventory(doc.addedFiles, [themeBootAddedPath], 'only the PR28 boot script is new')
+  for (const path of themeBootChangedPaths) {
+    const entry = doc.changes[path]
+    assert.match(entry.beforeHash, /^[a-f0-9]{64}$/)
+    assert.match(entry.afterHash, /^[a-f0-9]{64}$/)
+    assert.notEqual(entry.beforeHash, entry.afterHash)
+    assert.ok(entry.reason?.trim())
+    assert.ok(Array.isArray(entry.edits) && entry.edits.length > 0)
+  }
+  const added = doc.addedFiles[themeBootAddedPath]
+  assert.equal(added.beforeHash, null)
+  assert.match(added.afterHash, /^[a-f0-9]{64}$/)
+}
+// Published PR28 inverse: step from the new main base back to f892fd4.
+export function themeBootBytes(path, input) {
+  if (themeBootChangedPaths.includes(path)) return inverse(themeBootApproval.changes[path], input, `published PR28/${path}`)
+  if (path === themeBootAddedPath) assert.equal(sha256(input), themeBootApproval.addedFiles[path].afterHash, `${path}: exact published PR28 boot script`)
+  return Buffer.from(input)
+}
+export function followupBytes(path, input) {
+  return priorFollowupBytes(path, themeBootBytes(path, featuredBytes(path, input)))
 }
 export async function verifyFollowupInventory(root = new URL('../../', import.meta.url)) {
   validateFollowup()
@@ -492,7 +594,7 @@ export async function verifyFollowupInventory(root = new URL('../../', import.me
     assert.equal(bytes.length, entry.bytes, `${path}: published byte count`)
   }
   followupBytes(followupTestPath, await readFile(new URL(followupTestPath, root)))
-  return { published: 307, changed: followupChangedPaths.length, added: followupPaths.length }
+  return { published: 307, changed: followupChangedPaths.length, added: priorFollowupPaths.length }
 }
 validateApproval()
 
@@ -529,7 +631,7 @@ export function acceptsApproved(path, input) {
 
 export const candidateFixturePath = 'tests/fixtures/trip-planning-approved-changes.json'
 export function assertScopeInventory(paths) {
-  assert.deepEqual([...paths].sort(), [...Object.keys(publishedHashes), ...addedPaths, candidateFixturePath, ...followupPaths].sort(), 'unknown, missing and duplicate repository paths are refused; no env/keys/research default permits')
+  assert.deepEqual([...paths].sort(), [...Object.keys(publishedHashes), ...addedPaths, candidateFixturePath, ...followupPaths, ...themeBootPaths].sort(), 'unknown, missing and duplicate repository paths are refused; no env/keys/research default permits')
 }
 export async function verifyPublishedInventory(root = new URL('../../', import.meta.url)) {
   // Runtime/install trees and the worktree git pointer are not shipping inputs.
@@ -547,6 +649,7 @@ export async function verifyPublishedInventory(root = new URL('../../', import.m
   }
   await walk()
   assertScopeInventory(paths)
+  await verifyFeaturedInventory(root)
   await verifyFollowupInventory(root)
   for (const [path, hash] of Object.entries(publishedHashes)) {
     const bytes = await readFile(new URL(path, root))
@@ -558,3 +661,5 @@ export async function verifyPublishedInventory(root = new URL('../../', import.m
   return { published: Object.keys(publishedHashes).length, added: addedPaths.length, immutableFixtures: Object.keys(approval.immutableFixtures).length }
 }
 validateFollowup()
+validateFeatured()
+validateThemeBoot()

@@ -3,7 +3,7 @@ import { createHash } from 'node:crypto'
 import { readFile } from 'node:fs/promises'
 import { test } from 'node:test'
 import ts from 'typescript'
-import { approval as tripApproval, changedPaths as tripPaths, addedPaths as tripAdded, continuationPaths, securityPaths, validateApproval, normalizeApproved, acceptsApproved, publishedBytes, legacyBytes, verifyPublishedInventory, assertScopeInventory, publishedHashes, candidateFixturePath, followupPaths } from './helpers/trip-planning-approval.mjs'
+import { approval as tripApproval, changedPaths as tripPaths, addedPaths as tripAdded, continuationPaths, securityPaths, validateApproval, normalizeApproved, acceptsApproved, publishedBytes, legacyBytes, verifyPublishedInventory, assertScopeInventory, publishedHashes, candidateFixturePath, followupPaths, themeBootPaths } from './helpers/trip-planning-approval.mjs'
 
 const root = new URL('../', import.meta.url)
 const fixtureBytes = await readFile(new URL('./fixtures/guide-performance-baseline.json', import.meta.url))
@@ -231,7 +231,7 @@ const legacyFixtureHash = '65a2692a2b7235011c15f3001da95bed9577c9731167fc77ca1e4
 
 test('complete 273-file independent freeze and every explicit new file stay bounded, including all ten old fixtures', async () => {
   assert.deepEqual(await verifyPublishedInventory(), { published: 273, added: tripAdded.length, immutableFixtures: 10 })
-  const paths = [...Object.keys(publishedHashes), ...tripAdded, candidateFixturePath, ...followupPaths]
+  const paths = [...Object.keys(publishedHashes), ...tripAdded, candidateFixturePath, ...followupPaths, ...themeBootPaths]
   assertScopeInventory(paths)
   for (const path of ['src/lib/unknown.ts', '.env.local', 'private-key.pem', 'docs/raw-research.json']) assert.throws(() => assertScopeInventory([...paths, path]), path)
   assert.throws(() => assertScopeInventory(paths.slice(1)), 'missing file')

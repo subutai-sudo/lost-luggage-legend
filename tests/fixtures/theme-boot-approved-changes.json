@@ -1,0 +1,190 @@
+{
+  "schemaVersion": 1,
+  "kind": "published-theme-boot-exact-inverse-layer",
+  "status": "published",
+  "publishedBase": "f892fd4aa03006ca03eb48b9e7a241c1e4c4791f",
+  "publishedHead": "6fafede9db46670fd95a99750c6cdc98416f611b",
+  "note": "PR #28 (feat/light-dark-theme-toggle) is already merged main. This layer exists only so the later release acceptance chain can step backwards from it without using git at test time.",
+  "changes": {
+    "src/app/globals.css": {
+      "beforeHash": "04584f659dec56bbf3059c7dbe54655c7fbffc9c2f5ccd155adbf169cc4850ed",
+      "afterHash": "8fcc11d20f0e24506b3557731e51eacc5b79bccee235a9ccc1cbc8c9bcaf1d79",
+      "reason": "Published PR28 theme boot and dark hero surface.",
+      "edits": [
+        {
+          "beforeOffset": 9822,
+          "afterOffset": 9822,
+          "before": "",
+          "after": "LyogVGhlbWUgc3dpdGNoOiBhIGJhcmUgc3VuL21vb24gZ2x5cGguIFdoaWNoIG9uZSBpcyB2aXNpYmxlIGlzIGRlY2lkZWQgYnkgdGhlCiAgIGh0bWwuZGFyayBjbGFzcywgc28gdGhlIGNvcnJlY3QgaWNvbiBwYWludHMgYmVmb3JlIGh5ZHJhdGlvbi4gKi8KLnRoZW1lLXN1bm1vb24gewogIGRpc3BsYXk6IGlubGluZS1mbGV4OwogIGFsaWduLWl0ZW1zOiBjZW50ZXI7CiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7CiAgYmFja2dyb3VuZDogdHJhbnNwYXJlbnQ7CiAgYm9yZGVyOiAxcHggc29saWQgdHJhbnNwYXJlbnQ7CiAgYm9yZGVyLXJhZGl1czogNTAlOwogIGNvbG9yOiB2YXIoLS1jb2xvci1pbmstbGlnaHQpOwogIGN1cnNvcjogcG9pbnRlcjsKICB0cmFuc2l0aW9uOiBiYWNrZ3JvdW5kLWNvbG9yIDAuMjVzIGVhc2UsIGJvcmRlci1jb2xvciAwLjI1cyBlYXNlLCBjb2xvciAwLjI1cyBlYXNlOwp9CgoudGhlbWUtc3VubW9vbjpob3ZlciB7CiAgYmFja2dyb3VuZDogdmFyKC0tY29sb3ItYmctc3VidGxlKTsKICBib3JkZXItY29sb3I6IHZhcigtLWNvbG9yLWJvcmRlcik7CiAgY29sb3I6IHZhcigtLWNvbG9yLWFjY2VudCk7Cn0KCi50aGVtZS1zdW5tb29uLWdseXBoIHsKICBwb3NpdGlvbjogcmVsYXRpdmU7CiAgZGlzcGxheTogYmxvY2s7CiAgd2lkdGg6IDIwcHg7CiAgaGVpZ2h0OiAyMHB4Owp9CgoudGhlbWUtc3VubW9vbi1nbHlwaCBzdmcgewogIHBvc2l0aW9uOiBhYnNvbHV0ZTsKICBpbnNldDogMDsKICB0cmFuc2l0aW9uOiBvcGFjaXR5IDAuMjVzIGVhc2UsIHRyYW5zZm9ybSAwLjQ1cyBjdWJpYy1iZXppZXIoMC40LCAwLCAwLjIsIDEpOwp9CgovKiBMaWdodCBtb2RlOiBvZmZlciB0aGUgbW9vbi4gRGFyayBtb2RlOiBvZmZlciB0aGUgc3VuLiAqLwoudGhlbWUtc3VubW9vbi1zdW4geyBvcGFjaXR5OiAwOyB0cmFuc2Zvcm06IHJvdGF0ZSgtNTVkZWcpIHNjYWxlKDAuNik7IH0KLnRoZW1lLXN1bm1vb24tbW9vbiB7IG9wYWNpdHk6IDE7IHRyYW5zZm9ybTogcm90YXRlKDBkZWcpIHNjYWxlKDEpOyB9Cmh0bWwuZGFyayAudGhlbWUtc3VubW9vbi1zdW4geyBvcGFjaXR5OiAxOyB0cmFuc2Zvcm06IHJvdGF0ZSgwZGVnKSBzY2FsZSgxKTsgfQpodG1sLmRhcmsgLnRoZW1lLXN1bm1vb24tbW9vbiB7IG9wYWNpdHk6IDA7IHRyYW5zZm9ybTogcm90YXRlKDU1ZGVnKSBzY2FsZSgwLjYpOyB9Cgo="
+        }
+      ]
+    },
+    "src/app/layout.tsx": {
+      "beforeHash": "7bfce7696effaffe96cba84889d723ae5ce65cad28a6b8e718f705403444da3f",
+      "afterHash": "d90ab9998b5c05ea9b3daf03b7590165c244fc34ef34206b7cc29bea1448e2e4",
+      "reason": "Published PR28 theme boot and dark hero surface.",
+      "edits": [
+        {
+          "beforeOffset": 119,
+          "afterOffset": 119,
+          "before": "",
+          "after": "aW1wb3J0IHsgdGhlbWVCb290U2NyaXB0IH0gZnJvbSAnQC9jb21wb25lbnRzL3RoZW1lQm9vdCcK"
+        },
+        {
+          "beforeOffset": 2154,
+          "afterOffset": 2211,
+          "before": "",
+          "after": "ICAgICAgICB7LyogUmVzb2x2ZSB0aGUgdGhlbWUgYmVmb3JlIGZpcnN0IHBhaW50IHNvIGEgZGFyay1tb2RlIHZpc2l0b3IgbmV2ZXIKICAgICAgICAgICAgc2VlcyBhIHdoaXRlIGZsYXNoLiBLZWVwIGluIHN0ZXAgd2l0aCBUaGVtZVByb3ZpZGVyLiAqL30KICAgICAgICA8c2NyaXB0IGRhbmdlcm91c2x5U2V0SW5uZXJIVE1MPXt7IF9faHRtbDogdGhlbWVCb290U2NyaXB0IH19IC8+Cg=="
+        }
+      ]
+    },
+    "src/components/GoldilocksHome.module.css": {
+      "beforeHash": "7f80d1a26834b9894728ed0b014de29d54c4b4cd16c18d0a492de13b08d46583",
+      "afterHash": "63c34b696118bf49756c2ca558103b4fae9cf4f718591f334031d3e0d2e32d78",
+      "reason": "Published PR28 theme boot and dark hero surface.",
+      "edits": [
+        {
+          "beforeOffset": 24214,
+          "afterOffset": 24214,
+          "before": "",
+          "after": "Ci8qIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQogICBEYXJrIG1vZGUgZm9yIHRoZSBzdXJmYWNlcyB0aGUgc2hhcmVkIHRva2VucyBkbyBub3QgY292ZXIuCgogICBUaGUgaGVybyBpcyBhIHBob3RvZ3JhcGhlZCB3aW5kb3cgc2NlbmUgcGFpbnRlZCB3aXRoIHdhcm0gcGFwZXIgbGl0ZXJhbHMsIHNvCiAgIHRoZSBibG9jayBiZWxvdyByZS1wYWludHMgdGhlIHNhbWUgY29tcG9zaXRpb24gYXMgYSBuaWdodCBjYWJpbjogZGVlcCBuYXZ5CiAgIGludGVyaW9yLCBkaW0gbW91bGRpbmcsIGFuZCBhIGRhcmsgcGFwZXIgcGFzcy4gT25seSB0aGVzZSBoYXJkY29kZWQgc3VyZmFjZXMKICAgYXJlIG92ZXJyaWRkZW4g4oCUIGV2ZXJ5dGhpbmcgZHJpdmVuIGJ5IC0taW5rLy0tcGFwZXIvLS1jYXJkIGFscmVhZHkgZmxpcHMuCiAgIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSAqLwo6Z2xvYmFsKC5kYXJrKSAuaGVybyB7CiAgYmFja2dyb3VuZDogIzEwMjczNTsKICBjb2xvcjogI2Y1ZjFlNzsKfQoKOmdsb2JhbCguZGFyaykgLmhlcm86OmJlZm9yZSB7CiAgYmFja2dyb3VuZDogcmFkaWFsLWdyYWRpZW50KGVsbGlwc2UgYXQgODUlIDIwJSwgIzJhNDU1MyAwLCB0cmFuc3BhcmVudCA1NSUpLAogICAgbGluZWFyLWdyYWRpZW50KDExMGRlZywgIzEwMjczNSA0MiUsICMwYjFjMjcgMTAwJSk7Cn0KCjpnbG9iYWwoLmRhcmspIC5oZXJvOjphZnRlciB7CiAgYm9yZGVyLWlubGluZS1jb2xvcjogIzJhNDU1MzsKfQoKOmdsb2JhbCguZGFyaykgLm1vbnRoV2F0ZXJtYXJrIHsKICBjb2xvcjogIzFjMzU0MjsKfQoKOmdsb2JhbCguZGFyaykgLmhlcm8gOmlzKGJ1dHRvbiwgYSk6Zm9jdXMtdmlzaWJsZSB7CiAgb3V0bGluZS1jb2xvcjogdmFyKC0tYWNpZCk7CiAgYm94LXNoYWRvdzogMCAwIDAgOXB4ICMxMDI3MzU7Cn0KCi8qIEFpcmNyYWZ0IHdpbmRvdyBzdXJyb3VuZDogYSBkaW0gY2FiaW4gaW50ZXJpb3IgaW5zdGVhZCBvZiBicmlnaHQgaXZvcnkuICovCjpnbG9iYWwoLmRhcmspIC53aW5kb3dTY2VuZSB7CiAgYm9yZGVyLWNvbG9yOiAjMmE0NTUzOwogIGJhY2tncm91bmQ6IGxpbmVhci1ncmFkaWVudCgxMDBkZWcsICMyNDNkNGIsICMxZTM1NDIgNDUlLCAjMjg0MzRmKTsKICBib3gtc2hhZG93OiBpbnNldCAycHggMnB4IDRweCAjMDAwMDAwNDAsIGluc2V0IC0ycHggLTJweCA1cHggIzAwMDAwMDMzLAogICAgOHB4IDEycHggMjhweCAjMDAwMDAwNTk7Cn0KCjpnbG9iYWwoLmRhcmspIC53aW5kb3dTY2VuZTo6YmVmb3JlIHsKICBib3JkZXItY29sb3I6ICMzNTUwNWY7CiAgYm94LXNoYWRvdzogaW5zZXQgNHB4IDNweCA4cHggIzAwMDAwMDMzOwp9Cgo6Z2xvYmFsKC5kYXJrKSAud2luZG93V2VsbCB7CiAgYm9yZGVyLWNvbG9yOiAjNDg2MjZmOwogIGJhY2tncm91bmQ6ICMxNjI5MmY7CiAgYm94LXNoYWRvdzogMCAwIDAgOHB4ICMxYjM1NDUsIC0zcHggLTFweCA4cHggIzAwMDAwMDU5Owp9Cgo6Z2xvYmFsKC5kYXJrKSAud2luZG93V2VsbDo6YWZ0ZXIgewogIGJveC1zaGFkb3c6IGluc2V0IDRweCA2cHggMTNweCAjMDAwMDAwNzM7Cn0KCjpnbG9iYWwoLmRhcmspIC53aW5kb3dTaWxsIHsKICBib3JkZXItY29sb3I6ICMzNTUwNWY7CiAgYmFja2dyb3VuZDogbGluZWFyLWdyYWRpZW50KDE4MGRlZywgIzFiMzEzYyAwLCAjMmE0NTUzIDQ2JSwgIzE2MjgzNCAxMDAlKTsKICBib3gtc2hhZG93OiBpbnNldCAwIC0zcHggNXB4ICMwMDAwMDA1OSwgMCAzcHggNHB4ICMwMDAwMDA0MDsKfQoKOmdsb2JhbCguZGFyaykgLndpbmRvd0RpbW1lciB7CiAgYm9yZGVyLWNvbG9yOiAjNGE2MjcwOwogIGJhY2tncm91bmQ6IGxpbmVhci1ncmFkaWVudCgjMmY0YjU5LCAjMTYyODM0KTsKfQoKOmdsb2JhbCguZGFyaykgLndpbmRvd0RpbW1lcjo6YmVmb3JlIHsKICBib3JkZXItYm90dG9tLWNvbG9yOiAjNDU2MDZkOwogIGJhY2tncm91bmQ6ICMyYTQ1NTM7Cn0KCjpnbG9iYWwoLmRhcmspIC53aW5kb3dEaW1tZXI6OmFmdGVyIHsKICBiYWNrZ3JvdW5kOiAjMTYyOTNmOwp9Cgo6Z2xvYmFsKC5kYXJrKSAud2luZG93RGltbWVyIGkgewogIGJhY2tncm91bmQ6ICM5M2FlYmM7Cn0KCjpnbG9iYWwoLmRhcmspIC53aW5kb3dOb3RlIHsKICBjb2xvcjogI2MwZDFkOTsKfQoKLyogVGhlIHBhcGVyIHBhc3MgYmVjb21lcyBhIGRhcmsgY2FyZCB3aXRoIHRoZSBzYW1lIHByaW50ZWQgcnVsZXMuICovCjpnbG9iYWwoLmRhcmspIC5mcmFtZS1jYXB0aW9uIHsKICBiYWNrZ3JvdW5kOiAjMWIzNTQ1OwogIGNvbG9yOiAjZjVmMWU3OwogIGJvcmRlci1jb2xvcjogIzNiNTU2MzsKICBib3gtc2hhZG93OiA1cHggN3B4IDAgIzAwMDAwMDQwLCAwIDE1cHggMzBweCAjMDAwMDAwNTk7Cn0KCjpnbG9iYWwoLmRhcmspIC5mcmFtZS1jYXB0aW9uIC5sYWJlbCB7CiAgY29sb3I6ICNjMGQxZDk7Cn0KCjpnbG9iYWwoLmRhcmspIC5mcmFtZS1jYXB0aW9uIGEgc3BhbjpsYXN0LWNoaWxkIHsKICBib3JkZXItdG9wLWNvbG9yOiAjM2I1NTYzOwp9Cgo6Z2xvYmFsKC5kYXJrKSAudGlja2V0SGVhZGluZyB7CiAgYmFja2dyb3VuZDogIzFiMzU0NTsKICBib3JkZXItYm90dG9tLWNvbG9yOiAjM2I1NTYzOwp9Cgo6Z2xvYmFsKC5kYXJrKSAudGlja2V0U3R1YiB7CiAgYmFja2dyb3VuZDogIzIyM2Y1MDsKfQoKOmdsb2JhbCguZGFyaykgLnRpY2tldFN0YW1wIHsKICBib3JkZXItY29sb3I6ICNmMThjNjQ7CiAgY29sb3I6ICNmMThjNjQ7Cn0KCjpnbG9iYWwoLmRhcmspIC50aWNrZXRTdHJpcGVzIHsKICBiYWNrZ3JvdW5kOiByZXBlYXRpbmctbGluZWFyLWdyYWRpZW50KAogICAgOTBkZWcsCiAgICAjYzBkMWQ5IDAgMnB4LAogICAgdHJhbnNwYXJlbnQgMnB4IDVweCwKICAgICNjMGQxZDkgNXB4IDZweCwKICAgIHRyYW5zcGFyZW50IDZweCAxMHB4LAogICAgI2MwZDFkOSAxMHB4IDE0cHgsCiAgICB0cmFuc3BhcmVudCAxNHB4IDE3cHgKICApOwp9CgovKiBNb250aCBzdHViczogZGFyayBjYXJkIHN0b2NrIHVuZGVyIHRoZSBwaG90b2dyYXBoLiAqLwo6Z2xvYmFsKC5kYXJrKSAubW9udGhzIGJ1dHRvbiB7CiAgY29sb3I6ICNmNWYxZTc7CiAgYmFja2dyb3VuZDogIzFiMzU0NTsKfQoKOmdsb2JhbCguZGFyaykgLm1vbnRoLW5hbWUgewogIGNvbG9yOiAjZjVmMWU3Owp9Cgo6Z2xvYmFsKC5kYXJrKSAubW9udGhzIGJ1dHRvblthcmlhLXByZXNzZWQ9J3RydWUnXTo6YWZ0ZXIgewogIGNvbG9yOiAjMTQyYzNiOwp9Cgo6Z2xvYmFsKC5kYXJrKSAuaW1hZ2UtbGluazo6YWZ0ZXIgewogIGJhY2tncm91bmQ6ICMxYjM1NDU7CiAgY29sb3I6ICNmNWYxZTc7Cn0KCjpnbG9iYWwoLmRhcmspIC5tb250aEp1bXAgewogIGNvbG9yOiAjMTQyYzNiICFpbXBvcnRhbnQ7CiAgYmFja2dyb3VuZDogdmFyKC0tYWNpZCk7Cn0KCi8qIEhlcm8gdHlwb2dyYXBoeSBrZWVwcyBpdHMgd2FybSBpbmsgY29udHJhc3Qgb24gdGhlIG5pZ2h0IGNhYmluLiAqLwo6Z2xvYmFsKC5kYXJrKSAucm9vdCBoMSB7CiAgY29sb3I6ICNmNWYxZTc7Cn0KCjpnbG9iYWwoLmRhcmspIC5yb290IGgxIGVtIHsKICBjb2xvcjogI2YyYTg4NDsKfQoKOmdsb2JhbCguZGFyaykgLmludHJvIC5leWVicm93LAo6Z2xvYmFsKC5kYXJrKSAuaW50cm8tY29weSB7CiAgY29sb3I6ICNjMGQxZDk7Cn0K"
+        }
+      ]
+    },
+    "src/components/Navbar.tsx": {
+      "beforeHash": "f49c426bc65fa148685ea96ba6fcacf10f077683311ad0e27de28199a416a27f",
+      "afterHash": "680a2450e399e639f71123b710f0c579015cce8ed7fc6b41036319ba91156f8f",
+      "reason": "Published PR28 theme boot and dark hero surface.",
+      "edits": [
+        {
+          "beforeOffset": 6735,
+          "afterOffset": 6735,
+          "before": "",
+          "after": "ICAgICAgICAgICAgey8qIEljb24tb25seSB0aGVtZSBzd2l0Y2g6IHRoZSBnbHlwaCBpcyBjaG9zZW4gYnkgdGhlIGh0bWwuZGFyawogICAgICAgICAgICAgICAgY2xhc3MgaW4gQ1NTLCBzbyBpdCBpcyBjb3JyZWN0IG9uIGZpcnN0IHBhaW50LiAqL30K"
+        },
+        {
+          "beforeOffset": 6902,
+          "afterOffset": 7046,
+          "before": "ICAgICAgICAgICAgICBjbGFzc05hbWU9e2B0aGVtZS10b2dnbGUgdy0xMSBoLTExICR7Zm9jdXNSaW5nfWB9Cg==",
+          "after": "ICAgICAgICAgICAgICB0aXRsZT17aXNEYXJrID8gJ1N3aXRjaCB0byBsaWdodCBtb2RlJyA6ICdTd2l0Y2ggdG8gZGFyayBtb2RlJ30KICAgICAgICAgICAgICBjbGFzc05hbWU9e2B0aGVtZS1zdW5tb29uIHctMTEgaC0xMSAke2ZvY3VzUmluZ31gfQo="
+        },
+        {
+          "beforeOffset": 6980,
+          "afterOffset": 7203,
+          "before": "ICAgICAgICAgICAgICB7aXNEYXJrID8gKAogICAgICAgICAgICAgICAgPHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgd2lkdGg9IjE4IiBoZWlnaHQ9IjE4IiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0idmFyKC0tY29sb3ItZ29sZCkiIHN0cm9rZVdpZHRoPSIyIiBzdHJva2VMaW5lY2FwPSJyb3VuZCIgc3Ryb2tlTGluZWpvaW49InJvdW5kIj4KICAgICAgICAgICAgICAgICAgPGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iNSIgLz4KICAgICAgICAgICAgICAgICAgPGxpbmUgeDE9IjEyIiB5MT0iMSIgeDI9IjEyIiB5Mj0iMyIgLz4KICAgICAgICAgICAgICAgICAgPGxpbmUgeDE9IjEyIiB5MT0iMjEiIHgyPSIxMiIgeTI9IjIzIiAvPgogICAgICAgICAgICAgICAgICA8bGluZSB4MT0iNC4yMiIgeTE9IjQuMjIiIHgyPSI1LjY0IiB5Mj0iNS42NCIgLz4KICAgICAgICAgICAgICAgICAgPGxpbmUgeDE9IjE4LjM2IiB5MT0iMTguMzYiIHgyPSIxOS43OCIgeTI9IjE5Ljc4IiAvPgogICAgICAgICAgICAgICAgICA8bGluZSB4MT0iMSIgeTE9IjEyIiB4Mj0iMyIgeTI9IjEyIiAvPgogICAgICAgICAgICAgICAgICA8bGluZSB4MT0iMjEiIHkxPSIxMiIgeDI9IjIzIiB5Mj0iMTIiIC8+CiAgICAgICAgICAgICAgICAgIDxsaW5lIHgxPSI0LjIyIiB5MT0iMTkuNzgiIHgyPSI1LjY0IiB5Mj0iMTguMzYiIC8+CiAgICAgICAgICAgICAgICAgIDxsaW5lIHgxPSIxOC4zNiIgeTE9IjUuNjQiIHgyPSIxOS43OCIgeTI9IjQuMjIiIC8+Cg==",
+          "after": "ICAgICAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9InRoZW1lLXN1bm1vb24tZ2x5cGgiIGFyaWEtaGlkZGVuPSJ0cnVlIj4KICAgICAgICAgICAgICAgIDxzdmcgY2xhc3NOYW1lPSJ0aGVtZS1zdW5tb29uLXN1biIgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iY3VycmVudENvbG9yIiBzdHJva2VXaWR0aD0iMS43IiBzdHJva2VMaW5lY2FwPSJyb3VuZCIgc3Ryb2tlTGluZWpvaW49InJvdW5kIj4KICAgICAgICAgICAgICAgICAgPGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iNC40IiAvPgogICAgICAgICAgICAgICAgICA8bGluZSB4MT0iMTIiIHkxPSIxLjYiIHgyPSIxMiIgeTI9IjMuNCIgLz4KICAgICAgICAgICAgICAgICAgPGxpbmUgeDE9IjEyIiB5MT0iMjAuNiIgeDI9IjEyIiB5Mj0iMjIuNCIgLz4KICAgICAgICAgICAgICAgICAgPGxpbmUgeDE9IjQuNiIgeTE9IjQuNiIgeDI9IjUuOSIgeTI9IjUuOSIgLz4KICAgICAgICAgICAgICAgICAgPGxpbmUgeDE9IjE4LjEiIHkxPSIxOC4xIiB4Mj0iMTkuNCIgeTI9IjE5LjQiIC8+CiAgICAgICAgICAgICAgICAgIDxsaW5lIHgxPSIxLjYiIHkxPSIxMiIgeDI9IjMuNCIgeTI9IjEyIiAvPgogICAgICAgICAgICAgICAgICA8bGluZSB4MT0iMjAuNiIgeTE9IjEyIiB4Mj0iMjIuNCIgeTI9IjEyIiAvPgogICAgICAgICAgICAgICAgICA8bGluZSB4MT0iNC42IiB5MT0iMTkuNCIgeDI9IjUuOSIgeTI9IjE4LjEiIC8+CiAgICAgICAgICAgICAgICAgIDxsaW5lIHgxPSIxOC4xIiB5MT0iNS45IiB4Mj0iMTkuNCIgeTI9IjQuNiIgLz4K"
+        },
+        {
+          "beforeOffset": 7772,
+          "afterOffset": 8051,
+          "before": "ICAgICAgICAgICAgICApIDogKAogICAgICAgICAgICAgICAgPHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgd2lkdGg9IjE4IiBoZWlnaHQ9IjE4IiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0idmFyKC0tY29sb3ItaW5rLWxpZ2h0KSIgc3Ryb2tlV2lkdGg9IjIiIHN0cm9rZUxpbmVjYXA9InJvdW5kIiBzdHJva2VMaW5lam9pbj0icm91bmQiPgogICAgICAgICAgICAgICAgICA8cGF0aCBkPSJNMjEgMTIuNzlBOSA5IDAgMSAxIDExLjIxIDMgNyA3IDAgMCAwIDIxIDEyLjc5eiIgLz4K",
+          "after": "ICAgICAgICAgICAgICAgIDxzdmcgY2xhc3NOYW1lPSJ0aGVtZS1zdW5tb29uLW1vb24iIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlV2lkdGg9IjEuNyIgc3Ryb2tlTGluZWNhcD0icm91bmQiIHN0cm9rZUxpbmVqb2luPSJyb3VuZCI+CiAgICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik0yMC41IDE0LjRBOC42IDguNiAwIDAgMSA5LjYgMy41YTguNyA4LjcgMCAxIDAgMTAuOSAxMC45eiIgLz4K"
+        },
+        {
+          "beforeOffset": 8083,
+          "afterOffset": 8356,
+          "before": "ICAgICAgICAgICAgICApfQo=",
+          "after": "ICAgICAgICAgICAgICA8L3NwYW4+Cg=="
+        }
+      ]
+    },
+    "src/components/ThemeProvider.tsx": {
+      "beforeHash": "17c90a648aef39438f06f1844ebcf3a3a9a10b8f1a4c160d57c37bde0695df8c",
+      "afterHash": "593e69e69417f6d55d4c4c9e18bc049d5a5e3f835870593dc1699b49d0465791",
+      "reason": "Published PR28 theme boot and dark hero surface.",
+      "edits": [
+        {
+          "beforeOffset": 14,
+          "afterOffset": 14,
+          "before": "aW1wb3J0IHsgY3JlYXRlQ29udGV4dCwgdXNlQ29udGV4dCwgdXNlRWZmZWN0LCB1c2VTdGF0ZSwgdXNlQ2FsbGJhY2sgfSBmcm9tICdyZWFjdCcK",
+          "after": "aW1wb3J0IHsgY3JlYXRlQ29udGV4dCwgdXNlQ29udGV4dCwgdXNlRWZmZWN0LCB1c2VTdGF0ZSwgdXNlQ2FsbGJhY2ssIHVzZVJlZiB9IGZyb20gJ3JlYWN0JwppbXBvcnQgeyBUSEVNRV9TVE9SQUdFX0tFWSwgaXNUaGVtZSwgdHlwZSBUaGVtZSB9IGZyb20gJ0AvY29tcG9uZW50cy90aGVtZUJvb3QnCg=="
+        },
+        {
+          "beforeOffset": 99,
+          "afterOffset": 187,
+          "before": "dHlwZSBUaGVtZSA9ICdsaWdodCcgfCAnZGFyaycK",
+          "after": "ZXhwb3J0IHR5cGUgeyBUaGVtZSB9Cg=="
+        },
+        {
+          "beforeOffset": 175,
+          "afterOffset": 255,
+          "before": "",
+          "after": "ICAvKiogVHJ1ZSBvbmNlIHRoZSBzdG9yZWQvT1MgcHJlZmVyZW5jZSBoYXMgYmVlbiByZWFkIG9uIHRoZSBjbGllbnQuICovCiAgcmVhZHk6IGJvb2xlYW4K"
+        },
+        {
+          "beforeOffset": 309,
+          "afterOffset": 479,
+          "before": "",
+          "after": "ICByZWFkeTogZmFsc2UsCg=="
+        },
+        {
+          "beforeOffset": 426,
+          "afterOffset": 612,
+          "before": "",
+          "after": "Y29uc3Qgc3lzdGVtVGhlbWUgPSAoKTogVGhlbWUgPT4KICB0eXBlb2Ygd2luZG93ICE9PSAndW5kZWZpbmVkJyAmJgogIHdpbmRvdy5tYXRjaE1lZGlhPy4oJyhwcmVmZXJzLWNvbG9yLXNjaGVtZTogZGFyayknKS5tYXRjaGVzCiAgICA/ICdkYXJrJwogICAgOiAnbGlnaHQnCgpmdW5jdGlvbiByZWFkU3RvcmVkKCk6IFRoZW1lIHwgbnVsbCB7CiAgdHJ5IHsKICAgIGNvbnN0IHJhdyA9IHdpbmRvdy5sb2NhbFN0b3JhZ2UuZ2V0SXRlbShUSEVNRV9TVE9SQUdFX0tFWSkKICAgIHJldHVybiBpc1RoZW1lKHJhdykgPyByYXcgOiBudWxsCiAgfSBjYXRjaCB7CiAgICAvLyBTdG9yYWdlIGNhbiBiZSBkZW5pZWQgKHByaXZhdGUgbW9kZSwgYmxvY2tlZCBjb29raWVzKS4gRmFsbCBiYWNrIHRvIHRoZQogICAgLy8gT1MgcHJlZmVyZW5jZSByYXRoZXIgdGhhbiBmYWlsaW5nIHRoZSB3aG9sZSB0aGVtZSBzeXN0ZW0uCiAgICByZXR1cm4gbnVsbAogIH0KfQoKZnVuY3Rpb24gYXBwbHlUaGVtZSh0aGVtZTogVGhlbWUpIHsKICBjb25zdCByb290ID0gZG9jdW1lbnQuZG9jdW1lbnRFbGVtZW50CiAgcm9vdC5jbGFzc0xpc3QudG9nZ2xlKCdkYXJrJywgdGhlbWUgPT09ICdkYXJrJykKICByb290LnNldEF0dHJpYnV0ZSgnZGF0YS10aGVtZScsIHRoZW1lKQogIHJvb3Quc3R5bGUuY29sb3JTY2hlbWUgPSB0aGVtZQp9Cgo="
+        },
+        {
+          "beforeOffset": 503,
+          "afterOffset": 1375,
+          "before": "",
+          "after": "ICAvLyBTdGFydHMgYXMgJ2xpZ2h0JyBzbyB0aGUgc2VydmVyIGFuZCB0aGUgZmlyc3QgY2xpZW50IHJlbmRlciBhZ3JlZTsKICAvLyB0aGUgYm9vdCBzY3JpcHQgaGFzIGFscmVhZHkgcGFpbnRlZCB0aGUgY29ycmVjdCB0aGVtZSBieSB0aGlzIHBvaW50Lgo="
+        },
+        {
+          "beforeOffset": 561,
+          "afterOffset": 1579,
+          "before": "",
+          "after": "ICBjb25zdCBbcmVhZHksIHNldFJlYWR5XSA9IHVzZVN0YXRlKGZhbHNlKQogIC8vIFRyYWNrcyB3aGV0aGVyIHRoZSB2aXNpdG9yIG1hZGUgYW4gZXhwbGljaXQgY2hvaWNlLCBzbyBhbiBPUyBjaGFuZ2UgZG9lcwogIC8vIG5vdCBzaWxlbnRseSBvdmVycmlkZSBpdC4KICBjb25zdCBleHBsaWNpdCA9IHVzZVJlZihmYWxzZSkK"
+        },
+        {
+          "beforeOffset": 562,
+          "afterOffset": 1766,
+          "before": "ICAvLyBPbiBtb3VudDogcmVhZCBzdG9yZWQgdGhlbWUsIGFwcGx5IHRvIDxodG1sPgo=",
+          "after": ""
+        },
+        {
+          "beforeOffset": 632,
+          "afterOffset": 1786,
+          "before": "ICAgIGNvbnN0IHN0b3JlZCA9IGxvY2FsU3RvcmFnZS5nZXRJdGVtKCdsbGwtdGhlbWUnKSBhcyBUaGVtZSB8IG51bGwKICAgIGNvbnN0IGluaXRpYWwgPSBzdG9yZWQgPz8gJ2xpZ2h0Jwo=",
+          "after": "ICAgIGNvbnN0IHN0b3JlZCA9IHJlYWRTdG9yZWQoKQogICAgZXhwbGljaXQuY3VycmVudCA9IHN0b3JlZCAhPT0gbnVsbAogICAgY29uc3QgaW5pdGlhbCA9IHN0b3JlZCA/PyBzeXN0ZW1UaGVtZSgpCg=="
+        },
+        {
+          "beforeOffset": 790,
+          "afterOffset": 1952,
+          "before": "",
+          "after": "ICAgIHNldFJlYWR5KHRydWUpCg=="
+        },
+        {
+          "beforeOffset": 800,
+          "afterOffset": 1981,
+          "before": "ICBjb25zdCBhcHBseVRoZW1lID0gKHQ6IFRoZW1lKSA9PiB7CiAgICBjb25zdCByb290ID0gZG9jdW1lbnQuZG9jdW1lbnRFbGVtZW50CiAgICBpZiAodCA9PT0gJ2RhcmsnKSB7CiAgICAgIHJvb3QuY2xhc3NMaXN0LmFkZCgnZGFyaycpCiAgICB9IGVsc2UgewogICAgICByb290LmNsYXNzTGlzdC5yZW1vdmUoJ2RhcmsnKQo=",
+          "after": "ICAvLyBGb2xsb3cgdGhlIE9TIHdoaWxlIHRoZSB2aXNpdG9yIGhhcyBub3QgbWFkZSBhbiBleHBsaWNpdCBjaG9pY2UuCiAgdXNlRWZmZWN0KCgpID0+IHsKICAgIGNvbnN0IG1lZGlhID0gd2luZG93Lm1hdGNoTWVkaWEoJyhwcmVmZXJzLWNvbG9yLXNjaGVtZTogZGFyayknKQogICAgY29uc3Qgb25DaGFuZ2UgPSAoZXZlbnQ6IE1lZGlhUXVlcnlMaXN0RXZlbnQpID0+IHsKICAgICAgaWYgKGV4cGxpY2l0LmN1cnJlbnQpIHJldHVybgogICAgICBjb25zdCBuZXh0ID0gZXZlbnQubWF0Y2hlcyA/ICdkYXJrJyA6ICdsaWdodCcKICAgICAgc2V0VGhlbWVTdGF0ZShuZXh0KQogICAgICBhcHBseVRoZW1lKG5leHQpCg=="
+        },
+        {
+          "beforeOffset": 991,
+          "afterOffset": 2336,
+          "before": "ICB9Cg==",
+          "after": "ICAgIG1lZGlhLmFkZEV2ZW50TGlzdGVuZXIoJ2NoYW5nZScsIG9uQ2hhbmdlKQogICAgcmV0dXJuICgpID0+IG1lZGlhLnJlbW92ZUV2ZW50TGlzdGVuZXIoJ2NoYW5nZScsIG9uQ2hhbmdlKQogIH0sIFtdKQo="
+        },
+        {
+          "beforeOffset": 996,
+          "afterOffset": 2456,
+          "before": "ICBjb25zdCBzZXRUaGVtZSA9IHVzZUNhbGxiYWNrKCh0OiBUaGVtZSkgPT4gewogICAgc2V0VGhlbWVTdGF0ZSh0KQogICAgbG9jYWxTdG9yYWdlLnNldEl0ZW0oJ2xsbC10aGVtZScsIHQpCiAgICBhcHBseVRoZW1lKHQpCg==",
+          "after": "ICAvLyBLZWVwIG90aGVyIG9wZW4gdGFicyBpbiBzdGVwLgogIHVzZUVmZmVjdCgoKSA9PiB7CiAgICBjb25zdCBvblN0b3JhZ2UgPSAoZXZlbnQ6IFN0b3JhZ2VFdmVudCkgPT4gewogICAgICBpZiAoZXZlbnQua2V5ICE9PSBUSEVNRV9TVE9SQUdFX0tFWSkgcmV0dXJuCiAgICAgIGNvbnN0IG5leHQgPSBpc1RoZW1lKGV2ZW50Lm5ld1ZhbHVlKSA/IGV2ZW50Lm5ld1ZhbHVlIDogc3lzdGVtVGhlbWUoKQogICAgICBleHBsaWNpdC5jdXJyZW50ID0gaXNUaGVtZShldmVudC5uZXdWYWx1ZSkKICAgICAgc2V0VGhlbWVTdGF0ZShuZXh0KQogICAgICBhcHBseVRoZW1lKG5leHQpCiAgICB9CiAgICB3aW5kb3cuYWRkRXZlbnRMaXN0ZW5lcignc3RvcmFnZScsIG9uU3RvcmFnZSkKICAgIHJldHVybiAoKSA9PiB3aW5kb3cucmVtb3ZlRXZlbnRMaXN0ZW5lcignc3RvcmFnZScsIG9uU3RvcmFnZSkKICB9LCBbXSkKCiAgY29uc3Qgc2V0VGhlbWUgPSB1c2VDYWxsYmFjaygobmV4dDogVGhlbWUpID0+IHsKICAgIGV4cGxpY2l0LmN1cnJlbnQgPSB0cnVlCiAgICBzZXRUaGVtZVN0YXRlKG5leHQpCiAgICBhcHBseVRoZW1lKG5leHQpCiAgICB0cnkgewogICAgICB3aW5kb3cubG9jYWxTdG9yYWdlLnNldEl0ZW0oVEhFTUVfU1RPUkFHRV9LRVksIG5leHQpCiAgICB9IGNhdGNoIHsKICAgICAgLy8gQSBkZW5pZWQgd3JpdGUgb25seSBjb3N0cyBwZXJzaXN0ZW5jZSwgbm90IHRoZSBjdXJyZW50IGFwcGVhcmFuY2UuCiAgICB9Cg=="
+        },
+        {
+          "beforeOffset": 1262,
+          "afterOffset": 3343,
+          "before": "ICAgIDxUaGVtZUNvbnRleHQuUHJvdmlkZXIgdmFsdWU9e3sgdGhlbWUsIHRvZ2dsZVRoZW1lLCBzZXRUaGVtZSB9fT4K",
+          "after": "ICAgIDxUaGVtZUNvbnRleHQuUHJvdmlkZXIgdmFsdWU9e3sgdGhlbWUsIHJlYWR5LCB0b2dnbGVUaGVtZSwgc2V0VGhlbWUgfX0+Cg=="
+        }
+      ]
+    }
+  },
+  "addedFiles": {
+    "src/components/themeBoot.ts": {
+      "beforeHash": null,
+      "afterHash": "ca9a348434270d643fc4e5c850506ebb44ef6708222d781dafc14a256bc15133",
+      "reason": "Published PR28 inline theme boot script."
+    }
+  }
+}

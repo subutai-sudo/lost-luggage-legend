@@ -74,7 +74,7 @@ export function GoldilocksHome({ guides, initialMonth, year, seasonalCatalog }: 
                 fill sizes="(max-width: 700px) 76vw, (max-width: 950px) 320px, 30vw" fetchPriority="high" loading="eager" />
             </div>
             <div className={styles.windowSill} data-window-sill aria-hidden="true" />
-            <span className={styles.windowDimmer} aria-hidden="true"><i /><i /><i /><i /><i /></span>
+            <span className={styles.windowDimmer} aria-hidden="true" />
             <p className={styles.windowNote}>{MONTH_NAMES[month - 1]} / A different view</p>
           </div>
           <div className={styles['frame-caption']} data-travel-ticket>
@@ -83,7 +83,7 @@ export function GoldilocksHome({ guides, initialMonth, year, seasonalCatalog }: 
             </div>
             <div className={styles.ticketContent}>
             <span className={styles.label}>Destination / Travel inspiration</span>
-            <Link href={`/guides/${featured.slug}?month=${month}`} data-feature-link>
+            <Link prefetch={false} href={`/guides/${featured.slug}?month=${month}`} data-feature-link>
               <strong data-feature-title>{featured.title}</strong>
               <span>{featured.subtitle}</span>
               <span aria-hidden="true">Explore the guide ↗</span>

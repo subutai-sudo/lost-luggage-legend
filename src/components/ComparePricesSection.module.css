@@ -1,11 +1,17 @@
 .section {
-  --planning-accent-text: #0e7490;
-  --planning-focus: #0e7490;
+  --planning-accent-text: var(--color-ink);
+  --planning-focus: var(--color-ink);
+  --planning-action-bg: var(--color-navy);
+  --planning-action-ink: #f5f1e7;
 }
 
 :global(html.dark) .section {
-  --planning-accent-text: #67e8f9;
-  --planning-focus: #67e8f9;
+  --planning-action-bg: #e0f29b;
+  --planning-action-ink: #142c3b;
+}
+
+.divider {
+  background-color: var(--planning-accent-text);
 }
 
 .eyebrow {

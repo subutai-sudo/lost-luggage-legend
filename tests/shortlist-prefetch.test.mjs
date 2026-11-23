@@ -5,7 +5,7 @@ import {
   approval, followupApproval, followupBase, followupBytes, followupChangedPaths,
   followupFixturePath, followupPaths, followupTestPath, validateFollowup,
   verifyFollowupInventory, verifyPublishedInventory, assertScopeInventory,
-  normalizeApproved, publishedBytes, sha256,
+  normalizeApproved, publishedBytes, sha256, featuredBytes, featuredPaths, themeBootPaths,
 } from './helpers/trip-planning-approval.mjs'
 
 const root = new URL('../', import.meta.url)
@@ -17,7 +17,7 @@ test('all three native shortlist guide Links disable prefetch, with identical hr
   const before = followupBytes(home, current)
   assert.equal(followupBase, '96a74ea328c898daf798c776a13c4f94b765810d')
   const insertion = ' prefetch={false}'
-  const source = current.toString()
+  const source = featuredBytes(home, current).toString()
   assert.equal(source.split(insertion).length - 1, 3)
   assert.equal(source.replaceAll(insertion, ''), before.toString(), 'exactly three additions; no design, media, data, URLs, CTA or timing delta')
   const links = [...source.matchAll(/<Link\b[^>]*>/g)].map(match => match[0])
@@ -45,8 +45,10 @@ test('complete 307-file published baseline and all latest noncyclic pins are enf
   assert.ok(!Object.hasOwn(files, followupFixturePath))
   assert.ok(!Object.hasOwn(followupApproval.changes, followupFixturePath))
   assert.ok(!Object.hasOwn(followupApproval.addedFiles, followupFixturePath))
-  const paths = [...Object.keys(files), ...followupPaths]
-  assert.equal(paths.length, 309)
+  const priorPaths = [...Object.keys(files), followupFixturePath, followupTestPath]
+  assert.equal(priorPaths.length, 309)
+  const paths = [...priorPaths, ...featuredPaths, ...themeBootPaths]
+  assert.equal(paths.length, 314)
   assertScopeInventory(paths)
   for (const path of paths) {
     assert.throws(() => assertScopeInventory(paths.filter(p => p !== path)), `${path}: missing shipping path`)
@@ -74,7 +76,7 @@ test('each changed file reverses exactly to 96a74ea and rejects old/new intercha
     normalizeApproved(path, bytes)
     assert.throws(() => normalizeApproved(path, followupBytes(path, bytes)), `${path}: direct prior-overlay caller also fails closed`)
   }
-  const added = await read(followupTestPath)
+  const added = featuredBytes(followupTestPath, await read(followupTestPath))
   assert.equal(sha256(added), followupApproval.addedFiles[followupTestPath].afterHash)
   for (const bad of [added.subarray(0, -1), Buffer.concat([added, Buffer.from('unapproved')])]) assert.throws(() => followupBytes(followupTestPath, bad))
 })

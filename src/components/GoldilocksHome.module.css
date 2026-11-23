@@ -7,6 +7,17 @@
   --sky: #dce9ed;
   --night: #102735;
   --rule: #a6b2b6;
+  --cabin-paper: #eee8dc;
+  --cabin-edge: #ded6c7;
+  --cabin-halo: #fffdf7;
+  --cabin-rule: #d6cdbd;
+  --cabin-watermark: #ded5c4;
+  --cabin-ink: #142c3b;
+  --cabin-muted: #405563;
+  --cabin-accent: #9c421f;
+  --cabin-cta: #142c3b;
+  --cabin-cta-ink: #f5f1e7;
+  --cabin-hover: #274c60;
   --serif: Georgia, 'Times New Roman', serif;
   --sans: 'Avenir Next', Avenir, 'Trebuchet MS', sans-serif;
   --color-ink: var(--ink);
@@ -21,13 +32,13 @@
   font-family: var(--sans);
   -webkit-font-smoothing: antialiased;
 }
-:global(.dark) .root { --ink: #f5f1e7; --paper: #142c3b; --card: #1b3545; --muted: #c0d1d9; --sky: #223f50; --rule: #718995; }
+:global(.dark) .root { --ink: #f5f1e7; --paper: #142c3b; --card: #1b3545; --muted: #c0d1d9; --sky: #223f50; --rule: #718995; --cabin-paper: #142c3b; --cabin-edge: #102735; --cabin-halo: #1b3545; --cabin-rule: #426174; --cabin-watermark: #254758; --cabin-ink: #f5f1e7; --cabin-muted: #c0d1d9; --cabin-accent: #f18c64; --cabin-cta: #e0f29b; --cabin-cta-ink: #142c3b; --cabin-hover: #ecf8bf; }
 .root * { box-sizing: border-box; }
 .root a { color: inherit; text-decoration: none; }
 .root button { font: inherit; cursor: pointer; }
 .root :is(button, a, summary) { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
 .root :is(button, a, input, summary):focus-visible { outline: 3px solid var(--ink); outline-offset: 5px; }
-.root .hero :is(button, a):focus-visible { outline-color: #142c3b; box-shadow: 0 0 0 9px #eee8dc; }
+.root .hero :is(button, a):focus-visible { outline-color: var(--cabin-ink); box-shadow: 0 0 0 9px var(--cabin-paper); }
 .root .hero .navigation :is(button, a):focus-visible { outline-color: var(--acid); box-shadow: 0 0 0 7px var(--night); }
 .root .frame-caption a:focus-visible { outline-color: #142c3b; box-shadow: none; }
 .root .calendarBand :is(button, a):focus-visible, .root .footer a:focus-visible { outline-color: var(--acid); }
@@ -38,12 +49,14 @@
 
 /* The full-width header is deliberately outside every story gutter. */
 .navigation {
-  --color-nav-bg: rgba(16, 39, 53, .75);
+  --color-nav-bg: #102735;
   --color-nav-border: #c0d1d94d;
   --color-ink: #f5f1e7;
   --color-ink-light: #e4edf1;
   --color-muted: #c0d1d9;
   --color-gold: #e0f29b;
+  --color-accent: var(--acid);
+  --color-accent-light: var(--acid);
   --color-bg-subtle: #223f50;
   --color-card-bg: #1b3545;
   --color-border: #718995;
@@ -53,32 +66,33 @@
 }
 .navigation :global(.glass-nav) { backdrop-filter: blur(8px); }
 .navigation :global(.theme-toggle) { color: #f5f1e7; }
-.hero { position: relative; isolation: isolate; display: grid; align-content: start; grid-template-columns: minmax(0, 1.12fr) minmax(340px, 1fr); grid-template-rows: auto auto auto; min-height: 880px; background: #eee8dc; color: #142c3b; overflow: hidden; }
+.hero { position: relative; isolation: isolate; display: grid; align-content: start; grid-template-columns: minmax(0, 1.12fr) minmax(340px, 1fr); grid-template-rows: auto auto auto; min-height: 880px; background: var(--cabin-paper); color: var(--cabin-ink); overflow: hidden; }
 .hero-image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 48%; filter: saturate(.96); }
-.hero::before { content: ''; position: absolute; inset: 65px 0 0; z-index: -2; pointer-events: none; background: radial-gradient(ellipse at 85% 20%,#fffdf7 0,transparent 53%),linear-gradient(110deg,#eee8dc 42%,#ded6c7 100%); }
-.hero::after { content: ''; position: absolute; top: 65px; right: 3%; bottom: 0; width: 43%; z-index: -1; border-inline: 1px solid #d6cdbd; border-radius: 48% 48% 0 0 / 22% 22% 0 0; pointer-events: none; }
+.hero::before { content: ''; position: absolute; inset: 65px 0 0; z-index: -2; pointer-events: none; background: radial-gradient(ellipse at 85% 20%,var(--cabin-halo) 0,transparent 53%),linear-gradient(110deg,var(--cabin-paper) 42%,var(--cabin-edge) 100%); }
+.hero::after { content: ''; position: absolute; top: 65px; right: 3%; bottom: 0; width: 43%; z-index: -1; border-inline: 1px solid var(--cabin-rule); border-radius: 48% 48% 0 0 / 22% 22% 0 0; pointer-events: none; }
 .intro { position: relative; z-index: 1; grid-column: 1; grid-row: 2; align-self: start; min-width: 0; padding: 72px 0 0; margin-left: 9%; }
-.monthWatermark { position: absolute; left: -22px; top: 73px; z-index: -1; color: #ded5c4; font: 400 clamp(240px,32vw,460px)/1 var(--serif); letter-spacing: -.1em; pointer-events: none; }
-.windowScene { position: absolute; top: 145px; right: 10%; width: min(30vw,380px); height: 650px; padding: 25px 25px 100px; border: 1px solid #c9c9c2; border-radius: 46% 46% 43% 43% / 24% 24% 21% 21%; background: linear-gradient(100deg,#f8f8f4,#f0f0eb 45%,#fafaf7); box-shadow: inset 2px 2px 4px #fff, inset -2px -2px 5px #d5d5cd, 8px 12px 28px #716e631c; }
-.windowScene::before { content: ''; position: absolute; inset: 12px 11px 15px; border: 1px solid #deded7; border-radius: 45% 45% 42% 42% / 23% 23% 20% 20%; box-shadow: inset 4px 3px 8px #b5b7ae26; pointer-events: none; }
+.monthWatermark { position: absolute; left: -22px; top: 73px; z-index: -1; color: var(--cabin-watermark); font: 400 clamp(240px,32vw,460px)/1 var(--serif); letter-spacing: -.1em; pointer-events: none; }
+.windowScene { --window-foot: 75px; position: absolute; top: 145px; right: 10%; width: min(30vw,380px); height: 650px; padding: 25px 25px 100px; border: 1px solid transparent; border-radius: 46% 46% 43% 43% / 24% 24% 21% 21%; }
+.windowScene::before { content: ''; position: absolute; inset: -1px -1px calc(var(--window-foot) - 1px); border: 1px solid #c9c9c2; border-radius: inherit; background: linear-gradient(100deg,#f8f8f4,#f0f0eb 45%,#fafaf7); box-shadow: inset 2px 2px 4px #fff, inset -2px -2px 5px #d5d5cd, 8px 12px 28px #716e631c; pointer-events: none; }
 .windowWell { position: relative; z-index: 1; width: 100%; height: 100%; overflow: hidden; border: 1px solid #aab0ad; border-radius: 45% 45% 43% 43% / 23% 23% 21% 21%; background: #cde6e8; box-shadow: 0 0 0 8px #f8f8f4, -3px -1px 8px #a8aaa344; }
 .windowWell::after { content: ''; position: absolute; inset: 0; border-radius: inherit; box-shadow: inset 4px 6px 13px #142c3b33; pointer-events: none; }
-/* Original 787-inspired moulding: broad recessed lower bowl, no shade handle. */
-.windowSill { position: absolute; left: 23px; right: 23px; bottom: 50px; height: 74px; border: 1px solid #dddfd8; border-top: 0; border-radius: 9% 9% 46% 46% / 18% 18% 85% 85%; background: linear-gradient(180deg,#cdd1cc 0,#fdfdfa 46%,#e5e7e0 100%); box-shadow: inset 0 -3px 5px #c9cec280, 0 3px 4px #fff9; }
-.windowDimmer { position: absolute; left: calc(50% - 16px); bottom: 12px; width: 32px; height: 34px; border: 1px solid #a7afaf; border-radius: 50%; background: linear-gradient(#edf1f1,#c6cfd2); box-shadow: 0 0 0 3px #fdfdfa,inset 0 1px 3px #fff; pointer-events: none; }
-.windowDimmer::before, .windowDimmer::after { position: absolute; left: 0; width: 100%; color: #53676b; text-align: center; font: 13px/15px var(--sans); }
-.windowDimmer::before { content: ''; top: 0; height: 50%; border-radius: 20px 20px 0 0; border-bottom: 1px solid #aab7ba; background: #e6e9e9; }
-.windowDimmer::after { content: ''; bottom: 0; height: 50%; border-radius: 0 0 20px 20px; background: #9ca9ae; }
-.windowDimmer i { position: relative; z-index: 1; left: 2px; top: 5px; display: block; width: 3px; height: 3px; margin-bottom: 2px; border-radius: 50%; background: #526b78; }
-.windowNote { position: absolute; top: -55px; right: 0; margin: 0; color: #405563; font: 400 13px/1.6 'Courier New',monospace; text-transform: uppercase; letter-spacing: .08em; }
+/* Continuous moulded trim; a circular dimmer with its own indicator column. */
+.windowSill { position: absolute; inset: 12px 11px calc(var(--window-foot) + 12px); border: 1px solid #deded7; border-radius: 45% 45% 42% 42% / 23% 23% 20% 20%; box-shadow: inset 4px 3px 8px #b5b7ae26; }
+/* Reference dimmer: a plain circular bezel around a rocker that splits evenly
+   into a lighter upper and darker lower half. No dots or extra markings. */
+.windowDimmer { position: absolute; left: calc(50% - 23px); bottom: 12px; width: 46px; height: 46px; border: 1px solid #b6bdb8; border-radius: 50%; background: radial-gradient(circle at 38% 26%,#fbfbf7,#e9ece6 60%,#d8ded7); box-shadow: 0 0 0 3px #fdfdfa,inset 0 2px 5px #fff,inset 0 -2px 5px #c5cbc3; pointer-events: none; }
+.windowDimmer::before, .windowDimmer::after { content: ''; position: absolute; left: 7px; width: 30px; box-sizing: border-box; }
+.windowDimmer::before { top: 7px; height: 15px; border: 1px solid #c3c9c2; border-bottom-color: #aeb6b0; border-radius: 15px 15px 0 0; background: #edede7; }
+.windowDimmer::after { bottom: 7px; height: 15px; border: 1px solid #7f8c8f; border-top: 0; border-radius: 0 0 15px 15px; background: #8e999b; }
+.windowNote { position: absolute; top: -55px; right: 0; margin: 0; color: var(--cabin-muted); font: 400 13px/1.6 'Courier New',monospace; text-transform: uppercase; letter-spacing: .08em; }
 .eyebrow { display: flex; align-items: center; gap: 12px; margin: 0 0 22px; font-size: 13px; line-height: 1.6; font-weight: 600; letter-spacing: .13em; text-transform: uppercase; }
-.intro .eyebrow { color: #405563; letter-spacing: .09em; }
+.intro .eyebrow { color: var(--cabin-muted); letter-spacing: .09em; }
 .introPlane { flex: 0 0 96px; width: 96px; height: 42px; }
-.root h1 { max-width: 100%; margin: 0; color: #142c3b; font: 400 clamp(60px, 6.7vw, 106px)/1.02 var(--serif); letter-spacing: -.06em; }
-.root h1 em { color: #9c421f; font-weight: 400; }
-.intro-copy { max-width: 400px; margin: 28px 0 0; color: #405563; font-size: 16px; line-height: 1.8; }
-.monthJump { display: inline-flex; align-items: center; justify-content: space-between; gap: 40px; min-height: 52px; margin-top: 28px; padding: 0 20px; color: #f5f1e7 !important; background: #142c3b; font-size: 14px; font-weight: 600; }
-.monthJump:hover { background: #274c60; }
+.root h1 { max-width: 100%; margin: 0; color: var(--cabin-ink); font: 400 clamp(60px, 6.7vw, 106px)/1.02 var(--serif); letter-spacing: -.06em; }
+.root h1 em { color: var(--cabin-accent); font-weight: 400; }
+.intro-copy { max-width: 400px; margin: 28px 0 0; color: var(--cabin-muted); font-size: 16px; line-height: 1.8; }
+.monthJump { display: inline-flex; align-items: center; justify-content: space-between; gap: 40px; min-height: 52px; margin-top: 28px; padding: 0 20px; color: var(--cabin-cta-ink) !important; background: var(--cabin-cta); font-size: 14px; font-weight: 600; }
+.monthJump:hover { background: var(--cabin-hover); }
 .monthJump span { font-size: 24px; }
 .flightPath { position: absolute; top: 108px; right: 1%; width: 47%; color: #806c4e; opacity: .22; pointer-events: none; }
 .flightPath svg { display: block; width: 100%; height: auto; }
@@ -171,8 +185,11 @@
 .newsletter h2 { margin: 12px 0; color: var(--ink); font: 400 34px/1.16 var(--serif); letter-spacing: -.03em; }
 .newsletter p:not(.eyebrow) { max-width: 440px; color: var(--muted); font-size: 14px; line-height: 1.7; }
 .newsletter form { width: 100%; align-self: center; }
-.newsletter input { min-width: 0; height: 48px; color: var(--ink); background: var(--card); }
-.newsletter :global(.btn-primary) { min-height: 48px; border: 1px solid var(--rule); border-radius: 0; color: var(--ink); background: transparent; box-shadow: none; }
+.newsletter input { min-width: 0; height: 48px; border: 1px solid var(--rule); border-radius: 0; font-family: var(--sans); color: var(--ink); background: var(--card); }
+.newsletter input::placeholder { color: var(--muted); opacity: 1; }
+.newsletter input:focus { border-color: var(--ink); outline: 3px solid var(--ink); outline-offset: 3px; box-shadow: none; }
+.newsletter :global(.btn-primary) { min-height: 48px; border: 1px solid var(--cabin-cta); border-radius: 0; color: var(--cabin-cta-ink); background: var(--cabin-cta); box-shadow: none; }
+.newsletter :global(.btn-primary):hover { background: var(--cabin-hover); }
 .footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px; padding: 32px 4.4%; background: var(--night); color: #e4edf1; font-size: 13px; line-height: 1.7; }
 .footer p { margin: 0; }
 .footer .endline { color: var(--acid); font: italic 23px/1.4 var(--serif); }
@@ -215,13 +232,13 @@
   .intro-copy { font-size: 14px; margin-top: 22px; }
   .monthJump { margin-top: 22px; min-height: 48px; }
   .flightPath { top: 210px; right: -100px; width: 270px; opacity: .3; }
-  .windowScene { width: 76%; max-width: 300px; height: clamp(430px,131vw,520px); margin-top: 44px; padding: 20px 18px 78px; }
+  .windowScene { --window-foot: 60px; width: 76%; max-width: 300px; height: clamp(430px,131vw,520px); margin-top: 44px; padding: 20px 20px 80px; }
   .windowWell { height: 100%; }
-  .windowSill { left: 17px; right: 17px; bottom: 42px; height: 57px; }
-  .windowDimmer { bottom: 9px; width: 26px; height: 28px; left: calc(50% - 13px); }
-  .windowDimmer::before, .windowDimmer::after { font-size: 11px; line-height: 12px; }
-  .windowDimmer i { left: 2px; top: 2px; }
-  .windowNote { top: -33px; font-size: 13px; letter-spacing: .02em; }
+  .windowDimmer { bottom: 9px; width: 40px; height: 40px; left: calc(50% - 20px); }
+  .windowDimmer::before, .windowDimmer::after { left: 6px; width: 26px; }
+  .windowDimmer::before { top: 6px; height: 13px; border-radius: 13px 13px 0 0; }
+  .windowDimmer::after { bottom: 6px; height: 13px; border-radius: 0 0 13px 13px; }
+            .windowNote { top: -33px; font-size: 13px; letter-spacing: .02em; }
   .monthWatermark { top: 83px; left: -8px; font-size: 235px; }
   .frame-caption { justify-self: center; min-width: 0; max-width: 340px; width: 84%; margin: 38px 6% 38px; grid-template-columns: minmax(0, 1fr) 86px; transform: rotate(-6deg); }
   .ticketHeading { padding: 8px 11px; }
@@ -344,17 +361,14 @@
 }
 
 :global(.dark) .windowDimmer::before {
-  border-bottom-color: #45606d;
-  background: #2a4553;
+  border-bottom-color: #7d9aa8;
+  background: #5c7c8c;
 }
 
 :global(.dark) .windowDimmer::after {
   background: #16293f;
 }
 
-:global(.dark) .windowDimmer i {
-  background: #93aebc;
-}
 
 :global(.dark) .windowNote {
   color: #c0d1d9;
