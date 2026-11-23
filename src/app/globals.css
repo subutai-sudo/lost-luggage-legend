@@ -417,6 +417,45 @@ h1, h2, h3, h4, h5, h6 {
   border-bottom: 1px solid var(--color-nav-border);
 }
 
+/* Theme switch: a bare sun/moon glyph. Which one is visible is decided by the
+   html.dark class, so the correct icon paints before hydration. */
+.theme-sunmoon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  color: var(--color-ink-light);
+  cursor: pointer;
+  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+}
+
+.theme-sunmoon:hover {
+  background: var(--color-bg-subtle);
+  border-color: var(--color-border);
+  color: var(--color-accent);
+}
+
+.theme-sunmoon-glyph {
+  position: relative;
+  display: block;
+  width: 20px;
+  height: 20px;
+}
+
+.theme-sunmoon-glyph svg {
+  position: absolute;
+  inset: 0;
+  transition: opacity 0.25s ease, transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Light mode: offer the moon. Dark mode: offer the sun. */
+.theme-sunmoon-sun { opacity: 0; transform: rotate(-55deg) scale(0.6); }
+.theme-sunmoon-moon { opacity: 1; transform: rotate(0deg) scale(1); }
+html.dark .theme-sunmoon-sun { opacity: 1; transform: rotate(0deg) scale(1); }
+html.dark .theme-sunmoon-moon { opacity: 0; transform: rotate(55deg) scale(0.6); }
+
 /* Theme toggle */
 .theme-toggle {
   background: var(--color-bg-subtle);
