@@ -277,3 +277,165 @@
   .root *, .root *::before, .root *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
   .months button:hover, .months button:hover img, .guide:hover img { transform: none; }
 }
+
+/* ---------------------------------------------------------------------------
+   Dark mode for the surfaces the shared tokens do not cover.
+
+   The hero is a photographed window scene painted with warm paper literals, so
+   the block below re-paints the same composition as a night cabin: deep navy
+   interior, dim moulding, and a dark paper pass. Only these hardcoded surfaces
+   are overridden — everything driven by --ink/--paper/--card already flips.
+   --------------------------------------------------------------------------- */
+:global(.dark) .hero {
+  background: #102735;
+  color: #f5f1e7;
+}
+
+:global(.dark) .hero::before {
+  background: radial-gradient(ellipse at 85% 20%, #2a4553 0, transparent 55%),
+    linear-gradient(110deg, #102735 42%, #0b1c27 100%);
+}
+
+:global(.dark) .hero::after {
+  border-inline-color: #2a4553;
+}
+
+:global(.dark) .monthWatermark {
+  color: #1c3542;
+}
+
+:global(.dark) .hero :is(button, a):focus-visible {
+  outline-color: var(--acid);
+  box-shadow: 0 0 0 9px #102735;
+}
+
+/* Aircraft window surround: a dim cabin interior instead of bright ivory. */
+:global(.dark) .windowScene {
+  border-color: #2a4553;
+  background: linear-gradient(100deg, #243d4b, #1e3542 45%, #28434f);
+  box-shadow: inset 2px 2px 4px #00000040, inset -2px -2px 5px #00000033,
+    8px 12px 28px #00000059;
+}
+
+:global(.dark) .windowScene::before {
+  border-color: #35505f;
+  box-shadow: inset 4px 3px 8px #00000033;
+}
+
+:global(.dark) .windowWell {
+  border-color: #48626f;
+  background: #16292f;
+  box-shadow: 0 0 0 8px #1b3545, -3px -1px 8px #00000059;
+}
+
+:global(.dark) .windowWell::after {
+  box-shadow: inset 4px 6px 13px #00000073;
+}
+
+:global(.dark) .windowSill {
+  border-color: #35505f;
+  background: linear-gradient(180deg, #1b313c 0, #2a4553 46%, #162834 100%);
+  box-shadow: inset 0 -3px 5px #00000059, 0 3px 4px #00000040;
+}
+
+:global(.dark) .windowDimmer {
+  border-color: #4a6270;
+  background: linear-gradient(#2f4b59, #162834);
+}
+
+:global(.dark) .windowDimmer::before {
+  border-bottom-color: #45606d;
+  background: #2a4553;
+}
+
+:global(.dark) .windowDimmer::after {
+  background: #16293f;
+}
+
+:global(.dark) .windowDimmer i {
+  background: #93aebc;
+}
+
+:global(.dark) .windowNote {
+  color: #c0d1d9;
+}
+
+/* The paper pass becomes a dark card with the same printed rules. */
+:global(.dark) .frame-caption {
+  background: #1b3545;
+  color: #f5f1e7;
+  border-color: #3b5563;
+  box-shadow: 5px 7px 0 #00000040, 0 15px 30px #00000059;
+}
+
+:global(.dark) .frame-caption .label {
+  color: #c0d1d9;
+}
+
+:global(.dark) .frame-caption a span:last-child {
+  border-top-color: #3b5563;
+}
+
+:global(.dark) .ticketHeading {
+  background: #1b3545;
+  border-bottom-color: #3b5563;
+}
+
+:global(.dark) .ticketStub {
+  background: #223f50;
+}
+
+:global(.dark) .ticketStamp {
+  border-color: #f18c64;
+  color: #f18c64;
+}
+
+:global(.dark) .ticketStripes {
+  background: repeating-linear-gradient(
+    90deg,
+    #c0d1d9 0 2px,
+    transparent 2px 5px,
+    #c0d1d9 5px 6px,
+    transparent 6px 10px,
+    #c0d1d9 10px 14px,
+    transparent 14px 17px
+  );
+}
+
+/* Month stubs: dark card stock under the photograph. */
+:global(.dark) .months button {
+  color: #f5f1e7;
+  background: #1b3545;
+}
+
+:global(.dark) .month-name {
+  color: #f5f1e7;
+}
+
+:global(.dark) .months button[aria-pressed='true']::after {
+  color: #142c3b;
+}
+
+:global(.dark) .image-link::after {
+  background: #1b3545;
+  color: #f5f1e7;
+}
+
+:global(.dark) .monthJump {
+  color: #142c3b !important;
+  background: var(--acid);
+}
+
+/* Hero typography keeps its warm ink contrast on the night cabin. */
+:global(.dark) .root h1 {
+  color: #f5f1e7;
+}
+
+:global(.dark) .root h1 em {
+  color: #f2a884;
+}
+
+:global(.dark) .intro .eyebrow,
+:global(.dark) .intro-copy {
+  color: #c0d1d9;
+}

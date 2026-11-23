@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import { ThemeProvider } from '@/components/ThemeProvider'
+import { themeBootScript } from '@/components/themeBoot'
 import { CurrencyProvider } from '@/components/CurrencyProvider'
 import UmamiAnalytics from '@/components/UmamiAnalytics'
 import { SITE_ORIGIN, siteUrl } from '@/lib/site'
@@ -55,6 +56,9 @@ export default function RootLayout({
   return (
     <html lang="en" data-scroll-behavior="smooth">
       <head>
+        {/* Resolve the theme before first paint so a dark-mode visitor never
+            sees a white flash. Keep in step with ThemeProvider. */}
+        <script dangerouslySetInnerHTML={{ __html: themeBootScript }} />
         <UmamiAnalytics />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />

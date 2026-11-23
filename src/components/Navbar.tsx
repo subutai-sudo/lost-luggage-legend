@@ -140,29 +140,31 @@ export function Navbar({ appearance = 'default', brandAppearance }: { appearance
               )}
             </div>}
 
+            {/* Icon-only theme switch: the glyph is chosen by the html.dark
+                class in CSS, so it is correct on first paint. */}
             <button
               type="button"
               onClick={toggleTheme}
               aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
-              className={`theme-toggle w-11 h-11 ${focusRing}`}
+              title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+              className={`theme-sunmoon w-11 h-11 ${focusRing}`}
             >
-              {isDark ? (
-                <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-gold)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <circle cx="12" cy="12" r="5" />
-                  <line x1="12" y1="1" x2="12" y2="3" />
-                  <line x1="12" y1="21" x2="12" y2="23" />
-                  <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
-                  <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
-                  <line x1="1" y1="12" x2="3" y2="12" />
-                  <line x1="21" y1="12" x2="23" y2="12" />
-                  <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
-                  <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+              <span className="theme-sunmoon-glyph" aria-hidden="true">
+                <svg className="theme-sunmoon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="12" r="4.4" />
+                  <line x1="12" y1="1.6" x2="12" y2="3.4" />
+                  <line x1="12" y1="20.6" x2="12" y2="22.4" />
+                  <line x1="4.6" y1="4.6" x2="5.9" y2="5.9" />
+                  <line x1="18.1" y1="18.1" x2="19.4" y2="19.4" />
+                  <line x1="1.6" y1="12" x2="3.4" y2="12" />
+                  <line x1="20.6" y1="12" x2="22.4" y2="12" />
+                  <line x1="4.6" y1="19.4" x2="5.9" y2="18.1" />
+                  <line x1="18.1" y1="5.9" x2="19.4" y2="4.6" />
                 </svg>
-              ) : (
-                <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-ink-light)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                <svg className="theme-sunmoon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M20.5 14.4A8.6 8.6 0 0 1 9.6 3.5a8.7 8.7 0 1 0 10.9 10.9z" />
                 </svg>
-              )}
+              </span>
             </button>
 
             {/* The wrapper hides the CTA: .btn-primary's display overrides utility classes. */}
