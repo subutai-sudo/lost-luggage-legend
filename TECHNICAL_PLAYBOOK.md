@@ -139,7 +139,7 @@ This component renders: *"We may earn a commission from qualifying purchases at 
 
 | Event | How Tracked | Where |
 |-------|------------|-------|
-| Affiliate click | `data-affiliate` attr + Plausible | Plausible dashboard |
+| Affiliate click | `data-affiliate` attr + Umami event | Umami dashboard |
 | Purchase conversion | Network dashboard (Amazon/etc) | External |
 | Revenue | Monthly reconciliation | Spreadsheet |
 

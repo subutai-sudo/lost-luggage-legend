@@ -37,10 +37,10 @@ export default function PrivacyPolicy() {
               share your address with third parties for marketing purposes.
             </p>
             <p className="text-[#3d3a36]" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
-              <strong>Analytics:</strong> We use Plausible and self-hosted Umami to understand pages viewed,
-              referring sites, approximate location, and browser and device information. These analytics
-              tools do not use analytics cookies. Umami is configured to honor Do Not Track and to exclude
-              URL query strings and fragments.
+              <strong>Analytics:</strong> We use self-hosted Umami to understand pages viewed,
+              referring sites, approximate location, and browser and device information. This
+              analytic does not use analytics cookies. Umami is configured to honor Do Not Track
+              and to exclude URL query strings and fragments.
             </p>
             <p className="text-[#3d3a36] mt-3" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
               <strong>Saved destinations:</strong> When browser storage is available, saved destination IDs and

@@ -25,7 +25,7 @@
 - **Content:** MDX (markdown + components)
 - **Hosting:** Vercel (zero-config, generous free tier, edge network)
 - **CI/CD:** GitHub Actions (deploy on push to `main`)
-- **Analytics:** Plausible Analytics (privacy-first, no cookies, free tier up to 10k pageviews/mo)
+- **Analytics:** self-hosted Umami (privacy-first, cookieless) — the single tracker, see §8
 - **AI Content:** OpenAI GPT-4o via `src/scripts/generate-article.mjs` CLI tool
 - **Domain:** `lostluggagelegends.com` (to be registered — DNS pointing to Vercel)
 
@@ -68,11 +68,13 @@
 - Links use `rel="sponsored nofollow"` for paid content
 - Amazon Associates compliant link structure
 
-## 8. Analytics (Plausible)
+## 8. Analytics (self-hosted Umami)
 
-- Script injected in `<head>` via BaseLayout
+- Script injected in `<head>` by `src/components/UmamiAnalytics.tsx`, rendered only when `VERCEL_ENV === 'production'`
+- Registration: website ID `0da19096-85a8-4489-b246-9151fa113f5b`; `data-domains` allowlists apex and `www`
+- Host: `https://umami.scheduledloss.com` (self-hosted, PostgreSQL)
+- A second provider (Plausible) was removed on 2026-11-23: both were firing on every page and double-counting visits
 - Custom events: `article_read`, `affiliate_click`, `newsletter_signup`
-- Dashboard: plausible.com/lostluggagelegends.com
 
 ## 9. GitHub Actions CI/CD
 

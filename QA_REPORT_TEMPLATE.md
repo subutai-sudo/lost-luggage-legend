@@ -66,7 +66,7 @@
 | Loading state | ✅ / ❌ |
 | Success state | ✅ / ❌ |
 | Error handling | ✅ / ❌ |
-| `plausible('newsletter_signup')` fires | ✅ / ❌ |
+| `newsletter_signup` event recorded in Umami | ✅ / ❌ |
 
 **Issues Found:** <!-- N/A or list issues -->
 
@@ -76,8 +76,8 @@
 
 | Check | Status |
 |-------|--------|
-| Plausible script present | ✅ / ❌ |
-| `data-domain` correct | ✅ / ❌ |
+| Umami script present (production only) | ✅ / ❌ |
+| `data-website-id` correct | ✅ / ❌ |
 | `article_read` event | ✅ / ❌ |
 | `affiliate_click` event | ✅ / ❌ |
 | `newsletter_signup` event | ✅ / ❌ |

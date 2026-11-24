@@ -91,13 +91,10 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
 
-        {/* Privacy-friendly analytics by Plausible */}
-        <script async src="https://plausible.io/js/pa-YYMCNJwDyUJ3OO_u82EmC.js" />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init()`,
-          }}
-        />
+        {/* Analytics: UmamiAnalytics in the head is the single production
+            tracker. A second provider (Plausible) used to load here as well;
+            both fired on every page, double-counting visits. Removed so the
+            numbers staff make content decisions from leave a single trace. */}
       </head>
       <body className="min-h-screen">
         <CurrencyProvider>
