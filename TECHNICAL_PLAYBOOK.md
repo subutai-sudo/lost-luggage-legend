@@ -147,45 +147,50 @@ This component renders: *"We may earn a commission from qualifying purchases at 
 
 ```javascript
 // In affiliate link click handler
-plausible('affiliate_click', { product: 'PRODUCT_NAME' });
+window.umami?.track('affiliate_click', { product: 'PRODUCT_NAME' })
 ```
 
 ---
 
 ## 3. Analytics Configuration
 
-### Plausible Analytics Setup
+### Umami (self-hosted)
 
-**Dashboard:** [plausible.com/lostluggagelegend.com](https://plausible.com/lostluggagelegend.com)
+**Dashboard:** [umami.scheduledloss.com](https://umami.scheduledloss.com) — self-hosted, PostgreSQL behind it.
 
-**Script injection** via `src/components/BaseLayout.astro`:
+**Script injection** via `src/components/UmamiAnalytics.tsx`, rendered from `src/app/layout.tsx`:
 
-```html
-<script defer data-domain="lostluggagelegends.com" src="https://plausible.io/js/script.tagged-events.js"></script>
+```tsx
+<script
+  defer
+  src="https://umami.scheduledloss.com/script.js"
+  data-website-id="0da19096-85a8-4489-b246-9151fa113f5b"
+  data-domains="lostluggagelegend.com,www.lostluggagelegend.com"
+  data-do-not-track="true"
+  data-exclude-search="true"
+  data-exclude-hash="true"
+/>
 ```
 
 ### Custom Events
 
-Register custom events in `src/components/BaseLayout.astro` before `</body>`:
+Fire events with the `data-umami-event` attribute, or from a client handler with `window.umami?.track(...)`. None are wired up in the current codebase — the three in the reference table below are worth adding:
 
 ```html
 <script>
-  window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }
-
   // Article read event (fires when article is 75% scrolled)
-  // See src/components/ScrollProgress.astro
 
   // Affiliate click event
   document.querySelectorAll('[data-affiliate]').forEach(link => {
     link.addEventListener('click', () => {
-      plausible('affiliate_click', { product: link.dataset.product })
+      window.umami?.track('affiliate_click', { product: link.dataset.product })
     })
   })
 
   // Newsletter signup event
   document.querySelectorAll('[data-newsletter]').forEach(form => {
     form.addEventListener('submit', () => {
-      plausible('newsletter_signup')
+      window.umami?.track('newsletter_signup')
     })
   })
 </script>
@@ -201,19 +206,23 @@ Register custom events in `src/components/BaseLayout.astro` before `</body>`:
 
 ### Adding New Properties
 
-1. **Traffic source** — automatically captured by Plausible
+1. **Traffic source** — the referrer is captured automatically by Umami
 2. **UTM parameters** — use for campaign tracking:
    - `?utm_source=linkedin&utm_medium=social&utm_campaign=launch`
-3. **Custom dimensions** — available on paid Plausible plan
+3. **Custom properties** — pass as the second argument: `window.umami?.track(name, data)`
 
 ### Dashboard Views
 
 | View | URL | Purpose |
 |------|-----|---------|
-| Main dashboard | plausible.com/lostluggagelegend.com | Top-level metrics |
-| Article performance | plausible.com/lostluggagelegend.com**/articles** | Per-article stats |
+| Main dashboard | umami.scheduledloss.com | Top-level metrics |
+| Article performance | Filter by path `/guides/` | Per-article stats |
 | UTM sources | Filter by `utm_source` | Campaign tracking |
-| Affiliate clicks | plausible.com/**events**/affiliate_click | Affiliate performance |
+| Affiliate clicks | Events → `affiliate_click` | Affiliate performance |
+
+### One tracker only
+
+Umami is the single source of truth. A second provider (Plausible) ran alongside it until 2026-11-23, so both counted every production visit and every decision built on those totals started from contradictory numbers. It was removed. `tests/umami.test.mjs` fails if the markup grows a second provider, and this file is inside the frozen-source manifest, so re-adding one is detectable.
 
 ### Month-End Reporting
 
@@ -226,7 +235,7 @@ Pull these metrics on the 1st of each month:
 5. **Newsletter signups** count
 6. **Bounce rate** and **avg session duration**
 
-Export: Dashboard → Settings → Export → CSV
+Export: Umami → Reports → export, or query PostgreSQL directly
 
 ---
 
@@ -238,7 +247,8 @@ Export: Dashboard → Settings → Export → CSV
 |----------|----------|---------|
 | `OPENAI_API_KEY` | Vercel → Project → Settings | AI content generation |
 | `VERCEL_TOKEN` | GitHub → Settings → Secrets | CI/CD deploy |
-| `PUBLIC_PLAUSIBLE_DOMAIN` | Vercel → Project → Settings | Analytics |
+
+Analytics needs no environment variable: `UmamiAnalytics` gates on `VERCEL_ENV`, which Vercel sets automatically for production builds. Previews and local development emit nothing.
 
 ### File Structure Reference
 
@@ -274,7 +284,7 @@ lost-luggage-legends/
 
 - [ ] GitHub access to `lost-luggage-legend` repo
 - [ ] Vercel access (request from admin)
-- [ ] Plausible Analytics access
+- [ ] Umami dashboard access (umami.scheduledloss.com)
 - [ ] Amazon Associates account created
 - [ ] Read `SPEC.md`
 - [ ] Read `CONTENT_PIPELINE.md`
@@ -300,9 +310,9 @@ lost-luggage-legends/
 
 | Issue | Fix |
 |-------|-----|
-| No data in Plausible | Check script tag in BaseLayout.astro |
-| Custom events not firing | Open DevTools → Console → check for errors |
-| Wrong domain | Verify `data-domain="lostluggagelegend.com"` |
+| No data in Umami | Confirm the build ran with `VERCEL_ENV=production` — pages are static, so the gate is baked at build time; a preview-built artifact never emits the tag |
+| Custom events not firing | Open DevTools → Console → check for errors, and confirm `window.umami` exists |
+| Wrong domain | Verify `data-domains` covers apex and `www`, and that both are registered in Umami |
 
 ### Affiliate Links Not Tracking
 
