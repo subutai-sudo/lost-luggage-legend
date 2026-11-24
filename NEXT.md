@@ -1,100 +1,108 @@
 # Destination Priority — Seasonal Editorial Calendar
 
-**Core rule:** We write guides for destinations that are **in the Goldilock Zone now** or **entering it in the next 1-2 months**. Writing ahead of the season means the guide is live and ranked when search traffic peaks.
+**Current window: November 2026 → February 2027.** Rewritten 2026-11-23. The previous
+edition of this file still described an April–May 2026 window that had been over for
+seven months, so the content queue and the live homepage disagreed about what season it
+was. The tables below are derived, not hand-maintained.
 
-Use `src/lib/seasonalHelpers.ts` to check status programmatically:
-```ts
-import { getSeasonalStatus, getNextGoldilockMonth } from '@/lib/seasonalHelpers'
-const status = getSeasonalStatus('santorini', 4) // 'in_season' | 'coming_soon' | 'out_of_season'
-const nextMonth = getNextGoldilockMonth('santorini', 4) // 5 (May)
-```
+## Where these tables come from
 
----
+| Fact | Source of truth |
+|---|---|
+| Which months a destination is in season | `BEST_MONTHS` in `src/lib/seasonalHelpers.ts` |
+| Which guides have real editorial | `getArticleContent()` in `src/app/guides/[slug]/page.tsx` |
 
-## Current Window: April–May 2026
+Every destination in `BEST_MONTHS` appears below. **Editorial** means the guide has its
+own article content. **Thin** means it falls back to `defaultContent` — about 555 visible
+words of template copy that 66 different guides share between them.
 
-### In Season Now (April) — 8 destinations
-These guides are live and should be surfaced on the homepage:
-| Destination | Best Months | Status |
-|---|---|---|
-| Maldives | Nov–Apr | ✅ Live |
-| Tokyo | Mar–May, Oct–Nov | ✅ Live |
-| Kyoto | Mar–May, Oct–Nov | ✅ Live |
-| Bali | Apr–Oct | ✅ Live |
-| Singapore | Feb–Apr | ✅ Live (last month!) |
-| Barcelona | Apr–Jun, Sep–Oct | ✅ Live |
-| Marrakech | Mar–May, Oct–Nov | ✅ Live |
-| Mexico City | Nov–Apr | ✅ Live |
+Regenerate this file instead of editing the tables by hand. Hand-editing the season window
+is exactly how it went stale for seven months.
 
-### Coming Into Season (May–June) — Priority Content Queue
-Write these guides NOW so they're live when the season starts:
-| Destination | Enters Season | Priority | Status |
-|---|---|---|---|
-| **Santorini** | **May** | 🔴 Write first | ⚠️ Needs editorial |
-| **Amalfi Coast** | **May** | 🔴 Write first | ⚠️ Needs editorial |
-| **Lisbon** | **May** | 🔴 Write first | ⚠️ Needs editorial |
-| Amsterdam | May | 🟡 Second wave | ⚠️ Needs editorial |
+## The headline problem
 
-### Off Season (currently out, not writing yet)
-| Destination | Season Starts | Notes |
-|---|---|---|
-| Queenstown | Dec | NZ summer |
-| Patagonia | Nov | Southern hemisphere |
-| Maasai Mara | Jul | Great migration |
-| Iceland | Jun | Midnight sun |
-| Helsinki | Jun | Midsummer |
-| Dubai | Nov | Winter escape |
-| Bangkok | Nov | Dry season |
-| Cape Town | Nov | Summer |
+- **100** guides are live, and all 100 are in `sitemap.xml`
+- **34** have editorial
+- **66** render template copy
 
----
+Two-thirds of the indexable surface is thin, near-duplicate content competing with the 34
+real guides for the same authority. Adding destination #101 makes this worse, not better.
 
-## Editorial Priority Rules
+## November 2026 — in season now (28)
+### Editorial (8) — surface these on the homepage and in the shortlist
+| Destination | id |
+|---|---|
+| Bangkok | `bangkok` |
+| Cape Town | `cape-town` |
+| Dubai | `dubai` |
+| Kyoto | `kyoto` |
+| Maldives | `maldives` |
+| Marrakech | `marrakech` |
+| Mexico City | `mexico-city` |
+| Tokyo | `tokyo` |
 
-**Priority 1 — In Season Now:** Surface prominently. Homepage sidebar, map highlights, social.
+### Thin (20) — the writing queue, highest seasonal value first
+| Destination | id |
+|---|---|
+| Austin | `austin` |
+| Bangalore | `bangalore` |
+| Cairo | `cairo` |
+| Delhi | `delhi` |
+| Guangzhou | `guangzhou` |
+| Hong Kong | `hong-kong` |
+| Las Vegas | `las-vegas` |
+| Macau | `macau` |
+| Mumbai | `mumbai` |
+| New Orleans | `new-orleans` |
+| Orlando | `orlando` |
+| Osaka | `osaka` |
+| Pattaya | `pattaya` |
+| Phoenix | `phoenix` |
+| Phuket | `phuket` |
+| Seville | `seville` |
+| Shanghai | `shanghai` |
+| Shenzhen | `shenzhen` |
+| Taipei | `taipei` |
+| Tampa | `tampa` |
 
-**Priority 2 — Coming Into Season (≤2 months):** Write and publish NOW. These guides get indexed and earn backlinks during the traffic spike.
+These 20 are in season *right now* with template copy. A visitor searching any of them in
+November lands on 555 words of generic text. This is the highest-value writing in the
+project — writing them out of season is strictly less valuable than writing them during it.
 
-**Priority 3 — 3-6 months out:** Research, draft, schedule publish 2-4 weeks before season opens.
+## December 2026 (26 in season)
+**Editorial (7):** Bangkok, Cape Town, Dubai, Maldives, Mexico City, Patagonia, Queenstown
 
-**Priority 4 — Off Season (>6 months):** Add to queue. Write during low season for next year's cycle.
+**Thin (19):** Bangalore, Bogota, Buenos Aires, Cairo, Cancun, Delhi, Guangzhou, Ho Chi Minh City, Hong Kong, Lima, Macau, Melbourne, Miami, Mumbai, Pattaya, Phuket, Shenzhen, Sydney, Tampa
 
----
+## January 2027 (26 in season)
+**Editorial (7):** Bangkok, Cape Town, Dubai, Maldives, Mexico City, Patagonia, Queenstown
 
-## The 4 Guides That Need Writing Now (May 2026 deadline)
+**Thin (19):** Bangalore, Bogota, Buenos Aires, Cairo, Cancun, Delhi, Guangzhou, Ho Chi Minh City, Hong Kong, Lima, Macau, Melbourne, Miami, Mumbai, Pattaya, Phuket, Shenzhen, Sydney, Tampa
 
-These are the only content tasks in scope right now. Everything else is queued.
+## February 2027 (29 in season)
+**Editorial (8):** Bangkok, Cape Town, Dubai, Maldives, Mexico City, Patagonia, Queenstown, Singapore
 
-1. **Santorini** — `id: 'santorini'` — enters season May
-   - Content is in `getArticleContent()` but uses generic template bullets
-   - Needs: Why Santorini Is Greece at Its Most Theatrical + Best Time + What It Costs
-   - **Deadline: Before May 1**
+**Thin (21):** Bangalore, Bogota, Buenos Aires, Cairo, Cancun, Delhi, Guangzhou, Ho Chi Minh City, Hong Kong, Kuala Lumpur, Lima, Macau, Melbourne, Miami, Mumbai, New Orleans, Pattaya, Phuket, Shenzhen, Sydney, Tampa
 
-2. **Amalfi Coast** — `id: 'amalfi-coast'` — enters season May
-   - No editorial content yet (falls back to defaultContent)
-   - Needs: full 3-section guide
-   - **Deadline: Before May 1**
+## Editorial rules — unchanged
 
-3. **Lisbon** — `id: 'lisbon'` — enters season May
-   - Editorial content exists in getArticleContent
-   - Needs: verify it's good quality, no template language
-   - **Deadline: Before May 15**
+**Priority 1 — In season now.** Surface prominently: homepage shortlist, map highlights, social.
 
-4. **Amsterdam** — `id: 'amsterdam'` — enters season May
-   - Editorial content exists in getArticleContent
-   - Needs: verify quality
-   - **Deadline: Before May 15**
+**Priority 2 — Entering season within two months.** Write and publish before the window opens so
+the guide is indexed when search demand peaks.
 
----
+**Priority 3 — Three to six months out.** Research and draft; publish two to four weeks before
+the season opens.
 
-## Done (20 guides live)
+**Priority 4 — Off season (more than six months).** Queue it, write it in low season for next year.
 
-```
-maldives ✅, santorini ⚠️(needs refresh), queenstown ✅, tokyo ✅,
-amalfi-coast ⚠️(needs writing), kyoto ✅, maasai-mara ✅,
-patagonia ✅, iceland ✅, bali ✅, singapore ✅, lisbon ✅,
-dubai ✅, bangkok ✅, barcelona ✅, amsterdam ✅, mexico-city ✅,
-marrakech ⚠️(needs refresh), helsinki ✅, cape-town ✅
-```
+## Working agreement
 
-⚠️ = needs editorial quality review
+1. Write in-season thin pages before adding any new destination.
+2. When a thin page will not be written this season, remove it from `sitemap.xml` rather than
+   leaving 555 words of template in the index. A smaller honest index beats a thin large one.
+3. Keep the homepage shortlist, the seasonal filters and this queue derived from the same
+   `BEST_MONTHS` data. When they disagree, the data is right and the copy is stale.
+4. Set the order of each thin queue from observed Umami traffic once a full month of
+   single-provider data exists. Until 2026-11-23 every visit was counted twice, so older
+   traffic comparisons are not trustworthy.

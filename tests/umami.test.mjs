@@ -40,10 +40,12 @@ for (const value of [undefined, 'preview', 'development', 'test', 'Production'])
   })
 }
 
-test('shared root mounts the tracker once without replacing existing Plausible analytics', async () => {
+test('shared root mounts the tracker once and ships no second provider', async () => {
   const layout = await readFile(new URL('../src/app/layout.tsx', import.meta.url), 'utf8')
   assert.equal((layout.match(/<UmamiAnalytics\s*\/>/g) || []).length, 1)
-  assert.match(layout, /https:\/\/plausible\.io\/js\/pa-YYMCNJwDyUJ3OO_u82EmC\.js/)
+  // A second provider double-counted every visit; the markup must stay single-source.
+  assert.doesNotMatch(layout, /plausible\.io/)
+  assert.doesNotMatch(layout, /window\.plausible/)
 })
 
 test('routine browser tests isolate the Umami origin too', async () => {
